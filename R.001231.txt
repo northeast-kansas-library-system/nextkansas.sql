@@ -1,0 +1,33 @@
+R.001231
+
+----------
+
+Name: Single Item Bib Records
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Fix Bib Records-admin
+
+Created on: 2011-11-03 14:19:31
+Modified on: 2015-08-16 17:20:14
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Enhanced. Limit by Branch and Collection Code
+
+----------
+
+select CONCAT ('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',i.biblionumber,'\" target="_blank">'"record"'</a>') AS "Link to Record", i.homebranch, b.title, i.itemcallnumber, i.ccode, t.publicationyear, CONCAT('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=',b.title,'&sort_by=title_az\" target="_blank">',b.title,'</a>') AS "Title Search" from items i, biblio b, biblioitems t where
+i.biblionumber=b.biblionumber AND i.biblionumber=t.biblionumber AND t.biblionumber=b.biblionumber group by i.biblionumber having
+count(i.biblionumber)=1 and i.homebranch=<<Branch|branches>> and i.ccode=<<ccode|CCODE>>ORDER by i.itemcallnumber
+
+
+

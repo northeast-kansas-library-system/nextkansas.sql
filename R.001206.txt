@@ -1,0 +1,38 @@
+R.001206
+
+----------
+
+Name: UNIQUE 
+Created by: -
+
+----------
+
+Group: Circulation
+     Charges
+
+Created on: 2011-10-18 16:00:09
+Modified on: 2013-09-21 16:04:18
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+#patrons
+
+----------
+
+SELECT borrowers.cardnumber, borrowers.surname, borrowers.firstname, borrowers.address, borrowers.city, borrowers.zipcode, borrowers.email, borrowers.phone, borrowers.dateofbirth, borrowers.debarred, FORMAT(SUM(accountlines.amountoutstanding),2) AS Due 
+FROM borrowers, accountlines 
+WHERE borrowers.categorycode LIKE 'LEAV%' 
+AND borrowers.borrowernumber = accountlines.borrowernumber 
+GROUP BY borrowers.borrowernumber 
+HAVING SUM(accountlines.amountoutstanding) >= 100.00
+ORDER BY borrowers.surname ASC
+
+
+
+

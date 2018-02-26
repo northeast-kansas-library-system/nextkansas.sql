@@ -1,0 +1,34 @@
+R.001848
+
+----------
+
+Name: In House/Local Use (per set month)
+Created by: Mickey Coalwell
+
+----------
+
+Group: Circulation
+     -
+
+Created on: 2013-05-17 12:09:28
+Modified on: 2013-05-17 16:29:17
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+NE from Library/MC
+
+----------
+
+SELECT borrowers.borrowernumber, CONCAT(borrowers.firstname, ' ', borrowers.surname) as name, count(statistics.datetime) 
+FROM statistics LEFT JOIN borrowers USING(borrowernumber)
+WHERE statistics.branch=<<choose branch|branches>> AND statistics.type='localuse' 
+AND MONTH(datetime)=<<type numeric month, 01 to 12>> AND YEAR(datetime)=<<type 4-digit year>> GROUP BY borrowers.borrowernumber
+
+
+

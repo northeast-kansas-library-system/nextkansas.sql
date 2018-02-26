@@ -1,0 +1,31 @@
+R.002974
+
+----------
+
+Name: non fiction
+Created by: OTTAWA TECH
+
+----------
+
+Group: -
+     -
+
+Created on: 2017-07-10 16:24:13
+Modified on: 2017-07-10 16:24:13
+Date last run: 2017-12-22 17:40:11
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT  items.itemnumber,items.itemcallnumber,items.holdingbranch,items.location FROM items LEFT JOIN biblioitems on (items.biblioitemnumber=biblioitems.biblioitemnumber) LEFT JOIN biblio on (biblioitems.biblionumber=biblio.biblionumber) 
+
+
+

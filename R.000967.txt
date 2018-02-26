@@ -1,0 +1,32 @@
+R.000967
+
+----------
+
+Name: Item Statistics History
+Created by: NEKLS Administrator
+
+----------
+
+Group: Administrative Reports
+     Items-admin
+
+Created on: 2010-10-27 11:53:08
+Modified on: 2013-06-18 18:28:22
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Use Koha item number (not barcode) in statement. No quotes around item number. Limit by type if  necessary adding WHERE TYPE='type' syntax to statement. #special
+
+----------
+
+select * from statistics where itemnumber = <<itemnumber>>
+
+
+
+

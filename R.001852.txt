@@ -1,0 +1,31 @@
+R.001852
+
+----------
+
+Name: Horton Computer Checkouts in January 2013
+Created by: Heather Braum
+
+----------
+
+Group: Catalog Records and Items
+     -
+
+Created on: 2013-05-17 13:57:59
+Modified on: 2013-05-17 13:59:34
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT statistics.datetime, borrowers.borrowernumber, CONCAT (borrowers.firstname, ' ', borrowers.surname) AS 'name', statistics.type, borrowers.cardnumber, biblio.title, biblio.biblionumber, items.itemnumber, items.barcode, items.itype FROM borrowers LEFT JOIN statistics USING(borrowernumber) LEFT JOIN items USING(itemnumber) LEFT JOIN biblio USING(biblionumber) WHERE MONTH(datetime)='01' AND YEAR(datetime)='2013' AND statistics.type IN ('issue','renew','localuse') AND statistics.branch='HORTON' AND items.itype='COMPUTER' ORDER BY statistics.datetime DESC LIMIT 5000
+
+
+

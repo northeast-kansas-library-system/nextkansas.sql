@@ -1,0 +1,41 @@
+R.001890
+
+----------
+
+Name: Count of Patrons Per Zipcode
+Created by: Heather Braum
+
+----------
+
+Group: Patrons
+     Patron Statistics
+
+Created on: 2013-05-28 09:47:50
+Modified on: 2013-06-17 00:53:33
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Choose branch
+
+----------
+
+SELECT p.zipcode, count(p.borrowernumber)
+FROM
+(select issuedate, returndate, borrowernumber 
+from issues
+UNION ALL
+select issuedate, returndate, borrowernumber 
+from old_issues
+) as circ 
+left join borrowers p USING (borrowernumber) 
+WHERE p.branchcode = <<Select your branch|branches>>
+GROUP BY p.zipcode
+
+
+

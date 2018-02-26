@@ -1,0 +1,31 @@
+R.001823
+
+----------
+
+Name: WAC OVERDUES REPORT 
+Created by: Mickey Coalwell
+
+----------
+
+Group: School Libraries
+     Overdues (schools)
+
+Created on: 2013-05-02 08:54:12
+Modified on: 2014-08-19 22:33:27
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+5/2/13
+
+----------
+
+select borrower_attributes.attribute as 'grade', borrowers.firstname, borrowers.surname,borrowers.sort1, items.replacementprice, biblio.title, items.itemcallnumber, items.barcode, issues.issuedate, issues.date_due, CONCAT('<a href=\"/cgi-bin/koha/circ/circulation.pl?borrowernumber=',borrowers.borrowernumber,'\" target="_blank">'"patron check out"'</a>') as "patron checkout screen" from borrowers LEFT JOIN borrower_attributes USING (borrowernumber) left join issues USING (borrowernumber) left join items USING (itemnumber) left JOIN biblio USING (biblionumber) where borrowers.branchcode ='phwac' AND (TO_DAYS(curdate())-TO_DAYS(issues.date_due)) >= '1' GROUP BY items.barcode ORDER BY grade, borrowers.surname, items.itemcallnumber LIMIT 1000
+
+
+

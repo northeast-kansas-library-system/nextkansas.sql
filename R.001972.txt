@@ -1,0 +1,31 @@
+R.001972
+
+----------
+
+Name: Total Circ for a Year for Entire NExpress
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Daily, Monthly, Yearly Stats-admin
+
+Created on: 2013-08-02 13:00:44
+Modified on: 2016-06-01 10:40:51
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Total CIrc for an Entire Year for NExpress (custom coded for 2014 so far on a monthly basis)
+
+----------
+
+SELECT count(*) FROM statistics WHERE year(statistics.datetime) = <<choose year|Year>> AND datetime < <<Choose date (usually first of month, to count total circ in system through end of previous month|date>> AND statistics.type IN ('issue','renew','localuse') 
+
+
+

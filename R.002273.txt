@@ -1,0 +1,33 @@
+R.002273
+
+----------
+
+Name: Who has overdues at a library without email that didn't trigger an overdue email
+Created by: Heather Braum
+
+----------
+
+Group: Circulation
+     Overdues
+
+Created on: 2014-06-05 12:27:57
+Modified on: 2014-06-05 17:53:46
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+This report shows patrons name and cardnumber who have overdues on trigger dates (normally 7 days/21 days/35 days overdue, but a few libraries vary from this), doesn't have an email in the system, and the library was instead sent an overdue notice. I removed the patron categories Student, ILL, Temporary, Staff, Opac-Self, Board, Horton Special, Homebound, and Statistic, as these don't trigger overdue notices). Report #2276 shows the list of libraries that should of received overdue notice email to the library's email account. 
+
+----------
+
+SELECT b.cardnumber, b.firstname, b.surname, b.email, i.branchcode FROM borrowers b LEFT JOIN issues i USING(borrowernumber)
+WHERE b.email = '' AND b.categorycode NOT IN ('STUDENT','ILL','AATEMP','STAFF','OPAC-SELF','BOARD','HORT-SPCL','HOMEBOUND','STATISTIC')  AND ((i.branchcode IN ('BALDWIN','BERN','BONNERSPGS','CARBONDALE','CENTRALIA','CORNING','DONIELWD','DONIHIGH','DONITROY','DONIWATH','EFFINGHAM','EUDORA','EVEREST','HIAWATHA','HOLTON','LANSING','LEAVENWRTH','LINWOOD','LYNDON','MCLOUTH','MERIDEN','NEKLS','NORTONVLLE','OSAGECITY','OSAWATOMIE','OSKALOOSA','OTTAWA','OVERBROOK','PERRY','POMONA','SABETHA','SENECA','SILVERLAKE','VALLEYFALL','WELLSVILLE','WILLIAMSBG','WINCHESTER') AND (TO_DAYS(curdate())-TO_DAYS(i.date_due)) IN ('7','21','35'))
+OR (i.branchcode IN ('RICHMOND','TONGANOXIE') AND (TO_DAYS(curdate())-TO_DAYS(i.date_due)) IN ('7','21','60')) OR (i.branchcode = 'WETMORE' AND (TO_DAYS(curdate())-TO_DAYS(i.date_due)) IN ('1','3','7')) OR (i.branchcode = 'BURLINGAME' AND (TO_DAYS(curdate())-TO_DAYS(i.date_due)) IN ('7','14','21')) OR (i.branchcode = 'HORTON' AND (TO_DAYS(curdate())-TO_DAYS(i.date_due)) IN ('7','21','30')) OR (i.branchcode = 'ATCHISON' AND (TO_DAYS(curdate())-TO_DAYS(i.date_due)) IN ('10','35','90')) OR (i.branchcode = 'BASEHOR' AND (TO_DAYS(curdate())-TO_DAYS(i.date_due)) IN ('14','35','90')) OR (i.branchcode = 'ROSSVILLE' AND (TO_DAYS(curdate())-TO_DAYS(i.date_due)) IN ('7','35','180'))) ORDER BY i.branchcode
+
+
+

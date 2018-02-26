@@ -1,0 +1,57 @@
+R.001430
+
+----------
+
+Name: Title Search
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Duplicate Records-admin
+
+Created on: 2012-05-23 17:07:10
+Modified on: 2017-12-18 16:22:21
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+For Catalog Cleanup
+
+----------
+
+SELECT DISTINCT
+  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">download record</a>') AS LINK,
+  biblio.title,
+  biblio.author,
+  Count(items.itemnumber),
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="020"]/subfield[@code>="a"]') AS ISBNA,
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="020"]/subfield[@code>="z"]') AS ISBNZ,
+  biblioitems.pages,
+  biblioitems.size,
+  biblioitems.publishercode,
+  biblioitems.publicationyear,
+  Concat('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=', biblio.title, '&sort_by=title_az\">', biblio.title, '</a>') AS TITLE_SEARCH
+FROM
+  biblio
+  JOIN biblioitems ON biblio.biblionumber = biblioitems.biblioitemnumber
+  JOIN items ON biblio.biblionumber = items.biblionumber
+  JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
+WHERE
+  biblio.title LIKE Concat("%",<<title>>,"%")
+GROUP BY
+  biblio.biblionumber
+HAVING
+  Count(items.itemnumber) > 0
+ORDER BY
+  biblio.title,
+  biblioitems.pages,
+  biblioitems.publishercode
+
+
+

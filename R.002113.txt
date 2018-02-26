@@ -1,0 +1,33 @@
+R.002113
+
+----------
+
+Name: Reserves Testing Thresholds
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Slow Patrons - admin
+
+Created on: 2013-11-20 16:35:19
+Modified on: 2013-11-20 16:35:19
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT p.borrowernumber, CONCAT(p.firstname,' ', p.surname) as name, p.branchcode, p.categorycode, count(r.reserve_id), 
+CONCAT ('<a href=\"/cgi-bin/koha/circ/circulation.pl?borrowernumber=',p.borrowernumber,'\" target="_blank">'"circ tab"'</a>') AS "circ tab", 
+CONCAT ('<a href=\"/cgi-bin/koha/members/moremember.pl?borrowernumber=',p.borrowernumber,'\" target="_blank">'"more details tab"'</a>') AS "more details tab" FROM borrowers p LEFT JOIN reserves r USING(borrowernumber) GROUP BY p.borrowernumber HAVING count(r.reserve_id) > <<minimum reserves line account>> ORDER BY count(r.reserve_id) DESC
+
+
+

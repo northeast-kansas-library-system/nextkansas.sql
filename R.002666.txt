@@ -1,0 +1,37 @@
+R.002666
+
+----------
+
+Name: Cleaning up mixed up ccodes
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Fix Items-admin
+
+Created on: 2016-02-10 22:19:37
+Modified on: 2016-02-10 22:19:37
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT CONCAT('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',biblionumber,'\" target="_blank">',biblionumber,'</a>') AS bibnumber, 
+GROUP_CONCAT(DISTINCT ccode) 
+FROM items 
+GROUP BY biblionumber 
+HAVING 
+count(itemnumber) > '1' AND
+GROUP_CONCAT(DISTINCT ccode) = <<enter ccode set>>
+
+
+

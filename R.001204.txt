@@ -1,0 +1,31 @@
+R.001204
+
+----------
+
+Name: Borrower Attributes
+Created by: -
+
+----------
+
+Group: Administrative Reports
+     Patrons-admin
+
+Created on: 2011-10-18 13:56:43
+Modified on: 2013-06-16 14:35:17
+Date last run: 2017-12-08 18:43:47
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+To eliminate ssn's and DL#
+
+----------
+
+select borrowers.firstname, borrowers.surname, borrowers.branchcode, borrower_attributes.code, borrower_attributes.attribute from borrower_attributes join borrowers USING(borrowernumber) where borrower_attributes.code IN ('LICENSE','ALTID') and borrower_attributes.attribute NOT REGEXP 'verified|YES|on file|proof|bill|needs|need|same|dad|mom|ID|see|^/' and borrower_attributes.attribute REGEXP 'K0|ID#|-'
+
+
+

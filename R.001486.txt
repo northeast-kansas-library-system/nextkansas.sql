@@ -1,0 +1,31 @@
+R.001486
+
+----------
+
+Name: Determining Video GaMe Platforms
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Fix Bib Records-admin
+
+Created on: 2012-08-01 15:42:01
+Modified on: 2014-01-15 14:02:29
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+select CONCAT('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',b.biblionumber,'\" target="_blank">',b.biblionumber,'</a>') as 'Bib Number', b.title, ExtractValue(t.marcxml, '//datafield[@tag="245"]/subfield[@code>="b"]') as 'Remainder of Title', ExtractValue(t.marcxml, '//datafield[@tag="250"]/subfield[@code>="a"]') as Edition, ExtractValue(t.marcxml, '//datafield[@tag="500"]/subfield[@code>="a"]') as 'General Note', ExtractValue(t.marcxml, '//datafield[@tag="505"]/subfield[@code>="a"]') as Contents, ExtractValue(t.marcxml, '//datafield[@tag="538"]/subfield[@code>="a"]') as 'Sys req', i.itemcallnumber, t.pages, t.illus, t.size, i.homebranch, i.barcode FROM biblio b LEFT JOIN items i USING (biblionumber) LEFT JOIN biblioitems t USING (biblionumber) WHERE i.ccode='VIDEOGAME'
+
+
+

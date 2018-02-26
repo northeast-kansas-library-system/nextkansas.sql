@@ -1,0 +1,50 @@
+R.002796
+
+----------
+
+Name: GHW - Duplicate holds on a bibliographic record
+Created by: George H Williams
+
+----------
+
+Group: Holds-Reserves
+     Duplicate request problems
+
+Created on: 2016-10-10 08:59:30
+Modified on: 2016-10-11 10:20:34
+Date last run: 2017-07-11 11:44:08
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<p>Searches for duplicate patron holds on a bibliographic record</p>
+<ul><li>Searches for current requests</li>
+<li>on a specified biblionumber (text input accepts wildcards)</li>
+<li>grouped by biblionumber and borrowernumber</li>
+<li>sorted by biblionumber and borrowernumber</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p>Helpful for identifying duplicate requests caused by merging records.</p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2796&phase=Run%20this%20report"  target="_blank">Click here to run this report in a new window.</a></p>
+</div>
+
+
+----------
+
+SELECT
+  reserves.biblionumber,
+  reserves.borrowernumber,
+  borrowers.surname,
+  COUNT(reserves.borrowernumber) AS COUNT_OF_REQUESTS
+FROM reserves JOIN borrowers ON reserves.borrowernumber = borrowers.borrowernumber
+WHERE (reserves.biblionumber LIKE <<Enter biblionumber>>)
+GROUP BY reserves.biblionumber, reserves.borrowernumber
+HAVING COUNT_OF_REQUESTS > 1
+
+
+

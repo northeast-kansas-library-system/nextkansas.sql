@@ -1,0 +1,32 @@
+R.001115
+
+----------
+
+Name: Yearly ILL Borrows
+Created by: -
+
+----------
+
+Group: Administrative Reports
+     Daily, Monthly, Yearly Stats-admin
+
+Created on: 2011-06-03 12:20:17
+Modified on: 2015-08-21 10:53:26
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Add 4-digit Year.  Year End Report
+
+----------
+
+SELECT branchtransfers.tobranch, COUNT(*) FROM branchtransfers 
+LEFT JOIN items USING (itemnumber) WHERE (branchtransfers.tobranch != items.homebranch) AND (branchtransfers.tobranch != branchtransfers.frombranch) AND YEAR(branchtransfers.datesent)=<<Year>> GROUP BY branchtransfers.tobranch with rollup
+
+
+

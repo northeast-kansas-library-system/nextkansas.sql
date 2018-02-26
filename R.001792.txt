@@ -1,0 +1,31 @@
+R.001792
+
+----------
+
+Name: Patron report short with notes, attributes
+Created by: Mickey Coalwell
+
+----------
+
+Group: Patrons
+     -
+
+Created on: 2013-04-14 11:10:36
+Modified on: 2013-09-25 17:23:54
+Date last run: 2018-01-23 10:29:49
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+MC 4/14/13
+
+----------
+
+SELECT borrowers.surname, borrowers.firstname,borrowers.branchcode, borrowers.borrowernotes,borrowers.opacnote,borrower_attributes.code, borrower_attributes.attribute from borrower_attributes join borrowers USING(borrowernumber)WHERE branchcode=<<Select your branch|branches>>
+
+
+

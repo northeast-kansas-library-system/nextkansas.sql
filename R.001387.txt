@@ -1,0 +1,31 @@
+R.001387
+
+----------
+
+Name: Fast Add Framework Bib Records
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Fix Bib Records-admin
+
+Created on: 2012-05-11 19:20:18
+Modified on: 2014-01-27 16:58:28
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT DISTINCT b.biblionumber, b.title, b.author, CONCAT('<a href=\"/cgi-bin/koha/cataloguing/addbiblio.pl?biblionumber=',b.biblionumber,'\" target="_blank">'"edit record"'</a>') as "edit record", CONCAT('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=',b.title,'&sort_by=title_az\" target="_blank">',b.title,'</a>') AS "Title Search", t.isbn FROM biblio b JOIN biblioitems t USING(biblionumber) JOIN items i USING(biblionumber) WHERE b.frameworkcode='FA' and b.title NOT LIKE '%ILL%' AND t.isbn IS NOT NULL group by b.biblionumber HAVING count(i.itemnumber) > 0 ORDER BY t.isbn DESC
+
+
+

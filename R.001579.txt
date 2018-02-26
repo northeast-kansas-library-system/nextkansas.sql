@@ -1,0 +1,33 @@
+R.001579
+
+----------
+
+Name: Local Hold iType Counts in Specific Date Range
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Local Holds - Walkin-admin
+
+Created on: 2012-10-08 14:25:48
+Modified on: 2013-06-16 14:49:37
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT count(i.barcode), i.homebranch FROM items i WHERE i.itype IN ('LOCALHOLD','LOCALHOLD1','LOCALHOLD2') AND  i.dateaccessioned >= <<Date you want to count (example: 2011-11-16) >> AND i.dateaccessioned < <<Day after the Date you want to count (example: 2011-11-17)>> AND i.ccode <> 'MAGAZINE' AND i.ccode <> 'COMPUTER' AND i.ccode <> 'GADGET' GROUP BY i.homebranch ORDER BY i.homebranch
+
+
+
+
+

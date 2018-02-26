@@ -1,0 +1,33 @@
+R.000959
+
+----------
+
+Name: Short Shelf List, limited by call number prefix
+Created by: BASEHOR TECH
+
+----------
+
+Group: Library-Specific
+     -
+
+Created on: 2010-10-12 12:35:23
+Modified on: 2013-06-17 01:40:28
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Shelf list for a section.  Uses Call Number to create a smaller shelf list to use in the DLA sorted by author and call number. Choose branch & enter beginning of call number with percentage sign.
+
+----------
+
+SELECT  items.barcode,items.homebranch,items.itemcallnumber,biblio.title,biblio.author FROM items JOIN biblio USING(biblionumber)
+WHERE items.homebranch=<<branch|branches>> AND items.itemcallnumber LIKE <<enter beginning of call number with % sign (ex. BB%)>>  
+ORDER BY biblio.author,items.itemcallnumber asc
+
+
+

@@ -1,0 +1,31 @@
+R.002517
+
+----------
+
+Name: New Holds Queue Option 
+Created by: Heather Braum
+
+----------
+
+Group: -
+     -
+
+Created on: 2015-05-28 11:04:45
+Modified on: 2015-05-28 11:36:57
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT CONCAT('<b>', b.title, ' ', CONCAT(ExtractValue(t.marcxml, '//datafield[@tag="245"]/subfield[@code="b"]'),' ', ExtractValue(marcxml, '//datafield[@tag="245"]/subfield[@code>="n"]')), '</b><br />', IFNULL(b.author,''), '<br /><i>', IFNULL(t.publishercode,''), ', ', IFNULL(t.publicationyear,''), '</i><br />', IFNULL(t.editionstatement,''), '; ',IFNULL(t.pages,''), '<br />', (ExtractValue(t.marcxml, '//datafield[@tag="490"]/subfield[@code>="a"]'))) as title, CONCAT('<b>', i.itemcallnumber, '</b><br /><i> ', i.location, '</i>') as "shelving location", i.ccode, i.itype, CONCAT(i.barcode, ' or any available') as barcode, h.pickbranch as "send to", h.reservedate as "hold date" FROM biblio b JOIN biblioitems t USING(biblionumber) LEFT JOIN tmp_holdsqueue h USING(biblionumber) JOIN items i USING(itemnumber) WHERE h.holdingbranch='ottawa' ORDER BY i.itype, i.ccode, "shelving location"
+
+
+

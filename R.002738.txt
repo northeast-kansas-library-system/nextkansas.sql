@@ -1,0 +1,42 @@
+R.002738
+
+----------
+
+Name: GHW reports testing
+Created by: George H Williams
+
+----------
+
+Group: Administrative Reports
+     -
+
+Created on: 2016-08-19 11:17:19
+Modified on: 2016-08-19 11:18:07
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT
+  borrower_attributes.attribute
+FROM
+  borrower_attribute_types INNER JOIN
+  borrower_attributes
+    ON borrower_attributes.code = borrower_attribute_types.code INNER JOIN
+  borrower_attribute_types borrower_attribute_types1
+    ON borrower_attributes.code = borrower_attribute_types1.code
+WHERE
+  borrower_attribute_types.code = 'TEACHER'
+GROUP BY
+  borrower_attributes.attribute
+
+
+

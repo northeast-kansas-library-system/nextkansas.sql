@@ -1,0 +1,32 @@
+R.002445
+
+----------
+
+Name: Osawatomie DVDs with Call number Questions
+Created by: Heather Braum
+
+----------
+
+Group: Library-Specific
+     Osawatomie
+
+Created on: 2015-01-20 16:09:17
+Modified on: 2015-08-16 19:46:05
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT b.biblionumber, b.title, i.itype, i.ccode, i.dateaccessioned, i.itemcallnumber, i.barcode, t.publicationyear, CONCAT('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=',b.biblionumber,'&itemnumber=',i.itemnumber,'#edititem\" target="_blank">'"edit item"'</a>') as "edit item" FROM items i LEFT JOIN biblio b USING(biblionumber) LEFT JOIN biblioitems t USING (biblionumber) WHERE i.barcode IN ('0003026022001','0003026024366','0003026014048','0003026015681','0003026016163','0003026017125','0003026025653','0003026019015','0003026019530','0003026019534','0003026019875','0003026020713','0003026022070','0003026022458','0003026022989','0003026024768','0003026025011','0003026026700','0003026025993','0003026025444','0003026025146','0003026026427','0003026025139','0003026027248','0003026027532','0003026027616','0003026027986','0003026015197','0003026016435','0003026017092','0003026017151','0003026018081','0003026015805','0003026019535','0003026019874','0003026021633','0003026022018','0003026023060','0003026023157','0003026025051','0003026025136','0003026027712')
+LIMIT 200
+
+
+

@@ -1,0 +1,33 @@
+R.001521
+
+----------
+
+Name: Rossville Fines Paid
+Created by: Mickey Coalwell
+
+----------
+
+Group: Library-Specific
+     -
+
+Created on: 2012-08-23 15:20:52
+Modified on: 2013-09-25 17:20:28
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+enter date parameters and report will show patron, card number, amount paid, and date paid MC/8-12 #fines
+
+----------
+
+SELECT borrowers.surname, borrowers.firstname, borrowers.cardnumber, round(accountlines.amount,2) AS 'Fines Paid', accountlines.date FROM accountlines LEFT JOIN borrowers USING(borrowernumber) WHERE accounttype = 'pay' AND date BETWEEN <<Between (YYYY-MM-DD)>> AND <<and (YYYY-MM-DD>> AND borrowers.branchcode='rossville' ORDER BY date ASC
+
+
+
+
+

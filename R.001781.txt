@@ -1,0 +1,31 @@
+R.001781
+
+----------
+
+Name: Top 10 publishers in NExpress
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Catalog-admin
+
+Created on: 2013-03-30 16:21:34
+Modified on: 2013-11-17 12:12:30
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT publishercode, count(biblionumber) As Records FROM biblioitems WHERe publishercode IS NOT NULL GROUP BY publishercode ORDER BY Records DESC LIMIT 10 
+
+
+

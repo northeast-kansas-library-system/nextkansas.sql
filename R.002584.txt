@@ -1,0 +1,36 @@
+R.002584
+
+----------
+
+Name: August ILL Statistics for McLouth
+Created by: Heather Braum
+
+----------
+
+Group: Library-Specific
+     McLouth
+
+Created on: 2015-08-26 16:31:24
+Modified on: 2015-08-26 16:31:24
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT branches.branchcode as Library, 
+(SELECT count(*) FROM branchtransfers LEFT JOIN items USING (itemnumber) WHERE branches.branchcode=items.homebranch AND (items.homebranch != branchtransfers.tobranch) AND (branchtransfers.frombranch != branchtransfers.tobranch) AND MONTH(branchtransfers.datesent)='08' AND YEAR(branchtransfers.datesent)='2015') as loans,
+(SELECT count(*) FROM branchtransfers LEFT JOIN items USING(itemnumber) WHERE branches.branchcode=branchtransfers.tobranch AND (branchtransfers.tobranch != items.homebranch) AND (branchtransfers.tobranch != branchtransfers.frombranch) AND MONTH(branchtransfers.datesent)='08' AND YEAR(branchtransfers.datesent)='2015') as borrows
+FROM branches WHERE branches.branchcode ='MCLOUTH'
+GROUP BY branches.branchcode 
+LIMIT 100
+
+
+

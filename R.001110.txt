@@ -1,0 +1,31 @@
+R.001110
+
+----------
+
+Name: Monthly 001 Total Collection Size
+Created by: Heather Braum
+
+----------
+
+Group: -
+     -
+
+Created on: 2011-05-26 16:41:07
+Modified on: 2016-10-05 16:14:19
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Total NExpress Collection Size by Library
+
+----------
+
+SELECT homebranch as "library", count(*) as "total items" FROM items WHERE dateaccessioned < <<Choose date (usually first of month), to count total items per library through end of previous month|date>> GROUP BY homebranch ORDER BY homebranch asc  LIMIT 60
+
+
+

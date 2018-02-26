@@ -1,0 +1,31 @@
+R.001134
+
+----------
+
+Name: Rossville patrons
+Created by: ROSSVILLE TECH
+
+----------
+
+Group: Library-Specific
+     -
+
+Created on: 2011-07-19 16:17:26
+Modified on: 2016-05-20 11:56:35
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT  borrowers.surname,borrowers.firstname,borrowers.address,borrowers.city,borrowers.branchcode,borrowers.categorycode,borrowers.dateofbirth FROM borrowers   WHERE borrowers.branchcode='BALDWIN'
+
+
+

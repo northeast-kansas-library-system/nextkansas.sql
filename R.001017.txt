@@ -1,0 +1,32 @@
+R.001017
+
+----------
+
+Name: Items with NO checkouts (all items)
+Created by: Mickey Coalwell
+
+----------
+
+Group: Catalog Records and Items
+     Weeding Criteria
+
+Created on: 2011-01-06 14:31:48
+Modified on: 2018-01-26 10:19:49
+Date last run: 2018-02-05 15:55:30
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Shows barcode, copyright date, accession date, Itype, CCode, Location, Date Last Borrowed, and On Loan.
+<p><span style="background-color: darkred; color: white">Everything this report can do can now be done with report 2731, therefore, this report is scheduled for deletion on March 1, 2018.</p>
+
+----------
+
+SELECT CONCAT('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',items.biblionumber,'\" target="_blank">',items.biblionumber,'</a>') as "link to record", items.barcode as 'Barcode', items.holdingbranch, items.datelastseen, items.itemcallnumber, biblio.title, biblioitems.publicationyear as 'Copyright', items.dateaccessioned as 'Accessioned', items.itype, items.ccode, items.location FROM items LEFT JOIN biblio USING (biblionumber) left join biblioitems using(biblionumber) WHERE items.homebranch= <<Pick Your Branch|branches>> AND items.issues IS NULL ORDER BY items.itemcallnumber
+
+
+

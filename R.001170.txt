@@ -1,0 +1,31 @@
+R.001170
+
+----------
+
+Name: Transfers I've sent that haven't been received after 7 days
+Created by: -
+
+----------
+
+Group: Interlibrary Loan
+     -
+
+Created on: 2011-08-23 10:54:09
+Modified on: 2015-03-24 16:07:23
+Date last run: 2017-05-10 14:47:57
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Opposite of transfers to receive report, only lists items that were sent more than 7 days ago; enhanced, run as is. #transfers
+
+----------
+
+select bt.frombranch as 'Sending Library', i.homebranch as 'Owning Library', bt.tobranch as 'receiving library', bt.datesent as 'Date Sent', CONCAT('<a href="/cgi-bin/koha/catalogue/detail.pl?biblionumber=',i.biblionumber,'" target="_blank">',b.title,'</a>') as title, i.barcode, i.itemcallnumber, i.ccode from branchtransfers bt join items i USING(itemnumber) join biblio b USING(biblionumber) where bt.frombranch = <<branch|branches>> and bt.datearrived is NULL AND bt.datesent < DATE_ADD(CURDATE(),INTERVAL -7 DAY) ORDER BY bt.datesent ASC
+
+
+

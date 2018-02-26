@@ -1,0 +1,33 @@
+R.002767
+
+----------
+
+Name: Overall record deduping
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Post-Lansing
+
+Created on: 2016-09-08 17:13:31
+Modified on: 2016-09-08 17:33:55
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT GROUP_CONCAT(DISTINCT i.ccode order by ccode) as ccodes, CONCAT('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',b.biblionumber,'\" target="_blank">',b.biblionumber,'</a>') as "record link", REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(b.title, ' /', ''), ',', ''), ' :', ''), '"', ''), ';', ''), '\"', ''), '/', ''), '&', 'and'), '.', ''), '\'', ''), 'The ', ''), 'And ', ''), 'A ', ''), 'An ', '') as title, CONCAT(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ExtractValue(t.marcxml, '//datafield[@tag="245"]/subfield[@code="n"]'), ' /', ''), ',', ''), ' :', ''), '"', ''), ';', ''), '\"', ''), '/', ''), '&', 'and'), '.', ''), '\'', ''), REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ExtractValue(t.marcxml, '//datafield[@tag="245"]/subfield[@code="p"]'), ' /', ''), ',', ''), ' :', ''), '"', ''), ';', ''), '\"', ''), '/', ''), '&', 'and'), '.', ''), '\'', ''), REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(ExtractValue(t.marcxml, '//datafield[@tag="245"]/subfield[@code="b"]'), ' /', ''), ',', ''), ' :', ''), '"', ''), ';', ''), '\"', ''), '/', ''), '&', 'and'), '.', ''), '\'', '')) as titles, REPLACE(REPLACE(b.author, ',', ''), '.', '') as fixedauthor, b.datecreated, t.publicationyear, t.pages FROM biblio b LEFT JOIN items i USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber) 
+WHERE i.itype NOT IN ('DIGITAL','ILL','MAGAZINE','EQUIPMENT','COMPUTER','KITS') AND i.ccode NOT IN ('MAGAZINE','ILL','GADGET','MISC','COMPUTER','SOFTWARE')
+GROUP BY b.biblionumber
+
+
+

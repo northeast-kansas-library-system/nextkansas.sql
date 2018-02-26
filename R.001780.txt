@@ -1,0 +1,31 @@
+R.001780
+
+----------
+
+Name: Search by character in size
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Fix Bib Records-admin
+
+Created on: 2013-03-30 13:12:17
+Modified on: 2013-06-17 01:53:32
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+select CONCAT ('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',b.biblionumber,'\" target="_blank">'"link to record"'</a>') AS "Linked Record", b.title, b.author, t.pages, t.size, CONCAT('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=',b.title,'&sort_by=title_az\">',b.title,'</a>') AS "Title Search" from biblio b join items i USING(biblionumber) left join biblioitems t using (biblionumber) WHERE i.ccode NOT IN ('VHS','DVD','MUSIC') AND t.size LIKE <<size>> group by b.biblionumber LIMIT 50
+
+
+

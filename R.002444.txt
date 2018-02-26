@@ -1,0 +1,31 @@
+R.002444
+
+----------
+
+Name: Bonner Springs New Records
+Created by: Heather Braum
+
+----------
+
+Group: Library-Specific
+     Bonner Springs
+
+Created on: 2015-01-14 16:18:57
+Modified on: 2015-01-14 16:22:44
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT CONCAT('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=',b.biblionumber,'&itemnumber=',i.itemnumber,'#edititem\" target="_blank">'"edit item"'</a>') as "edit item", b.title, ExtractValue(t.marcxml, '//datafield[@tag="245"]/subfield[@code>="b"]') as 'Remainder of Title', ExtractValue(t.marcxml, '//datafield[@tag="020"]/subfield[@code="a"]') as "isbn",  i.itype, i.ccode FROM items i JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE i.homebranch='BONNERSPGS' AND i.dateaccessioned='2015-01-14' AND i.notforloan='-1' AND i.barcode IS NULL ORDER BY b.title LIMIT 200
+
+
+

@@ -1,0 +1,31 @@
+R.001746
+
+----------
+
+Name: Shelf List from a Private List
+Created by: Heather Braum
+
+----------
+
+Group: Lists Module
+     -
+
+Created on: 2013-02-07 16:18:10
+Modified on: 2013-06-17 01:52:50
+Date last run: 2018-02-24 11:38:58
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+This report displays your items from a created Koha list, and includes call number, title, author, collection code, location, and barcode. Find your list number by looking at the end of the list's URL (example https://staff.nexpresslibrary.org/cgi-bin/koha/virtualshelves/shelves.pl?viewshelf=2350, list number is 2350) and choose your branch and run the report. 
+
+----------
+
+SELECT items.itemcallnumber, biblio.title, biblio.author, items.ccode, items.location,items.barcode FROM virtualshelfcontents LEFT JOIN biblio USING(biblionumber) LEFT JOIN items USING(biblionumber) WHERE virtualshelfcontents.shelfnumber=<<enter list number>> AND items.homebranch=<<Choose branch|branches>> ORDER BY items.itemcallnumber
+
+
+

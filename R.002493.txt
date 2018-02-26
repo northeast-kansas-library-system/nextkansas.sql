@@ -1,0 +1,31 @@
+R.002493
+
+----------
+
+Name: barcode report
+Created by: Heather Braum
+
+----------
+
+Group: -
+     -
+
+Created on: 2015-05-07 15:23:07
+Modified on: 2015-05-07 15:23:07
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT barcode FROM items WHERE homebranch='pomona' and ccode='vhs' LIMIT 130
+
+
+

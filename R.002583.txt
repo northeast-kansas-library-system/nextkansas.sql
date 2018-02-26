@@ -1,0 +1,31 @@
+R.002583
+
+----------
+
+Name: opac-self
+Created by: Heather Braum
+
+----------
+
+Group: -
+     -
+
+Created on: 2015-08-25 22:58:56
+Modified on: 2015-08-25 22:58:56
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT * FROM borrowers WHERE categorycode='OPAC-SELF'
+
+
+

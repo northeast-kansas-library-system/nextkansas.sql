@@ -1,0 +1,31 @@
+R.002586
+
+----------
+
+Name: Total Circ in August for Oskie
+Created by: Heather Braum
+
+----------
+
+Group: Library-Specific
+     Oskaloosa
+
+Created on: 2015-08-28 05:40:06
+Modified on: 2015-08-28 05:40:21
+Date last run: 2017-10-04 14:32:31
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT count(*) FROM statistics WHERE branch='OSKALOOSA' AND year(datetime)='2015' AND month(datetime)='08' AND type IN ('localuse','issue','renew')
+
+
+

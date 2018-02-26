@@ -1,0 +1,31 @@
+R.001067
+
+----------
+
+Name: Wellsville emails
+Created by: -
+
+----------
+
+Group: Library-Specific
+     Leavenworth
+
+Created on: 2011-03-22 19:29:45
+Modified on: 2015-12-05 20:44:11
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+#patrons
+
+----------
+
+SELECT email, cardnumber, surname, firstname, branchcode, debarred, dateexpiry FROM borrowers WHERE borrowers.branchcode = 'WELLSVILLE' ORDER BY borrowers.cardnumber ASC
+
+
+

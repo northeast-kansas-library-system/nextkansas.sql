@@ -1,0 +1,31 @@
+R.001595
+
+----------
+
+Name: Holds Waiting Pickup (whole catalog)
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Holds-admin
+
+Created on: 2012-10-15 11:10:45
+Modified on: 2013-06-17 02:02:33
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT reserves.waitingdate, reserves.reservedate, reserves.branchcode, CONCAT ('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',biblio.biblionumber,'\" target="_blank">',biblio.title,'</a>') AS "Items Display", CONCAT ('<a href=\"/cgi-bin/koha/reserve/request.pl?biblionumber=',biblio.biblionumber,'\" target="_blank">'"Holds Table"'</a>') AS "Holds Table",  items.barcode, items.itemcallnumber, borrowers.firstname, borrowers.surname FROM borrowers LEFT JOIN reserves USING(borrowernumber) JOIN biblio USING(biblionumber) JOIN items USING(itemnumber) WHERE (TO_DAYS(curdate())-TO_DAYS(reserves.waitingdate)) > <<specify max number of days expired; leave blank for all>> ORDER BY reserves.waitingdate ASC
+
+
+

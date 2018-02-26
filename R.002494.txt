@@ -1,0 +1,31 @@
+R.002494
+
+----------
+
+Name: Patrons to Purge (Newest Version)
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Patrons-admin
+
+Created on: 2015-05-11 14:58:00
+Modified on: 2015-05-11 15:00:23
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Created May 2015 -- includes patrons at all libraries. 
+
+----------
+
+SELECT b.borrowernumber as "borrower", CONCAT ('<a href=\"/cgi-bin/koha/members/moremember.pl?borrowernumber=',b.borrowernumber,'\" target="_blank">',b.cardnumber,'</a>') AS "Link to Fines" FROM borrowers b WHERE dateexpiry < DATE_SUB(NOW(),INTERVAL 2 YEAR) AND borrowernumber NOT IN (SELECT borrowernumber FROM accountlines WHERE amountoutstanding > '0') AND borrowernumber NOT IN (SELECT borrowernumber FROM issues)
+
+
+

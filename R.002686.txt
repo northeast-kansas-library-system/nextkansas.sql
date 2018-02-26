@@ -1,0 +1,32 @@
+R.002686
+
+----------
+
+Name: Collection Code Super Weeder
+Created by: Heather Braum
+
+----------
+
+Group: Catalog Records and Items
+     Weeding Criteria
+
+Created on: 2016-04-18 15:44:14
+Modified on: 2018-01-26 10:17:26
+Date last run: 2018-01-26 09:34:37
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+Enhanced. Run as is -- DO NOT EDIT
+<p><span style="background-color: darkred; color: white">Everything this report can do can now be done with report 2731, therefore, this report is scheduled for deletion on March 1, 2018.</p>
+
+----------
+
+SELECT CONCAT('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',b.biblionumber,'\" target="_blank">',b.biblionumber,'</a>') AS "bib number", i.holdingbranch, i.barcode as 'Barcode', i.itemcallnumber, b.title, t.publicationyear as 'Copyright',i.dateaccessioned as 'Accessioned', i.itype, i.ccode, i.location, i.issues, i.renewals, (IFNULL(i.issues,0)+IFNULL(i.renewals,0)) as Total_Circ, i.datelastborrowed, i.datelastseen, i.itemlost, i.onloan, i.damaged,i.itemnotes FROM items i LEFT JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE  i.homebranch=<<Select your Library|branches>> AND  i.ccode=<<Collection Code|CCODE>> ORDER BY i.itemcallnumber
+
+
+

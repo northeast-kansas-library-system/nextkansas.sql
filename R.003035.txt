@@ -1,0 +1,31 @@
+R.003035
+
+----------
+
+Name: owl diaries
+Created by: WILLIAMSBG TECH
+
+----------
+
+Group: Acquisitions
+     Collection Development
+
+Created on: 2018-01-10 10:55:02
+Modified on: 2018-01-10 10:55:02
+Date last run: 2018-01-18 22:03:09
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT  biblio.author FROM aqorders LEFT JOIN biblio on (aqorders.biblionumber=biblio.biblionumber) LEFT JOIN items on (biblio.biblionumber=items.biblionumber) 
+
+
+

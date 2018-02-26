@@ -1,0 +1,31 @@
+R.001341
+
+----------
+
+Name: ILL Circ by Collection Code
+Created by: -
+
+----------
+
+Group: Administrative Reports
+     Circ Stats-admin
+
+Created on: 2012-03-14 14:28:24
+Modified on: 2013-09-25 16:42:10
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+LR #ILL
+
+----------
+
+SELECT items.ccode, count(*) AS total FROM statistics LEFT JOIN items USING (itemnumber) WHERE statistics.branch != items.homebranch AND statistics.datetime BETWEEN <<Between (yyyy-mm-dd)>> AND <<and (yyyy-mm-dd)>> GROUP BY items.ccode
+
+
+

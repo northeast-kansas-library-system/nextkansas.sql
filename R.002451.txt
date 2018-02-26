@@ -1,0 +1,31 @@
+R.002451
+
+----------
+
+Name: Shelf list of callnumbers with extra spaces
+Created by: Heather Braum
+
+----------
+
+Group: Catalog Records and Items
+     Shelf Lists
+
+Created on: 2015-01-27 10:55:11
+Modified on: 2015-08-16 20:03:35
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT i.dateaccessioned,b.title, b.author,t.publicationyear, i.location, i.ccode,i.itype,i.barcode, CONCAT('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=',b.biblionumber,'&itemnumber=',i.itemnumber,'#edititem\" target="_blank">'"edit item"'</a>') as "edit item" FROM items i LEFT JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE i.homebranch=<<Pick your branch|branches>> AND (i.itemcallnumber IS NULL OR i.itemcallnumber LIKE ' %' OR i.itemcallnumber LIKE '	%' OR i.itemcallnumber LIKE '%	%' OR i.itemcallnumber LIKE '%  %') ORDER BY i.dateaccessioned desc
+
+
+

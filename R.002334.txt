@@ -1,0 +1,31 @@
+R.002334
+
+----------
+
+Name: unknown
+Created by: Heather Braum
+
+----------
+
+Group: -
+     -
+
+Created on: 2014-08-19 22:38:13
+Modified on: 2017-04-25 09:54:25
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+select DISTINCT biblio.title, count(biblio.title), CONCAT ('<a href=\"/cgi-bin/koha/reports/guided_reports.pl?phase=Run+this+report&reports=1368&sql_params=%25',biblio.author,'%25\" target="_blank">',biblio.author,'</a>') AS "Report of Author", GROUP_CONCAT(DISTINCT biblio.biblionumber SEPARATOR ', ') as bibnumbers, CONCAT('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',biblio.biblionumber,'\">',biblio.biblionumber,'</a>') AS "bibnumber linked" from biblio GROUP BY biblio.title HAVING count(biblio.title) > 1 ORDER By biblio.biblionumber DESC LIMIT 6000
+
+
+

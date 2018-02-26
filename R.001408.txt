@@ -1,0 +1,33 @@
+R.001408
+
+----------
+
+Name: Shelf List of Specific Item Type
+Created by: Heather Braum
+
+----------
+
+Group: Catalog Records and Items
+     Shelf Lists
+
+Created on: 2012-05-14 22:38:12
+Modified on: 2018-01-26 10:57:47
+Date last run: 2018-02-05 15:38:45
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Enhanced. - Choose Branch -- (On Reports Webpages, 5/14/12). #shelflist
+
+<p><span style="background-color: darkred; color: white">Everything this report can do can now be done with report 2731, therefore, this report is scheduled for deletion on March 1, 2018.</p>
+
+----------
+
+SELECT b.biblionumber, i.dateaccessioned, b.title, b.author, i.ccode, i.location, i.itemcallnumber, i.itype, t.publicationyear, i.barcode, CONCAT('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=',b.biblionumber,'&itemnumber=',i.itemnumber,'#edititem\" target="_blank">'"edit item"'</a>') as "edit item" FROM items i LEFT JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE i.homebranch=<<Pick your branch|branches>> AND i.itype=<<Pick your item type|itemtypes>> ORDER BY i.itemcallnumber
+
+
+

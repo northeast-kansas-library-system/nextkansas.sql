@@ -1,0 +1,31 @@
+R.001417
+
+----------
+
+Name: Withdrawn Items Count per Branch
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Items-admin
+
+Created on: 2012-05-14 23:31:42
+Modified on: 2013-07-12 12:42:19
+Date last run: 2017-06-08 14:33:48
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Count of Withdrawn Items per Branch. 1=Withdrawn; 2=test; 3=Discarded.  (On Reports Webpages, 5/14/12); #count #special
+
+----------
+
+SELECT items.homebranch, authorised_values.lib, count(items.itemnumber) as items FROM items LEFT JOIN authorised_values ON (items.withdrawn=authorised_values.authorised_value) WHERE items.withdrawn != 0 AND authorised_values.category='WITHDRAWN' GROUP BY items.homebranch, authorised_values.lib ORDER BY items.homebranch, authorised_values.lib asc LIMIT 100
+
+
+

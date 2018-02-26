@@ -1,0 +1,148 @@
+R.002975
+
+----------
+
+Name: GHW - Monthly requests
+Created by: George H Williams
+
+----------
+
+Group: Statistics
+     Last calendar month
+
+Created on: 2017-07-11 11:52:53
+Modified on: 2017-10-02 23:43:43
+Date last run: 2018-02-05 20:32:47
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<p>Statistics on requests</p>
+<ul><li>Shows statistics for the previous calendar month</li>
+<li>at all NExpress libraries</li>
+<li>grouped and sorted by library code</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>PLACED_LM = the number of requests that were placed in the previous calendar month.</p>
+<p></p>
+<p>FILLED_LM = the number of requests that were checked out to library patrons in the previous calendar month - regardless of when the requests were initially placed.</p>
+<p></p>
+<p>CNX_FROM_HOLD_SHELF_LM = the number of items that were waiting for a patron to pick them up at the time the request was cancelled during the previuos calendar month - regardless of when the requests were initially placed.  These requests could only have been cancelled by staff.</p>
+<p></p>
+<p>CNX_IN_TRASIT_LM = the number of items that were in transit from one library to its destination at the time the request was cancelled during the previous calendar month - regardless of when the requests were initially placed.  These requests could only have been cancelled by staff.</p>
+<p></p>
+<p>CNX_BEFORE_ACTION_LM = the number of items that were cancelled before any item was shipped or waiting or possibly even pulled from the shelf to fill the requests during the previous calendar month - regardless of when the requests were initially placed.  These requests could have been cancelled by staff or by patrons.</p>
+<p></p>
+<p>CNX_TOTAL_LM = the total number of items that were cancelled during the previous calendar month - regardless of when the requests were initially placed.</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2975&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
+
+----------
+
+SELECT
+  branches.branchcode,
+  Sum(Coalesce(requests_placed.Count_reserve_id, 0)) AS PLACED_LM,
+  Coalesce(requests_filled.Count_reserve_id, 0) AS FILLED_LM,
+  Coalesce(requests_cancelled_from_hold_shelf.Count_reserve_id, 0) AS CNX_FROM_HOLD_SHELF_LM,
+  Coalesce(requests_cancelled_in_transit.Count_reserve_id, 0) AS CNX_IN_TRASIT_LM,
+  Coalesce(requests_cancelled_before_pulled.Count_reserve_id, 0) AS CNX_BEFORE_ACTION_LM,
+  Coalesce(requests_cancelled.Count_reserve_id, 0) AS CNX_TOTAL_LM
+FROM
+  branches
+  LEFT JOIN (SELECT
+      reserves.branchcode,
+      Count(reserves.reserve_id) AS Count_reserve_id
+    FROM
+      reserves
+    WHERE
+      Year(reserves.reservedate) = Year(Now() - INTERVAL 1 MONTH) AND
+      Month(reserves.reservedate) = Month(Now() - INTERVAL 1 MONTH)
+    GROUP BY
+      reserves.branchcode
+    UNION
+    SELECT
+      old_reserves.branchcode,
+      Count(old_reserves.reserve_id) AS Count_reserve_id
+    FROM
+      old_reserves
+    WHERE
+      Month(old_reserves.reservedate) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(old_reserves.reservedate) = Year(Now() - INTERVAL 1 MONTH)
+    GROUP BY
+      old_reserves.branchcode) requests_placed ON branches.branchcode = requests_placed.branchcode
+  LEFT JOIN (SELECT
+      old_reserves.branchcode,
+      Count(old_reserves.reserve_id) AS Count_reserve_id
+    FROM
+      old_reserves
+    WHERE
+      Month(old_reserves.timestamp) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(old_reserves.timestamp) = Year(Now() - INTERVAL 1 MONTH) AND
+      old_reserves.found = 'F'
+    GROUP BY
+      old_reserves.branchcode) requests_filled ON branches.branchcode = requests_filled.branchcode
+  LEFT JOIN (SELECT
+      old_reserves.branchcode,
+      Count(old_reserves.reserve_id) AS Count_reserve_id
+    FROM
+      old_reserves
+    WHERE
+      Month(old_reserves.timestamp) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(old_reserves.timestamp) = Year(Now() - INTERVAL 1 MONTH) AND
+      (old_reserves.found <> 'F' OR
+        old_reserves.found IS NULL)
+    GROUP BY
+      old_reserves.branchcode) requests_cancelled ON branches.branchcode = requests_cancelled.branchcode
+  LEFT JOIN (SELECT
+      old_reserves.branchcode,
+      Count(old_reserves.reserve_id) AS Count_reserve_id
+    FROM
+      old_reserves
+    WHERE
+      Month(old_reserves.cancellationdate) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(old_reserves.cancellationdate) = Year(Now() - INTERVAL 1 MONTH) AND
+      old_reserves.found = 'T'
+    GROUP BY
+      old_reserves.branchcode) requests_cancelled_in_transit
+    ON branches.branchcode = requests_cancelled_in_transit.branchcode
+  LEFT JOIN (SELECT
+      old_reserves.branchcode,
+      Count(old_reserves.reserve_id) AS Count_reserve_id
+    FROM
+      old_reserves
+    WHERE
+      Month(old_reserves.cancellationdate) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(old_reserves.cancellationdate) = Year(Now() - INTERVAL 1 MONTH) AND
+      old_reserves.found = 'W'
+    GROUP BY
+      old_reserves.branchcode) requests_cancelled_from_hold_shelf
+    ON branches.branchcode = requests_cancelled_from_hold_shelf.branchcode
+  LEFT JOIN (SELECT
+      old_reserves.branchcode,
+      Count(old_reserves.reserve_id) AS Count_reserve_id
+    FROM
+      old_reserves
+    WHERE
+      Month(old_reserves.cancellationdate) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(old_reserves.cancellationdate) = Year(Now() - INTERVAL 1 MONTH) AND
+      old_reserves.found IS NULL
+    GROUP BY
+      old_reserves.branchcode) requests_cancelled_before_pulled
+    ON branches.branchcode = requests_cancelled_before_pulled.branchcode
+GROUP BY
+  branches.branchcode,
+  Coalesce(requests_filled.Count_reserve_id, 0),
+  Coalesce(requests_cancelled_from_hold_shelf.Count_reserve_id, 0),
+  Coalesce(requests_cancelled_in_transit.Count_reserve_id, 0),
+  Coalesce(requests_cancelled_before_pulled.Count_reserve_id, 0),
+  Coalesce(requests_cancelled.Count_reserve_id, 0)
+
+
+

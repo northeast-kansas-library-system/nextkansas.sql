@@ -1,0 +1,32 @@
+R.000979
+
+----------
+
+Name: Patron Notes and Attribute
+Created by: -
+
+----------
+
+Group: Patrons
+     -
+
+Created on: 2010-11-17 14:24:06
+Modified on: 2015-05-13 16:13:50
+Date last run: 2017-06-19 16:26:30
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Enhanced - Pick your branch to see borrower notes and attribute notes (DL/SSN) info for all of your patrons
+
+----------
+
+SELECT borrowers.surname, borrowers.firstname, borrowers.phone, borrowers.branchcode, borrowers.borrowernotes, GROUP_CONCAT(borrower_attributes.attribute SEPARATOR ', ') as extras
+FROM borrowers LEFT JOIN borrower_attributes USING(borrowernumber) WHERE borrower_attributes.attribute <> '' GROUP BY borrowers.borrowernumber ORDER BY borrowers.branchcode, borrowers.surname
+
+
+

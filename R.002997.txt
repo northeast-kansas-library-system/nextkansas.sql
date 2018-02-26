@@ -1,0 +1,95 @@
+R.002997
+
+----------
+
+Name: GHW - PP 002
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2017-09-18 00:24:05
+Modified on: 2017-09-21 08:26:42
+Date last run: 2017-10-21 11:57:49
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2997&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+
+----------
+
+SELECT
+  Concat('<a href="https://staff.nexpresslibrary.org/cgi-bin/koha/circ/circulation.pl?borrowernumber=', borrowers.borrowernumber, '" target="_blank">Link to patron</a>') AS LINK_TO_PATRON,
+  borrowers.borrowernumber,
+  borrowers.cardnumber,
+  borrowers.surname,
+  borrowers.firstname,
+  borrowers.othernames,
+  borrowers.branchcode,
+  borrowers.categorycode,
+  borrowers.dateenrolled,
+  borrowers.dateexpiry,
+  If((AddDate(Last_Day(SubDate(borrowers.dateexpiry, INTERVAL -37 MONTH)), 1) + INTERVAL 14 DAY) < CAST('2018-04-15' AS
+  DATE), CAST('2018-04-15' AS DATE), (AddDate(Last_Day(SubDate(borrowers.dateexpiry, INTERVAL -37 MONTH)), 1) + INTERVAL
+  14 DAY)) AS PROJECTED_DELETION,
+  Coalesce(accountlinesx.DUE_SUM, 0) AS AMT_DUE,
+  Coalesce(issuesx.ICOUNT, 0) AS CHECKOUTS,
+  Coalesce(guarantees.GCOUNT, 0) AS GUARANTEES,
+  Coalesce(requestsx.Count_reserve_id, 0) AS REQUESTS
+FROM
+  borrowers
+  LEFT JOIN (SELECT
+        Count(borrowers.borrowernumber) AS GCOUNT,
+        borrowers.guarantorid
+      FROM
+        borrowers
+      GROUP BY
+        borrowers.guarantorid) guarantees ON borrowers.borrowernumber = guarantees.guarantorid
+  LEFT JOIN (SELECT
+        accountlines.borrowernumber,
+        Format(Sum(accountlines.amountoutstanding), 2) AS DUE_SUM
+      FROM
+        accountlines
+      GROUP BY
+        accountlines.borrowernumber) accountlinesx ON borrowers.borrowernumber = accountlinesx.borrowernumber
+  LEFT JOIN (SELECT
+        issues.borrowernumber,
+        Count(issues.issue_id) AS ICOUNT
+      FROM
+        issues
+      GROUP BY
+        issues.borrowernumber) issuesx ON borrowers.borrowernumber = issuesx.borrowernumber
+  LEFT JOIN (SELECT
+        reserves.borrowernumber,
+        Count(reserves.reserve_id) AS Count_reserve_id
+      FROM
+        reserves
+      GROUP BY
+        reserves.borrowernumber) requestsx ON borrowers.borrowernumber = requestsx.borrowernumber
+WHERE
+  borrowers.dateexpiry < CurDate() - INTERVAL 2 YEAR AND
+  borrowers.branchcode LIKE <<Choose your library|LBRANCH>> AND
+  borrowers.othernames NOT LIKE "%SIP%" AND
+  borrowers.categorycode <> 'STAFF' AND
+  borrowers.categorycode <> 'ILL' AND
+  (Coalesce(accountlinesx.DUE_SUM, 0) <> 0 OR
+  Coalesce(issuesx.ICOUNT, 0) <> 0 OR
+  Coalesce(guarantees.GCOUNT, 0) <> 0 OR
+  Coalesce(requestsx.Count_reserve_id, 0) <> 0)
+GROUP BY
+  borrowers.borrowernumber
+ORDER BY
+  borrowers.branchcode,
+  borrowers.surname,
+  borrowers.firstname,
+  borrowers.borrowernumber
+
+
+

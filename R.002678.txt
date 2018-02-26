@@ -1,0 +1,47 @@
+R.002678
+
+----------
+
+Name: Closed hold history by barcode.
+Created by: Bywater bwssupport
+
+----------
+
+Group: -
+     -
+
+Created on: 2016-03-11 10:17:52
+Modified on: 2016-03-11 10:23:20
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT
+        CONCAT( p.surname ,  ', ', p.firstname ) as `Patron`,
+        hold.borrowernumber,
+        hold.timestamp,
+        hold.found,
+        i.biblionumber,
+        i.barcode,
+        bib.title
+FROM
+        old_reserves AS hold
+        LEFT JOIN items i USING (biblionumber)
+        LEFT JOIN borrowers p USING (borrowernumber)
+        LEFT JOIN biblio bib using (biblionumber)
+WHERE
+        i.barcode = <<Item barcode>>
+ORDER BY hold.timestamp DESC
+
+
+
+

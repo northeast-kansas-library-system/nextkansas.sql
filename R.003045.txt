@@ -1,0 +1,46 @@
+R.003045
+
+----------
+
+Name: GHW - Deleted reports - last 60 days
+Created by: George H Williams
+
+----------
+
+Group: Administrative Reports
+     -
+
+Created on: 2018-01-23 10:00:34
+Modified on: 2018-01-23 10:00:34
+Date last run: 2018-01-26 10:54:21
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT
+  action_logs.action_id,
+  action_logs.timestamp,
+  action_logs.user,
+  action_logs.module,
+  action_logs.action,
+  action_logs.object,
+  action_logs.info,
+  action_logs.interface
+FROM
+  action_logs
+WHERE
+  action_logs.module = 'REPORTS' AND
+  action_logs.action LIKE 'DELE%'
+GROUP BY
+  action_logs.action_id
+
+
+

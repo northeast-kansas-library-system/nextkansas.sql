@@ -1,0 +1,33 @@
+R.001324
+
+----------
+
+Name: Circ stats for titles in a specific collection code, for all time
+Created by: -
+
+----------
+
+Group: Circulation
+     Circ Stats
+
+Created on: 2012-02-17 13:14:33
+Modified on: 2015-08-16 17:24:41
+Date last run: 2018-01-03 14:49:31
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Enhanced - just hit Run #circ
+
+----------
+
+SELECT biblio.title,t.publicationyear,items.replacementprice,items.dateaccessioned,items.issues,items.itype,items.ccode,items.homebranch FROM items LEFT JOIN biblio USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE items.homebranch=<<Pick your branch|branches>> AND items.ccode=<<Pick your Collection Code|CCODE>> GROUP BY biblio.biblionumber, items.itemnumber ORDER BY biblio.title asc
+
+
+
+
+

@@ -1,0 +1,31 @@
+R.001416
+
+----------
+
+Name: Damaged Items Count per Branch
+Created by: Heather Braum
+
+----------
+
+Group: Catalog Records and Items
+     Status reports-lost, damaged
+
+Created on: 2012-05-14 23:25:46
+Modified on: 2013-09-25 16:29:02
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Count of Damaged Items per Branch.  (On Reports Webpages, 5/14/12); #count
+
+----------
+
+SELECT homebranch, count(itemnumber) as items FROM items  WHERE damaged != 0 GROUP BY homebranch ORDER BY homebranch asc 
+
+
+

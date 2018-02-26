@@ -1,0 +1,31 @@
+R.002725
+
+----------
+
+Name: Fines by age test
+Created by: LEAVENWRTH DIRECTOR
+
+----------
+
+Group: Patrons
+     -
+
+Created on: 2016-08-09 14:15:12
+Modified on: 2016-08-09 14:15:12
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT  accountlines.amount,borrowers.categorycode FROM borrowers LEFT JOIN accountlines on (borrowers.borrowernumber=accountlines.borrowernumber)   WHERE borrowers.branchcode='LEAVENWRTH' AND borrowers.categorycode='CHILD'
+
+
+

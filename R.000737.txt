@@ -1,0 +1,31 @@
+R.000737
+
+----------
+
+Name: Carbondale Overdues
+Created by: LYNDON DIRECTOR
+
+----------
+
+Group: Library-Specific
+     -
+
+Created on: 2009-12-17 16:02:32
+Modified on: 2013-06-17 01:09:09
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT borrowers.surname, borrowers.firstname, borrowers.phone, borrowers.cardnumber, borrowers.address, borrowers.city, borrowers.zipcode, issues.date_due, (TO_DAYS(curdate())-TO_DAYS( date_due)) as 'days overdue', items.itype, items.itemcallnumber, items.barcode, items.homebranch, biblio.title, biblio.author FROM borrowers left join issues on (borrowers.borrowernumber=issues.borrowernumber) left join items on (issues.itemnumber=items.itemnumber) LEFT JOIN biblio on (items.biblionumber=biblio.biblionumber) WHERE (TO_DAYS(curdate())-TO_DAYS(date_due)) > '3' and issues.branchcode = 'carbondale' order by borrowers.surname asc, issues.date_due asc
+
+
+

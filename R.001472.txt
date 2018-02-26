@@ -1,0 +1,31 @@
+R.001472
+
+----------
+
+Name: Silver Lake long overdue/lost barcodes
+Created by: SILVERLAKE TECH
+
+----------
+
+Group: Library-Specific
+     -
+
+Created on: 2012-07-10 10:25:01
+Modified on: 2013-06-17 01:40:17
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT  items.barcode FROM items LEFT JOIN biblioitems on (items.biblioitemnumber=biblioitems.biblioitemnumber) LEFT JOIN biblio on (biblioitems.biblionumber=biblio.biblionumber)   WHERE items.itemlost IN (1,2) AND items.homebranch='SILVERLAKE' AND datelastborrowed BETWEEN << (yyyy-mm-dd)>> AND << (yyyy-mm-dd) >> ORDER BY datelastborrowed
+
+
+

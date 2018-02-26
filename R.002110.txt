@@ -1,0 +1,33 @@
+R.002110
+
+----------
+
+Name: Old_issues Testing Thresholds
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Slow Patrons - admin
+
+Created on: 2013-11-20 15:29:36
+Modified on: 2013-11-20 16:29:45
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT p.borrowernumber, CONCAT(p.firstname,' ', p.surname) as name, p.branchcode, p.categorycode, count(oi.timestamp), 
+CONCAT ('<a href=\"/cgi-bin/koha/circ/circulation.pl?borrowernumber=',p.borrowernumber,'\" target="_blank">'"circ tab"'</a>') AS "circ tab", 
+CONCAT ('<a href=\"/cgi-bin/koha/members/moremember.pl?borrowernumber=',p.borrowernumber,'\" target="_blank">'"more details tab"'</a>') AS "more details tab" FROM borrowers p LEFT JOIN old_issues oi USING(borrowernumber) GROUP BY p.borrowernumber HAVING count(oi.timestamp) > <<minimum old_issues line account>> ORDER BY count(oi.timestamp) DESC
+
+
+

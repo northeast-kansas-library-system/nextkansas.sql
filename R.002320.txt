@@ -1,0 +1,31 @@
+R.002320
+
+----------
+
+Name: Checking for lowercase cardnumbers at school libraries
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     School Libraries-admin
+
+Created on: 2014-08-12 23:00:21
+Modified on: 2015-08-19 16:13:50
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+right now, limited to student categorycode
+
+----------
+
+SELECT CONCAT('<a href=\"/cgi-bin/koha/members/memberentry.pl?op=modify&borrowernumber=',borrowers.borrowernumber,'\" target="_blank">'"edit patron"'</a>') as "edit patron", cardnumber FROM borrowers WHERE branchcode LIKE 'PH%' AND cardnumber COLLATE UTF8_BIN = LOWER(cardnumber COLLATE UTF8_BIN) ORDER BY cardnumber
+
+
+

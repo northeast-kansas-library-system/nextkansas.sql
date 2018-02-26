@@ -1,0 +1,34 @@
+R.001683
+
+----------
+
+Name: Count of Items Filled by Holds from another library, Grouped by CCode
+Created by: Heather Braum
+
+----------
+
+Group: Holds-Reserves
+     Holds Statistics
+
+Created on: 2012-12-18 22:15:31
+Modified on: 2013-06-23 12:31:40
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT items.ccode, MONTH(old_reserves.timestamp) AS month, YEAR(old_reserves.timestamp) AS year, count(*) FROM old_reserves LEFT JOIN items USING(itemnumber) WHERE old_reserves.branchcode = <<Pick your Branch|branches>>
+AND items.homebranch != <<Pick your Branch|branches>>
+GROUP BY items.ccode, month, year
+ORDER BY year DESC, month DESC, items.ccode ASC
+
+
+

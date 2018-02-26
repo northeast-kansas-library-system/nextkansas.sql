@@ -1,0 +1,33 @@
+R.002115
+
+----------
+
+Name: Accountlines Testing Thresholds
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Slow Patrons - admin
+
+Created on: 2013-11-20 16:38:21
+Modified on: 2013-11-20 16:38:33
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT p.borrowernumber, CONCAT(p.firstname,' ', p.surname) as name, p.branchcode, p.categorycode, count(a.accountlines_id), 
+CONCAT ('<a href=\"/cgi-bin/koha/circ/circulation.pl?borrowernumber=',p.borrowernumber,'\" target="_blank">'"circ tab"'</a>') AS "circ tab", 
+CONCAT ('<a href=\"/cgi-bin/koha/members/moremember.pl?borrowernumber=',p.borrowernumber,'\" target="_blank">'"more details tab"'</a>') AS "more details tab" FROM borrowers p LEFT JOIN accountlines a USING(borrowernumber) GROUP BY p.borrowernumber HAVING count(a.accountlines_id) > <<minimum accountlines count>> ORDER BY count(a.accountlines_id) DESC
+
+
+

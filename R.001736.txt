@@ -1,0 +1,31 @@
+R.001736
+
+----------
+
+Name: Staged Record Batch Status
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     System-admin
+
+Created on: 2013-02-01 02:40:06
+Modified on: 2014-01-15 14:25:56
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT import_records.record_sequence, import_record_matches.candidate_match_id, import_records.overlay_status, CONCAT('<a href=\"/cgi-bin/koha/catalogue/search.pl?q=',import_biblios.isbn,'&sort_by=title_az\" target="_blank">',import_biblios.isbn,'</a>') AS isbn, CONCAT('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=',import_biblios.title,'&sort_by=title_az\" target="_blank">',import_biblios.title,'</a>') AS "Title Search",CONCAT('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=au&q=',import_biblios.author,'&sort_by=title_az\" target="_blank">',import_biblios.author,'</a>') AS "Author Search" FROM import_biblios LEFT JOIN import_records USING(import_record_id) LEFT JOIN import_record_matches USING(import_record_id) WHERE import_records.import_batch_id= <<record batch number>> AND import_records.overlay_status="no_match" ORDER BY isbn LIMIT 1000
+
+
+

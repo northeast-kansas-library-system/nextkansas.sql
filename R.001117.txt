@@ -1,0 +1,31 @@
+R.001117
+
+----------
+
+Name: Number of checkouts by branch in a year
+Created by: -
+
+----------
+
+Group: Administrative Reports
+     Daily, Monthly, Yearly Stats-admin
+
+Created on: 2011-06-03 12:31:42
+Modified on: 2013-06-16 14:50:55
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+add year
+
+----------
+
+SELECT branch, month(datetime) AS month, count(*) AS count  FROM statistics  WHERE type IN ('issue', 'renew', 'localuse') and year(datetime) = <<Enter Year>>  GROUP BY branch, month ORDER BY month DESC, branch ASC
+
+
+

@@ -1,0 +1,35 @@
+R.002988
+
+----------
+
+Name: GHW - SANDBOX PHSD
+Created by: George H Williams
+
+----------
+
+Group: Administrative Reports
+     Testing
+
+Created on: 2017-08-11 17:11:17
+Modified on: 2017-08-13 16:23:57
+Date last run: 2017-08-21 22:10:13
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+Prairie Hills
+
+----------
+
+SELECT
+  *
+FROM borrowers
+WHERE borrowers.branchcode LIKE "PH%"
+GROUP BY borrowers.borrowernumber
+
+
+

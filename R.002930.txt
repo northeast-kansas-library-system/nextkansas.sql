@@ -1,0 +1,128 @@
+R.002930
+
+----------
+
+Name: GHW - Patrons with outstanding fees based on fee-creating branch
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2017-04-26 12:32:24
+Modified on: 2017-04-26 16:02:18
+Date last run: 2017-12-12 13:31:29
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<p>Lists all patrons with outstanding fees on items checked out at the library you choose or on fees that were manually created at the library you choose</p>
+<ul><li>Shows patrons with outstanding balances due</li>
+<li>only shows patrons with fees that were created at the library you specify</li>
+<li>also allows you to list patrons who have items checked out, patrons who do not have items checked out, or all patrons</li>
+<li>grouped by patron card number and accountlines ID</li>
+<li>sorted by the patron's last name, first name, and card number</li>
+<li>contains links to the account tab on the patron's account</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Report created at the request of LANSING.</p>
+<p>Report created by George Williams.</p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2930&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
+
+----------
+
+SELECT
+  CONCAT( '<a href=\"/cgi-bin/koha/members/boraccount.pl?borrowernumber=',borrowers.borrowernumber ,'\" target="_blank">Link to fees</a>' ) AS 'LINK',
+  Upper(borrowers.cardnumber) AS CARDNUMBER,
+  borrowers.firstname,
+  borrowers.surname,
+  borrowers.address,
+  borrowers.city,
+  borrowers.state,
+  borrowers.zipcode,
+  borrowers.email,
+  borrowers.phone,
+  If(Count(DISTINCT issues.issue_id) > 0, "Yes", "No") AS HAS_ITEMS_OUT,
+  Count(DISTINCT issues.issue_id) AS CURRENT_CKO_COUNT,
+  outstanding.date AS FEE_DATE,
+  If(outstanding.accounttype = "L", "Lost Item", If(outstanding.accounttype LIKE "F%", "Fine",
+    If(outstanding.accounttype = "A", "Account management fee", If(outstanding.accounttype = "N", "New card",
+    If(outstanding.accounttype = "M", "Sundry", If(outstanding.accounttype LIKE "C%", "Copier fees",
+    If(outstanding.accounttype LIKE "D%", "Damaged item", "-"))))))) AS TYPE_OF_FEE,
+  Format(outstanding.amount, 2) AS FULL_FEE_AMOUNT,
+  outstanding.description AS FEE_DESCRIPTION,
+  outstanding.note AS FEE_NOTE,
+  Format(Sum(outstanding.amount - outstanding.amountoutstanding),2) AS PAID_SO_FAR,
+  If(Sum(outstanding.amount > outstanding.amountoutstanding), CAST(outstanding.timestamp AS DATE), "-") AS MOST_RECENT_PAYMENT,
+  Format(outstanding.amountoutstanding,2) AS AMOUNT_OUTSTANDING
+FROM
+    (SELECT
+      accountlines.accountlines_id,
+      accountlines.borrowernumber,
+      accountlines.accountno,
+      accountlines.itemnumber,
+      accountlines.date,
+      accountlines.amount,
+      accountlines.description,
+      accountlines.dispute,
+      accountlines.accounttype,
+      accountlines.amountoutstanding,
+      accountlines.timestamp,
+      accountlines.notify_id,
+      accountlines.notify_level,
+      accountlines.lastincrement,
+      accountlines.note,
+      accountlines.manager_id
+    FROM
+      accountlines
+      JOIN borrowers ON borrowers.borrowernumber = accountlines.manager_id
+    WHERE
+      accountlines.amountoutstanding > 0 AND
+      borrowers.branchcode = @brn := <<Select branch|ZBRAN>> COLLATE utf8_unicode_ci
+    UNION
+    SELECT
+      accountlines.accountlines_id,
+      accountlines.borrowernumber,
+      accountlines.accountno,
+      accountlines.itemnumber,
+      accountlines.date,
+      accountlines.amount,
+      accountlines.description,
+      accountlines.dispute,
+      accountlines.accounttype,
+      accountlines.amountoutstanding,
+      accountlines.timestamp,
+      accountlines.notify_id,
+      accountlines.notify_level,
+      accountlines.lastincrement,
+      accountlines.note,
+      accountlines.manager_id
+    FROM
+      accountlines
+      JOIN old_issues ON old_issues.borrowernumber = accountlines.borrowernumber AND old_issues.itemnumber =
+        accountlines.itemnumber
+    WHERE
+      accountlines.amountoutstanding > 0 AND
+      old_issues.branchcode = @brn) outstanding
+  JOIN borrowers ON borrowers.borrowernumber = outstanding.borrowernumber
+  LEFT JOIN issues ON issues.borrowernumber = borrowers.borrowernumber
+GROUP BY
+  Upper(borrowers.cardnumber),
+  outstanding.accountlines_id
+HAVING
+  HAS_ITEMS_OUT LIKE <<Patron currently has items checked out?|ZYES_NO>>
+ORDER BY
+  borrowers.surname,
+  borrowers.firstname,
+  borrowers.cardnumber
+
+
+

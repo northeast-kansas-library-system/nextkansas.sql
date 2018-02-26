@@ -1,0 +1,31 @@
+R.002518
+
+----------
+
+Name: Holds Testing for Slowness
+Created by: Heather Braum
+
+----------
+
+Group: -
+     -
+
+Created on: 2015-05-28 17:20:06
+Modified on: 2015-05-28 17:20:06
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT biblionumber,count(reservedate) FROM reserves GROUP BY biblionumber HAVING count(reservedate) > 30
+
+
+

@@ -1,0 +1,31 @@
+R.000831
+
+----------
+
+Name: Outstanding Credits
+Created by: NEKLS Administrator
+
+----------
+
+Group: Circulation
+     Charges
+
+Created on: 2010-03-23 11:57:07
+Modified on: 2013-06-18 10:10:10
+Date last run: 2017-09-28 12:10:47
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT  borrowers.cardnumber, borrowers.surname, borrowers.firstname,   FORMAT(SUM(accountlines.amountoutstanding),2) as due FROM borrowers LEFT JOIN accountlines USING (borrowernumber) WHERE borrowers.branchcode=<<branch|branches>> AND accountlines.amountoutstanding < 0 GROUP BY borrowers.cardnumber  ORDER BY borrowers.surname ASC
+
+
+

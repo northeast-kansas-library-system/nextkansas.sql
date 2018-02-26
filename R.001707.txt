@@ -1,0 +1,31 @@
+R.001707
+
+----------
+
+Name: Overdrive Patron list for Sunflower Consortia
+Created by: Heather Braum
+
+----------
+
+Group: Patrons
+     -
+
+Created on: 2013-01-10 10:28:55
+Modified on: 2013-06-23 12:30:55
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+#patrons
+
+----------
+
+SELECT cardnumber, surname, dateexpiry FROM borrowers WHERE branchcode=<<branch|branches>> ORDER BY surname
+
+
+

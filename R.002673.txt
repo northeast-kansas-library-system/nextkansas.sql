@@ -1,0 +1,39 @@
+R.002673
+
+----------
+
+Name: Shelf-reading JE test
+Created by: ATCHISON TECH
+
+----------
+
+Group: Library-Specific
+     Atchison
+
+Created on: 2016-03-03 16:48:50
+Modified on: 2017-12-19 09:29:16
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Test
+
+----------
+
+SELECT concat(b.title, ' ', 
+       ExtractValue(m.metadata, '//datafield[@tag="245"]/subfield[@code="b"]')) AS title, b.author, i.itemcallnumber 
+FROM biblio b 
+LEFT JOIN items i USING (biblionumber)
+LEFT JOIN biblio_metadata m USING (biblionumber)
+WHERE i.homebranch='ATCHISON' 
+AND i.itemcallnumber like 'JE %'
+AND i.itemnumber NOT IN (SELECT issues.itemnumber FROM issues)
+ORDER BY itemcallnumber, author, title
+
+
+

@@ -1,0 +1,62 @@
+R.002926
+
+----------
+
+Name: GHW - Atchison items
+Created by: George H Williams
+
+----------
+
+Group: Administrative Reports
+     Testing
+
+Created on: 2017-03-28 17:10:21
+Modified on: 2017-03-29 08:49:26
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT
+  items.itemnumber,
+  items.barcode
+FROM
+  items LEFT JOIN
+  (SELECT
+    branchtransfers.itemnumber,
+    branchtransfers.datesent,
+    branchtransfers.datearrived
+  FROM
+    branchtransfers
+  WHERE
+    branchtransfers.datearrived IS NULL) transferss
+    ON items.itemnumber = transferss.itemnumber LEFT JOIN
+  (SELECT
+    reserves.itemnumber,
+    reserves.waitingdate
+  FROM
+    reserves
+  WHERE
+    reserves.waitingdate IS NOT NULL) reservess
+    ON items.itemnumber = reservess.itemnumber
+WHERE
+  items.homebranch = 'ATCHISON' AND
+  Coalesce(items.itemlost, 0) = 0 AND
+  Coalesce(items.withdrawn, 0) = 0 AND
+  Coalesce(transferss.datesent, "-") LIKE "-" AND
+  Coalesce(reservess.waitingdate, "-") LIKE "-"
+GROUP BY
+  items.itemnumber, items.barcode, items.homebranch, Coalesce(items.itemlost,
+  0), Coalesce(items.withdrawn, 0), Coalesce(transferss.datesent, "-"),
+  Coalesce(reservess.waitingdate, "-")
+
+
+

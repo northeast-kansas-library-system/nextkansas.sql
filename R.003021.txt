@@ -1,0 +1,47 @@
+R.003021
+
+----------
+
+Name: GHW - LISt
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2017-12-20 20:10:54
+Modified on: 2017-12-21 10:06:31
+Date last run: 2017-12-21 14:46:42
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT
+  virtualshelves.shelfname AS LIST_NAME,
+  Coalesce(Concat("Title: ", Concat_WS("<br />",biblio.title, ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]')), "Author: ", biblio.author), "Title deleted") AS TITLE_INFO
+FROM
+  virtualshelves
+  JOIN virtualshelfcontents ON virtualshelfcontents.shelfnumber = virtualshelves.shelfnumber
+  JOIN biblio ON virtualshelfcontents.biblionumber = biblio.biblionumber
+  JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
+WHERE
+  virtualshelves.shelfnumber = <<Enter list ID number>>
+GROUP BY
+  virtualshelves.shelfnumber,
+  biblio.biblionumber
+ORDER BY
+  biblio.author,
+  biblio.title
+DESC
+
+
+

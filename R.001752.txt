@@ -1,0 +1,33 @@
+R.001752
+
+----------
+
+Name: Graphic novels
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Fix Bib Records-admin
+
+Created on: 2013-02-12 12:24:14
+Modified on: 2017-12-18 15:20:22
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+to id multiple volumes on single records
+
+----------
+
+SELECT b.biblionumber, CONCAT ('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',b.biblionumber,'\" target="_blank">'"link to record"'</a>') AS "Access Record", b.title, b.author, ExtractValue(t.metadata, '//datafield[@tag="020"]/subfield[@code>="a"]') as isbna, CONCAT('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=',b.title,'&sort_by=title_az\">',b.title,'</a>') AS "Title Search"
+FROM biblio b join items i using (biblionumber) left join biblio_metadata t using (biblionumber) 
+WHERE i.ccode='GRAPHIC' GROUP BY b.biblionumber ORDER BY isbna LIMIT 7000
+
+
+

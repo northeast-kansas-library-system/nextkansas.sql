@@ -1,0 +1,31 @@
+R.002683
+
+----------
+
+Name: Pomona Adult collection to switch to not for loan
+Created by: Heather Braum
+
+----------
+
+Group: Library-Specific
+     POMONA
+
+Created on: 2016-04-11 18:12:43
+Modified on: 2016-04-12 16:39:14
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT barcode FROM items WHERE homebranch='pomona' and holdingbranch='pomona' and location='adult' and ccode IN ('fiction','nonfiction','biography','romance','paperback','INSPRATION') and onloan IS NULL and itemnumber NOT IN (SELECT itemnumber FROM items WHERE homebranch='pomona' AND itemnumber IN (SELECT itemnumber FROM branchtransfers WHERE (tobranch='pomona' OR frombranch='pomona') and datearrived IS NULL)) AND notforloan = '0' LIMIT 900
+
+
+

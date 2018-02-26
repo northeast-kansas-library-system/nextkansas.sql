@@ -1,0 +1,31 @@
+R.001480
+
+----------
+
+Name: Printable List
+Created by: -
+
+----------
+
+Group: Lists Module
+     -
+
+Created on: 2012-07-24 10:48:14
+Modified on: 2017-12-20 17:59:10
+Date last run: 2018-02-13 14:21:17
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Use this report to get all titles on a created list. The shelf number is the last number in the URL. See this for help: http://screencast.com/t/7vdwBP7Pw #special
+
+----------
+
+select items.itemcallnumber, CONCAT(biblio.title, biblio.author) as 'Title and author' from virtualshelfcontents join biblio using(biblionumber) join items using(biblionumber) where shelfnumber LIKE <<Enter Shelf Number>> and items.homebranch LIKE <<Select branch|LBRANCH>> group by items.itemnumber
+
+
+

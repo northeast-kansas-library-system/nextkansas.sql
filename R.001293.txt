@@ -1,0 +1,31 @@
+R.001293
+
+----------
+
+Name: Blank titles
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Fix Bib Records-admin
+
+Created on: 2012-01-14 20:37:51
+Modified on: 2013-06-17 01:07:58
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT biblionumber, title, datecreated, timestamp as 'Updated' from biblio WHERE title IS NULL
+
+
+

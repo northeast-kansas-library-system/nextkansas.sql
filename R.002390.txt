@@ -1,0 +1,31 @@
+R.002390
+
+----------
+
+Name: Patrons addresses
+Created by: SABETHA TECH
+
+----------
+
+Group: Patrons
+     -
+
+Created on: 2014-10-09 10:26:55
+Modified on: 2014-10-09 10:35:05
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT (borrowers.address), borrowers.surname,borrowers.firstname,borrowers.address FROM borrowers   WHERE borrowers.branchcode='SABETHA' AND borrowers.categorycode='ADULT' GROUP BY borrowers.address
+
+
+

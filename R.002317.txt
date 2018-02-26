@@ -1,0 +1,31 @@
+R.002317
+
+----------
+
+Name: Childrens 200s dewey for leavenworth
+Created by: Heather Braum
+
+----------
+
+Group: Library-Specific
+     Leavenworth
+
+Created on: 2014-08-08 13:14:09
+Modified on: 2015-08-16 20:56:06
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT i.itemcallnumber, b.title, b.author, t.publicationyear, (IFNULL(i.issues,0)+IFNULL(i.renewals,0)) as Total_Circ FROM biblio b LEFT JOIN items i USING(biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE i.homebranch='LEAVENWRTH' AND i.location='CHILDRENS' AND (i.itemcallnumber LIKE 'HS J2%' OR i.itemcallnumber LIKE 'J 2%' OR i.itemcallnumber LIKE 'J2%' OR i.itemcallnumber LIKE 'YA 2%')
+
+
+

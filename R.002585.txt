@@ -1,0 +1,34 @@
+R.002585
+
+----------
+
+Name: New Patrons for August for McLOuth
+Created by: Heather Braum
+
+----------
+
+Group: Library-Specific
+     McLouth
+
+Created on: 2015-08-26 16:36:37
+Modified on: 2015-08-26 16:36:37
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT branchcode as "Library",categorycode as "Patron Category",COUNT(*) as "Total Patrons"
+FROM borrowers WHERE month(dateenrolled) = '08' AND year(dateenrolled) = '2015' AND branchcode='MCLOUTH'
+GROUP BY branchcode,categorycode 
+ORDER BY branchcode
+
+
+

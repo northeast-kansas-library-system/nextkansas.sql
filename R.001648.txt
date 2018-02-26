@@ -1,0 +1,31 @@
+R.001648
+
+----------
+
+Name: Messages on Patron Accounts
+Created by: Heather Braum
+
+----------
+
+Group: Patrons
+     -
+
+Created on: 2012-11-20 14:01:00
+Modified on: 2013-09-25 17:19:04
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+#patrons
+
+----------
+
+SELECT borrowers.surname, borrowers.firstname, messages.message_type, messages.message_date, messages.message FROM borrowers JOIN messages USING(borrowernumber) WHERE borrowers.branchcode=<<branch|branches>> AND messages.message IS NOT NULL ORDER BY borrowers.surname
+
+
+

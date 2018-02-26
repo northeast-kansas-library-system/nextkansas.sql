@@ -1,0 +1,43 @@
+R.003001
+
+----------
+
+Name: GHW - duplicates sandbox
+Created by: George H Williams
+
+----------
+
+Group: Administrative Reports
+     Testing
+
+Created on: 2017-09-20 18:32:26
+Modified on: 2017-09-27 10:07:31
+Date last run: 2017-09-27 10:07:34
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+?idx=ti%2Cphr&q=
+
+----------
+
+SELECT
+  Concat('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti%2Cphr&q=',
+  Replace(Replace(Replace(Replace(Replace(Replace(Replace(Trim(biblio.title), " ", "+"), "/", ""), ":", ""), "'", ""), '"', ''), "#", ""), "?", ""), '&sort_by=title_az\" target="_blank">', Replace(Replace(Replace(Replace(Replace(Replace(Replace(Trim(biblio.title), " ", " "), "/", ""), ":", ""), "'", ""), '"', ''), "#", ""), "?", ""), '</a>') AS LINK,
+  Count(biblio.biblionumber) AS Group_Concat_biblionumber
+FROM
+  biblio
+GROUP BY
+  Concat('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=', Replace(Replace(Replace(Replace(Replace(Replace(Replace(Trim(biblio.title), " ", "+"), "/", ""), ":", ""), "'", ""), '"', ''), "#", ""), "?", ""), '&sort_by=title_az\" target="_blank">', Replace(Replace(Replace(Replace(Replace(Replace(Replace(Trim(biblio.title), " ", " "), "/", ""), ":", ""), "'", ""),
+  '"', ''), "#", ""), "?", ""), '</a>')
+HAVING
+  Count(biblio.biblionumber) > 1
+ORDER BY
+  Group_Concat_biblionumber DESC
+
+
+

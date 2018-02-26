@@ -1,0 +1,31 @@
+R.002260
+
+----------
+
+Name: Who has overdues at a library
+Created by: LEAVENWRTH TECH
+
+----------
+
+Group: Circulation
+     Overdues
+
+Created on: 2014-05-14 10:37:50
+Modified on: 2014-06-02 11:38:48
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+See report 1530 for items list. 
+
+----------
+
+SELECT CONCAT ('<a href=\"/cgi-bin/koha/members/moremember.pl?borrowernumber=',borrowers.borrowernumber,'\" target="_blank">',borrowers.surname,'</a>') AS "borrowers.surname", borrowers.firstname, borrowers.phone, borrowers.cardnumber, borrowers.email, borrowers.address, borrowers.address2, borrowers.city, borrowers.zipcode FROM borrowers join issues USING (borrowernumber) WHERE issues.branchcode = <<Pick your branch|branches>> AND borrowers.branchcode=<<branch|branches>> AND (TO_DAYS(curdate())-TO_DAYS(date_due)) > <<number of days overdue>> GROUP BY borrowers.borrowernumber order by borrowers.surname asc, issues.date_due asc
+
+
+

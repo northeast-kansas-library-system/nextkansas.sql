@@ -1,0 +1,42 @@
+R.002727
+
+----------
+
+Name: GHW - AR DISCREPENCIES - PRODUCTION
+Created by: George H Williams
+
+----------
+
+Group: Administrative Reports
+     Testing
+
+Created on: 2016-08-09 15:19:51
+Modified on: 2017-03-22 20:19:29
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT
+  biblio.biblionumber, 
+  Trim(SubString(Replace(Replace(Replace(Replace(biblio.author, "/", ""), ":", ""), ";", ""), ".", "") FROM 1 FOR 50 )) AS AUTHOR,
+  Trim(SubString(Replace(Replace(Replace(Replace(biblio.title, "/", ""), ":", ""), ";", ""), ".", "") FROM 1 FOR 50 )) AS TITLE
+FROM
+  biblio JOIN
+  items
+    ON items.biblionumber = biblio.biblionumber
+GROUP BY
+  biblio.biblionumber
+ORDER BY
+  biblio.biblionumber
+
+
+

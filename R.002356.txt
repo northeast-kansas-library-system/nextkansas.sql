@@ -1,0 +1,31 @@
+R.002356
+
+----------
+
+Name: Empty bib record list
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Post-Lansing
+
+Created on: 2014-09-05 19:55:24
+Modified on: 2016-09-23 15:01:14
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT biblio.biblionumber FROM biblio LEFT JOIN items USING(biblionumber) LEFT JOIN biblioitems USING(biblionumber) WHERE items.itemnumber IS NULL and biblio.datecreated < <<choose date|date>> AND  (biblioitems.itemtype <> 'DIGITAL' OR biblioitems.itemtype IS NULL) ORDER BY biblio.datecreated DESC LIMIT 2000
+
+
+

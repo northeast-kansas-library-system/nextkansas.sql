@@ -1,0 +1,31 @@
+R.001571
+
+----------
+
+Name: Locating Mismatched Records
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Fix Bib Records-admin
+
+Created on: 2012-10-01 22:30:05
+Modified on: 2013-09-25 17:15:12
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+#cleanup
+
+----------
+
+SELECT DIStINCt b.biblionumber, b.title, i.ccode, count(i.itemnumber) FROM biblio b JOIN items i USING(biblionumber) WHERE i.itype='MEDIA' GROUP BY b.biblionumber, i.ccode
+
+
+

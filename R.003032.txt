@@ -1,0 +1,61 @@
+R.003032
+
+----------
+
+Name: SANDBOX - 1830
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2018-01-05 10:34:49
+Modified on: 2018-01-08 11:42:38
+Date last run: 2018-01-08 11:43:09
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT
+  branches.branchcode,
+  stats.YEAR,
+  stats.MONTH,
+  stats.count
+FROM
+  branches
+  LEFT JOIN (SELECT
+        Year(statistics.datetime) AS YEAR,
+        Date_Format(statistics.datetime, "%m") AS MONTH,
+        count(*) AS count,
+        statistics.branch
+      FROM
+        statistics
+      WHERE
+        (statistics.type = 'issue' OR
+          statistics.type = 'renew')
+      GROUP BY
+        Year(statistics.datetime),
+        Date_Format(statistics.datetime, "%m"),
+        statistics.branch) stats ON branches.branchcode = stats.branch
+WHERE
+  branches.branchcode LIKE <<Choose your library|ZBRAN>>
+GROUP BY
+  branches.branchcode,
+  stats.YEAR,
+  stats.MONTH,
+  stats.count
+ORDER BY
+  stats.YEAR DESC,
+  stats.MONTH DESC
+
+
+

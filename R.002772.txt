@@ -1,0 +1,52 @@
+R.002772
+
+----------
+
+Name: GHW - Guarantors with guarantees that owe money
+Created by: George H Williams
+
+----------
+
+Group: Administrative Reports
+     Reports Testing Ground
+
+Created on: 2016-09-13 20:06:28
+Modified on: 2016-09-13 20:37:10
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT
+  Guarantors.cardnumber GUARANTOR_CARDNUMBER,
+  CONCAT_WS(' ',Guarantors.firstname, Guarantors.surname) AS GUARANTOR,
+  CONCAT_WS('<br />',Guarantors.address, (CONCAT_WS(' ',(CONCAT_WS(', ',Guarantors.city, Guarantors.state)),Guarantors.zipcode)), Guarantors.phone,Guarantors.email) AS GUARANTOR_CONTACT,
+  Guarantors.branchcode GUARANTOR_HOMEBRANCH,
+  Guarantees.cardnumber AS GUARANTEE_CARDNUMBER,
+  CONCAT_WS(' ',Guarantees.firstname, Guarantees.surname) AS GUARANTEE,
+  CONCAT_WS('<br />',Guarantees.address, (CONCAT_WS(' ',(CONCAT_WS(', ',Guarantees.city, Guarantees.state)),Guarantees.zipcode)), Guarantees.phone,Guarantees.email) AS GUARANTEE_CONTACT,
+  Guarantees.branchcode AS GUARANTEE_HOMEBRANCH,
+  FORMAT(Sum(accountlines.amountoutstanding),2) AS GUARANTEE_AMOUNT_OUTSTANIDING
+FROM
+  borrowers Guarantors INNER JOIN
+  borrowers Guarantees
+    ON Guarantors.borrowernumber = Guarantees.guarantorid LEFT JOIN
+  accountlines
+    ON accountlines.borrowernumber = Guarantees.borrowernumber
+WHERE
+  Guarantors.branchcode LIKE <<Guarantors home branch|LBRANCH>>
+GROUP BY
+  Guarantors.surname, Guarantors.firstname, Guarantees.firstname, Guarantees.surname
+HAVING
+  Sum(accountlines.amountoutstanding) > <<Guarantee owes more than XX.XX in fees>>
+
+
+

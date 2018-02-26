@@ -1,0 +1,31 @@
+R.001896
+
+----------
+
+Name: List of Patrons, Limited By Category Code
+Created by: Heather Braum
+
+----------
+
+Group: Patrons
+     -
+
+Created on: 2013-06-07 11:36:50
+Modified on: 2013-06-07 11:38:15
+Date last run: 2018-01-15 12:35:42
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Helpful for fixing mislabeled patrons. Choose homebranch and patron category code from dropdowns. 
+
+----------
+
+SELECT CONCAT('<a href=\"/cgi-bin/koha/members/memberentry.pl?op=modify&destination=circ&borrowernumber=',borrowers.borrowernumber,'\" target="_blank">'"edit patron"'</a>') as "edit patron", firstname, surname, city, zipcode FROM borrowers WHERE branchcode=<<Enter patrons library|branches>> AND categorycode = <<patron category|categorycode>> ORDER BY surname
+
+
+

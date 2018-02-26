@@ -1,0 +1,55 @@
+R.002851
+
+----------
+
+Name: GHW - Borrowers with Messages at LEAVENWRTH
+Created by: George H Williams
+
+----------
+
+Group: Library-Specific
+     Leavenworth
+
+Created on: 2016-12-12 14:08:07
+Modified on: 2016-12-12 14:08:34
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<p>Shows patrons at LEAVENWRTH with "messages" on their accounts</p>
+<ul><li>Shows patrons currently in Koha</li>
+<li>Only shows patrons whose messages were added at LEAVENWRTH</li>
+<li>grouped by borrower's cardnumber and message date</li>
+<li>contains links to the patron account</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2851&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
+
+
+----------
+
+SELECT
+  borrowers.cardnumber,
+  CONCAT( '<a href=\"/cgi-bin/koha/circ/circulation.pl?borrowernumber=',messages.borrowernumber ,'\" target="_blank">', messages.borrowernumber, '</a>' ) AS 'LINK',
+  messages.message,
+  messages.message_date
+FROM
+  borrowers JOIN
+  messages
+    ON borrowers.borrowernumber = messages.borrowernumber
+WHERE
+  messages.branchcode = 'LEAVENWRTH'
+GROUP BY
+  borrowers.cardnumber,
+  messages.message
+
+
+

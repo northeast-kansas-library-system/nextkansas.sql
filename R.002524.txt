@@ -1,0 +1,31 @@
+R.002524
+
+----------
+
+Name: Records to fix with pub 2 script in  Marcedit
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Fix Bib Records-admin
+
+Created on: 2015-06-18 11:06:42
+Modified on: 2015-06-18 11:06:42
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT biblionumber FROM biblioitems WHERE (editionresponsibility is NULL OR editionresponsibility NOT LIKE 'edited hb%') AND (itemtype IS NULL OR itemtype <> 'DIGITAL')
+
+
+

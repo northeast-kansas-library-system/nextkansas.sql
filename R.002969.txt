@@ -1,0 +1,55 @@
+R.002969
+
+----------
+
+Name: GHW - Monthly 104
+Created by: George H Williams
+
+----------
+
+Group: Administrative Reports
+     Testing
+
+Created on: 2017-07-01 13:22:33
+Modified on: 2017-07-01 15:18:29
+Date last run: 2018-02-05 20:32:26
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT
+  'Total biblios on last day of last month' AS DESCRIPTION,
+  count(*) AS COUNT
+FROM
+  biblio
+WHERE
+  biblio.datecreated < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1)
+UNION
+SELECT
+  'Biblios added last month' AS DESCRIPTION,
+  Count(*)
+FROM
+  biblio
+WHERE
+  Month(biblio.datecreated) = Month(Now() - INTERVAL 1 MONTH) AND
+  Year(biblio.datecreated) = Year(Now() - INTERVAL 1 MONTH)
+UNION
+SELECT
+  'Biblios deleted last month' AS DESCRIPTION,
+  Count(*)
+FROM
+  deletedbiblio
+WHERE
+  Month(deletedbiblio.timestamp) = Month(Now() - INTERVAL 1 MONTH) AND
+  Year(deletedbiblio.timestamp) = Year(Now() - INTERVAL 1 MONTH)
+
+
+

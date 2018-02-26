@@ -1,0 +1,31 @@
+R.000836
+
+----------
+
+Name: Tonganoxie 'Friends' report
+Created by: TONGANOXIE TECH
+
+----------
+
+Group: Library-Specific
+     Tonganoxie
+
+Created on: 2010-03-26 11:47:53
+Modified on: 2015-12-05 20:45:07
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+search of circ notes looking for friends members 
+
+----------
+
+SELECT sum(borrowers.cardnumber),borrowers.cardnumber,borrowers.borrowernotes FROM borrowers   WHERE borrowers.branchcode='TONGANOXIE' GROUP BY borrowers.cardnumber
+
+
+

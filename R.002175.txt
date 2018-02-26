@@ -1,0 +1,31 @@
+R.002175
+
+----------
+
+Name: Titles of ILLs to Other Libraries in a Specific Month
+Created by: Heather Braum
+
+----------
+
+Group: Interlibrary Loan
+     -
+
+Created on: 2014-01-28 11:55:56
+Modified on: 2014-01-28 11:56:51
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT statistics.branch as Library, biblio.title, biblio.author, items.itemcallnumber, items.itype, items.ccode, items.location, items.homebranch as ItemBranch, statistics.itemtype FROM statistics  LEFT JOIN items USING (itemnumber) LEFT JOIN biblio USING(biblionumber) WHERE items.homebranch != statistics.branch AND items.homebranch = <<branch|branches>> AND statistics.type IN ('issue', 'renew') AND MONTH(statistics.datetime)= <<enter 2-digit month>> and YEAR(statistics.datetime)= <<enter 4-digit year>> ORDER BY statistics.branch, biblio.title
+
+
+

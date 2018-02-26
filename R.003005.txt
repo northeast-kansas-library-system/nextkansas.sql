@@ -1,0 +1,32 @@
+R.003005
+
+----------
+
+Name: Sandbox local holds test
+Created by: George H Williams
+
+----------
+
+Group: Administrative Reports
+     Testing
+
+Created on: 2017-10-06 15:20:22
+Modified on: 2017-12-05 22:07:15
+Date last run: 2017-12-05 22:07:17
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT
+  branchcode from branches
+
+
+

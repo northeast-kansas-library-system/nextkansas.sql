@@ -1,0 +1,147 @@
+R.002868
+
+----------
+
+Name: GHW - YE 9.1b-9.5
+Created by: George H Williams
+
+----------
+
+Group: Daily, Monthly, Yearly Stats
+     Yearly Stats Suite
+
+Created on: 2017-01-01 22:40:38
+Modified on: 2017-01-01 22:40:38
+Date last run: 2018-01-03 15:32:12
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT
+  branches.branchcode AS BRANCH,
+  Coalesce(Count(BOOKS_A.itemnumber), 0) AS '9.1b_BOOKS_A',
+  Coalesce(BOOKS_D.COUNT, 0) AS '9.1c_BOOKS_D',
+  Coalesce(AUDIO_T.COUNT, 0) AS '9.2_ADUTIO_T',
+  Coalesce(VIDEO_T.COUNT, 0) AS '9.3a_VIDEO_T',
+  Coalesce(OTHER_T.COUNT, 0) AS '9.5_OTHER_T'
+FROM
+  branches LEFT JOIN
+  (SELECT
+    items.homebranch,
+    items.itemnumber
+  FROM
+    items
+  WHERE
+    Year(items.dateaccessioned) = Year(Now() - INTERVAL 1 YEAR) AND
+    ((items.itype IN ('book', 'localhold2', 'newbook', 'walkin2')) OR
+      (items.itype = 'localhold' AND
+        items.ccode IN ('easy', 'fiction', 'nonfiction', 'profcoll')) OR
+      (items.itype = 'reference' AND
+        items.ccode NOT IN ('bookoncd', 'bookonmp', 'computer', 'GADGET',
+        'GAMECUBE', 'magazine', 'MAP', 'SOFTWARE', 'vhs', 'dvd', 'misc',
+        'blu-ray')) OR
+      (items.itype = 'walkin' AND
+        items.ccode IN ('biography', 'easy', 'holiday', 'kansas', 'genealogy',
+        'nonfiction', 'profcoll', 'walkin')))
+  GROUP BY
+    items.homebranch, items.itemnumber
+  UNION
+  SELECT
+    deleteditems.homebranch,
+    deleteditems.itemnumber
+  FROM
+    deleteditems
+  WHERE
+    Year(deleteditems.dateaccessioned) = Year(Now() - INTERVAL 1 YEAR) AND
+    ((deleteditems.itype IN ('book', 'localhold2', 'newbook', 'walkin2')) OR
+      (deleteditems.itype = 'localhold' AND
+        deleteditems.ccode IN ('easy', 'fiction', 'nonfiction', 'profcoll')) OR
+      (deleteditems.itype = 'reference' AND
+        deleteditems.ccode NOT IN ('bookoncd', 'bookonmp', 'computer', 'GADGET',
+        'GAMECUBE', 'magazine', 'MAP', 'SOFTWARE', 'vhs', 'dvd', 'misc',
+        'blu-ray')) OR
+      (deleteditems.itype = 'walkin' AND
+        deleteditems.ccode IN ('biography', 'easy', 'holiday', 'kansas',
+        'genealogy', 'nonfiction', 'profcoll', 'walkin')))
+  GROUP BY
+    deleteditems.homebranch, deleteditems.itemnumber) BOOKS_A
+    ON branches.branchcode = BOOKS_A.homebranch LEFT JOIN
+  (SELECT
+    deleteditems.homebranch,
+    count(*) AS COUNT
+  FROM
+    deleteditems
+  WHERE
+    Year(deleteditems.timestamp) = Year(Now() - INTERVAL 1 YEAR) AND
+    ((deleteditems.itype IN ('book', 'localhold2', 'newbook', 'walkin2')) OR
+      (deleteditems.itype = 'localhold' AND
+        deleteditems.ccode IN ('easy', 'fiction', 'nonfiction', 'profcoll')) OR
+      (deleteditems.itype = 'reference' AND
+        deleteditems.ccode NOT IN ('bookoncd', 'bookonmp', 'computer', 'GADGET',
+        'GAMECUBE', 'magazine', 'MAP', 'SOFTWARE', 'vhs', 'dvd', 'misc',
+        'blu-ray')) OR
+      (deleteditems.itype = 'walkin' AND
+        deleteditems.ccode IN ('biography', 'easy', 'holiday', 'kansas',
+        'genealogy', 'nonfiction', 'profcoll', 'walkin')))
+  GROUP BY
+    deleteditems.homebranch) BOOKS_D
+    ON branches.branchcode = BOOKS_D.homebranch LEFT JOIN
+  (SELECT
+    items.homebranch,
+    COUNT(*) AS COUNT
+  FROM
+    items
+  WHERE
+    Year(items.dateaccessioned) < MakeDate(Year(Now()), 1) AND
+    ((items.itype IN ('audiobook', 'newaudio', 'flplayaway')) OR
+      (items.itype = 'book' AND
+        items.ccode IN ('bookoncd', 'bookoncass')) OR
+      ((items.itype IN ('localhold', 'localhold2', 'kits', 'newbook',
+          'reference', 'walkin', 'xxx') AND
+          items.ccode IN ('bookoncd', 'bookoncass', 'bookonmp'))))
+  GROUP BY
+    items.homebranch) AUDIO_T
+    ON branches.branchcode = AUDIO_T.homebranch LEFT JOIN
+  (SELECT
+    items.homebranch,
+    count(*) AS COUNT
+  FROM
+    items
+  WHERE
+    Year(items.dateaccessioned) < MakeDate(Year(Now()), 1) AND
+    ((items.itype IN ('COMPUTER', 'EQUIPMENT', 'GAME', 'ILL', 'KITS',
+        'MICROFORM', 'MIFI', 'MUSIC')) OR
+      (items.itype IN ('LOCALHOLD', 'REFERENCE', 'WALKIN') AND
+        items.ccode IN ('GADGET', 'COMPUTER', 'GAMECUBE', 'MAP', 'MISC',
+        'NINTNDO3DS', 'PS3', 'PUZZLESBDG', 'SOFTWARE', 'WII', 'XBOX360')))
+  GROUP BY
+    items.homebranch) OTHER_T
+    ON branches.branchcode = OTHER_T.homebranch LEFT JOIN
+  (SELECT
+    items.homebranch,
+    count(*) AS COUNT
+  FROM
+    items
+  WHERE
+    Year(items.dateaccessioned) < MakeDate(Year(Now()), 1) AND
+    ((items.itype IN ('media', 'newmedia', 'mediacoll')) OR
+      (items.itype IN ('kits', 'localhold', 'localhold1', 'reference', 'walkin',
+        'walkin1') AND
+        items.ccode IN ('dvd', 'blu-ray', 'vhs', 'tvseries')))
+  GROUP BY
+    items.homebranch) VIDEO_T
+    ON branches.branchcode = VIDEO_T.homebranch
+GROUP BY
+  branches.branchcode
+
+
+
+

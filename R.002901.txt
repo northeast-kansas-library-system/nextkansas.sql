@@ -1,0 +1,53 @@
+R.002901
+
+----------
+
+Name: GHW - Items added by library, location, and collection code in the previous calendar month
+Created by: George H Williams
+
+----------
+
+Group: Daily, Monthly, Yearly Stats
+     Monthly
+
+Created on: 2017-02-07 15:03:15
+Modified on: 2017-02-08 13:41:03
+Date last run: 2018-02-12 12:48:46
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<p>Count of items added by location and item collection code</p>
+<ul><li>counts items added in the previous calendar month</li>
+<li>at the library you specify</li>
+<li>grouped and sorted by item home branch, location, and collection code</li>
+<li>includes total for the month at the bottom of the results</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2901&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
+
+----------
+
+SELECT
+  items.homebranch,
+  items.location,
+  Coalesce(items.ccode, "--") as COLLECTION_CODE,
+  COUNT(*) AS COUNT
+FROM
+  items
+WHERE
+  items.homebranch LIKE <<Choose your branch|LBRANCH>> AND
+  Month(items.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) AND
+  Year(items.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH)
+GROUP BY
+  items.homebranch, items.location, items.ccode WITH ROLLUP
+
+
+

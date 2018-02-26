@@ -1,0 +1,31 @@
+R.002352
+
+----------
+
+Name: More Bad Diacritics
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Fix Bib Records-admin
+
+Created on: 2014-09-03 19:12:05
+Modified on: 2014-09-03 19:12:05
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT author, count(*) fROM biblio where author like '%?%' group by author
+
+
+

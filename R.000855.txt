@@ -1,0 +1,31 @@
+R.000855
+
+----------
+
+Name: Find irregular call numbers
+Created by: NEKLS Administrator
+
+----------
+
+Group: Catalog Records and Items
+     Fix Items
+
+Created on: 2010-04-23 14:09:57
+Modified on: 2015-08-16 16:59:53
+Date last run: 2017-08-24 10:11:57
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Select branch, enter call number prefix, and run
+
+----------
+
+SELECT items.itype,items.itemcallnumber,items.barcode,biblio.title,biblioitems.publicationyear,items.dateaccessioned FROM items LEFT JOIN biblio USING (biblionumber) LEFT JOIN biblioitems USING(biblionumber) WHERE items.homebranch=<<branch|branches>> AND items.itemcallnumber LIKE <<Enter Call Number prefix %>> ORDER BY items.dateaccessioned DESC
+
+
+

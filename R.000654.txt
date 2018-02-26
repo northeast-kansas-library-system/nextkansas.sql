@@ -1,0 +1,31 @@
+R.000654
+
+----------
+
+Name: Atch borrowers in date range
+Created by: NEKLS Administrator
+
+----------
+
+Group: Library-Specific
+     Atchison
+
+Created on: 2009-08-11 10:27:46
+Modified on: 2015-12-05 20:42:27
+Date last run: 2017-06-19 11:08:35
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Borrowers between 0 and 12 years old. Preteenology and Bookworm Buddies
+
+----------
+
+SELECT  surname,firstname, cardnumber,dateofbirth,sort1,address,city,zipcode,phone,email,categorycode FROM borrowers  WHERE borrowers.branchcode='ATCHISON' AND DATE(borrowers.dateofbirth) BETWEEN '1997-0-01' AND '2009-08-01' ORDER BY dateofbirth asc
+
+
+

@@ -1,0 +1,31 @@
+R.001060
+
+----------
+
+Name: Fines Paid Yesterday
+Created by: -
+
+----------
+
+Group: Circulation
+     Charges
+
+Created on: 2011-03-10 15:13:31
+Modified on: 2013-06-21 13:50:15
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+For all libraries, shows Fines Paid yesterday. #fines
+
+----------
+
+SELECT round(Sum(accountlines.amount),2) AS 'Fines Paid', borrowers.cardnumber, borrowers.surname, borrowers.branchcode FROM accountlines LEFT JOIN borrowers USING(borrowernumber) WHERE (accounttype = 'PAY' ) AND date >= DATE_SUB(NOW(),INTERVAL 1 DAY) GROUP BY borrowers.cardnumber
+
+
+

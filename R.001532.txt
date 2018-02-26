@@ -1,0 +1,31 @@
+R.001532
+
+----------
+
+Name: Report of reports
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Reports-admin
+
+Created on: 2012-09-04 14:02:15
+Modified on: 2013-11-18 16:13:24
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Report on all the Reports in the Saved Reports library (used for cleanup)
+
+----------
+
+SELECT id, report_name, notes, date_created, savedsql FROM saved_sql ORDER BY last_run, id ASC
+
+
+

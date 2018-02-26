@@ -1,0 +1,31 @@
+R.001949
+
+----------
+
+Name: Patron report by zipcode that is not what you entered
+Created by: Heather Braum
+
+----------
+
+Group: Patrons
+     -
+
+Created on: 2013-07-18 10:14:03
+Modified on: 2013-07-18 10:16:05
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+This report allows you to limit to your library, to enter a zipcode and then the report provides a list of patrons not in that zipcode.
+
+----------
+
+SELECT firstname, surname, address, city, zipcode, email, phone, categorycode, dateenrolled, dateexpiry FROM borrowers WHERE branchcode=<<branch|branches>> AND zipcode <> <<enter zipcode>> ORDER BY surname
+
+
+

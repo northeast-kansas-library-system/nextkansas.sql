@@ -1,0 +1,33 @@
+R.001106
+
+----------
+
+Name: Items on issue in a zipcode for a specific library
+Created by: -
+
+----------
+
+Group: Circulation
+     -
+
+Created on: 2011-05-23 11:26:29
+Modified on: 2013-06-23 12:28:14
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Enhanced: RUN AS IS. #circ
+
+This report will let you find out what items (and to whom) are checked out for a given library in a given zip code.
+
+----------
+
+select borrowers.firstname, borrowers.surname, borrowers.address, biblio.title, items.barcode, issues.date_due from issues join borrowers USING(borrowernumber) join items using(itemnumber) join biblio using(biblionumber)  where  borrowers.zipcode = <<enter zip code>> and borrowers.branchcode =<<Select your Library|branches>>
+
+
+

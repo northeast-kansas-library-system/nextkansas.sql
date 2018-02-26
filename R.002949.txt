@@ -1,0 +1,52 @@
+R.002949
+
+----------
+
+Name: sandbox 2
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2017-05-22 15:00:24
+Modified on: 2017-12-13 08:45:20
+Date last run: 2017-12-13 08:45:22
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT
+reserve_id,
+borrowernumber,
+cardnumber,
+firstname,
+surname,
+itemnumber,
+biblio.title,
+barcode,
+datediff(CURRENT_DATE, waitingdate) AS 'days waiting',
+expirationdate,
+reserves.branchcode as 'holdingbranch'
+FROM
+reserves
+left join biblio using (biblionumber)
+left join borrowers using (borrowernumber)
+left join items using (itemnumber)
+WHERE
+found = 'w'
+ORDER BY
+holdingbranch,
+waitingdate asc
+
+
+

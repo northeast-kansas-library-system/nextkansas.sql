@@ -1,0 +1,31 @@
+R.001665
+
+----------
+
+Name: Records with Holds (to look for duplicate records)
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Duplicate Records-admin
+
+Created on: 2012-12-03 20:05:09
+Modified on: 2014-09-07 09:11:36
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+select CONCAT('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',biblionumber,'\" target="_blank">',biblio.biblionumber,'</a>'), biblio.title, count(*) as "Number of Holds" from reserves left join biblio USING(biblionumber) GROUP BY reserves.biblionumber ORDER BY biblio.biblionumber DESC LIMIT 7000
+
+
+

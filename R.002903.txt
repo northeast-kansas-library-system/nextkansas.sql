@@ -1,0 +1,52 @@
+R.002903
+
+----------
+
+Name: GHW - Patrons added by home library in the previous calendar month
+Created by: George H Williams
+
+----------
+
+Group: Daily, Monthly, Yearly Stats
+     Monthly
+
+Created on: 2017-02-07 15:20:51
+Modified on: 2017-02-07 15:21:23
+Date last run: 2018-02-16 16:06:02
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<p>Count of patrons added by home library and category code</p>
+<ul><li>Counts patrons added in the previous calendar month</li>
+<li>at the library you specify</li>
+<li>grouped and sorted by home library and category code</li>
+<li>includes total for the month at the bottom of the results</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2903&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
+
+----------
+
+SELECT
+  borrowers.branchcode,
+  borrowers.categorycode,
+  COUNT(*) AS P_ADDED_LM
+FROM
+  borrowers
+WHERE
+  Month(borrowers.dateenrolled) = Month(Now() - INTERVAL 1 MONTH) AND
+  Year(borrowers.dateenrolled) = Year(Now() - INTERVAL 1 MONTH) AND
+  borrowers.branchcode LIKE <<Choose patron home library|LBRANCH>>
+GROUP BY
+  borrowers.branchcode, borrowers.categorycode WITH ROLLUP
+
+
+

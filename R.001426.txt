@@ -1,0 +1,33 @@
+R.001426
+
+----------
+
+Name: Last seen on a specific date or earlier
+Created by: Heather Braum
+
+----------
+
+Group: Catalog Records and Items
+     Weeding Criteria
+
+Created on: 2012-05-15 01:04:35
+Modified on: 2018-01-26 10:26:09
+Date last run: 2018-01-26 10:26:19
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+#weeding
+<p><span style="background-color: yellow;">The results from this report are not accurate</p>
+<p><span style="background-color: darkred; color: white">Everything this report can do can now be done with report 2731, therefore, this report is scheduled for deletion on March 1, 2018.</p>
+
+----------
+
+SELECT CONCAT('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',i.biblionumber,'\" target="_blank">',b.title,'</a>') as "title", b.title, b.author,t.publicationyear, i.itemcallnumber, i.location, i.ccode,i.itype,i.barcode, i.holdingbranch,i.dateaccessioned,i.datelastseen FROM items i LEFT JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE i.homebranch=<<Pick your branch|branches>> AND i.datelastseen<=<<choose latest date|date>> ORDER BY i.datelastseen
+
+
+

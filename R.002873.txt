@@ -1,0 +1,69 @@
+R.002873
+
+----------
+
+Name: GHW - Payments, Credits, and Writeoffs - Last Month
+Created by: George H Williams
+
+----------
+
+Group: Fines/Fees
+     -
+
+Created on: 2017-01-04 11:48:38
+Modified on: 2017-01-04 12:31:58
+Date last run: 2018-01-16 15:34:30
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<p>Reports on fee payment/credit/writeoff activity at a library</p>
+<ul><li>Shows activity in the previous calendar month</li>
+<li>Shows all fees collected/processed at a specified library</li>
+<li>grouped by accountlines_id</li>
+<li>sorted by payment locttion, payment type, payment timestamp</li>
+<li>links</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2873&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
+
+----------
+
+SELECT
+  staff.branchcode AS PAYMENT_BRANCH,
+  accountlines.timestamp,
+  staff.cardnumber AS STAFF_LOGIN,
+  Format(accountlines.amount, 2) AS AMOUNT,
+  patrons.cardnumber AS PATRON,
+  If(accountlines.accounttype = "Pay", "Payment", If(accountlines.accounttype = "C", "Credit", If(accountlines.accounttype = "W", "Writeoff", "-"))) AS PAYMENT_TYPE,
+  Trim(Replace(accountlines.note, '\r\n', ' ')) AS NOTE
+FROM
+  accountlines LEFT JOIN
+  borrowers staff
+    ON staff.borrowernumber = accountlines.manager_id LEFT JOIN
+  borrowers patrons
+    ON accountlines.borrowernumber = patrons.borrowernumber
+WHERE
+  (accountlines.accounttype = "Pay" OR
+    accountlines.accounttype = "C" OR
+    accountlines.accounttype = "W") AND
+  Year(accountlines.timestamp) = Year(Now() - INTERVAL 1 MONTH) AND
+  Month(accountlines.timestamp) = Month(Now() - INTERVAL 1 MONTH) AND
+  staff.branchcode LIKE <<Choose branch|ZBRAN>> AND
+  accountlines.accounttype LIKE <<Payment type|ZPAYTYPE>>
+GROUP BY
+  accountlines.accountlines_id
+ORDER BY
+  staff.branchcode,
+  PAYMENT_TYPE,
+  accountlines.timestamp
+
+
+

@@ -1,0 +1,32 @@
+R.000881
+
+----------
+
+Name: Baserhor circ - Tom
+Created by: BASEHOR TECH
+
+----------
+
+Group: Library-Specific
+     -
+
+Created on: 2010-06-24 15:56:58
+Modified on: 2013-06-17 01:07:12
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+simplified circ report
+
+----------
+
+SELECT count(*) FROM statistics LEFT JOIN items USING(itemnumber) WHERE statistics.type IN ('issue', 'renew') AND datetime >=concat(date_format((now() - interval 1 month),'%Y-%m-'),'01') AND datetime <=LAST_DAY(now() - interval 1 month) AND statistics.branch = <<branch|branches>> AND (items.itemcallnumber LIKE 
+'Y%' OR items.itemcallnumber LIKE 'CDY%' OR items.itemcallnumber LIKE 'LP Y%') 
+
+
+

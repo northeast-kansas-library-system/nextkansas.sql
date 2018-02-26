@@ -1,0 +1,31 @@
+R.003038
+
+----------
+
+Name: current cir
+Created by: PHSHS TECH
+
+----------
+
+Group: Circulation
+     Checked Out
+
+Created on: 2018-01-16 15:23:20
+Modified on: 2018-01-16 15:23:20
+Date last run: 2018-01-16 15:23:25
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT  items.issues FROM borrowers LEFT JOIN statistics on (statistics.borrowernumber=borrowers.borrowernumber) LEFT JOIN items on (items.itemnumber = statistics.itemnumber) LEFT JOIN biblioitems on (biblioitems.biblioitemnumber = items.biblioitemnumber)  
+
+
+

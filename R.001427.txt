@@ -1,0 +1,31 @@
+R.001427
+
+----------
+
+Name: Osawatomie Childrens Mixed Up
+Created by: OSAWATOMIE TECH
+
+----------
+
+Group: Library-Specific
+     -
+
+Created on: 2012-05-17 13:40:52
+Modified on: 2014-01-15 13:58:54
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+For Osawatomie's Childrens Cleanup #special
+
+----------
+
+SELECT b.title, b.author, i.ccode, i.itemcallnumber, i.location, CONCAT('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=',b.biblionumber,'&itemnumber=',i.itemnumber,'#edititem\" target="_blank">'"edit item"'</a>') as "edit item" from biblio b JOIN items i USING (biblionumber) WHERE i.homebranch='OSAWATOMIE' AND i.location=<<Choose location|LOC>> AND i.ccode=<<Choose CCode|CCODE>> AND i.itemcallnumber LIKE <<enter call number prefix to search on (will need %)>> ORDER BY i.itemcallnumber
+
+
+

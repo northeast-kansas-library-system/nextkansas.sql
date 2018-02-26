@@ -1,0 +1,31 @@
+R.001478
+
+----------
+
+Name: Tonganoxie Overdues
+Created by: TONGANOXIE DIRECTOR
+
+----------
+
+Group: Library-Specific
+     -
+
+Created on: 2012-07-19 12:42:39
+Modified on: 2013-06-17 01:40:03
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+60 days
+
+----------
+
+SELECT borrowers.surname, borrowers.firstname, borrowers.phone, borrowers.cardnumber, borrowers.email, borrowers.address, borrowers.city, borrowers.zipcode, issues.date_due, (TO_DAYS(curdate())-TO_DAYS( date_due)) as 'days overdue', items.itype, items.itemcallnumber, items.barcode, items.homebranch, biblio.title, biblio.author FROM borrowers left join issues on (borrowers.borrowernumber=issues.borrowernumber) left join items on (issues.itemnumber=items.itemnumber) LEFT JOIN biblio on (items.biblionumber=biblio.biblionumber) WHERE (TO_DAYS(curdate())-TO_DAYS(date_due)) > '60' and issues.branchcode = 'tonganoxie' order by borrowers.surname asc, issues.date_due asc
+
+
+

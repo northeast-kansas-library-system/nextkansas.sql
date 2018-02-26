@@ -1,0 +1,31 @@
+R.000684
+
+----------
+
+Name: Current Items on Hold that aren't at your library
+Created by: NEKLS Administrator
+
+----------
+
+Group: Acquisitions
+     Collection Development
+
+Created on: 2009-09-28 13:12:52
+Modified on: 2013-06-17 15:24:29
+Date last run: 2018-01-25 14:27:03
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+See holds by your patrons that are being filled OUTSIDE of your owned collection. A Collection Development Report tool. Enhanced.
+
+----------
+
+SELECT biblio.title, items.itemcallnumber, items.ccode, items.holdingbranch, items.homebranch, items.barcode, issues.issuedate FROM issues LEFT JOIN items USING (itemnumber) LEFT JOIN biblio USING (biblionumber) WHERE issues.branchcode=<<Pick your branch|branches>> and items.holdingbranch !=  items.homebranch ORDER BY items.itemcallnumber, issues.issuedate, biblio.title
+
+
+

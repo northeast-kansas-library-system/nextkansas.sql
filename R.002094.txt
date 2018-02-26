@@ -1,0 +1,31 @@
+R.002094
+
+----------
+
+Name: Publisher Cleanup
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Fix Bib Records-admin
+
+Created on: 2013-11-13 10:53:55
+Modified on: 2013-11-13 12:16:35
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+select CONCAT('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=au&q=',b.author,'&sort_by=title_az\" target="_blank">',b.author,'</a>') AS "Author Search" from biblio b join items i using (biblionumber) left join biblioitems t using (biblionumber) WHERE t.publishercode LIKE <<publisher>> group by b.author order by b.author
+
+
+

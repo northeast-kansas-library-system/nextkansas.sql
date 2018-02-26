@@ -1,0 +1,31 @@
+R.001428
+
+----------
+
+Name: Null ISBN
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Fix Bib Records-admin
+
+Created on: 2012-05-18 01:47:57
+Modified on: 2013-06-17 01:39:06
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+select DISTINCT b.biblionumber, CONCAT('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=',b.title,'&sort_by=title_az\" target="_blank">',b.title,'</a>') AS "Title Search", t.pages, t.size from biblio b JOIN biblioitems t USING (biblionumber) JOIN items i USING (biblionumber) WHERE t.isbn IS NULL and i.homebranch=<<branch|branches>> and t.pages IS NOT NULL and i.ccode NOT IN ('MUSIC','DVD','VHS') group by b.biblionumber ORDER by t.pages, b.title
+
+
+

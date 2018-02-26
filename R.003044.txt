@@ -1,0 +1,36 @@
+R.003044
+
+----------
+
+Name: action logs dump
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2018-01-23 07:35:13
+Modified on: 2018-01-23 07:35:47
+Date last run: 2018-01-23 07:35:49
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT *
+FROM action_logs
+ORDER BY 
+  action_id
+DESC
+LIMIT 2500
+
+
+

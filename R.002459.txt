@@ -1,0 +1,57 @@
+R.002459
+
+----------
+
+Name: Which accounts have which staff permissions?
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     System-admin
+
+Created on: 2015-02-10 14:41:41
+Modified on: 2016-06-10 12:03:14
+Date last run: 2017-10-20 17:01:31
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+From VOKAL/CIN.
+
+----------
+
+SELECT CONCAT('<a href=\"/cgi-bin/koha/members/member-flags.pl?member=',b.borrowernumber,'\" target="_blank">'"edit permissions"'</a>') as "edit permissions", surname,firstname,cardnumber, categorycode, branchcode,
+IF(flags MOD 2,'Set','') AS SuperLib,
+IF(MOD(flags DIV 2,2),'All parameters',GROUP_CONCAT(IF(u_p.module_bit=1,p.code,'') SEPARATOR ' ' ) ) AS "CircPermissions",
+IF(MOD(flags DIV 4,2),'Set','') AS 'View staff interface',
+IF(MOD(flags DIV 8,2),"All parameters" ,GROUP_CONCAT(IF(u_p.module_bit=3,p.code,'') SEPARATOR ' ' )  ) AS ManParams,
+IF(MOD(flags DIV 16,2),'Set','') AS 'Add/modify patrons',
+IF(MOD(flags DIV 32,2),'Set','') AS 'Modify permissions',
+IF(MOD(flags DIV 64,2),"All parameters" ,GROUP_CONCAT(IF(u_p.module_bit=6,p.code,'') SEPARATOR ' ' )  ) AS ReservePermissions,
+IF(MOD(flags DIV 128,2),'Set','') AS BorrowBooks,
+IF(MOD(flags DIV 512,2),"All parameters" ,GROUP_CONCAT(IF(u_p.module_bit=9,p.code,'') SEPARATOR ' ' )  ) AS EditCatalogue,
+IF(MOD(flags DIV 1024,2),"All parameters" ,GROUP_CONCAT(IF(u_p.module_bit=10,p.code,'') SEPARATOR ' ' )  ) AS UpdateCharges,
+IF(MOD(flags DIV 2048,2),"All parameters" ,GROUP_CONCAT(IF(u_p.module_bit=11,p.code,'') SEPARATOR ' ' )  ) AS Acquisition,
+IF(MOD(flags DIV 4096,2),'Set','') AS Management,
+IF(MOD(flags DIV 8192,2),"All parameters" ,GROUP_CONCAT(IF(u_p.module_bit=13,p.code,'') SEPARATOR ' ' )  ) AS Tools,
+IF(MOD(flags DIV 16384,2),'Set','') AS EditAuthories,
+IF(MOD(flags DIV 32768,2),"All parameters" ,GROUP_CONCAT(IF(u_p.module_bit=15,p.code,'') SEPARATOR ' ' )  ) AS Series,
+IF(MOD(flags DIV 65536,2),"All parameters" ,GROUP_CONCAT(IF(u_p.module_bit=16,p.code,'') SEPARATOR ' ' )  ) AS Reports,
+IF(MOD(flags DIV 131072,2),'Set','') AS StaffAccess,
+IF(MOD(flags DIV 262144,2),"All parameters" ,GROUP_CONCAT(IF(u_p.module_bit=18,p.code,'') SEPARATOR ' ' )  ) AS CourseReserves,
+IF(MOD(flags DIV 524288,2),"All parameters" ,GROUP_CONCAT(IF(u_p.module_bit=19,p.code,'') SEPARATOR ' ' )  ) AS Plugins
+FROM borrowers b
+LEFT JOIN user_permissions  u_p ON b.borrowernumber=u_p.borrowernumber
+LEFT JOIN permissions p ON u_p.code=p.code
+WHERE flags>0  OR u_p.module_bit>0
+GROUP BY b.borrowernumber
+ORDER BY SuperLib DESC, surname ASC, categorycode ASC,branchcode ASC,firstname ASC
+LIMIT 200
+
+
+

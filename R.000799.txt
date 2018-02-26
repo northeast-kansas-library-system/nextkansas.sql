@@ -1,0 +1,31 @@
+R.000799
+
+----------
+
+Name: Titles of ILLs for Prior Month
+Created by: NEKLS Administrator
+
+----------
+
+Group: Acquisitions
+     Collection Development
+
+Created on: 2010-01-26 14:52:22
+Modified on: 2013-06-18 09:41:59
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Enhanced - Pick your Branch, run and get a list of items checked out at your branch that belonged to another library.  Useful for Collection DEVELOPMENT.   
+
+----------
+
+SELECT statistics.branch as Library, biblio.title, biblio.author, items.itemcallnumber, items.itype, items.ccode, items.location, items.homebranch as ItemBranch, statistics.itemtype FROM statistics  LEFT JOIN items USING (itemnumber) LEFT JOIN biblio USING(biblionumber) WHERE statistics.branch != items.homebranch AND statistics.type IN ('issue', 'renew') AND MONTH(statistics.datetime)= <<Month>> and YEAR(statistics.datetime)=<<Year>> and statistics.branch = <<Pick your branch|branches>> ORDER BY statistics.branch, biblio.title
+
+
+

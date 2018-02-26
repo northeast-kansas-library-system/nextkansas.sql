@@ -1,0 +1,31 @@
+R.000957
+
+----------
+
+Name: Rossville $ item report 
+Created by: NEKLS Administrator
+
+----------
+
+Group: Library-Specific
+     -
+
+Created on: 2010-10-11 15:22:59
+Modified on: 2013-06-17 01:40:38
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+mc 10/11/10
+
+----------
+
+SELECT items.barcode, items.replacementprice,items.homebranch,items.issues,items.itype,biblio.title,biblio.author FROM items JOIN biblio USING(biblionumber )WHERE  items.homebranch='ROSSVILLE' 
+
+
+

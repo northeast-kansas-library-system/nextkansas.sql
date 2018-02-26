@@ -1,0 +1,31 @@
+R.001694
+
+----------
+
+Name: Cataloging spot check (record level)
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Fix Bib Records-admin
+
+Created on: 2013-01-04 04:17:29
+Modified on: 2015-08-16 20:13:46
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+select b.biblionumber, CONCAT('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=',b.title,'&sort_by=title_az\" target="_blank">',b.title,'</a>') AS "Title Search", b.title, CONCAT('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=au&q=',b.author,'&sort_by=title_az\" target="_blank">',b.author,'</a>') AS "Author Search", b.author,t.illus,  t.publishercode, t.place, t.publicationyear, t.pages, t.size, t.isbn, i.itemcallnumber, i.ccode, i.itype, i.location from biblio b join items i using (biblionumber) join biblioitems t using (biblionumber) where i.homebranch=<<branch|branches>> AND t.pages IS NULL ORDER BY i.ccode, b.author ASC, b.biblionumber DESC LIMIT 20000
+
+
+

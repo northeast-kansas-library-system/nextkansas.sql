@@ -1,0 +1,38 @@
+R.001618
+
+----------
+
+Name: ILL Patrons #2
+Created by: Heather Braum
+
+----------
+
+Group: Patrons
+     -
+
+Created on: 2012-10-31 11:30:07
+Modified on: 2013-09-25 16:41:32
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+#patrons
+
+----------
+
+SELECT p.surname, p.firstname, p.cardnumber, p.dateexpiry, p.dateenrolled, p.branchcode, p.address, p.city, p.phone, p.email, p.borrowernotes,m.message,a.amountoutstanding
+FROM borrowers p
+LEFT JOIN accountlines a USING(borrowernumber) 
+LEFT JOIN messages m USING(borrowernumber) 
+WHERE borrowernumber IN (SELECT borrowernumber FROM issues) AND
+(a.amountoutstanding !='0.00' OR a.amountoutstanding IS NOT
+NULL) AND p.categorycode= <<Patron Category|categorycode>> 
+GROUP BY p.borrowernumber
+
+
+

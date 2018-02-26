@@ -1,0 +1,31 @@
+R.000886
+
+----------
+
+Name: Videogames Circ List
+Created by: NEKLS Administrator
+
+----------
+
+Group: Circulation
+     Circ Stats
+
+Created on: 2010-07-06 15:55:30
+Modified on: 2013-06-18 10:46:03
+Date last run: 2017-11-11 22:13:05
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+VIdeogames by type, owning branch. Displays number of issues (checkouts) per item.  mc 7/6/10
+
+----------
+
+SELECT items.homebranch,items.itemcallnumber,items.itemnotes,items.issues,biblio.title,items.location FROM items JOIN biblio USING(biblionumber) WHERE items.itype='GAME' GROUP BY biblio.title,items.location,items.itype ORDER BY biblio.title asc
+
+
+

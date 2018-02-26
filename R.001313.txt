@@ -1,0 +1,31 @@
+R.001313
+
+----------
+
+Name: OD Rep Price by Date Range
+Created by: LEAVENWRTH TECH
+
+----------
+
+Group: Circulation
+     Overdues
+
+Created on: 2012-02-07 11:27:16
+Modified on: 2013-09-21 16:00:50
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+#overdues
+
+----------
+
+SELECT concat(borrowers.surname,', ',borrowers.firstname) as fullnamekey, borrowers.surname, borrowers.firstname, items.replacementprice, borrowers.cardnumber, borrowers.branchcode, borrowers.email, borrowers.phone, borrowers.address, borrowers.city, borrowers.zipcode, issues.date_due, (TO_DAYS(curdate())-TO_DAYS( date_due)) as 'days overdue', items.itype, items.itemcallnumber, items.barcode, items.homebranch, biblio.title, biblio.author FROM borrowers left join issues USING (borrowernumber) LEFT JOIN items USING (itemnumber) LEFT JOIN biblio USING (biblionumber) WHERE issues.date_due BETWEEN <<Start Date (example: 2010-01-01) >> AND <<End Date (example: 2011-01-01 >> AND  (TO_DAYS(curdate())-TO_DAYS( date_due)) > <<Enter Number of Days Overdue>> AND issues.branchcode <> <<Pick your branch|branches>> and items.homebranch = <<Pick your branch|branches>>  ORDER BY borrowers.surname asc, issues.date_due asc
+
+
+

@@ -1,0 +1,31 @@
+R.001509
+
+----------
+
+Name: Shelf List Searches
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Duplicate Records-admin
+
+Created on: 2012-08-13 20:35:05
+Modified on: 2015-08-16 20:11:44
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+select DISTINCT CONCAT ('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',b.biblionumber,'\" target="_blank">'"download record"'</a>') AS "Access Record", b.title, b.author, ExtractValue(t.marcxml, '//datafield[@tag="020"]/subfield[@code>="a"]') as isbna, t.pages, t.publishercode, t.publicationyear, CONCAT('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=',b.title,'&sort_by=title_az\">',b.title,'</a>') AS "Title Search" from biblio b join biblioitems t using (biblionumber) join items i using (biblionumber) WHERE i.homebranch=<<branch|branches>> and i.ccode=<<ccode|CCODE>> ORDER BY t.publishercode
+
+
+

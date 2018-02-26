@@ -1,0 +1,32 @@
+R.002304
+
+----------
+
+Name: Super weeder for Valley Falls
+Created by: Heather Braum
+
+----------
+
+Group: Library-Specific
+     Valley Falls
+
+Created on: 2014-07-29 14:16:48
+Modified on: 2018-01-26 10:17:16
+Date last run: 2018-01-26 10:03:15
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+super weeeder on entire collection for valley falls
+<p><span style="background-color: darkred; color: white">Everything this report can do can now be done with report 2731, therefore, this report is scheduled for deletion on March 1, 2018.</p>
+
+----------
+
+SELECT CONCAT('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',b.biblionumber,'\" target="_blank">',b.biblionumber,'</a>') AS "bib number", i.holdingbranch, i.barcode as 'Barcode', i.itemcallnumber, b.title, t.publicationyear as 'Copyright',i.dateaccessioned as 'Accessioned', i.itype, i.ccode, i.issues, i.renewals, (IFNULL(i.issues,0)+IFNULL(i.renewals,0)) as Total_Circ, i.datelastborrowed, i.itemlost, i.onloan, i.damaged,i.itemnotes FROM items i LEFT JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE  i.homebranch='valleyfall' AND  i.itype NOT IN ('MEDIA','AUDIOBOOK') ORDER BY i.itemcallnumber
+
+
+

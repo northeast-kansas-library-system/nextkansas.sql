@@ -1,0 +1,31 @@
+R.001767
+
+----------
+
+Name: Tonganoxie Patrons
+Created by: TONGANOXIE DIRECTOR
+
+----------
+
+Group: Library-Specific
+     -
+
+Created on: 2013-03-01 12:37:25
+Modified on: 2013-09-25 17:26:07
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+#patron
+
+----------
+
+SELECT  borrowers.cardnumber,borrowers.firstname,borrowers.surname,borrowers.dateexpiry,borrowers.debarred,borrowers.flags FROM borrowers   WHERE borrowers.branchcode='TONGANOXIE'
+
+
+

@@ -1,0 +1,32 @@
+R.002753
+
+----------
+
+Name: Paola empty isbn field records
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Post-Lansing
+
+Created on: 2016-08-31 23:38:12
+Modified on: 2016-09-18 20:44:09
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT GROUP_CONCAT(DISTINCT i.ccode SEPARATOR ', ') as ccodes, b.biblionumber, CONCAT('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',b.biblionumber,'\" target="_blank">',b.biblionumber,'</a>') as "record link", b.title, b.author, ExtractValue(t.marcxml, '//datafield[@tag="020"]/subfield[@code="a"]') as isbna, CONCAT('<a href=\"/cgi-bin/koha/catalogue/search.pl?q=',ExtractValue(t.marcxml, '//datafield[@tag="024"]/subfield[@code="a"]'),'\" target="_blank">',ExtractValue(t.marcxml, '//datafield[@tag="024"]/subfield[@code="a"]'),'</a>') as upc, t.pages, t.size, CONCAT('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=',b.title,'&sort_by=title_az\" target="_blank">',b.title,'</a>') AS "Title Search", CONCAT('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=au&q=',(REPLACE(REPLACE(b.author, ',', ''), '.', '')),'&sort_by=title_az\" target="_blank">',b.author,'</a>') AS "Author Search" from items i left join biblio b using (biblionumber) left join biblioitems t using (biblionumber) 
+WHERE b.biblionumber BETWEEN '745658 ' AND '756704' AND i.homebranch NOT IN ('ATCHISON','BALDWIN','BASEHOR','BERN','BONNERSPGS','BURLINGAME','CARBONDALE','CENTRALIA','CORNING','DONIELWD','DONIHIGH','DONITROY','DONIWATH','EFFINGHAM','EUDORA','EVEREST','HIAWATHA','HOLTON','HORTON','LEAVENWRTH','LINWOOD','LYNDON','MCLOUTH','MERIDEN','NEKLS','NORTONVLLE','OSAGECITY','OSAWATOMIE','OSKALOOSA','OTTAWA','OVERBROOK','PERRY','PHAXTELL','PHSES','PHSHS','PHSMS','PHWAC','POMONA','RICHMOND','ROSSVILLE','SABETHA','SENECA','SILVERLAKE','SLK','TONGANOXIE','VALLEYFALL','WELLSVILLE','WETMORE','WILLIAMSBG','WINCHESTER','lansing') AND b.timestamp < '2016-08-28' AND b.datecreated='2016-08-26' AND ccode NOT IN ('COMPUTER','GADGET','MISC','MAGAZINE','dvd','music','blu-ray','tv-series') GROUP BY b.biblionumber ORDER BY b.author, ccodes, b.title
+
+
+

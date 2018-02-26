@@ -1,0 +1,32 @@
+R.000721
+
+----------
+
+Name: Horton Local Computer Use
+Created by: NEKLS Administrator
+
+----------
+
+Group: Library-Specific
+     -
+
+Created on: 2009-11-24 15:37:41
+Modified on: 2013-06-18 09:35:40
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Local use (circulation count) of computers for Child and Adult at Horton Public Library
+
+----------
+
+select branch, count(*) from statistics where type ='localuse' and borrowernumber in (93448, 93449) group by branch
+
+
+
+

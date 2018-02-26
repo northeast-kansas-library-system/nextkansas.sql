@@ -1,0 +1,31 @@
+R.002625
+
+----------
+
+Name: Items In Transit since 9/1/15, not received
+Created by: Heather Braum
+
+----------
+
+Group: Interlibrary Loan
+     -
+
+Created on: 2015-10-23 13:27:59
+Modified on: 2015-10-23 13:30:30
+Date last run: 2017-09-07 15:03:01
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+This report returns items that are in transit to or from your library between 9/1/15 and 10/9/15; please check your shelves for these items, to make sure all items identified from the courier accident are accurate. If you find one of these items on your shelves, please check it in
+
+----------
+
+SELECT branchtransfers.datesent as "date into transit", biblio.title, biblio.author, items.itemcallnumber, items.ccode, items.barcode, items.homebranch as "owning library", branchtransfers.frombranch as "branch sending", branchtransfers.tobranch AS "branch receiving" FROM branchtransfers LEFT JOIN items USING(itemnumber) LEFT JOIN biblio USING(biblionumber) WHERE datearrived IS NULL and (frombranch=<<choose library|branches>> OR tobranch=<<choose library|branches>>) AND date(datesent) > '2015-09-01' AND date(datesent) < '2015-10-02' ORDER BY itemcallnumber
+
+
+

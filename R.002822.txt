@@ -1,0 +1,94 @@
+R.002822
+
+----------
+
+Name: GHW - MIT test
+Created by: George H Williams
+
+----------
+
+Group: Administrative Reports
+     Testing
+
+Created on: 2016-11-11 14:12:02
+Modified on: 2017-09-11 13:46:21
+Date last run: 2017-10-24 08:23:26
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+<p><span style="background-color: darkred; color: white">Needs metadata conversion post 17.05</p>
+
+----------
+
+SELECT
+  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">', biblio.biblionumber, '</a>') AS LINK_TO_TITLE,
+  CONCAT_WS('<br />',
+  CONCAT('This item has been in transit for more than 7 days.<br /><br />Call number:  ',CONCAT_WS(' / ',items.location, items.itype, authorised_values.lib, items.itemcallnumber)),
+  CONCAT('Author:  ',biblio.author),
+  CONCAT('Title:  ',Concat_Ws(' ', biblio.title, ExtractValue(biblioitems.marcxml,'//datafield[@tag="245"]/subfield[@code="b"]'),ExtractValue(biblioitems.marcxml,'//datafield[@tag="245"]/subfield[@code="p"]'),ExtractValue(biblioitems.marcxml,'//datafield[@tag="245"]/subfield[@code="n"]'))),
+  CONCAT('<br />Owned by:  ',items.homebranch),
+  CONCAT('Item barcode:  ',items.barcode),
+  CONCAT('<br />Shipped from:  ', branchtransfers.frombranch),
+  CONCAT('Shipped from:  ', branchtransfers.tobranch),
+  CONCAT('Shipped on: ', branchtransfers.datesent),
+  CONCAT('<br />NExpress URL:  https://staff.nexpresslibrary.org/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber)
+  ) AS CUT
+FROM
+  items JOIN
+  biblio
+    ON items.biblionumber = biblio.biblionumber INNER JOIN
+  biblioitems
+    ON biblioitems.biblionumber = biblio.biblionumber AND
+    items.biblioitemnumber = biblioitems.biblioitemnumber LEFT JOIN
+  authorised_values
+    ON items.ccode = authorised_values.authorised_value INNER JOIN
+  branchtransfers
+    ON branchtransfers.itemnumber = items.itemnumber
+WHERE
+  (authorised_values.category = 'CCODE' AND
+  items.itemnumber IN (SELECT
+    branchtransfers.itemnumber
+  FROM
+    branchtransfers
+  WHERE
+    branchtransfers.datearrived IS NULL AND
+    branchtransfers.datesent < Now() - INTERVAL 7 DAY) AND
+  branchtransfers.datearrived IS NULL AND
+  items.homebranch =@brn:=<<Enter your branch|branches>> COLLATE utf8_unicode_ci) OR
+  (authorised_values.category = 'CCODE' AND
+  items.itemnumber IN (SELECT
+    branchtransfers.itemnumber
+  FROM
+    branchtransfers
+  WHERE
+    branchtransfers.datearrived IS NULL AND
+    branchtransfers.datesent < Now() - INTERVAL 7 DAY) AND
+  branchtransfers.datearrived IS NULL AND
+  branchtransfers.frombranch =@brn) OR
+  (authorised_values.category = 'CCODE' AND
+  items.itemnumber IN (SELECT
+    branchtransfers.itemnumber
+  FROM
+    branchtransfers
+  WHERE
+    branchtransfers.datearrived IS NULL AND
+    branchtransfers.datesent < Now() - INTERVAL 7 DAY) AND
+  branchtransfers.datearrived IS NULL AND
+  branchtransfers.tobranch =@brn)
+GROUP BY
+  items.itemnumber
+ORDER BY
+  items.homebranch,
+  items.location,
+  items.itype,
+  CCODE,
+  items.itemcallnumber
+
+
+

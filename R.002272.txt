@@ -1,0 +1,31 @@
+R.002272
+
+----------
+
+Name: Osawatomie backup patron data
+Created by: Heather Braum
+
+----------
+
+Group: Library-Specific
+     Osawatomie
+
+Created on: 2014-06-05 09:15:38
+Modified on: 2014-06-05 09:15:38
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT borrowernumber, cardnumber, firstname, surname, address, city, state, zipcode, phone, contactnote FROM borrowers WHERE branchcode='OSAWATOMIE' AND contactnote <> ''
+
+
+

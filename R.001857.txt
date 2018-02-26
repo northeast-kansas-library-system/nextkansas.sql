@@ -1,0 +1,31 @@
+R.001857
+
+----------
+
+Name: simple local use stats report
+Created by: Heather Braum
+
+----------
+
+Group: Catalog Records and Items
+     -
+
+Created on: 2013-05-20 12:24:53
+Modified on: 2013-05-20 12:24:53
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT * from statistics WHERE borrowernumber='160966' AND type = 'localuse' LIMIT 2000
+
+
+

@@ -1,0 +1,31 @@
+R.002025
+
+----------
+
+Name: Horton media
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Fix Bib Records-admin
+
+Created on: 2013-09-02 20:59:55
+Modified on: 2013-09-20 15:35:14
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT CONCAT ('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',b.biblionumber,'\" target="_blank">'"link to record"'</a>') AS "Linked Record", t.pages, b.biblionumber, i.itype, i.ccode, CONCAT('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=',b.title,'&sort_by=title_az\" target="_blank">',b.title,'</a>') AS "Title Search", CONCAT('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=au&q=',b.author,'&sort_by=title_az\" target="_blank">',b.author,'</a>') AS "Author Search"  FROM biblio b JOIN items i USING(biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE i.homebranch='HORTON' AND i.itype IN ('MEDIA','MEDIACOLL','MUSIC') ORDER BY i.itype, i.ccode, t.pages, t.illus, t.size LIMIT 30000
+
+
+

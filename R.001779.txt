@@ -1,0 +1,31 @@
+R.001779
+
+----------
+
+Name: Search by Publisher Code
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Duplicate Records-admin
+
+Created on: 2013-03-30 11:40:31
+Modified on: 2013-06-24 22:03:22
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+select CONCAT ('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',b.biblionumber,'\" target="_blank">'"link to record"'</a>') AS "Linked Record", b.title, b.author, count(i.itemnumber), CONCAT ('<a href=\"/cgi-bin/koha/reports/guided_reports.pl?phase=Run+this+report&reports=1368&sql_params=%25',b.author,'%25\" target="_blank">',b.author,'</a>') AS "Report of Author", CONCAT('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=',b.title,'&sort_by=title_az\">',b.title,'</a>') AS "Title Search" from biblio b join items i using (biblionumber) left join biblioitems t using (biblionumber) WHERE t.publishercode LIKE <<publishercode>> group by b.biblionumber HAVING count(i.itemnumber) > 0 order by b.title, b.author LIMIT 1000
+
+
+

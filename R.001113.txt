@@ -1,0 +1,31 @@
+R.001113
+
+----------
+
+Name: Yearly ILL Loans
+Created by: -
+
+----------
+
+Group: Administrative Reports
+     Daily, Monthly, Yearly Stats-admin
+
+Created on: 2011-06-03 12:06:19
+Modified on: 2015-08-21 10:53:08
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Add 4-digit Year.  Year End Report.
+
+----------
+
+SELECT items.homebranch, COUNT(*) FROM branchtransfers LEFT JOIN items USING (itemnumber) WHERE (items.homebranch != branchtransfers.tobranch) AND (branchtransfers.frombranch != branchtransfers.tobranch) AND YEAR(branchtransfers.datesent) = <<YEAR>> GROUP BY items.homebranch with rollup
+
+
+

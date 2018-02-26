@@ -1,0 +1,31 @@
+R.001574
+
+----------
+
+Name: Multiple Items Shelf List
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Fix Items-admin
+
+Created on: 2012-10-02 11:52:55
+Modified on: 2015-08-16 20:21:47
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+#cleanup Use this with Report 1573 to develop a multiple items list. Replace the bib numbers with the bibnumbers returned in 1573, select library, and run. 
+
+----------
+
+SELECT i.barcode, i.itemcallnumber, i.ccode, i.location, b.title, b.author, t.publicationyear FROM biblio b LEFT JOIN items i USING(biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE i.biblionumber IN (SELECT biblionumber FROM items WHERE homebranch=<<branch|branches>> AND ccode=<<ccode|CCODE>> GROUP BY biblionumber HAVING count(itemnumber) > 1) AND i.homebranch=<<same branch|branches>> AND i.ccode =<<same ccode|CCODE>>
+
+
+

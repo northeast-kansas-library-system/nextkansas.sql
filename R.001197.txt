@@ -1,0 +1,32 @@
+R.001197
+
+----------
+
+Name: Basehor last borrowed
+Created by: BASEHOR DIRECTOR
+
+----------
+
+Group: Library-Specific
+     -
+
+Created on: 2011-09-22 19:43:32
+Modified on: 2013-06-17 01:00:52
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT items.datelastborrowed,items.itemcallnumber,items.barcode,biblio.title, items.homebranch, items.holdingbranch FROM items LEFT JOIN biblioitems on (items.biblioitemnumber=biblioitems.biblioitemnumber) LEFT JOIN biblio on
+(biblioitems.biblionumber=biblio.biblionumber)  WHERE items.homebranch='BASEHOR' AND items.ccode='DVD' ORDER BY items.itemcallnumber asc
+
+
+

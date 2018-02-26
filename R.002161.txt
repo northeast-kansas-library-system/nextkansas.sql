@@ -1,0 +1,36 @@
+R.002161
+
+----------
+
+Name: Fixing ISBN fields with Bad Diacritics
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Fix Bib Records-admin
+
+Created on: 2014-01-15 00:02:02
+Modified on: 2014-01-15 00:06:32
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT biblionumber, 
+CONCAT('<a href=\"/cgi-bin/koha/cataloguing/addbiblio.pl?biblionumber=',biblionumber,'\" target="_blank">'"edit record"'</a>') as "edit record", 
+ExtractValue(marcxml, '//datafield[@tag="020"]/subfield[@code>="a"]') as isbn 
+from biblioitems 
+where marcxml LIKE '%�%' 
+ORDER BY biblionumber asc
+
+
+

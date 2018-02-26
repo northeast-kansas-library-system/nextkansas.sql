@@ -1,0 +1,31 @@
+R.002573
+
+----------
+
+Name: Leavenworth Borrowers with space on end of card
+Created by: Heather Braum
+
+----------
+
+Group: Library-Specific
+     Leavenworth
+
+Created on: 2015-08-06 16:23:25
+Modified on: 2015-08-06 16:23:43
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT CONCAT('<a href=\"/cgi-bin/koha/members/memberentry.pl?op=modify&borrowernumber=',borrowers.borrowernumber,'\" target="_blank">'"edit patron"'</a>') as "edit patron", firstname, surname, dateexpiry FROM borrowers WHERE branchcode='LEAVENWRTH' AND cardnumber LIKE '% ' ORDER BY dateexpiry DESC LIMIT 100
+
+
+

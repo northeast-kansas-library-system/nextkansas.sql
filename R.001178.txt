@@ -1,0 +1,31 @@
+R.001178
+
+----------
+
+Name: Available Shelf list
+Created by: BASEHOR TECH
+
+----------
+
+Group: Catalog Records and Items
+     Shelf Lists
+
+Created on: 2011-08-30 17:04:11
+Modified on: 2013-11-17 13:49:49
+Date last run: 2018-02-05 10:55:50
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Our best attempt to find what should be on the shelf.  Enhanced to allow you to select Branch and Collection Code and Shelving Location.
+
+----------
+
+SELECT items.onloan,items.itemcallnumber,biblio.title,items.barcode FROM items JOIN biblio USING (biblionumber) WHERE items.homebranch=<<Pick your branch|branches>> AND items.ccode=<<Pick your collection code|CCODE>> AND items.location=<<location|LOC>> AND items.damaged=0 AND items.itemlost=0 AND items.notforloan=0 ORDER BY items.onloan, items.itemcallnumber ASC
+
+
+

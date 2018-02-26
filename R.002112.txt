@@ -1,0 +1,33 @@
+R.002112
+
+----------
+
+Name: Old_reserves Testing Thresholds
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Slow Patrons - admin
+
+Created on: 2013-11-20 16:31:21
+Modified on: 2013-11-20 16:33:54
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT p.borrowernumber, CONCAT(p.firstname,' ', p.surname) as name, p.branchcode, p.categorycode, count(olr.reserve_id), 
+CONCAT ('<a href=\"/cgi-bin/koha/circ/circulation.pl?borrowernumber=',p.borrowernumber,'\" target="_blank">'"circ tab"'</a>') AS "circ tab", 
+CONCAT ('<a href=\"/cgi-bin/koha/members/moremember.pl?borrowernumber=',p.borrowernumber,'\" target="_blank">'"more details tab"'</a>') AS "more details tab" FROM borrowers p LEFT JOIN old_reserves olr USING(borrowernumber) GROUP BY p.borrowernumber HAVING count(olr.reserve_id) > <<minimum old_reserves line account>> ORDER BY count(olr.reserve_id) DESC
+
+
+

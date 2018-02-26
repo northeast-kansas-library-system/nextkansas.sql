@@ -1,0 +1,31 @@
+R.001761
+
+----------
+
+Name: DVD records list. 
+Created by: Heather Braum
+
+----------
+
+Group: Administrative Reports
+     Duplicate Records-admin
+
+Created on: 2013-02-23 21:30:12
+Modified on: 2015-08-16 20:14:26
+Date last run: 2018-02-14 09:50:40
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT CONCAT('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=',b.title,'&sort_by=title_az\" target="_blank">',b.title,'</a>') AS "Title Search", CONCAT('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',b.biblionumber,'\" target="_blank">',b.biblionumber,'</a>'), b.biblionumber, b.title, b.author, ExtractValue(t.marcxml, '//datafield[@tag="020"]/subfield[@code>="a"]') as isbn, ExtractValue(t.marcxml, '//datafield[@tag="024"]/subfield[@code>="a"]') as upc, t.pages, t.illus, t.size, t.publishercode, t.publicationyear, i.ccode, i.itype, i.itemcallnumber FROM biblio b LEFT JOIN biblioitems t USING(biblionumber) LEFT JOIN items i USING(biblionumber) WHERE i.ccode='DVD' GROUP BY b.biblionumber
+
+
+

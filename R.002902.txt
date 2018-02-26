@@ -1,0 +1,53 @@
+R.002902
+
+----------
+
+Name: GHW - Items added by library, shelving location, and item type in the previous calendar month
+Created by: George H Williams
+
+----------
+
+Group: Daily, Monthly, Yearly Stats
+     Monthly
+
+Created on: 2017-02-07 15:12:53
+Modified on: 2017-02-07 15:14:49
+Date last run: 2018-02-20 13:13:05
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<p>Count of items added by shelving location and item type</p>
+<ul><li>counts items added in the previous calendar month</li>
+<li>at the library you specify</li>
+<li>grouped and sorted by home branch, location, and item type</li>
+<li>includes total for the month at the bottom of the results</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2902&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
+
+----------
+
+SELECT
+  items.homebranch,
+  Coalesce(items.location, "--") AS location,
+  items.itype,
+  COUNT(*) AS COUNT
+FROM
+  items
+WHERE
+  items.homebranch LIKE <<Choose item home library|LBRANCH>> AND
+  Month(items.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) AND
+  Year(items.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH)
+GROUP BY
+  items.homebranch, items.location, items.itype WITH ROLLUP
+
+
+

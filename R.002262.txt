@@ -1,0 +1,34 @@
+R.002262
+
+----------
+
+Name: Holds Queue Slip Testing
+Created by: NEKLS TECH
+
+----------
+
+Group: Administrative Reports
+     Holds-admin
+
+Created on: 2014-05-14 16:03:19
+Modified on: 2017-12-18 15:40:14
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+
+SELECT CONCAT(b.title,'<br />', b.author,'<br />',(ExtractValue(t.metadata, '//datafield[@tag="245"]/subfield[@code>="b"]')), '<br />', (ExtractValue(t.metadata, '//datafield[@tag="260"]/subfield[@code>="a"]')), '<br />', (ExtractValue(t.metadata, '//datafield[@tag="264"]/subfield[@code>="a"]')), '<br />', i.ccode, ' ', i.itype, '<br />', i.itemcallnumber, ' ', i.barcode) as info
+FROM tmp_holdsqueue tm, items i, biblio b, biblio_metadata t
+WHERE tm.itemnumber=i.itemnumber AND tm.biblionumber=b.biblionumber AND tm.biblionumber=t.biblionumber AND tm.holdingbranch=<<branch|branches>> 
+
+
+
+

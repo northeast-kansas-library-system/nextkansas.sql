@@ -1,0 +1,31 @@
+R.001754
+
+----------
+
+Name: Search for a specific barcode and display info
+Created by: BONNERSPGS TECH
+
+----------
+
+Group: Catalog Records and Items
+     -
+
+Created on: 2013-02-12 15:36:18
+Modified on: 2013-09-25 17:20:09
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+#special
+
+----------
+
+SELECT b.biblionumber,b.title, b.author, i.homebranch,i.barcode FROM biblio b LEFT JOIN items i USING(biblionumber) WHERE i.barcode=<<type in/scan in barcode>>
+
+
+
