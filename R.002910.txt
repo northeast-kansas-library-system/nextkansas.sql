@@ -11,8 +11,8 @@ Group: Patrons
      -
 
 Created on: 2017-02-20 18:56:41
-Modified on: 2017-02-22 17:31:45
-Date last run: 2018-02-09 12:22:37
+Modified on: 2018-03-12 11:51:25
+Date last run: 2018-04-11 11:37:47
 
 ----------
 
@@ -29,6 +29,10 @@ Expiry: 0
 <li>includes links to the patron record</li>
 </ul><br />
 <p><ins>Notes:</ins></p>
+<p></p>
+<p>If more than one patron is using the e-mail address you enter on their account, you will receive one result in this report for each patron with that e-mail address.</p>
+<p></p>
+<p>For bounced text messages, use report 3062.</p>
 <p></p>
 <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2910&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>

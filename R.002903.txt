@@ -11,8 +11,8 @@ Group: Daily, Monthly, Yearly Stats
      Monthly
 
 Created on: 2017-02-07 15:20:51
-Modified on: 2017-02-07 15:21:23
-Date last run: 2018-02-16 16:06:02
+Modified on: 2018-04-09 14:49:50
+Date last run: 2018-04-09 15:41:31
 
 ----------
 
@@ -36,17 +36,67 @@ Expiry: 0
 ----------
 
 SELECT
-  borrowers.branchcode,
-  borrowers.categorycode,
-  COUNT(*) AS P_ADDED_LM
+  BC.branchcode,
+  BC.categorycode,
+  Coalesce(PADDED.ALM, 0) AS ADDED_LAST_MONTH,
+  Coalesce(PDELETED.DLM, 0) AS DELETED_LAST_MONTH,
+  Coalesce(PTOTALS.P_TOTAL, 0) AS TOTAL_PATRONS_AT_END_OF_LAST_MONTH
 FROM
-  borrowers
+    (SELECT
+        branches.branchcode,
+        categories.categorycode
+      FROM
+        branches,
+        categories
+      GROUP BY
+        branches.branchcode,
+        categories.categorycode) BC
+  LEFT JOIN (SELECT
+        borrowers.branchcode,
+        borrowers.categorycode,
+        COUNT(*) AS P_TOTAL
+      FROM
+        borrowers
+      WHERE
+        borrowers.dateenrolled < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1)
+      GROUP BY
+        borrowers.branchcode,
+        borrowers.categorycode WITH ROLLUP) PTOTALS ON BC.branchcode = PTOTALS.branchcode AND BC.categorycode =
+    PTOTALS.categorycode
+  LEFT JOIN (SELECT
+        borrowers.branchcode,
+        borrowers.categorycode,
+        COUNT(*) AS ALM
+      FROM
+        borrowers
+      WHERE
+        Month(borrowers.dateenrolled) = Month(Now() - INTERVAL 1 MONTH) AND
+        Year(borrowers.dateenrolled) = Year(Now() - INTERVAL 1 MONTH)
+      GROUP BY
+        borrowers.branchcode,
+        borrowers.categorycode WITH ROLLUP) PADDED ON BC.branchcode = PADDED.branchcode AND BC.categorycode =
+    PADDED.categorycode
+  LEFT JOIN (SELECT
+        deletedborrowers.branchcode,
+        deletedborrowers.categorycode,
+        Count(*) AS DLM
+      FROM
+        deletedborrowers
+      WHERE
+        Month(deletedborrowers.updated_on) = Month(Now() - INTERVAL 1 MONTH) AND
+        Year(deletedborrowers.updated_on) = Year(Now() - INTERVAL 1 MONTH)
+      GROUP BY
+        deletedborrowers.branchcode,
+        deletedborrowers.categorycode) PDELETED ON BC.branchcode = PDELETED.branchcode AND BC.categorycode =
+    PDELETED.categorycode
 WHERE
-  Month(borrowers.dateenrolled) = Month(Now() - INTERVAL 1 MONTH) AND
-  Year(borrowers.dateenrolled) = Year(Now() - INTERVAL 1 MONTH) AND
-  borrowers.branchcode LIKE <<Choose patron home library|LBRANCH>>
+  BC.branchcode LIKE <<Choose your library|ZBRAN>>
 GROUP BY
-  borrowers.branchcode, borrowers.categorycode WITH ROLLUP
+  BC.branchcode,
+  BC.categorycode,
+  PTOTALS.P_TOTAL,
+  PADDED.ALM,
+  PDELETED.DLM
 
 
 

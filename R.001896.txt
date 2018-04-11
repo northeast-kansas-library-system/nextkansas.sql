@@ -11,8 +11,8 @@ Group: Patrons
      -
 
 Created on: 2013-06-07 11:36:50
-Modified on: 2013-06-07 11:38:15
-Date last run: 2018-01-15 12:35:42
+Modified on: 2018-04-06 20:20:12
+Date last run: 2018-04-06 20:18:13
 
 ----------
 
@@ -22,6 +22,8 @@ Expiry: 0
 ----------
 
 Helpful for fixing mislabeled patrons. Choose homebranch and patron category code from dropdowns. 
+
+<p><span style="background-color: darkred; color: white">This report is scheduled for deletion on July 1, 2018.</p>
 
 ----------
 

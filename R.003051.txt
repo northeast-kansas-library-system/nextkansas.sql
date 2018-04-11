@@ -1,0 +1,31 @@
+R.003051
+
+----------
+
+Name: TonganoxieEmails
+Created by: TONGANOXIE TECH
+
+----------
+
+Group: Patrons
+     -
+
+Created on: 2018-02-28 13:32:01
+Modified on: 2018-02-28 13:32:01
+Date last run: 2018-03-03 17:01:50
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT  borrowers.email,borrowers.emailpro FROM borrowers LEFT JOIN accountlines on (borrowers.borrowernumber=accountlines.borrowernumber)   WHERE borrowers.branchcode='TONGANOXIE' ORDER BY borrowers.email asc
+
+
+

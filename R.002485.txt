@@ -11,8 +11,8 @@ Group: Interlibrary Loan
      -
 
 Created on: 2015-04-07 12:43:03
-Modified on: 2015-04-07 12:45:25
-Date last run: 2017-10-13 16:31:38
+Modified on: 2018-04-06 20:42:57
+Date last run: 2018-03-29 14:42:55
 
 ----------
 
@@ -22,6 +22,8 @@ Expiry: 0
 ----------
 
 This report returns items that went missing more than 3 weeks ago in transit or have not yet been correctly checked in on NExpress. Please choose your branch three times, and then run the report. Check your shelves for these items, and check them in again to clear the transfer if they are on your shelves. Thanks. 
+
+<p><span style="background-color: darkred; color: white">This report is scheduled for deletion on July 1, 2018.</p>
 
 ----------
 

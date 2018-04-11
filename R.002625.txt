@@ -11,8 +11,8 @@ Group: Interlibrary Loan
      -
 
 Created on: 2015-10-23 13:27:59
-Modified on: 2015-10-23 13:30:30
-Date last run: 2017-09-07 15:03:01
+Modified on: 2018-04-06 20:42:13
+Date last run: 2018-04-06 20:35:43
 
 ----------
 
@@ -22,6 +22,8 @@ Expiry: 0
 ----------
 
 This report returns items that are in transit to or from your library between 9/1/15 and 10/9/15; please check your shelves for these items, to make sure all items identified from the courier accident are accurate. If you find one of these items on your shelves, please check it in
+
+<p><span style="background-color: darkred; color: white">This report is scheduled for deletion on July 1, 2018.</p>
 
 ----------
 

@@ -11,8 +11,8 @@ Group: Interlibrary Loan
      -
 
 Created on: 2011-08-23 10:54:09
-Modified on: 2015-03-24 16:07:23
-Date last run: 2017-05-10 14:47:57
+Modified on: 2018-04-06 20:44:22
+Date last run: 2018-03-29 14:49:39
 
 ----------
 
@@ -22,6 +22,8 @@ Expiry: 0
 ----------
 
 Opposite of transfers to receive report, only lists items that were sent more than 7 days ago; enhanced, run as is. #transfers
+
+<p><span style="background-color: darkred; color: white">This report is scheduled for deletion on July 1, 2018.</p>
 
 ----------
 

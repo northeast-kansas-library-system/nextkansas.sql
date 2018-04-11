@@ -2,7 +2,7 @@ R.003047
 
 ----------
 
-Name: testing for github
+Name: GHW - GitHub SQL report 001
 Created by: George H Williams
 
 ----------
@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-02-01 02:37:30
-Modified on: 2018-02-26 12:14:47
-Date last run: 2018-02-26 12:14:52
+Modified on: 2018-02-26 20:37:06
+Date last run: 2018-04-11 11:41:45
 
 ----------
 
@@ -21,12 +21,12 @@ Expiry: 300
 
 ----------
 
-
+Report for uploading SQL to GitHub - part 1
 
 ----------
 
 SELECT
-  Concat("R.", LPad(saved_sql.id, 6, 0)) AS FILE_NAME,
+  Concat(If(Length(saved_sql.savedsql) > 32766, "X.", "R."), LPad(saved_sql.id, 6, 0)) AS FILE_NAME,
   Concat(
     Concat("R.", LPad(saved_sql.id, 6, 0)), Char(13), Char(10), Char(13), Char(10),
     Concat("----------"), Char(13), Char(10), Char(13), Char(10),
@@ -76,7 +76,7 @@ FROM
 GROUP BY
   saved_sql.id
 ORDER BY
-  saved_sql.id
+  FILE_NAME
 
 
 

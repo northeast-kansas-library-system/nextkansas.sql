@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-01-23 07:35:13
-Modified on: 2018-01-23 07:35:47
-Date last run: 2018-01-23 07:35:49
+Modified on: 2018-03-29 12:18:30
+Date last run: 2018-03-29 12:18:33
 
 ----------
 
@@ -30,7 +30,6 @@ FROM action_logs
 ORDER BY 
   action_id
 DESC
-LIMIT 2500
 
 
 

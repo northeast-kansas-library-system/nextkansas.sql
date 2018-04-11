@@ -11,8 +11,8 @@ Group: Popular Reports
      -
 
 Created on: 2011-07-29 16:18:30
-Modified on: 2018-02-24 19:30:16
-Date last run: 2018-02-24 20:15:02
+Modified on: 2018-03-02 00:02:10
+Date last run: 2018-03-29 14:30:15
 
 ----------
 
@@ -40,7 +40,8 @@ SELECT
   count(*) AS NUMBER_OF_REQUESTS,
   Concat(biblio.title, " ", ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code>="b"]')) AS TITLE,
   Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">LINK</a>') AS LINK_TO_BIBLIO,
-  Concat('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=kw&q=', biblio.title, '&op=and&idx=kw&op=and&idx=kw&limit=mc-itype%2Cphr%3ALOCALHOLD1&limit=mc-itype%2Cphr%3AMEDIA&limit=mc-itype%2Cphr%3ANEWMEDIA&limit=mc-itype%2Cphr%3AWALKIN1&sort_by=relevance" target="_blank">video</a>') AS VIDEO_SEARCH
+  Concat('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=kw&q=', biblio.title, '&op=and&idx=kw&op=and&idx=kw&limit=mc-itype%2Cphr%3ALOCALHOLD1&limit=mc-itype%2Cphr%3AMEDIA&limit=mc-itype%2Cphr%3ANEWMEDIA&limit=mc-itype%2Cphr%3AWALKIN1&sort_by=relevance" target="_blank">video</a>') AS VIDEO_SEARCH,
+  Concat("<a href='https://www.youtube.com/results?search_query=official+trailer+",   REPLACE(SUBSTRING_INDEX(biblio.title, "(", 1), " ", "+"), "' target='_blank'>Youtube</a>") AS YOUTUBE
 FROM
   reserves
   JOIN biblio ON reserves.biblionumber = biblio.biblionumber

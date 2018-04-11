@@ -7,12 +7,12 @@ Created by: George H Williams
 
 ----------
 
-Group: Administrative Reports
-     Testing
+Group: -
+     -
 
 Created on: 2017-10-20 11:30:17
-Modified on: 2017-10-20 11:47:15
-Date last run: 2018-01-30 14:44:42
+Modified on: 2018-03-21 12:05:01
+Date last run: 2018-03-22 10:39:43
 
 ----------
 
@@ -38,6 +38,7 @@ Expiry: 300
 
 SELECT
   categories.description,
+  If(branchlimits.categorycode IS NOT NULL, "Yes", "") AS THIS_LIB_CAN_CREATE_,
   Coalesce(totalcount.Count_borrowernumber, "-") AS TOTAL_COUNT,
   Coalesce(addcount.Count_borrowernumber, "-") AS ADD_LAST_MONTH,
   Coalesce(delcount.Count_borrowernumber, "-") AS DEL_LAST_MONTH
@@ -48,7 +49,7 @@ FROM
       FROM
         borrowers
       WHERE
-        borrowers.branchcode LIKE @brn := <<Select a  library|branches>> COLLATE utf8_unicode_ci
+        borrowers.branchcode LIKE @brn := <<Choose your library|ZBRAN>> COLLATE utf8_unicode_ci
       GROUP BY
         borrowers.categorycode) totalcount
   RIGHT JOIN categories ON categories.categorycode = totalcount.categorycode
@@ -74,10 +75,18 @@ FROM
         Year(deletedborrowers.dateenrolled) = Year(Now() - INTERVAL 1 MONTH)
       GROUP BY
         deletedborrowers.categorycode) delcount ON categories.categorycode = delcount.categorycode
+  LEFT JOIN (SELECT
+        categories_branches.categorycode,
+        categories_branches.branchcode
+      FROM
+        categories_branches
+      WHERE
+        categories_branches.branchcode LIKE @brn := 'LEAVENWRTH' COLLATE utf8_unicode_ci
+      GROUP BY
+        categories_branches.categorycode,
+        categories_branches.branchcode) branchlimits ON categories.categorycode = branchlimits.categorycode
 GROUP BY
-  categories.description,
-  Coalesce(totalcount.Count_borrowernumber, 0),
-  Coalesce(addcount.Count_borrowernumber, 0)
+  categories.description
 LIMIT 100
 
 

@@ -11,7 +11,7 @@ Group: Library-Specific
      -
 
 Created on: 2010-06-24 15:56:58
-Modified on: 2013-06-17 01:07:12
+Modified on: 2018-02-26 15:41:46
 Date last run: -
 
 ----------
@@ -22,6 +22,8 @@ Expiry: 0
 ----------
 
 simplified circ report
+
+<p><span style="background-color: darkred; color: white">This report has no record of ever having been run as of 2018.02.26, therefore, this report is scheduled for deletion on May 1, 2018.</p>
 
 ----------
 

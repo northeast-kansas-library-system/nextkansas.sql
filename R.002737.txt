@@ -7,12 +7,12 @@ Created by: George H Williams
 
 ----------
 
-Group: Administrative Reports
+Group: -
      -
 
 Created on: 2016-08-17 18:32:20
-Modified on: 2018-01-23 11:20:33
-Date last run: 2018-01-23 11:20:36
+Modified on: 2018-04-06 20:27:06
+Date last run: 2018-04-06 20:27:12
 
 ----------
 
@@ -25,42 +25,7 @@ Expiry: 0
 
 ----------
 
-SELECT
-  biblio.biblionumber,
-  items.itemnumber,
-  items.barcode,
-  items.homebranch,
-  items.itype,
-  ccodes.lib AS CCODE,
-  items.itemcallnumber,
-  biblio.author,
-  Concat(biblio.title, ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'),
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')) AS FULL_TITLE
-FROM
-  biblio
-  JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
-  JOIN items ON items.biblionumber = biblio.biblionumber
-  LEFT JOIN (SELECT
-        authorised_values.category,
-        authorised_values.authorised_value,
-        authorised_values.lib
-      FROM
-        authorised_values
-      WHERE
-        authorised_values.category = 'CCODE'
-      GROUP BY
-        authorised_values.category,
-        authorised_values.authorised_value,
-        authorised_values.lib) ccodes ON items.ccode = ccodes.authorised_value
-WHERE
-  (items.itype LIKE "%MEDIA%") OR
-  (items.itype LIKE "%1")
-GROUP BY
-  biblio.biblionumber,
-  items.itemnumber
-ORDER BY
-  biblio.biblionumber DESC
+SELECT message_id, CONCAT('<a href=\"/cgi-bin/koha/circ/circulation.pl?borrowernumber=',borrowernumber,'\" target="_blank">',borrowernumber,'</a>'), borrowernumber, borrowers.branchcode, subject, content, metadata, letter_code, message_transport_type, status, time_queued, to_address, from_address, content_type FROM message_queue LEFT JOIN borrowers USING (borrowernumber) WHERE borrowers.branchcode=<<choose branch|branches>> GROUP BY message_id ORDER BY time_queued DESC
 
 
 

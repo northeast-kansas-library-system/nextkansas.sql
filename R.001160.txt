@@ -11,8 +11,8 @@ Group: Interlibrary Loan
      -
 
 Created on: 2011-08-11 14:08:00
-Modified on: 2013-06-23 12:29:02
-Date last run: -
+Modified on: 2018-04-06 20:46:40
+Date last run: 2018-04-06 20:45:30
 
 ----------
 
@@ -22,6 +22,8 @@ Expiry: 0
 ----------
 
 Overdue >30 days report for materials loaned to other libraries through non-NExpress ILL services. MC/8/11 #overdues
+
+<p><span style="background-color: darkred; color: white">Report upgrade needed.</p>
 
 ----------
 
