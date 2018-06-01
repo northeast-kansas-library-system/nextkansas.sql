@@ -11,7 +11,7 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2016-11-04 16:40:55
-Modified on: 2016-11-07 16:03:08
+Modified on: 2018-04-16 11:02:00
 Date last run: 2017-11-22 13:37:01
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>What it does generates a list of all titles by an author by brief title</p>
 <ul><li>Shows items currently in the catalog</li>
 <li>shows items at a specified library by a specified author</li>

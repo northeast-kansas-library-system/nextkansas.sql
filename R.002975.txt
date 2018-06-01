@@ -11,8 +11,8 @@ Group: Statistics
      Last calendar month
 
 Created on: 2017-07-11 11:52:53
-Modified on: 2017-10-02 23:43:43
-Date last run: 2018-04-04 23:59:12
+Modified on: 2018-04-16 11:11:27
+Date last run: 2018-05-03 22:32:47
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Statistics on requests</p>
 <ul><li>Shows statistics for the previous calendar month</li>
 <li>at all NExpress libraries</li>

@@ -11,7 +11,7 @@ Group: Holds-Reserves
      Holds troubleshooting
 
 Created on: 2016-08-10 15:29:50
-Modified on: 2018-01-19 09:55:09
+Modified on: 2018-04-16 10:48:28
 Date last run: 2018-03-07 21:59:50
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Generates a list of items that have been on your holds shelf for more than 7 days</p>
 <ul><li>Shows items that have been on a library's hold shelf for more than 7 days and have not been picked up</li>
 <li>Shows items waiting at the library you specify</li>

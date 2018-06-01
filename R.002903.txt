@@ -11,8 +11,8 @@ Group: Daily, Monthly, Yearly Stats
      Monthly
 
 Created on: 2017-02-07 15:20:51
-Modified on: 2018-04-09 14:49:50
-Date last run: 2018-04-09 15:41:31
+Modified on: 2018-04-16 11:07:58
+Date last run: 2018-06-01 13:42:45
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Count of patrons added by home library and category code</p>
 <ul><li>Counts patrons added in the previous calendar month</li>
 <li>at the library you specify</li>

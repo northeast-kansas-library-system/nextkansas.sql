@@ -11,7 +11,7 @@ Group: Patrons
      Guarantor/guranantee reports
 
 Created on: 2017-01-24 10:38:37
-Modified on: 2017-01-24 16:39:59
+Modified on: 2018-04-16 11:06:10
 Date last run: 2017-10-19 12:58:19
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Shows all adults with linked child accounts and whether or not the adult's permission to allow you to subscribe that adult to a library newsletter has been recorded in their account.</p>
 <ul><li>Shows current data</li>
 <li>Where the adult has a specified home library</li>

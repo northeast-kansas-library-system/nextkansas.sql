@@ -11,7 +11,7 @@ Group: Circulation
      Circ Stats
 
 Created on: 2016-12-19 10:09:30
-Modified on: 2017-12-19 09:30:57
+Modified on: 2018-04-16 11:05:02
 Date last run: 2018-03-19 11:01:26
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Shows the check-out count for the top 200 most circulated items</p>
 <ul><li>Shows check-outs during the specified date range<br />(between the beginning of the day on the specified "START DATE" to the end of the day on the specified "END DATE")</li>
 <li>Can be limited to items checked out at a specified library, with a specified home branch, shelving location, item type, and collection code</li>

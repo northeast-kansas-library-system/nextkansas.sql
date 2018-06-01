@@ -11,7 +11,7 @@ Group: -
      -
 
 Created on: 2017-10-20 11:30:17
-Modified on: 2018-03-21 12:05:01
+Modified on: 2018-04-16 11:11:36
 Date last run: 2018-03-22 10:39:43
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Count the number of patrons at a specified library based on patron category.</p>
 <ul><li>Shows current total number of patrons plus the number of patrons added last month and the total number of patrons deleted last month</li>
 <li>At the library you specify</li>

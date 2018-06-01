@@ -11,7 +11,7 @@ Group: Patrons
      Patron Statistics
 
 Created on: 2016-12-02 14:56:53
-Modified on: 2016-12-02 16:03:24
+Modified on: 2018-04-16 11:05:22
 Date last run: -
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Count of patrons deleted during the specified date range<br />(between the beginning of the day on the specified "START DATE" to the end of the day on the specified "END DATE")</p>
 <ul><li>Looks at patrons who were manually deleted - does not include patrons that were deleted in batch processes</li>
 <li>Allows you to specify a patron home branch and patron category if you wish</li>

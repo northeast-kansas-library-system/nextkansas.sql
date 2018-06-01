@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2017-02-20 16:37:40
-Modified on: 2017-02-20 16:50:34
-Date last run: 2017-07-05 14:19:48
+Modified on: 2018-04-16 11:08:03
+Date last run: 2018-04-11 20:14:12
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Report of possible duplicate borrowers at a library</p>
 <ul><li>Shows patrons currently in the database</li>
 <li>with at least one library account at the library you specify</li>
@@ -42,7 +42,9 @@ SELECT
   surname,
   firstname,
   GROUP_CONCAT(cardnumber SEPARATOR ', ') as CARD_NUMBER,
-  GROUP_CONCAT(borrowernumber SEPARATOR ', ') as BORROWER_NUMBER,
+  GROUP_CONCAT(dateofbirth SEPARATOR ', ') as BIRTH_DATE,
+  GROUP_CONCAT(dateexpiry SEPARATOR ', ') as BIRTH_DATE,
+  GROUP_CONCAT((Concat('<a href=\"/cgi-bin/koha/circ/circulation.pl?borrowernumber=', borrowernumber, '\" target="_blank">', borrowernumber, '</a>')) SEPARATOR ', ') as BORROWER_NUMBER,
   GROUP_CONCAT(branchcode SEPARATOR ', ') as HOME_BRANCH
 FROM borrowers
 GROUP BY

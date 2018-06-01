@@ -11,8 +11,8 @@ Group: Administrative Reports
      Testing
 
 Created on: 2016-12-31 19:25:57
-Modified on: 2017-01-01 18:59:43
-Date last run: 2018-04-09 09:35:51
+Modified on: 2018-04-16 11:05:00
+Date last run: 2018-04-20 09:55:00
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Shows overdue notice template automatically sent by Koha</p>
 <ul><li>shows notices template for the library you specify</li>
 <li>allows you to specify which template you want to look at</li>

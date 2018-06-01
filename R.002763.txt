@@ -11,7 +11,7 @@ Group: Circulation
      Overdues
 
 Created on: 2016-09-06 10:02:52
-Modified on: 2017-12-19 09:33:57
+Modified on: 2018-04-16 10:48:35
 Date last run: 2017-12-19 09:54:33
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Generates a list of items checked out at a specified branch that are owned by a specified branch and are now overdue for more than a specified number of days</p>
 <ul><li>Shows current data</li>
 <li>Shows items checked out at the library you specify, owned by the location you specify, and overdue for more than the number of days you specify</li>

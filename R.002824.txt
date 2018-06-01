@@ -11,7 +11,7 @@ Group: -
      -
 
 Created on: 2016-11-15 10:29:39
-Modified on: 2016-11-15 11:00:45
+Modified on: 2018-04-16 11:01:57
 Date last run: 2017-12-12 14:18:36
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Shows upcoming closures at a specified branch</p>
 <ul><li>Shows repeating closures for the next 12 months and all future closures on individually specified dates</li>
 <li>Shows closures at the branch you specify</li>

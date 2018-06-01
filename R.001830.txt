@@ -11,8 +11,8 @@ Group: Daily, Monthly, Yearly Stats
      All Time
 
 Created on: 2013-05-07 13:22:24
-Modified on: 2018-01-08 11:51:01
-Date last run: 2018-04-09 08:35:26
+Modified on: 2018-04-16 10:48:15
+Date last run: 2018-05-02 10:43:52
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Counts all circulation data in a month at a specified library</p>
 <ul><li>Counts checkouts by month and year</li>
 <li>at the library you specify</li>

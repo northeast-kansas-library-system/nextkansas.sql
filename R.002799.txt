@@ -11,8 +11,8 @@ Group: Fines/Fees
      -
 
 Created on: 2016-10-10 09:36:41
-Modified on: 2016-10-10 09:52:47
-Date last run: 2018-04-10 16:55:24
+Modified on: 2018-04-16 11:02:19
+Date last run: 2018-05-04 17:09:44
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Lists items owned by a branch that have been marked as "Paid for" in Koha.</p>
 <ul><li>Shows items currently in Koha</li>
 <li>at the location (or locations) you specify</li>

@@ -11,8 +11,8 @@ Group: Administrative Reports
      -
 
 Created on: 2017-07-05 14:11:52
-Modified on: 2017-07-05 14:24:29
-Date last run: 2017-12-08 09:28:18
+Modified on: 2018-04-16 11:11:25
+Date last run: 2018-05-04 17:34:31
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Shows patrons who were added in the last 60 days but have no information in their "Registration Library" field.</p>
 <ul><li>Shows patrons added in the last 60 days without at registration library</li>
 <li>at any NExpress library</li>

@@ -11,8 +11,8 @@ Group: Circulation
      -
 
 Created on: 2017-10-05 15:03:46
-Modified on: 2017-10-05 16:32:17
-Date last run: 2018-03-29 20:29:17
+Modified on: 2018-04-16 11:11:34
+Date last run: 2018-04-12 17:07:44
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Generates a transaction log for all checkouts and renewals at a branch on one day</p>
 <ul><li>Shows a log for the date you specify</li>
 <li>Shows all of the checkouts and renewals at the branch you specify</li>

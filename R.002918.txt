@@ -11,7 +11,7 @@ Group: Circulation
      Overdues
 
 Created on: 2017-03-02 14:05:56
-Modified on: 2017-03-02 17:13:20
+Modified on: 2018-04-16 11:08:21
 Date last run: 2017-07-06 15:58:19
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Counts the number of overdue items that were returned during the previous calendar month grouped by the number of days the item was overdue.</p>
 <ul><li>Shows overdue items returned in the previous calendar month.</li>
 <li>shows overdue items based on the check-out library you specify.</li>

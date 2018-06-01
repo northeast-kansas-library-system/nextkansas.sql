@@ -11,8 +11,8 @@ Group: Notices
      -
 
 Created on: 2016-12-15 11:27:46
-Modified on: 2017-01-01 18:57:37
-Date last run: 2018-04-10 13:57:48
+Modified on: 2018-04-16 11:05:09
+Date last run: 2018-06-01 12:19:00
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Shows overdue notices automatically sent by Koha</p>
 <ul><li>shows notices sent during the date range you specify</li>
 <li>shows notices sent by the library you specify</li>

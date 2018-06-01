@@ -11,7 +11,7 @@ Group: Lists Module
      -
 
 Created on: 2016-10-18 09:58:19
-Modified on: 2016-10-18 11:53:32
+Modified on: 2018-04-16 11:02:06
 Date last run: 2017-10-16 21:10:05
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Generates a list of public lists with a title that contains a specified phrase</p>
 <ul><li>Shows items that are currently on the specified list</li>
 <li>shows all lists in NExpress</li>

@@ -11,8 +11,8 @@ Group: Library-Specific
      Leavenworth
 
 Created on: 2017-05-23 15:31:22
-Modified on: 2017-05-23 15:31:57
-Date last run: 2018-04-01 06:15:02
+Modified on: 2018-04-16 11:11:08
+Date last run: 2018-06-01 06:15:03
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Counts the number of overdue items that were returned during the previous calendar month grouped by the number of days the item was overdue.</p>
 <ul><li>Shows overdue items returned in the previous calendar month.</li>
 <li>shows overdue items checked out at LEAVENWRTH.</li>

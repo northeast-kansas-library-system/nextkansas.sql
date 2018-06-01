@@ -11,8 +11,8 @@ Group: Patrons
      Fix Patrons
 
 Created on: 2017-12-20 13:18:37
-Modified on: 2018-01-05 10:13:31
-Date last run: 2018-04-03 08:37:14
+Modified on: 2018-05-29 11:17:57
+Date last run: 2018-06-01 10:38:51
 
 ----------
 
@@ -21,10 +21,10 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
-<p>Shows all users who have attempted to login in to their account but failed.  Patrons with more than 5 failed attempts are locked out.</p>
+<div id=reportinfo>
+<p>Shows users who have attempted to login in to their account but failed.  Patrons with more than 5 failed attempts are locked out.</p>
 <ul><li>Shows any users who have failed logging in at least once.</li>
-<li>at the library you specify</li>
+<li>at the library you specify - or with the card number you specify - or both</li>
 <li>grouped by library card number</li>
 <li>sorted by branchcode, patron's last name, patron's first name, and library card number</li>
 </ul><br />
@@ -45,12 +45,14 @@ SELECT
   borrowers.login_attempts,
   borrowers.updated_on AS LAST_LOGIN_ATTEMPT,
   If(borrowers.flags > 0, "Staff", "-") AS ACCESS_TYPE,
-  borrowers.email
+  borrowers.email,
+  IF(borrowers.login_attempts > 4, "<span style='color: red;'>LOCKED OUT</span>", "-") AS LOCKED
 FROM
   borrowers
 WHERE
   borrowers.login_attempts > 0 AND
-  borrowers.branchcode LIKE <<Choose patron home branch|LBRANCH>>
+  borrowers.branchcode LIKE <<Choose patron home branch|LBRANCH>> AND
+  borrowers.cardnumber LIKE <<OR -- Enter patron's card number or a % symbol to display all patrons>>
 GROUP BY
   borrowers.cardnumber
 ORDER BY

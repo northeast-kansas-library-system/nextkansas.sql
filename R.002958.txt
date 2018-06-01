@@ -11,8 +11,8 @@ Group: Catalog Records and Items
      Weeded Already
 
 Created on: 2017-06-15 10:26:44
-Modified on: 2017-09-07 08:48:52
-Date last run: 2018-04-06 09:07:22
+Modified on: 2018-04-16 11:11:10
+Date last run: 2018-05-15 13:35:07
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Generates a list of items that have already been deleted from the catalog - includes all price information as well as the timestamp from when the item was deleted</p>
 <ul><li>Lists items that were deleted between the dates you specify</li>
 <li>at the library you specify</li>

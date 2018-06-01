@@ -11,8 +11,8 @@ Group: Library-Specific
      Ottawa
 
 Created on: 2017-06-27 16:32:34
-Modified on: 2017-06-29 12:19:44
-Date last run: 2018-03-30 16:31:33
+Modified on: 2018-04-16 11:11:16
+Date last run: 2018-05-25 11:12:39
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Generates a report of newly delinquent patrons for OTTAWA to send to Unique Management for collections.</p>
 <ul><li>Shows patrons who owe money to OTTAWA and were initially billed more than 60 days ago but less than 1 year ago.</li>
 <li>Shows patrons whose fees were created at OTTAWA (i.e. item with fees was checked out at OTTAWA or fee was created by an OTTAWA staff member) and have not yet been turned over to collections</li>

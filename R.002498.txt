@@ -11,8 +11,8 @@ Group: Administrative Reports
      Local Holds - Walkin-admin
 
 Created on: 2015-05-14 16:53:56
-Modified on: 2017-12-28 09:17:35
-Date last run: 2018-03-26 14:13:16
+Modified on: 2018-04-16 10:48:23
+Date last run: 2018-04-27 16:14:22
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Lists item barcode numbers that need their item type updated to "BOOK" after the appropriate amount of time has passed from their date of accession</p>
 <ul><li>Shows barcodes of items that are in need of updating</li>
 <li>at all NExpress libraries</li>

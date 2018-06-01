@@ -11,7 +11,7 @@ Group: Administrative Reports
      -
 
 Created on: 2017-11-01 08:24:07
-Modified on: 2017-11-01 08:24:30
+Modified on: 2018-04-16 11:11:41
 Date last run: 2017-11-01 08:24:32
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Generates a list of SMS providers in the system</p>
 <ul><li>Lists current providers plus the domain name for e-mail to text services</li>
 <li>For all libraries in the system</li>

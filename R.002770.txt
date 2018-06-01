@@ -11,7 +11,7 @@ Group: -
      -
 
 Created on: 2016-09-12 01:04:34
-Modified on: 2016-10-14 14:16:30
+Modified on: 2018-04-16 10:48:52
 Date last run: -
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Counts circulation (checkouts + renewals) on items checked out between DATE1 and DATE2 and groups them by shelving location</p>
 <ul><li>Shows items checked out or renewed between two specified dates (between 12:00 a.m. on DATE1 and 11:59 p.m. on DATE2</li>
 <li>shows items checked out at the specified library</li>

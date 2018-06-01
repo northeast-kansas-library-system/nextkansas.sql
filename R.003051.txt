@@ -11,8 +11,8 @@ Group: Patrons
      -
 
 Created on: 2018-02-28 13:32:01
-Modified on: 2018-02-28 13:32:01
-Date last run: 2018-03-03 17:01:50
+Modified on: 2018-05-04 17:39:45
+Date last run: 2018-05-04 17:39:31
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-
+<p><span style="background-color: darkred; color: white">Badly written report - doesn't run well - scheduled for deletion on July 1, 2018</p>
 
 ----------
 

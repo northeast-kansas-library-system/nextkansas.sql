@@ -11,8 +11,8 @@ Group: Administrative Reports
      Testing
 
 Created on: 2018-01-17 14:45:13
-Modified on: 2018-01-18 16:38:29
-Date last run: 2018-01-18 16:37:39
+Modified on: 2018-04-16 11:13:55
+Date last run: 2018-05-10 20:53:40
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Generates a spreadsheet style report of current and past request information based on very flexible parameters</p>
 <ul><li>Shows the history of any active, filled, and cancelled requests in NExpress</li>
 <li>at all pickup libraries or at the pickup library you specify</li>

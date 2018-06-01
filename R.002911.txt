@@ -11,8 +11,8 @@ Group: Holds-Reserves
      -
 
 Created on: 2017-02-23 11:17:34
-Modified on: 2017-05-08 12:28:07
-Date last run: 2018-04-11 11:20:23
+Modified on: 2018-04-16 11:08:13
+Date last run: 2018-06-01 11:28:35
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Generates a list of items awaiting pickup</p>
 <ul><li>Shows items currently on the hold shelf</li>
 <li>at the pick-up location you specify</li>

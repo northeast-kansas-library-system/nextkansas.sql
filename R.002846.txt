@@ -11,7 +11,7 @@ Group: Library-Specific
      Leavenworth
 
 Created on: 2016-12-05 14:06:50
-Modified on: 2016-12-12 16:18:46
+Modified on: 2018-04-16 11:05:20
 Date last run: -
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>What it does looks for items long overdue on Leavenworth's "RESET" accounts.</p>
 <ul><li>Shows items currently checked out to these patrons</li>
 <li>shows items from all NExpress libraries</li>

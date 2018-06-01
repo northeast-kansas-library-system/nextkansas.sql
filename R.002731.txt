@@ -11,8 +11,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2016-08-11 16:36:03
-Modified on: 2018-01-30 14:49:02
-Date last run: 2018-04-10 13:45:48
+Modified on: 2018-04-16 10:48:32
+Date last run: 2018-06-01 12:41:27
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>This report shows all items added to NExpress at a specific library branch after a specified date - includes date added, date last borrowed, date last seen, and total circulations+renewals</p>
 <p>Includes the date the item was added (dateaccessioned), the date the item was last checked out to a patron (datelastborrowed), and the date the item was last scanned on the check-in screen (datelastseen).</p>
 <ul><li>Shows items that are currently still in NExpress</li>

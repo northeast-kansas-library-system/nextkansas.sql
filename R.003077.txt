@@ -1,0 +1,82 @@
+R.003077
+
+----------
+
+Name: GHW - Borrowers count - new (in progress)
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2018-04-20 19:05:59
+Modified on: 2018-04-20 19:05:59
+Date last run: 2018-04-26 18:51:05
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT
+  branchcats.branchcode,
+  branchcats.description,
+  branchcats.categorycode,
+  borrowers_total.Count_borrowernumber AS TOTAL,
+  borrowers_last_month.Count_borrowernumber AS ADDED_LM,
+  If(categories_branches.categorycode IS NULL, "", "Yes") AS STAFF_CAN_CREATE_NEW
+FROM
+    (SELECT
+        branches.branchcode,
+        categories.categorycode,
+        categories.description
+      FROM
+        categories,
+        branches
+      GROUP BY
+        branches.branchcode,
+        categories.categorycode,
+        categories.description
+      ORDER BY
+        branches.branchcode,
+        categories.categorycode) branchcats
+  LEFT JOIN categories_branches ON branchcats.branchcode = categories_branches.branchcode AND branchcats.categorycode =
+    categories_branches.categorycode
+  LEFT JOIN (SELECT
+        Count(borrowers.borrowernumber) AS Count_borrowernumber,
+        borrowers.branchcode,
+        borrowers.categorycode
+      FROM
+        borrowers
+      GROUP BY
+        borrowers.branchcode,
+        borrowers.categorycode) borrowers_total ON branchcats.branchcode = borrowers_total.branchcode AND
+    branchcats.categorycode = borrowers_total.categorycode
+  LEFT JOIN (SELECT
+        Count(borrowers.borrowernumber) AS Count_borrowernumber,
+        borrowers.branchcode,
+        borrowers.categorycode
+      FROM
+        borrowers
+      WHERE
+        Month(borrowers.dateenrolled) = Month(Now() - INTERVAL 1 MONTH) AND
+        Year(borrowers.dateenrolled) = Year(Now() - INTERVAL 1 MONTH)
+      GROUP BY
+        borrowers.branchcode,
+        borrowers.categorycode) borrowers_last_month ON branchcats.branchcode = borrowers_last_month.branchcode AND
+    branchcats.categorycode = borrowers_last_month.categorycode
+WHERE
+  branchcats.branchcode LIKE <<Choose your library|ZBRAN>>
+GROUP BY
+  branchcats.branchcode,
+  branchcats.categorycode
+
+
+

@@ -11,7 +11,7 @@ Group: -
      -
 
 Created on: 2017-12-27 10:35:28
-Modified on: 2018-01-24 14:25:43
+Modified on: 2018-04-16 11:13:30
 Date last run: 2018-01-24 14:25:53
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Counts the number of times a specified cronjob has run in the previous 60 days</p>
 <ul><li>Counts cronjobs run in the previuos 60 days</li>
 <li>system-wide</li>

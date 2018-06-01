@@ -11,8 +11,8 @@ Group: Patrons
      -
 
 Created on: 2017-02-20 18:56:41
-Modified on: 2018-03-12 11:51:25
-Date last run: 2018-04-11 11:37:47
+Modified on: 2018-04-16 11:08:08
+Date last run: 2018-05-25 11:47:02
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Generates a list of patrons based on their e-mail address and produces a "Bounced Email" message that can be quickly cut and pasted into a message on the patron's account.</p>
 <ul><li>Shows all borrowers that are using the specified e-mail address</li>
 <li>Shows borrowers at all NExpress branches with that e-mail address</li>

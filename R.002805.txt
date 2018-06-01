@@ -11,7 +11,7 @@ Group: Holds-Reserves
      Holds troubleshooting
 
 Created on: 2016-10-12 11:57:05
-Modified on: 2017-12-19 09:35:17
+Modified on: 2018-04-16 11:02:10
 Date last run: 2018-03-19 15:45:54
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Looks for requests that were cancelled after they were already waiting on the holds shelf</p>
 <ul><li>Allows you to specify a "Start date" - will show you requests cancelled after that date</li>
 <li>Shows holds cancelled at a specified branch</li>

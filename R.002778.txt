@@ -11,8 +11,8 @@ Group: Holds-Reserves
      -
 
 Created on: 2016-09-25 22:37:09
-Modified on: 2017-12-18 11:02:49
-Date last run: 2018-04-11 11:40:12
+Modified on: 2018-04-16 11:02:36
+Date last run: 2018-06-01 14:28:39
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66" class="">
+<div id=reportinfo>
 <p>Print holds queue report with scannable barcodes</p>
 <ul><li>Shows items in the current holds queue</li>
 <li>at the location you specify</li>

@@ -11,7 +11,7 @@ Group: Library-Specific
      Bonner Springs
 
 Created on: 2017-03-17 16:59:13
-Modified on: 2017-12-14 14:55:18
+Modified on: 2018-04-16 11:08:35
 Date last run: 2017-12-14 14:55:35
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Report for Bonner Springs to help add discounted costs of items to records</p>
 <ul><li>Shows items added in the date range you specify</li>
 <li>Shows items owned by Bonner Springs with a value in the 952g field of less than $0.01</li>

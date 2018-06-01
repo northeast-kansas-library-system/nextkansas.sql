@@ -11,8 +11,8 @@ Group: Circulation
      Overdues
 
 Created on: 2017-02-01 16:54:32
-Modified on: 2017-12-19 09:32:17
-Date last run: 2018-02-26 10:51:46
+Modified on: 2018-04-16 11:07:43
+Date last run: 2018-04-23 13:53:18
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Generates a list of items checked out at a branch that were due before a certain date</p>
 <ul><li>Shows currently overdue items due before the date you specify</li>
 <li>shows items checked out at the library you specify regardless of who owns the item</li>

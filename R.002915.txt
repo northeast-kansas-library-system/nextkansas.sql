@@ -11,8 +11,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2017-03-01 09:17:47
-Modified on: 2017-12-19 09:37:17
-Date last run: 2017-10-18 10:09:26
+Modified on: 2018-04-16 11:08:18
+Date last run: 2018-05-08 11:09:55
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Generates a list of items based on their status</p>
 <ul><li>Shows items currently in the system</li>
 <li>At the library you specify</li>

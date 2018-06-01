@@ -11,7 +11,7 @@ Group: -
      -
 
 Created on: 2017-04-26 12:32:24
-Modified on: 2017-04-26 16:02:18
+Modified on: 2018-04-16 11:08:49
 Date last run: 2017-12-12 13:31:29
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Lists all patrons with outstanding fees on items checked out at the library you choose or on fees that were manually created at the library you choose</p>
 <ul><li>Shows patrons with outstanding balances due</li>
 <li>only shows patrons with fees that were created at the library you specify</li>

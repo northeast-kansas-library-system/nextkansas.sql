@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2017-05-22 15:00:24
-Modified on: 2017-12-13 08:45:20
-Date last run: 2017-12-13 08:45:22
+Modified on: 2018-05-08 21:19:09
+Date last run: 2018-05-08 21:19:17
 
 ----------
 
@@ -26,27 +26,30 @@ Expiry: 300
 ----------
 
 SELECT
-reserve_id,
-borrowernumber,
-cardnumber,
-firstname,
-surname,
-itemnumber,
-biblio.title,
-barcode,
-datediff(CURRENT_DATE, waitingdate) AS 'days waiting',
-expirationdate,
-reserves.branchcode as 'holdingbranch'
+  Concat(
+    '<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',
+    biblio.biblionumber,
+    '\" target="_blank">link to record</a>'
+  ) AS LINK_TO_RECORD,
+  items.dateaccessioned,
+  biblio.title,
+  biblio.author,
+  items.itemnotes,
+  items.barcode,
+  Concat(
+   '<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber='
+   , biblio.biblionumber,
+   '&itemnumber=',
+    items.itemnumber, '#edititem\" target="_blank">Link to item</a>'
+  ) AS EDIT_ITEM
 FROM
-reserves
-left join biblio using (biblionumber)
-left join borrowers using (borrowernumber)
-left join items using (itemnumber)
+  items
+  JOIN biblio ON items.biblionumber = biblio.biblionumber
 WHERE
-found = 'w'
+  items.homebranch LIKE <<Choose branch|LBRANCH>> AND
+  items.itemnotes IS NOT NULL
 ORDER BY
-holdingbranch,
-waitingdate asc
+  items.dateaccessioned DESC
 
 
 

@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-03-12 11:28:45
-Modified on: 2018-03-12 11:53:29
-Date last run: 2018-04-10 17:02:54
+Modified on: 2018-04-16 11:14:02
+Date last run: 2018-05-14 10:13:43
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Generates a list of patrons based on their SMS text messaging e-mail address and produces a "Bounced Text" message that can be quickly cut and pasted into a message on the patron's account.</p>
 <ul><li>Shows all borrowers that are using the specified SMS text e-mail address that has bounced in the last 60 days</li>
 <li>Shows borrowers at all NExpress branches with that SMS text e-mail address</li>

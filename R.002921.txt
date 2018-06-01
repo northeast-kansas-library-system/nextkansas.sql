@@ -11,7 +11,7 @@ Group: Circulation
      Circ Stats
 
 Created on: 2017-03-08 08:40:06
-Modified on: 2017-03-08 09:36:06
+Modified on: 2018-04-16 11:08:31
 Date last run: 2018-03-12 19:11:30
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Counts the number of items returned at a specified branch during a specified date range (and can be limited to specified days of the week)</p>
 <ul><li>Counts returns during the date range you specify (the statistics table only covers the previous 25 months)</li>
 <li>Counts returns at the library you specify</li>

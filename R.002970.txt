@@ -11,7 +11,7 @@ Group: Catalog Records and Items
      Collection Statistics
 
 Created on: 2017-07-03 14:36:44
-Modified on: 2017-07-03 17:23:56
+Modified on: 2018-04-16 11:11:22
 Date last run: 2017-10-05 16:50:52
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Generates a count of items by home branch, shelving location, and collection code with totals by library and location code.</p>
 <ul><li>Counts items currently in NExpress</li>
 <li>at the library you specify</li>

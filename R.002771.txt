@@ -11,7 +11,7 @@ Group: -
      -
 
 Created on: 2016-09-13 18:01:22
-Modified on: 2016-10-10 17:45:23
+Modified on: 2018-04-16 11:00:52
 Date last run: 2017-07-07 10:42:50
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Attempts to discern which card number ranges are in use at a specified library</p>
 <ul><li>reports on current cards in NExpress</li>
 <li>Shows card prefixes at a specified patron homebranch<br />with a specified number of prefix digits<br />and where there are more than a specified number of cards with that prefix</li>

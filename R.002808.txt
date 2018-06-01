@@ -11,8 +11,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2016-10-14 10:30:29
-Modified on: 2017-12-19 09:35:37
-Date last run: 2017-09-11 13:45:39
+Modified on: 2018-04-16 11:02:08
+Date last run: 2018-05-12 14:29:12
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Shows all items at a specified branch with a specified shelving location, a specified item type, and a specified collection code</p>
 <ul><li>Shows current items</li>
 <li>at a location you specify</li>

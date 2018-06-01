@@ -11,7 +11,7 @@ Group: Administrative Reports
      -
 
 Created on: 2016-09-10 23:12:34
-Modified on: 2016-09-23 09:12:38
+Modified on: 2018-04-16 10:48:39
 Date last run: 2018-01-24 16:28:48
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Shows all of the NExpress test accounts</p>
 <ul><li>Shows current accounts</li>
 <li>at all NExpress libraries</li>

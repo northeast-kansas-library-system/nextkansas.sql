@@ -11,8 +11,8 @@ Group: Holds-Reserves
      -
 
 Created on: 2018-01-16 15:28:12
-Modified on: 2018-01-22 09:40:35
-Date last run: 2018-04-10 02:19:54
+Modified on: 2018-04-16 11:13:46
+Date last run: 2018-05-29 16:29:11
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Generates a screen readable report of current and past request information based on very flexible parameters</p>
 <ul><li>Shows the history of any active, filled, and cancelled requests in NExpress</li>
 <li>at all pickup libraries or at the pickup library you specify</li>

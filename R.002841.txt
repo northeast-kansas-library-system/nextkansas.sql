@@ -11,7 +11,7 @@ Group: Statistics
      -
 
 Created on: 2016-11-28 15:42:16
-Modified on: 2018-01-05 09:25:22
+Modified on: 2018-04-16 11:05:29
 Date last run: 2018-03-16 11:58:11
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Counts check-outs, renewals, and check-ins on an hourly basis</p>
 <ul><li>Shows activity during the date range you specify (between the beginning of the day on the specified "START DATE" to the end of the day on the specified "END DATE")</li>
 <li>also allows you to specify a day of the week (in case you just want to see activity on Wednesdays, for example)</li>

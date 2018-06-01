@@ -11,8 +11,8 @@ Group: Administrative Reports
      -
 
 Created on: 2017-05-12 01:07:13
-Modified on: 2017-05-22 16:23:15
-Date last run: 2018-04-09 13:13:39
+Modified on: 2018-04-16 11:11:06
+Date last run: 2018-05-31 12:17:51
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Generates the table that gets used for the contacts tab on the "Library contact information" tab on the circulation home page</p>
 <ul><li>Shows current contact information</li>
 <li>For all libraries</li>
@@ -40,7 +40,7 @@ SELECT
   CONCAT(CONCAT(REPLACE(branches.branchname, ' - ', '<br />     '),'<p><ins>Mailing address:</ins><br />',Concat_Ws('<br />', branches.branchaddress1, Concat(branches.branchcity,', ', branches.branchstate, ' ', branches.branchzip)),'</p>'),
   CONCAT('<ins>Street address:</ins><br />',Concat_Ws('<br />', If(branches.branchaddress2 = ' ', branches.branchaddress1, branches.branchaddress2), Concat(branches.branchcity,', ', branches.branchstate, '<br />')))) AS Library,
   Concat_Ws('<p>', Concat('Phone: ', branches.branchphone,'</p>'), Concat('Fax: ', branches.branchfax,'</p>'), Concat('e-mail: ', branches.branchemail,'</p>'), Concat('Website: <a href="', branches.branchurl,'" target="_blank">Click here</a></p>'),Concat('Courier route #: ', branches.branchcountry,'</p>')) AS "Contact information",
-  CONCAT_WS('<br />',(REPLACE(REPLACE(branches.branchaddress3, ' | ', '<br /><br />'), ' - ', '<br />     -&nbsp;') ),CONCAT('<br />Total titles: ',Count(DISTINCT items.biblionumber)), ' ', CONCAT('Total items: ',Count(DISTINCT items.itemnumber))) AS "Staff contacts / holdings"
+  CONCAT_WS('<br />',(REPLACE(REPLACE(branches.branchaddress3, ' | ', '<br /><br />'), ' - ', '<br />     - ') ),CONCAT('<br />Total titles: ',Count(DISTINCT items.biblionumber)), ' ', CONCAT('Total items: ',Count(DISTINCT items.itemnumber))) AS "Staff contacts / holdings"
 FROM
   branches LEFT JOIN
   items

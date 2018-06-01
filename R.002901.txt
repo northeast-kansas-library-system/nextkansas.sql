@@ -11,8 +11,8 @@ Group: Daily, Monthly, Yearly Stats
      Monthly
 
 Created on: 2017-02-07 15:03:15
-Modified on: 2017-02-08 13:41:03
-Date last run: 2018-04-09 14:54:42
+Modified on: 2018-04-16 11:07:48
+Date last run: 2018-05-09 09:27:11
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Count of items added by location and item collection code</p>
 <ul><li>counts items added in the previous calendar month</li>
 <li>at the library you specify</li>

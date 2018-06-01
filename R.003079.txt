@@ -1,0 +1,46 @@
+R.003079
+
+----------
+
+Name: GHW - Locked accounts by borrowernumber
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2018-05-29 15:26:38
+Modified on: 2018-05-29 16:28:01
+Date last run: 2018-06-01 13:01:32
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT
+  borrowers.cardnumber,
+  borrowers.surname,
+  If(borrowers.login_attempts > 4, Concat("<span style='color: red;'>This account is locked because of ",  borrowers.login_attempts, " unsuccessful login attempts.<br />The patron's password must be reset/updated before they can log in.</span>"), "This account is not locked.") AS LOCKED,
+  borrowers.login_attempts,
+  borrowers.updated_on AS LAST_LOGIN_ATTEMPT
+FROM
+  borrowers
+WHERE
+  borrowers.borrowernumber LIKE <<Enter a borrowernumber or a % symbol>>
+GROUP BY
+  borrowers.cardnumber,
+  borrowers.borrowernumber
+ORDER BY
+  borrowers.surname,
+  borrowers.cardnumber
+
+
+

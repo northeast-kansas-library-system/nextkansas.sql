@@ -11,8 +11,8 @@ Group: Catalog Records and Items
      -
 
 Created on: 2017-01-10 16:12:46
-Modified on: 2017-11-15 17:27:26
-Date last run: 2018-04-06 09:06:12
+Modified on: 2018-04-16 11:04:50
+Date last run: 2018-05-29 15:41:13
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Lists information about deleted items</p>
 <ul><li>Shows information on items that have data in the deleteditems table</li>
 <li>Shows information for the single barcode number you specify</li>

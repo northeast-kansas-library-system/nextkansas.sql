@@ -11,7 +11,7 @@ Group: Statistics
      Last calendar month
 
 Created on: 2017-07-25 13:21:52
-Modified on: 2017-07-25 14:22:26
+Modified on: 2018-04-16 11:11:29
 Date last run: 2017-07-25 16:21:26
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Counts checkouts + renewals in the previous calendar month at a library grouped by the patron's birth year</p>
 <ul><li>Shows data from the previous calendar month</li>
 <li>at the library you specify</li>

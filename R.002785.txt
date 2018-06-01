@@ -11,7 +11,7 @@ Group: Holds-Reserves
      Holds troubleshooting
 
 Created on: 2016-09-29 10:35:34
-Modified on: 2016-10-11 10:15:36
+Modified on: 2018-04-16 11:02:24
 Date last run: 2018-03-30 16:25:08
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Identifies circulation history on a specific item</p>
 <ul><li>Shows all circulation history that has been completed</li>
 <li>on an item you specify</li>

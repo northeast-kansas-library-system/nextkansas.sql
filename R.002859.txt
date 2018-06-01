@@ -11,7 +11,7 @@ Group: Administrative Reports
      Testing
 
 Created on: 2016-12-15 17:58:33
-Modified on: 2016-12-15 18:34:16
+Modified on: 2018-04-16 11:05:05
 Date last run: -
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Shows all hold information for an item - current and past</p>
 <ul><li>shows current requests and request history</li>
 <li>from any item in NExpress</li>

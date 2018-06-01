@@ -11,7 +11,7 @@ Group: Library-Specific
      Bonner Springs
 
 Created on: 2017-05-03 10:19:32
-Modified on: 2017-12-14 15:09:05
+Modified on: 2018-04-16 11:08:59
 Date last run: 2018-01-31 17:03:10
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Report for Bonner Springs to generate list of materials for auditing</p>
 <ul><li>Shows items currently in the catalog which were added in the date range you specify (items that were added during that time-frame but have already been deleted will not appear in this list)</li>
 <li>Includes the 952$g and 952$v price informaiton</li>

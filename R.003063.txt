@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-03-12 22:34:32
-Modified on: 2018-03-13 00:27:56
-Date last run: 2018-03-23 14:05:29
+Modified on: 2018-04-16 11:14:09
+Date last run: 2018-05-31 12:56:26
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class="noprint" style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Shows only the Tile/Author information for titles on a list</p>
 <ul><li>Shows titles that are currently on the list</li>
 <li>grouped by biblionumber</li>

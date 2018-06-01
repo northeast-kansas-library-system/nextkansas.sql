@@ -11,7 +11,7 @@ Group: Library-Specific
      Leavenworth
 
 Created on: 2016-12-12 16:53:41
-Modified on: 2016-12-12 17:17:10
+Modified on: 2018-04-16 11:05:12
 Date last run: 2018-03-15 15:45:54
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Shows all "Reset" patrons with current checkout count (if any), current amount due (if any), guarantors (if any), and current guarantees (if any)</p>
 <ul><li>Shows patrons that still have a NExpress account</li>
 <li>Only shows patrons with the word "reset" in the barcode number</li>

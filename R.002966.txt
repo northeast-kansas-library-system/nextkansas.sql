@@ -11,8 +11,8 @@ Group: Library-Specific
      Ottawa
 
 Created on: 2017-06-27 17:08:37
-Modified on: 2017-06-29 12:15:31
-Date last run: 2018-04-05 15:35:48
+Modified on: 2018-04-16 11:11:20
+Date last run: 2018-05-25 11:11:24
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Shows patrons that OTTAWA has turned over to their collection agency</p>
 <ul><li>Shows patrons who currently have collection agency flags on their account.</li>
 <li>regardless of the patron's home library</li>

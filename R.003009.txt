@@ -11,7 +11,7 @@ Group: Fines/Fees
      -
 
 Created on: 2017-10-23 09:30:01
-Modified on: 2017-10-23 10:57:04
+Modified on: 2018-04-16 11:11:38
 Date last run: 2018-03-19 09:33:40
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Shows accountline information for a particular item if the item's barcode number has been stored in the accountlines description field</p>
 <ul><li>Shows all accountlines related to the item barcode number specified</li>
 <li>Shows accountlines related to that item regardless as to which item owns the item or is owed the fee</li>

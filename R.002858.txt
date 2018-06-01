@@ -11,7 +11,7 @@ Group: Fines/Fees
      -
 
 Created on: 2016-12-15 16:10:39
-Modified on: 2017-08-30 15:55:31
+Modified on: 2018-04-16 11:05:07
 Date last run: 2018-04-10 09:33:19
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Lists patrons with items more than XX days overdue at a specified library</p>
 <ul><li>Shows patrons who currently have overdues</li>
 <li>that were checked out at the specified location</li>

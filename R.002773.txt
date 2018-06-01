@@ -11,7 +11,7 @@ Group: -
      -
 
 Created on: 2016-09-14 09:19:42
-Modified on: 2016-09-14 14:38:21
+Modified on: 2018-04-16 11:02:40
 Date last run: 2017-07-07 10:43:13
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Attempts to discern which libraries are using a specified card prefix</p>
 <ul><li>reports on current cards in NExpress</li>
 <li>shows a count of how many cards with the specified prefix exist at all NExpress libraries</li>

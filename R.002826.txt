@@ -11,7 +11,7 @@ Group: Catalog Records and Items
      Fix Items
 
 Created on: 2016-11-15 16:53:28
-Modified on: 2016-11-15 16:54:31
+Modified on: 2018-04-16 11:05:31
 Date last run: 2017-11-22 13:35:41
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Shows information on an item based on its barcode number</p>
 <ul><li>shows current data on that item's record</li>
 <li>on any item in NExpress</li>

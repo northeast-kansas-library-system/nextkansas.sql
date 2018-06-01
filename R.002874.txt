@@ -11,8 +11,8 @@ Group: Fines/Fees
      -
 
 Created on: 2017-01-04 12:34:28
-Modified on: 2017-01-04 12:35:05
-Date last run: 2018-04-10 19:21:03
+Modified on: 2018-04-16 11:04:56
+Date last run: 2018-05-30 14:26:08
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Reports on fee payment/credit/writeoff activity at a library</p>
 <ul><li>Shows activity during a specified date range (between the beginning of the day on the specified "START DATE" to the end of the day on the specified "END DATE")</li>
 <li>Shows all fees collected/processed at a specified library</li>

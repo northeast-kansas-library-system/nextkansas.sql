@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-01-22 10:32:50
-Modified on: 2018-01-22 11:27:11
-Date last run: 2018-01-22 11:24:55
+Modified on: 2018-04-16 11:13:58
+Date last run: 2018-05-15 14:21:28
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Gives quick and easy data on a single deleted item</p>
 <ul><li>Shows data on the item you specify</li>
 <li>grouped by item number</li>

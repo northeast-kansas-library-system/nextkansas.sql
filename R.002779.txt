@@ -11,7 +11,7 @@ Group: Patrons
      -
 
 Created on: 2016-09-27 10:16:31
-Modified on: 2016-09-27 10:17:44
+Modified on: 2018-04-16 11:02:34
 Date last run: 2017-06-27 17:56:09
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Counts un-expired borrowers with a specified homebranch</p>
 <ul><li>Counts borrowers currently in NExpress</li>
 <li>with a specified homebranch</li>

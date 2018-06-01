@@ -11,7 +11,7 @@ Group: Popular Reports
      -
 
 Created on: 2011-07-29 16:18:30
-Modified on: 2018-03-02 00:02:10
+Modified on: 2018-04-16 10:47:29
 Date last run: 2018-03-29 14:30:15
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Generates a list of the 50 bibliographic records with the greatest numbers of requests</p>
 <ul><li>Shows current data</li>
 <li>Shows bibliographic records from all NExpress libraries</li>

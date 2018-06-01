@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-01-16 22:16:46
-Modified on: 2018-03-15 15:04:18
-Date last run: 2018-04-10 02:21:00
+Modified on: 2018-04-16 11:13:50
+Date last run: 2018-05-29 16:29:40
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Shows action log entries for specific requests from the last 60 days</p>
 <ul><li>Shows actions that happened within the last 60 days</li>
 <li>on the request you specify</li>

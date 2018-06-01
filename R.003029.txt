@@ -11,7 +11,7 @@ Group: Daily, Monthly, Yearly Stats
      -
 
 Created on: 2018-01-04 09:58:40
-Modified on: 2018-01-04 10:06:53
+Modified on: 2018-04-16 11:13:41
 Date last run: 2018-01-04 10:04:18
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Counts checkins based on flexible date settings</p>
 <ul><li>Counts checkins based on the date parameters you set</li>
 <li>at the library you choose</li>

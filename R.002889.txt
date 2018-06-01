@@ -11,8 +11,8 @@ Group: Holds-Reserves
      -
 
 Created on: 2017-01-31 09:54:21
-Modified on: 2017-12-15 18:49:49
-Date last run: 2018-04-10 09:07:06
+Modified on: 2018-04-16 11:06:14
+Date last run: 2018-05-14 10:59:44
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Shows items with requests in the holds queue at the specified branch</p>
 <ul><li>shows items currently in the holds queue</li>
 <li>shows items at the library you specify</li>

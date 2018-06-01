@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2016-11-29 09:09:19
-Modified on: 2018-02-20 08:56:24
-Date last run: 2018-04-02 14:09:29
+Modified on: 2018-04-16 11:05:26
+Date last run: 2018-05-29 16:28:51
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Gives quick and easy data on a single item</p>
 <ul><li>Shows current data on the item you specify</li>
 <li>grouped by item number</li>

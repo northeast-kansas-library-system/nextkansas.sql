@@ -11,8 +11,8 @@ Group: Patrons
      -
 
 Created on: 2017-12-08 18:58:23
-Modified on: 2017-12-22 18:22:54
-Date last run: 2018-01-15 11:06:33
+Modified on: 2018-04-16 11:11:01
+Date last run: 2018-04-16 12:30:16
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Generates a list of patrons based on their holds contact method</p>
 <ul><li>Shows current data only</li>
 <li>for patrons at the library you specify</li>

@@ -1,0 +1,43 @@
+R.003070
+
+----------
+
+Name: GHW - Z39.50 Backup
+Created by: George H Williams
+
+----------
+
+Group: Administrative Reports
+     System-admin
+
+Created on: 2018-04-12 15:04:40
+Modified on: 2018-04-12 15:04:40
+Date last run: 2018-04-12 15:04:45
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT
+  CONCAT_WS("<br />",
+    Concat("Name: ", z3950servers.servername),
+    Concat("Host name: ", z3950servers.host),
+    Concat("Port: ", z3950servers.port),
+    Concat("Database name: ", z3950servers.db),
+    Concat("Syntax: ", z3950servers.syntax),
+    Concat("Encoding: ", z3950servers.encoding),
+    Concat("Record type: ", z3950servers.recordtype)) AS SERVERS
+FROM
+  z3950servers
+GROUP BY
+  z3950servers.id
+
+
+

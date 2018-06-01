@@ -11,8 +11,8 @@ Group: Administrative Reports
      Fix Items-admin
 
 Created on: 2009-01-26 12:07:07
-Modified on: 2016-08-19 10:09:39
-Date last run: 2018-04-05 10:56:09
+Modified on: 2018-04-16 10:40:18
+Date last run: 2018-06-01 09:41:09
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Shows items with Unknown (itype code XXX) item type or no item type</p>
 <ul><li>Shows items that currently have problematic item types</li>
 <li>shows items from all NExpress libraries</li>

@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2017-12-27 10:45:27
-Modified on: 2017-12-27 11:40:52
-Date last run: 2018-03-07 16:28:05
+Modified on: 2018-04-16 11:13:34
+Date last run: 2018-05-04 17:29:59
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Shows the time a cronjob ran on the date specified within the previous 60 days</p>
 <ul><li>Shows cronojb run times during the date range you specify</li>
 <li>shows runtimes for cronjobs system wide</li>

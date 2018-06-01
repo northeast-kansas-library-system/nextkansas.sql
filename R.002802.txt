@@ -11,7 +11,7 @@ Group: Holds-Reserves
      Holds troubleshooting
 
 Created on: 2016-10-11 09:45:12
-Modified on: 2017-10-04 14:01:22
+Modified on: 2018-04-16 11:02:15
 Date last run: 2018-03-30 16:26:36
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Identifies current requests on a specific item (item specific requests)</p>
 <ul><li>Shows current requests for a specified patron</li>
 <li>on a patron you specify</li>

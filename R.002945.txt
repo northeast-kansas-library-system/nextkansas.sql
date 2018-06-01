@@ -11,8 +11,8 @@ Group: Circulation
      Transfers
 
 Created on: 2017-05-09 21:42:07
-Modified on: 2017-12-13 10:02:22
-Date last run: 2018-04-10 16:05:42
+Modified on: 2018-04-16 11:09:03
+Date last run: 2018-05-29 16:14:46
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Generates e-mail messages for missing in transit items owned by a library, shipped from a library, or shipped to a library</p>
 <ul><li>Shows items that have been in transit between 7 and 180 days ago</li>
 <li>Shows items owned by, shipped from, or shipped to the library you specify</li>

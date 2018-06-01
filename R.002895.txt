@@ -11,8 +11,8 @@ Group: Circulation
      Overdues
 
 Created on: 2017-02-01 15:28:38
-Modified on: 2017-12-19 09:31:37
-Date last run: 2018-04-10 17:15:59
+Modified on: 2018-04-16 11:07:33
+Date last run: 2018-05-30 13:51:23
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Lists items with any "Lost" status that were checked out at your library</p>
 <ul><li>Shows items that currently have the "Lost" status you specify</li>
 <li>shows items that were checked out at your library - regardless of which library owns the item</li>

@@ -11,7 +11,7 @@ Group: Administrative Reports
      -
 
 Created on: 2017-06-23 11:25:44
-Modified on: 2018-02-26 20:29:35
+Modified on: 2018-04-16 11:11:14
 Date last run: 2018-02-26 20:29:38
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Generates a report for converting notices and slips into text files for storage on GITHUB.</p>
 <ul><li>Shows current notice and slip data</li>
 <li>at all NExpress locations</li>

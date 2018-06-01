@@ -11,8 +11,8 @@ Group: Circulation
      Charges
 
 Created on: 2009-06-12 16:22:06
-Modified on: 2017-04-21 00:35:15
-Date last run: 2018-04-10 16:54:33
+Modified on: 2018-04-16 10:46:52
+Date last run: 2018-06-01 13:54:46
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Generates a list of all patrons with fees on their account</p>
 <ul><li>Lists patrons that currently have an account balance due greater than $0.01</li>
 <li>lists patrons whose home library is the branchcode you specify - regardless of where the fees were generated.</li>

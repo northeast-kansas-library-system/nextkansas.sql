@@ -11,7 +11,7 @@ Group: -
      -
 
 Created on: 2012-10-08 14:47:16
-Modified on: 2017-12-28 10:06:12
+Modified on: 2018-04-16 10:47:37
 Date last run: 2017-12-28 10:06:14
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Shows items with restricted itemtypes that have passed their restriction limits</p>
 <ul><li>Shows items with localhold1, localhold2, walkin1, walkin2 item types that have passed their 30 or 60 day restriction limits</li>
 <li>at all NExpress libraries</li>

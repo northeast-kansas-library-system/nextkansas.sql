@@ -11,8 +11,8 @@ Group: Library-Specific
      Tonganoxie
 
 Created on: 2017-01-06 12:02:25
-Modified on: 2017-01-06 12:05:12
-Date last run: 2017-08-07 09:39:20
+Modified on: 2018-04-16 11:04:54
+Date last run: 2018-05-04 17:45:55
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Shows an index of patrons with a TONGANOXIE home library during the 2017 calendar year</p>
 <ul><li>Shows patrons added during 2017</li>
 <li>With a Tonganoxie home branch</li>

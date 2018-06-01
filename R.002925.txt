@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2017-03-21 16:09:30
-Modified on: 2017-11-30 22:14:16
-Date last run: 2018-03-22 16:57:06
+Modified on: 2018-04-16 11:11:04
+Date last run: 2018-04-16 10:28:49
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Shows the current basic circulation rules at your library</p>
 <ul><li>Shows the current circulation rules</li>
 <li>at the library you specify</li>

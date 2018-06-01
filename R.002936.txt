@@ -11,7 +11,7 @@ Group: Statistics
      -
 
 Created on: 2017-05-01 10:06:47
-Modified on: 2017-05-01 15:27:41
+Modified on: 2018-04-16 11:08:54
 Date last run: 2018-01-10 13:21:20
 
 ----------
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo style="font-size:14px; font-weight:normal; background-color:#FFFF66">
+<div id=reportinfo>
 <p>Counts the number of "unique" borrower at a library during the previous calendar month</p>
 <ul><li>shows data from the previous calendar month (i.e. between 12:00 a.m. on the first and 11:59 p.m. on the last day of the month)</li>
 <li>shows data from the library you specify based on the library where the items were checked out or renewed</li>
