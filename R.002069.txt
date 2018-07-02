@@ -11,7 +11,7 @@ Group: Holds-Reserves
      -
 
 Created on: 2013-10-28 22:36:42
-Modified on: 2015-08-16 20:25:43
+Modified on: 2018-07-01 16:22:47
 Date last run: -
 
 ----------
@@ -22,6 +22,8 @@ Expiry: 0
 ----------
 
 displays title, 260c, biblionumber, item barcode on hold, biblio.copyrightdate field
+
+<p><span style="background-color: darkred; color: white">Outdated - scheduled for deletion on August 1, 2018</p>
 
 ----------
 

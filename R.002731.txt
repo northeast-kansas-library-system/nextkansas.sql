@@ -11,8 +11,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2016-08-11 16:36:03
-Modified on: 2018-04-16 10:48:32
-Date last run: 2018-06-01 12:41:27
+Modified on: 2018-06-15 14:18:10
+Date last run: 2018-06-28 17:45:45
 
 ----------
 
@@ -70,6 +70,7 @@ SELECT
   If(Sum(Coalesce(items.damaged, 0) + Coalesce(items.itemlost, 0) + Coalesce(items.withdrawn, 0)) = 0, 'No', 'Yes') AS STATUS_PROBLEMS,
   items.itemnotes,
   items.itemnotes_nonpublic,
+  items.copynumber,
   CONCAT('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=',items.biblionumber,'&itemnumber=',items.itemnumber,'#edititem\" target="_blank">Edit item</a>') AS EDIT_ITEM
 FROM
   items
@@ -82,9 +83,9 @@ WHERE
   Coalesce(items.itype, "-") LIKE <<Item type|LITYPES>> AND
   Coalesce(items.ccode, "-") LIKE <<Item collection code|LCCODE>> AND
   Coalesce(items.itemcallnumber, "-") LIKE CONCAT(<<Enter first part of call number or a % symbol>>, "%") AND
-  items.dateaccessioned <= <<Item was added before|date>> AND
+  Coalesce(items.dateaccessioned, "0") <= <<Item was added before|date>> AND
   Coalesce(items.datelastborrowed, "0") <= <<Date last borrowed was before|date>> AND
-  items.datelastseen <= <<Date last seen was before|date>>
+  Coalesce(items.datelastseen, "0") <= <<Date last seen was before|date>>
 GROUP BY
   items.itemnumber
 HAVING 

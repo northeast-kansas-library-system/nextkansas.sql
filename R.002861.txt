@@ -11,8 +11,8 @@ Group: Circulation
      Circ Stats
 
 Created on: 2016-12-19 10:09:30
-Modified on: 2018-04-16 11:05:02
-Date last run: 2018-03-19 11:01:26
+Modified on: 2018-06-15 22:18:42
+Date last run: 2018-06-15 22:14:58
 
 ----------
 
@@ -34,7 +34,6 @@ Expiry: 0
 <p><ins>The report will almost certainly fail if you use extremely broad parameters.  If you try to run this report with "All libraries" as the checkout branch, "All libraries" as the item home branch, and no limits on shelving locations, item types, or collection codes and a date range longer than just a few weeks, the report will almost certainly fail and may slow down Koha while it runs.</ins></p>
 <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2861&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
-<p><span style="background-color: darkred; color: white">Needs metadata conversion post 17.05</p>
 
 ----------
 

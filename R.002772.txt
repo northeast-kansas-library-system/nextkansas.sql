@@ -11,8 +11,8 @@ Group: Administrative Reports
      Reports Testing Ground
 
 Created on: 2016-09-13 20:06:28
-Modified on: 2016-09-13 20:37:10
-Date last run: -
+Modified on: 2018-06-04 10:52:10
+Date last run: 2018-06-04 10:52:13
 
 ----------
 
@@ -26,15 +26,21 @@ Expiry: 0
 ----------
 
 SELECT
-  Guarantors.cardnumber GUARANTOR_CARDNUMBER,
-  CONCAT_WS(' ',Guarantors.firstname, Guarantors.surname) AS GUARANTOR,
+  CONCAT('<a href=\"/cgi-bin/koha/circ/circulation.pl?borrowernumber=', Guarantors.borrowernumber, '\" target="_blank">Link to guarantor</a>') AS LINK_TO_GUARANTOR,
+  Concat_WS('<br />',
+    Concat("Cardnumber: ", Guarantors.cardnumber),
+    Concat('<br />Home: ', Guarantors.branchcode)
+  ) AS GUARANTOR_INFO,
+  CONCAT(Guarantors.surname, IF(Guarantors.firstname is null, "", Concat(", ", Guarantors.firstname))) AS GUARANTOR,
   CONCAT_WS('<br />',Guarantors.address, (CONCAT_WS(' ',(CONCAT_WS(', ',Guarantors.city, Guarantors.state)),Guarantors.zipcode)), Guarantors.phone,Guarantors.email) AS GUARANTOR_CONTACT,
-  Guarantors.branchcode GUARANTOR_HOMEBRANCH,
-  Guarantees.cardnumber AS GUARANTEE_CARDNUMBER,
-  CONCAT_WS(' ',Guarantees.firstname, Guarantees.surname) AS GUARANTEE,
+  Concat_WS('<br />',
+    Concat("Cardnumber: ", Guarantees.cardnumber),
+    Concat('<br />Home: ', Guarantees.branchcode)
+  ) AS GUARANTEE_INFO,
+  CONCAT(Guarantees.surname, IF(Guarantees.firstname is null, "", Concat(", ", Guarantees.firstname))) AS GUARANTEE,
   CONCAT_WS('<br />',Guarantees.address, (CONCAT_WS(' ',(CONCAT_WS(', ',Guarantees.city, Guarantees.state)),Guarantees.zipcode)), Guarantees.phone,Guarantees.email) AS GUARANTEE_CONTACT,
-  Guarantees.branchcode AS GUARANTEE_HOMEBRANCH,
-  FORMAT(Sum(accountlines.amountoutstanding),2) AS GUARANTEE_AMOUNT_OUTSTANIDING
+  FORMAT(Sum(accountlines.amountoutstanding),2) AS AMOUNT_OUTSTANIDING,
+  CONCAT('<a href=\"/cgi-bin/koha/circ/circulation.pl?borrowernumber=', Guarantees.borrowernumber, '\" target="_blank">Link to guarantee</a>') AS LINK_TO_GUARANTEE
 FROM
   borrowers Guarantors INNER JOIN
   borrowers Guarantees
@@ -44,9 +50,16 @@ FROM
 WHERE
   Guarantors.branchcode LIKE <<Guarantors home branch|LBRANCH>>
 GROUP BY
-  Guarantors.surname, Guarantors.firstname, Guarantees.firstname, Guarantees.surname
+  Guarantors.borrowernumber,
+  Guarantees.borrowernumber
 HAVING
-  Sum(accountlines.amountoutstanding) > <<Guarantee owes more than XX.XX in fees>>
+  Sum(accountlines.amountoutstanding) > <<Guarantees owing greater than XX.XX>>
+ORDER BY
+  Guarantors.branchcode,
+  Guarantors.surname,
+  Guarantors.firstname,
+  Guarantees.firstname,
+  Guarantees.surname
 
 
 

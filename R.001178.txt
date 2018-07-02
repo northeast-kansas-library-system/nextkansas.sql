@@ -11,8 +11,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2011-08-30 17:04:11
-Modified on: 2013-11-17 13:49:49
-Date last run: 2018-03-26 15:15:25
+Modified on: 2018-06-07 14:19:07
+Date last run: 2018-06-21 14:37:43
 
 ----------
 
@@ -23,9 +23,28 @@ Expiry: 0
 
 Our best attempt to find what should be on the shelf.  Enhanced to allow you to select Branch and Collection Code and Shelving Location.
 
+<p><span style="background-color: darkred; color: white">Everything this report does can be done by report 2731.  Unless someone contacts nexpresshelp@nekls.org with further information, this report is scheduled for deletion on September 1, 2018.</p>
+
 ----------
 
-SELECT items.onloan,items.itemcallnumber,biblio.title,items.barcode FROM items JOIN biblio USING (biblionumber) WHERE items.homebranch=<<Pick your branch|branches>> AND items.ccode=<<Pick your collection code|CCODE>> AND items.location=<<location|LOC>> AND items.damaged=0 AND items.itemlost=0 AND items.notforloan=0 ORDER BY items.onloan, items.itemcallnumber ASC
+SELECT
+  items.onloan,
+  items.itemcallnumber,
+  biblio.title,
+  items.barcode
+FROM
+  items
+  JOIN biblio ON items.biblionumber = biblio.biblionumber
+WHERE
+  items.homebranch = <<Pick your branch|branches>> AND
+  items.ccode = <<Pick your collection code|CCODE>> AND
+  items.location = <<location|LOC>> AND
+  items.damaged = 0 AND
+  items.itemlost = 0 AND
+  items.notforloan = 0
+ORDER BY
+  items.onloan,
+  items.itemcallnumber
 
 
 

@@ -2,7 +2,7 @@ R.003032
 
 ----------
 
-Name: SANDBOX - 1830
+Name: SANDBOX - paylpall
 Created by: George H Williams
 
 ----------
@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-01-05 10:34:49
-Modified on: 2018-05-17 09:54:26
-Date last run: 2018-05-17 09:54:28
+Modified on: 2018-06-21 14:51:32
+Date last run: 2018-06-21 14:51:38
 
 ----------
 
@@ -25,7 +25,7 @@ Expiry: 300
 
 ----------
 
-select * from borrowers
+Too large to process
 
 
 

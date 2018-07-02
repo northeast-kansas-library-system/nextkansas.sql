@@ -11,8 +11,8 @@ Group: Administrative Reports
      -
 
 Created on: 2017-07-05 14:11:52
-Modified on: 2018-04-16 11:11:25
-Date last run: 2018-05-04 17:34:31
+Modified on: 2018-06-01 14:54:39
+Date last run: 2018-06-01 15:03:49
 
 ----------
 
@@ -37,25 +37,28 @@ Expiry: 300
 
 SELECT
   borrowers.cardnumber,
-  staff.branchcode AS STAFF_HOME_BRANCH,
+  branches.branchname AS STAFF_HOME_BRANCH,
   regbranch.attribute
 FROM
   borrowers
   LEFT JOIN (SELECT
-      borrower_attributes.borrowernumber,
-      borrower_attributes.code,
-      borrower_attributes.attribute
-    FROM
-      borrower_attributes
-    WHERE
-      borrower_attributes.code = 'REGBRANCH') regbranch ON borrowers.borrowernumber = regbranch.borrowernumber
+        borrower_attributes.borrowernumber,
+        borrower_attributes.code,
+        borrower_attributes.attribute
+      FROM
+        borrower_attributes
+      WHERE
+        borrower_attributes.code = 'REGBRANCH') regbranch ON borrowers.borrowernumber = regbranch.borrowernumber
   JOIN action_logs ON action_logs.object = borrowers.borrowernumber
   JOIN borrowers staff ON action_logs.user = staff.borrowernumber
+  INNER JOIN branches ON staff.branchcode = branches.branchcode
 WHERE
   regbranch.attribute IS NULL AND
   action_logs.module = 'MEMBERS' AND
   action_logs.action LIKE 'CREAT%'
 GROUP BY
+  staff.branchcode,
+  branches.branchname,
   borrowers.borrowernumber
 ORDER BY
   STAFF_HOME_BRANCH,

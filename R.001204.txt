@@ -11,8 +11,8 @@ Group: Administrative Reports
      Patrons-admin
 
 Created on: 2011-10-18 13:56:43
-Modified on: 2013-06-16 14:35:17
-Date last run: 2017-12-08 18:43:47
+Modified on: 2018-07-01 16:18:43
+Date last run: 2018-07-01 16:18:15
 
 ----------
 
@@ -22,6 +22,8 @@ Expiry: 0
 ----------
 
 To eliminate ssn's and DL#
+
+<p><span style="background-color: darkred; color: white">No longer serves a purpose - scheduled for deletion on August 1, 2018</p>
 
 ----------
 

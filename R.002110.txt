@@ -11,8 +11,8 @@ Group: Administrative Reports
      Slow Patrons - admin
 
 Created on: 2013-11-20 15:29:36
-Modified on: 2013-11-20 16:29:45
-Date last run: -
+Modified on: 2018-06-04 09:27:04
+Date last run: 2018-06-04 09:17:01
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 0
 
 ----------
 
-
+<p><span style="background-color: darkred; color: white">This report is scheduled for deletion on August 1, 2018.</p>
 
 ----------
 

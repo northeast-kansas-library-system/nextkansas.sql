@@ -1,0 +1,47 @@
+R.003080
+
+----------
+
+Name: Systempreferences sandbox
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2018-06-04 21:38:37
+Modified on: 2018-06-05 15:35:02
+Date last run: 2018-06-09 18:28:08
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT
+  Concat(If(Length(REPLACE(systempreferences.value,'\r\n', CONCAT(Char(13),Char(10)))) > 32766, "X.", "R."), REPLACE(systempreferences.variable, ":", ".")) AS FILE_NAME,
+  Concat(
+    Concat("R.", systempreferences.variable), Char(13), Char(10), Char(13), Char(10),
+    Concat("----------"), Char(13), Char(10), Char(13), Char(10),
+    Concat("Name: ", systempreferences.variable), Char(13), Char(10), Char(13), Char(10),
+    Concat("----------"), Char(13), Char(10), Char(13), Char(10),
+    Concat("Options: ", Coalesce(systempreferences.options, " ")), Char(13), Char(10), Char(13), Char(10),
+    Concat("----------"), Char(13), Char(10), Char(13), Char(10),
+    Concat("Description: ", Coalesce(systempreferences.explanation, " ")), Char(13), Char(10), Char(13), Char(10),
+    Concat("----------"), Char(13), Char(10), Char(13), Char(10),
+    Concat("Type: ", Coalesce(systempreferences.type, " ")), Char(13), Char(10), Char(13), Char(10),
+    Concat("----------"), Char(13), Char(10), Char(13), Char(10),
+    Concat( IF(Length(REPLACE(systempreferences.value,'\r\n', CONCAT(Char(13), CHAR(10)))) > 32766, "Too large to process", REPLACE(systempreferences.value, '\\r\\n', Concat(Char(13), Char(10))) ) ) 
+  ) AS CONTENT  
+FROM
+  systempreferences
+
+
+

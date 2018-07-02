@@ -11,7 +11,7 @@ Group: Administrative Reports
      Post-Lansing
 
 Created on: 2016-09-01 11:58:38
-Modified on: 2016-09-01 12:19:13
+Modified on: 2018-07-01 16:21:21
 Date last run: -
 
 ----------
@@ -22,6 +22,8 @@ Expiry: 0
 ----------
 
 A lot of the duplicated records have series info in title, so these records didn't match
+
+<p><span style="background-color: darkred; color: white">Outdated - scheduled for deletion on August 1, 2018</p>
 
 ----------
 

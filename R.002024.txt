@@ -11,7 +11,7 @@ Group: Administrative Reports
      School Libraries-admin
 
 Created on: 2013-09-01 11:43:17
-Modified on: 2015-08-16 20:53:43
+Modified on: 2018-07-01 16:22:59
 Date last run: -
 
 ----------
@@ -22,6 +22,8 @@ Expiry: 0
 ----------
 
 bib cleanup
+
+<p><span style="background-color: darkred; color: white">Outdated - scheduled for deletion on August 1, 2018</p>
 
 ----------
 

@@ -11,7 +11,7 @@ Group: Administrative Reports
      Fix Bib Records-admin
 
 Created on: 2012-10-01 16:12:40
-Modified on: 2015-08-16 20:12:41
+Modified on: 2018-07-01 16:25:05
 Date last run: -
 
 ----------
@@ -22,6 +22,8 @@ Expiry: 0
 ----------
 
 #special
+
+<p><span style="background-color: darkred; color: white">Outdated - scheduled for deletion on August 1, 2018</p>
 
 ----------
 

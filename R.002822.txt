@@ -11,7 +11,7 @@ Group: Administrative Reports
      Testing
 
 Created on: 2016-11-11 14:12:02
-Modified on: 2017-09-11 13:46:21
+Modified on: 2018-07-01 16:25:45
 Date last run: 2017-10-24 08:23:26
 
 ----------
@@ -21,8 +21,9 @@ Expiry: 0
 
 ----------
 
-
 <p><span style="background-color: darkred; color: white">Needs metadata conversion post 17.05</p>
+
+<p><span style="background-color: darkred; color: white">Outdated - scheduled for deletion on August 1, 2018</p>
 
 ----------
 
