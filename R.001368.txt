@@ -45,7 +45,8 @@ FROM
   JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
 WHERE
   biblio.author LIKE Concat("%", <<author>>,"%") AND
-  items.itype <> 'AUDIOBOOK'
+  (items.itype <> 'AUDIOBOOK' AND
+   items.itype <> 'MEDIA')
 GROUP BY
   biblio.biblionumber
 HAVING
