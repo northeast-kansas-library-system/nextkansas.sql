@@ -89,7 +89,7 @@ lLastRow = Cells(Rows.Count, 1).End(xlUp).Row
 For lRowLoop = 1 To lLastRow
 
     Set fs = CreateObject("Scripting.FileSystemObject")
-    Set objTextStream = fs.opentextfile("c:\SQL\" & Cells(lRowLoop, 1) & ".txt", fsoForWriting, True)
+    Set objTextStream = fs.opentextfile("c:\GIT\" & Cells(lRowLoop, 1) & ".txt", fsoForWriting, True)
 
     sText = ""
 
