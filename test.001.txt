@@ -1,0 +1,23 @@
+Experimental post-upgrade sql
+
+Account offsets starter
+
+SELECT
+  borrowers.cardnumber,
+  payments.timestamp AS PAYMENT_DATE_TIME,
+  Format(payments.amount, 2) AS AMT_PAID,
+  account_offsets.type AS PAYMENT_TYPE,
+  payments.note,
+  fees.date AS FEE_DATE,
+  Format(fees.amount, 2) AS ORIGINAL_AMT,
+  Format(fees.amountoutstanding, 2) AS AMOUNT_STILL_OWED,
+  Coalesce(items.barcode, "-") AS ITEM_BC,
+  Concat(fees.description, " | ", fees.note) AS FEE_DESCRIPTION_NOTE
+FROM
+  account_offsets
+  JOIN accountlines fees ON fees.accountlines_id = account_offsets.debit_id
+  JOIN accountlines payments ON payments.accountlines_id = account_offsets.credit_id
+  LEFT JOIN borrowers ON payments.borrowernumber = borrowers.borrowernumber
+  LEFT JOIN items ON fees.itemnumber = items.itemnumber
+ORDER BY
+  PAYMENT_DATE_TIME DESC
