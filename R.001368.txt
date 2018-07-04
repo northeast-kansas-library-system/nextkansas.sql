@@ -37,15 +37,16 @@ SELECT
   biblioitems.size,
   biblioitems.publishercode,
   biblioitems.publicationyear,
-  Concat('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=', biblio.title, '&sort_by=title_az\" target="_blank">', biblio.title, '</a>') AS TITLE_SEARCH
+  Concat('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=', REPLACE(biblio.title, ' ','+'), '&sort_by=title_az\" target="_blank">', biblio.title, '</a>') AS TITLE_SEARCH
 FROM
   biblio
   JOIN items ON biblio.biblionumber = items.biblionumber
   LEFT JOIN biblioitems ON items.biblionumber = biblioitems.biblionumber
   JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
 WHERE
-  biblio.author LIKE Concat("%",<<author>>,"%") AND
-  items.itype <> 'AUDIOBOOK'
+  biblio.author LIKE Concat("%", <<author>>,"%") AND
+  (items.itype <> 'AUDIOBOOK' AND
+   items.itype <> 'MEDIA')
 GROUP BY
   biblio.biblionumber
 HAVING
@@ -54,6 +55,3 @@ ORDER BY
   biblio.title,
   biblioitems.pages,
   biblioitems.publishercode
-
-
-
