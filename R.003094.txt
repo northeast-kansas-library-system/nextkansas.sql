@@ -11,7 +11,7 @@ Group: Statistics
      Last calendar month
 
 Created on: 2018-07-01 15:53:30
-Modified on: 2018-07-01 19:41:01
+Modified on: 2018-07-02 08:44:47
 Date last run: 2018-07-01 19:56:10
 
 ----------

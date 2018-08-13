@@ -11,8 +11,8 @@ Group: Acquisitions
      Collection Development
 
 Created on: 2009-09-28 13:12:52
-Modified on: 2013-06-17 15:24:29
-Date last run: 2018-06-20 19:02:49
+Modified on: 2018-07-02 09:44:38
+Date last run: 2018-07-02 09:42:33
 
 ----------
 
@@ -23,9 +23,29 @@ Expiry: 0
 
 See holds by your patrons that are being filled OUTSIDE of your owned collection. A Collection Development Report tool. Enhanced.
 
+<p><span style="background-color: darkred; color: white">virtually line by line identical to report 799 - merge two to make one report</p>
+
 ----------
 
-SELECT biblio.title, items.itemcallnumber, items.ccode, items.holdingbranch, items.homebranch, items.barcode, issues.issuedate FROM issues LEFT JOIN items USING (itemnumber) LEFT JOIN biblio USING (biblionumber) WHERE issues.branchcode=<<Pick your branch|branches>> and items.holdingbranch !=  items.homebranch ORDER BY items.itemcallnumber, issues.issuedate, biblio.title
+SELECT
+  biblio.title,
+  items.itemcallnumber,
+  items.ccode,
+  items.holdingbranch,
+  items.homebranch,
+  items.barcode,
+  issues.issuedate
+FROM
+  issues
+  LEFT JOIN items ON issues.itemnumber = items.itemnumber
+  LEFT JOIN biblio ON items.biblionumber = biblio.biblionumber
+WHERE
+  issues.branchcode = <<Pick your branch|branches>> AND
+  items.holdingbranch != items.homebranch
+ORDER BY
+  items.itemcallnumber,
+  issues.issuedate,
+  biblio.title
 
 
 

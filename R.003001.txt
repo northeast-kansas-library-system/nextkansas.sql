@@ -2,7 +2,7 @@ R.003001
 
 ----------
 
-Name: GHW - duplicates sandbox
+Name: SAndbox
 Created by: George H Williams
 
 ----------
@@ -11,8 +11,8 @@ Group: Administrative Reports
      Testing
 
 Created on: 2017-09-20 18:32:26
-Modified on: 2018-06-24 20:53:25
-Date last run: 2018-06-24 20:53:32
+Modified on: 2018-08-08 09:48:36
+Date last run: 2018-08-08 09:48:39
 
 ----------
 
@@ -26,18 +26,29 @@ Expiry: 300
 ----------
 
 SELECT
-  Concat('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti%2Cphr&q=',
-  Replace(Replace(Replace(Replace(Replace(Replace(Replace(Trim(biblio.title), " ", "+"), "/", ""), ":", ""), "'", ""), '"', ''), "#", ""), "?", ""), '&sort_by=title_az\" target="_blank">', Replace(Replace(Replace(Replace(Replace(Replace(Replace(Trim(biblio.title), " ", " "), "/", ""), ":", ""), "'", ""), '"', ''), "#", ""), "?", ""), '</a>') AS LINK,
-  Count(biblio.biblionumber) AS Group_Concat_biblionumber
+  action_logs.action_id,
+  action_logs.timestamp,
+  action_logs.user,
+  action_logs.module,
+  action_logs.action,
+  action_logs.object,
+  action_logs.info,
+  action_logs.interface
 FROM
-  biblio
+  action_logs
+WHERE
+  action_logs.module = 'members' AND
+  action_logs.action LIKE "%D%" AND
+  action_logs.object = "113176"
 GROUP BY
-  Concat('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=', Replace(Replace(Replace(Replace(Replace(Replace(Replace(Trim(biblio.title), " ", "+"), "/", ""), ":", ""), "'", ""), '"', ''), "#", ""), "?", ""), '&sort_by=title_az\" target="_blank">', Replace(Replace(Replace(Replace(Replace(Replace(Replace(Trim(biblio.title), " ", " "), "/", ""), ":", ""), "'", ""),
-  '"', ''), "#", ""), "?", ""), '</a>')
-HAVING
-  Count(biblio.biblionumber) =2
-ORDER BY
-  Group_Concat_biblionumber DESC
+  action_logs.action_id,
+  action_logs.timestamp,
+  action_logs.user,
+  action_logs.module,
+  action_logs.action,
+  action_logs.object,
+  action_logs.info,
+  action_logs.interface
 
 
 

@@ -2,7 +2,7 @@ R.003022
 
 ----------
 
-Name: GHW - Paypal report
+Name: GHW - Paypal report - previous calendar month
 Created by: George H Williams
 
 ----------
@@ -11,8 +11,8 @@ Group: Fines/Fees
      -
 
 Created on: 2017-12-22 16:12:49
-Modified on: 2018-02-20 18:07:59
-Date last run: 2018-06-29 21:40:40
+Modified on: 2018-07-02 14:57:13
+Date last run: 2018-07-02 14:48:12
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-
+This report cannot be downloaded as a csv file
 
 ----------
 
@@ -1069,7 +1069,7 @@ FROM
   LEFT JOIN items ON paid.itemnumber = items.itemnumber
 WHERE
   Replace(payments.note, "\r\n", "") LIKE "%Paypal%" AND
-  staff.branchcode LIKE <<Choose payment branch|ZBRAN>>
+  staff.branchcode LIKE '%'
 GROUP BY
   staff.branchcode,
   payments.amount,

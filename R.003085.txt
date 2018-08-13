@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-06-28 15:09:42
-Modified on: 2018-06-28 18:07:39
-Date last run: 2018-06-28 20:08:24
+Modified on: 2018-07-03 16:16:45
+Date last run: 2018-07-03 16:43:45
 
 ----------
 
@@ -181,7 +181,8 @@ FROM
         borrower_attributes.attribute) newsletter_permission ON
     borrowers.borrowernumber = newsletter_permission.borrowernumber
 WHERE
-  borrowers.branchcode LIKE <<Choose your library|ZBRAN>> AND
+  borrowers.branchcode LIKE <<Choose your library|ZBRAN>>  AND
+  borrowers.categorycode LIKE <<Choose a borrower category|LBORROWERCAT>> AND
   Coalesce(otherinfoone.attribute, "~") LIKE CONCAT("%", <<Enter part of 'Other identifier 1' or a % symbol>>, "%") AND
   Coalesce(otherinfotwo.attribute, "~") LIKE CONCAT("%", <<Enter part of 'Other identifier 2' or a % symbol>>, "%") AND
   Coalesce(registrationbranch.attribute, "~") LIKE CONCAT("%", <<Enter part of 'Registration branch' or a % symbol>>, "%") AND

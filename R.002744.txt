@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2016-08-29 13:00:26
-Modified on: 2017-12-11 11:48:19
-Date last run: 2018-06-29 13:59:01
+Modified on: 2018-07-06 12:01:05
+Date last run: 2018-08-08 11:08:16
 
 ----------
 
@@ -34,9 +34,8 @@ Expiry: 0
 ----------
 
 SELECT
-  items.copynumber,
-  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">',
-  biblio.biblionumber, '</a>') AS LINK_TO_TITLE,
+  Coalesce(items.copynumber, "~") AS copynumber,
+  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">', biblio.biblionumber, '</a>') AS LINK_TO_TITLE,
   items.itemnumber,
   items.homebranch,
   items.barcode,
@@ -45,9 +44,7 @@ SELECT
   items.ccode,
   items.itemcallnumber,
   biblio.author,
-  Concat_Ws(' ', biblio.title, ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'),
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')) AS FULL_TITLE,
+  Concat_Ws(' ', biblio.title, ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')) AS FULL_TITLE,
   items.dateaccessioned,
   items.datelastborrowed,
   items.datelastseen,
@@ -60,10 +57,26 @@ FROM
   JOIN biblio ON items.biblionumber = biblio.biblionumber
   JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
 WHERE
-  items.homebranch = 'PAOLA' AND
-  items.copynumber IS NOT NULL
+  (items.homebranch = 'PAOLA' AND
+  Coalesce(items.copynumber, "~") <> "~") OR
+  (items.homebranch = 'PAOLA' AND
+  Coalesce(items.copynumber, "~") = "~" AND
+  (items.itype = 'MEDIA' OR
+    items.itype = 'LOCALHOLD1' OR
+    items.itype = 'NEWMEDIA' OR
+    items.itype = 'WALKIN1') AND
+  items.itemcallnumber LIKE "%MOV%")
 GROUP BY
-  items.copynumber
+  items.itemnumber
+ORDER BY
+  copynumber,
+  items.homebranch,
+  items.location,
+  items.itype,
+  items.ccode,
+  items.itemcallnumber,
+  biblio.author,
+  FULL_TITLE
 
 
 

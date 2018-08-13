@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-06-29 08:32:01
-Modified on: 2018-06-29 14:36:45
-Date last run: 2018-06-29 14:23:49
+Modified on: 2018-07-03 16:13:56
+Date last run: 2018-07-03 16:15:34
 
 ----------
 
@@ -73,6 +73,7 @@ FROM
     borrowers.borrowernumber = internet_permission.borrowernumber
 WHERE
   borrowers.branchcode LIKE <<Choose your library|ZBRAN>> AND
+  borrowers.categorycode LIKE <<Choose a borrower category|LBORROWERCAT>> AND
   Coalesce(internet_permission.attribute, "~") LIKE <<Select internet policy attribute|LINTPOLICY>>
 GROUP BY
   borrowers.borrowernumber,

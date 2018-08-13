@@ -11,8 +11,8 @@ Group: Acquisitions
      Collection Development
 
 Created on: 2018-01-12 10:51:47
-Modified on: 2018-01-12 10:51:47
-Date last run: 2018-05-04 17:40:17
+Modified on: 2018-07-02 09:28:06
+Date last run: 2018-07-31 16:47:00
 
 ----------
 
@@ -25,7 +25,25 @@ Expiry: 300
 
 ----------
 
-SELECT  items.dateaccessioned,items.barcode,biblio.title,biblio.author,items.holdingbranch FROM items LEFT JOIN biblioitems on (items.biblioitemnumber=biblioitems.biblioitemnumber) LEFT JOIN biblio on (biblioitems.biblionumber=biblio.biblionumber)   WHERE items.holdingbranch='SABETHA' AND biblio.datecreated >= '2017-01-02' AND biblio.datecreated <= '2018-01-02' AND items.ccode='FICTION' AND items.itype='BOOK' AND items.location='ADULT' ORDER BY items.dateaccessioned asc
+SELECT
+  items.dateaccessioned,
+  items.barcode,
+  biblio.title,
+  biblio.author,
+  items.holdingbranch
+FROM
+  items
+  LEFT JOIN biblioitems ON items.biblioitemnumber = biblioitems.biblioitemnumber
+  LEFT JOIN biblio ON biblioitems.biblionumber = biblio.biblionumber
+WHERE
+  items.holdingbranch = 'SABETHA' AND
+  biblio.datecreated >= '2017-01-02' AND
+  biblio.datecreated <= '2018-01-02' AND
+  items.ccode = 'FICTION' AND
+  items.itype = 'BOOK' AND
+  items.location = 'ADULT'
+ORDER BY
+  items.dateaccessioned
 
 
 

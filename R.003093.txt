@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-06-29 09:17:52
-Modified on: 2018-06-29 14:36:30
-Date last run: 2018-06-30 22:36:31
+Modified on: 2018-07-03 16:13:08
+Date last run: 2018-07-03 16:14:26
 
 ----------
 
@@ -90,6 +90,7 @@ FROM
         borrower_attributes.code) registrationbranch ON borrowers.borrowernumber = registrationbranch.borrowernumber
 WHERE
   borrowers.branchcode LIKE <<Choose your library|ZBRAN>> AND
+  borrowers.categorycode LIKE <<Choose a borrower category|LBORROWERCAT>> AND
   Coalesce(otherinfoone.attribute, "~") LIKE Concat("%", <<Enter part of 'Other identifier 1' or a % symbol>>, "%") AND
   Coalesce(otherinfotwo.attribute, "~") LIKE Concat("%", <<Enter part of 'Other identifier 2' or a % symbol>>, "%") AND
   Coalesce(registrationbranch.attribute, "~") LIKE Concat("%", <<Enter part of 'Registration branch' or a % symbol>>, "%")

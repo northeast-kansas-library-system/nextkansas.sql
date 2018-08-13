@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2012-05-02 00:38:22
-Modified on: 2017-12-11 16:36:32
-Date last run: 2017-12-11 16:36:41
+Modified on: 2018-07-02 12:13:26
+Date last run: 2018-07-02 13:38:57
 
 ----------
 
@@ -36,8 +36,7 @@ SELECT
   biblioitems.pages,
   biblioitems.size,
   biblioitems.publishercode,
-  biblioitems.publicationyear,
-  Concat('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=', REPLACE(biblio.title, ' ','+'), '&sort_by=title_az\" target="_blank">', biblio.title, '</a>') AS TITLE_SEARCH
+  biblioitems.publicationyear
 FROM
   biblio
   JOIN items ON biblio.biblionumber = items.biblionumber
@@ -55,3 +54,6 @@ ORDER BY
   biblio.title,
   biblioitems.pages,
   biblioitems.publishercode
+
+
+

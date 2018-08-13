@@ -11,8 +11,8 @@ Group: Administrative Reports
      Testing
 
 Created on: 2017-01-09 09:39:56
-Modified on: 2017-02-01 19:13:43
-Date last run: 2018-07-01 10:14:12
+Modified on: 2018-08-02 15:23:24
+Date last run: 2018-08-02 14:21:15
 
 ----------
 
@@ -34,115 +34,90 @@ SELECT
   Coalesce(ILL_BORROWED.count, 0) AS NX_ILL_BORROWED_LM,
   Coalesce(ACCT_USED.count, 0) AS PATRON_LM
 FROM
-  branches LEFT JOIN
-  (SELECT
-    statistics.branch,
-    Count(*) AS count
-  FROM
-    statistics
-  WHERE
-    (statistics.type = 'issue' OR
-      statistics.type = 'renew') AND
-    Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
-    Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH)
-  GROUP BY
-    statistics.branch) CIR_RENEW_LM
-    ON branches.branchcode = CIR_RENEW_LM.branch LEFT JOIN
-  (SELECT
-    statistics.branch,
-    Count(*) AS count
-  FROM
-    statistics LEFT JOIN
-    items
-      ON statistics.itemnumber = items.itemnumber LEFT JOIN
-    deleteditems
-      ON statistics.itemnumber = deleteditems.itemnumber
-  WHERE
-    (statistics.type = 'issue' OR
-      statistics.type = 'renew') AND
-    Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
-    Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
-    (If(items.location IS NULL AND deleteditems.location IS NULL, NULL,
-      Concat(Coalesce(items.location, ''), Coalesce(deleteditems.location,
-      ''))) = 'ADULT' OR
-      If(items.location IS NULL AND deleteditems.location IS NULL, NULL,
-      Concat(Coalesce(items.location, ''), Coalesce(deleteditems.location,
-      ''))) = 'LVPLADULT' OR
-      If(items.location IS NULL AND deleteditems.location IS NULL, NULL,
-      Concat(Coalesce(items.location, ''), Coalesce(deleteditems.location,
-      ''))) IS NULL)
-  GROUP BY
-    statistics.branch) ADULT
-    ON branches.branchcode = ADULT.branch LEFT JOIN
-  (SELECT
-    items.homebranch,
-    COUNT(*) AS count
-  FROM
-    branchtransfers LEFT JOIN
-    items
-      ON branchtransfers.itemnumber = items.itemnumber
-  WHERE
-    items.homebranch <> branchtransfers.tobranch AND
-    Year(branchtransfers.datesent) = Year(Now() - INTERVAL 1 MONTH) AND
-    Month(branchtransfers.datesent) = Month(Now() - INTERVAL 1 MONTH) AND
-    branchtransfers.tobranch <> branchtransfers.frombranch AND
-    branchtransfers.comments IS NULL
-  GROUP BY
-    items.homebranch) ILL_LOANED
-    ON branches.branchcode = ILL_LOANED.homebranch LEFT JOIN
-  (SELECT
-    branchtransfers.tobranch,
-    COUNT(*) AS count
-  FROM
-    branchtransfers LEFT JOIN
-    items
-      ON branchtransfers.itemnumber = items.itemnumber
-  WHERE
-    branchtransfers.tobranch <> items.homebranch AND
-    Month(branchtransfers.datesent) = Month(Now() - INTERVAL 1 MONTH) AND
-    Year(branchtransfers.datesent) = Year(Now() - INTERVAL 1 MONTH) AND
-    branchtransfers.frombranch <> branchtransfers.tobranch AND
-    (branchtransfers.comments IS NULL)
-  GROUP BY
-    branchtransfers.tobranch) ILL_BORROWED
-    ON branches.branchcode = ILL_BORROWED.tobranch LEFT JOIN
-  (SELECT
-    statistics.branch,
-    Count(DISTINCT statistics.borrowernumber) AS count
-  FROM
-    statistics
-  WHERE
-    (statistics.type = 'issue' OR
-      statistics.type = 'renew' OR
-      statistics.type = 'localuse') AND
-    Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
-    Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH)
-  GROUP BY
-    statistics.branch) ACCT_USED
-    ON branches.branchcode = ACCT_USED.branch LEFT JOIN
-  (SELECT
-    statistics.branch,
-    Count(*) AS count
-  FROM
-    statistics LEFT JOIN
-    items
-      ON statistics.itemnumber = items.itemnumber LEFT JOIN
-    deleteditems
-      ON statistics.itemnumber = deleteditems.itemnumber
-  WHERE
-    If(items.location IS NULL AND deleteditems.location IS NULL, NULL,
-    Concat(Coalesce(items.location, ''), Coalesce(deleteditems.location,
-    ''))) <> 'ADULT' AND
-    If(items.location IS NULL AND deleteditems.location IS NULL, NULL,
-    Concat(Coalesce(items.location, ''), Coalesce(deleteditems.location,
-    ''))) <> 'LVPLADULT' AND
-    (statistics.type = 'issue' OR
-      statistics.type = 'renew') AND
-    Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
-    Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH)
-  GROUP BY
-    statistics.branch) YOUTH
-    ON branches.branchcode = YOUTH.branch
+  branches
+  LEFT JOIN (SELECT
+        statistics.branch,
+        Count(*) AS count
+      FROM
+        statistics
+      WHERE
+        (statistics.type = 'issue' OR
+          statistics.type = 'renew') AND
+        Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+        Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH)
+      GROUP BY
+        statistics.branch) CIR_RENEW_LM ON branches.branchcode = CIR_RENEW_LM.branch
+  LEFT JOIN (SELECT
+        statistics.branch,
+        Count(*) AS count
+      FROM
+        statistics
+      WHERE
+        (statistics.type = 'issue' OR
+          statistics.type = 'renew') AND
+        Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+        Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
+        (statistics.location = 'ADULT' OR
+          statistics.location = 'LVPLADULT' OR
+          statistics.location IS NULL)
+      GROUP BY
+        statistics.branch) ADULT ON branches.branchcode = ADULT.branch
+  LEFT JOIN (SELECT
+        items.homebranch,
+        COUNT(*) AS count
+      FROM
+        branchtransfers
+        LEFT JOIN items ON branchtransfers.itemnumber = items.itemnumber
+      WHERE
+        items.homebranch <> branchtransfers.tobranch AND
+        Year(branchtransfers.datesent) = Year(Now() - INTERVAL 1 MONTH) AND
+        Month(branchtransfers.datesent) = Month(Now() - INTERVAL 1 MONTH) AND
+        branchtransfers.tobranch <> branchtransfers.frombranch AND
+        branchtransfers.comments IS NULL
+      GROUP BY
+        items.homebranch) ILL_LOANED ON branches.branchcode = ILL_LOANED.homebranch
+  LEFT JOIN (SELECT
+        branchtransfers.tobranch,
+        COUNT(*) AS count
+      FROM
+        branchtransfers
+        LEFT JOIN items ON branchtransfers.itemnumber = items.itemnumber
+      WHERE
+        branchtransfers.tobranch <> items.homebranch AND
+        Month(branchtransfers.datesent) = Month(Now() - INTERVAL 1 MONTH) AND
+        Year(branchtransfers.datesent) = Year(Now() - INTERVAL 1 MONTH) AND
+        branchtransfers.frombranch <> branchtransfers.tobranch AND
+        branchtransfers.comments IS NULL
+      GROUP BY
+        branchtransfers.tobranch) ILL_BORROWED ON branches.branchcode = ILL_BORROWED.tobranch
+  LEFT JOIN (SELECT
+        statistics.branch,
+        Count(DISTINCT statistics.borrowernumber) AS count
+      FROM
+        statistics
+      WHERE
+        (statistics.type = 'issue' OR
+          statistics.type = 'renew' OR
+          statistics.type = 'localuse') AND
+        Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+        Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH)
+      GROUP BY
+        statistics.branch) ACCT_USED ON branches.branchcode = ACCT_USED.branch
+  LEFT JOIN (SELECT
+        statistics.branch,
+        Count(*) AS count
+      FROM
+        statistics
+      WHERE
+        (statistics.type = 'issue' OR
+          statistics.type = 'renew') AND
+        Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+        Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
+        statistics.location <> "" AND
+        statistics.location <> "ADULT" AND
+        statistics.location <> "LVPLADULT"
+      GROUP BY
+        statistics.branch) YOUTH ON branches.branchcode = YOUTH.branch
 GROUP BY
   branches.branchcode
 ORDER BY

@@ -11,7 +11,7 @@ Group: Statistics
      Date range
 
 Created on: 2018-07-01 16:35:43
-Modified on: 2018-07-01 19:40:37
+Modified on: 2018-07-02 08:44:05
 Date last run: 2018-07-01 19:57:01
 
 ----------
@@ -23,7 +23,7 @@ Expiry: 300
 
 <div id=reportinfo>
 <p>Reports circulation and renewal counts by branchcode, collection code, and shelving location</p>
-<ul><li>Reports counts for the month you specify</li>
+<ul><li>Reports counts for the month you specify (within the previous 25 monhts)</li>
 <li>at the library you specify</li>
 <li>grouped by branchcode and collection code</li>
 <li>sorted by branchcode and collection code description</li>

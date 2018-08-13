@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-06-29 08:33:47
-Modified on: 2018-06-29 14:36:42
-Date last run: 2018-06-29 14:23:55
+Modified on: 2018-07-03 16:13:47
+Date last run: 2018-07-26 15:23:34
 
 ----------
 
@@ -72,6 +72,7 @@ FROM
         borrower_attributes.code) location ON borrowers.borrowernumber = location.borrowernumber
 WHERE
   borrowers.branchcode LIKE <<Choose your library|LBRANCH>> AND
+  borrowers.categorycode LIKE <<Choose a borrower category|LBORROWERCAT>> AND
   Coalesce(location.attribute, "~") LIKE <<Select special locations attribute|LSPECLOC>>
 GROUP BY
   borrowers.email,

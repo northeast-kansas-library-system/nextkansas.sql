@@ -8,10 +8,10 @@ Created by: George H Williams
 ----------
 
 Group: Statistics
-     Date range
+     Last calendar month
 
 Created on: 2018-07-01 17:17:49
-Modified on: 2018-07-01 20:01:40
+Modified on: 2018-07-02 08:42:40
 Date last run: 2018-07-01 19:56:23
 
 ----------
@@ -23,8 +23,8 @@ Expiry: 300
 
 <div id=reportinfo>
 <p>Reports circulation and renewal counts by branchcode, item type, and shelving location</p>
-<ul><li>Reports counts for the month you specify</li>
-<li>at the library you specify</li>
+<ul><li>Reports counts for the previous calendar month</li>
+<li>at all libraries</li>
 <li>grouped by branchcode and item type code</li>
 <li>sorted by branchcode and item type description</li>
 </ul><br />
@@ -54,8 +54,7 @@ FROM
       authorised_values branchcodes
      WHERE
       itypes.category = 'MRITYPE' AND
-      branchcodes.category = 'MRBRAN' AND
-      branchcodes.authorised_value LIKE <<Choose your branch|LBRANCH>>
+      branchcodes.category = 'MRBRAN'
      GROUP BY
       branchcodes.authorised_value,
       branchcodes.lib,
@@ -70,8 +69,8 @@ FROM
      WHERE
       (st.type = 'issue' OR
        st.type = 'renew') AND
-      (Month(st.datetime) = @month1 := <<|Month>> COLLATE utf8_unicode_ci) AND
-      (Year(st.datetime) = @year1 := <<|Year>> COLLATE utf8_unicode_ci)
+      Month(st.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(st.datetime) = Year(Now() - INTERVAL 1 MONTH)
      GROUP BY
       Coalesce(st.itemtype, "~"),
       st.itemtype,
@@ -87,8 +86,8 @@ FROM
      WHERE
       (st.type = 'issue' OR
        st.type = 'renew') AND
-      Month(st.datetime) = @month1 AND
-      Year(st.datetime) = @year1 AND
+      Month(st.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(st.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       (i.location = 'ADULT' OR
        i.location = 'LVPLADULT')
      GROUP BY
@@ -108,8 +107,8 @@ FROM
      WHERE
       (st.type = 'issue' OR
        st.type = 'renew') AND
-      Month(st.datetime) = @month1 AND
-      Year(st.datetime) = @year1 AND
+      Month(st.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(st.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       (i.location = 'YOUNGADULT' OR
        i.location = 'LVPLYA')
      GROUP BY
@@ -129,8 +128,8 @@ FROM
      WHERE
       (st.type = 'issue' OR
        st.type = 'renew') AND
-      Month(st.datetime) = @month1 AND
-      Year(st.datetime) = @year1 AND
+      Month(st.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(st.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       (i.location = 'CHILDRENS' OR
        i.location = 'LVPLCHILD')
      GROUP BY
@@ -150,8 +149,8 @@ FROM
      WHERE
       (st.type = 'issue' OR
        st.type = 'renew') AND
-      Month(st.datetime) = @month1 AND
-      Year(st.datetime) = @year1 AND
+      Month(st.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(st.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       (i.location = 'CART' OR
        i.location = 'CATALOGING' OR
        i.location = 'PROC' OR

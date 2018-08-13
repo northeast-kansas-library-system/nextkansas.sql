@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-06-29 08:24:38
-Modified on: 2018-06-29 14:36:47
-Date last run: 2018-06-29 14:23:45
+Modified on: 2018-07-03 16:14:05
+Date last run: 2018-07-03 16:15:45
 
 ----------
 
@@ -71,6 +71,7 @@ FROM
         borrower_attributes.attribute) movie_permissionx ON borrowers.borrowernumber = movie_permissionx.borrowernumber
 WHERE
   borrowers.branchcode LIKE <<Choose your library|ZBRAN>> AND
+  borrowers.categorycode LIKE <<Choose a borrower category|LBORROWERCAT>> AND
   Coalesce(movie_permissionx.attribute, "~") LIKE <<Select film permission attribute|LFILMPERM>>
 GROUP BY
   borrowers.borrowernumber,

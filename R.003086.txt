@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-06-28 18:09:20
-Modified on: 2018-06-29 14:36:50
-Date last run: 2018-06-29 14:23:37
+Modified on: 2018-07-03 16:14:16
+Date last run: 2018-07-28 10:49:33
 
 ----------
 
@@ -30,6 +30,8 @@ Expiry: 300
 <li>contains links to the patron's account</li>
 </ul><br />
 <p><ins>Notes:</ins></p>
+<p></p>
+<p>Replaces report 2887 (GHW - Patrons with Newsletter permission flag).</p>
 <p></p>
 <p>This report can be used to determine which patrons at your library have agreed to let you use their e-mail address from the catalog for the purposes of sending them an e-mail newsletter.</p>
 <p></p>
@@ -72,6 +74,7 @@ FROM
     borrowers.borrowernumber = newsletter_permission.borrowernumber
 WHERE
   borrowers.branchcode LIKE <<Choose your library|ZBRAN>> AND
+  borrowers.categorycode LIKE <<Choose a borrower category|LBORROWERCAT>> AND
   Coalesce(newsletter_permission.attribute, "~") LIKE <<Select newsletter permission attribute|LNEWSPERM>>
 GROUP BY
   borrowers.borrowernumber,

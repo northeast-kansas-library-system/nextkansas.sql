@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-06-29 08:57:11
-Modified on: 2018-06-29 14:36:36
-Date last run: 2018-06-29 14:24:17
+Modified on: 2018-07-03 16:13:31
+Date last run: 2018-07-03 16:14:51
 
 ----------
 
@@ -72,6 +72,7 @@ FROM
         borrower_attributes.code) expired_account ON borrowers.borrowernumber = expired_account.borrowernumber
 WHERE
   borrowers.branchcode LIKE <<Choose your library|ZBRAN>> AND
+  borrowers.categorycode LIKE <<Choose a borrower category|LBORROWERCAT>> AND
   Coalesce(expired_account.attribute, "~") LIKE <<Select collection agency attribute|LEXPIRED>>
 GROUP BY
   borrowers.email,

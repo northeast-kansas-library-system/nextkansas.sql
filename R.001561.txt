@@ -11,8 +11,8 @@ Group: Acquisitions
      Purchase Requests
 
 Created on: 2012-09-27 11:50:07
-Modified on: 2014-05-05 11:46:20
-Date last run: 2018-01-27 10:40:10
+Modified on: 2018-07-02 09:32:01
+Date last run: 2018-08-03 15:55:44
 
 ----------
 
@@ -25,7 +25,27 @@ Limited by Branch. Edit requests directly from this report by clicking on the An
 
 ----------
 
-SELECT CONCAT ('<a href=\"/cgi-bin/koha/suggestion/suggestion.pl#ASKED\" target="_blank">'"All Pending Suggestions"'</a>') AS "All Pending Suggestions", CONCAT ('<a href=\"/cgi-bin/koha/suggestion/suggestion.pl?suggestionid=',suggestions.suggestionid,'&op=edit\" target="_blank">'"Answer Request"'</a>') AS Request, CONCAT('<a href=\"/cgi-bin/koha/members/moremember.pl?borrowernumber=',borrowers.borrowernumber,'\" target="_blank">',borrowers.surname, ', ', borrowers.firstname,'</a>') AS patron, suggestions.suggesteddate, suggestions.status, suggestions.title, suggestions.author, suggestions.itemtype, suggestions.copyrightdate, suggestions.isbn, suggestions.note FROM borrowers, suggestions WHERE borrowers.borrowernumber=suggestions.suggestedby AND suggestions.branchcode=<<branch|branches>> AND suggestions.status='ASKED' ORDER BY suggestions.suggesteddate DESC
+SELECT
+  Concat('<a href=\"/cgi-bin/koha/suggestion/suggestion.pl#ASKED\" target="_blank">All Pending Suggestions</a>') AS "All Pending Suggestions",
+  Concat('<a href=\"/cgi-bin/koha/suggestion/suggestion.pl?suggestionid=', suggestions.suggestionid, '&op=edit\" target="_blank">Answer Request</a>') AS Request,
+  Concat('<a href=\"/cgi-bin/koha/members/moremember.pl?borrowernumber=', borrowers.borrowernumber, '\" target="_blank">', borrowers.surname, ', ', borrowers.firstname, '</a>') AS patron,
+  suggestions.suggesteddate,
+  suggestions.STATUS,
+  suggestions.title,
+  suggestions.author,
+  suggestions.itemtype,
+  suggestions.copyrightdate,
+  suggestions.isbn,
+  suggestions.note
+FROM
+  borrowers,
+  suggestions
+WHERE
+  borrowers.borrowernumber = suggestions.suggestedby AND
+  suggestions.branchcode LIKE <<branch|LBRANCH>> AND
+  suggestions.STATUS = 'ASKED'
+ORDER BY
+  suggestions.suggesteddate DESC
 
 
 

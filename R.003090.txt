@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-06-29 08:54:23
-Modified on: 2018-06-29 14:36:39
-Date last run: 2018-06-29 14:24:10
+Modified on: 2018-07-03 16:13:39
+Date last run: 2018-07-03 16:15:06
 
 ----------
 
@@ -72,6 +72,7 @@ FROM
         borrower_attributes.code) holdscontact ON borrowers.borrowernumber = holdscontact.borrowernumber
 WHERE
   borrowers.branchcode LIKE <<Choose your library|ZBRAN>> AND
+  borrowers.categorycode LIKE <<Choose a borrower category|LBORROWERCAT>> AND
   Coalesce(holdscontact.attribute, "~") LIKE <<Select holds contact attribute|LHOLDSCON>>
 GROUP BY
   borrowers.borrowernumber,

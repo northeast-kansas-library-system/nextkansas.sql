@@ -11,8 +11,8 @@ Group: Circulation
      Circ Stats
 
 Created on: 2016-12-19 10:09:30
-Modified on: 2018-06-15 22:18:42
-Date last run: 2018-06-15 22:14:58
+Modified on: 2018-07-08 11:52:29
+Date last run: 2018-07-30 14:12:43
 
 ----------
 
@@ -38,6 +38,8 @@ Expiry: 0
 ----------
 
 SELECT
+  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', items.biblionumber, '\" target="_blank">', items.biblionumber, '</a>') AS LINK_TO_TITLE,
+ 
   biblio.author,
   Concat_Ws(' ', biblio.title, ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')) AS TITLE,
   Count(all_issues.issue_id) AS Count_issue_id

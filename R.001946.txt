@@ -11,8 +11,8 @@ Group: Administrative Reports
      Fix Bib Records-admin
 
 Created on: 2013-07-17 16:56:45
-Modified on: 2017-12-18 15:38:20
-Date last run: -
+Modified on: 2018-07-01 22:38:26
+Date last run: 2018-07-01 22:38:43
 
 ----------
 
@@ -25,7 +25,15 @@ Expiry: 0
 
 ----------
 
-SELECT biblio_metadata.biblionumber, biblio.title, LENGTH(biblio_metadata.metadata) FROM biblio_metadata LEFT JOIN items USING(biblionumber) LEFT JOIN biblio USING(biblionumber) WHERE LENGTH(biblio_metadata.metadata) > 9999 GROUP BY biblio_metadata.biblionumber HAVING COUNT(items.itemnumber) > 0
+SELECT biblio_metadata.biblionumber,
+       biblio.title,
+       Length(biblio_metadata.metadata)
+FROM   biblio_metadata
+       LEFT JOIN items using(biblionumber)
+       LEFT JOIN biblio using(biblionumber)
+WHERE  Length(biblio_metadata.metadata) > 99999
+GROUP  BY biblio_metadata.biblionumber
+HAVING Count(items.itemnumber) > 0  
 
 
 
