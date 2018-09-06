@@ -70,7 +70,7 @@ ORDER BY
 
 ----------
 
-Make sure C:\SQL\ is empty.
+Make sure C:\git\ is empty.
 
 Open the csv file and run the macro from the XLSX macro file.
 
@@ -89,7 +89,7 @@ lLastRow = Cells(Rows.Count, 1).End(xlUp).Row
 For lRowLoop = 1 To lLastRow
 
     Set fs = CreateObject("Scripting.FileSystemObject")
-    Set objTextStream = fs.opentextfile("c:\GIT\" & Cells(lRowLoop, 1) & ".txt", fsoForWriting, True)
+    Set objTextStream = fs.opentextfile("c:\git\" & Cells(lRowLoop, 1) & ".txt", fsoForWriting, True)
 
     sText = ""
 
