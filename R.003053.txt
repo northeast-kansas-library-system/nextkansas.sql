@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-03-02 08:49:22
-Modified on: 2018-03-19 15:41:28
-Date last run: 2018-06-28 21:51:08
+Modified on: 2018-08-28 21:21:30
+Date last run: 2018-09-17 23:41:01
 
 ----------
 
@@ -32,7 +32,8 @@ SELECT
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag=730]/subfield[@code="a"]') AS UNTITLE_SA,
   Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">LINK</a>') AS LINK_TO_BIBLIO,
   Concat('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=kw&q=', biblio.title, '&op=and&idx=kw&op=and&idx=kw&limit=mc-itype%2Cphr%3ALOCALHOLD1&limit=mc-itype%2Cphr%3AMEDIA&limit=mc-itype%2Cphr%3ANEWMEDIA&limit=mc-itype%2Cphr%3AWALKIN1&sort_by=relevance" target="_blank">video</a>') AS VIDEO_SEARCH,
-  Concat("<a href='https://www.youtube.com/results?search_query=official+trailer+", Replace(SubString_Index(biblio.title, "(", 1), " ", "+"), "' target='_blank'>Youtube</a>") AS YOUTUBE
+  Concat("<a href='https://www.youtube.com/results?search_query=official+trailer+", Replace(SubString_Index(biblio.title, "(", 1), " ", "+"), "' target='_blank'>Youtube</a>") AS YOUTUBE,
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="856"]/subfield[@code>="u"]') AS EIGHTFIVESIX
 FROM
   biblio
   JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber

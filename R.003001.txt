@@ -7,12 +7,12 @@ Created by: George H Williams
 
 ----------
 
-Group: Administrative Reports
-     Testing
+Group: -
+     -
 
 Created on: 2017-09-20 18:32:26
-Modified on: 2018-08-08 09:48:36
-Date last run: 2018-08-08 09:48:39
+Modified on: 2018-09-04 23:10:47
+Date last run: 2018-09-04 23:18:34
 
 ----------
 
@@ -26,29 +26,23 @@ Expiry: 300
 ----------
 
 SELECT
-  action_logs.action_id,
-  action_logs.timestamp,
-  action_logs.user,
-  action_logs.module,
-  action_logs.action,
-  action_logs.object,
-  action_logs.info,
-  action_logs.interface
+Concat("<a href='https://staff.nexpresslibrary.org/cgi-bin/koha/catalogue/moredetail.pl?biblionumber=", items.biblionumber, "&itemnumber=", items.itemnumber, "#item", items.itemnumber,"' target='_blank'>Link</a>") AS LINK,
+  items.itemnumber,
+  items.barcode,
+  items.onloan,
+  items.itemlost,
+  items.itemlost_on
 FROM
-  action_logs
+  items
 WHERE
-  action_logs.module = 'members' AND
-  action_logs.action LIKE "%D%" AND
-  action_logs.object = "113176"
+  items.onloan IS NOT NULL AND
+  items.itemlost > 0
 GROUP BY
-  action_logs.action_id,
-  action_logs.timestamp,
-  action_logs.user,
-  action_logs.module,
-  action_logs.action,
-  action_logs.object,
-  action_logs.info,
-  action_logs.interface
+  items.itemnumber,
+  items.barcode,
+  items.onloan,
+  items.itemlost,
+  items.itemlost_on
 
 
 

@@ -11,8 +11,8 @@ Group: Holds-Reserves
      -
 
 Created on: 2017-01-31 09:54:21
-Modified on: 2018-04-16 11:06:14
-Date last run: 2018-05-14 10:59:44
+Modified on: 2018-08-20 14:45:28
+Date last run: 2018-09-18 12:48:26
 
 ----------
 
@@ -34,7 +34,6 @@ Expiry: 0
 <p>This report was created to help out the Axtell School where they have the library arranged by Accelerated Reader Level.  This report won't be perfect because not all items have AR data in the 526 fields, but it might help speed a few things up for them.</p>
 <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2889&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
-<p><span style="background-color: darkred; color: white">Needs metadata conversion post 17.05</p>
 
 ----------
 

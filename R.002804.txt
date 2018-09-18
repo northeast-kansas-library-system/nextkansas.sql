@@ -11,8 +11,8 @@ Group: Catalog Records and Items
      Reading Program Reports
 
 Created on: 2016-10-11 19:15:05
-Modified on: 2018-04-16 11:02:13
-Date last run: 2018-07-24 15:11:03
+Modified on: 2018-08-20 15:00:10
+Date last run: 2018-09-05 00:35:10
 
 ----------
 
@@ -44,8 +44,8 @@ SELECT
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="526"]//subfield[@code="b"]') AS INTEREST_LEVEL,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="526"]//subfield[@code="c"]') AS READING_LEVEL,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="526"]//subfield[@code="d"]') AS POINTS,
-  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber,
-  '\" target="_blank">Go to biblio</a>') AS LINK_TO_BIBLIO
+  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">Go to staff client</a>') AS LINK_TO_STAFF,
+  Concat('<a href=\"https://nextkansas.org/cgi-bin/koha/opac-detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">Go to OPAC</a>') AS LINK_TO_OPAC
 FROM
   items
   JOIN biblio ON items.biblionumber = biblio.biblionumber
@@ -55,13 +55,7 @@ WHERE
   items.homebranch LIKE <<Choose item home branch|branches>> AND
   authorised_values.category = "CCODE"
 GROUP BY
-  items.homebranch,
-  items.itype,
-  biblio.author,
-  biblio.title,
-  items.location,
-  items.ccode,
-  items.itemcallnumber
+  items.itemnumber
 HAVING
   PROGRAM = "Accelerated Reader" AND
   INTEREST_LEVEL LIKE <<Interest level|ZINTEREST>> AND

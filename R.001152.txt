@@ -11,8 +11,8 @@ Group: Popular Reports
      -
 
 Created on: 2011-07-29 16:18:30
-Modified on: 2018-04-16 10:47:29
-Date last run: 2018-03-29 14:30:15
+Modified on: 2018-09-06 16:58:49
+Date last run: 2018-09-06 16:59:05
 
 ----------
 
@@ -30,7 +30,7 @@ Expiry: 0
 <li>contains links to the bibliographic record</li>
 </ul><br />
 <p><ins>Notes:</ins></p>
-<p>This report is being replaced by <a href="https://staff.nexpresslibrary.org/cgi-bin/koha/reports/guided_reports.pl?reports=2735&phase=Run%20this%20report" target="_blank">report 2735</a> which shows all items with more than 20 requests.</p>
+<p>This report is being replaced by <a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2735&phase=Run%20this%20report" target="_blank">report 2735</a> which shows all items with more than 20 requests.</p>
 <p>Report created by HB.</p>
 </div>
 

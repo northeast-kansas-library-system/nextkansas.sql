@@ -1,0 +1,44 @@
+R.003120
+
+----------
+
+Name: Z39.50
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2018-09-15 11:22:32
+Modified on: 2018-09-15 11:32:02
+Date last run: 2018-09-15 11:32:04
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT
+  z3950servers.servername,
+  z3950servers.host,
+  z3950servers.port,
+  z3950servers.db,
+  z3950servers.userid,
+  z3950servers.syntax,
+  z3950servers.encoding,
+  z3950servers.recordtype
+FROM z3950servers
+GROUP BY
+  z3950servers.id
+ORDER BY
+  z3950servers.servername
+
+
+

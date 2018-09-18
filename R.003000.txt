@@ -2,7 +2,7 @@ R.003000
 
 ----------
 
-Name: GHW - PP 005
+Name: GHW - Expired patrons 005 - patrons by expired attribute
 Created by: George H Williams
 
 ----------
@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2017-09-18 10:49:25
-Modified on: 2017-09-18 10:54:59
-Date last run: 2018-05-25 10:23:56
+Modified on: 2018-09-04 22:00:44
+Date last run: 2018-09-17 12:37:11
 
 ----------
 
@@ -21,13 +21,23 @@ Expiry: 300
 
 ----------
 
-
+<div id=reportinfo>
+<p>Lists patrons based on Account Expiration attributes.</p>
+<ul><li>Shows patrons who currently have an Account Expiration attribute set</li>
+<li>at the library you specify</li>
+<li>grouped by borrower number</li>
+<li>sorted by branchcode, patron name, and borrower number</li>
+<li>contains links to borrower accounts</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3000&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 
 SELECT
-  Concat('<a href="https://staff.nexpresslibrary.org/cgi-bin/koha/circ/circulation.pl?borrowernumber=',
-  borrowers.borrowernumber, '" target="_blank">Link to patron</a>') AS LINK_TO_PATRON,
+  Concat('<a href="https://staff.nexpresslibrary.org/cgi-bin/koha/circ/circulation.pl?borrowernumber=', borrowers.borrowernumber, '" target="_blank">Link to patron</a>') AS LINK_TO_PATRON,
   borrowers.borrowernumber,
   borrowers.cardnumber,
   borrowers.surname,

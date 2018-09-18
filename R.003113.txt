@@ -1,0 +1,84 @@
+R.003113
+
+----------
+
+Name: GHW - Deleted item dashboard
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2018-08-13 15:03:41
+Modified on: 2018-09-15 11:55:13
+Date last run: 2018-09-15 11:57:50
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+<div id=reportinfo>
+<p>Basic information about an item that has been deleted</p>
+<ul><li>Shows items that are currently in the deleteditems table.  Item data is stored in the deleteditems table for 13 months after an item is deleted.</li>
+<li>shows items with the barcode numbers you specify</li>
+<li>grouped by itemnumber</li>
+<li>sorted by homebranch, item type, collection code, call number, author, and title</li>
+<li>Contains links to the items bibliographic record (if the bibliographic record has not been deleted) and links to a fines/fees report that can search by item barcode</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3113&phase=Run%20this%20report&limit=400"  target="_blank">Click here to run in a new window</a></p>
+</div>
+
+----------
+
+SELECT
+  Concat_Ws('<br />',
+    Concat('Item homebranch: ', deleteditems.homebranch),
+    Concat('Current branch: ', deleteditems.holdingbranch),
+    Concat('Shelving location: ', deleteditems.location),
+    Concat('Item type: ', deleteditems.itype),
+    Concat('Collection code: ', ccodes.lib),
+    Concat('Call#: ', deleteditems.itemcallnumber),
+    Concat('Author: ', Coalesce(biblio.author, deletedbiblio.author)),
+    Concat('Title: ',Coalesce(biblio.title, deletedbiblio.title)),
+    Concat('Item barcode: ', deleteditems.barcode),
+    Concat('Item id number: ',deleteditems.itemnumber),
+    Concat('Deleted on: ', deleteditems.timestamp),
+    IF(biblio.biblionumber is null, "<br />-- Bibliographic record has been deleted --", Concat("<br /><a href='/cgi-bin/koha/catalogue/detail.pl?biblionumber=", biblio.biblionumber, "' target='_blank'>go to the bibliographic record</a>")),
+    Concat("<br /><a href='/cgi-bin/koha/reports/guided_reports.pl?phase=Run+this+report&reports=3009&sql_params=", deleteditems.barcode, "&limit=50' target='_blank'>See all fine and fees history for this item barcode number</a>")
+  ) AS INFO 
+FROM
+  deleteditems
+  LEFT JOIN (SELECT
+        authorised_values.category,
+        authorised_values.authorised_value,
+        authorised_values.lib
+      FROM
+        authorised_values
+      WHERE
+        authorised_values.category = 'CCODE'
+      GROUP BY
+        authorised_values.category,
+        authorised_values.authorised_value,
+        authorised_values.lib) ccodes ON deleteditems.ccode = ccodes.authorised_value
+  LEFT JOIN biblio ON deleteditems.biblionumber = biblio.biblionumber
+  LEFT JOIN deletedbiblio ON deleteditems.biblionumber = deletedbiblio.biblionumber
+WHERE
+  deleteditems.barcode LIKE CONCAT("%", <<Enter a deleted item barcode number, a partial barcode nuber or a % symbol>>, "%")
+GROUP BY
+  deleteditems.itemnumber
+ORDER BY
+  deleteditems.homebranch,
+  deleteditems.itype,
+  ccodes.lib,
+  deleteditems.itemcallnumber,
+  Coalesce(biblio.author, deletedbiblio.author),
+  Coalesce(biblio.title, deletedbiblio.title)
+
+
+

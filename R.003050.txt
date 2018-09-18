@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-02-26 13:53:16
-Modified on: 2018-02-26 20:13:40
-Date last run: 2018-07-01 20:34:48
+Modified on: 2018-09-06 16:51:56
+Date last run: 2018-09-06 16:51:58
 
 ----------
 
@@ -65,6 +65,7 @@ GROUP BY
   saved_sql.id
 ORDER BY
   saved_sql.id
+LIMIT 10000
 
 
 

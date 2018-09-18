@@ -2,7 +2,7 @@ R.003021
 
 ----------
 
-Name: GHW - LISt
+Name: GHW - Print a list - variant
 Created by: George H Williams
 
 ----------
@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2017-12-20 20:10:54
-Modified on: 2017-12-21 10:06:31
-Date last run: 2018-05-06 23:00:52
+Modified on: 2018-08-24 13:47:42
+Date last run: 2018-08-24 13:47:49
 
 ----------
 
@@ -21,13 +21,39 @@ Expiry: 300
 
 ----------
 
-
+<div id=reportinfo>
+<p>Creates a printable version of a list</p>
+<ul><li>Shows titles currently in a list</li>
+<li>based on the list number you specify</li>
+<li>grouped by list ID and biblio number</li>
+<li>sorted by author and title</li>
+<li>links</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>List ID numbers can be found at the end of the the list's URL.</p>
+<p>For example, the list titled "Summer" has a URL of:<br />https://staff.nextkansas.org/cgi-bin/koha/virtualshelves/shelves.pl?op=view&shelfnumber=3342<br />so the list ID number is 3342.</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3021&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 
 SELECT
   virtualshelves.shelfname AS LIST_NAME,
-  Coalesce(Concat("Title: ", Concat_WS("<br />",biblio.title, ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]')), "Author: ", biblio.author), "Title deleted") AS TITLE_INFO
+  Coalesce(
+    Concat("Title: ",
+      Concat_WS("<br />",
+        biblio.title,
+        ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]'),
+        ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),
+        ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'),
+        ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'),
+        ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="c"]')
+      ),
+    "Author: ",
+    biblio.author),
+  "Title deleted") AS TITLE_INFO
 FROM
   virtualshelves
   JOIN virtualshelfcontents ON virtualshelfcontents.shelfnumber = virtualshelves.shelfnumber
