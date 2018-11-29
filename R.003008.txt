@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2017-10-20 11:30:17
-Modified on: 2018-04-16 11:11:36
-Date last run: 2018-03-22 10:39:43
+Modified on: 2018-09-24 14:31:09
+Date last run: 2018-10-22 11:49:52
 
 ----------
 
@@ -81,7 +81,7 @@ FROM
       FROM
         categories_branches
       WHERE
-        categories_branches.branchcode LIKE @brn := 'LEAVENWRTH' COLLATE utf8_unicode_ci
+        categories_branches.branchcode LIKE @brn
       GROUP BY
         categories_branches.categorycode,
         categories_branches.branchcode) branchlimits ON categories.categorycode = branchlimits.categorycode

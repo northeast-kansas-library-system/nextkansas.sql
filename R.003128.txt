@@ -1,0 +1,114 @@
+R.003128
+
+----------
+
+Name: GHW - Monthly checkouts by itype ADMINREPORT
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2018-10-09 17:27:16
+Modified on: 2018-10-09 17:29:02
+Date last run: 2018-10-09 17:36:34
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT
+  branch_itype.branchname,
+  branch_itype.description,
+  Coalesce(statisticsall.CKO_REN, 0) AS CKO_REN_ALL,
+  Coalesce(statisticsadult.CKO_REN, 0) AS CKO_REN_ALL_ADULTS,
+  Coalesce(statisticsnotadult.CKO_REN, 0) AS CKO_REN_ALL_NOT_ADULTS
+FROM
+    (SELECT
+        branches.branchname,
+        itemtypes.description,
+        branches.branchcode,
+        itemtypes.itemtype
+      FROM
+        branches,
+        itemtypes
+      WHERE
+        branches.branchcode LIKE <<Choose check-out library|LBRANCH>>) branch_itype
+  LEFT JOIN (SELECT
+        Coalesce(statistics.branch, "NEKLS") AS branch,
+        Coalesce(statistics.itemtype, "BOOK") AS itemtype,
+        Count(*) AS CKO_REN
+      FROM
+        statistics
+      WHERE
+        (statistics.type = 'issue' OR
+          statistics.type = 'renew') AND
+        Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
+        Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH)
+      GROUP BY
+        Coalesce(statistics.branch, "NEKLS"),
+        Coalesce(statistics.itemtype, "BOOK")
+      ORDER BY
+        branch,
+        itemtype) statisticsall ON branch_itype.branchcode = statisticsall.branch AND
+    branch_itype.itemtype = statisticsall.itemtype
+  LEFT JOIN (SELECT
+        Coalesce(statistics.branch, "NEKLS") AS branch,
+        Coalesce(statistics.itemtype, "BOOK") AS itemtype,
+        Count(*) AS CKO_REN
+      FROM
+        statistics
+      WHERE
+        (statistics.type = 'issue' OR
+          statistics.type = 'renew') AND
+        Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
+        Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+        (Coalesce(statistics.location, "CHILDRENS") = 'ADULT' OR
+          Coalesce(statistics.location, "CHILDRENS") = 'LVPLADULT')
+      GROUP BY
+        Coalesce(statistics.branch, "NEKLS"),
+        Coalesce(statistics.itemtype, "BOOK")
+      ORDER BY
+        branch,
+        itemtype) statisticsadult ON branch_itype.branchcode = statisticsadult.branch AND
+    branch_itype.itemtype = statisticsadult.itemtype
+  LEFT JOIN (SELECT
+        Coalesce(statistics.branch, "NEKLS") AS branch,
+        Coalesce(statistics.itemtype, "BOOK") AS itemtype,
+        Count(*) AS CKO_REN
+      FROM
+        statistics
+      WHERE
+        (statistics.type = 'issue' OR
+          statistics.type = 'renew') AND
+        Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
+        Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+        Coalesce(statistics.location, "CHILDRENS") <> 'ADULT' AND
+        Coalesce(statistics.location, "CHILDRENS") <> 'LVPLADULT'
+      GROUP BY
+        Coalesce(statistics.branch, "NEKLS"),
+        Coalesce(statistics.itemtype, "BOOK")
+      ORDER BY
+        branch,
+        itemtype) statisticsnotadult ON branch_itype.branchcode = statisticsnotadult.branch AND
+    branch_itype.itemtype = statisticsnotadult.itemtype
+GROUP BY
+  branch_itype.branchname,
+  branch_itype.description,
+  Coalesce(statisticsall.CKO_REN, 0),
+  Coalesce(statisticsadult.CKO_REN, 0),
+  Coalesce(statisticsnotadult.CKO_REN, 0)
+ORDER BY
+  branch_itype.branchname,
+  branch_itype.description
+
+
+

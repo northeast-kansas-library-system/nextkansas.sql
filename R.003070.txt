@@ -2,7 +2,7 @@ R.003070
 
 ----------
 
-Name: GHW - Z39.50 Backup
+Name: GHW - Z39.50 Backup - ADMINREPORT
 Created by: George H Williams
 
 ----------
@@ -11,7 +11,7 @@ Group: Administrative Reports
      System-admin
 
 Created on: 2018-04-12 15:04:40
-Modified on: 2018-09-18 14:51:28
+Modified on: 2018-09-18 15:12:27
 Date last run: 2018-09-18 14:51:37
 
 ----------

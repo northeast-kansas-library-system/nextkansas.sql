@@ -11,7 +11,7 @@ Group: Patrons
      -
 
 Created on: 2012-04-24 14:12:08
-Modified on: 2013-06-17 00:51:08
+Modified on: 2018-10-02 15:26:45
 Date last run: -
 
 ----------
@@ -22,6 +22,8 @@ Expiry: 0
 ----------
 
 Search for patrons based on street address. Enter street address or partial -- use % at end or at beginning/end to wildcard the search. Choose branch. 
+
+<p><span style="background-color: darkred; color: white">Scheduled for deletion on November 30, 2018</p>
 
 ----------
 

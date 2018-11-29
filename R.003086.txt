@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-06-28 18:09:20
-Modified on: 2018-07-03 16:14:16
-Date last run: 2018-07-28 10:49:33
+Modified on: 2018-09-25 11:03:11
+Date last run: 2018-11-13 12:10:53
 
 ----------
 
@@ -35,7 +35,7 @@ Expiry: 300
 <p></p>
 <p>This report can be used to determine which patrons at your library have agreed to let you use their e-mail address from the catalog for the purposes of sending them an e-mail newsletter.</p>
 <p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3086&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3086&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
 
 ----------

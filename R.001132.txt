@@ -11,7 +11,7 @@ Group: Library-Specific
      Leavenworth
 
 Created on: 2011-06-30 11:06:15
-Modified on: 2015-12-05 20:44:18
+Modified on: 2018-10-02 15:26:41
 Date last run: -
 
 ----------
@@ -23,6 +23,8 @@ Expiry: 0
 
 Using migrated Sirsi codes stored in 952$f.
 Enhanced - just run, fill in date range, and submit.
+
+<p><span style="background-color: darkred; color: white">Scheduled for deletion on November 30, 2018</p>
 
 ----------
 

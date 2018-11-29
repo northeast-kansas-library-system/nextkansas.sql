@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-06-29 09:12:59
-Modified on: 2018-07-03 16:13:19
-Date last run: 2018-07-03 16:14:38
+Modified on: 2018-09-25 11:04:03
+Date last run: 2018-09-25 11:02:37
 
 ----------
 
@@ -33,7 +33,7 @@ Expiry: 300
 <p></p>
 <p>This report can be used to determine which patrons at your library have a collection agency attribute set.</p>
 <p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3092&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3092&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
 
 ----------

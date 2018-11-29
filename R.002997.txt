@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2017-09-18 00:24:05
-Modified on: 2017-09-21 08:26:42
-Date last run: 2018-05-25 09:48:32
+Modified on: 2018-10-08 13:21:43
+Date last run: 2018-11-08 01:03:06
 
 ----------
 
@@ -26,23 +26,27 @@ Expiry: 300
 ----------
 
 SELECT
-  Concat('<a href="https://staff.nexpresslibrary.org/cgi-bin/koha/circ/circulation.pl?borrowernumber=', borrowers.borrowernumber, '" target="_blank">Link to patron</a>') AS LINK_TO_PATRON,
+  Concat(
+    '<a href="https://staff.nexpresslibrary.org/cgi-bin/koha/circ/circulation.pl?borrowernumber=',
+    borrowers.borrowernumber,
+    '" target="_blank">Link to patron</a>'
+  ) AS LINK_TO_PATRON,
   borrowers.borrowernumber,
   borrowers.cardnumber,
-  borrowers.surname,
-  borrowers.firstname,
-  borrowers.othernames,
   borrowers.branchcode,
   borrowers.categorycode,
   borrowers.dateenrolled,
   borrowers.dateexpiry,
-  If((AddDate(Last_Day(SubDate(borrowers.dateexpiry, INTERVAL -37 MONTH)), 1) + INTERVAL 14 DAY) < CAST('2018-04-15' AS
-  DATE), CAST('2018-04-15' AS DATE), (AddDate(Last_Day(SubDate(borrowers.dateexpiry, INTERVAL -37 MONTH)), 1) + INTERVAL
-  14 DAY)) AS PROJECTED_DELETION,
+  If(
+    (AddDate(Last_Day(SubDate(borrowers.dateexpiry, INTERVAL -37 MONTH)), 1) + INTERVAL 14 DAY) < CAST('2018-04-15' AS DATE),
+    CAST('2018-04-15' AS DATE),
+    (AddDate(Last_Day(SubDate(borrowers.dateexpiry, INTERVAL -37 MONTH)), 1) + INTERVAL 14 DAY)
+  ) AS PROJECTED_DELETION,
   Coalesce(accountlinesx.DUE_SUM, 0) AS AMT_DUE,
   Coalesce(issuesx.ICOUNT, 0) AS CHECKOUTS,
-  Coalesce(guarantees.GCOUNT, 0) AS GUARANTEES,
-  Coalesce(requestsx.Count_reserve_id, 0) AS REQUESTS
+  Coalesce(guaranteesx.GCOUNT, 0) AS GUARANTEES,
+  Coalesce(requestsx.Count_reserve_id, 0) AS REQUESTS,
+  expired_attribute.lib AS ATTRIBUTE
 FROM
   borrowers
   LEFT JOIN (SELECT
@@ -51,7 +55,7 @@ FROM
       FROM
         borrowers
       GROUP BY
-        borrowers.guarantorid) guarantees ON borrowers.borrowernumber = guarantees.guarantorid
+        borrowers.guarantorid) guaranteesx ON borrowers.borrowernumber = guaranteesx.guarantorid
   LEFT JOIN (SELECT
         accountlines.borrowernumber,
         Format(Sum(accountlines.amountoutstanding), 2) AS DUE_SUM
@@ -73,6 +77,19 @@ FROM
         reserves
       GROUP BY
         reserves.borrowernumber) requestsx ON borrowers.borrowernumber = requestsx.borrowernumber
+  LEFT JOIN (SELECT
+        borrower_attributes.borrowernumber,
+        borrower_attributes.code,
+        borrower_attributes.attribute,
+        authorised_values.lib,
+        authorised_values.category
+      FROM
+        borrower_attributes
+        JOIN authorised_values ON borrower_attributes.attribute = authorised_values.authorised_value
+      WHERE
+        borrower_attributes.code = 'expired' AND
+        authorised_values.category = 'expired') expired_attribute ON borrowers.borrowernumber =
+    expired_attribute.borrowernumber
 WHERE
   borrowers.dateexpiry < CurDate() - INTERVAL 2 YEAR AND
   borrowers.branchcode LIKE <<Choose your library|LBRANCH>> AND
@@ -81,7 +98,7 @@ WHERE
   borrowers.categorycode <> 'ILL' AND
   (Coalesce(accountlinesx.DUE_SUM, 0) <> 0 OR
   Coalesce(issuesx.ICOUNT, 0) <> 0 OR
-  Coalesce(guarantees.GCOUNT, 0) <> 0 OR
+  Coalesce(guaranteesx.GCOUNT, 0) <> 0 OR
   Coalesce(requestsx.Count_reserve_id, 0) <> 0)
 GROUP BY
   borrowers.borrowernumber

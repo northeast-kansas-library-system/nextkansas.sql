@@ -11,7 +11,7 @@ Group: Library-Specific
      -
 
 Created on: 2012-05-17 13:40:52
-Modified on: 2014-01-15 13:58:54
+Modified on: 2018-10-02 15:23:04
 Date last run: -
 
 ----------
@@ -22,6 +22,8 @@ Expiry: 0
 ----------
 
 For Osawatomie's Childrens Cleanup #special
+
+<p><span style="background-color: darkred; color: white">Scheduled for deletion on November 30, 2018</p>
 
 ----------
 

@@ -11,7 +11,7 @@ Group: Circulation
      Overdues
 
 Created on: 2012-02-07 11:27:16
-Modified on: 2013-09-21 16:00:50
+Modified on: 2018-10-02 15:26:43
 Date last run: -
 
 ----------
@@ -22,6 +22,8 @@ Expiry: 0
 ----------
 
 #overdues
+
+<p><span style="background-color: darkred; color: white">Scheduled for deletion on November 30, 2018</p>
 
 ----------
 

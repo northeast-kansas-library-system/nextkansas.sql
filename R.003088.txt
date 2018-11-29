@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-06-29 08:32:01
-Modified on: 2018-07-03 16:13:56
-Date last run: 2018-07-03 16:15:34
+Modified on: 2018-09-25 11:03:29
+Date last run: 2018-09-25 11:02:26
 
 ----------
 
@@ -33,7 +33,7 @@ Expiry: 300
 <p></p>
 <p>This report can be used to determine which patrons at your library have an internet permission attribute set on their account.</p>
 <p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3088&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3088&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
 
 ----------

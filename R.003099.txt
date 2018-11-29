@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-07-02 15:38:36
-Modified on: 2018-07-02 15:38:36
-Date last run: 2018-08-01 14:26:28
+Modified on: 2018-10-03 14:23:35
+Date last run: 2018-11-05 16:00:24
 
 ----------
 
@@ -40,7 +40,7 @@ FROM
 WHERE
   items.itemcallnumber = 'Hoopla'
 GROUP BY
-  items.itemnumber
+  STOCK_NUMBER
 
 
 

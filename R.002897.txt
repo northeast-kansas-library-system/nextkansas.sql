@@ -11,8 +11,8 @@ Group: Circulation
      Overdues
 
 Created on: 2017-02-01 16:54:32
-Modified on: 2018-04-16 11:07:43
-Date last run: 2018-04-23 13:53:18
+Modified on: 2018-11-25 20:36:21
+Date last run: 2018-11-27 15:51:41
 
 ----------
 
@@ -37,6 +37,7 @@ Expiry: 0
 
 SELECT
   items.holdingbranch AS CKO_BRANCH,
+  items.itemnumber,
   items.barcode AS BARCODE,
   items.homebranch AS ITEM_HOME,
   items.location AS LOCATION,

@@ -1,0 +1,50 @@
+R.003135
+
+----------
+
+Name: GHW ADMINREPORT
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2018-11-05 14:12:57
+Modified on: 2018-11-05 14:12:57
+Date last run: 2018-11-05 14:13:02
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT
+  borrowers.cardnumber,
+  borrowers.surname,
+  borrowers.branchcode,
+  borrowers.categorycode,
+  borrowers.contactname,
+  borrowers.contactfirstname,
+  borrowers.contacttitle,
+  borrowers.guarantorid
+FROM
+  borrowers
+WHERE
+  borrowers.dateofbirth < CurDate() - INTERVAL 18 YEAR AND
+  borrowers.categorycode NOT LIKE "%STU%" AND
+  (Length(borrowers.contactname) > 1 OR
+  Length(borrowers.contactfirstname) > 1 OR
+  Length(borrowers.contacttitle) > 1 OR
+  Length(borrowers.guarantorid) > 1)
+GROUP BY
+  borrowers.borrowernumber
+
+
+

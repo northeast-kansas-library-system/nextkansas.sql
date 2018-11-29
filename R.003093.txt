@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-06-29 09:17:52
-Modified on: 2018-07-03 16:13:08
-Date last run: 2018-07-03 16:14:26
+Modified on: 2018-09-25 11:04:13
+Date last run: 2018-09-27 08:45:20
 
 ----------
 
@@ -33,7 +33,7 @@ Expiry: 300
 <p></p>
 <p>This report can be used to determine which patrons at your library have any of these attributes set.</p>
 <p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3093&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3093&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
 
 ----------

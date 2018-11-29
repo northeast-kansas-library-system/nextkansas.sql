@@ -11,8 +11,8 @@ Group: Library-Specific
      -
 
 Created on: 2009-11-24 15:37:41
-Modified on: 2013-06-18 09:35:40
-Date last run: -
+Modified on: 2018-10-07 16:36:13
+Date last run: 2018-10-07 16:25:58
 
 ----------
 
@@ -22,6 +22,8 @@ Expiry: 0
 ----------
 
 Local use (circulation count) of computers for Child and Adult at Horton Public Library
+
+<p><span style="background-color: darkred; color: white">Scheduled for deletion on November 30, 2018</p>
 
 ----------
 

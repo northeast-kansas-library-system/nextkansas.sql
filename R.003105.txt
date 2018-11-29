@@ -11,8 +11,8 @@ Group: Statistics
      Last calendar month
 
 Created on: 2018-08-02 15:27:16
-Modified on: 2018-08-02 16:05:04
-Date last run: 2018-08-02 15:58:55
+Modified on: 2018-09-25 10:53:53
+Date last run: 2018-11-13 16:54:31
 
 ----------
 
@@ -32,7 +32,8 @@ Expiry: 300
 <p>Corresponds with column J on the monthly circulation spreadsheet for 2018.</p>
 <p>This report is designed to run on Koha 17.11 and greater.</p>
 <p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3105&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3105&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3105">Click here to download as a csv file</a></p>
 </div>
 
 ----------

@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-06-29 08:57:11
-Modified on: 2018-07-03 16:13:31
-Date last run: 2018-09-15 13:55:15
+Modified on: 2018-09-25 11:03:54
+Date last run: 2018-11-17 11:40:50
 
 ----------
 
@@ -33,7 +33,7 @@ Expiry: 300
 <p></p>
 <p>This report can be used to determine which patrons at your library have a account expired attribute set.</p>
 <p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3091&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3091&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
 
 ----------
@@ -73,13 +73,14 @@ FROM
 WHERE
   borrowers.branchcode LIKE <<Choose your library|ZBRAN>> AND
   borrowers.categorycode LIKE <<Choose a borrower category|LBORROWERCAT>> AND
-  Coalesce(expired_account.attribute, "~") LIKE <<Select collection agency attribute|LEXPIRED>>
+  Coalesce(expired_account.attribute, "~") LIKE <<Select expiration attribute|LEXPIRED>>
 GROUP BY
   borrowers.email,
   borrowers.dateofbirth,
   borrowers.borrowernumber,
   borrowers.othernames
 ORDER BY
+  borrowers.dateexpiry,
   borrowers.surname,
   borrowers.firstname
 

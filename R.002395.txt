@@ -11,7 +11,7 @@ Group: Library-Specific
      Leavenworth
 
 Created on: 2014-10-23 18:26:10
-Modified on: 2015-04-14 16:36:08
+Modified on: 2018-10-02 15:27:05
 Date last run: -
 
 ----------
@@ -22,6 +22,8 @@ Expiry: 0
 ----------
 
 Gives borrowers at Leavenworth with just fines still owed (or no fines) and no checkouts, who have been expired since a specified date and where all fines were added after the library came into NExpress (9/1/10, because older "fines" are actually lost item charges). These are possible patrons to purge {for Leavenworth}. The companion report for all other libraries is #2489.
+
+<p><span style="background-color: darkred; color: white">Scheduled for deletion on November 30, 2018</p>
 
 ----------
 

@@ -11,7 +11,7 @@ Group: Patrons
      -
 
 Created on: 2015-04-14 16:33:52
-Modified on: 2015-04-14 16:34:40
+Modified on: 2018-10-02 15:27:09
 Date last run: -
 
 ----------
@@ -22,6 +22,8 @@ Expiry: 0
 ----------
 
 Returns borrowers at your library with just fines still owed (or no fines) and no checkouts, who have been expired since before a specified date. The companion report that is specific to Leavenworth is 2395.
+
+<p><span style="background-color: darkred; color: white">Scheduled for deletion on November 30, 2018</p>
 
 ----------
 

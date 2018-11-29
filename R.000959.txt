@@ -11,8 +11,8 @@ Group: Library-Specific
      -
 
 Created on: 2010-10-12 12:35:23
-Modified on: 2013-06-17 01:40:28
-Date last run: 2018-05-12 14:09:10
+Modified on: 2018-10-07 16:16:04
+Date last run: 2018-10-07 16:17:46
 
 ----------
 
@@ -25,9 +25,16 @@ Shelf list for a section.  Uses Call Number to create a smaller shelf list to us
 
 ----------
 
-SELECT  items.barcode,items.homebranch,items.itemcallnumber,biblio.title,biblio.author FROM items JOIN biblio USING(biblionumber)
-WHERE items.homebranch=<<branch|branches>> AND items.itemcallnumber LIKE <<enter beginning of call number with % sign (ex. BB%)>>  
-ORDER BY biblio.author,items.itemcallnumber asc
+SELECT items.barcode,
+  items.homebranch,
+  items.itemcallnumber,
+  biblio.title,
+  biblio.author
+FROM items JOIN biblio USING(biblionumber)
+WHERE items.homebranch = <<branch|branches>> AND
+  items.itemcallnumber LIKE Concat(<<enter beginning of call number with % sign (ex. BB%)>> , "%")
+ORDER BY biblio.author,
+  items.itemcallnumber asc
 
 
 

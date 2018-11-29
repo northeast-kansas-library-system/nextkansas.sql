@@ -1,0 +1,198 @@
+R.003130
+
+----------
+
+Name: GHW - Lynda count - built for RHASTINGS
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2018-10-17 13:35:05
+Modified on: 2018-11-01 13:52:57
+Date last run: 2018-11-01 13:53:56
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+<div id=reportinfo>
+<p>Generates a count of Lynda.com users at each library</p>
+<ul><li>Shows count of users based on the most recent report from Lynda.com</li>
+<li>Shows users at all member libraries</li>
+<li>grouped by and sorted by library name</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<ol>
+  <li>Open Google spreadsheet titled "<a href="https://docs.google.com/spreadsheets/d/1z2Gc4Dc4_cr0NarxBPT92O3CDpAumiqLj4HoYRWlLqU/edit?usp=sharing" target="_blank">Lynda.com report helper</a>"</li>
+  <li>Copy all of the barcode numbers from the Lynda.com report into column A of the Google sheet</li>
+  <li>Copy all of the cells from column B of the Google sheet that contain barcode numbers</li>
+  <li>Edit this report</li> 
+  <li>Paste the copied cells from the Google sheet between the comment lines of this report</li>
+  <li>Click the "Update SQL" button</li>
+  <li>Once updated, click the "Run report" button</li>
+</ol>
+<p></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3130&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3130">Click here to download as a csv file</a></p>
+</div>
+
+----------
+
+SELECT
+  branches.branchname,
+  Coalesce(lyndaborrowers.Count_borrowernumber, "-") AS LYNDA_USERS_COUNT
+FROM
+  branches
+  LEFT JOIN (SELECT
+        borrowers.branchcode,
+        Count(borrowers.borrowernumber) AS Count_borrowernumber
+      FROM
+        borrowers
+      WHERE
+
+/* Remove old data between commented blocks, then paste new data from the Google sheet below this line */
+
+(borrowers.cardnumber = 'PLEA0000725389') OR
+(borrowers.cardnumber = 'PLEA0001190498') OR
+(borrowers.cardnumber = '666') OR
+(borrowers.cardnumber = '1003030012399') OR
+(borrowers.cardnumber = '1003030012388') OR
+(borrowers.cardnumber = '1003008044454') OR
+(borrowers.cardnumber = '1003030012402') OR
+(borrowers.cardnumber = '1003008054986') OR
+(borrowers.cardnumber = '2CZ90000097862') OR
+(borrowers.cardnumber = '1003009017051') OR
+(borrowers.cardnumber = '1003012001236') OR
+(borrowers.cardnumber = '1003030012383') OR
+(borrowers.cardnumber = '1003009003117') OR
+(borrowers.cardnumber = '1003030012390') OR
+(borrowers.cardnumber = '1003030012393') OR
+(borrowers.cardnumber = '1003008016080') OR
+(borrowers.cardnumber = '1003008028549') OR
+(borrowers.cardnumber = 'plea0001324524') OR
+(borrowers.cardnumber = '1003030012366') OR
+(borrowers.cardnumber = '1003008032425') OR
+(borrowers.cardnumber = 'PLEA000120300X') OR
+(borrowers.cardnumber = 'PLEA0001270461') OR
+(borrowers.cardnumber = '1003030012367') OR
+(borrowers.cardnumber = '1003012000195') OR
+(borrowers.cardnumber = '1003030012389') OR
+(borrowers.cardnumber = '1003001008300') OR
+(borrowers.cardnumber = 'PLEA0001203998') OR
+(borrowers.cardnumber = '1003012009065') OR
+(borrowers.cardnumber = '1003030012397') OR
+(borrowers.cardnumber = '1003008028439') OR
+(borrowers.cardnumber = '1003030011335') OR
+(borrowers.cardnumber = '1003030009175') OR
+(borrowers.cardnumber = '1003008025032') OR
+(borrowers.cardnumber = '1003030012385') OR
+(borrowers.cardnumber = 'PLEA0001180846') OR
+(borrowers.cardnumber = '1003008005492') OR
+(borrowers.cardnumber = '1003008028581') OR
+(borrowers.cardnumber = '1003030012373') OR
+(borrowers.cardnumber = '1003008035977') OR
+(borrowers.cardnumber = 'PLEA0001203460') OR
+(borrowers.cardnumber = '1003030012376') OR
+(borrowers.cardnumber = 'PLEA0001321959') OR
+(borrowers.cardnumber = '1003008006760') OR
+(borrowers.cardnumber = '1003001004713') OR
+(borrowers.cardnumber = '1003008003022') OR
+(borrowers.cardnumber = '1003008042948') OR
+(borrowers.cardnumber = '1003001000069') OR
+(borrowers.cardnumber = '1003030012371') OR
+(borrowers.cardnumber = '1003030012392') OR
+(borrowers.cardnumber = '1003030012405') OR
+(borrowers.cardnumber = '1003030012384') OR
+(borrowers.cardnumber = '1003030012381') OR
+(borrowers.cardnumber = '1003030012003') OR
+(borrowers.cardnumber = '1003009015464') OR
+(borrowers.cardnumber = '1003030012379') OR
+(borrowers.cardnumber = '1003008004527') OR
+(borrowers.cardnumber = '1003030012369') OR
+(borrowers.cardnumber = '1003012000014') OR
+(borrowers.cardnumber = 'PLEA0001299502') OR
+(borrowers.cardnumber = '1003001006067') OR
+(borrowers.cardnumber = 'PLEA0001282086') OR
+(borrowers.cardnumber = '1003009023387') OR
+(borrowers.cardnumber = '1003008038758') OR
+(borrowers.cardnumber = '1003008040019') OR
+(borrowers.cardnumber = '1003030009599') OR
+(borrowers.cardnumber = '1003008027715') OR
+(borrowers.cardnumber = '1003008025393') OR
+(borrowers.cardnumber = '1003030006991') OR
+(borrowers.cardnumber = '1003030010969') OR
+(borrowers.cardnumber = '1003030012403') OR
+(borrowers.cardnumber = '1003030008377') OR
+(borrowers.cardnumber = '1003030012380') OR
+(borrowers.cardnumber = '1003001006222') OR
+(borrowers.cardnumber = '1003012006519') OR
+(borrowers.cardnumber = '1003030011345') OR
+(borrowers.cardnumber = '20FI9010000215') OR
+(borrowers.cardnumber = '1003008001387') OR
+(borrowers.cardnumber = 'PLEA0001234600') OR
+(borrowers.cardnumber = '1003008028387') OR
+(borrowers.cardnumber = '1003030005285') OR
+(borrowers.cardnumber = '1003030012391') OR
+(borrowers.cardnumber = '1003008045238') OR
+(borrowers.cardnumber = '1003030004454') OR
+(borrowers.cardnumber = '1003009000822') OR
+(borrowers.cardnumber = '1003030002064') OR
+(borrowers.cardnumber = '1003030012398') OR
+(borrowers.cardnumber = '1003008052595') OR
+(borrowers.cardnumber = '1003012000002') OR
+(borrowers.cardnumber = '1003009000003') OR
+(borrowers.cardnumber = 'PLEA0001168538') OR
+(borrowers.cardnumber = 'PLEA0000875149') OR
+(borrowers.cardnumber = '1003030008497') OR
+(borrowers.cardnumber = '1003009015287') OR
+(borrowers.cardnumber = '1003009016591') OR
+(borrowers.cardnumber = 'PLEA0001312149') OR
+(borrowers.cardnumber = '1003008005384') OR
+(borrowers.cardnumber = '1003008028619') OR
+(borrowers.cardnumber = '1003008001324') OR
+(borrowers.cardnumber = '1003030012404') OR
+(borrowers.cardnumber = 'PLEA0001323856') OR
+(borrowers.cardnumber = '1003030012368') OR
+(borrowers.cardnumber = '1003030003523') OR
+(borrowers.cardnumber = '2CZ9100017449+') OR
+(borrowers.cardnumber = '1003030009323') OR
+(borrowers.cardnumber = 'PLEA0001318476') OR
+(borrowers.cardnumber = '1003001002234') OR
+(borrowers.cardnumber = 'PLEA000112091+') OR
+(borrowers.cardnumber = '1003008006069') OR
+(borrowers.cardnumber = 'PLEA000118297C') OR
+(borrowers.cardnumber = '1003004000100') OR
+(borrowers.cardnumber = '1003008038402') OR
+(borrowers.cardnumber = '1003012003553') OR
+(borrowers.cardnumber = '1003008029963') OR
+(borrowers.cardnumber = '1003008004805') OR
+(borrowers.cardnumber = '1003008028517') OR
+(borrowers.cardnumber = '1003012004502') OR
+(borrowers.cardnumber = '1003008056060') OR
+(borrowers.cardnumber = '1003030012394') OR
+(borrowers.cardnumber = '1003030004472') OR
+(borrowers.cardnumber = '1003008042784') OR
+
+/* Remove old data between commented blocks, then paste new data from the Google sheet above this line */
+
+        (borrowers.cardnumber = 'placeholder data')
+
+      GROUP BY
+        borrowers.branchcode) lyndaborrowers ON branches.branchcode = lyndaborrowers.branchcode
+GROUP BY
+  branches.branchname
+ORDER BY
+  branches.branchname
+LIMIT
+  100
+
+
+
+
