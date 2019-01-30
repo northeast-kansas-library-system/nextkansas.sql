@@ -11,8 +11,8 @@ Group: Statistics
      -
 
 Created on: 2016-11-28 15:42:16
-Modified on: 2018-07-02 08:29:20
-Date last run: 2018-11-02 10:29:21
+Modified on: 2018-12-14 12:27:19
+Date last run: 2019-01-02 11:36:07
 
 ----------
 
@@ -23,11 +23,9 @@ Expiry: 0
 
 <div id=reportinfo>
 <p>Counts check-outs, renewals, and check-ins on an hourly basis</p>
-<ul><li>Shows activity during the date range you specify (between the beginning of the day on the specified "START DATE" to the end of the day on the specified "END DATE")</li>
-<li>also allows you to specify a day of the week (in case you just want to see activity on Wednesdays, for example)</li>
+<ul><li>Shows activity during the previous calendar month</li>
 <li>shows activity at a branch you specify</li>
-<li>shows the type of activity you specify (check-ins; check-outs; returns; etc.)</li>
-<li>grouped by circulation branch, date, day of the week, hour of the day (in 24 hour format), and type of activity (issue=check-out; renew=renewal; return=check-in; localuse=statical card)</li>
+<li>grouped by circulation branch, date, day of the week, hour of the day (in 24 hour format), and type of activity (CKO = Checkout; RENEW = Renewal; RETURN = check in)</li>
 </ul><br />
 <p><ins>Notes:</ins></p>
 <p></p>
@@ -41,29 +39,113 @@ Expiry: 0
 ----------
 
 SELECT
-  statistics.branch AS CIRCULATING_BRANCH,
-  DayName(statistics.datetime) AS DAY_OF_WEEK,
-  Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE,
-  Hour(statistics.datetime) AS HOUR_OF_DAY,
-  statistics.type,
-  COUNT(*)
+  branchess.branchname,
+  ALL_STATS.DATE,
+  ALL_STATS.DAY,
+  Concat(ALL_STATS.HOUR_OF_DAY, ":00 - ", ALL_STATS.HOUR_OF_DAY, ":59") AS HOUR,
+  CKO.COUNT AS CKO,
+  RENEWALS.COUNT AS RENEW,
+  RETURNS.COUNT AS RETURNS,
+  ALL_STATS.COUNT AS TOTAL
 FROM
-  statistics
+  (SELECT
+      branches.branchcode,
+      branches.branchname
+    FROM
+      branches) branchess
+  LEFT JOIN (SELECT
+      statistics.branch,
+      DayName(statistics.datetime) AS DAY,
+      Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE,
+      Hour(statistics.datetime) AS HOUR_OF_DAY,
+      count(*) AS COUNT
+    FROM
+      statistics
+    WHERE
+      (statistics.type = 'issue' OR
+        statistics.type = 'renew' OR
+        statistics.type = 'return') AND
+      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH)
+    GROUP BY
+      statistics.branch,
+      DayName(statistics.datetime),
+      Date_Format(statistics.datetime, '%Y-%m-%d'),
+      Hour(statistics.datetime)) ALL_STATS ON ALL_STATS.branch = branchess.branchcode
+  LEFT JOIN (SELECT
+      statistics.branch,
+      DayName(statistics.datetime) AS DAY,
+      Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE,
+      Hour(statistics.datetime) AS HOUR_OF_DAY,
+      count(*) AS COUNT
+    FROM
+      statistics
+    WHERE
+      statistics.type = 'return' AND
+      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH)
+    GROUP BY
+      statistics.branch,
+      DayName(statistics.datetime),
+      Date_Format(statistics.datetime, '%Y-%m-%d'),
+      Hour(statistics.datetime)) RETURNS ON RETURNS.branch = branchess.branchcode AND
+    RETURNS.DATE = ALL_STATS.DATE AND
+    RETURNS.HOUR_OF_DAY = ALL_STATS.HOUR_OF_DAY
+  LEFT JOIN (SELECT
+      statistics.branch,
+      DayName(statistics.datetime) AS DAY,
+      Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE,
+      Hour(statistics.datetime) AS HOUR_OF_DAY,
+      count(*) AS COUNT
+    FROM
+      statistics
+    WHERE
+      statistics.type = 'issue' AND
+      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH)
+    GROUP BY
+      statistics.branch,
+      DayName(statistics.datetime),
+      Date_Format(statistics.datetime, '%Y-%m-%d'),
+      Hour(statistics.datetime)) CKO ON CKO.branch = branchess.branchcode AND
+    CKO.DATE = ALL_STATS.DATE AND
+    CKO.HOUR_OF_DAY = ALL_STATS.HOUR_OF_DAY
+  LEFT JOIN (SELECT
+      statistics.branch,
+      DayName(statistics.datetime) AS DAY,
+      Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE,
+      Hour(statistics.datetime) AS HOUR_OF_DAY,
+      count(*) AS COUNT
+    FROM
+      statistics
+    WHERE
+      statistics.type = 'renew' AND
+      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH)
+    GROUP BY
+      statistics.branch,
+      DayName(statistics.datetime),
+      Date_Format(statistics.datetime, '%Y-%m-%d'),
+      Hour(statistics.datetime)) RENEWALS ON RENEWALS.branch = branchess.branchcode AND
+    RENEWALS.DATE = ALL_STATS.DATE AND
+    RENEWALS.HOUR_OF_DAY = ALL_STATS.HOUR_OF_DAY
 WHERE
-  statistics.branch LIKE <<Choose circulating branch|LBRANCH>> AND
-  (statistics.type = 'issue' OR
-    statistics.type = 'renew' OR
-    statistics.type = 'return' OR
-    statistics.type = 'localuse') AND
-  (statistics.datetime BETWEEN <<between the beginning of the day on "START DATE"|date>>  AND <<and the end of the day on "END DATE"|date>>+ INTERVAL 1 DAY) AND
-  DayName(statistics.datetime) LIKE <<Pick a day of the week|LDAYOFWEEK>> AND
-  statistics.type LIKE <<Choose type of circulation activity|ZCIRCTYPE>>
+  branchess.branchcode LIKE <<Choose your library|ZBRAN>>
 GROUP BY
-  CIRCULATING_BRANCH,
-  DATE,
-  HOUR_OF_DAY,
-  statistics.type
-WITH ROLLUP
+  branchess.branchname,
+  ALL_STATS.DATE,
+  ALL_STATS.DAY,
+  Concat(ALL_STATS.HOUR_OF_DAY, ":00 - ", ALL_STATS.HOUR_OF_DAY, ":59"),
+  CKO.COUNT,
+  RENEWALS.COUNT,
+  RETURNS.COUNT,
+  ALL_STATS.COUNT,
+  ALL_STATS.HOUR_OF_DAY
+ORDER BY
+  branchess.branchname,
+  ALL_STATS.DATE,
+  ALL_STATS.DAY,
+  ALL_STATS.HOUR_OF_DAY
 
 
 

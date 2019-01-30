@@ -3,7 +3,7 @@ R.001823
 ----------
 
 Name: WAC OVERDUES REPORT 
-Created by: Mickey Coalwell
+Created by: -
 
 ----------
 

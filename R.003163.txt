@@ -1,4 +1,4 @@
-R.003079
+R.003163
 
 ----------
 
@@ -10,9 +10,9 @@ Created by: George H Williams
 Group: -
      -
 
-Created on: 2018-05-29 15:26:38
-Modified on: 2018-08-13 13:07:20
-Date last run: 2018-11-29 14:41:05
+Created on: 2019-01-29 09:32:51
+Modified on: 2019-01-29 09:32:51
+Date last run: 2019-01-29 15:40:30
 
 ----------
 
@@ -35,11 +35,8 @@ Expiry: 300
 <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3079&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
 
-
-
-
-
 <p>For the full instruction sheet, <a href="http://guides.nekls.org/assets/users/_gwilliams/account.lockout.pdf" target="_blank">click here</a></p>
+
 
 ----------
 
@@ -63,7 +60,7 @@ GROUP BY
   borrowers.borrowernumber
 ORDER BY
   borrowers.surname,
-  borrowers.cardnumber
+  borrowers.cardnumber  
 
 
 

@@ -11,8 +11,8 @@ Group: Patrons
      Patron Statistics
 
 Created on: 2013-05-28 09:47:50
-Modified on: 2013-06-17 00:53:33
-Date last run: -
+Modified on: 2018-12-04 13:05:04
+Date last run: 2018-12-13 16:08:34
 
 ----------
 
@@ -22,20 +22,11 @@ Expiry: 0
 ----------
 
 Choose branch
+Updated 12/2018 by Robin - now gives correct count of patrons
 
 ----------
 
-SELECT p.zipcode, count(p.borrowernumber)
-FROM
-(select issuedate, returndate, borrowernumber 
-from issues
-UNION ALL
-select issuedate, returndate, borrowernumber 
-from old_issues
-) as circ 
-left join borrowers p USING (borrowernumber) 
-WHERE p.branchcode = <<Select your branch|branches>>
-GROUP BY p.zipcode
+SELECT borrowers.zipcode, COUNT(DISTINCT borrowers.borrowernumber) AS 'Patrons' FROM borrowers WHERE borrowers.branchcode = <<Select your branch|branches>> GROUP BY borrowers.zipcode
 
 
 

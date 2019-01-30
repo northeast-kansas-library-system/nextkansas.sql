@@ -1,0 +1,33 @@
+R.003152
+
+----------
+
+Name: GHW - Compare test and prod
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2019-01-10 15:01:50
+Modified on: 2019-01-10 15:01:50
+Date last run: 2019-01-10 15:01:53
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT *
+FROM
+  authorised_values
+
+
+

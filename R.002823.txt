@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2016-11-15 09:48:53
-Modified on: 2016-11-15 14:39:50
-Date last run: 2018-11-09 22:53:12
+Modified on: 2018-12-09 21:25:04
+Date last run: 2018-12-09 21:25:34
 
 ----------
 
@@ -38,7 +38,7 @@ SELECT
 FROM
   special_holidays
 WHERE
-  (special_holidays.branchcode LIKE @brn:=<<Enter your branch|LBRANCH>> COLLATE utf8_unicode_ci) AND
+  (special_holidays.branchcode LIKE @brn:=<<Enter your branch|LBRANCH>> COLLATE utf8mb4_unicode_ci) AND
   Str_To_Date(Concat(special_holidays.month, '/', special_holidays.day, '/',
   special_holidays.year), '%m/%d/%Y') > Now() - INTERVAL 1 DAY
 UNION

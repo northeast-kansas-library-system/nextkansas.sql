@@ -1,0 +1,175 @@
+R.003159
+
+----------
+
+Name: GHW - Checkout and renewal count by collection code and shelving location - previous calendar month
+Created by: George H Williams
+
+----------
+
+Group: Daily, Monthly, Yearly Stats
+     Monthly
+
+Created on: 2019-01-27 20:45:59
+Modified on: 2019-01-28 01:17:52
+Date last run: 2019-01-28 01:31:20
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+<div id=reportinfo>
+<p>Last month's checkouts by library, collection code, and location</p>
+<ul><li>Shows check-outs and renewals in the previous month by collection code and shelving location</li>
+<li>at the library you specify</li>
+<li>grouped and sorted by checkout branch and shelving location</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Checkouts without a checkout branch location will show as being checked out at NEKLS</p>
+<p>Checkouts without a collection code will be counted as (Unclassified)</p>
+<p></p>
+<p>Partially replaces report 1929</p>
+<p></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports= XX PUT REPORTNUMBER HERE and remove XXs and Spaces XX &phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
+
+----------
+
+SELECT
+  brancccode.branchname,
+  brancccode.lib,
+  Coalesce(statisticsall.CKO_REN, 0) AS CKO_REN_ALL,
+  Coalesce(statisticsadult.CKO_REN, 0) AS CKO_REN_ADULT,
+  Coalesce(statisticsya.CKO_REN, 0) AS CKO_REN_YA,
+  Coalesce(statisticschildren.CKO_REN, 0) AS CKO_REN_CHILDRENS,
+  Coalesce(statisticsother.CKO_REN, 0) AS CKO_REN_OTHER
+FROM
+  (SELECT
+      branches.branchname,
+      authorised_values.authorised_value,
+      branches.branchcode,
+      authorised_values.lib,
+      authorised_values.category
+    FROM
+      branches,
+      authorised_values
+    WHERE
+      branches.branchcode LIKE <<Choose check-out library|LBRANCH>> AND
+      authorised_values.category = 'CCODE') brancccode
+  LEFT JOIN (SELECT
+      Coalesce(statistics.branch, "NEKLS") AS branch,
+      Coalesce(statistics.ccode, "XXX") AS ccode,
+      Count(*) AS CKO_REN
+    FROM
+      statistics
+    WHERE
+      (statistics.type = 'issue' OR
+        statistics.type = 'renew') AND
+      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
+      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH)
+    GROUP BY
+      Coalesce(statistics.branch, "NEKLS"),
+      Coalesce(statistics.ccode, "XXX")) statisticsall ON statisticsall.branch = brancccode.branchcode AND
+    statisticsall.ccode = brancccode.authorised_value
+  LEFT JOIN (SELECT
+      Coalesce(statistics.branch, "NEKLS") AS branch,
+      Coalesce(statistics.ccode, "XXX") AS ccode,
+      Count(*) AS CKO_REN
+    FROM
+      statistics
+    WHERE
+      (statistics.type = 'issue' OR
+        statistics.type = 'renew') AND
+      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
+      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+      (Coalesce(statistics.location, "CART") = 'ADULT' OR
+        Coalesce(statistics.location, "CART") = 'LVPLADULT')
+    GROUP BY
+      Coalesce(statistics.branch, "NEKLS"),
+      Coalesce(statistics.ccode, "XXX")
+    ORDER BY
+      branch,
+      ccode) statisticsadult ON statisticsadult.branch = brancccode.branchcode AND
+    statisticsadult.ccode = brancccode.authorised_value
+  LEFT JOIN (SELECT
+      Coalesce(statistics.branch, "NEKLS") AS branch,
+      Coalesce(statistics.ccode, "XXX") AS ccode,
+      Count(*) AS CKO_REN
+    FROM
+      statistics
+    WHERE
+      (statistics.type = 'issue' OR
+        statistics.type = 'renew') AND
+      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
+      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+      Coalesce(statistics.location, "CART") <> 'ADULT' AND
+      Coalesce(statistics.location, "CART") <> 'LVPLADULT' AND
+      Coalesce(statistics.location, "CART") <> 'YOUNGADULT' AND
+      Coalesce(statistics.location, "CART") <> 'LVPLYA' AND
+      Coalesce(statistics.location, "CART") <> 'CHILDRENS' AND
+      Coalesce(statistics.location, "CART") <> 'LVPLCHILD'
+    GROUP BY
+      Coalesce(statistics.branch, "NEKLS"),
+      Coalesce(statistics.ccode, "XXX")
+    ORDER BY
+      branch,
+      ccode) statisticsother ON statisticsother.branch = brancccode.branchcode AND
+    statisticsother.ccode = brancccode.authorised_value
+  LEFT JOIN (SELECT
+      Coalesce(statistics.branch, "NEKLS") AS branch,
+      Coalesce(statistics.ccode, "XXX") AS ccode,
+      Count(*) AS CKO_REN
+    FROM
+      statistics
+    WHERE
+      (statistics.type = 'issue' OR
+        statistics.type = 'renew') AND
+      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
+      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+      (Coalesce(statistics.location, "CART") = 'YOUNGADULT' OR
+        Coalesce(statistics.location, "CART") = 'LVPLYA')
+    GROUP BY
+      Coalesce(statistics.branch, "NEKLS"),
+      Coalesce(statistics.ccode, "XXX")
+    ORDER BY
+      branch,
+      ccode) statisticsya ON statisticsya.branch = brancccode.branchcode AND
+    statisticsya.ccode = brancccode.authorised_value
+  LEFT JOIN (SELECT
+      Coalesce(statistics.branch, "NEKLS") AS branch,
+      Coalesce(statistics.ccode, "XXX") AS ccode,
+      Count(*) AS CKO_REN
+    FROM
+      statistics
+    WHERE
+      (statistics.type = 'issue' OR
+        statistics.type = 'renew') AND
+      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
+      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+      (Coalesce(statistics.location, "CART") = 'CHILDRENS' OR
+        Coalesce(statistics.location, "CART") = 'LVPLCHILD')
+    GROUP BY
+      Coalesce(statistics.branch, "NEKLS"),
+      Coalesce(statistics.ccode, "XXX")
+    ORDER BY
+      branch,
+      ccode) statisticschildren ON statisticschildren.branch = brancccode.branchcode AND
+    statisticschildren.ccode = brancccode.authorised_value
+GROUP BY
+  brancccode.branchname,
+  brancccode.lib,
+  Coalesce(statisticsall.CKO_REN, 0),
+  Coalesce(statisticsadult.CKO_REN, 0),
+  Coalesce(statisticsya.CKO_REN, 0),
+  Coalesce(statisticschildren.CKO_REN, 0),
+  Coalesce(statisticsother.CKO_REN, 0)
+ORDER BY
+  brancccode.branchname,
+  brancccode.lib
+
+
+

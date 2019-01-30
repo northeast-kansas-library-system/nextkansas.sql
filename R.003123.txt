@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-09-19 10:13:02
-Modified on: 2018-09-25 09:51:51
-Date last run: 2018-09-25 11:35:00
+Modified on: 2018-12-08 23:14:03
+Date last run: 2018-12-10 16:38:12
 
 ----------
 
@@ -55,8 +55,8 @@ WHERE
   statistics.datetime < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
   (statistics.type = 'issue' OR
     statistics.type = 'renew') AND
-  (ExtractValue(biblio_metadata.metadata, '//datafield[@tag="655"]/subfield[@code="a"]') LIKE @subj := CONCAT("%", <<Enter part of an index term (Marc 655 subfield a) or a % symbol>>, "%") COLLATE utf8_unicode_ci) AND
-  (statistics.branch LIKE @brn := <<Enter checkout branch|ZBRAN>> COLLATE utf8_unicode_ci)
+  (ExtractValue(biblio_metadata.metadata, '//datafield[@tag="655"]/subfield[@code="a"]') LIKE @subj := CONCAT("%", <<Enter part of an index term (Marc 655 subfield a) or a % symbol>>, "%") COLLATE utf8mb4_unicode_ci) AND
+  (statistics.branch LIKE @brn := <<Enter checkout branch|ZBRAN>> COLLATE utf8mb4_unicode_ci)
 GROUP BY
   statistics.branch,
   Year(statistics.datetime),

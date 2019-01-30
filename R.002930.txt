@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2017-04-26 12:32:24
-Modified on: 2018-04-16 11:08:49
-Date last run: 2018-10-03 09:20:01
+Modified on: 2018-12-09 22:05:06
+Date last run: 2019-01-17 11:16:42
 
 ----------
 
@@ -72,12 +72,9 @@ FROM
       accountlines.date,
       accountlines.amount,
       accountlines.description,
-      accountlines.dispute,
       accountlines.accounttype,
       accountlines.amountoutstanding,
       accountlines.timestamp,
-      accountlines.notify_id,
-      accountlines.notify_level,
       accountlines.lastincrement,
       accountlines.note,
       accountlines.manager_id
@@ -86,7 +83,7 @@ FROM
       JOIN borrowers ON borrowers.borrowernumber = accountlines.manager_id
     WHERE
       accountlines.amountoutstanding > 0 AND
-      borrowers.branchcode = @brn := <<Select branch|ZBRAN>> COLLATE utf8_unicode_ci
+      borrowers.branchcode = @brn := <<Select branch|ZBRAN>> COLLATE utf8mb4_unicode_ci
     UNION
     SELECT
       accountlines.accountlines_id,
@@ -96,12 +93,9 @@ FROM
       accountlines.date,
       accountlines.amount,
       accountlines.description,
-      accountlines.dispute,
       accountlines.accounttype,
       accountlines.amountoutstanding,
       accountlines.timestamp,
-      accountlines.notify_id,
-      accountlines.notify_level,
       accountlines.lastincrement,
       accountlines.note,
       accountlines.manager_id

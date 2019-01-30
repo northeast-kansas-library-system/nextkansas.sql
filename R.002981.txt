@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2017-08-07 09:45:47
-Modified on: 2018-11-21 17:20:55
-Date last run: 2018-11-21 17:21:02
+Modified on: 2018-12-09 21:16:24
+Date last run: 2018-12-09 21:18:40
 
 ----------
 
@@ -99,7 +99,7 @@ WHERE
   items.onloan IS NULL AND
   transferst.datesent IS NULL AND
   reservest.found IS NULL AND
-  (items.holdingbranch NOT LIKE @brn := <<Choose your library|ZBRAN>> COLLATE utf8_unicode_ci) AND
+  (items.holdingbranch NOT LIKE @brn := <<Choose your library|ZBRAN>> COLLATE utf8mb4_unicode_ci) AND
   items.homebranch LIKE @brn
 GROUP BY
   items.itemnumber

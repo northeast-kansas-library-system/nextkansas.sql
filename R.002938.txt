@@ -11,8 +11,8 @@ Group: Administrative Reports
      Testing
 
 Created on: 2017-05-02 16:50:04
-Modified on: 2017-05-02 17:00:16
-Date last run: -
+Modified on: 2018-12-09 21:59:37
+Date last run: 2018-12-09 21:59:48
 
 ----------
 
@@ -64,12 +64,9 @@ FROM
       accountlines.date,
       accountlines.amount,
       accountlines.description,
-      accountlines.dispute,
       accountlines.accounttype,
       accountlines.amountoutstanding,
       accountlines.timestamp,
-      accountlines.notify_id,
-      accountlines.notify_level,
       accountlines.lastincrement,
       accountlines.note,
       accountlines.manager_id
@@ -78,7 +75,7 @@ FROM
       JOIN borrowers ON borrowers.borrowernumber = accountlines.manager_id
     WHERE
       accountlines.amountoutstanding > 0 AND
-      borrowers.branchcode = @brn := <<Select branch|ZBRAN>> COLLATE utf8_unicode_ci
+      borrowers.branchcode = @brn := <<Select branch|ZBRAN>> COLLATE utf8mb4_unicode_ci
     UNION
     SELECT
       accountlines.accountlines_id,
@@ -88,12 +85,9 @@ FROM
       accountlines.date,
       accountlines.amount,
       accountlines.description,
-      accountlines.dispute,
       accountlines.accounttype,
       accountlines.amountoutstanding,
       accountlines.timestamp,
-      accountlines.notify_id,
-      accountlines.notify_level,
       accountlines.lastincrement,
       accountlines.note,
       accountlines.manager_id

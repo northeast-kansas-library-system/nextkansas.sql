@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-10-17 13:35:05
-Modified on: 2018-11-01 13:52:57
-Date last run: 2018-11-01 13:53:56
+Modified on: 2018-12-03 09:14:59
+Date last run: 2018-12-03 09:15:34
 
 ----------
 
@@ -63,10 +63,12 @@ FROM
 (borrowers.cardnumber = 'PLEA0001190498') OR
 (borrowers.cardnumber = '666') OR
 (borrowers.cardnumber = '1003030012399') OR
+(borrowers.cardnumber = '1003030011351') OR
 (borrowers.cardnumber = '1003030012388') OR
 (borrowers.cardnumber = '1003008044454') OR
 (borrowers.cardnumber = '1003030012402') OR
 (borrowers.cardnumber = '1003008054986') OR
+(borrowers.cardnumber = 'PLEA0001323088') OR
 (borrowers.cardnumber = '2CZ90000097862') OR
 (borrowers.cardnumber = '1003009017051') OR
 (borrowers.cardnumber = '1003012001236') OR
@@ -74,6 +76,7 @@ FROM
 (borrowers.cardnumber = '1003009003117') OR
 (borrowers.cardnumber = '1003030012390') OR
 (borrowers.cardnumber = '1003030012393') OR
+(borrowers.cardnumber = '1003011003260') OR
 (borrowers.cardnumber = '1003008016080') OR
 (borrowers.cardnumber = '1003008028549') OR
 (borrowers.cardnumber = 'plea0001324524') OR
@@ -82,6 +85,7 @@ FROM
 (borrowers.cardnumber = 'PLEA000120300X') OR
 (borrowers.cardnumber = 'PLEA0001270461') OR
 (borrowers.cardnumber = '1003030012367') OR
+(borrowers.cardnumber = '1003001009585') OR
 (borrowers.cardnumber = '1003012000195') OR
 (borrowers.cardnumber = '1003030012389') OR
 (borrowers.cardnumber = '1003001008300') OR
@@ -114,6 +118,7 @@ FROM
 (borrowers.cardnumber = '1003030012003') OR
 (borrowers.cardnumber = '1003009015464') OR
 (borrowers.cardnumber = '1003030012379') OR
+(borrowers.cardnumber = '1003008008545') OR
 (borrowers.cardnumber = '1003008004527') OR
 (borrowers.cardnumber = '1003030012369') OR
 (borrowers.cardnumber = '1003012000014') OR
@@ -126,14 +131,17 @@ FROM
 (borrowers.cardnumber = '1003030009599') OR
 (borrowers.cardnumber = '1003008027715') OR
 (borrowers.cardnumber = '1003008025393') OR
+(borrowers.cardnumber = 'PLEA0001172847') OR
 (borrowers.cardnumber = '1003030006991') OR
 (borrowers.cardnumber = '1003030010969') OR
 (borrowers.cardnumber = '1003030012403') OR
+(borrowers.cardnumber = 'PLEA0001202795') OR
 (borrowers.cardnumber = '1003030008377') OR
 (borrowers.cardnumber = '1003030012380') OR
 (borrowers.cardnumber = '1003001006222') OR
 (borrowers.cardnumber = '1003012006519') OR
 (borrowers.cardnumber = '1003030011345') OR
+(borrowers.cardnumber = '1003008039475') OR
 (borrowers.cardnumber = '20FI9010000215') OR
 (borrowers.cardnumber = '1003008001387') OR
 (borrowers.cardnumber = 'PLEA0001234600') OR
@@ -144,7 +152,9 @@ FROM
 (borrowers.cardnumber = '1003030004454') OR
 (borrowers.cardnumber = '1003009000822') OR
 (borrowers.cardnumber = '1003030002064') OR
+(borrowers.cardnumber = 'PLEA0001314418') OR
 (borrowers.cardnumber = '1003030012398') OR
+(borrowers.cardnumber = '1003011002747') OR
 (borrowers.cardnumber = '1003008052595') OR
 (borrowers.cardnumber = '1003012000002') OR
 (borrowers.cardnumber = '1003009000003') OR
@@ -164,7 +174,9 @@ FROM
 (borrowers.cardnumber = '2CZ9100017449+') OR
 (borrowers.cardnumber = '1003030009323') OR
 (borrowers.cardnumber = 'PLEA0001318476') OR
+(borrowers.cardnumber = '1003012003813') OR
 (borrowers.cardnumber = '1003001002234') OR
+(borrowers.cardnumber = '23080000244835') OR
 (borrowers.cardnumber = 'PLEA000112091+') OR
 (borrowers.cardnumber = '1003008006069') OR
 (borrowers.cardnumber = 'PLEA000118297C') OR
@@ -172,6 +184,7 @@ FROM
 (borrowers.cardnumber = '1003008038402') OR
 (borrowers.cardnumber = '1003012003553') OR
 (borrowers.cardnumber = '1003008029963') OR
+(borrowers.cardnumber = 'PLEA0001323138') OR
 (borrowers.cardnumber = '1003008004805') OR
 (borrowers.cardnumber = '1003008028517') OR
 (borrowers.cardnumber = '1003012004502') OR

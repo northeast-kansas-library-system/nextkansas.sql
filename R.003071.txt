@@ -11,8 +11,8 @@ Group: Administrative Reports
      -
 
 Created on: 2018-04-13 16:53:35
-Modified on: 2018-07-02 10:01:08
-Date last run: 2018-11-01 14:44:43
+Modified on: 2018-12-13 16:20:51
+Date last run: 2019-01-02 11:42:13
 
 ----------
 
@@ -37,7 +37,7 @@ Expiry: 300
 ----------
 
 SELECT
-  Concat("<a href='https://staff.nexpresslibrary.org/cgi-bin/koha/circ/circulation.pl?borrowernumber=", borrowers.borrowernumber, "#reldebarments' target='_blank'>Go to patron</a>") AS LINK_TO_BORROWER,
+  Concat("<a href='/cgi-bin/koha/circ/circulation.pl?borrowernumber=", borrowers.borrowernumber, "#reldebarments' target='_blank'>Go to patron</a>") AS LINK_TO_BORROWER,
   borrowers.borrowernumber,
   borrowers.cardnumber,
   borrowers.surname,

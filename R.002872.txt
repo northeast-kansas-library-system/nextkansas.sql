@@ -11,8 +11,8 @@ Group: Daily, Monthly, Yearly Stats
      Yearly Stats Suite
 
 Created on: 2017-01-01 22:59:18
-Modified on: 2017-01-01 23:01:00
-Date last run: -
+Modified on: 2019-01-08 15:35:01
+Date last run: 2019-01-01 14:32:37
 
 ----------
 
@@ -27,8 +27,8 @@ Expiry: 0
 
 SELECT
   branches.branchcode AS BRANCH,
-  Coalesce(NEXPRESS_ILLS_LOANED.count, 0) AS NX_ILLS_LOANED,
-  Coalesce(NEXPRESS_ILLS_BORROWED.count, 0) AS NX_ILLS_BORROWED
+  Coalesce(NEXPRESS_ILLS_BORROWED.count, 0) AS NX_ILLS_BORROWED,
+  Coalesce(NEXPRESS_ILLS_LOANED.count, 0) AS NX_ILLS_LOANED
 FROM
   branches LEFT JOIN
   (SELECT

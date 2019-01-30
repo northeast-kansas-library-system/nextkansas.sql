@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-09-18 09:43:36
-Modified on: 2018-09-18 12:17:18
-Date last run: 2018-10-03 13:58:20
+Modified on: 2018-12-09 21:10:37
+Date last run: 2018-12-09 21:11:51
 
 ----------
 
@@ -49,7 +49,7 @@ FROM
 WHERE
   authorised_values.category = "ccode" AND
   branchtransfers.datearrived IS NULL AND
-  ((items.homebranch = @brn := <<Choose your library|branches>> COLLATE utf8_unicode_ci) OR
+  ((items.homebranch = @brn := <<Choose your library|branches>> COLLATE utf8mb4_unicode_ci) OR
   (branchtransfers.frombranch = @brn) OR
   (branchtransfers.tobranch = @brn))
 GROUP BY

@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2016-10-13 16:32:19
-Modified on: 2016-10-18 18:15:14
-Date last run: 2018-11-27 16:33:17
+Modified on: 2018-12-09 21:30:04
+Date last run: 2019-01-29 16:22:38
 
 ----------
 
@@ -43,7 +43,7 @@ FROM
   authorised_values
     ON statistics.ccode = authorised_values.authorised_value
 WHERE
-  (statistics.branch LIKE @brn:=<<Enter your branch|LBRANCH>> COLLATE utf8_unicode_ci) AND
+  (statistics.branch LIKE @brn:=<<Enter your branch|LBRANCH>> COLLATE utf8mb4_unicode_ci) AND
   statistics.type IN ('issue', 'renew', 'localuse') AND
   (statistics.datetime BETWEEN (<<Between start date|date>>)  AND (<<and end date|date>>+ INTERVAL 1 DAY))
 AND

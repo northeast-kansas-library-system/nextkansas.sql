@@ -3,7 +3,7 @@ R.002466
 ----------
 
 Name: PATRON LIST WITH EMAIL, PHONE, CITY & ZIP
-Created by: Mickey Coalwell
+Created by: -
 
 ----------
 

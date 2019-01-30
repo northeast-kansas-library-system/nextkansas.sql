@@ -11,8 +11,8 @@ Group: Statistics
      Date range
 
 Created on: 2018-07-01 16:35:43
-Modified on: 2018-07-02 08:44:05
-Date last run: 2018-11-08 16:55:10
+Modified on: 2018-12-09 21:12:24
+Date last run: 2019-01-16 15:15:45
 
 ----------
 
@@ -69,8 +69,8 @@ FROM
      WHERE
       (st.type = 'issue' OR
        st.type = 'renew') AND
-      (Month(st.datetime) = @date1 := <<Select month|Month>> COLLATE utf8_unicode_ci) AND
-      (Year(st.datetime) = @year1 := <<Select year|Year>> COLLATE utf8_unicode_ci)
+      (Month(st.datetime) = @date1 := <<Select month|Month>> COLLATE utf8mb4_unicode_ci) AND
+      (Year(st.datetime) = @year1 := <<Select year|Year>> COLLATE utf8mb4_unicode_ci)
      GROUP BY
       Coalesce(st.ccode, "~"),
       st.ccode,

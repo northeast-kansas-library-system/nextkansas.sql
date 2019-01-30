@@ -11,8 +11,8 @@ Group: Circulation
      Transfers
 
 Created on: 2017-02-01 12:29:04
-Modified on: 2018-04-16 11:06:33
-Date last run: 2018-11-27 14:13:59
+Modified on: 2018-12-09 21:25:14
+Date last run: 2019-01-29 16:04:25
 
 ----------
 
@@ -61,7 +61,7 @@ WHERE
   (items.datelastseen <= Now() - INTERVAL 7 DAY) AND
   authorised_values.category = "ccode" AND
   branchtransfers.datearrived IS NULL AND
-  ((items.homebranch = @brn := <<Choose your library|branches>> COLLATE utf8_unicode_ci) OR
+  ((items.homebranch = @brn := <<Choose your library|branches>> COLLATE utf8mb4_unicode_ci) OR
   (branchtransfers.frombranch = @brn) OR
   (branchtransfers.tobranch = @brn))
 GROUP BY

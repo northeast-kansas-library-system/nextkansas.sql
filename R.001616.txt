@@ -3,7 +3,7 @@ R.001616
 ----------
 
 Name: Purge Patron Report
-Created by: Mickey Coalwell
+Created by: -
 
 ----------
 

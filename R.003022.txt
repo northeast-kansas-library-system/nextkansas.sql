@@ -11,8 +11,8 @@ Group: Fines/Fees
      -
 
 Created on: 2017-12-22 16:12:49
-Modified on: 2018-10-19 15:42:25
-Date last run: 2018-10-19 16:56:29
+Modified on: 2019-01-28 13:54:20
+Date last run: 2019-01-29 15:42:54
 
 ----------
 
@@ -21,7 +21,17 @@ Expiry: 300
 
 ----------
 
-
+<div id=reportinfo>
+<p>Generates a report of payments made to libraries via Paypal in the previous calendar month</p>
+<ul><li>Shows payments made in the previous calendar month</li>
+<li>At all libraries</li>
+<li>grouped by account offsets ID</li>
+<li>sorted by library owed the fee, payment date, and fee reference ID</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3022&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 
@@ -42,7 +52,6 @@ SELECT
   ) AS COLLECTED_ON_BEHALF_OF,
   Format(ABS(credits.amount), 2) AS AMT_COLLECTED,
   borrowerinfo.cardnumber AS FROM_PATRON,
-  borrowerinfo.surname AS PATRON_LASTNAME,
   credits.note AS PAYMENT_NOTES,
   credits.date AS PAYMENT_DATE,
   Concat_Ws("-", credits.accountlines_id, credits.accountno) AS PAYMENT_REFERENCE,
@@ -69,7 +78,20 @@ FROM
 WHERE
   credits.note LIKE "%Paypal%" AND
   Month(credits.date) = Month(Now() - INTERVAL 1 MONTH) AND
-  Year(credits.date) = Year(Now() - INTERVAL 1 MONTH)
+  Year(credits.date) = Year(Now() - INTERVAL 1 MONTH) AND
+  If(
+    debits.accounttype = 'F',
+    Coalesce(old_issues.branchcode, borrowerinfo.branchcode),
+    If(
+      debits.accounttype = 'M',
+      Coalesce(manualinvoiceinfo.branchcode, borrowerinfo.branchcode),
+      If(
+        debits.accounttype = 'L',
+        Coalesce(items.homebranch, Coalesce(manualinvoiceinfo.branchcode, borrowerinfo.branchcode)),
+        borrowerinfo.branchcode
+      )
+    )
+  ) LIKE <<Choose your library|LBRANCH>>
 GROUP BY
   account_offsets.id
 ORDER BY

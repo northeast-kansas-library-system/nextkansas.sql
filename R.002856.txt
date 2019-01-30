@@ -11,8 +11,8 @@ Group: Notices
      -
 
 Created on: 2016-12-15 11:27:46
-Modified on: 2018-04-16 11:05:09
-Date last run: 2018-11-29 14:32:34
+Modified on: 2018-12-14 12:32:55
+Date last run: 2019-01-29 13:59:40
 
 ----------
 
@@ -44,7 +44,7 @@ FROM
 WHERE
   (message_queue.letter_code LIKE <<Enter|ZODUE1>> or message_queue.letter_code LIKE <<Enter|ZODUE2>> or message_queue.letter_code LIKE <<Enter|ZODUE3>>) AND
   message_queue.message_transport_type LIKE <<Type of notice|ZTRANSPORT>> AND
-  (message_queue.time_queued BETWEEN <<between the beginning of the day on "START DATE"|date>>  AND (<<and the end of the day on "END DATE"|date>>+ INTERVAL 1 DAY)) AND
+  (message_queue.time_queued BETWEEN <<between the beginning of the day on START DATE|date>>  AND (<<and the end of the day on END DATE|date>>+ INTERVAL 1 DAY)) AND
   message_queue.subject LIKE <<Choose location|ZNOTICEB>>
 GROUP BY
   message_queue.time_queued, message_queue.content

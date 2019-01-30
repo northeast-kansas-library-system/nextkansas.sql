@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2017-03-21 16:09:30
-Modified on: 2018-04-16 11:11:04
-Date last run: 2018-09-26 16:17:42
+Modified on: 2019-01-23 16:53:03
+Date last run: 2019-01-23 16:54:00
 
 ----------
 
@@ -37,23 +37,23 @@ Expiry: 0
 
 SELECT
   issuingrules.branchcode,
-  If(issuingrules.categorycode = "*", "All patrons not specified below", issuingrules.categorycode) AS PATRON_CATEGORY,
+  If(issuingrules.categorycode = "*", "All patrons not specified below", categories.description) AS PATRON_CATEGORY,
   If(Coalesce(itemtypes.description, 0) = "0", "All ITYPES not specified below for this patron category", itemtypes.description) AS ITEM_TYPE,
   If(issuingrules.maxissueqty IS NULL, "Unlimited", issuingrules.maxissueqty) AS CURRENT_CHECKOUTS_ALLOWED,
   issuingrules.issuelength AS LOAN_PERIOD,
-  FORMAT(issuingrules.fine, 2) AS FINE_AMOUNT,
+  Format(issuingrules.fine, 2) AS FINE_AMOUNT,
   issuingrules.chargeperiod AS FINE_CHARGING_INTERVAL,
   issuingrules.firstremind AS FINE_GRACE_PERIOD,
-  FORMAT(issuingrules.overduefinescap, 2) AS OVERDUE_FINES_CAP,
+  IF(issuingrules.overduefinescap is null, "Replacement price of item", Format(issuingrules.overduefinescap, 2)) AS OVERDUE_FINES_CAP,
   issuingrules.renewalsallowed AS RENEWALS_ALLOWED,
   issuingrules.renewalperiod AS RENEWAL_PERIOD,
   issuingrules.reservesallowed AS HOLDS_ALLOWED_COUNT,
   issuingrules.onshelfholds AS ON_SHELF_HOLDS_ALLOWED,
   issuingrules.opacitemholds AS ITEM_LEVEL_HOLDS
 FROM
-  issuingrules LEFT JOIN
-  itemtypes
-    ON issuingrules.itemtype = itemtypes.itemtype
+  issuingrules
+  LEFT JOIN itemtypes ON issuingrules.itemtype = itemtypes.itemtype
+  LEFT JOIN categories ON categories.categorycode = issuingrules.categorycode
 WHERE
   issuingrules.branchcode LIKE <<Choose your library|LBRANCH>>
 

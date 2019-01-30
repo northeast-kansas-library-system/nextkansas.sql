@@ -2,7 +2,7 @@ R.000831
 
 ----------
 
-Name: Outstanding Credits
+Name: GHW - Patrons with outstanding credits
 Created by: NEKLS Administrator
 
 ----------
@@ -11,8 +11,8 @@ Group: Circulation
      Charges
 
 Created on: 2010-03-23 11:57:07
-Modified on: 2013-06-18 10:10:10
-Date last run: 2017-09-28 12:10:47
+Modified on: 2019-01-28 21:43:21
+Date last run: 2019-01-29 17:47:42
 
 ----------
 
@@ -25,7 +25,29 @@ Expiry: 0
 
 ----------
 
-SELECT  borrowers.cardnumber, borrowers.surname, borrowers.firstname,   FORMAT(SUM(accountlines.amountoutstanding),2) as due FROM borrowers LEFT JOIN accountlines USING (borrowernumber) WHERE borrowers.branchcode=<<branch|branches>> AND accountlines.amountoutstanding < 0 GROUP BY borrowers.cardnumber  ORDER BY borrowers.surname ASC
+SELECT
+  Concat(
+    '<a href=\"/cgi-bin/koha/members/pay.pl?borrowernumber=',
+    accountlines.borrowernumber,
+    '\" target="_blank">patron fine records</a>'
+  ) AS LINK_TO_PATRON,
+  borrowers.branchcode,
+  borrowers.cardnumber,
+  accountlines.amountoutstanding
+FROM
+  accountlines
+  JOIN borrowers ON accountlines.borrowernumber = borrowers.borrowernumber
+WHERE
+  borrowers.branchcode LIKE <<Choose patron home branch|LBRANCH>> AND
+  accountlines.amountoutstanding < 0
+GROUP BY
+  accountlines.borrowernumber,
+  borrowers.branchcode,
+  borrowers.cardnumber,
+  accountlines.amountoutstanding
+ORDER BY
+  borrowers.branchcode,
+  borrowers.cardnumber
 
 
 

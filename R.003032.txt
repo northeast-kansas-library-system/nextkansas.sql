@@ -1,0 +1,44 @@
+R.003032
+
+----------
+
+Name: SANDBOX - newsbox
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2018-01-05 10:34:49
+Modified on: 2019-01-28 17:00:20
+Date last run: 2019-01-28 17:00:23
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT
+  opac_news.idnew,
+  opac_news.branchcode,
+  opac_news.title,
+  opac_news.content,
+  opac_news.lang,
+  opac_news.timestamp,
+  opac_news.expirationdate,
+  opac_news.number,
+  opac_news.borrowernumber
+FROM
+  opac_news
+WHERE
+  opac_news.title LIKE "USE%"
+
+
+

@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2017-02-01 16:27:01
-Modified on: 2018-05-09 15:06:20
-Date last run: 2018-11-27 16:52:38
+Modified on: 2019-01-03 10:21:15
+Date last run: 2019-01-29 11:06:43
 
 ----------
 
@@ -38,7 +38,7 @@ Expiry: 0
 ----------
 
 SELECT
-  items.itemnumber,
+  items.itemnumber AS ITEM_NUMBER,
   items.barcode AS BARCODE,
   items.homebranch AS ITEM_HOME,
   items.holdingbranch,

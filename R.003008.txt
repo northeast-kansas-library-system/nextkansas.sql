@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2017-10-20 11:30:17
-Modified on: 2018-09-24 14:31:09
-Date last run: 2018-10-22 11:49:52
+Modified on: 2018-12-09 21:16:02
+Date last run: 2019-01-29 15:25:29
 
 ----------
 
@@ -49,7 +49,7 @@ FROM
       FROM
         borrowers
       WHERE
-        borrowers.branchcode LIKE @brn := <<Choose your library|ZBRAN>> COLLATE utf8_unicode_ci
+        borrowers.branchcode LIKE @brn := <<Choose your library|ZBRAN>> COLLATE utf8mb4_unicode_ci
       GROUP BY
         borrowers.categorycode) totalcount
   RIGHT JOIN categories ON categories.categorycode = totalcount.categorycode

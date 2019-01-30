@@ -11,8 +11,8 @@ Group: Fines/Fees
      -
 
 Created on: 2017-01-04 12:34:28
-Modified on: 2018-04-16 11:04:56
-Date last run: 2018-11-16 16:46:14
+Modified on: 2018-12-11 12:21:50
+Date last run: 2019-01-29 19:00:24
 
 ----------
 
@@ -54,7 +54,7 @@ WHERE
   (accountlines.accounttype = "Pay" OR
     accountlines.accounttype = "C" OR
     accountlines.accounttype = "W") AND
-  (accountlines.timestamp BETWEEN <<Between the beginning of the day on "START DATE"|date>>  AND (<<and the end of the day on "END DATE"|date>>+ INTERVAL 1 DAY)) AND
+  (accountlines.timestamp BETWEEN <<Between the beginning of the day on START DATE|date>>  AND (<<and the end of the day on END DATE|date>>+ INTERVAL 1 DAY)) AND
   staff.branchcode LIKE <<Choose branch|ZBRAN>> AND
   accountlines.accounttype LIKE <<Payment type|ZPAYTYPE>>
 GROUP BY

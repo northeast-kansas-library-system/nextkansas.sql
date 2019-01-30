@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-11-01 11:08:27
-Modified on: 2018-11-01 11:15:37
-Date last run: 2018-11-05 14:16:42
+Modified on: 2018-12-08 22:58:14
+Date last run: 2018-12-09 21:09:09
 
 ----------
 
@@ -306,7 +306,7 @@ FROM
         Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
         (statistics.type = 'issue' OR
           statistics.type = 'renew') AND
-        (statistics.branch = @brn := <<Choose your library|branches>> COLLATE utf8_unicode_ci)
+        (statistics.branch = @brn := <<Choose your library|branches>> COLLATE utf8mb4_unicode_ci)
       GROUP BY
         statistics.branch,
         CAST(statistics.datetime AS DATE)) ckorenew ON dates.DATE = ckorenew.DATE

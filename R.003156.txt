@@ -1,0 +1,32 @@
+R.003156
+
+----------
+
+Name: GHW - basic item count - adminreport
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2019-01-15 21:31:40
+Modified on: 2019-01-15 21:32:39
+Date last run: 2019-01-16 00:45:06
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT Count(*) as COUNT
+FROM items
+
+
+

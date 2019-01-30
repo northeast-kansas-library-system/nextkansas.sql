@@ -1,0 +1,39 @@
+R.003154
+
+----------
+
+Name: GHW - coverflow1
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2019-01-13 18:40:49
+Modified on: 2019-01-13 18:47:13
+Date last run: 2019-01-13 19:30:39
+
+----------
+
+Public: 1
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT b.biblionumber, SUBSTRING_INDEX(m.isbn, ' ', 1) AS isbn, b.title
+  FROM items i
+  LEFT JOIN biblioitems m USING (biblioitemnumber)
+  LEFT JOIN biblio b ON (i.biblionumber=b.biblionumber)
+  WHERE DATE_SUB(CURDATE(),INTERVAL 30 DAY) <= i.dateaccessioned AND m.isbn IS NOT NULL AND m.isbn != ''
+  GROUP BY biblionumber
+  HAVING isbn != ""
+  ORDER BY rand()
+  LIMIT 30
+
+
+

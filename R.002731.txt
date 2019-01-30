@@ -11,8 +11,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2016-08-11 16:36:03
-Modified on: 2018-10-03 18:01:40
-Date last run: 2018-11-29 09:30:22
+Modified on: 2019-01-02 16:45:48
+Date last run: 2019-01-29 14:15:58
 
 ----------
 
@@ -53,7 +53,7 @@ SELECT
     '</a>'
   ) AS LINK_TO_TITLE,
   items.biblionumber,
-  items.itemnumber,
+  items.itemnumber AS ITEM_NUMBER,
   Concat(
     "-",
     Coalesce(items.barcode, "-"),
@@ -79,13 +79,26 @@ SELECT
   items.datelastseen,
   items.issues,
   items.renewals,
-  Sum((Coalesce(items.issues, 0)) + Coalesce(items.renewals, 0)) AS CHECKOUTS_PLUS_RENEWALS,
-  If(items.onloan IS NULL, 'No', 'Yes') AS CHECKED_OUT,
+  Sum(
+    (Coalesce(items.issues, 0)) +
+    (Coalesce(items.renewals, 0))
+  ) AS CHECKOUTS_PLUS_RENEWALS,
   If(
-    Sum(Coalesce(items.damaged, 0) + Coalesce(items.itemlost, 0) + Coalesce(items.withdrawn, 0)) = 0,
+    items.onloan IS NULL,
+    'No',
+    'Yes'
+  ) AS CHECKED_OUT,
+  If(
+    Sum(
+      Coalesce(items.damaged, 0) +
+      Coalesce(items.itemlost, 0) +
+      Coalesce(items.withdrawn, 0)
+    ) = 0,
     'No',
     'Yes'
   ) AS STATUS_PROBLEMS,
+  notloan.lib AS NOT_FOR_LOAN,
+  IF(notloan.authorised_value = 0, "-", Concat(notloan.lib, "X")) AS XXXXXX,
   items.itemnotes,
   items.itemnotes_nonpublic,
   items.copynumber,
@@ -104,35 +117,45 @@ FROM
   JOIN biblio_metadata ON items.biblionumber = biblio_metadata.biblionumber
   JOIN biblioitems ON items.biblioitemnumber = biblioitems.biblioitemnumber
   JOIN (SELECT
-        items.biblionumber,
-        items.homebranch,
-        Count(items.itemnumber) AS Count_itemnumber
-      FROM
-        items
-      GROUP BY
-        items.biblionumber,
-        items.homebranch) localcounts ON items.biblionumber = localcounts.biblionumber AND
+      items.biblionumber,
+      items.homebranch,
+      Count(items.itemnumber) AS Count_itemnumber
+    FROM
+      items
+    GROUP BY
+      items.biblionumber,
+      items.homebranch) localcounts ON items.biblionumber = localcounts.biblionumber AND
     items.homebranch = localcounts.homebranch
   JOIN (SELECT
-        items.biblionumber,
-        Count(items.itemnumber) AS Count_itemnumber
-      FROM
-        items
-      GROUP BY
-        items.biblionumber) systemcounts ON items.biblionumber = systemcounts.biblionumber
+      items.biblionumber,
+      Count(items.itemnumber) AS Count_itemnumber
+    FROM
+      items
+    GROUP BY
+      items.biblionumber) systemcounts ON items.biblionumber = systemcounts.biblionumber
+  LEFT JOIN (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'NOT_LOAN'
+    GROUP BY
+      authorised_values.category,
+      authorised_values.authorised_value) notloan ON notloan.authorised_value = items.notforloan
 WHERE
   items.homebranch LIKE <<Item home library|ZBRAN>> AND
   Coalesce(items.location, "-") LIKE <<Item shelving location|LLOC>> AND
   Coalesce(items.itype, "-") LIKE <<Item type|LITYPES>> AND
   Coalesce(items.ccode, "-") LIKE <<Item collection code|LCCODE>> AND
   Coalesce(items.itemcallnumber, "-") LIKE Concat(<<Enter first part of call number or a % symbol>>, "%") AND
+  IF(notloan.authorised_value = 0, "-", Concat(notloan.lib, "X")) LIKE <<Not for loan status|LNOT_LOAN>> AND
   Coalesce(items.dateaccessioned, "0") <= <<Item was added before|date>> AND
   Coalesce(items.datelastborrowed, "0") <= <<Date last borrowed was before|date>> AND
   Coalesce(items.datelastseen, "0") <= <<Date last seen was before|date>>
 GROUP BY
-  items.itemnumber,
-  localcounts.Count_itemnumber,
-  systemcounts.Count_itemnumber
+  items.itemnumber
 HAVING
   CHECKOUTS_PLUS_RENEWALS <= <<With X or fewer checkouts|ZNUMBERS>> AND
   CHECKED_OUT LIKE <<Display checked out items|ZYES_NO>> AND
