@@ -11,8 +11,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2016-08-11 16:36:03
-Modified on: 2019-01-02 16:45:48
-Date last run: 2019-01-29 14:15:58
+Modified on: 2019-02-18 12:09:03
+Date last run: 2019-03-11 17:42:53
 
 ----------
 
@@ -35,7 +35,7 @@ Expiry: 0
 <p></p>
 <p>Formerly called "Flexible Weeding Report"</p>
 <p>Replaces reports:
-<ul><li>664 (Full Shelf List)</li><li>2686 (Collection Code Super Weeder)</li><li>1013 (Item Type Super Weeder)</li><li>1442 (Super Weeder by Callnumber)</li><li>2471 (BCPL.SuperWeeder.by.Callnumber)</li><li>1017 (Items with NO checkouts (all items))</li><li>1151 (Date last borrowed, Call number and Title limited by Item type)</li><li>1426 (Last seen on a specific date or earlier)</li><li>1807 (Items with NO checkouts -- limited by CCode)</li><li>2202 (Items with NO checkouts (limited to a collection code and location))</li><li>2203 (Items with NO checkouts (limited to a collection code))</li><li>2241 (Last Seen Date, limited by Collection Code)</li><li>2392 (Date last borrowed, Call number and Title limited by Ccode and Location)</li><li>2411 (Date last borrowed)</li><li>1408 (Shelf List of Specific Item Type)</li><li>1409 (Shelf List of Specific CCode and Location)</li><li>1410 (Shelf List of Specific Item Type and Location)</li><li>3014 (GHW - Shelflist with left anchored call number limit)</li><li>2809 (GHW - List of items with display locations)</li></ul></p>
+<ul><li>664 (Full Shelf List)</li><li>2686 (Collection Code Super Weeder)</li><li>1013 (Item Type Super Weeder)</li><li>1442 (Super Weeder by Callnumber)</li><li>2471 (BCPL.SuperWeeder.by.Callnumber)</li><li>1017 (Items with NO checkouts (all items))</li><li>1151 (Date last borrowed, Call number and Title limited by Item type)</li><li>1426 (Last seen on a specific date or earlier)</li><li>1807 (Items with NO checkouts -- limited by CCode)</li><li>2202 (Items with NO checkouts (limited to a collection code and location))</li><li>2203 (Items with NO checkouts (limited to a collection code))</li><li>2241 (Last Seen Date, limited by Collection Code)</li><li>2392 (Date last borrowed, Call number and Title limited by Ccode and Location)</li><li>2411 (Date last borrowed)</li><li>1408 (Shelf List of Specific Item Type)</li><li>1409 (Shelf List of Specific CCode and Location)</li><li>1410 (Shelf List of Specific Item Type and Location)</li><li>3014 (GHW - Shelflist with left anchored call number limit)</li><li>2809 (GHW - List of items with display locations)</li><li>886 Videogames Circ List</li></ul></p>
 <p></p>
 <p>Added public and non-public notes fields on 2016.12.28</p>
 <p>Added item count fields on 2018.10.03</p>
@@ -147,8 +147,8 @@ FROM
 WHERE
   items.homebranch LIKE <<Item home library|ZBRAN>> AND
   Coalesce(items.location, "-") LIKE <<Item shelving location|LLOC>> AND
-  Coalesce(items.itype, "-") LIKE <<Item type|LITYPES>> AND
-  Coalesce(items.ccode, "-") LIKE <<Item collection code|LCCODE>> AND
+  Coalesce(items.itype, "XXX") LIKE <<Item type|LITYPES>> AND
+  Coalesce(items.ccode, "XXX") LIKE <<Item collection code|LCCODE>> AND
   Coalesce(items.itemcallnumber, "-") LIKE Concat(<<Enter first part of call number or a % symbol>>, "%") AND
   IF(notloan.authorised_value = 0, "-", Concat(notloan.lib, "X")) LIKE <<Not for loan status|LNOT_LOAN>> AND
   Coalesce(items.dateaccessioned, "0") <= <<Item was added before|date>> AND

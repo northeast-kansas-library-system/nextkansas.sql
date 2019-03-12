@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-01-05 10:34:49
-Modified on: 2019-01-28 17:00:20
-Date last run: 2019-01-28 17:00:23
+Modified on: 2019-01-30 10:40:28
+Date last run: 2019-01-30 10:40:30
 
 ----------
 
@@ -37,8 +37,6 @@ SELECT
   opac_news.borrowernumber
 FROM
   opac_news
-WHERE
-  opac_news.title LIKE "USE%"
 
 
 

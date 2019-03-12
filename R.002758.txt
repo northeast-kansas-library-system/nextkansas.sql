@@ -11,8 +11,8 @@ Group: Administrative Reports
      Post-Lansing
 
 Created on: 2016-09-04 16:38:55
-Modified on: 2016-09-04 16:51:32
-Date last run: -
+Modified on: 2019-02-10 20:54:14
+Date last run: 2019-02-10 20:34:04
 
 ----------
 
@@ -21,12 +21,36 @@ Expiry: 0
 
 ----------
 
-
+Backwards - start at page 55
 
 ----------
 
-SELECT b.author, CONCAT('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=au&q=',b.author,'&sort_by=title_az\" target="_blank">',b.author,'</a>') AS "Author Search", count(b.biblionumber) FROM biblio b LEFT JOIN items i USING(biblionumber) WHERE b.biblionumber BETWEEN '745658 ' AND '756704' AND i.homebranch NOT IN ('ATCHISON','BALDWIN','BASEHOR','BERN','BONNERSPGS','BURLINGAME','CARBONDALE','CENTRALIA','CORNING','DONIELWD','DONIHIGH','DONITROY','DONIWATH','EFFINGHAM','EUDORA','EVEREST','HIAWATHA','HOLTON','HORTON','LEAVENWRTH','LINWOOD','LYNDON','MCLOUTH','MERIDEN','NEKLS','NORTONVLLE','OSAGECITY','OSAWATOMIE','OSKALOOSA','OTTAWA','OVERBROOK','PERRY','PHAXTELL','PHSES','PHSHS','PHSMS','PHWAC','POMONA','RICHMOND','ROSSVILLE','SABETHA','SENECA','SILVERLAKE','SLK','TONGANOXIE','VALLEYFALL','WELLSVILLE','WETMORE','WILLIAMSBG','WINCHESTER','lansing') AND b.timestamp < '2016-08-28' AND b.datecreated='2016-08-26' AND ccode NOT IN ('COMPUTER','GADGET','MISC','MAGAZINE') GROUP BY b.author
-ORDER BY count(b.biblionumber) DESC
+SELECT
+  Concat(
+     '<a href=\"/cgi-bin/koha/reports/guided_reports.pl?reports=3166&phase=Run+this+report&m_name=searchterm&sql_params=',
+    Replace(Replace(Replace(Replace(biblio.author, ".", ""), ",", ""), "'", ""), " ","+"),
+    '" target="_blank">Run targeted search</a>'
+  ) AS ASEARCH,
+  Concat(
+    '<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=au&q=',
+    Replace(Replace(Replace(biblio.author, ".", ""), ",", ""), "'", ""),
+    '&sort_by=title_az\" target="_blank">',
+    Replace(Replace(Replace(biblio.author, ".", ""), ",", ""), "'", ""),
+    '</a>'
+  ) AS "Author Search",
+  Replace(Replace(Replace(biblio.author, ".", ""), ",", ""), "'", "") AS AUTHOR,
+  Count(items.itemnumber)
+FROM
+  biblio
+  JOIN items ON items.biblionumber = biblio.biblionumber
+WHERE
+  items.homebranch = 'HIGH_CC'
+GROUP BY
+  Replace(Replace(Replace(biblio.author, ".", ""), ",", ""), "'", "")
+HAVING
+  Count(items.itemnumber) > 1
+ORDER BY
+  Count(items.itemnumber) DESC
 
 
 

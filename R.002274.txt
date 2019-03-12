@@ -11,8 +11,8 @@ Group: Administrative Reports
      Patrons-admin
 
 Created on: 2014-06-05 15:14:42
-Modified on: 2014-06-06 20:46:07
-Date last run: -
+Modified on: 2019-02-10 21:11:55
+Date last run: 2019-02-10 21:12:10
 
 ----------
 
@@ -25,10 +25,19 @@ Expiry: 0
 
 ----------
 
-select CONCAT('<a href=\"/cgi-bin/koha/members/memberentry.pl?op=modify&borrowernumber=',b.borrowernumber,'\" target="_blank">'"edit patron"'</a>') as "edit patron", b.branchcode, b.contactnote, b.borrowernotes from borrowers b where b.branchcode <> 'OSAWATOMIE' AND 
-(b.contactnote REGEXP '[0-9]{3}\-?[0-9]{2}\-?[0-9]{4}' OR 
-b.borrowernotes REGEXP '[0-9]{3} ?\-? ?[0-9]{2} ?\-? ?[0-9]{4}')
-ORDER by b.branchcode asc
+SELECT
+  Concat('<a href=\"/cgi-bin/koha/members/memberentry.pl?op=modify&borrowernumber=', borrowers.borrowernumber,
+  '\" target="_blank">edit patron</a>') AS EDIT_PATRON,
+  borrowers.branchcode,
+  borrowers.contactnote,
+  borrowers.borrowernotes
+FROM
+  borrowers
+WHERE
+  (borrowers.contactnote REGEXP '[0-9]{3}\-?[0-9]{2}\-?[0-9]{4}' OR
+    borrowers.borrowernotes REGEXP '[0-9]{3} ?\-? ?[0-9]{2} ?\-? ?[0-9]{4}')
+ORDER BY
+  borrowers.branchcode
 
 
 

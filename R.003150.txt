@@ -2,17 +2,17 @@ R.003150
 
 ----------
 
-Name: GHW - Next helper - ADMINREPORT
+Name: GHW - Hootsuite scheduled post generator - 7 new titles
 Created by: George H Williams
 
 ----------
 
-Group: -
+Group: Administrative Reports
      -
 
 Created on: 2018-12-27 12:02:59
-Modified on: 2018-12-27 15:48:12
-Date last run: 2019-01-29 22:05:12
+Modified on: 2019-01-31 09:27:57
+Date last run: 2019-03-07 09:24:26
 
 ----------
 
@@ -21,7 +21,15 @@ Expiry: 300
 
 ----------
 
-
+<div id=reportinfo>
+<p>Generates a list of titles to create scheduled media posts with</p>
+<ul><li>Shows the 7 most recent acquisitions in specified areas of the collection</li>
+<li>At all Next libraries</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3150&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 

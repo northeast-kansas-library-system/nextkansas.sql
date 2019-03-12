@@ -11,8 +11,8 @@ Group: Administrative Reports
      -
 
 Created on: 2018-12-18 15:56:02
-Modified on: 2018-12-18 15:57:26
-Date last run: 2018-12-18 15:57:28
+Modified on: 2019-02-05 15:11:44
+Date last run: 2019-02-05 15:11:47
 
 ----------
 
@@ -31,8 +31,8 @@ SELECT
 FROM
   action_logs
 WHERE
-  Year(action_logs.timestamp) = Year(Now() - INTERVAL 1 MONTH) AND
-  Month(action_logs.timestamp) = Month(Now() - INTERVAL 1 MONTH)
+  Year(action_logs.timestamp) = Year(Now() - INTERVAL 2 MONTH) AND
+  Month(action_logs.timestamp) = Month(Now() - INTERVAL 2 MONTH)
 GROUP BY
   Date(action_logs.timestamp)
 

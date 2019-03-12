@@ -11,8 +11,8 @@ Group: Administrative Reports
      -
 
 Created on: 2017-05-12 01:07:13
-Modified on: 2018-08-31 16:12:46
-Date last run: 2018-12-13 15:49:51
+Modified on: 2019-02-03 21:06:17
+Date last run: 2019-02-03 21:06:37
 
 ----------
 
@@ -37,10 +37,50 @@ Expiry: 300
 ----------
 
 SELECT
-  CONCAT(CONCAT(REPLACE(branches.branchname, ' - ', '<br />     '),'<p><ins>Mailing address:</ins><br />',Concat_Ws('<br />', branches.branchaddress1, Concat(branches.branchcity,', ', branches.branchstate, ' ', branches.branchzip)),'</p>'),
-  CONCAT('<ins>Street address:</ins><br />',Concat_Ws('<br />', If(branches.branchaddress2 = ' ', branches.branchaddress1, branches.branchaddress2), Concat(branches.branchcity,', ', branches.branchstate, '<br />')))) AS Library,
-  Concat_Ws('<p>', Concat('Phone: ', branches.branchphone,'</p>'), Concat('Fax: ', branches.branchfax,'</p>'), Concat('e-mail: ', branches.branchemail,'</p>'), Concat('Website: <a href="', branches.branchurl,'" target="_blank">Click here</a></p>'),Concat('Courier route #: ', branches.branchcountry,'</p>')) AS "Contact information",
-  CONCAT_WS('<br />',(REPLACE(REPLACE(branches.branchaddress3, ' | ', '<br /><br />'), ' - ', '<br />     - ') ),CONCAT('<br />Total titles: ',Count(DISTINCT items.biblionumber)), ' ', CONCAT('Total items: ',Count(DISTINCT items.itemnumber))) AS "Staff contacts / holdings"
+
+  CONCAT(
+    CONCAT(
+      REPLACE(branches.branchname, ' - ', '<br />     '),
+      '<p><ins>Mailing address:</ins><br />',
+      Concat_Ws('<br />', branches.branchaddress1, Concat(branches.branchcity,', ', branches.branchstate, ' ', branches.branchzip)),
+      '</p>'
+    ),
+    CONCAT(
+      '<ins>Street address:</ins><br />',
+      Concat_Ws(
+        '<br />',
+        If(
+          branches.branchaddress2 = ' ',
+          branches.branchaddress1,
+          branches.branchaddress2
+        ),
+        Concat(
+          branches.branchcity,
+          ', ',
+          branches.branchstate,
+          '<br />'
+        )
+      )
+    )
+  ) AS Library,
+
+  Concat_Ws(
+    '<p>',
+    Concat('Phone: ', branches.branchphone,'</p>'),
+    Concat('Fax: ', branches.branchfax,'</p>'),
+    Concat('e-mail: ', branches.branchemail,'</p>'),
+    Concat('Website: <a href="', branches.branchurl,'" target="_blank">Click here</a></p>'),
+    Concat('Courier route #: ', branches.branchcountry,'</p>')
+  ) AS "Contact information",
+
+  CONCAT_WS(
+    '<br />',
+    (REPLACE(REPLACE(branches.branchaddress3, ' | ', '<br /><br />'), ' - ', '<br />     - ') ),
+    CONCAT('<br />Total titles: ',Count(DISTINCT items.biblionumber)),
+    ' ',
+    CONCAT('Total items: ',Count(DISTINCT items.itemnumber))
+  ) AS "Staff contacts / holdings"
+
 FROM
   branches LEFT JOIN
   items

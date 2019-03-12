@@ -11,8 +11,8 @@ Group: Circulation
      Circ Stats
 
 Created on: 2010-07-06 15:55:30
-Modified on: 2013-06-18 10:46:03
-Date last run: 2018-11-30 14:34:46
+Modified on: 2019-02-04 21:02:56
+Date last run: 2019-03-01 11:01:41
 
 ----------
 
@@ -22,6 +22,11 @@ Expiry: 0
 ----------
 
 VIdeogames by type, owning branch. Displays number of issues (checkouts) per item.  mc 7/6/10
+
+<p></p>
+<p><span style="background-color:darkred; color:white;">Scheduled to be deleted on March 31, 2019</span></p>
+<p></p>
+<p>Report 2731 can do all of the functions of this report.  Select your library and the Videogame item type - leave all other settings at their defaults.</p>
 
 ----------
 

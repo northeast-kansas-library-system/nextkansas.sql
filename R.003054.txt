@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-03-02 10:10:47
-Modified on: 2018-09-18 01:20:13
-Date last run: 2019-01-25 01:40:34
+Modified on: 2019-02-17 20:05:48
+Date last run: 2019-03-07 22:52:02
 
 ----------
 
@@ -21,7 +21,7 @@ Expiry: 300
 
 ----------
 
-
+zbrq
 
 ----------
 
@@ -40,9 +40,9 @@ SELECT
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag=300]/subfield[@code="a"]') AS DESCRIP,
   Group_Concat(items.ccode) AS Group_Concat_ccode,
   biblio.frameworkcode,
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=306]/subfield[@code="a"]') AS TIMESS
-FROM
-  biblio
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=306]/subfield[@code="a"]') AS TIMESS,
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=942]/subfield[@code="h"]') AS CCODE
+FROM  biblio
   JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
   JOIN items ON items.biblionumber = biblio.biblionumber
 WHERE

@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2017-09-20 18:32:26
-Modified on: 2018-12-15 19:57:38
-Date last run: 2018-12-15 19:58:30
+Modified on: 2019-02-25 10:28:16
+Date last run: 2019-02-25 10:28:20
 
 ----------
 
@@ -21,41 +21,125 @@ Expiry: 300
 
 ----------
 
-testing
+re-write of 2964
 
 ----------
 
 SELECT
-  issues.date_due,
-  Concat_Ws(", ", borrowers.surname, borrowers.firstname, borrowers.cardnumber) AS NAME,
-  Concat_Ws(", ", guarantor.surname, guarantor.firstname, borrowers.relationship) AS GUARANTOR,
+  Upper(borrowers.cardnumber) AS CARDNUMBER,
+  borrowers.borrowernumber,
+  borrowers.surname,
+  borrowers.firstname,
+  borrowers.address,
+  borrowers.city,
+  borrowers.state,
+  borrowers.zipcode,
   borrowers.phone,
-  borrowers.email,
+  borrowers.mobile,
+  borrowers.phonepro AS ALT_PHONE_ONE,
+  borrowers.B_phone AS ALT_PHONE_TWO,
   borrowers.branchcode,
-  issues.issuedate,
-  items.barcode,
-  items.homebranch,
-  items.holdingbranch,
-  biblio.title,
-  biblio.author,
-  items.itemcallnumber,
-  items.replacementprice
+  If(
+    categories.category_type = "A",
+    "Adult",
+    If(
+      categories.category_type = "C",
+      "Child",
+      If(
+        categories.category_type = "S",
+        "Staff",
+        If(
+          categories.category_type = "I",
+          "Organization",
+          If(
+            categories.category_type = "P",
+            "Professional",
+            If(
+              categories.category_type = "X",
+              "Statistical",
+              "-"
+            )
+          )
+        )
+      )
+    )
+  ) AS CATEGORY,
+  borrowers.dateofbirth,
+  Format(Sum(outstanding_sixty.amountoutstanding), 2) AS AMOUNT_OUTSTANDING_SIXTY,
+  Format(outstanding_total.Sum_amountoutstanding, 2) AS AMOUNT_OUTSTANDING_TOTAL
 FROM
-  issues
-  LEFT JOIN borrowers ON issues.borrowernumber = borrowers.borrowernumber
-  LEFT JOIN items ON issues.itemnumber = items.itemnumber
-  LEFT JOIN biblioitems ON biblioitems.biblioitemnumber = items.biblioitemnumber
-  LEFT JOIN biblio ON biblio.biblionumber = items.biblionumber
-  LEFT JOIN borrowers guarantor ON guarantor.borrowernumber = borrowers.guarantorid
-WHERE (date_due BETWEEN <<Between START DATE|date>> AND (<<and END DATE|date>> + interval 1 day)) AND
-  (borrowers.cardnumber LIKE Concat("%",<<Enter a patron barcode number or a % symbol>>,"%")) AND
-  (borrowers.categorycode LIKE <<Enter patron category|LBORROWERCAT>>) AND
-  (items.itype LIKE <<Enter item type|LITYPES>>) AND
-  (items.homebranch LIKE <<Enter item home branch|LBRANCH>>) AND
-  (items.holdingbranch LIKE <<Enter item check-out branch|LBRANCH>>) AND
-  (borrowers.branchcode LIKE <<Enter patron home branch|LBRANCH>>)
+  (SELECT
+      accountlines.accountlines_id,
+      accountlines.borrowernumber,
+      accountlines.accountno,
+      accountlines.itemnumber,
+      accountlines.date,
+      accountlines.amount,
+      accountlines.description,
+      accountlines.accounttype,
+      accountlines.amountoutstanding,
+      accountlines.timestamp,
+      accountlines.lastincrement,
+      accountlines.note,
+      accountlines.manager_id
+    FROM
+      accountlines
+      JOIN borrowers ON borrowers.borrowernumber = accountlines.manager_id
+    WHERE
+      accountlines.amountoutstanding > 0 AND
+      accountlines.date BETWEEN (Date_Sub(CurDate(), INTERVAL 1 YEAR)) AND (Date_Sub(CurDate(), INTERVAL 60 DAY)) AND
+      borrowers.branchcode = @brn := "OTTAWA" COLLATE utf8mb4_unicode_ci
+    UNION
+    SELECT
+      accountlines.accountlines_id,
+      accountlines.borrowernumber,
+      accountlines.accountno,
+      accountlines.itemnumber,
+      accountlines.date,
+      accountlines.amount,
+      accountlines.description,
+      accountlines.accounttype,
+      accountlines.amountoutstanding,
+      accountlines.timestamp,
+      accountlines.lastincrement,
+      accountlines.note,
+      accountlines.manager_id
+    FROM
+      accountlines
+      JOIN old_issues ON old_issues.borrowernumber = accountlines.borrowernumber AND
+        old_issues.itemnumber = accountlines.itemnumber
+    WHERE
+      accountlines.amountoutstanding > 0 AND
+      accountlines.timestamp BETWEEN (Date_Sub(CurDate(), INTERVAL 1 YEAR)) AND (Date_Sub(CurDate(), INTERVAL 60 DAY)) AND
+      old_issues.branchcode = @brn) outstanding_sixty
+  JOIN borrowers ON borrowers.borrowernumber = outstanding_sixty.borrowernumber
+  JOIN categories ON borrowers.categorycode = categories.categorycode
+  LEFT JOIN (SELECT
+      borrower_attributes.borrowernumber,
+      borrower_attributes.code,
+      borrower_attributes.attribute,
+      authorised_values.category,
+      authorised_values.lib
+    FROM
+      borrower_attributes
+      JOIN authorised_values ON borrower_attributes.attribute = authorised_values.authorised_value
+    WHERE
+      borrower_attributes.code = 'CAOTTAWA' AND
+      authorised_values.category = 'COLLAGEN') collagen ON borrowers.borrowernumber = collagen.borrowernumber
+  LEFT JOIN (SELECT
+      accountlines.borrowernumber,
+      Sum(accountlines.amountoutstanding) AS Sum_amountoutstanding
+    FROM
+      accountlines
+    GROUP BY
+      accountlines.borrowernumber) outstanding_total ON outstanding_total.borrowernumber = outstanding_sixty.borrowernumber
+WHERE
+  collagen.attribute IS NULL
+GROUP BY
+  borrowers.borrowernumber
+HAVING
+  AMOUNT_OUTSTANDING_SIXTY > 25
 ORDER BY
-  issues.date_due,
   borrowers.surname,
   borrowers.firstname
 
