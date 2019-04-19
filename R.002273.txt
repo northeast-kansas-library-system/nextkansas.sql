@@ -11,7 +11,7 @@ Group: Circulation
      Overdues
 
 Created on: 2014-06-05 12:27:57
-Modified on: 2014-06-05 17:53:46
+Modified on: 2019-03-11 23:36:34
 Date last run: -
 
 ----------
@@ -22,6 +22,11 @@ Expiry: 0
 ----------
 
 This report shows patrons name and cardnumber who have overdues on trigger dates (normally 7 days/21 days/35 days overdue, but a few libraries vary from this), doesn't have an email in the system, and the library was instead sent an overdue notice. I removed the patron categories Student, ILL, Temporary, Staff, Opac-Self, Board, Horton Special, Homebound, and Statistic, as these don't trigger overdue notices). Report #2276 shows the list of libraries that should of received overdue notice email to the library's email account. 
+
+
+<p></p>
+<p><span style="background-color:darkred; color:white;">Scheduled to be deleted on April 30, 2019</span></p>
+<p></p>
 
 ----------
 

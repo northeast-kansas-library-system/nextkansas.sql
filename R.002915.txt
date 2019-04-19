@@ -11,8 +11,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2017-03-01 09:17:47
-Modified on: 2018-04-16 11:08:18
-Date last run: 2019-02-26 15:32:15
+Modified on: 2019-04-10 17:21:02
+Date last run: 2019-04-11 12:30:06
 
 ----------
 
@@ -30,15 +30,21 @@ Expiry: 0
 </ul><br />
 <p><ins>Notes:</ins></p>
 <p></p>
+<p>Replaces the following reports:</p>
+<ul>
+<li>1420 - Items with a Lost Status</li>
+</ul>
+</p>
+<p></p>
 <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2915&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
-<p><span style="background-color: darkred; color: white">Needs metadata conversion post 17.05</p>
+
 
 ----------
 
 SELECT
   Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">', biblio.biblionumber, '</a>') AS LINK_TO_TITLE,
-  items.itemnumber,
+  items.itemnumber AS ITEM_NUMBER,
   CONCAT("-", items.barcode, "-") AS BARCODE,
   items.homebranch,
   items.holdingbranch,
@@ -47,7 +53,13 @@ SELECT
   ccode.lib AS CCODE,
   items.itemcallnumber,
   biblio.author,
-  Concat_Ws(' ', biblio.title, ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')) AS FULL_TITLE,
+  Concat_Ws(
+    ' ',
+    biblio.title,
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'),
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')
+  ) AS FULL_TITLE,
   items.onloan,
   items.datelastborrowed,
   items.datelastseen,

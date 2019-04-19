@@ -11,7 +11,7 @@ Group: Administrative Reports
      Fix Items-admin
 
 Created on: 2012-10-02 11:52:55
-Modified on: 2015-08-16 20:21:47
+Modified on: 2019-03-11 22:32:32
 Date last run: -
 
 ----------
@@ -22,6 +22,10 @@ Expiry: 0
 ----------
 
 #cleanup Use this with Report 1573 to develop a multiple items list. Replace the bib numbers with the bibnumbers returned in 1573, select library, and run. 
+
+<p></p>
+<p><span style="background-color:darkred; color:white;">Scheduled to be deleted on April 30, 2019</span></p>
+<p></p>
 
 ----------
 

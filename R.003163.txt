@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2019-01-29 09:32:51
-Modified on: 2019-01-29 09:32:51
-Date last run: 2019-03-11 18:03:46
+Modified on: 2019-04-01 08:07:56
+Date last run: 2019-04-18 19:59:05
 
 ----------
 
@@ -32,10 +32,8 @@ Expiry: 300
 <p></p>
 <p>For the full instruction sheet for unlocking a patron's account after it has been locked due to too many login attempts, <a href="http://guides.nekls.org/assets/users/_gwilliams/account.lockout.pdf" target="_blank">click here</a></p>
 <p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3079&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3163&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
-
-<p>For the full instruction sheet, <a href="http://guides.nekls.org/assets/users/_gwilliams/account.lockout.pdf" target="_blank">click here</a></p>
 
 
 ----------

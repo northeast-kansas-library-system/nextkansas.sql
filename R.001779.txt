@@ -11,8 +11,8 @@ Group: Administrative Reports
      Duplicate Records-admin
 
 Created on: 2013-03-30 11:40:31
-Modified on: 2013-06-24 22:03:22
-Date last run: -
+Modified on: 2019-03-11 22:57:37
+Date last run: 2019-03-11 23:00:54
 
 ----------
 
@@ -21,11 +21,34 @@ Expiry: 0
 
 ----------
 
-
+<p></p>
+<p><span style="background-color:darkred; color:white;">Scheduled to be deleted on April 30, 2019</span></p>
+<p></p>
 
 ----------
 
-select CONCAT ('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',b.biblionumber,'\" target="_blank">'"link to record"'</a>') AS "Linked Record", b.title, b.author, count(i.itemnumber), CONCAT ('<a href=\"/cgi-bin/koha/reports/guided_reports.pl?phase=Run+this+report&reports=1368&sql_params=%25',b.author,'%25\" target="_blank">',b.author,'</a>') AS "Report of Author", CONCAT('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=',b.title,'&sort_by=title_az\">',b.title,'</a>') AS "Title Search" from biblio b join items i using (biblionumber) left join biblioitems t using (biblionumber) WHERE t.publishercode LIKE <<publishercode>> group by b.biblionumber HAVING count(i.itemnumber) > 0 order by b.title, b.author LIMIT 1000
+SELECT
+  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">link to record</a>') AS "Linked Record",
+  biblioitems.publishercode,
+  biblio.title,
+  biblio.author,
+  Count(items.itemnumber),
+  Concat('<a href=\"/cgi-bin/koha/reports/guided_reports.pl?phase=Run+this+report&reports=1368&sql_params=%25', biblio.author, '%25\" target="_blank">', biblio.author, '</a>') AS "Report of Author",
+  Concat('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=', biblio.title, '&sort_by=title_az\">', biblio.title, '</a>') AS "Title Search"
+FROM
+  biblio
+  JOIN items ON items.biblionumber = biblio.biblionumber
+  JOIN biblioitems ON biblioitems.biblionumber = biblio.biblionumber
+WHERE
+  biblioitems.publishercode LIKE <<publishercode>>
+GROUP BY
+  biblio.biblionumber
+HAVING
+  Count(items.itemnumber) > 0
+ORDER BY
+  biblio.title,
+  biblio.author
+LIMIT 1000
 
 
 

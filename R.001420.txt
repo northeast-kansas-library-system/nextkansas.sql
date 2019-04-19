@@ -11,8 +11,8 @@ Group: Catalog Records and Items
      Status reports-lost, damaged
 
 Created on: 2012-05-14 23:43:38
-Modified on: 2015-08-16 17:31:29
-Date last run: 2019-03-05 15:04:59
+Modified on: 2019-04-10 17:17:23
+Date last run: 2019-04-10 14:36:09
 
 ----------
 
@@ -22,6 +22,10 @@ Expiry: 0
 ----------
 
 Displays Items with a Lost Status (Claims Returned; Long Overdue/Assumed Lost; Lost; Missing). Enhanced -- Choose Library.(On Reports Web Page, 5/14/12). #lost
+
+<p></p>
+<p><span style="background-color:darkred; color:white;">Scheduled to be deleted on May 31, 2019</span></p>
+<p></p>
 
 ----------
 

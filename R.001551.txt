@@ -11,7 +11,7 @@ Group: Patrons
      Fix Patrons
 
 Created on: 2012-09-18 14:41:36
-Modified on: 2013-12-18 16:40:04
+Modified on: 2019-03-11 22:32:39
 Date last run: -
 
 ----------
@@ -22,6 +22,10 @@ Expiry: 0
 ----------
 
 data cleanup 9/2012 MC  NEKLS #patrons
+
+<p></p>
+<p><span style="background-color:darkred; color:white;">Scheduled to be deleted on April 30, 2019</span></p>
+<p></p>
 
 ----------
 

@@ -11,7 +11,7 @@ Group: Library-Specific
      Tonganoxie
 
 Created on: 2010-03-26 11:47:53
-Modified on: 2015-12-05 20:45:07
+Modified on: 2019-03-11 22:18:02
 Date last run: -
 
 ----------
@@ -22,6 +22,10 @@ Expiry: 0
 ----------
 
 search of circ notes looking for friends members 
+
+<p></p>
+<p><span style="background-color:darkred; color:white;">Scheduled to be deleted on April 30, 2019</span></p>
+<p></p>
 
 ----------
 

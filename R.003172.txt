@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2019-02-18 11:40:08
-Modified on: 2019-02-18 15:19:26
-Date last run: 2019-02-27 16:46:04
+Modified on: 2019-04-18 20:27:32
+Date last run: 2019-04-18 20:29:07
 
 ----------
 
@@ -65,7 +65,7 @@ SELECT
     CHAR(38),
     'param_name=With+X+or+more+copies+at+this+library%7CYNUMBER&sql_params=0',
     CHAR(38),
-    'param_name=With+X+or+more+copies+at+throughout+the+catalog%7CYNUMBER&sql_params=0\" target="_blank">shelf-list of items</a>'
+    'param_name=With+X+or+more+copies+at+throughout+the+catalog%7CYNUMBER&sql_params=0\" target="_blank">current shelf-list</a>'
   ) AS LINK_TO_SHELF_LIST
 FROM
   authorised_values

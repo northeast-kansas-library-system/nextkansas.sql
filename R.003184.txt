@@ -1,0 +1,73 @@
+R.003184
+
+----------
+
+Name: GHW - Net borrowers
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2019-03-12 00:46:57
+Modified on: 2019-03-12 00:46:57
+Date last run: 2019-04-12 13:14:59
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT
+  branches.branchcode,
+  not_ours_at_ours.COUNT AS NOT_OUR_STUFF_AT_OUR_LIBRARY,
+  ours_at_other_libraries.COUNT AS OUR_SUFF_AT_OTHER_LIBRARIES,
+  not_ours_at_ours.COUNT - ours_at_other_libraries.COUNT AS NET,
+  If(not_ours_at_ours.COUNT - ours_at_other_libraries.COUNT > 1, "Net borrower", "") AS NET_BORROWER,
+  If(not_ours_at_ours.COUNT - ours_at_other_libraries.COUNT < 1, "Net lender", "") AS NET_LENDER
+FROM
+  branches
+  LEFT JOIN (SELECT
+      statistics.branch,
+      Count(*) AS COUNT
+    FROM
+      statistics
+      LEFT JOIN items ON items.itemnumber = statistics.itemnumber
+      LEFT JOIN deleteditems ON deleteditems.itemnumber = statistics.itemnumber
+    WHERE
+      (statistics.type = 'issue' OR
+        statistics.type = 'renew') AND
+      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
+      statistics.branch NOT LIKE If(Coalesce(items.homebranch, deleteditems.homebranch) LIKE "DONI%", "DONI%",
+      If(Coalesce(items.homebranch, deleteditems.homebranch) LIKE "PH%", "PH%", Coalesce(items.homebranch,
+      deleteditems.homebranch)))
+    GROUP BY
+      statistics.branch) not_ours_at_ours ON not_ours_at_ours.branch = branches.branchcode
+  LEFT JOIN (SELECT
+      Coalesce(items.homebranch, deleteditems.homebranch) AS branch,
+      Count(*) AS COUNT
+    FROM
+      statistics
+      LEFT JOIN items ON items.itemnumber = statistics.itemnumber
+      LEFT JOIN deleteditems ON deleteditems.itemnumber = statistics.itemnumber
+    WHERE
+      (statistics.type = 'issue' OR
+        statistics.type = 'renew') AND
+      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
+      Coalesce(items.homebranch, deleteditems.homebranch) NOT LIKE If(statistics.branch LIKE "DONI%", "DONI%",
+      If(statistics.branch LIKE "PH%", "PH%", statistics.branch))
+    GROUP BY
+      Coalesce(items.homebranch, deleteditems.homebranch)) ours_at_other_libraries ON ours_at_other_libraries.branch =
+    branches.branchcode
+
+
+

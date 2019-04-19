@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-08-13 15:03:41
-Modified on: 2019-02-15 14:51:04
-Date last run: 2019-03-11 14:28:33
+Modified on: 2019-03-19 13:56:19
+Date last run: 2019-04-19 13:24:50
 
 ----------
 
@@ -50,15 +50,78 @@ SELECT
     Concat('Title: ', Coalesce(biblio.title, deletedbiblio.title)),
     Concat('Item barcode: ', deleteditems.barcode),
     Concat('Item id number: ', deleteditems.itemnumber),
-    Concat("<br />Damaged status: ", If(deleteditems.damaged = 0, "-", If(deleteditems.damaged IS NULL, "-", damagedi.lib))),
-    Concat("Lost status: ", If(deleteditems.itemlost = 0, "-", If(deleteditems.itemlost IS NULL, "-", Concat(losti.lib, " on ", deleteditems.itemlost_on)))),
-    Concat("Withdrawn status: ", If(deleteditems.withdrawn = 0, "-", If(deleteditems.withdrawn IS NULL, "- ", Concat(deletedwithdrawni.lib, " on ", deleteditems.withdrawn_on)))),
-    If(biblio.biblionumber IS NULL, "<br />-- Bibliographic record has been deleted --", Concat("<br /><a href='/cgi-bin/koha/catalogue/detail.pl?biblionumber=", biblio.biblionumber, "' target='_blank'>go to the bibliographic record</a>")),
-    Concat("<br /><a href='/cgi-bin/koha/reports/guided_reports.pl?phase=Run+this+report&reports=3009&sql_params=", deleteditems.barcode, "&limit=50' target='_blank'>See all fine and fees history for this item barcode number</a>")
+    Concat("<br />Damaged status: ",
+      If(
+        deleteditems.damaged = 0,
+        "-",
+        If(
+          deleteditems.damaged IS NULL,
+          "-",
+          damagedi.lib
+        )
+      )
+    ),
+    Concat("Lost status: ",
+      If(
+        deleteditems.itemlost = 0,
+        "-",
+        If(
+          deleteditems.itemlost IS NULL,
+          "-",
+          Concat(losti.lib, " on ", deleteditems.itemlost_on)
+        )
+      )
+    ),
+    Concat("Withdrawn status: ",
+      If(
+        deleteditems.withdrawn = 0,
+        "-",
+        If(
+          deleteditems.withdrawn IS NULL,
+          "- ",
+          Concat(deletedwithdrawni.lib, " on ", deleteditems.withdrawn_on)
+        )
+      )
+    ),
+    If(biblio.biblionumber IS NULL,
+      "<br />-- Bibliographic record has been deleted --",
+      Concat(
+        "<br /><a href='/cgi-bin/koha/catalogue/detail.pl?biblionumber=",
+        biblio.biblionumber,
+        "' target='_blank'>go to the bibliographic record</a>"
+      )
+    ),
+    Concat(
+      "<br /><a href='/cgi-bin/koha/reports/guided_reports.pl?phase=Run+this+report&reports=3009&sql_params=",
+      REPLACE(
+        REPLACE(
+          REPLACE(
+            REPLACE(
+              REPLACE(
+                REPLACE(
+                  REPLACE(
+                    deleteditems.barcode,
+                    CHAR(43), "%2B"
+                  ),
+                  CHAR(47),"%2F"
+                ),
+                CHAR(32), "%20"
+              ),
+              CHAR(45), "%2D"
+            ),
+            CHAR(36), "%24"
+          ),
+          CHAR(37), "%25"
+        ),
+        CHAR(46), "%2E"
+      ),
+      "&limit=50' target='_blank'>See all fine and fees history for this item barcode number</a>"
+    )
   ) AS INFO
 FROM
   deleteditems
-  LEFT JOIN (SELECT
+  LEFT JOIN (
+    SELECT
       authorised_values.category,
       authorised_values.authorised_value,
       authorised_values.lib
@@ -69,34 +132,46 @@ FROM
     GROUP BY
       authorised_values.category,
       authorised_values.authorised_value,
-      authorised_values.lib) ccodes ON deleteditems.ccode = ccodes.authorised_value
-  LEFT JOIN biblio ON deleteditems.biblionumber = biblio.biblionumber
-  LEFT JOIN deletedbiblio ON deleteditems.biblionumber = deletedbiblio.biblionumber
-  LEFT JOIN (SELECT
+      authorised_values.lib
+  ) ccodes
+    ON deleteditems.ccode = ccodes.authorised_value
+  LEFT JOIN biblio
+    ON deleteditems.biblionumber = biblio.biblionumber
+  LEFT JOIN deletedbiblio
+    ON deleteditems.biblionumber = deletedbiblio.biblionumber
+  LEFT JOIN (
+    SELECT
       authorised_values.category,
       authorised_values.authorised_value,
       authorised_values.lib
     FROM
       authorised_values
     WHERE
-      authorised_values.category = 'DAMAGED') damagedi ON damagedi.authorised_value = deleteditems.damaged
-  LEFT JOIN (SELECT
+      authorised_values.category = 'DAMAGED'
+  ) damagedi
+    ON damagedi.authorised_value = deleteditems.damaged
+  LEFT JOIN (
+    SELECT
       authorised_values.category,
       authorised_values.authorised_value,
       authorised_values.lib
     FROM
       authorised_values
     WHERE
-      authorised_values.category = 'LOST') losti ON losti.authorised_value = deleteditems.itemlost
-  LEFT JOIN (SELECT
+      authorised_values.category = 'LOST'
+  ) losti
+    ON losti.authorised_value = deleteditems.itemlost
+  LEFT JOIN (
+    SELECT
       authorised_values.category,
       authorised_values.authorised_value,
       authorised_values.lib
     FROM
       authorised_values
     WHERE
-      authorised_values.category = 'WITHDRAWN') deletedwithdrawni ON deletedwithdrawni.authorised_value =
-    deleteditems.withdrawn
+      authorised_values.category = 'WITHDRAWN'
+  ) deletedwithdrawni
+    ON deletedwithdrawni.authorised_value = deleteditems.withdrawn
 WHERE
   deleteditems.barcode LIKE Concat("%", <<Enter a deleted item barcode number, a partial barcode nuber or a % symbol>>, "%")
 GROUP BY

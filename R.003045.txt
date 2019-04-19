@@ -11,8 +11,8 @@ Group: Administrative Reports
      -
 
 Created on: 2018-01-23 10:00:34
-Modified on: 2018-01-23 10:00:34
-Date last run: 2018-01-26 10:54:21
+Modified on: 2019-03-28 10:56:34
+Date last run: 2019-03-28 10:49:29
 
 ----------
 
@@ -28,7 +28,7 @@ Expiry: 300
 SELECT
   action_logs.action_id,
   action_logs.timestamp,
-  action_logs.user,
+  borrowers.userid,
   action_logs.module,
   action_logs.action,
   action_logs.object,
@@ -36,11 +36,14 @@ SELECT
   action_logs.interface
 FROM
   action_logs
+  LEFT JOIN borrowers
+    ON borrowers.borrowernumber = action_logs.user
 WHERE
   action_logs.module = 'REPORTS' AND
   action_logs.action LIKE 'DELE%'
 GROUP BY
-  action_logs.action_id
+  action_logs.action_id,
+  borrowers.userid
 
 
 

@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-01-05 10:34:49
-Modified on: 2019-01-30 10:40:28
-Date last run: 2019-01-30 10:40:30
+Modified on: 2019-03-15 10:40:48
+Date last run: 2019-03-15 10:40:50
 
 ----------
 
@@ -26,17 +26,41 @@ Expiry: 300
 ----------
 
 SELECT
-  opac_news.idnew,
-  opac_news.branchcode,
-  opac_news.title,
-  opac_news.content,
-  opac_news.lang,
-  opac_news.timestamp,
-  opac_news.expirationdate,
-  opac_news.number,
-  opac_news.borrowernumber
+  If(deletedbiblio.biblionumber IS NULL, "Y", "") AS BIBLIO_DELETED,
+  Coalesce(biblio.biblionumber, deletedbiblio.biblionumber) AS biblionumber,
+  deleteditems.itemnumber,
+  deleteditems.barcode,
+  deleteditems.homebranch,
+  deleteditems.location,
+  deleteditems.itype,
+  deleteditems.ccode,
+  deleteditems.itemcallnumber,
+  Coalesce(biblio.author, deletedbiblio.author) AUTHOR,
+  Coalesce(biblio.title, deletedbiblio.title) AS TITLE,
+  outstanding.amountoutstanding
 FROM
-  opac_news
+  deleteditems
+  LEFT JOIN biblio
+    ON biblio.biblionumber = deleteditems.biblionumber
+  LEFT JOIN deletedbiblio
+    ON deletedbiblio.biblionumber = deleteditems.biblionumber
+  LEFT JOIN (
+    SELECT
+      accountlines.description,
+      Right(accountlines.description, 14) AS BC,
+      accountlines.amountoutstanding
+    FROM
+      accountlines
+    WHERE
+      accountlines.description LIKE "%ILEA%"
+    LIMIT 5000
+  ) outstanding
+    ON outstanding.BC = deleteditems.barcode
+WHERE
+  deleteditems.homebranch = 'LEAVENWRTH'
+GROUP BY
+  deleteditems.itemnumber
+LIMIT 5000
 
 
 

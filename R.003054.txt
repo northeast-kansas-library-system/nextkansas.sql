@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-03-02 10:10:47
-Modified on: 2019-02-17 20:05:48
-Date last run: 2019-03-07 22:52:02
+Modified on: 2019-04-12 14:30:32
+Date last run: 2019-04-17 23:11:48
 
 ----------
 
@@ -46,10 +46,8 @@ FROM  biblio
   JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
   JOIN items ON items.biblionumber = biblio.biblionumber
 WHERE
-  (items.itype = 'LOCALHOLD1' OR
-    items.itype = 'MEDIA' OR
-    items.itype = 'NEWMEDIA' OR
-    items.itype = 'WALKIN1')
+  (items.itype LIKE 'NVID' OR
+    items.itype = 'MEDIA')
 GROUP BY
   biblio.biblionumber
 ORDER BY

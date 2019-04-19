@@ -1,0 +1,31 @@
+R.003189
+
+----------
+
+Name: 1
+Created by: HORTON DIRECTOR
+
+----------
+
+Group: -
+     -
+
+Created on: 2019-03-27 20:28:14
+Modified on: 2019-03-29 10:24:01
+Date last run: 2019-03-27 20:28:34
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+If you let me know what you're trying to do, I may be able to help you get the results you need.  nexthelp@nekls.org
+
+----------
+
+SELECT  biblioitems.itemtype FROM borrowers LEFT JOIN statistics on (statistics.borrowernumber=borrowers.borrowernumber) LEFT JOIN items on (items.itemnumber = statistics.itemnumber) LEFT JOIN biblioitems on (biblioitems.biblioitemnumber = items.biblioitemnumber) 
+
+
+

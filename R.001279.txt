@@ -11,7 +11,7 @@ Group: Administrative Reports
      Post-Lansing
 
 Created on: 2011-12-20 11:01:22
-Modified on: 2016-09-01 10:53:16
+Modified on: 2019-03-11 22:27:27
 Date last run: -
 
 ----------
@@ -22,6 +22,10 @@ Expiry: 0
 ----------
 
 To spot check a library's cataloging [post-migration or training]
+
+<p></p>
+<p><span style="background-color:darkred; color:white;">Scheduled to be deleted on April 30, 2019</span></p>
+<p></p>
 
 ----------
 

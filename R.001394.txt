@@ -11,7 +11,7 @@ Group: Circulation
      Circ Stats
 
 Created on: 2012-05-14 14:24:20
-Modified on: 2013-09-21 16:27:53
+Modified on: 2019-03-11 22:33:22
 Date last run: -
 
 ----------
@@ -22,6 +22,10 @@ Expiry: 0
 ----------
 
 Lists circ in each zip code for the dates chosen and branch chosen. #circ
+
+<p></p>
+<p><span style="background-color:darkred; color:white;">Scheduled to be deleted on April 30, 2019</span></p>
+<p></p>
 
 ----------
 

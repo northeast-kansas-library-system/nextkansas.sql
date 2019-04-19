@@ -11,8 +11,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2016-08-11 16:36:03
-Modified on: 2019-02-18 12:09:03
-Date last run: 2019-03-11 17:42:53
+Modified on: 2019-04-16 15:28:26
+Date last run: 2019-04-19 12:28:41
 
 ----------
 
@@ -170,6 +170,7 @@ ORDER BY
   items.itemcallnumber,
   biblio.author,
   biblio.title
+
 
 
 

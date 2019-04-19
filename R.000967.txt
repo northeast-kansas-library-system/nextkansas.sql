@@ -11,7 +11,7 @@ Group: Administrative Reports
      Items-admin
 
 Created on: 2010-10-27 11:53:08
-Modified on: 2013-06-18 18:28:22
+Modified on: 2019-03-11 22:19:40
 Date last run: -
 
 ----------
@@ -22,6 +22,10 @@ Expiry: 0
 ----------
 
 Use Koha item number (not barcode) in statement. No quotes around item number. Limit by type if  necessary adding WHERE TYPE='type' syntax to statement. #special
+
+<p></p>
+<p><span style="background-color:darkred; color:white;">Scheduled to be deleted on April 30, 2019</span></p>
+<p></p>
 
 ----------
 

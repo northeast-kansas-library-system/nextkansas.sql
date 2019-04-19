@@ -11,7 +11,7 @@ Group: Circulation
      Charges
 
 Created on: 2011-03-10 15:13:31
-Modified on: 2013-06-21 13:50:15
+Modified on: 2019-03-11 22:19:35
 Date last run: -
 
 ----------
@@ -22,6 +22,10 @@ Expiry: 0
 ----------
 
 For all libraries, shows Fines Paid yesterday. #fines
+
+<p></p>
+<p><span style="background-color:darkred; color:white;">Scheduled to be deleted on April 30, 2019</span></p>
+<p></p>
 
 ----------
 

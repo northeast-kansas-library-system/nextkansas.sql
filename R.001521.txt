@@ -11,7 +11,7 @@ Group: Library-Specific
      -
 
 Created on: 2012-08-23 15:20:52
-Modified on: 2013-09-25 17:20:28
+Modified on: 2019-03-11 22:32:45
 Date last run: -
 
 ----------
@@ -22,6 +22,10 @@ Expiry: 0
 ----------
 
 enter date parameters and report will show patron, card number, amount paid, and date paid MC/8-12 #fines
+
+<p></p>
+<p><span style="background-color:darkred; color:white;">Scheduled to be deleted on April 30, 2019</span></p>
+<p></p>
 
 ----------
 
