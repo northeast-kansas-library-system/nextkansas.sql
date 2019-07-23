@@ -1,0 +1,88 @@
+R.003216
+
+----------
+
+Name: GHW - PERM - TEST
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2019-06-24 10:17:17
+Modified on: 2019-06-24 14:13:17
+Date last run: 2019-06-24 16:00:56
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+
+SELECT
+  Concat('<a href=\"/cgi-bin/koha/members/member-flags.pl?member=', borrowers.borrowernumber, '\" target="_blank">edit permissions</a>') AS EDIT_PERMISSIONS,
+  Concat_WS(
+    '<br />',
+    Concat('Homebranch: ', borrowers.branchcode),
+    CONCAT_WS(' / ', Concat('Name: ', borrowers.surname), borrowers.firstname, borrowers.othernames),
+    Concat('Login ID: ', borrowers.userid),
+    Concat('Card number: ', borrowers.cardnumber),
+    Concat('E-mail: ', borrowers.email),
+    Concat('Category: ', borrowers.categorycode),
+    borrowers.flags
+  ) AS STAFF_INFO,
+  If(
+    borrowers.flags MOD 2,
+    'superlibrarian',
+    Concat_Ws('<br />',
+      If(MOD(borrowers.flags DIV 2, 2), '<br /><span style="background-color: #4dff4d">CIRCULATE - All permissions</span>', GROUP_CONCAT(If(user_permissions.module_bit = 1, Concat('<br /><span style="background-color: #ffff4d">---- CIRCULATE: ', permissions.code, '</span>'), '') SEPARATOR '')),
+      If(MOD(borrowers.flags DIV 4, 2), '<br /><span style="background-color: #4dff4d">CATALOGUE - All permissions</span>', ''),
+      If(MOD(borrowers.flags DIV 8, 2), '<br /><span style="background-color: #4dff4d">PARAMETERS - All permissions</span>', GROUP_CONCAT(If(user_permissions.module_bit = 3, Concat('<br /><span style="background-color: #ffff4d">---- PARAMETERS: ', permissions.code, '</span>'), '') SEPARATOR ' ')),
+      If(MOD(borrowers.flags DIV 16, 2), '<br /><span style="background-color: #4dff4d">BORROWERS - All permissions</span>', GROUP_CONCAT(If(user_permissions.module_bit = 4, Concat('<br /><span style="background-color: #ffff4d">---- BORROWERS: ', permissions.code, '</span>'), '') SEPARATOR ' ')),
+      If(MOD(borrowers.flags DIV 32, 2), '<br /><span style="background-color: #4dff4d">PERMISSIONS - All permissions</span>', ''),
+      If(MOD(borrowers.flags DIV 64, 2), '<br /><span style="background-color: #4dff4d">RESERVEFOROTHERS - All permissions</span>', GROUP_CONCAT(If(user_permissions.module_bit = 6, Concat('<br /><span style="background-color: #ffff4d">---- RESERVEFOROTHERS: ', permissions.code, '</span>'), '') SEPARATOR ' ')),
+      If(MOD(borrowers.flags DIV 512, 2), '<br /><span style="background-color: #4dff4d">EDITCATALOGUE - All permissions</span>', GROUP_CONCAT(If(user_permissions.module_bit = 9, Concat('<br /><span style="background-color: #ffff4d">---- EDITCATALOGUE: ', permissions.code, '</span>'), '') SEPARATOR ' ')),
+      If(MOD(borrowers.flags DIV 1024, 2), '<br /><span style="background-color: #4dff4d">UPDATECHARGES - All permissions</span>', GROUP_CONCAT(If(user_permissions.module_bit = 10, Concat('<br /><span style="background-color: #ffff4d">---- UPDATECHARGES: ', permissions.code, '</span>'), '') SEPARATOR ' ')),
+      If(MOD(borrowers.flags DIV 2048, 2), '<br /><span style="background-color: #4dff4d">ACQUISITION - All permissions</span>', GROUP_CONCAT(If(user_permissions.module_bit = 11, Concat('<br /><span style="background-color: #ffff4d">---- ACQUISITION: ', permissions.code, '</span>'), '') SEPARATOR ' ')),
+      If(MOD(borrowers.flags DIV 8192, 2), '<br /><span style="background-color: #4dff4d">TOOLS - All permissions</span>', GROUP_CONCAT(If(user_permissions.module_bit = 13, Concat('<br /><span style="background-color: #ffff4d">---- TOOLS: ', permissions.code, '</span>'), '') SEPARATOR ' ')),
+      If(MOD(borrowers.flags DIV 16384, 2), '<br /><span style="background-color: #4dff4d">EDITAUTHORITIES - All permissions</span>', ''),
+      If(MOD(borrowers.flags DIV 32768, 2), '<br /><span style="background-color: #4dff4d">SERIALS - All permissions</span>', GROUP_CONCAT(If(user_permissions.module_bit = 15, Concat('<br /><span style="background-color: #ffff4d">---- SERIALS: ', permissions.code, '</span>'), '') SEPARATOR ' ')),
+      If(MOD(borrowers.flags DIV 65536, 2), '<br /><span style="background-color: #4dff4d">REPORTS - All permissions</span>', GROUP_CONCAT(If(user_permissions.module_bit = 16, Concat('<br /><span style="background-color: #ffff4d">---- REPORTS: ', permissions.code, '</span>'), '') SEPARATOR ' ')),
+      If(MOD(borrowers.flags DIV 131072, 2), '<br /><span style="background-color: #4dff4d">STAFFACCESS - All permissions</span>', ''),
+      If(MOD(borrowers.flags DIV 262144, 2), '<br /><span style="background-color: #4dff4d">COURSERESERVES - All permissions</span>', GROUP_CONCAT(If(user_permissions.module_bit = 18, Concat('<br /><span style="background-color: #ffff4d">---- COURSERESERVES: ', permissions.code, '</span>'), '') SEPARATOR ' ')),
+      If(MOD(borrowers.flags DIV 524288, 2), '<br /><span style="background-color: #4dff4d">PLUGINS - All permissions</span>', GROUP_CONCAT(If(user_permissions.module_bit = 19, Concat('<br /><span style="background-color: #ffff4d">---- PLUGINS: ', permissions.code, '</span>'), '') SEPARATOR ' ')),
+      If(MOD(borrowers.flags DIV 1048576, 2), '<br /><span style="background-color: #4dff4d">LISTS - All permissions</span>', GROUP_CONCAT(If(user_permissions.module_bit = 20, Concat('<br /><span style="background-color: #ffff4d">---- LISTS: ', permissions.code, '</span>'), '') SEPARATOR ' ')),
+      If(MOD(borrowers.flags DIV 2097152, 2), '<br /><span style="background-color: #4dff4d">CLUBS - All permissions</span>', GROUP_CONCAT(If(user_permissions.module_bit = 21, Concat('<br /><span style="background-color: #ffff4d">---- CLUBS: ', permissions.code, '</span>'), '') SEPARATOR ' ')),
+      If(MOD(borrowers.flags DIV 4194304, 2), '<br /><span style="background-color: #4dff4d">ILL - All permissions</span>', ''),
+      If(MOD(borrowers.flags DIV 8388608, 2), '<br /><span style="background-color: #4dff4d">SELF_CHECK - All permissions</span>', GROUP_CONCAT(If(user_permissions.module_bit = 23, Concat('<br /><span style="background-color: #ffff4d">---- SELF_CHECK: ', permissions.code, '</span>'), '') SEPARATOR ' ')),
+      If(MOD(borrowers.flags DIV 16777216, 2), '<br /><span style="background-color: #4dff4d">STOCKROTATION - All permissions</span>', GROUP_CONCAT(If(user_permissions.module_bit = 24, Concat('<br /><span style="background-color: #ffff4d">---- STOCKROTATION: ', permissions.code, '</span>'), '') SEPARATOR ' '))
+    )  
+  ) AS PERMISSION_SETTINGS
+FROM
+  borrowers
+  LEFT JOIN user_permissions
+    ON borrowers.borrowernumber = user_permissions.borrowernumber
+  LEFT JOIN permissions
+    ON user_permissions.code = permissions.code
+WHERE
+  ((borrowers.flags > 0) OR
+    (user_permissions.module_bit > 0)) AND
+  borrowers.branchcode LIKE <<Select your library|LBRANCH>>
+GROUP BY
+  borrowers.borrowernumber
+ORDER BY
+  IF(borrowers.flags = 1, -1, borrowers.flags),
+  borrowers.surname,
+  borrowers.categorycode,
+  borrowers.branchcode,
+  borrowers.firstname
+LIMIT 500
+
+
+

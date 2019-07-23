@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-03-02 10:10:47
-Modified on: 2019-04-12 14:30:32
-Date last run: 2019-04-17 23:11:48
+Modified on: 2019-07-15 22:51:28
+Date last run: 2019-07-15 17:26:57
 
 ----------
 
@@ -22,6 +22,8 @@ Expiry: 300
 ----------
 
 zbrq
+
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3054">Click here to download as a csv file</a></p>
 
 ----------
 
@@ -46,7 +48,7 @@ FROM  biblio
   JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
   JOIN items ON items.biblionumber = biblio.biblionumber
 WHERE
-  (items.itype LIKE 'NVID' OR
+  (items.itype LIKE 'NVID%' OR
     items.itype = 'MEDIA')
 GROUP BY
   biblio.biblionumber

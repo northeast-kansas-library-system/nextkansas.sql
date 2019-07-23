@@ -11,8 +11,8 @@ Group: Lists Module
      -
 
 Created on: 2016-10-18 11:59:18
-Modified on: 2018-04-16 11:02:03
-Date last run: 2018-10-31 08:54:46
+Modified on: 2019-07-17 16:35:06
+Date last run: 2019-07-17 16:34:34
 
 ----------
 
@@ -28,6 +28,10 @@ Expiry: 0
 <li>grouped and sorted by list name</li>
 <li>contains links to the lists</li>
 </ul><br />
+<p>&nbsp;</p>
+<p><span style="background-color: darkred; color: white">Scheduled for deletion on August 31, 2019</p>
+<p><span style="background-color: black; color: white">Is being replaced by report 3224</p>
+<p>&nbsp;</p>
 <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2811&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
 

@@ -11,8 +11,8 @@ Group: Holds-Reserves
      -
 
 Created on: 2016-09-25 22:37:09
-Modified on: 2018-04-16 11:02:36
-Date last run: 2019-04-19 13:50:00
+Modified on: 2019-05-31 09:01:41
+Date last run: 2019-07-22 18:35:16
 
 ----------
 
@@ -50,8 +50,8 @@ WHERE
   hold_fill_targets.source_branchcode LIKE <<Select your branch|LBRANCH>> AND
   authorised_values.category = "ccode"
 GROUP BY
+  hold_fill_targets.source_branchcode,  
   Concat_Ws('<br />', items.location, authorised_values.lib, items.itemcallnumber),
-  hold_fill_targets.source_branchcode,
   items.holdingbranch,
   biblio.author,
   biblio.title

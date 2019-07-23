@@ -11,8 +11,8 @@ Group: Circulation
      Overdues
 
 Created on: 2017-02-01 16:54:32
-Modified on: 2018-11-25 20:36:21
-Date last run: 2019-04-16 14:22:11
+Modified on: 2019-05-07 11:29:59
+Date last run: 2019-05-07 11:31:44
 
 ----------
 
@@ -31,7 +31,6 @@ Expiry: 0
 <p></p>
 <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2897&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
-<p><span style="background-color: darkred; color: white">Needs metadata conversion post 17.05</p>
 
 ----------
 

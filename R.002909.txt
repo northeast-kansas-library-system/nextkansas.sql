@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2017-02-20 16:37:40
-Modified on: 2018-04-16 11:08:03
-Date last run: 2018-11-24 13:39:13
+Modified on: 2019-07-22 17:39:55
+Date last run: 2019-07-22 18:14:49
 
 ----------
 
@@ -41,16 +41,17 @@ Expiry: 0
 SELECT
   surname,
   firstname,
-  GROUP_CONCAT(cardnumber SEPARATOR ', ') as CARD_NUMBER,
-  GROUP_CONCAT(dateofbirth SEPARATOR ', ') as BIRTH_DATE,
-  GROUP_CONCAT(dateexpiry SEPARATOR ', ') as BIRTH_DATE,
-  GROUP_CONCAT((Concat('<a href=\"/cgi-bin/koha/circ/circulation.pl?borrowernumber=', borrowernumber, '\" target="_blank">', borrowernumber, '</a>')) SEPARATOR ', ') as BORROWER_NUMBER,
-  GROUP_CONCAT(branchcode SEPARATOR ', ') as HOME_BRANCH
+  GROUP_CONCAT(CONCAT(surname, '-', firstname) ORDER BY borrowernumber SEPARATOR '<br />'),
+  GROUP_CONCAT(cardnumber ORDER BY borrowernumber SEPARATOR '<br />') as CARD_NUMBER,
+  GROUP_CONCAT(dateofbirth ORDER BY borrowernumber SEPARATOR '<br />') as BIRTH_DATE,
+  GROUP_CONCAT((Concat('<a href=\"/cgi-bin/koha/members/moremember.pl?borrowernumber=', borrowernumber, '\" target="_blank">', borrowernumber, '</a>')) ORDER BY borrowernumber SEPARATOR '<br />') as BORROWER_NUMBER,
+  GROUP_CONCAT(branchcode ORDER BY borrowernumber SEPARATOR '<br />') as HOME_BRANCH,
+  GROUP_CONCAT(Concat(borrowers.borrowernumber, ' // ', borrowers.debarredcomment) ORDER BY borrowernumber SEPARATOR '<br />') AS COMMENTS
 FROM borrowers
 GROUP BY
-  CONCAT(surname,'-',firstname,'/')
+  CONCAT(TRIM(surname),'-',TRIM(SUBSTRING_INDEX(firstname, ' ', 1)),'/')
 HAVING
-  COUNT(CONCAT(surname,'-',firstname,'/'))>1 AND
+  COUNT(CONCAT(TRIM(surname),'-',TRIM(SUBSTRING_INDEX(firstname, ' ', 1)),'/'))>1 AND
   HOME_BRANCH LIKE CONCAT( '%', <<Select one branch|branches>>, '%')
 
 

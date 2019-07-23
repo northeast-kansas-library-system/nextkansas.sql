@@ -11,8 +11,8 @@ Group: Patrons
      -
 
 Created on: 2014-10-09 10:26:55
-Modified on: 2014-10-09 10:35:05
-Date last run: -
+Modified on: 2019-05-13 12:45:41
+Date last run: 2019-05-13 12:57:47
 
 ----------
 
@@ -25,7 +25,7 @@ Expiry: 0
 
 ----------
 
-SELECT (borrowers.address), borrowers.surname,borrowers.firstname,borrowers.address FROM borrowers   WHERE borrowers.branchcode='SABETHA' AND borrowers.categorycode='ADULT' GROUP BY borrowers.address
+SELECT (borrowers.address), borrowers.surname,borrowers.firstname,borrowers.address FROM borrowers   WHERE borrowers.branchcode='TONGANOXIE' AND borrowers.categorycode='ADULT' GROUP BY borrowers.address
 
 
 

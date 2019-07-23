@@ -7,12 +7,12 @@ Created by: George H Williams
 
 ----------
 
-Group: -
+Group: Lists Module
      -
 
 Created on: 2018-03-12 22:34:32
-Modified on: 2018-04-16 11:14:09
-Date last run: 2018-12-05 10:44:06
+Modified on: 2019-07-17 17:25:31
+Date last run: 2019-07-17 17:25:05
 
 ----------
 
@@ -31,6 +31,10 @@ Expiry: 300
 <p></p>
 <p>To print, use the web browser's print functions.</p>
 <p></p>
+<p>&nbsp;</p>
+<p><span style="background-color: darkred; color: white">Scheduled for deletion on August 31, 2019</p>
+<p><span style="background-color: black; color: white">Is being replaced by report 3226</p>
+<p>&nbsp;</p>
 <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3063&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
 

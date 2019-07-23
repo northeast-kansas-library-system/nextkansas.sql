@@ -11,8 +11,8 @@ Group: Administrative Reports
      -
 
 Created on: 2017-05-12 01:07:13
-Modified on: 2019-02-03 21:06:17
-Date last run: 2019-02-03 21:06:37
+Modified on: 2019-06-06 15:53:50
+Date last run: 2019-07-08 13:12:58
 
 ----------
 
@@ -66,7 +66,7 @@ SELECT
 
   Concat_Ws(
     '<p>',
-    Concat('Phone: ', branches.branchphone,'</p>'),
+    Concat('<p>Phone: ', branches.branchphone,'</p>'),
     Concat('Fax: ', branches.branchfax,'</p>'),
     Concat('e-mail: ', branches.branchemail,'</p>'),
     Concat('Website: <a href="', branches.branchurl,'" target="_blank">Click here</a></p>'),
@@ -75,7 +75,8 @@ SELECT
 
   CONCAT_WS(
     '<br />',
-    (REPLACE(REPLACE(branches.branchaddress3, ' | ', '<br /><br />'), ' - ', '<br />     - ') ),
+   '<span style="background: yellow; text-decoration: underline; font-size: 120%;">',
+    (REPLACE(REPLACE(branches.branchaddress3, ' | ', '<br /><br />'), ' - ', '</span><br />     - ') ),
     CONCAT('<br />Total titles: ',Count(DISTINCT items.biblionumber)),
     ' ',
     CONCAT('Total items: ',Count(DISTINCT items.itemnumber))

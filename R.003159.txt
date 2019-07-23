@@ -11,8 +11,8 @@ Group: Daily, Monthly, Yearly Stats
      Monthly
 
 Created on: 2019-01-27 20:45:59
-Modified on: 2019-01-28 01:17:52
-Date last run: 2019-04-15 14:53:14
+Modified on: 2019-06-19 20:48:02
+Date last run: 2019-07-12 13:48:17
 
 ----------
 
@@ -40,136 +40,129 @@ Expiry: 300
 ----------
 
 SELECT
-  brancccode.branchname,
-  brancccode.lib,
-  Coalesce(statisticsall.CKO_REN, 0) AS CKO_REN_ALL,
-  Coalesce(statisticsadult.CKO_REN, 0) AS CKO_REN_ADULT,
-  Coalesce(statisticsya.CKO_REN, 0) AS CKO_REN_YA,
-  Coalesce(statisticschildren.CKO_REN, 0) AS CKO_REN_CHILDRENS,
-  Coalesce(statisticsother.CKO_REN, 0) AS CKO_REN_OTHER
+  branchccodes.branchcode,
+  branchccodes.lib,
+  all_lm.CKO_RENEW AS CKO_RENW_ALL,
+  adult_lm.CKO_RENEW AS CKO_RENEW_ADULT,
+  ya_lm.CKO_RENEW AS CKO_RENEW_YA,
+  childrens_lm.CKO_RENEW AS CKO_RENEW_CHILDRENS,
+  other_lm.CKO_RENEW AS CKO_RENEW_OTHER
 FROM
-  (SELECT
-      branches.branchname,
-      authorised_values.authorised_value,
+  (
+    SELECT
       branches.branchcode,
-      authorised_values.lib,
-      authorised_values.category
+      authorised_values.authorised_value,
+      authorised_values.lib
     FROM
       branches,
       authorised_values
     WHERE
-      branches.branchcode LIKE <<Choose check-out library|LBRANCH>> AND
-      authorised_values.category = 'CCODE') brancccode
-  LEFT JOIN (SELECT
-      Coalesce(statistics.branch, "NEKLS") AS branch,
-      Coalesce(statistics.ccode, "XXX") AS ccode,
-      Count(*) AS CKO_REN
-    FROM
-      statistics
-    WHERE
-      (statistics.type = 'issue' OR
-        statistics.type = 'renew') AND
-      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
-      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH)
-    GROUP BY
-      Coalesce(statistics.branch, "NEKLS"),
-      Coalesce(statistics.ccode, "XXX")) statisticsall ON statisticsall.branch = brancccode.branchcode AND
-    statisticsall.ccode = brancccode.authorised_value
-  LEFT JOIN (SELECT
-      Coalesce(statistics.branch, "NEKLS") AS branch,
-      Coalesce(statistics.ccode, "XXX") AS ccode,
-      Count(*) AS CKO_REN
-    FROM
-      statistics
-    WHERE
-      (statistics.type = 'issue' OR
-        statistics.type = 'renew') AND
-      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
-      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
-      (Coalesce(statistics.location, "CART") = 'ADULT' OR
-        Coalesce(statistics.location, "CART") = 'LVPLADULT')
-    GROUP BY
-      Coalesce(statistics.branch, "NEKLS"),
-      Coalesce(statistics.ccode, "XXX")
+      authorised_values.category = 'CCODE'
     ORDER BY
-      branch,
-      ccode) statisticsadult ON statisticsadult.branch = brancccode.branchcode AND
-    statisticsadult.ccode = brancccode.authorised_value
-  LEFT JOIN (SELECT
-      Coalesce(statistics.branch, "NEKLS") AS branch,
-      Coalesce(statistics.ccode, "XXX") AS ccode,
-      Count(*) AS CKO_REN
+      branches.branchcode,
+      authorised_values.lib
+  ) branchccodes
+  LEFT JOIN (
+    SELECT
+      If(statistics.branch IS NULL, "NEKLS", statistics.branch) AS branch,
+      Count(*) AS CKO_RENEW,
+      If(statistics.ccode IS NULL, "XXX", statistics.ccode) AS CCODE
     FROM
       statistics
     WHERE
-      (statistics.type = 'issue' OR
-        statistics.type = 'renew') AND
-      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
-      Coalesce(statistics.location, "CART") <> 'ADULT' AND
-      Coalesce(statistics.location, "CART") <> 'LVPLADULT' AND
-      Coalesce(statistics.location, "CART") <> 'YOUNGADULT' AND
-      Coalesce(statistics.location, "CART") <> 'LVPLYA' AND
-      Coalesce(statistics.location, "CART") <> 'CHILDRENS' AND
-      Coalesce(statistics.location, "CART") <> 'LVPLCHILD'
+      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
+      (statistics.type = 'issue' OR
+        statistics.type = 'renew')
     GROUP BY
-      Coalesce(statistics.branch, "NEKLS"),
-      Coalesce(statistics.ccode, "XXX")
-    ORDER BY
-      branch,
-      ccode) statisticsother ON statisticsother.branch = brancccode.branchcode AND
-    statisticsother.ccode = brancccode.authorised_value
-  LEFT JOIN (SELECT
-      Coalesce(statistics.branch, "NEKLS") AS branch,
-      Coalesce(statistics.ccode, "XXX") AS ccode,
-      Count(*) AS CKO_REN
+      If(statistics.branch IS NULL, "NEKLS", statistics.branch),
+      If(statistics.ccode IS NULL, "XXX", statistics.ccode)
+  ) all_lm
+    ON all_lm.branch = branchccodes.branchcode AND
+      all_lm.CCODE = branchccodes.authorised_value
+  LEFT JOIN (
+    SELECT
+      If(statistics.branch IS NULL, "NEKLS", statistics.branch) AS branch,
+      Count(*) AS CKO_RENEW,
+      If(statistics.ccode IS NULL, "XXX", statistics.ccode) AS CCODE
     FROM
       statistics
     WHERE
+      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       (statistics.type = 'issue' OR
         statistics.type = 'renew') AND
-      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
-      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
-      (Coalesce(statistics.location, "CART") = 'YOUNGADULT' OR
-        Coalesce(statistics.location, "CART") = 'LVPLYA')
+      If(statistics.location IS NULL, "PROC", If(statistics.location = "LVPLADULT", "ADULT", If(statistics.location = "LVPLCHILD", "CHILDRENS", If(statistics.location = "LVPLYA", "YOUNGADULT", statistics.location)))) = 'ADULT'
     GROUP BY
-      Coalesce(statistics.branch, "NEKLS"),
-      Coalesce(statistics.ccode, "XXX")
-    ORDER BY
-      branch,
-      ccode) statisticsya ON statisticsya.branch = brancccode.branchcode AND
-    statisticsya.ccode = brancccode.authorised_value
-  LEFT JOIN (SELECT
-      Coalesce(statistics.branch, "NEKLS") AS branch,
-      Coalesce(statistics.ccode, "XXX") AS ccode,
-      Count(*) AS CKO_REN
+      If(statistics.branch IS NULL, "NEKLS", statistics.branch),
+      If(statistics.ccode IS NULL, "XXX", statistics.ccode)
+  ) adult_lm
+    ON adult_lm.branch = branchccodes.branchcode AND
+      adult_lm.CCODE = branchccodes.authorised_value
+  LEFT JOIN (
+    SELECT
+      If(statistics.branch IS NULL, "NEKLS", statistics.branch) AS branch,
+      Count(*) AS CKO_RENEW,
+      If(statistics.ccode IS NULL, "XXX", statistics.ccode) AS CCODE
     FROM
       statistics
     WHERE
+      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       (statistics.type = 'issue' OR
         statistics.type = 'renew') AND
-      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
-      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
-      (Coalesce(statistics.location, "CART") = 'CHILDRENS' OR
-        Coalesce(statistics.location, "CART") = 'LVPLCHILD')
+      If(statistics.location IS NULL, "PROC", If(statistics.location = "LVPLADULT", "ADULT", If(statistics.location = "LVPLCHILD", "CHILDRENS", If(statistics.location = "LVPLYA", "YOUNGADULT", statistics.location)))) = 'YOUNGADULT'
     GROUP BY
-      Coalesce(statistics.branch, "NEKLS"),
-      Coalesce(statistics.ccode, "XXX")
-    ORDER BY
-      branch,
-      ccode) statisticschildren ON statisticschildren.branch = brancccode.branchcode AND
-    statisticschildren.ccode = brancccode.authorised_value
-GROUP BY
-  brancccode.branchname,
-  brancccode.lib,
-  Coalesce(statisticsall.CKO_REN, 0),
-  Coalesce(statisticsadult.CKO_REN, 0),
-  Coalesce(statisticsya.CKO_REN, 0),
-  Coalesce(statisticschildren.CKO_REN, 0),
-  Coalesce(statisticsother.CKO_REN, 0)
+      If(statistics.branch IS NULL, "NEKLS", statistics.branch),
+      If(statistics.ccode IS NULL, "XXX", statistics.ccode)
+  ) ya_lm
+    ON ya_lm.branch = branchccodes.branchcode AND
+      ya_lm.CCODE = branchccodes.authorised_value
+  LEFT JOIN (
+    SELECT
+      If(statistics.branch IS NULL, "NEKLS", statistics.branch) AS branch,
+      Count(*) AS CKO_RENEW,
+      If(statistics.ccode IS NULL, "XXX", statistics.ccode) AS CCODE
+    FROM
+      statistics
+    WHERE
+      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
+      (statistics.type = 'issue' OR
+        statistics.type = 'renew') AND
+      If(statistics.location IS NULL, "PROC", If(statistics.location = "LVPLADULT", "ADULT", If(statistics.location = "LVPLCHILD", "CHILDRENS", If(statistics.location = "LVPLYA", "YOUNGADULT", statistics.location)))) = 'CHILDRENS'
+    GROUP BY
+      If(statistics.branch IS NULL, "NEKLS", statistics.branch),
+      If(statistics.ccode IS NULL, "XXX", statistics.ccode)
+  ) childrens_lm
+    ON childrens_lm.branch = branchccodes.branchcode AND
+      childrens_lm.CCODE = branchccodes.authorised_value
+  LEFT JOIN (
+    SELECT
+      If(statistics.branch IS NULL, "NEKLS", statistics.branch) AS branch,
+      Count(*) AS CKO_RENEW,
+      If(statistics.ccode IS NULL, "XXX", statistics.ccode) AS CCODE
+    FROM
+      statistics
+    WHERE
+      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
+      (statistics.type = 'issue' OR
+        statistics.type = 'renew') AND
+      (If(statistics.location IS NULL, "PROC", If(statistics.location = "LVPLADULT", "ADULT", If(statistics.location = "LVPLCHILD", "CHILDRENS", If(statistics.location = "LVPLYA", "YOUNGADULT", statistics.location)))) = 'CART' OR
+        If(statistics.location IS NULL, "PROC", If(statistics.location = "LVPLADULT", "ADULT", If(statistics.location = "LVPLCHILD", "CHILDRENS", If(statistics.location = "LVPLYA", "YOUNGADULT", statistics.location)))) = 'CATALOGING' OR
+        If(statistics.location IS NULL, "PROC", If(statistics.location = "LVPLADULT", "ADULT", If(statistics.location = "LVPLCHILD", "CHILDRENS", If(statistics.location = "LVPLYA", "YOUNGADULT", statistics.location)))) = 'PROC')
+    GROUP BY
+      If(statistics.branch IS NULL, "NEKLS", statistics.branch),
+      If(statistics.ccode IS NULL, "XXX", statistics.ccode)
+  ) other_lm
+    ON other_lm.branch = branchccodes.branchcode AND
+      other_lm.CCODE = branchccodes.authorised_value
+WHERE
+  branchccodes.branchcode LIKE <<Choose your library|LBRANCH>>
 ORDER BY
-  brancccode.branchname,
-  brancccode.lib
+  branchccodes.branchcode,
+  branchccodes.lib
 
 
 

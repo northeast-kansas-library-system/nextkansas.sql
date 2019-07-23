@@ -11,8 +11,8 @@ Group: Administrative Reports
      System-admin
 
 Created on: 2013-06-07 11:43:46
-Modified on: 2013-06-17 00:56:46
-Date last run: -
+Modified on: 2019-07-20 19:38:45
+Date last run: 2019-07-20 19:38:49
 
 ----------
 
@@ -25,7 +25,13 @@ Expiry: 0
 
 ----------
 
-SELECT description FROM categories LIMIT 300
+SELECT
+  categorycode,
+  description
+FROM categories
+GROUP BY
+  categorycode
+LIMIT 300
 
 
 

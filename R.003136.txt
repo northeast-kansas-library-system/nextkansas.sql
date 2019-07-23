@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-11-11 22:16:08
-Modified on: 2019-02-17 20:06:57
-Date last run: 2019-04-17 23:11:45
+Modified on: 2019-07-15 22:51:22
+Date last run: 2019-07-15 10:30:51
 
 ----------
 
@@ -22,6 +22,8 @@ Expiry: 300
 ----------
 
 zbrq
+
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3136">Click here to download as a csv file</a></p>
 
 ----------
 
@@ -41,7 +43,8 @@ SELECT
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag=300]/subfield[@code="a"]') AS DESCRIP,
   Group_Concat(items.ccode) AS Group_Concat_ccode,
   biblio.frameworkcode,
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=306]/subfield[@code="a"]') AS TIMESS
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=306]/subfield[@code="a"]') AS TIMESS,
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=942]/subfield[@code="h"]') AS CCODE
 FROM
   biblio
   JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber

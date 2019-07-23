@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2014-10-14 21:37:12
-Modified on: 2015-12-09 15:29:17
-Date last run: -
+Modified on: 2019-06-30 21:19:11
+Date last run: 2019-06-30 21:19:24
 
 ----------
 
@@ -32,7 +32,7 @@ USING (borrowernumber)
 WHERE b.branchcode=<<chopse branch|branches>> AND s.datetime BETWEEN <<Top checkouts BETWEEN (yyyy-mm-dd)|date>> AND <<and (yyyy-mm-dd)|date>>
 GROUP BY s.borrowernumber
 ORDER BY count(s.borrowernumber) DESC
-LIMIT 20
+LIMIT 2000
 
 
 

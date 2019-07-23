@@ -11,8 +11,8 @@ Group: Library-Specific
      Leavenworth
 
 Created on: 2016-12-12 14:08:07
-Modified on: 2018-04-16 11:05:15
-Date last run: -
+Modified on: 2019-07-22 10:59:18
+Date last run: 2019-07-22 10:59:46
 
 ----------
 
@@ -37,19 +37,29 @@ Expiry: 0
 ----------
 
 SELECT
-  borrowers.cardnumber,
-  CONCAT( '<a href=\"/cgi-bin/koha/circ/circulation.pl?borrowernumber=',messages.borrowernumber ,'\" target="_blank">', messages.borrowernumber, '</a>' ) AS 'LINK',
-  messages.message,
-  messages.message_date
-FROM
-  borrowers JOIN
-  messages
-    ON borrowers.borrowernumber = messages.borrowernumber
-WHERE
-  messages.branchcode = 'LEAVENWRTH'
-GROUP BY
-  borrowers.cardnumber,
+  Concat_Ws('<br />',
+    Concat('Card: ', patron.cardnumber),
+    Concat('Last name: ', patron.surname),
+    Concat('<a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=', patron.borrowernumber, '" target="_blank">Open patron in new window</a>')
+  ) AS PATRON,
+  Concat_Ws('<br />',
+    Concat('Created by: ', If(messages.manager_id IS NULL, '-', staff.userid)),
+    Concat('At: ', messages.branchcode),
+    Concat('On: ', messages.message_date)
+  ) AS INFO,
   messages.message
+FROM borrowers patron
+JOIN messages ON messages.borrowernumber = patron.borrowernumber
+  LEFT JOIN borrowers staff ON messages.manager_id = staff.borrowernumber
+WHERE
+  messages.branchcode LIKE Concat('%', <<Choose your library|LBRANCH>>, '%')
+GROUP BY
+  messages.message_id
+ORDER BY
+  patron.branchcode,
+  patron.surname,
+  patron.cardnumber,
+  messages.branchcode
 
 
 

@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-01-05 10:34:49
-Modified on: 2019-03-15 10:40:48
-Date last run: 2019-03-15 10:40:50
+Modified on: 2019-05-29 18:09:59
+Date last run: 2019-05-29 18:10:01
 
 ----------
 
@@ -26,41 +26,15 @@ Expiry: 300
 ----------
 
 SELECT
-  If(deletedbiblio.biblionumber IS NULL, "Y", "") AS BIBLIO_DELETED,
-  Coalesce(biblio.biblionumber, deletedbiblio.biblionumber) AS biblionumber,
-  deleteditems.itemnumber,
-  deleteditems.barcode,
-  deleteditems.homebranch,
-  deleteditems.location,
-  deleteditems.itype,
-  deleteditems.ccode,
-  deleteditems.itemcallnumber,
-  Coalesce(biblio.author, deletedbiblio.author) AUTHOR,
-  Coalesce(biblio.title, deletedbiblio.title) AS TITLE,
-  outstanding.amountoutstanding
+  biblio_metadata.biblionumber,
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="520"]/subfield[@code="a"]') AS metadata,
+  Length(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="520"]/subfield[@code="a"]')) AS metadata1
 FROM
-  deleteditems
-  LEFT JOIN biblio
-    ON biblio.biblionumber = deleteditems.biblionumber
-  LEFT JOIN deletedbiblio
-    ON deletedbiblio.biblionumber = deleteditems.biblionumber
-  LEFT JOIN (
-    SELECT
-      accountlines.description,
-      Right(accountlines.description, 14) AS BC,
-      accountlines.amountoutstanding
-    FROM
-      accountlines
-    WHERE
-      accountlines.description LIKE "%ILEA%"
-    LIMIT 5000
-  ) outstanding
-    ON outstanding.BC = deleteditems.barcode
+  biblio_metadata
 WHERE
-  deleteditems.homebranch = 'LEAVENWRTH'
-GROUP BY
-  deleteditems.itemnumber
-LIMIT 5000
+  Length(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="520"]/subfield[@code="a"]')) BETWEEN 100 and 250
+ORDER BY
+  metadata1 DESC
 
 
 

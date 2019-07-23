@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2016-10-05 14:39:48
-Modified on: 2017-12-19 09:34:37
-Date last run: 2017-10-09 16:14:56
+Modified on: 2019-05-30 13:01:13
+Date last run: 2019-07-19 12:31:32
 
 ----------
 
@@ -22,7 +22,7 @@ Expiry: 0
 ----------
 
 <div id=reportinfo>
-<p>This report shows all items added to NExpress at a specific library branch after a specified date - includes date added</p>
+<p>This report shows all items added to NExpress at a specific library branch during a date range</p>
 <ul><li>Shows items that are currently still in NExpress</li>
 <li>Allows user to specify the item's homebranch, shelving location, item type, collection code, and the item's date added</li>
 <li>grouped by date added, homebranch, location, itype, collection code, and call number</li>
@@ -49,7 +49,7 @@ SELECT
 FROM
   items JOIN
   biblio
-    ON items.biblionumber = biblio.biblionumber INNER JOIN
+    ON items.biblionumber = biblio.biblionumber JOIN
   biblio_metadata
     ON biblio_metadata.biblionumber = biblio.biblionumber AND
     items.biblionumber = biblio_metadata.biblionumber
@@ -58,7 +58,7 @@ WHERE
   items.location LIKE <<Item shelving location|LLOC>> AND
   items.itype LIKE <<Item type|LITYPES>> AND
   items.ccode LIKE <<Item collection code|LCCODE>> AND
-  items.dateaccessioned > <<Items added after|date>>
+  items.dateaccessioned BETWEEN <<Start date|date>> AND <<end date|date>>
 GROUP BY
   items.homebranch,
   items.location,
@@ -69,7 +69,13 @@ GROUP BY
   biblio.author,
   biblio.title
 ORDER BY
-  items.dateaccessioned DESC
+  items.homebranch,
+  items.location,
+  items.itype,
+  items.ccode,
+  items.itemcallnumber,
+  biblio.author,
+  biblio.title DESC
 
 
 

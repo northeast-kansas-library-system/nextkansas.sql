@@ -1,0 +1,42 @@
+R.003226
+
+----------
+
+Name: GHW - Lists 004 - Show author/title information for a list - for printing
+Created by: George H Williams
+
+----------
+
+Group: Lists Module
+     -
+
+Created on: 2019-07-17 09:09:51
+Modified on: 2019-07-17 16:53:48
+Date last run: 2019-07-17 17:07:03
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+In progress
+
+----------
+
+SELECT
+  Concat("<span style='font-size: 125%;'><span style='float: left'><ins>Title:</ins> ", Coalesce(biblio.title, '--'), "</span><span style='float: right'><ins>Author:</ins> ", Coalesce(biblio.author, '--'), "</span></span>") AS TITLE_AUTHOR
+FROM
+  virtualshelfcontents
+  LEFT JOIN biblio ON virtualshelfcontents.biblionumber = biblio.biblionumber
+WHERE
+  virtualshelfcontents.shelfnumber = <<Enter list ID number>>
+GROUP BY
+  biblio.biblionumber
+ORDER BY
+  biblio.author,
+  biblio.title
+
+
+

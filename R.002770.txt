@@ -7,12 +7,12 @@ Created by: George H Williams
 
 ----------
 
-Group: -
+Group: Statistics
      -
 
 Created on: 2016-09-12 01:04:34
-Modified on: 2018-04-16 10:48:52
-Date last run: 2018-10-02 11:31:17
+Modified on: 2019-07-15 15:35:50
+Date last run: 2019-07-15 16:50:36
 
 ----------
 
@@ -31,24 +31,55 @@ Expiry: 0
 <p><ins>Notes:</ins></p>
 <p>Location data is based on the shelving location of the item at the time the report was run - not the time when the item circulated.</p>
 <p>Report created by GHW at the request of LEAVENWRTH so they could track circulation of items on display.</p>
+<p>Items without a shelving location will be recorded as having a shelving location of "Processing Center."</p>
+<p></p>
+<p>Updated on 2019.07.15 to include changes based on additional shelving locations.</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2770&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
 
 ----------
 
 SELECT
-  statistics.branch AS CHECK_OUT_BRANCH,
-  items.location AS ITEM_SHELVING_LOCATION,
-  COUNT(*) AS CIRC_PLUS_RENEWALS
+  branches.branchname as BRANCHNAME,
+  branches.lib as SHELVING_LOCATION,
+  Coalesce(Sum(statisticss.CKO_RENEW_COUNT), "-") AS CKO_RENEW_COUNT
 FROM
-  statistics JOIN
-  items
-    ON statistics.itemnumber = items.itemnumber
+  (
+    SELECT
+      branches.branchcode,
+      branches.branchname,
+      authorised_values.authorised_value,
+      authorised_values.lib,
+      authorised_values.category
+    FROM
+      branches,
+      authorised_values
+    WHERE
+      authorised_values.category = 'LOC'
+  ) branches
+  LEFT JOIN (
+    SELECT
+      statistics.branch,
+      Count(*) AS CKO_RENEW_COUNT,
+      Coalesce(statistics.location, "ADULT") AS location
+    FROM
+      statistics
+    WHERE
+      statistics.datetime BETWEEN <<Between start date|date>> AND (<<and end date|date>> + INTERVAL 1 DAY) AND
+      (statistics.type = 'issue' OR
+        statistics.type = 'renew')
+    GROUP BY
+      statistics.branch,
+      Coalesce(statistics.location, "ADULT")
+  ) statisticss
+    ON statisticss.branch = branches.branchcode AND
+      statisticss.location = branches.authorised_value
 WHERE
-  (statistics.datetime BETWEEN  <<Start date|date>>  AND (<<End date|date>>+ INTERVAL 1 DAY)) AND
-  ((statistics.type = "ISSUE") OR (statistics.type = "RENEW")) AND
-  items.location LIKE <<Choose Shelving Location|LLOC>> AND
-  statistics.branch LIKE <<Choose check-out library|LBRANCH>>
-GROUP BY statistics.branch, items.location WITH ROLLUP
+  branches.branchcode LIKE <<Choose check-out library|LBRANCH>>
+GROUP BY
+  branches.branchname,
+  branches.lib
 
 
 

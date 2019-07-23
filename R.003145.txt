@@ -11,8 +11,8 @@ Group: -
      -
 
 Created on: 2018-12-17 15:12:26
-Modified on: 2018-12-27 16:23:03
-Date last run: 2019-02-05 15:29:09
+Modified on: 2019-05-26 22:05:44
+Date last run: 2019-07-22 21:01:44
 
 ----------
 
@@ -83,6 +83,7 @@ SELECT
   borrowers.ethnicity,
   borrowers.ethnotes,
   borrowers.sex,
+  borrowers.userid,
   borrowers.sort1,
   borrowers.sort2,
   borrowers.altcontactfirstname,

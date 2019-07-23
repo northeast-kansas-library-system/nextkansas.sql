@@ -1,0 +1,44 @@
+R.003228
+
+----------
+
+Name: GHW - Lists 006 - Show list titles with links to bibliographic records
+Created by: George H Williams
+
+----------
+
+Group: Lists Module
+     -
+
+Created on: 2019-07-17 16:43:43
+Modified on: 2019-07-17 16:56:06
+Date last run: 2019-07-17 17:06:51
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+Replaces report 3003
+
+----------
+
+SELECT
+  biblio.author,
+  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\">', biblio.title, '</a>') AS TITLE
+FROM
+  biblio
+  JOIN virtualshelfcontents
+    ON biblio.biblionumber = virtualshelfcontents.biblionumber
+WHERE
+  virtualshelfcontents.shelfnumber LIKE <<Enter list number>>
+GROUP BY
+  biblio.biblionumber
+ORDER BY
+  biblio.author,
+  biblio.title
+
+
+

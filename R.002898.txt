@@ -7,12 +7,12 @@ Created by: George H Williams
 
 ----------
 
-Group: Administrative Reports
-     Testing
+Group: Statistics
+     Monthly Statistics
 
 Created on: 2017-02-01 19:48:17
-Modified on: 2018-08-01 16:18:26
-Date last run: 2019-04-04 20:11:24
+Modified on: 2019-07-01 16:06:36
+Date last run: 2019-07-01 10:43:50
 
 ----------
 
@@ -21,7 +21,8 @@ Expiry: 300
 
 ----------
 
-
+<p style="display: none;">MNTHLY</p>
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=2898">Click here to download as a csv file</a></p>
 
 ----------
 
