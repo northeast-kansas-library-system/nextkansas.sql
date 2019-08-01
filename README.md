@@ -1,9 +1,7 @@
 # nexpress-SQL
-NExpress SQL
+Next Kansas SQL
 
-This is a repostitory for all of the SQL used by the NExpress library consortium.
-
-Look at report_index.html for the names and notes for all included reports.
+This is a repostitory for all of the SQL used by the Next Search Catalog library consortium reports.
 
 -----
 
@@ -165,4 +163,4 @@ ORDER BY
 
 ----------
 
-Once all files are saved in the github folder, run github desktop to sync with the online repository.
+Once all files are saved in the github folder, use Git or Atom to sync with the online repository.
