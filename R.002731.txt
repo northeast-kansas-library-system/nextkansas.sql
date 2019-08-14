@@ -11,8 +11,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2016-08-11 16:36:03
-Modified on: 2019-06-21 10:11:15
-Date last run: 2019-07-22 17:11:56
+Modified on: 2019-08-09 10:44:47
+Date last run: 2019-08-13 18:04:29
 
 ----------
 
@@ -70,6 +70,7 @@ SELECT
   items.itemnotes,
   items.itemnotes_nonpublic,
   items.copynumber,
+  items.replacementprice,
   localcounts.Count_itemnumber AS LOCAL_COPIES,
   systemcounts.Count_itemnumber AS SYSTEM_COPIES,
   Concat('<a class= "clicked" href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=', items.biblionumber, '&itemnumber=', items.itemnumber, '#edititem\" target="_blank">Edit item</a>') AS EDIT_ITEM

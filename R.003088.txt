@@ -7,12 +7,12 @@ Created by: George H Williams
 
 ----------
 
-Group: -
-     -
+Group: Patrons
+     Patron attributes
 
 Created on: 2018-06-29 08:32:01
-Modified on: 2018-09-25 11:03:29
-Date last run: 2019-06-21 14:39:32
+Modified on: 2019-07-24 17:47:19
+Date last run: 2019-07-24 17:44:58
 
 ----------
 
