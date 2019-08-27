@@ -1,0 +1,73 @@
+/*
+R.003057
+
+----------
+
+Name: GHW - Empty LOCATION/ITYPE/CCODES
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2018-03-05 11:11:02
+Modified on: 2018-03-05 15:07:28
+Date last run: 2018-10-12 13:46:05
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+*/
+
+SELECT
+  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', items.biblionumber, '\" target="_blank">',
+  items.biblionumber, '</a>') AS LINK_TO_TITLE,
+  items.biblionumber,
+  items.itemnumber,
+  Concat("-", Coalesce(items.barcode, "-"), "-") AS BARCODE,
+  items.homebranch,
+  Coalesce(items.location, "-") AS LOCATION,
+  Coalesce(items.itype, "-") AS ITYPE,
+  Coalesce(items.ccode, "-") AS CCODE,
+  items.itemcallnumber,
+  biblio.author,
+  Concat_Ws(" ", biblio.title, ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'),
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'),
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')) AS FULL_TITLE,
+  biblioitems.publicationyear,
+  items.dateaccessioned,
+  If(Sum(Coalesce(items.damaged, 0) + Coalesce(items.itemlost, 0) + Coalesce(items.withdrawn, 0)) = 0, 'No',  'Yes') AS STATUS_PROBLEMS,
+  items.itemnotes,
+  items.itemnotes_nonpublic,
+  Concat('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=', items.biblionumber, '&itemnumber=', items.itemnumber, '#edititem\" target="_blank">Edit item</a>') AS EDIT_ITEM
+FROM
+  items
+  JOIN biblio ON items.biblionumber = biblio.biblionumber
+  JOIN biblio_metadata ON items.biblionumber = biblio_metadata.biblionumber
+  JOIN biblioitems ON items.biblioitemnumber = biblioitems.biblioitemnumber
+WHERE
+  items.homebranch LIKE <<Choose your library|LBRANCH>> AND
+  (Coalesce(items.location, "-") LIKE '-' OR
+  Coalesce(items.itype, "-") LIKE '-' OR
+  Coalesce(items.ccode, "-") LIKE '-')
+GROUP BY
+  items.itemnumber
+ORDER BY
+  items.homebranch,
+  items.itype,
+  items.ccode,
+  items.itemcallnumber,
+  biblio.author,
+  biblio.title
+
+
+

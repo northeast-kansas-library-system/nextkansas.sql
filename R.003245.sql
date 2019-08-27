@@ -1,0 +1,96 @@
+/*
+R.003245
+
+----------
+
+Name: GHW Transactions with replacement price ADMINREPORT
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2019-08-08 14:32:54
+Modified on: 2019-08-08 14:40:51
+Date last run: 2019-08-08 14:41:11
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+*/
+
+SELECT
+  statistics.branch AS TRANSACTION_BRANCH,
+  If(statistics.type = "issue", "checkout", statistics.type) AS STATISTIC_TYPE,
+  statistics.datetime,
+  Upper(Coalesce(items.barcode, deleteditems.barcode)) AS ITEM_BC,
+  locations.lib AS SHELVING_LOCATION,
+  itemtypes.description AS ITYPE,
+  ccodes.lib AS CCODE,
+  Coalesce(items.itemcallnumber, deleteditems.itemcallnumber) AS CALL_NUMBER,
+  biblio.author,
+  biblio.title AS `TITLE (245$a only)`,
+  items.replacementprice,
+  If(deleteditems.barcode IS NOT NULL, "Item has been deleted", If(statistics.type = "payment", "No item data for payments", If(statistics.type = "writeoff", "No item data for writeoffs", If(statistics.type = "return", "Shelving loction not recorded for returns", "-")))) AS NOTES
+FROM
+  statistics
+  LEFT JOIN items
+    ON statistics.itemnumber = items.itemnumber
+  LEFT JOIN deleteditems
+    ON statistics.itemnumber = deleteditems.itemnumber
+  LEFT JOIN (
+    SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'loc'
+  ) locations
+    ON statistics.location = locations.authorised_value
+  LEFT JOIN (
+    SELECT
+      itemtypes.itemtype,
+      itemtypes.description
+    FROM
+      itemtypes
+  ) itemtypes
+    ON statistics.itemtype = itemtypes.itemtype
+  LEFT JOIN (
+    SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'ccode'
+  ) ccodes
+    ON statistics.ccode = ccodes.authorised_value
+  LEFT JOIN biblio
+    ON items.biblionumber = biblio.biblionumber
+WHERE
+  statistics.branch LIKE <<Choose the circulating library|branches>> AND
+  statistics.datetime BETWEEN <<Start date|date>> AND <<end date|date>> + INTERVAL 1 DAY AND
+  If(statistics.type = "renew", "renew-issue", If(statistics.type = "issue", "issue-renew", statistics.type)) LIKE <<Choose a transaction type|LSTATTYPE>>
+GROUP BY
+  statistics.branch,
+  statistics.datetime,
+  items.replacementprice,
+  statistics.itemnumber
+ORDER BY
+  TRANSACTION_BRANCH,
+  statistics.datetime,
+  statistics.itemnumber
+
+
+

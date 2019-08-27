@@ -1,0 +1,61 @@
+/*
+R.002900
+
+----------
+
+Name: GHW - Revamped MIT part 3
+Created by: George H Williams
+
+----------
+
+Group: Administrative Reports
+     Testing
+
+Created on: 2017-02-07 11:59:18
+Modified on: 2017-02-07 12:24:20
+Date last run: -
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+
+
+----------
+*/
+
+SELECT
+concat("<p>NExpress Missing in transit item:  ",items.barcode,"</p><p> </p><p>Dear coleagues,</p><p>The following item has been in transit between two locations for ", DateDiff(CurDate(), branchtransfers.datesent), " days.  The details are as follow:</p><p>", items.location,"<br />", items.itype, "<br />", ccode.lib,"<br />", items.itemcallnumber,"<br />", biblio.author, "<br />", biblio.title, "<br />", items.barcode,"</p><p>Owning library:  ", items.homebranch, "<br />Current library:  ", items.holdingbranch, "<br />In transit from ", branchtransfers.frombranch, " to ", branchtransfers.tobranch,"<br />since ", branchtransfers.datesent, "</p><p>The item was last checked in ", DateDiff(CurDate(), items.datelastseen), " days ago on ", items.datelastseen, ".</p><p>Could you please look for this item at your library and let us know whether or not you find it?</p><p>Thank you</p>") AS LETTER_CONTENT
+FROM
+  items JOIN
+  biblio
+    ON items.biblionumber = biblio.biblionumber LEFT JOIN
+  (SELECT
+    authorised_values.authorised_value,
+    authorised_values.lib
+  FROM
+    authorised_values
+  WHERE
+    authorised_values.category = 'CCODE') ccode
+    ON items.ccode = ccode.authorised_value JOIN
+  branchtransfers
+    ON branchtransfers.itemnumber = items.itemnumber
+WHERE
+  items.barcode = <<Item barcode number>> AND
+  (branchtransfers.datearrived IS NULL AND branchtransfers.datesent < CurDate() - INTERVAL 7 DAY)
+GROUP BY
+  items.barcode, items.datelastseen
+ORDER BY
+  items.homebranch,
+  items.location,
+  items.itype,
+  ccode.lib,
+  items.itemcallnumber,
+  biblio.author,
+  biblio.title
+
+
+

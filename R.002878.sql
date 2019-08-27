@@ -1,0 +1,68 @@
+/*
+R.002878
+
+----------
+
+Name: GHW - lost more than 45 with 0 lost statusses
+Created by: George H Williams
+
+----------
+
+Group: Administrative Reports
+     -
+
+Created on: 2017-01-05 15:16:14
+Modified on: 2017-01-05 15:16:14
+Date last run: 2018-10-22 15:59:22
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+*/
+
+SELECT
+  items.itemnumber,
+  items.barcode,
+  items.homebranch,
+  authorised_values.lib,
+  items.itemlost_on,
+  items.onloan,
+  issues.date_due,
+  borrowers.categorycode
+FROM
+  items LEFT JOIN
+  authorised_values
+    ON items.itemlost = authorised_values.authorised_value LEFT JOIN
+  issues
+    ON issues.itemnumber = items.itemnumber INNER JOIN
+  borrowers
+    ON issues.borrowernumber = borrowers.borrowernumber
+WHERE
+  (items.itemlost < 1 OR
+    items.itemlost IS NULL) AND
+  items.onloan < CurDate() - INTERVAL 46 DAY AND
+  authorised_values.category = 'LOST' AND
+  borrowers.categorycode <> 'ASSOCIATE' AND
+  borrowers.categorycode <> 'STUDENT' AND
+  borrowers.categorycode <> 'INHOUSE' AND
+  borrowers.categorycode <> 'TEACHER' AND
+  borrowers.categorycode <> 'ILL' AND
+  borrowers.categorycode <> 'STAFF'
+GROUP BY
+  items.itemnumber, items.barcode, items.homebranch, authorised_values.lib,
+  items.itemlost_on, items.onloan, issues.date_due, borrowers.categorycode
+ORDER BY
+  authorised_values.lib,
+  items.homebranch,
+  items.itemlost_on
+
+
+
+

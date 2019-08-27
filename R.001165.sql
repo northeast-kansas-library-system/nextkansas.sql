@@ -1,0 +1,36 @@
+/*
+R.001165
+
+----------
+
+Name: Basehor Lost 
+Created by: BASEHOR TECH
+
+----------
+
+Group: Library-Specific
+     -
+
+Created on: 2011-08-15 15:42:56
+Modified on: 2013-06-17 01:02:51
+Date last run: 2019-03-04 13:31:02
+
+----------
+
+Public: 0
+Expiry: 0
+
+----------
+
+Lost items by Collection code
+
+----------
+*/
+
+SELECT items.datelastseen, title, items.barcode, itemcallnumber
+FROM items RIGHT JOIN biblio on (items.biblionumber=biblio.biblionumber) 
+WHERE itemlost in (1,3) AND items.homebranch="BASEHOR" AND items.ccode= "DVD" 
+ORDER BY itemcallnumber, title
+
+
+

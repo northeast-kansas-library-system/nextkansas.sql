@@ -1,0 +1,70 @@
+/*
+R.003202
+
+----------
+
+Name: GHW - Where did our stuff check out last month
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2019-05-07 16:43:41
+Modified on: 2019-05-07 16:45:06
+Date last run: 2019-05-27 21:38:44
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+*/
+
+SELECT
+  cko_branch.branchcode AS CKO_LIB,
+  our_stuff_somewhere_else.OWNING_BRANCH AS OWNING_LIB,
+  our_stuff_somewhere_else.CKO_RENEW AS CKO_RENEW_COUNT
+FROM
+  (
+    SELECT
+      branches.branchcode,
+      branches.branchname
+    FROM
+      branches
+  ) cko_branch
+  LEFT JOIN (
+    SELECT
+      If(statistics.branch IS NULL, "NEKLS", statistics.branch) AS CKO_BRANCH,
+      Count(*) AS CKO_RENEW,
+      If(Coalesce(items.homebranch, deleteditems.homebranch) IS NULL, "NEKLS", Coalesce(items.homebranch, deleteditems.homebranch)) AS OWNING_BRANCH
+    FROM
+      statistics
+      LEFT JOIN items
+        ON items.itemnumber = statistics.itemnumber
+      LEFT JOIN deleteditems
+        ON deleteditems.itemnumber = statistics.itemnumber
+    WHERE
+      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
+      (statistics.type = 'issue' OR
+        statistics.type = 'renew') AND
+      If(Coalesce(items.homebranch, deleteditems.homebranch) IS NULL, "NEKLS", Coalesce(items.homebranch, deleteditems.homebranch)) = <<Select your library|branches>>
+    GROUP BY
+      If(statistics.branch IS NULL, "NEKLS", statistics.branch)
+  ) our_stuff_somewhere_else
+    ON our_stuff_somewhere_else.CKO_BRANCH = cko_branch.branchcode
+GROUP BY
+  cko_branch.branchcode,
+  our_stuff_somewhere_else.OWNING_BRANCH
+ORDER BY
+  CKO_LIB
+
+
+
