@@ -13,10 +13,11 @@ The SQL for this report is:
 
 ----------
 
+``` SQL
 SELECT
-  Concat("R.", LPad(saved_sql.id, 6, 0)) AS FILE_NAME,
+  Concat(If(Length(saved_sql.savedsql) > 32766, "X.", "R."), LPad(saved_sql.id, 6, 0)) AS FILE_NAME,
   Concat(
-    Concat("R.", LPad(saved_sql.id, 6, 0)), Char(13), Char(10), Char(13), Char(10),
+    Concat("/*", Char(13), Char(10), "R.", LPad(saved_sql.id, 6, 0)), Char(13), Char(10), Char(13), Char(10),
     Concat("----------"), Char(13), Char(10), Char(13), Char(10),
     Concat("Name: ", Coalesce(saved_sql.report_name, "-")), Char(13), Char(10),
     Concat("Created by: ", If(Coalesce(borrowers.borrowernumber, 0) = 0, "-", Concat(borrowers.firstname, " ", borrowers.surname))), Char(13), Char(10), Char(13), Char(10),
@@ -31,7 +32,7 @@ SELECT
     Concat("Expiry: ", Coalesce(saved_sql.cache_expiry, "-")), Char(13), Char(10), Char(13), Char(10),
     Concat("----------"), Char(13), Char(10), Char(13), Char(10),
     Concat(Coalesce(saved_sql.notes, "-")), Char(13), Char(10), Char(13), Char(10),
-    Concat("----------"), Char(13), Char(10), Char(13), Char(10),
+    Concat("----------", Char(13), Char(10), "*/"), Char(13), Char(10), Char(13), Char(10),
     Concat(IF(Length(saved_sql.savedsql) > 32766, "Too large to process", saved_sql.savedsql)), Char(13), Char(10), Char(13), Char(10)
   ) AS CONTENTS
 FROM
@@ -64,8 +65,8 @@ FROM
 GROUP BY
   saved_sql.id
 ORDER BY
-  saved_sql.id
-
+  FILE_NAME
+```
 ----------
 
 Make sure C:\git\ is empty.
@@ -76,7 +77,8 @@ The VBA for the macro is:
 
 ----------
 
-Sub WriteTotxtSQL()
+``` VBA
+Sub WriteToSQL()
 
 Const forReading = 1, forAppending = 3, fsoForWriting = 2
 Dim fs, objTextStream, sText As String
@@ -87,7 +89,7 @@ lLastRow = Cells(Rows.Count, 1).End(xlUp).Row
 For lRowLoop = 1 To lLastRow
 
     Set fs = CreateObject("Scripting.FileSystemObject")
-    Set objTextStream = fs.opentextfile("c:\git\" & Cells(lRowLoop, 1) & ".txt", fsoForWriting, True)
+    Set objTextStream = fs.opentextfile("c:\git\" & Cells(lRowLoop, 1) & ".sql", fsoForWriting, True)
 
     sText = ""
 
@@ -105,6 +107,7 @@ For lRowLoop = 1 To lLastRow
 Next lRowLoop
 
 End Sub
+```
 
 ----------
 
@@ -120,6 +123,7 @@ The SQL for this report is:
 
 ----------
 
+``` SQL
 SELECT
   Concat(
     LPad(saved_sql.id, 5, 0),
@@ -160,6 +164,7 @@ GROUP BY
   saved_sql.id
 ORDER BY
   saved_sql.id
+```
 
 ----------
 
