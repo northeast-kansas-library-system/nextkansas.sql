@@ -53,7 +53,7 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.branchcode LIKE <<Choose your library|ZBRAN>>
+  borrowers.branchcode LIKE "LEAV%" #<<Choose your library|ZBRAN>>
 GROUP BY
   borrowers.borrowernumber
 ORDER BY
@@ -63,6 +63,3 @@ ORDER BY
   borrowers.zipcode,
   borrowers.branchcode,
   borrowers.categorycode
-
-
-
