@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-08-12 23:18:20
-Modified on: 2019-08-13 16:37:48
-Date last run: 2019-08-27 10:06:57
+Modified on: 2019-09-10 18:45:57
+Date last run: 2019-09-12 00:13:34
 
 ----------
 
@@ -131,6 +131,11 @@ SELECT
   "D_1_YEAR_FROM_NOW",
   "CurDate() + INTERVAL 1 YEAR",
   CurDate() + INTERVAL 1 YEAR
+UNION
+SELECT
+  "D_THREE_SUNDAYS_AGO",
+  "Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) + 6 DAY) - INTERVAL 2 WEEK",
+  Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) + 6 DAY) - INTERVAL 2 WEEK
 UNION
 SELECT
   "D_TWO_SUNDAYS_AGO",

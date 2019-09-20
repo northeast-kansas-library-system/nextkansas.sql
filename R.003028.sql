@@ -68,7 +68,10 @@ FROM
         statistics.branch,
         Date_Format(statistics.datetime, "%Y-%m-%d")) checkouts ON branches.branchcode = checkouts.branch
 WHERE
-  branches.branchcode LIKE "LEAV%" #<<Choose checkout branch|LBRANCH>>
+  branches.branchcode LIKE <<Choose checkout branch|LBRANCH>>
 ORDER BY
   branches.branchcode,
   checkouts.DATE
+
+
+

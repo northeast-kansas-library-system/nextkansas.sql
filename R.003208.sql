@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-05-29 16:21:54
-Modified on: 2019-08-24 00:20:18
-Date last run: 2019-08-24 00:20:33
+Modified on: 2019-09-04 12:28:58
+Date last run: 2019-09-18 10:18:22
 
 ----------
 
@@ -38,8 +38,8 @@ Expiry: 300
 */
 
 SELECT
-  If(Coalesce(Trim(borrowers.address), Trim(borrowers.address2)) LIKE "PO%", borrowers.address2, borrowers.address) AS address,
-  If(borrowers.address2 LIKE "PO%", borrowers.address, borrowers.address2) AS address2,
+  If(Coalesce(Trim(borrowers.address)) LIKE "PO%", borrowers.address2, borrowers.address) AS address,
+  If(Coalesce(Trim(borrowers.address)) LIKE "PO%", borrowers.address, borrowers.address2) AS address2,
   borrowers.city,
   borrowers.state,
   borrowers.zipcode,
@@ -49,12 +49,16 @@ SELECT
   Floor((DateDiff(CurDate(), borrowers.dateofbirth) / 365.25)) AS AGE,
   Year(borrowers.dateenrolled) AS YEAR_ENROLLED,
   Year(borrowers.dateexpiry) AS YEAR_EXPIRED,
-  Year(borrowers.lastseen) AS YEAR_LASTSEEN
+  If(Year(borrowers.lastseen) = 0, "", Year(borrowers.lastseen)) AS YEAR_LASTSEEN
 FROM
   borrowers
 WHERE
-  borrowers.branchcode LIKE "LEAV%" #<<Choose your library|ZBRAN>>
+  (borrowers.categorycode <> 'ILL' AND
+   borrowers.categorycode <> 'STAFF' AND
+   borrowers.categorycode <> 'INHOUSE') AND
+  borrowers.branchcode LIKE <<Choose your library|ZBRAN>>
 GROUP BY
+  borrowers.cardnumber,
   borrowers.borrowernumber
 ORDER BY
   borrowers.address,
@@ -63,3 +67,6 @@ ORDER BY
   borrowers.zipcode,
   borrowers.branchcode,
   borrowers.categorycode
+
+
+
