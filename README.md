@@ -11,13 +11,12 @@ Run report 3047 and save as a spreadsheet.
 
 The SQL for this report is:
 
-----------
+```SQL
 
-``` SQL
 SELECT
-  Concat(If(Length(saved_sql.savedsql) > 32766, "X.", "R."), LPad(saved_sql.id, 6, 0)) AS FILE_NAME,
+  Concat("R.", LPad(saved_sql.id, 6, 0)) AS FILE_NAME,
   Concat(
-    Concat("/*", Char(13), Char(10), "R.", LPad(saved_sql.id, 6, 0)), Char(13), Char(10), Char(13), Char(10),
+    Concat("R.", LPad(saved_sql.id, 6, 0)), Char(13), Char(10), Char(13), Char(10),
     Concat("----------"), Char(13), Char(10), Char(13), Char(10),
     Concat("Name: ", Coalesce(saved_sql.report_name, "-")), Char(13), Char(10),
     Concat("Created by: ", If(Coalesce(borrowers.borrowernumber, 0) = 0, "-", Concat(borrowers.firstname, " ", borrowers.surname))), Char(13), Char(10), Char(13), Char(10),
@@ -32,7 +31,7 @@ SELECT
     Concat("Expiry: ", Coalesce(saved_sql.cache_expiry, "-")), Char(13), Char(10), Char(13), Char(10),
     Concat("----------"), Char(13), Char(10), Char(13), Char(10),
     Concat(Coalesce(saved_sql.notes, "-")), Char(13), Char(10), Char(13), Char(10),
-    Concat("----------", Char(13), Char(10), "*/"), Char(13), Char(10), Char(13), Char(10),
+    Concat("----------"), Char(13), Char(10), Char(13), Char(10),
     Concat(IF(Length(saved_sql.savedsql) > 32766, "Too large to process", saved_sql.savedsql)), Char(13), Char(10), Char(13), Char(10)
   ) AS CONTENTS
 FROM
@@ -65,20 +64,20 @@ FROM
 GROUP BY
   saved_sql.id
 ORDER BY
-  FILE_NAME
+  saved_sql.id
 ```
+
 ----------
 
-Make sure C:\git\ is empty.
+Make sure you have a folder on your local computer called C:\git\ and that it is empty.
 
 Open the csv file and run the macro from the XLSX macro file.
 
 The VBA for the macro is:
 
-----------
+```
 
-``` VBA
-Sub WriteToSQL()
+Sub WriteTotxtSQL()
 
 Const forReading = 1, forAppending = 3, fsoForWriting = 2
 Dim fs, objTextStream, sText As String
@@ -89,7 +88,7 @@ lLastRow = Cells(Rows.Count, 1).End(xlUp).Row
 For lRowLoop = 1 To lLastRow
 
     Set fs = CreateObject("Scripting.FileSystemObject")
-    Set objTextStream = fs.opentextfile("c:\git\" & Cells(lRowLoop, 1) & ".sql", fsoForWriting, True)
+    Set objTextStream = fs.opentextfile("c:\git\" & Cells(lRowLoop, 1) & ".txt", fsoForWriting, True)
 
     sText = ""
 
@@ -107,6 +106,7 @@ For lRowLoop = 1 To lLastRow
 Next lRowLoop
 
 End Sub
+
 ```
 
 ----------
@@ -117,13 +117,12 @@ Save all of these files into the github folder.
 
 ----------
 
-Then run report 3050 but do not save it as a spreadsheet.  Instead, expand the report to show all results on the screen at once.  Then right click the page and view the source.  Copy all of the data from the results table - from the first <table> tag to the final </table> tag and paste it into report_index.html in this repository and update the date in the report_index.html file.
+Then run report 3050 but do not save it as a spreadsheet.  Instead, expand the report to show all results on the screen at once.  Then right click the page and view the source.  Copy all of the data from the results table - from the first \<table\> tag to the final \</table\> tag and paste it into report_index.html in this repository and update the date in the report_index.html file.
 
 The SQL for this report is:
 
-----------
+```SQL
 
-``` SQL
 SELECT
   Concat(
     LPad(saved_sql.id, 5, 0),
@@ -164,6 +163,7 @@ GROUP BY
   saved_sql.id
 ORDER BY
   saved_sql.id
+
 ```
 
 ----------
