@@ -14,9 +14,9 @@ The SQL for this report is:
 ```SQL
 
 SELECT
-  Concat("R.", LPad(saved_sql.id, 6, 0)) AS FILE_NAME,
+  Concat(If(Length(saved_sql.savedsql) > 32766, "X.", "R."), LPad(saved_sql.id, 6, 0)) AS FILE_NAME,
   Concat(
-    Concat("R.", LPad(saved_sql.id, 6, 0)), Char(13), Char(10), Char(13), Char(10),
+    Concat("/*", Char(13), Char(10), "R.", LPad(saved_sql.id, 6, 0)), Char(13), Char(10), Char(13), Char(10),
     Concat("----------"), Char(13), Char(10), Char(13), Char(10),
     Concat("Name: ", Coalesce(saved_sql.report_name, "-")), Char(13), Char(10),
     Concat("Created by: ", If(Coalesce(borrowers.borrowernumber, 0) = 0, "-", Concat(borrowers.firstname, " ", borrowers.surname))), Char(13), Char(10), Char(13), Char(10),
@@ -31,7 +31,7 @@ SELECT
     Concat("Expiry: ", Coalesce(saved_sql.cache_expiry, "-")), Char(13), Char(10), Char(13), Char(10),
     Concat("----------"), Char(13), Char(10), Char(13), Char(10),
     Concat(Coalesce(saved_sql.notes, "-")), Char(13), Char(10), Char(13), Char(10),
-    Concat("----------"), Char(13), Char(10), Char(13), Char(10),
+    Concat("----------", Char(13), Char(10), "*/"), Char(13), Char(10), Char(13), Char(10),
     Concat(IF(Length(saved_sql.savedsql) > 32766, "Too large to process", saved_sql.savedsql)), Char(13), Char(10), Char(13), Char(10)
   ) AS CONTENTS
 FROM
@@ -64,7 +64,7 @@ FROM
 GROUP BY
   saved_sql.id
 ORDER BY
-  saved_sql.id
+  FILE_NAME
 ```
 
 ----------
@@ -113,7 +113,7 @@ End Sub
 
 This should give you 1 text file for each row in the report.  Each text file represents 1 SQL report from Koha.
 
-Save all of these files into the github folder.
+Save all of these files into the github folder for your repository.
 
 ----------
 
