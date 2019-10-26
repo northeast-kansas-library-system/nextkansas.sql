@@ -3,7 +3,7 @@ R.003171
 
 ----------
 
-Name: GHW - Report for library closures
+Name: GHW - Closure report 1 - items checked out at a library with due dates during a specified date range
 Created by: George H Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-02-15 11:10:48
-Modified on: 2019-06-21 11:41:45
-Date last run: 2019-06-21 11:41:58
+Modified on: 2019-10-16 08:27:47
+Date last run: 2019-10-16 08:30:55
 
 ----------
 
@@ -35,9 +35,8 @@ Expiry: 300
 <ol>
   <li>Run this report for the library that's closing unexpectedly and select the date range that they will be closed</li><br />
   <li>Download the report as a CSV file</li><br />
-  <li>Copy the numbers from the itemnumber column into a text file - only copy the item numbers into the text file</li><br />
-  <li>Open a support request with ByWater Solutions and attach the text file to the support request</li><br />
-  <li>Ask ByWater to change the due dates on all of the itemnumbers included in the text file to the date that the library will re-open (this usually takes ByWater an hour or two)</li><br />
+  <li>Open a support request with ByWater Solutions and attach the csv file to the support request</li><br />
+  <li>Ask ByWater to change the due dates on all of the itemnumbers included in the text file to the date the library will re-open (or a day or two after they reopen)</li><br />
   <li>Let the library know that you have asked ByWater to update the due dates on the items that are due during their closure</li><br />
   <li>Follow up with the library and with ByWater if there are any problems or issues</li><br />
 </ol>

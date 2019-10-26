@@ -8,12 +8,12 @@ Created by: George H Williams
 
 ----------
 
-Group: Daily, Monthly, Yearly Stats
-     Monthly
+Group: Statistics
+     Monthly Statistics
 
 Created on: 2019-01-27 20:45:59
-Modified on: 2019-06-19 20:48:02
-Date last run: 2019-09-17 14:16:03
+Modified on: 2019-10-04 12:08:00
+Date last run: 2019-10-14 11:28:48
 
 ----------
 

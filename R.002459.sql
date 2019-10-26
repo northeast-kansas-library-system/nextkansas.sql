@@ -12,8 +12,8 @@ Group: Administrative Reports
      System-admin
 
 Created on: 2015-02-10 14:41:41
-Modified on: 2019-06-12 09:52:20
-Date last run: 2019-06-26 15:46:23
+Modified on: 2019-10-25 21:20:41
+Date last run: 2019-10-25 21:20:51
 
 ----------
 
@@ -69,6 +69,7 @@ GROUP BY
 ORDER BY
   SuperLib DESC,
   borrowers.surname,
+  borrowers.firstname,
   borrowers.categorycode,
   borrowers.branchcode,
   borrowers.firstname

@@ -12,8 +12,8 @@ Group: Administrative Reports
      -
 
 Created on: 2018-12-27 12:02:59
-Modified on: 2019-01-31 09:27:57
-Date last run: 2019-09-11 08:24:23
+Modified on: 2019-10-02 08:33:03
+Date last run: 2019-10-25 15:42:50
 
 ----------
 
@@ -73,7 +73,7 @@ FROM
       JOIN items ON items.biblionumber = biblio.biblionumber
     WHERE
       items.barcode <> "" AND
-      (items.itype = 'MEDIA' OR
+      (items.itype = 'NVIDEO' OR
         items.itype = 'NEWMEDIA') AND
       items.location = 'ADULT' AND
       items.ccode = 'DVD' AND
@@ -127,7 +127,7 @@ FROM
       JOIN items ON items.biblionumber = biblio.biblionumber
     WHERE
       items.barcode <> "" AND
-      (items.itype = 'MEDIA' OR
+      (items.itype = 'NVIDEO' OR
         items.itype = 'NEWMEDIA') AND
       items.location = 'CHILDRENS' AND
       items.ccode = 'DVD' AND

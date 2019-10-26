@@ -3,7 +3,7 @@ R.003263
 
 ----------
 
-Name: test2
+Name: GHW - 3:1 requests ration report
 Created by: George H Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-09-10 11:59:57
-Modified on: 2019-09-11 17:48:10
-Date last run: 2019-09-20 14:21:08
+Modified on: 2019-10-01 10:03:07
+Date last run: 2019-10-23 07:20:05
 
 ----------
 
@@ -22,7 +22,20 @@ Expiry: 10
 
 ----------
 
-
+<div id=reportinfo>
+<p>Presents a list of items that have a higher than 3:1 requests to copies ratio.</p>
+<ul><li>Shows titles that currently have more than 3 requests per copy</li>
+<li>system wide</li>
+<li>grouped by biblio number</li>
+<li>sorted by highest ratio to lowest ratio</li>
+<li>contains links to the bibliographic records</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Notes go here.</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports= XX PUT REPORTNUMBER HERE and remove XXs and Spaces XX &phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */
