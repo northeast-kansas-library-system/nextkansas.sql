@@ -12,8 +12,8 @@ Group: Popular Reports
      -
 
 Created on: 2013-02-25 12:18:01
-Modified on: 2017-12-18 15:38:01
-Date last run: 2019-03-25 08:55:30
+Modified on: 2020-01-28 15:07:07
+Date last run: 2020-01-28 15:07:09
 
 ----------
 
@@ -27,7 +27,29 @@ Expiry: 0
 ----------
 */
 
-select count(DISTINCT reserves.borrowernumber) as reservecount, count(DISTINCT items.itemnumber) as itemcount, ROUND(count(DISTINCT reserves.borrowernumber)/count(DISTINCT items.itemnumber)) AS holdsratio, biblio.title, ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code>="b"]') as 'Remainder of Title', items.ccode, items.itype, biblio.biblionumber from borrowers LEFT JOIN reserves USING(borrowernumber) join biblio USING(biblionumber) join biblio_metadata USING(biblionumber) JOIN items USING(biblionumber) WHERE items.ccode IN ('DVD','TVSERIES','BLURAY','VIDEOGAME') group by biblionumber order by holdsratio desc, reservecount desc limit 100
+Select
+  Count(Distinct reserves.borrowernumber) As reservecount,
+  Count(Distinct items.itemnumber) As itemcount,
+  ROUND(Count(Distinct reserves.borrowernumber) / Count(Distinct items.itemnumber)) As holdsratio,
+  biblio.title,
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code>="b"]') As 'Remainder of Title',
+  items.ccode,
+  items.itype,
+  biblio.biblionumber
+From
+  borrowers Left Join
+  reserves On reserves.borrowernumber = borrowers.borrowernumber Join
+  biblio On biblio.biblionumber = reserves.biblionumber Join
+  biblio_metadata On biblio_metadata.biblionumber = biblio.biblionumber Join
+  items On items.biblionumber = biblio_metadata.biblionumber
+Where
+  items.ccode In ('DVD', 'TVSERIES', 'BLURAY', 'VIDEOGAME')
+Group By
+  items.biblionumber
+Order By
+  holdsratio Desc,
+  reservecount Desc
+Limit 100
 
 
 

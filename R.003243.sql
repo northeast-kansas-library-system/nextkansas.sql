@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-08-02 23:23:38
-Modified on: 2019-08-02 23:54:05
-Date last run: 2019-08-02 23:41:30
+Modified on: 2020-02-07 17:04:14
+Date last run: 2020-02-23 18:58:03
 
 ----------
 
@@ -23,7 +23,7 @@ Expiry: 300
 ----------
 
 <div id=reportinfo>
-<p>Part 3 of the patron purge process - part 3 - change extended attribute to 3, 5 or 6 as needed</p>
+<p>Part 3 of the patron purge process - part 3 - change extended attribute to 5-16 as appropriate based on PROJECTED_DELETION date</p>
 <p></p>
 <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3243">Click here to download as a csv file</a></p>
 </div>
@@ -31,92 +31,81 @@ Expiry: 300
 ----------
 */
 
-SELECT
-  Concat('<a href="https://staff.nexpresslibrary.org/cgi-bin/koha/circ/circulation.pl?borrowernumber=', borrowers.borrowernumber, '" target="_blank">Link to patron</a>') AS LINK_TO_PATRON,
+Select
+  Concat('<a href="https://staff.nexpresslibrary.org/cgi-bin/koha/circ/circulation.pl?borrowernumber=', borrowers.borrowernumber, '" target="_blank">Link to patron</a>') As LINK_TO_PATRON,
   borrowers.borrowernumber,
   borrowers.cardnumber,
   borrowers.branchcode,
   borrowers.categorycode,
   borrowers.dateenrolled,
   borrowers.dateexpiry,
-  If((AddDate(Last_Day(SubDate(borrowers.dateexpiry, INTERVAL -37 MONTH)), 1) + INTERVAL 14 DAY) < CAST('2018-04-15' AS DATE), CAST('2018-04-15' AS DATE), (AddDate(Last_Day(SubDate(borrowers.dateexpiry, INTERVAL -37 MONTH)), 1) + INTERVAL 14 DAY)) AS PROJECTED_DELETION,
-  Coalesce(accountlinesx.DUE_SUM, 0) AS AMT_DUE,
-  Coalesce(issuesx.ICOUNT, 0) AS CHECKOUTS,
-  Coalesce(guaranteesx.GCOUNT, 0) AS GUARANTEES,
-  Coalesce(requestsx.Count_reserve_id, 0) AS REQUESTS,
-  expired_attribute.lib AS ATTRIBUTE
-FROM
-  borrowers
-  LEFT JOIN (
-    SELECT
-      Count(borrowers.borrowernumber) AS GCOUNT,
+  If((AddDate(Last_Day(SubDate(borrowers.dateexpiry, Interval -37 Month)), 1) + Interval 14 Day) < Cast('2018-04-15' As Date), Cast('2018-04-15' As Date), (AddDate(Last_Day(SubDate(borrowers.dateexpiry, Interval -37 Month)), 1) + Interval 14 Day)) As PROJECTED_DELETION,
+  Coalesce(accountlinesx.DUE_SUM, 0) As AMT_DUE,
+  Coalesce(issuesx.ICOUNT, 0) As CHECKOUTS,
+  Coalesce(guaranteesx.GCOUNT, 0) As GUARANTEES,
+  Coalesce(requestsx.Count_reserve_id, 0) As REQUESTS,
+  expired_attribute.lib As ATTRIBUTE,
+  expired_attribute.attribute As attribute1,
+  expired_attribute.code
+From
+  borrowers Left Join
+  (Select
+      Count(borrowers.borrowernumber) As GCOUNT,
       borrowers.guarantorid
-    FROM
+    From
       borrowers
-    GROUP BY
-      borrowers.guarantorid
-  ) guaranteesx
-    ON borrowers.borrowernumber = guaranteesx.guarantorid
-  LEFT JOIN (
-    SELECT
+    Group By
+      borrowers.guarantorid) guaranteesx On borrowers.borrowernumber = guaranteesx.guarantorid Left Join
+  (Select
       accountlines.borrowernumber,
-      Format(Sum(accountlines.amountoutstanding), 2) AS DUE_SUM
-    FROM
+      Format(Sum(accountlines.amountoutstanding), 2) As DUE_SUM
+    From
       accountlines
-    GROUP BY
-      accountlines.borrowernumber
-  ) accountlinesx
-    ON borrowers.borrowernumber = accountlinesx.borrowernumber
-  LEFT JOIN (
-    SELECT
+    Group By
+      accountlines.borrowernumber) accountlinesx On borrowers.borrowernumber = accountlinesx.borrowernumber Left Join
+  (Select
       issues.borrowernumber,
-      Count(issues.issue_id) AS ICOUNT
-    FROM
+      Count(issues.issue_id) As ICOUNT
+    From
       issues
-    GROUP BY
-      issues.borrowernumber
-  ) issuesx
-    ON borrowers.borrowernumber = issuesx.borrowernumber
-  LEFT JOIN (
-    SELECT
+    Group By
+      issues.borrowernumber) issuesx On borrowers.borrowernumber = issuesx.borrowernumber Left Join
+  (Select
       reserves.borrowernumber,
-      Count(reserves.reserve_id) AS Count_reserve_id
-    FROM
+      Count(reserves.reserve_id) As Count_reserve_id
+    From
       reserves
-    GROUP BY
-      reserves.borrowernumber
-  ) requestsx
-    ON borrowers.borrowernumber = requestsx.borrowernumber
-  LEFT JOIN (
-    SELECT
+    Group By
+      reserves.borrowernumber) requestsx On borrowers.borrowernumber = requestsx.borrowernumber Left Join
+  (Select
       borrower_attributes.borrowernumber,
       borrower_attributes.code,
       borrower_attributes.attribute,
       authorised_values.lib,
       authorised_values.category
-    FROM
-      borrower_attributes
-      JOIN authorised_values
-        ON borrower_attributes.attribute = authorised_values.authorised_value
-    WHERE
-      borrower_attributes.code = 'expired' AND
-      authorised_values.category = 'expired'
-  ) expired_attribute
-    ON borrowers.borrowernumber = expired_attribute.borrowernumber
-WHERE
-  borrowers.dateexpiry < CurDate() - INTERVAL 3 YEAR AND
-  borrowers.branchcode LIKE '%' AND
-  borrowers.othernames NOT LIKE "%SIP%" AND
-  borrowers.categorycode <> 'STAFF' AND
-  borrowers.categorycode <> 'ILL' AND
-    borrowers.categorycode <> 'HOOPLA' AND
-  Coalesce(accountlinesx.DUE_SUM, 0) = 0 AND
-  Coalesce(issuesx.ICOUNT, 0) = 0 AND
-  Coalesce(guaranteesx.GCOUNT, 0) = 0 AND
-  Coalesce(requestsx.Count_reserve_id, 0) = 0
-GROUP BY
-  borrowers.borrowernumber
-ORDER BY
+    From
+      borrower_attributes Join
+      authorised_values On borrower_attributes.attribute = authorised_values.authorised_value
+    Where
+      borrower_attributes.code = 'expired' And
+      authorised_values.category = 'expired') expired_attribute On borrowers.borrowernumber = expired_attribute.borrowernumber
+Where
+  borrowers.dateexpiry < CurDate() - Interval 3 Year And
+  borrowers.branchcode Like '%' And
+  borrowers.othernames Not Like "%SIP%" And
+  borrowers.categorycode <> 'STAFF' And
+  borrowers.categorycode <> 'ILL' And
+  borrowers.categorycode <> 'HOOPLA' And
+  Coalesce(accountlinesx.DUE_SUM, 0) = 0 And
+  Coalesce(issuesx.ICOUNT, 0) = 0 And
+  Coalesce(guaranteesx.GCOUNT, 0) = 0 And
+  Coalesce(requestsx.Count_reserve_id, 0) = 0 And
+  expired_attribute.attribute < 5
+Group By
+  borrowers.borrowernumber,
+  expired_attribute.attribute,
+  expired_attribute.code
+Order By
   borrowers.dateexpiry,
   borrowers.branchcode,
   borrowers.surname,

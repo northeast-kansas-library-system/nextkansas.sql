@@ -71,13 +71,11 @@ ORDER BY
 
 Make sure you have a folder on your local computer called C:\git\ and that it is empty.
 
-Open the csv file and run the macro from the XLSX macro file.
-
-The VBA for the macro is:
+Open the csv file and run the following VBA macro:
 
 ```
 
-Sub WriteTotxtSQL()
+Sub WriteToSQL()
 
 Const forReading = 1, forAppending = 3, fsoForWriting = 2
 Dim fs, objTextStream, sText As String
@@ -88,7 +86,7 @@ lLastRow = Cells(Rows.Count, 1).End(xlUp).Row
 For lRowLoop = 1 To lLastRow
 
     Set fs = CreateObject("Scripting.FileSystemObject")
-    Set objTextStream = fs.opentextfile("c:\git\" & Cells(lRowLoop, 1) & ".txt", fsoForWriting, True)
+    Set objTextStream = fs.opentextfile("c:\git\" & Cells(lRowLoop, 1) & ".sql", fsoForWriting, True)
 
     sText = ""
 
@@ -111,10 +109,65 @@ End Sub
 
 ----------
 
-This should give you 1 text file for each row in the report.  Each text file represents 1 SQL report from Koha.
+This should give you 1 .sql file for each row in the report.  Each text file represents 1 SQL report from Koha with all of the notes, titles, comments, etc. commented out so that you can run the report from Emacs or Atom if you have the right plugin enabled and a working ODBC connection (reports with runtime parameters will not run from Emacs or Atom without modification).
 
 Save all of these files into the github folder for your repository.
 
 ----------
 
-Once all files are saved in the github folder, use Git or Atom to sync with the online repository.
+Optional -- I have my repository set up with Github Pages so that I can navigate to /myaccount.github.io/repositoryname/report_index.html and see a table with name and comments for each report.  To add report_index.html to your repository:
+
+Run report 3050 but do not save it as a spreadsheet.  Instead, expand the report to show all results on the screen at once.  Then right click the page and view the source.  Copy all of the data from the results table - from the first <table> tag to the final </table> tag in the page source and paste it into report_index.html in an html file called report_index.html.
+
+The SQL for this report is:
+
+----------
+
+```SQL
+
+SELECT
+  Concat(
+    LPad(saved_sql.id, 5, 0),
+    "<br /><br />",
+    Coalesce(saved_sql.report_name, "-"),
+    "<br /><br />",
+    Concat(Coalesce(groups.lib, "-"),
+    "<br />",
+    Coalesce(subgroups.lib, "-")),
+    "<br /><br />",
+    Concat("Created by:<br />", If(borrowers.borrowernumber IS NULL, "-", Concat(borrowers.firstname, " ", borrowers.surname)))
+  ) AS NAME,
+  Coalesce(saved_sql.notes, "-") AS NOTES
+FROM
+  saved_sql
+  LEFT JOIN borrowers ON saved_sql.borrowernumber = borrowers.borrowernumber
+  LEFT JOIN (SELECT
+        authorised_values.id,
+        authorised_values.category,
+        authorised_values.authorised_value,
+        authorised_values.lib,
+        authorised_values.imageurl,
+        authorised_values.lib_opac
+      FROM
+        authorised_values
+      WHERE
+        authorised_values.category = 'REPORT_GROUP') groups ON saved_sql.report_group = groups.authorised_value
+  LEFT JOIN (SELECT
+        authorised_values.id,
+        authorised_values.category,
+        authorised_values.authorised_value,
+        authorised_values.lib,
+        authorised_values.imageurl,
+        authorised_values.lib_opac
+      FROM
+        authorised_values) subgroups ON saved_sql.report_subgroup = subgroups.authorised_value
+GROUP BY
+  saved_sql.id
+ORDER BY
+  saved_sql.id
+LIMIT 10000
+```
+
+----------
+
+Once all files are saved in the github folder, update your repository.

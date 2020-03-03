@@ -4,7 +4,7 @@ R.000770
 ----------
 
 Name: All AATEMP patrons
-Created by: NEKLS Administrator
+Created by:  Tongie Book Club
 
 ----------
 
@@ -13,7 +13,7 @@ Group: Patrons
 
 Created on: 2010-01-07 10:03:47
 Modified on: 2014-02-28 15:13:22
-Date last run: 2019-10-07 13:06:52
+Date last run: 2020-02-09 11:58:47
 
 ----------
 

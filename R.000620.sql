@@ -4,7 +4,7 @@ R.000620
 ----------
 
 Name: Identify patron by email address
-Created by: NEKLS Administrator
+Created by:  Tongie Book Club
 
 ----------
 

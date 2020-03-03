@@ -12,8 +12,8 @@ Group: Library-Specific
      Ottawa
 
 Created on: 2017-06-27 16:32:34
-Modified on: 2019-02-25 10:51:52
-Date last run: 2019-10-25 09:18:04
+Modified on: 2020-02-22 19:52:26
+Date last run: 2020-02-28 11:42:27
 
 ----------
 
@@ -51,31 +51,7 @@ SELECT
   borrowers.phonepro AS ALT_PHONE_ONE,
   borrowers.B_phone AS ALT_PHONE_TWO,
   borrowers.branchcode,
-  If(
-    categories.category_type = "A",
-    "Adult",
-    If(
-      categories.category_type = "C",
-      "Child",
-      If(
-        categories.category_type = "S",
-        "Staff",
-        If(
-          categories.category_type = "I",
-          "Organization",
-          If(
-            categories.category_type = "P",
-            "Professional",
-            If(
-              categories.category_type = "X",
-              "Statistical",
-              "-"
-            )
-          )
-        )
-      )
-    )
-  ) AS CATEGORY,
+  If(categories.category_type = "A", "Adult", If(categories.category_type = "C", "Child", If(categories.category_type = "S", "Staff", If(categories.category_type = "I", "Organization", If(categories.category_type = "P", "Professional", If(categories.category_type = "X", "Statistical", "-")))))) AS CATEGORY,
   borrowers.dateofbirth,
   Format(Sum(outstanding_sixty.amountoutstanding), 2) AS AMOUNT_OUTSTANDING_SIXTY,
   Format(outstanding_total.Sum_amountoutstanding, 2) AS AMOUNT_OUTSTANDING_TOTAL
@@ -83,7 +59,6 @@ FROM
   (SELECT
       accountlines.accountlines_id,
       accountlines.borrowernumber,
-      accountlines.accountno,
       accountlines.itemnumber,
       accountlines.date,
       accountlines.amount,
@@ -91,12 +66,11 @@ FROM
       accountlines.accounttype,
       accountlines.amountoutstanding,
       accountlines.timestamp,
-      accountlines.lastincrement,
       accountlines.note,
       accountlines.manager_id
     FROM
-      accountlines
-      JOIN borrowers ON borrowers.borrowernumber = accountlines.manager_id
+      accountlines JOIN
+      borrowers ON borrowers.borrowernumber = accountlines.manager_id
     WHERE
       accountlines.amountoutstanding > 0 AND
       accountlines.date BETWEEN (Date_Sub(CurDate(), INTERVAL 1 YEAR)) AND (Date_Sub(CurDate(), INTERVAL 60 DAY)) AND
@@ -105,7 +79,6 @@ FROM
     SELECT
       accountlines.accountlines_id,
       accountlines.borrowernumber,
-      accountlines.accountno,
       accountlines.itemnumber,
       accountlines.date,
       accountlines.amount,
@@ -113,32 +86,31 @@ FROM
       accountlines.accounttype,
       accountlines.amountoutstanding,
       accountlines.timestamp,
-      accountlines.lastincrement,
       accountlines.note,
       accountlines.manager_id
     FROM
-      accountlines
-      JOIN old_issues ON old_issues.borrowernumber = accountlines.borrowernumber AND
-        old_issues.itemnumber = accountlines.itemnumber
+      accountlines JOIN
+      old_issues ON old_issues.borrowernumber = accountlines.borrowernumber AND
+          old_issues.itemnumber = accountlines.itemnumber
     WHERE
       accountlines.amountoutstanding > 0 AND
       accountlines.timestamp BETWEEN (Date_Sub(CurDate(), INTERVAL 1 YEAR)) AND (Date_Sub(CurDate(), INTERVAL 60 DAY)) AND
-      old_issues.branchcode = @brn) outstanding_sixty
-  JOIN borrowers ON borrowers.borrowernumber = outstanding_sixty.borrowernumber
-  JOIN categories ON borrowers.categorycode = categories.categorycode
-  LEFT JOIN (SELECT
+      old_issues.branchcode = @brn) outstanding_sixty JOIN
+  borrowers ON borrowers.borrowernumber = outstanding_sixty.borrowernumber JOIN
+  categories ON borrowers.categorycode = categories.categorycode LEFT JOIN
+  (SELECT
       borrower_attributes.borrowernumber,
       borrower_attributes.code,
       borrower_attributes.attribute,
       authorised_values.category,
       authorised_values.lib
     FROM
-      borrower_attributes
-      JOIN authorised_values ON borrower_attributes.attribute = authorised_values.authorised_value
+      borrower_attributes JOIN
+      authorised_values ON borrower_attributes.attribute = authorised_values.authorised_value
     WHERE
       borrower_attributes.code = 'CAOTTAWA' AND
-      authorised_values.category = 'COLLAGEN') collagen ON borrowers.borrowernumber = collagen.borrowernumber
-  LEFT JOIN (SELECT
+      authorised_values.category = 'COLLAGEN') collagen ON borrowers.borrowernumber = collagen.borrowernumber LEFT JOIN
+  (SELECT
       accountlines.borrowernumber,
       Sum(accountlines.amountoutstanding) AS Sum_amountoutstanding
     FROM

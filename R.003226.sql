@@ -3,7 +3,7 @@ R.003226
 
 ----------
 
-Name: GHW - Lists 003 - Show author/title information for a list - for printing
+Name: GHW - List / virtualshelf report 003 - Display author/title information for a list - for printing
 Created by: George H Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: Lists Module
      -
 
 Created on: 2019-07-17 09:09:51
-Modified on: 2019-07-23 17:30:14
-Date last run: 2019-10-01 15:42:58
+Modified on: 2019-11-05 10:52:52
+Date last run: 2020-02-10 13:58:03
 
 ----------
 
@@ -22,9 +22,9 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
+<div id=reportinfo class='noprint'>
 <p>Creates a simple printable list of titles and authors from a list</p>
-<ul><li>Shows titles and authors currently on a list</li>
+<ul><li>Displays titles and authors currently on a list</li>
 <li>you need to specify the list number (see below for more informaiton)</li>
 <li>grouped by biblio number</li>
 <li>sorted by author and title</li>

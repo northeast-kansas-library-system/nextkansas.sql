@@ -12,8 +12,8 @@ Group: Circulation
      Charges
 
 Created on: 2014-09-03 16:58:46
-Modified on: 2014-09-03 17:01:26
-Date last run: 2019-06-24 18:09:56
+Modified on: 2019-12-26 11:46:10
+Date last run: 2020-02-22 20:24:00
 
 ----------
 
@@ -23,6 +23,7 @@ Expiry: 0
 ----------
 
 Gives total of payments in Koha each month (listed as negative amount in the accountlines table); branch is based on staff accounts listed in manager_id recorded when fines are paid. 
+<p><span style="color: yellow; background-color: red; font-size: 200%;">References accountlines.accounttype.  Needs to be updated after January 4, 2020</span></p>
 
 ----------
 */

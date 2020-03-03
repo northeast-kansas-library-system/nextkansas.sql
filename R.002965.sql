@@ -12,8 +12,8 @@ Group: Library-Specific
      Ottawa
 
 Created on: 2017-06-27 16:45:08
-Modified on: 2018-12-09 22:01:10
-Date last run: 2019-10-25 09:21:26
+Modified on: 2020-02-26 16:58:42
+Date last run: 2020-02-28 11:44:07
 
 ----------
 
@@ -57,10 +57,9 @@ SELECT
   borrowers.dateofbirth,
   Format(Sum(outstanding.amountoutstanding), 2) AS AMOUNT_OUTSTANDING
 FROM
-    (SELECT
+  (SELECT
       accountlines.accountlines_id,
       accountlines.borrowernumber,
-      accountlines.accountno,
       accountlines.itemnumber,
       accountlines.date,
       accountlines.amount,
@@ -68,12 +67,11 @@ FROM
       accountlines.accounttype,
       accountlines.amountoutstanding,
       accountlines.timestamp,
-      accountlines.lastincrement,
       accountlines.note,
       accountlines.manager_id
     FROM
-      accountlines
-      JOIN borrowers ON borrowers.borrowernumber = accountlines.manager_id
+      accountlines JOIN
+      borrowers ON borrowers.borrowernumber = accountlines.manager_id
     WHERE
       accountlines.amountoutstanding > 0 AND
       accountlines.date BETWEEN (Date_Sub(CurDate(), INTERVAL 1 YEAR)) AND (Date_Sub(CurDate(), INTERVAL 60 DAY)) AND
@@ -82,7 +80,6 @@ FROM
     SELECT
       accountlines.accountlines_id,
       accountlines.borrowernumber,
-      accountlines.accountno,
       accountlines.itemnumber,
       accountlines.date,
       accountlines.amount,
@@ -90,28 +87,27 @@ FROM
       accountlines.accounttype,
       accountlines.amountoutstanding,
       accountlines.timestamp,
-      accountlines.lastincrement,
       accountlines.note,
       accountlines.manager_id
     FROM
-      accountlines
-      JOIN old_issues ON old_issues.borrowernumber = accountlines.borrowernumber AND old_issues.itemnumber =
-        accountlines.itemnumber
+      accountlines JOIN
+      old_issues ON old_issues.borrowernumber = accountlines.borrowernumber AND
+          old_issues.itemnumber = accountlines.itemnumber
     WHERE
       accountlines.amountoutstanding > 0 AND
       old_issues.branchcode = @brn AND
-      accountlines.timestamp BETWEEN (Date_Sub(CurDate(), INTERVAL 1 YEAR)) AND (Date_Sub(CurDate(), INTERVAL 60 DAY))) outstanding
-  JOIN borrowers ON borrowers.borrowernumber = outstanding.borrowernumber
-  JOIN categories ON borrowers.categorycode = categories.categorycode
-  LEFT JOIN (SELECT
+      accountlines.timestamp BETWEEN (Date_Sub(CurDate(), INTERVAL 1 YEAR)) AND (Date_Sub(CurDate(), INTERVAL 60 DAY))) outstanding JOIN
+  borrowers ON borrowers.borrowernumber = outstanding.borrowernumber JOIN
+  categories ON borrowers.categorycode = categories.categorycode LEFT JOIN
+  (SELECT
       borrower_attributes.borrowernumber,
       borrower_attributes.code,
       borrower_attributes.attribute,
       authorised_values.category,
       authorised_values.lib
     FROM
-      borrower_attributes
-      JOIN authorised_values ON borrower_attributes.attribute = authorised_values.authorised_value
+      borrower_attributes JOIN
+      authorised_values ON borrower_attributes.attribute = authorised_values.authorised_value
     WHERE
       borrower_attributes.code = 'CAOTTAWA' AND
       authorised_values.category = 'COLLAGEN') collagen ON borrowers.borrowernumber = collagen.borrowernumber

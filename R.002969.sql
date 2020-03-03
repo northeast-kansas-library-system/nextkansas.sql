@@ -12,8 +12,8 @@ Group: Statistics
      Monthly Statistics
 
 Created on: 2017-07-01 13:22:33
-Modified on: 2019-07-01 16:06:39
-Date last run: 2019-07-05 16:28:36
+Modified on: 2019-11-14 09:20:23
+Date last run: 2020-02-03 12:03:27
 
 ----------
 
@@ -22,8 +22,16 @@ Expiry: 300
 
 ----------
 
-<p style="display: none;">MNTHLY</p>
+<div id=reportinfo class=noprint>
+<p>Generates end of month data for spreadsheet report</p>
+<ul><li>Reports end of month data for Next-wide spreadsheet - Cells G58, H58, and I58</li>
+</ul><br />
+<p></p>
 <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=2969">Click here to download as a csv file</a></p>
+<p class= "notetags" style="display: none;">Monthly</p>
+</div>
+
+
 
 ----------
 */

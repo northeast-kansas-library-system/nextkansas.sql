@@ -12,8 +12,8 @@ Group: Patrons
      -
 
 Created on: 2019-07-22 09:28:39
-Modified on: 2019-07-22 10:53:48
-Date last run: 2019-08-01 10:19:04
+Modified on: 2019-12-26 16:58:06
+Date last run: 2020-03-02 14:02:17
 
 ----------
 
@@ -60,7 +60,8 @@ FROM borrowers patron
 JOIN messages ON messages.borrowernumber = patron.borrowernumber
   LEFT JOIN borrowers staff ON messages.manager_id = staff.borrowernumber
 WHERE
-  patron.cardnumber LIKE Concat('%', <<Enter patron barcode number>>, '%')
+  messages.branchcode LIKE <<Choose your library|LBRANCH>> AND
+  patron.cardnumber LIKE Concat('%', <<Enter patron barcode number or a % symbol>>, '%')
 GROUP BY
   messages.message_id
 ORDER BY

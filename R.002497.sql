@@ -12,8 +12,8 @@ Group: Administrative Reports
      Local Holds - Walkin-admin
 
 Created on: 2015-05-14 16:48:51
-Modified on: 2018-04-16 10:48:19
-Date last run: 2019-09-09 11:50:26
+Modified on: 2020-01-15 16:05:17
+Date last run: 2020-01-15 16:05:20
 
 ----------
 
@@ -46,15 +46,15 @@ FROM
   items
   JOIN biblio ON items.biblioitemnumber = biblio.biblionumber
 WHERE
-  ((items.itype = 'WALKIN1' OR
-    items.itype = 'LOCALHOLD1') AND
+  ((items.itype = 'NVIDLH' OR
+    items.itype = 'NVIDWALK') AND
   items.dateaccessioned < Date_Sub(CurDate(), INTERVAL 30 DAY) AND
   items.ccode <> 'ILL' AND
   items.ccode <> 'GADGET' AND
   items.ccode <> 'MAGAZINE' AND
   items.ccode <> 'COMPUTER' AND
   biblio.title NOT LIKE 'BASEHOR ILL%') OR
-  (items.itype = "NEWMEDIA" AND
+  (items.itype = "NVIDNEW" AND
   items.dateaccessioned < Date_Sub(CurDate(), INTERVAL 60 DAY) AND
   items.homebranch = "MCLOUTH")
 GROUP BY

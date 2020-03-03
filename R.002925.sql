@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2017-03-21 16:09:30
-Modified on: 2019-01-23 16:53:03
-Date last run: 2019-10-15 09:31:04
+Modified on: 2020-02-25 11:17:38
+Date last run: 2020-02-25 11:59:26
 
 ----------
 
@@ -38,26 +38,51 @@ Expiry: 0
 */
 
 SELECT
-  issuingrules.branchcode,
-  If(issuingrules.categorycode = "*", "All patrons not specified below", categories.description) AS PATRON_CATEGORY,
-  If(Coalesce(itemtypes.description, 0) = "0", "All ITYPES not specified below for this patron category", itemtypes.description) AS ITEM_TYPE,
-  If(issuingrules.maxissueqty IS NULL, "Unlimited", issuingrules.maxissueqty) AS CURRENT_CHECKOUTS_ALLOWED,
+  If(issuingrules.branchcode = '*', 'All libraries not specified above', issuingrules.branchcode) AS LIBRARY,
+  If(issuingrules.categorycode = "*", "All patrons not specified above", categories.description) AS PATRON_CATEGORY,
+  If(Coalesce(itemtypes.description, 0) = "0", "All ITYPES not specified above for this patron category", itemtypes.description) AS ITEM_TYPE,
+  If(maxissueqtys.rule_value = '', 'Unlimited', maxissueqtys.rule_value) AS CKO_ALLOWED,
   issuingrules.issuelength AS LOAN_PERIOD,
   Format(issuingrules.fine, 2) AS FINE_AMOUNT,
   issuingrules.chargeperiod AS FINE_CHARGING_INTERVAL,
   issuingrules.firstremind AS FINE_GRACE_PERIOD,
-  IF(issuingrules.overduefinescap is null, "Replacement price of item", Format(issuingrules.overduefinescap, 2)) AS OVERDUE_FINES_CAP,
+  If(issuingrules.overduefinescap IS NULL, "Replacement price of item", Format(issuingrules.overduefinescap, 2)) AS OVERDUE_FINES_CAP,
   issuingrules.renewalsallowed AS RENEWALS_ALLOWED,
   issuingrules.renewalperiod AS RENEWAL_PERIOD,
   issuingrules.reservesallowed AS HOLDS_ALLOWED_COUNT,
   issuingrules.onshelfholds AS ON_SHELF_HOLDS_ALLOWED,
-  issuingrules.opacitemholds AS ITEM_LEVEL_HOLDS
+  issuingrules.note AS NOTES
 FROM
-  issuingrules
-  LEFT JOIN itemtypes ON issuingrules.itemtype = itemtypes.itemtype
-  LEFT JOIN categories ON categories.categorycode = issuingrules.categorycode
+  issuingrules LEFT JOIN
+  itemtypes ON issuingrules.itemtype = itemtypes.itemtype LEFT JOIN
+  categories ON categories.categorycode = issuingrules.categorycode,
+  (SELECT
+      circulation_rules.id,
+      Coalesce(circulation_rules.branchcode, 'All') AS branchcode,
+      Coalesce(circulation_rules.categorycode, 'All') AS categorycode,
+      Coalesce(circulation_rules.itemtype, 'All') AS itemtype,
+      circulation_rules.rule_name,
+      circulation_rules.rule_value
+    FROM
+      circulation_rules
+    WHERE
+      circulation_rules.rule_name = 'maxissueqty'
+    GROUP BY
+      circulation_rules.id,
+      Coalesce(circulation_rules.branchcode, 'All'),
+      Coalesce(circulation_rules.categorycode, 'All'),
+      Coalesce(circulation_rules.itemtype, 'All'),
+      circulation_rules.rule_name,
+      circulation_rules.rule_value) maxissueqtys
 WHERE
-  issuingrules.branchcode LIKE <<Choose your library|LBRANCH>>
+  If(issuingrules.categorycode = '*', 'All', issuingrules.categorycode) = maxissueqtys.categorycode AND
+  If(issuingrules.itemtype = '*', 'All', issuingrules.itemtype) = maxissueqtys.itemtype AND
+  If(issuingrules.branchcode = '*', 'All', issuingrules.branchcode) = maxissueqtys.branchcode AND
+  If(issuingrules.branchcode = '*', 'All libraries not specified above', issuingrules.branchcode) LIKE <<Choose your library|LBRANCH>>
+ORDER BY
+  If(issuingrules.branchcode = '*', 'Z', issuingrules.branchcode),
+  If(issuingrules.categorycode = "*", "Z", categories.description),
+  If(issuingrules.itemtype = '*', 'Z', issuingrules.itemtype)
 
 
 

@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-08-24 00:37:54
-Modified on: 2019-08-25 19:42:13
-Date last run: 2019-09-27 10:44:50
+Modified on: 2020-02-26 14:43:51
+Date last run: 2020-02-28 13:23:33
 
 ----------
 
@@ -30,15 +30,17 @@ Expiry: 300
 SELECT
   borrowers.borrowernumber,
   borrowers.cardnumber,
-  borrowers.surname,
-  borrowers.firstname,
+  REGEXP_REPLACE(TRIM(borrowers.surname), '[[:space:]]+', ' ') AS surname,
+  REGEXP_REPLACE(TRIM(borrowers.firstname), '[[:space:]]+', ' ') AS firstname,
   borrowers.title,
   borrowers.othernames,
   borrowers.initials,
   borrowers.streetnumber,
   borrowers.streettype,
-  borrowers.address,
-  borrowers.address2,
+  REGEXP_REPLACE(TRIM(REPLACE(borrowers.address, ".", "")), '[[:space:]]+', ' ') AS address,
+  REGEXP_REPLACE(TRIM(REPLACE(borrowers.address, ".", "")), '[[:space:]]+', ' ') AS addressx,
+  REGEXP_REPLACE(TRIM(REPLACE(borrowers.address2, ".", "")), '[[:space:]]+', ' ') AS address2,
+  REGEXP_REPLACE(TRIM(REPLACE(borrowers.address2, ".", "")), '[[:space:]]+', ' ') AS address2x,
   borrowers.city,
   borrowers.state,
   borrowers.zipcode,
@@ -67,7 +69,6 @@ SELECT
   borrowers.date_renewed,
   borrowers.gonenoaddress,
   borrowers.lost,
-  borrowers.debarred,
   borrowers.contactname,
   borrowers.contactfirstname,
   borrowers.contacttitle,
@@ -90,6 +91,7 @@ SELECT
 FROM
   borrowers
 WHERE
+  borrowers.categorycode <> "STAFF" AND
   borrowers.branchcode Like <<Select your library|LBRANCH>> AND
   borrowers.city Like Concat(<<Enter a left anchored city name search or a % symbol>>, "%")
 ORDER BY

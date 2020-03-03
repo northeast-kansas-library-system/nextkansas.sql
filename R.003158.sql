@@ -8,11 +8,11 @@ Created by: George H Williams
 
 ----------
 
-Group: -
+Group: Administrative Reports
      -
 
 Created on: 2019-01-25 18:16:57
-Modified on: 2019-01-25 18:16:57
+Modified on: 2019-11-05 11:05:14
 Date last run: 2019-07-23 17:40:10
 
 ----------
@@ -22,7 +22,13 @@ Expiry: 300
 
 ----------
 
-
+<div id=reportinfo class=noprint>
+<p>Administrative use</p>
+<p></p>
+<p>Displays some marc data of bibliographic records based on virtualshelf ID</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports= XX PUT REPORTNUMBER HERE and remove XXs and Spaces XX &phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

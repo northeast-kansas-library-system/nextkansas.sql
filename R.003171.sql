@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-02-15 11:10:48
-Modified on: 2019-10-16 08:27:47
-Date last run: 2019-10-16 08:30:55
+Modified on: 2020-01-13 12:06:32
+Date last run: 2020-02-19 11:55:11
 
 ----------
 
@@ -54,8 +54,8 @@ SELECT
 FROM
   issues
 WHERE
-  issues.branchcode LIKE <<Select library|ZBRAN>> AND
-  issues.date_due BETWEEN <<Between the start of the day on date1|date>>  AND (<<the end of the day on date2|date>> + interval 1 day)
+  issues.date_due BETWEEN <<Between the start of the day on date1|date>>  AND (<<the end of the day on date2|date>> + interval 1 day) AND
+  issues.branchcode LIKE <<Select library|ZBRAN>>
 GROUP BY
   issues.branchcode,
   issues.itemnumber

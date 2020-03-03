@@ -3,7 +3,7 @@ R.003228
 
 ----------
 
-Name: GHW - Lists 005 - Show list titles with links to bibliographic records
+Name: GHW - List / virtualshelf report 005 - Display list titles with links to bibliographic records
 Created by: George H Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: Lists Module
      -
 
 Created on: 2019-07-17 16:43:43
-Modified on: 2019-07-23 17:39:05
-Date last run: 2019-07-23 17:18:38
+Modified on: 2019-11-05 10:52:48
+Date last run: 2019-11-07 15:11:10
 
 ----------
 
@@ -22,10 +22,10 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
+<div id=reportinfo class='noprint'>
 <p>Shows the titles on a list with just the author and title and links to the title's bibliographic record</p>
-<ul><li>Shows titles currently on a list</li>
-<li>only shows the list you specify</li>
+<ul><li>Displays titles currently on a list</li>
+<li>only displays the list you specify</li>
 <li>grouped by biblionumber</li>
 <li>sorted by author and title</li>
 <li>links to the title</li>

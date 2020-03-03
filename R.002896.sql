@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2017-02-01 16:27:01
-Modified on: 2019-01-03 10:21:15
-Date last run: 2019-10-17 13:37:04
+Modified on: 2020-02-22 20:07:38
+Date last run: 2020-02-27 13:19:10
 
 ----------
 
@@ -31,6 +31,8 @@ Expiry: 0
 <li>sorted by NExpress standard classification scheme</li>
 </ul><br />
 <p><ins>Notes:</ins></p>
+<p></p>
+<p>Replaces report 888</p>
 <p></p>
 <p>If an item has a blank LOST_DATE and a blank DAYS_LOST it is because the item was marked lost before we upgraded to Koha 3.16 (October 2014)</p>
 <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2896&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>

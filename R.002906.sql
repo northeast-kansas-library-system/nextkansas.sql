@@ -12,8 +12,8 @@ Group: Administrative Reports
      Testing
 
 Created on: 2017-02-14 16:55:24
-Modified on: 2017-02-16 10:16:44
-Date last run: 2019-05-26 23:29:27
+Modified on: 2020-02-27 16:48:20
+Date last run: 2020-02-27 16:48:23
 
 ----------
 
@@ -84,7 +84,7 @@ WHERE
   not_loan.category = 'NOT_LOAN' AND
   damaged.category = "DAMAGED" AND
   withdrawn.category = "WITHDRAWN" AND
-  items.homebranch = 'MCLOUTH'
+  items.homebranch = 'LANSING'
 GROUP BY
   items.itemnumber
 ORDER BY

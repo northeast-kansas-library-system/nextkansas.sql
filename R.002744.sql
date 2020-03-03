@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2016-08-29 13:00:26
-Modified on: 2018-07-06 12:01:05
-Date last run: 2019-10-18 11:39:46
+Modified on: 2020-02-27 10:40:35
+Date last run: 2020-02-28 10:49:07
 
 ----------
 
@@ -63,10 +63,7 @@ WHERE
   Coalesce(items.copynumber, "~") <> "~") OR
   (items.homebranch = 'PAOLA' AND
   Coalesce(items.copynumber, "~") = "~" AND
-  (items.itype = 'MEDIA' OR
-    items.itype = 'LOCALHOLD1' OR
-    items.itype = 'NEWMEDIA' OR
-    items.itype = 'WALKIN1') AND
+  (items.itype LIKE 'NVID%') AND
   items.itemcallnumber LIKE "%MOV%")
 GROUP BY
   items.itemnumber

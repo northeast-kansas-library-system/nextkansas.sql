@@ -4,7 +4,7 @@ R.000744
 ----------
 
 Name: Osawatomie Overdues
-Created by: NEKLS Administrator
+Created by:  Tongie Book Club
 
 ----------
 

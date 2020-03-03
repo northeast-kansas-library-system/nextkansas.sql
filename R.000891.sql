@@ -4,7 +4,7 @@ R.000891
 ----------
 
 Name: LOST Report ONLY showing null value for replacement cost
-Created by: NEKLS Administrator
+Created by:  Tongie Book Club
 
 ----------
 

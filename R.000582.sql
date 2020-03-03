@@ -4,7 +4,7 @@ R.000582
 ----------
 
 Name: OUTSTANDING Fines by patron home library
-Created by: NEKLS Administrator
+Created by:  Tongie Book Club
 
 ----------
 
@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2009-06-12 16:22:06
 Modified on: 2018-10-03 09:31:12
-Date last run: 2019-10-07 16:48:03
+Date last run: 2019-12-19 16:29:56
 
 ----------
 

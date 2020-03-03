@@ -12,8 +12,8 @@ Group: Patrons
      Patron attributes
 
 Created on: 2018-06-29 08:57:11
-Modified on: 2019-07-24 17:46:53
-Date last run: 2019-07-24 17:44:52
+Modified on: 2019-11-21 11:26:22
+Date last run: 2019-11-21 11:47:24
 
 ----------
 
@@ -43,7 +43,12 @@ Expiry: 300
 SELECT
   Concat("<a href='/cgi-bin/koha/circ/circulation.pl?borrowernumber=", borrowers.borrowernumber, "' target='_blank'>Patron</a>") AS LINK_TO_PATRON,
   borrowers.cardnumber,
-  Concat_Ws("", If(borrowers.surname = "", "-", borrowers.surname), " / ", If(borrowers.firstname = "", "-", borrowers.firstname), If(borrowers.othernames = "", " ", Concat(" - (", borrowers.othernames, ")"))) AS NAME,
+  Concat_Ws("",
+    If(borrowers.surname = "", "-", borrowers.surname), 
+    " / ", 
+    If(borrowers.firstname = "", "-", borrowers.firstname), 
+    If(borrowers.othernames = "", " ", Concat(" - (", borrowers.othernames, ")"))
+  ) AS NAME,
   borrowers.address,
   borrowers.address2,
   borrowers.city,

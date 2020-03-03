@@ -4,7 +4,7 @@ R.000595
 ----------
 
 Name: Weekly Juv (JF, E or Childrens) Circ, Tongie example
-Created by: NEKLS Administrator
+Created by:  Tongie Book Club
 
 ----------
 

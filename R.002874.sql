@@ -12,8 +12,8 @@ Group: Fines/Fees
      -
 
 Created on: 2017-01-04 12:34:28
-Modified on: 2018-12-11 12:21:50
-Date last run: 2019-10-25 16:32:11
+Modified on: 2019-12-26 11:46:32
+Date last run: 2020-03-02 09:23:41
 
 ----------
 
@@ -34,6 +34,8 @@ Expiry: 0
 <p></p>
 <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2874&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
+
+<p><span style="color: yellow; background-color: red; font-size: 200%;">References accountlines.accounttype.  Needs to be updated after January 4, 2020</span></p>
 
 ----------
 */

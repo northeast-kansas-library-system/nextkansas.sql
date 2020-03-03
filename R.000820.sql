@@ -4,7 +4,7 @@ R.000820
 ----------
 
 Name: Patron Category cleanup
-Created by: NEKLS Administrator
+Created by:  Tongie Book Club
 
 ----------
 

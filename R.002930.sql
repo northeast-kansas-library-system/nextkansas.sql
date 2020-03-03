@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2017-04-26 12:32:24
-Modified on: 2019-03-19 09:42:35
-Date last run: 2019-06-27 16:45:29
+Modified on: 2019-12-26 11:46:38
+Date last run: 2019-12-20 13:07:13
 
 ----------
 
@@ -47,6 +47,8 @@ Expiry: 0
 <p>Report created by George Williams.</p>
 <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2930&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
+
+<p><span style="color: yellow; background-color: red; font-size: 200%;">References accountlines.accounttype.  Needs to be updated after January 4, 2020</span></p>
 
 ----------
 */

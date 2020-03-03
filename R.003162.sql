@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-01-28 12:16:43
-Modified on: 2019-01-29 14:44:31
-Date last run: 2019-09-03 15:07:17
+Modified on: 2019-12-26 11:47:05
+Date last run: 2019-12-02 13:21:20
 
 ----------
 
@@ -35,6 +35,8 @@ Expiry: 300
 <p></p>
 <p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3162&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
+
+<p><span style="color: yellow; background-color: red; font-size: 200%;">References accountlines.accounttype.  Needs to be updated after January 4, 2020</span></p>
 
 ----------
 */

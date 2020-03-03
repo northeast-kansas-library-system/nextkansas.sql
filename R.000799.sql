@@ -4,7 +4,7 @@ R.000799
 ----------
 
 Name: Titles of intra consortial ILLs for the Prior Month
-Created by: NEKLS Administrator
+Created by:  Tongie Book Club
 
 ----------
 
@@ -13,7 +13,7 @@ Group: Acquisitions
 
 Created on: 2010-01-26 14:52:22
 Modified on: 2018-07-02 09:44:36
-Date last run: 2019-08-07 18:45:07
+Date last run: 2020-01-03 12:12:37
 
 ----------
 

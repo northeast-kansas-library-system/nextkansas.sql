@@ -12,8 +12,8 @@ Group: Circulation
      -
 
 Created on: 2017-10-05 15:03:46
-Modified on: 2018-04-16 11:11:34
-Date last run: 2019-06-21 11:47:58
+Modified on: 2020-02-18 15:02:02
+Date last run: 2020-02-18 15:50:57
 
 ----------
 
@@ -69,7 +69,8 @@ FROM
         JOIN borrowers ON action_logs.user = borrowers.borrowernumber
       WHERE
         action_logs.module = 'circulation' AND
-        action_logs.action = 'issue') actions
+        (action_logs.action = 'issue' OR
+         action_logs.action = 'renewal')) actions
   ON statistics.itemnumber = actions.info
   AND statistics.borrowernumber = actions.object
   AND statistics.datetime = actions.timestamp

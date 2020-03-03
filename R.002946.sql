@@ -8,12 +8,12 @@ Created by: George H Williams
 
 ----------
 
-Group: Administrative Reports
+Group: -
      -
 
 Created on: 2017-05-12 01:07:13
-Modified on: 2019-06-06 15:53:50
-Date last run: 2019-10-15 10:54:08
+Modified on: 2020-02-24 15:21:01
+Date last run: 2020-02-25 12:39:06
 
 ----------
 
@@ -39,60 +39,43 @@ Expiry: 300
 */
 
 SELECT
-
-  CONCAT(
-    CONCAT(
-      REPLACE(branches.branchname, ' - ', '<br />     '),
-      '<p><ins>Mailing address:</ins><br />',
-      Concat_Ws('<br />', branches.branchaddress1, Concat(branches.branchcity,', ', branches.branchstate, ' ', branches.branchzip)),
-      '</p>'
-    ),
-    CONCAT(
-      '<ins>Street address:</ins><br />',
-      Concat_Ws(
-        '<br />',
-        If(
-          branches.branchaddress2 = ' ',
-          branches.branchaddress1,
-          branches.branchaddress2
-        ),
-        Concat(
-          branches.branchcity,
-          ', ',
-          branches.branchstate,
-          '<br />'
-        )
+  Concat(
+    Concat(
+      Replace(branches.branchname, ' - ', '<br />     '), 
+      '<p><ins>Mailing address:</ins><br />', 
+      Concat_Ws('<br />', 
+        branches.branchaddress1, 
+        Concat(branches.branchcity, ', ', branches.branchstate, ' ', branches.branchzip)), 
+        '</p>'),
+        Concat('<ins>Street address:</ins><br />', Concat_Ws('<br />', If(branches.branchaddress2 = ' ', branches.branchaddress1, branches.branchaddress2), 
+        Concat(branches.branchcity, ', ', branches.branchstate, '<br />')
       )
     )
   ) AS Library,
-
   Concat_Ws(
-    '<p>',
-    Concat('<p>Phone: ', branches.branchphone,'</p>'),
-    Concat('Fax: ', branches.branchfax,'</p>'),
-    Concat('e-mail: ', branches.branchemail,'</p>'),
-    Concat('Website: <a href="', branches.branchurl,'" target="_blank">Click here</a></p>'),
-    Concat('Courier route #: ', branches.branchcountry,'</p>')
+    '<p>', 
+    Concat('<p>Phone: ', branches.branchphone, '</p>'), 
+    Concat('Fax: ', branches.branchfax, '</p>'), 
+    Concat('e-mail: ', branches.branchemail, '</p>'), 
+    Concat('Website: <a href="', branches.branchurl, '" target="_blank">Click here</a></p>'), 
+    Concat('Courier route #: ', branches.branchcountry, '</p>')
   ) AS "Contact information",
-
-  CONCAT_WS(
-    '<br />',
-   '<span style="background: yellow; text-decoration: underline; font-size: 120%;">',
-    (REPLACE(REPLACE(branches.branchaddress3, ' | ', '<br /><br />'), ' - ', '</span><br />     - ') ),
-    CONCAT('<br />Total titles: ',Count(DISTINCT items.biblionumber)),
-    ' ',
-    CONCAT('Total items: ',Count(DISTINCT items.itemnumber))
-  ) AS "Staff contacts / holdings"
-
-FROM
-  branches LEFT JOIN
-  items
-    ON items.homebranch = branches.branchcode
+  Concat_Ws(
+    '<br />', 
+    Replace(
+      Replace(
+        Replace(branches.branchaddress3, '|', '<br /><br />'),
+        'Director:', '<span style="background: yellow; text-decoration: underline; font-size: 120%;">Director:</span><br />'), 
+        'Accreditation:', '<span style="background: aqua; text-decoration: underline; font-size: 120%;">Type:</span><br />'),
+    CONCAT('<br /><span style="background: wheat; text-decoration: underline;">Total titles:</span> ',Count(DISTINCT items.biblionumber)),
+        ' ',
+        CONCAT('<span style="background: wheat; text-decoration: underline;">Total items:</span> ',Count(DISTINCT items.itemnumber))
+   ) AS "Staff contacts / holdings"
+FROM branches
+LEFT JOIN items ON items.homebranch = branches.branchcode
 WHERE branches.branchcode LIKE <<Select library|ZBRAN>>
-GROUP BY
-  branches.branchcode
-LIMIT
-  500
+GROUP BY branches.branchcode
+LIMIT 500
 
 
 

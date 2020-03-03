@@ -12,8 +12,8 @@ Group: Administrative Reports
      Testing
 
 Created on: 2017-04-14 10:06:57
-Modified on: 2017-04-14 11:25:19
-Date last run: -
+Modified on: 2019-11-29 16:57:17
+Date last run: 2019-11-29 16:58:32
 
 ----------
 
@@ -32,7 +32,7 @@ SELECT
   requests.cardnumber,
   requests.author,
   requests.title,
-  requests.itemnumber,
+  requests.itemnumber as ITEM_NUMBER,
   requests.REQ_PLACED_ON,
   requests.PICK_UP_BRANCH,
   requests.reservenotes,

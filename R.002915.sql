@@ -12,8 +12,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2017-03-01 09:17:47
-Modified on: 2019-04-10 17:21:02
-Date last run: 2019-10-02 09:42:50
+Modified on: 2020-02-25 16:49:23
+Date last run: 2020-02-25 16:50:34
 
 ----------
 
@@ -47,16 +47,15 @@ Expiry: 0
 SELECT
   Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">', biblio.biblionumber, '</a>') AS LINK_TO_TITLE,
   items.itemnumber AS ITEM_NUMBER,
-  CONCAT("-", items.barcode, "-") AS BARCODE,
+  Concat("-", items.barcode, "-") AS BARCODE,
   items.homebranch,
   items.holdingbranch,
   items.location,
-  items.itype,
+  itypes.description AS ITYPE,
   ccode.lib AS CCODE,
   items.itemcallnumber,
   biblio.author,
-  Concat_Ws(
-    ' ',
+  Concat_Ws(' ', 
     biblio.title,
     ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'),
     ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),
@@ -71,52 +70,61 @@ SELECT
   items.itemlost_on,
   Coalesce(damaged.lib, "-") AS DAMAGED_STATUS,
   Coalesce(not_for_loan.lib, "-") AS NOT_FOR_LOAN_STATUS,
-  items.replacementprice
+  items.replacementprice,
+  If(paidfor.amountoutstanding = 0, "$0.00 outstanding lost fees", "") AS OUTSTANDING_FEES
 FROM
   items JOIN
-  biblio
-    ON items.biblionumber = biblio.biblionumber JOIN
-  biblio_metadata
-    ON biblio_metadata.biblionumber = biblio.biblionumber AND
-    items.biblionumber = biblio_metadata.biblionumber JOIN
-  authorised_values ccode
-    ON items.ccode = ccode.authorised_value LEFT JOIN
+  biblio ON items.biblionumber = biblio.biblionumber JOIN
+  biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber AND
+      items.biblionumber = biblio_metadata.biblionumber JOIN
+  authorised_values ccode ON items.ccode = ccode.authorised_value LEFT JOIN
   (SELECT
-    authorised_values.authorised_value,
-    authorised_values.lib,
-    authorised_values.category
-  FROM
-    authorised_values
-  WHERE
-    authorised_values.category = 'NOT_LOAN') not_for_loan
-    ON items.notforloan = not_for_loan.authorised_value LEFT JOIN
+      authorised_values.authorised_value,
+      authorised_values.lib,
+      authorised_values.category
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'NOT_LOAN') not_for_loan ON items.notforloan = not_for_loan.authorised_value LEFT JOIN
   (SELECT
-    authorised_values.authorised_value,
-    authorised_values.lib,
-    authorised_values.category
-  FROM
-    authorised_values
-  WHERE
-    authorised_values.category = 'WITHDRAWN') withdrawn
-    ON items.withdrawn = withdrawn.authorised_value LEFT JOIN
+      authorised_values.authorised_value,
+      authorised_values.lib,
+      authorised_values.category
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'WITHDRAWN') withdrawn ON items.withdrawn = withdrawn.authorised_value LEFT JOIN
   (SELECT
-    authorised_values.authorised_value,
-    authorised_values.lib,
-    authorised_values.category
-  FROM
-    authorised_values
-  WHERE
-    authorised_values.category = 'LOST') lost
-    ON items.itemlost = lost.authorised_value LEFT JOIN
+      authorised_values.authorised_value,
+      authorised_values.lib,
+      authorised_values.category
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'LOST') lost ON items.itemlost = lost.authorised_value LEFT JOIN
   (SELECT
-    authorised_values.authorised_value,
-    authorised_values.lib,
-    authorised_values.category
-  FROM
-    authorised_values
-  WHERE
-    authorised_values.category = 'DAMAGED') damaged
-    ON items.damaged = damaged.authorised_value
+      authorised_values.authorised_value,
+      authorised_values.lib,
+      authorised_values.category
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'DAMAGED') damaged ON items.damaged = damaged.authorised_value LEFT JOIN
+  (SELECT
+      itemtypes.itemtype,
+      itemtypes.description
+    FROM
+      itemtypes) itypes ON itypes.itemtype = items.itype LEFT JOIN
+  (SELECT
+      accountlines.itemnumber,
+      accountlines.accounttype,
+      accountlines.amountoutstanding,
+      accountlines.note
+    FROM
+      accountlines
+    WHERE
+      accountlines.accounttype = 'L' AND
+      accountlines.amountoutstanding = 0) paidfor ON paidfor.itemnumber = items.itemnumber
 WHERE
   ccode.category = 'CCODE' AND
   items.homebranch LIKE <<Select library|ZBRAN>> AND
@@ -125,11 +133,13 @@ WHERE
   items.damaged LIKE <<Damaged status|ZDAMAGED>> AND
   items.notforloan LIKE <<Not-for-loan status|ZNOT_LOAN>>
 GROUP BY
-  items.itemnumber
+  items.itemnumber,
+  itypes.description,
+  If(paidfor.amountoutstanding = 0, "$0.00 outstanding lost fees", "")
 ORDER BY
   items.homebranch,
   items.location,
-  items.itype,
+  ITYPE,
   CCODE,
   items.itemcallnumber,
   biblio.author,

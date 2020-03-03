@@ -12,8 +12,8 @@ Group: Statistics
      Monthly Statistics
 
 Created on: 2017-07-11 11:52:53
-Modified on: 2019-07-01 16:06:41
-Date last run: 2019-07-01 14:15:54
+Modified on: 2020-01-03 16:49:58
+Date last run: 2020-01-03 16:50:11
 
 ----------
 
@@ -29,6 +29,8 @@ Expiry: 300
 <li>grouped and sorted by library code</li>
 </ul><br />
 <p><ins>Notes:</ins></p>
+<p></p>
+<p>This report was updated on January 3, 2020, to improve accuracy in the FILLED_LM column.</p>
 <p></p>
 <p>PLACED_LM = the number of requests that were placed in the previous calendar month.</p>
 <p></p>
@@ -67,6 +69,7 @@ SELECT
   Coalesce(requests_cancelled_in_transit.Count_reserve_id, 0) AS CNX_IN_TRASIT_LM,
   Coalesce(requests_cancelled_before_pulled.Count_reserve_id, 0) AS CNX_BEFORE_ACTION_LM,
   Coalesce(requests_cancelled.Count_reserve_id, 0) AS CNX_TOTAL_LM,
+  Coalesce(requests_expired_unfilled.Count_reserve_id, 0) AS EXPIRED_LM,
   Sum(Coalesce(requests_placed_staff.Count_reserve_id, 0)) AS PLACED_BY_STAFF,
   (Sum(Coalesce(requests_placed.Count_reserve_id, 0)) - Sum(Coalesce(requests_placed_staff.Count_reserve_id, 0))) AS PLACED_BY_PATRON
 FROM
@@ -101,10 +104,14 @@ FROM
       Count(old_reserves.reserve_id) AS Count_reserve_id
     FROM
       old_reserves
+      JOIN action_logs
+        ON action_logs.object = old_reserves.reserve_id
     WHERE
-      Month(old_reserves.timestamp) = Month(Now() - INTERVAL 1 MONTH) AND
-      Year(old_reserves.timestamp) = Year(Now() - INTERVAL 1 MONTH) AND
-      old_reserves.found = 'F'
+      Month(action_logs.timestamp) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(action_logs.timestamp) = Year(Now() - INTERVAL 1 MONTH) AND
+      old_reserves.found = 'F' AND
+      action_logs.module = 'HOLDS' AND
+      action_logs.action LIKE "DEL%"
     GROUP BY
       old_reserves.branchcode
   ) requests_filled
@@ -172,7 +179,7 @@ FROM
       Count(reserves.reserve_id) AS Count_reserve_id
     FROM
       reserves
-      INNER JOIN action_logs
+      JOIN action_logs
         ON action_logs.object = reserves.reserve_id
     WHERE
       Year(reserves.reservedate) = Year(Now() - INTERVAL 1 MONTH) AND
@@ -188,7 +195,7 @@ FROM
       Count(old_reserves.reserve_id) AS Count_reserve_id
     FROM
       old_reserves
-      INNER JOIN action_logs
+      JOIN action_logs
         ON action_logs.object = old_reserves.reserve_id
     WHERE
       Month(old_reserves.reservedate) = Month(Now() - INTERVAL 1 MONTH) AND
@@ -200,13 +207,33 @@ FROM
       old_reserves.branchcode
   ) requests_placed_staff
     ON requests_placed_staff.branchcode = branches.branchcode
+  LEFT JOIN (
+    SELECT
+      old_reserves.branchcode,
+      Count(old_reserves.reserve_id) AS Count_reserve_id
+    FROM
+      old_reserves
+      JOIN action_logs
+        ON action_logs.object = old_reserves.reserve_id
+    WHERE
+      Month(action_logs.timestamp) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(action_logs.timestamp) = Year(Now() - INTERVAL 1 MONTH) AND
+      old_reserves.found IS NULL AND
+      action_logs.module = 'HOLDS' AND
+      action_logs.action = 'CANCEL' AND
+      action_logs.user = 0
+    GROUP BY
+      old_reserves.branchcode
+  ) requests_expired_unfilled
+    ON requests_expired_unfilled.branchcode = branches.branchcode
 GROUP BY
   branches.branchcode,
   Coalesce(requests_filled.Count_reserve_id, 0),
   Coalesce(requests_cancelled_from_hold_shelf.Count_reserve_id, 0),
   Coalesce(requests_cancelled_in_transit.Count_reserve_id, 0),
   Coalesce(requests_cancelled_before_pulled.Count_reserve_id, 0),
-  Coalesce(requests_cancelled.Count_reserve_id, 0)
+  Coalesce(requests_cancelled.Count_reserve_id, 0),
+  requests_expired_unfilled.Count_reserve_id
 
 
 

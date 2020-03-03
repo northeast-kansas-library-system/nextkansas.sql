@@ -12,8 +12,8 @@ Group: Statistics
      Monthly Statistics
 
 Created on: 2019-01-27 20:45:59
-Modified on: 2019-10-04 12:08:00
-Date last run: 2019-10-14 11:28:48
+Modified on: 2020-02-05 15:56:19
+Date last run: 2020-03-02 15:20:09
 
 ----------
 
@@ -35,7 +35,7 @@ Expiry: 300
 <p></p>
 <p>Partially replaces report 1929</p>
 <p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports= XX PUT REPORTNUMBER HERE and remove XXs and Spaces XX &phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3159&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
 
 ----------
@@ -94,7 +94,7 @@ FROM
       Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       (statistics.type = 'issue' OR
         statistics.type = 'renew') AND
-      If(statistics.location IS NULL, "PROC", If(statistics.location = "LVPLADULT", "ADULT", If(statistics.location = "LVPLCHILD", "CHILDRENS", If(statistics.location = "LVPLYA", "YOUNGADULT", statistics.location)))) = 'ADULT'
+      If(statistics.location IS NULL, "PROC", If(statistics.location = "LVPLADULT", "ADULT", If(statistics.location = "LVPLCHILD", "CHILDRENS", If(statistics.location = "LVPLYA", "YOUNGADULT", If(statistics.location = "PAOLAADULT", "ADULT", If(statistics.location = "PAOLACHILD", "CHILDRENS", If(statistics.location = "PAOLAYA", "YOUNGADULT", statistics.location))))))) = 'ADULT'
     GROUP BY
       If(statistics.branch IS NULL, "NEKLS", statistics.branch),
       If(statistics.ccode IS NULL, "XXX", statistics.ccode)
@@ -113,7 +113,7 @@ FROM
       Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       (statistics.type = 'issue' OR
         statistics.type = 'renew') AND
-      If(statistics.location IS NULL, "PROC", If(statistics.location = "LVPLADULT", "ADULT", If(statistics.location = "LVPLCHILD", "CHILDRENS", If(statistics.location = "LVPLYA", "YOUNGADULT", statistics.location)))) = 'YOUNGADULT'
+      If(statistics.location IS NULL, "PROC", If(statistics.location = "LVPLADULT", "ADULT", If(statistics.location = "LVPLCHILD", "CHILDRENS", If(statistics.location = "LVPLYA", "YOUNGADULT", If(statistics.location = "PAOLAADULT", "ADULT", If(statistics.location = "PAOLACHILD", "CHILDRENS", If(statistics.location = "PAOLAYA", "YOUNGADULT", statistics.location))))))) = 'YOUNGADULT'
     GROUP BY
       If(statistics.branch IS NULL, "NEKLS", statistics.branch),
       If(statistics.ccode IS NULL, "XXX", statistics.ccode)
@@ -132,7 +132,7 @@ FROM
       Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       (statistics.type = 'issue' OR
         statistics.type = 'renew') AND
-      If(statistics.location IS NULL, "PROC", If(statistics.location = "LVPLADULT", "ADULT", If(statistics.location = "LVPLCHILD", "CHILDRENS", If(statistics.location = "LVPLYA", "YOUNGADULT", statistics.location)))) = 'CHILDRENS'
+      If(statistics.location IS NULL, "PROC", If(statistics.location = "LVPLADULT", "ADULT", If(statistics.location = "LVPLCHILD", "CHILDRENS", If(statistics.location = "LVPLYA", "YOUNGADULT", If(statistics.location = "PAOLAADULT", "ADULT", If(statistics.location = "PAOLACHILD", "CHILDRENS", If(statistics.location = "PAOLAYA", "YOUNGADULT", statistics.location))))))) = 'CHILDRENS'
     GROUP BY
       If(statistics.branch IS NULL, "NEKLS", statistics.branch),
       If(statistics.ccode IS NULL, "XXX", statistics.ccode)
@@ -151,9 +151,9 @@ FROM
       Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       (statistics.type = 'issue' OR
         statistics.type = 'renew') AND
-      (If(statistics.location IS NULL, "PROC", If(statistics.location = "LVPLADULT", "ADULT", If(statistics.location = "LVPLCHILD", "CHILDRENS", If(statistics.location = "LVPLYA", "YOUNGADULT", statistics.location)))) = 'CART' OR
-        If(statistics.location IS NULL, "PROC", If(statistics.location = "LVPLADULT", "ADULT", If(statistics.location = "LVPLCHILD", "CHILDRENS", If(statistics.location = "LVPLYA", "YOUNGADULT", statistics.location)))) = 'CATALOGING' OR
-        If(statistics.location IS NULL, "PROC", If(statistics.location = "LVPLADULT", "ADULT", If(statistics.location = "LVPLCHILD", "CHILDRENS", If(statistics.location = "LVPLYA", "YOUNGADULT", statistics.location)))) = 'PROC')
+      (If(statistics.location IS NULL, "PROC", If(statistics.location = "LVPLADULT", "ADULT", If(statistics.location = "LVPLCHILD", "CHILDRENS", If(statistics.location = "LVPLYA", "YOUNGADULT", If(statistics.location = "PAOLAADULT", "ADULT", If(statistics.location = "PAOLACHILD", "CHILDRENS", If(statistics.location = "PAOLAYA", "YOUNGADULT", statistics.location))))))) = 'CART' OR
+        If(statistics.location IS NULL, "PROC", If(statistics.location = "LVPLADULT", "ADULT", If(statistics.location = "LVPLCHILD", "CHILDRENS", If(statistics.location = "LVPLYA", "YOUNGADULT", If(statistics.location = "PAOLAADULT", "ADULT", If(statistics.location = "PAOLACHILD", "CHILDRENS", If(statistics.location = "PAOLAYA", "YOUNGADULT", statistics.location))))))) = 'CATALOGING' OR
+        If(statistics.location IS NULL, "PROC", If(statistics.location = "LVPLADULT", "ADULT", If(statistics.location = "LVPLCHILD", "CHILDRENS", If(statistics.location = "LVPLYA", "YOUNGADULT", If(statistics.location = "PAOLAADULT", "ADULT", If(statistics.location = "PAOLACHILD", "CHILDRENS", If(statistics.location = "PAOLAYA", "YOUNGADULT", statistics.location))))))) = 'PROC')
     GROUP BY
       If(statistics.branch IS NULL, "NEKLS", statistics.branch),
       If(statistics.ccode IS NULL, "XXX", statistics.ccode)

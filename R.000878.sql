@@ -4,7 +4,7 @@ R.000878
 ----------
 
 Name: Items in a specific Shelving Location
-Created by: NEKLS Administrator
+Created by:  Tongie Book Club
 
 ----------
 
@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2010-06-07 15:09:44
 Modified on: 2015-08-16 17:00:38
-Date last run: 2019-10-16 10:19:28
+Date last run: 2020-02-03 11:12:26
 
 ----------
 

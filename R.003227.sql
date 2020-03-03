@@ -3,7 +3,7 @@ R.003227
 
 ----------
 
-Name: GHW - Lists 004 - Show list titles with call numbers at a specific library
+Name: GHW - List / virtualshelf report 004 - Display list titles with call numbers at a specific library
 Created by: George H Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: Lists Module
      -
 
 Created on: 2019-07-17 09:10:07
-Modified on: 2019-07-23 17:32:31
-Date last run: 2019-10-22 10:25:29
+Modified on: 2019-11-05 10:52:50
+Date last run: 2019-12-02 17:05:00
 
 ----------
 
@@ -22,9 +22,9 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
+<div id=reportinfo class='noprint'>
 <p>Generates a printable shelf list with call numbers at a specific branch based on a list</p>
-<ul><li>Shows titles currently on the list you specify</li>
+<ul><li>Displays titles currently on the list you specify</li>
 <li>at the library you specify</li>
 <li>grouped by title and list id number</li>
 <li>sorted by standard Next Search Catalog classification, author, and title</li>

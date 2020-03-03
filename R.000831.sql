@@ -4,7 +4,7 @@ R.000831
 ----------
 
 Name: GHW - Patrons with outstanding credits
-Created by: NEKLS Administrator
+Created by:  Tongie Book Club
 
 ----------
 
@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2010-03-23 11:57:07
 Modified on: 2019-01-28 21:43:21
-Date last run: 2019-09-18 10:10:52
+Date last run: 2020-02-10 12:16:47
 
 ----------
 

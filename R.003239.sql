@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-08-01 11:31:03
-Modified on: 2019-08-01 11:47:03
-Date last run: 2019-08-01 11:54:41
+Modified on: 2020-02-22 20:06:38
+Date last run: 2019-12-05 12:49:15
 
 ----------
 
@@ -30,6 +30,8 @@ Expiry: 300
 <li>sorted by item lost date, item barcode number, account offset type</li>
 <li>contains links to the patron's fee history</li>
 </ul><br />
+<p></p>
+<p>Replaces report 888</p>
 <p></p>
 <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3239&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>

@@ -4,7 +4,7 @@ R.000904
 ----------
 
 Name: Patrons with total fines credit
-Created by: NEKLS Administrator
+Created by:  Tongie Book Club
 
 ----------
 
@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2010-08-16 13:51:51
 Modified on: 2013-06-18 10:48:24
-Date last run: 2019-06-26 09:43:53
+Date last run: 2020-02-10 12:15:22
 
 ----------
 

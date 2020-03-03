@@ -12,8 +12,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2016-08-11 16:36:03
-Modified on: 2019-08-14 13:55:54
-Date last run: 2019-10-24 16:29:37
+Modified on: 2020-02-22 11:17:58
+Date last run: 2020-03-02 11:02:31
 
 ----------
 
@@ -52,6 +52,7 @@ SELECT
   items.itemnumber AS ITEM_NUMBER,
   Concat("-", Coalesce(items.barcode, "-"), "-") AS BARCODE,
   items.homebranch,
+  items.holdingbranch,
   Coalesce(items.location, "-") AS LOCATION,
   Coalesce(itypes.description, "-") AS ITYPE,
   Coalesce(ccodes.lib, "-") AS CCODE,
