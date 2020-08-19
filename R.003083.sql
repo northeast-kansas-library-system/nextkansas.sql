@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2018-06-18 09:36:26
-Modified on: 2018-06-18 10:25:24
-Date last run: 2018-12-05 15:13:05
+Modified on: 2020-07-21 17:04:55
+Date last run: 2020-07-23 11:24:02
 
 ----------
 
@@ -40,7 +40,8 @@ FROM
   items
   INNER JOIN biblio_metadata ON items.biblionumber = biblio_metadata.biblionumber
 WHERE
-  items.itemcallnumber = 'Hoopla'
+  items.itemcallnumber = 'Hoopla' AND
+  items.itemnumber > '2153653'
 GROUP BY
   items.itemnumber
 

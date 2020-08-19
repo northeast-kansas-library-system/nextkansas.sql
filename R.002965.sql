@@ -12,8 +12,8 @@ Group: Library-Specific
      Ottawa
 
 Created on: 2017-06-27 16:45:08
-Modified on: 2020-02-26 16:58:42
-Date last run: 2020-02-28 11:44:07
+Modified on: 2020-08-14 15:17:26
+Date last run: 2020-08-14 15:17:29
 
 ----------
 
@@ -64,7 +64,6 @@ FROM
       accountlines.date,
       accountlines.amount,
       accountlines.description,
-      accountlines.accounttype,
       accountlines.amountoutstanding,
       accountlines.timestamp,
       accountlines.note,
@@ -84,7 +83,6 @@ FROM
       accountlines.date,
       accountlines.amount,
       accountlines.description,
-      accountlines.accounttype,
       accountlines.amountoutstanding,
       accountlines.timestamp,
       accountlines.note,

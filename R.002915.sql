@@ -12,8 +12,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2017-03-01 09:17:47
-Modified on: 2020-02-25 16:49:23
-Date last run: 2020-02-25 16:50:34
+Modified on: 2020-07-23 16:02:29
+Date last run: 2020-08-18 15:54:32
 
 ----------
 
@@ -45,7 +45,9 @@ Expiry: 0
 */
 
 SELECT
-  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">', biblio.biblionumber, '</a>') AS LINK_TO_TITLE,
+  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',
+  biblio.biblionumber, '\" target="_blank">', biblio.biblionumber,
+  '</a>') AS LINK_TO_TITLE,
   items.itemnumber AS ITEM_NUMBER,
   Concat("-", items.barcode, "-") AS BARCODE,
   items.homebranch,
@@ -55,12 +57,12 @@ SELECT
   ccode.lib AS CCODE,
   items.itemcallnumber,
   biblio.author,
-  Concat_Ws(' ', 
-    biblio.title,
-    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'),
-    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),
-    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')
-  ) AS FULL_TITLE,
+  Concat_Ws(' ', biblio.title, ExtractValue(biblio_metadata.metadata,
+  '//datafield[@tag="245"]/subfield[@code="b"]'),
+  ExtractValue(biblio_metadata.metadata,
+  '//datafield[@tag="245"]/subfield[@code="p"]'),
+  ExtractValue(biblio_metadata.metadata,
+  '//datafield[@tag="245"]/subfield[@code="n"]')) AS FULL_TITLE,
   items.onloan,
   items.datelastborrowed,
   items.datelastseen,
@@ -71,7 +73,8 @@ SELECT
   Coalesce(damaged.lib, "-") AS DAMAGED_STATUS,
   Coalesce(not_for_loan.lib, "-") AS NOT_FOR_LOAN_STATUS,
   items.replacementprice,
-  If(paidfor.amountoutstanding = 0, "$0.00 outstanding lost fees", "") AS OUTSTANDING_FEES
+  If(paidfor.amountoutstanding = 0, "$0.00 outstanding lost fees",
+  "") AS OUTSTANDING_FEES
 FROM
   items JOIN
   biblio ON items.biblionumber = biblio.biblionumber JOIN
@@ -85,7 +88,8 @@ FROM
     FROM
       authorised_values
     WHERE
-      authorised_values.category = 'NOT_LOAN') not_for_loan ON items.notforloan = not_for_loan.authorised_value LEFT JOIN
+      authorised_values.category = 'NOT_LOAN') not_for_loan ON
+      items.notforloan = not_for_loan.authorised_value LEFT JOIN
   (SELECT
       authorised_values.authorised_value,
       authorised_values.lib,
@@ -93,7 +97,8 @@ FROM
     FROM
       authorised_values
     WHERE
-      authorised_values.category = 'WITHDRAWN') withdrawn ON items.withdrawn = withdrawn.authorised_value LEFT JOIN
+      authorised_values.category = 'WITHDRAWN') withdrawn ON
+      items.withdrawn = withdrawn.authorised_value LEFT JOIN
   (SELECT
       authorised_values.authorised_value,
       authorised_values.lib,
@@ -101,7 +106,8 @@ FROM
     FROM
       authorised_values
     WHERE
-      authorised_values.category = 'LOST') lost ON items.itemlost = lost.authorised_value LEFT JOIN
+      authorised_values.category = 'LOST') lost ON items.itemlost =
+      lost.authorised_value LEFT JOIN
   (SELECT
       authorised_values.authorised_value,
       authorised_values.lib,
@@ -109,7 +115,8 @@ FROM
     FROM
       authorised_values
     WHERE
-      authorised_values.category = 'DAMAGED') damaged ON items.damaged = damaged.authorised_value LEFT JOIN
+      authorised_values.category = 'DAMAGED') damaged ON items.damaged =
+      damaged.authorised_value LEFT JOIN
   (SELECT
       itemtypes.itemtype,
       itemtypes.description
@@ -117,14 +124,16 @@ FROM
       itemtypes) itypes ON itypes.itemtype = items.itype LEFT JOIN
   (SELECT
       accountlines.itemnumber,
-      accountlines.accounttype,
       accountlines.amountoutstanding,
-      accountlines.note
+      accountlines.note,
+      accountlines.credit_type_code,
+      accountlines.debit_type_code
     FROM
       accountlines
     WHERE
-      accountlines.accounttype = 'L' AND
-      accountlines.amountoutstanding = 0) paidfor ON paidfor.itemnumber = items.itemnumber
+      accountlines.amountoutstanding = 0 AND
+      accountlines.debit_type_code LIKE 'L%') paidfor ON paidfor.itemnumber =
+      items.itemnumber
 WHERE
   ccode.category = 'CCODE' AND
   items.homebranch LIKE <<Select library|ZBRAN>> AND

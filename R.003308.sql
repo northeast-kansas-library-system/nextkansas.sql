@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2020-01-28 14:21:20
-Modified on: 2020-01-28 16:02:11
-Date last run: 2020-02-04 16:08:50
+Modified on: 2020-03-11 15:40:51
+Date last run: 2020-08-18 10:51:50
 
 ----------
 
@@ -28,11 +28,11 @@ Expiry: 300
 */
 
 Select
-  Concat('<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=', ccodes.category, '" target="_blank">Link to AV</a>') As LINK_TO_CCODE,
+  Concat('<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=', ccodes.category, '" target="_blank">Link to CCODE</a>') As LINK_TO_CCODE,
   If(ccodes.category Is Null, "<span style='background-color: red; color: yellow'>Possible errror</span>", ccodes.category) As CATEGORY,
   ccodes.authorised_value As CCODE,
   If(lccodes.category Is Null, "<span style='background-color: red; color: yellow'>Possible errror</span>", lccodes.category) As ALT_CATEGORY,
-  Concat('<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=', lccodes.category, '" target="_blank">Link to AV</a>') As LINK_TO_LCCODE,
+  Concat('<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=', lccodes.category, '" target="_blank">Link to LCCODE</a>') As LINK_TO_LCCODE,
   lccodes.authorised_value As LCCODE
 From
   (Select
@@ -53,11 +53,11 @@ From
      authorised_values.category = 'LCCODE') lccodes On lccodes.authorised_value = ccodes.authorised_value
 Union
 Select
-  Concat('<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=', ccodesx.category, '" target="_blank">Link to AV</a>') As LINK,
+  Concat('<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=', ccodesx.category, '" target="_blank">Link to CCODE</a>') As LINK,
   If(ccodesx.category Is Null, "<span style='background-color: red; color: yellow'>Possible errror</span>", ccodesx.category) As category,
   ccodesx.authorised_value,
   If(lccodesx.category Is Null, "<span style='background-color: red; color: yellow'>Possible errror</span>", lccodesx.category) As category1,
-  Concat('<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=', lccodesx.category, '" target="_blank">Link to AV</a>') As LINK1,
+  Concat('<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=', lccodesx.category, '" target="_blank">Link to LCCODE</a>') As LINK1,
   lccodesx.authorised_value As authorised_value1
 From
   (Select

@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-10-02 16:50:52
-Modified on: 2019-10-08 11:13:05
-Date last run: 2020-02-27 13:04:51
+Modified on: 2020-06-06 01:27:11
+Date last run: 2020-08-19 09:07:16
 
 ----------
 
@@ -29,6 +29,8 @@ Expiry: 300
 
 SELECT
   Concat('<a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=', reserves.borrowernumber, '#reserves" target="_blank">Open in new window</a>') AS LINK,
+  Concat('https://staff.nextkansas.org/cgi-bin/koha/circ/circulation.pl?borrowernumber=', reserves.borrowernumber, '#reserves') AS URL,
+  reserves.branchcode,
   Count(reserves.reserve_id) AS Count_reserve_id
 FROM
   reserves
@@ -42,6 +44,7 @@ GROUP BY
   reserves.found,
   reserves.suspend
 ORDER BY
+  reserves.branchcode,
   reserves.borrowernumber
 
 

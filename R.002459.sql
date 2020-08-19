@@ -12,8 +12,8 @@ Group: Administrative Reports
      System-admin
 
 Created on: 2015-02-10 14:41:41
-Modified on: 2019-10-25 21:20:41
-Date last run: 2020-01-14 08:28:44
+Modified on: 2020-06-28 13:45:57
+Date last run: 2020-07-02 15:14:26
 
 ----------
 
@@ -29,6 +29,7 @@ From VOKAL/CIN.
 
 SELECT
   Concat('<a href=\"/cgi-bin/koha/members/member-flags.pl?member=', borrowers.borrowernumber, '\" target="_blank">edit permissions</a>') AS EDIT_PERMISSIONS,
+  Concat('http://staff.nextkansas.org/cgi-bin/koha/members/member-flags.pl?member=', borrowers.borrowernumber) AS RAW_LINK,
   borrowers.surname,
   borrowers.firstname,
   borrowers.email,

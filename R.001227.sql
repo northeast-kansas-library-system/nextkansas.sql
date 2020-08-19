@@ -12,8 +12,8 @@ Group: Patrons
      -
 
 Created on: 2011-11-01 16:10:52
-Modified on: 2013-09-21 16:05:42
-Date last run: 2020-02-25 15:36:52
+Modified on: 2020-05-08 11:16:19
+Date last run: 2020-08-04 10:44:19
 
 ----------
 
@@ -27,7 +27,21 @@ Enhanced - Run, add numeric month, numeric year and pick your branch. #patrons
 ----------
 */
 
-SELECT borrowers.dateenrolled, borrowers.surname,borrowers.firstname,borrowers.branchcode,borrowers.categorycode, borrowers.cardnumber,borrowers.address,borrowers.city,borrowers.phone,borrowers.email FROM borrowers WHERE month(dateenrolled) = << numericmonth >> AND year(dateenrolled) = << numericyear >> AND borrowers.branchcode = <<Pick your branch|branches>> ORDER BY borrowers.categorycode ASC
+SELECT 
+  borrowers.dateenrolled, 
+  borrowers.surname, 
+  borrowers.firstname, 
+  borrowers.branchcode, 
+  borrowers.categorycode, 
+  borrowers.cardnumber, 
+  borrowers.address, 
+  borrowers.city, 
+  borrowers.phone 
+FROM borrowers 
+WHERE month(dateenrolled) = << numericmonth >> AND 
+  year(dateenrolled) = << numericyear >> AND 
+  borrowers.branchcode = <<Pick your branch|branches>> 
+ORDER BY borrowers.categorycode ASC
 
 
 

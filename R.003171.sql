@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-02-15 11:10:48
-Modified on: 2020-01-13 12:06:32
-Date last run: 2020-02-19 11:55:11
+Modified on: 2020-03-04 13:51:17
+Date last run: 2020-06-16 12:18:16
 
 ----------
 
@@ -49,7 +49,7 @@ Expiry: 300
 
 SELECT
   issues.branchcode,
-  issues.itemnumber AS ITEM_NUMBER,
+  issues.itemnumber,
   issues.date_due
 FROM
   issues

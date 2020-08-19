@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-12-26 09:46:35
-Modified on: 2020-02-22 19:20:01
-Date last run: 2020-02-22 19:20:52
+Modified on: 2020-07-09 13:14:51
+Date last run: 2020-07-10 08:19:31
 
 ----------
 
@@ -51,8 +51,9 @@ Expiry: 300
 SELECT
   outstanding_fees.branchcode,
   outstanding_fees.date,
+  outstanding_fees.credit_type_code,
+  outstanding_fees.debit_type_code,
   outstanding_fees.accountlines_id,
-  outstanding_fees.accounttype,
   outstanding_fees.status,
   Format(outstanding_fees.amountoutstanding, 2) AS amountoutstanding,
   Trim(Replace(outstanding_fees.note, '\r\n', '||')) AS note
@@ -61,7 +62,8 @@ FROM
       issues.branchcode,
       accountlines.date,
       accountlines.accountlines_id,
-      accountlines.accounttype,
+      accountlines.credit_type_code,
+      accountlines.debit_type_code,
       accountlines.status,
       accountlines.amountoutstanding,
       accountlines.note,
@@ -73,13 +75,16 @@ FROM
       accountlines.amountoutstanding > 0
     GROUP BY
       accountlines.accountlines_id,
+      accountlines.credit_type_code,
+      accountlines.debit_type_code,
       accountlines.status
     UNION
     SELECT
       old_issues.branchcode,
       accountlines.date,
       accountlines.accountlines_id,
-      accountlines.accounttype,
+      accountlines.credit_type_code,
+      accountlines.debit_type_code,
       accountlines.status,
       accountlines.amountoutstanding,
       accountlines.note,
@@ -97,7 +102,8 @@ FROM
       borrowers.branchcode,
       accountlines.date,
       accountlines.accountlines_id,
-      accountlines.accounttype,
+      accountlines.credit_type_code,
+      accountlines.debit_type_code,
       accountlines.status,
       accountlines.amountoutstanding,
       accountlines.note,
@@ -115,7 +121,8 @@ FROM
       borrowers.branchcode,
       accountlines.date,
       accountlines.accountlines_id,
-      accountlines.accounttype,
+      accountlines.credit_type_code,
+      accountlines.debit_type_code,
       accountlines.status,
       accountlines.amountoutstanding,
       accountlines.note,
@@ -137,6 +144,8 @@ FROM
 WHERE
   outstanding_fees.branchcode LIKE <<Choose your library|ZBRAN>>
 GROUP BY
+  outstanding_fees.credit_type_code,
+  outstanding_fees.debit_type_code,
   outstanding_fees.accountlines_id
 ORDER BY
   outstanding_fees.branchcode,

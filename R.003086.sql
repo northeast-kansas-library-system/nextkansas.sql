@@ -12,8 +12,8 @@ Group: Patrons
      Patron attributes
 
 Created on: 2018-06-28 18:09:20
-Modified on: 2019-07-24 17:47:35
-Date last run: 2020-02-27 14:09:18
+Modified on: 2020-05-08 15:20:19
+Date last run: 2020-08-18 15:59:23
 
 ----------
 
@@ -43,44 +43,74 @@ Expiry: 300
 */
 
 SELECT
-  Concat("<a href='/cgi-bin/koha/circ/circulation.pl?borrowernumber=", borrowers.borrowernumber, "' target='_blank'>Patron</a>") AS LINK_TO_PATRON,
+  Concat(
+    "<a href='/cgi-bin/koha/circ/circulation.pl?borrowernumber=", 
+    borrowers.borrowernumber, 
+    "' target='_blank'>Patron</a>"
+  ) AS LINK_TO_PATRON,
   borrowers.cardnumber,
-  Concat_Ws("", If(borrowers.surname = "", "-", borrowers.surname), " / ", If(borrowers.firstname = "", "-", borrowers.firstname), If(borrowers.othernames = "", " ", Concat(" - (", borrowers.othernames, ")"))) AS NAME,
-  borrowers.address,
-  borrowers.address2,
-  borrowers.city,
-  borrowers.state,
-  borrowers.zipcode,
-  borrowers.email,
+  If(
+    Coalesce(newsletter_permission.lib, "~") = "YES", 
+    Concat_Ws(
+      "", 
+      If(borrowers.surname = "", "-", borrowers.surname), 
+      " / ", 
+      If(borrowers.firstname = "", "-", borrowers.firstname), 
+      If(borrowers.othernames = "", " ", Concat(" - (", borrowers.othernames, ")")
+      )
+    ), "Permission not given"
+  ) AS NAME,
+  If(
+    Coalesce(newsletter_permission.lib, "~") = "YES", 
+    Concat(borrowers.address, 
+    "<br />", 
+    borrowers.address2, 
+    "<br />", 
+    borrowers.city, 
+    ", ",
+    borrowers.state, 
+    " ", 
+    borrowers.zipcode), 
+    "Permission not given"
+  ) as ADDRESS,
+  If(
+    Coalesce(newsletter_permission.lib, "~") = "YES", 
+    borrowers.email, 
+    "Permission not given"
+  ) AS email,
   borrowers.branchcode,
   borrowers.categorycode,
-  borrowers.dateofbirth,
+  If(
+    Coalesce(newsletter_permission.lib, "~") = "YES", 
+    borrowers.dateofbirth, 
+    "Permission not given"
+  ) AS dateofbirth,
   borrowers.dateenrolled,
   borrowers.dateexpiry,
   Coalesce(newsletter_permission.lib, "~") AS NEWSLETTER_PERMISSION
 FROM
-  borrowers
-  LEFT JOIN (SELECT
-        borrower_attributes.borrowernumber,
-        authorised_values.lib,
-        borrower_attributes.attribute
-      FROM
-        borrower_attributes
-        JOIN authorised_values ON borrower_attributes.attribute = authorised_values.authorised_value
-      WHERE
-        borrower_attributes.code = 'NEWSLETTER' AND
-        authorised_values.category = 'EmailNews'
-      GROUP BY
-        borrower_attributes.borrowernumber,
-        borrower_attributes.attribute) newsletter_permission ON
-    borrowers.borrowernumber = newsletter_permission.borrowernumber
+  borrowers LEFT JOIN
+  (SELECT
+      borrower_attributes.borrowernumber,
+      authorised_values.lib,
+      borrower_attributes.attribute
+    FROM
+      borrower_attributes JOIN
+      authorised_values ON borrower_attributes.attribute = authorised_values.authorised_value
+    WHERE
+      borrower_attributes.code = 'NEWSLETTER' AND
+      authorised_values.category = 'EmailNews'
+    GROUP BY
+      borrower_attributes.borrowernumber,
+      borrower_attributes.attribute) newsletter_permission ON borrowers.borrowernumber = newsletter_permission.borrowernumber
 WHERE
   borrowers.branchcode LIKE <<Choose your library|ZBRAN>> AND
   borrowers.categorycode LIKE <<Choose a borrower category|LBORROWERCAT>> AND
   Coalesce(newsletter_permission.attribute, "~") LIKE <<Select newsletter permission attribute|LNEWSPERM>>
 GROUP BY
-  borrowers.borrowernumber,
-  Coalesce(newsletter_permission.lib, "~")
+  Coalesce(newsletter_permission.lib, "~"),
+  If(borrowers.email LIKE "%", "X", "Y"),
+  borrowers.borrowernumber
 ORDER BY
   borrowers.surname,
   borrowers.firstname

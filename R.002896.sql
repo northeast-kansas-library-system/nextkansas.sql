@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2017-02-01 16:27:01
-Modified on: 2020-02-22 20:07:38
-Date last run: 2020-02-27 13:19:10
+Modified on: 2020-08-18 16:40:29
+Date last run: 2020-08-18 16:52:59
 
 ----------
 
@@ -82,7 +82,7 @@ FROM
   JOIN biblio_metadata ON biblio.biblionumber = biblio_metadata.biblionumber
 WHERE
   items.homebranch LIKE <<Item home branch|ZBRAN>> AND
-  losts.lib LIKE <<Item lost status|ZLOST>> AND
+  items.itemlost LIKE <<Item lost status|LLOST>> AND
   If(items.itemlost_on IS NULL, (CAST('2000-01-01' AS DATETIME)), items.itemlost_on) BETWEEN <<Lost between start date|date>> AND <<and end date|date>>
 GROUP BY
   items.barcode

@@ -3,17 +3,17 @@ R.002838
 
 ----------
 
-Name: GHW 998 - Circulation during a date range
+Name: GHW 998 - Circulation count during a date range
 Created by: George H Williams
 
 ----------
 
-Group: Administrative Reports
-     Testing
+Group: -
+     -
 
 Created on: 2016-11-28 11:11:26
-Modified on: 2016-11-28 12:17:53
-Date last run: 2019-09-13 09:49:39
+Modified on: 2020-06-19 15:06:53
+Date last run: 2020-06-19 15:06:38
 
 ----------
 
