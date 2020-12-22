@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-01-27 22:47:48
-Modified on: 2019-01-28 01:30:53
-Date last run: 2020-08-04 10:55:58
+Modified on: 2020-12-02 15:10:38
+Date last run: 2020-12-02 15:10:59
 
 ----------
 
@@ -41,25 +41,17 @@ Expiry: 300
 */
 
 SELECT
-  Concat(
-    '<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">',
-    biblio.biblionumber,
-    '</a>'
-  ) AS LINK_TO_TITLE,
-  Concat(
-    "-",
-    Coalesce(items.barcode, "-"),
-    "-"
-  ) AS BARCODE,
+  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">', items.biblionumber, '</a>') AS LINK_TO_TITLE,
+  Concat("-", Coalesce(items.barcode, "-"), "-") AS BARCODE,
   items.homebranch,
+  plocations.lib AS PERMANENT_LOCATION,
   locations.lib AS LOCATION,
   itemtypes.description AS ITYPE,
   ccodes.lib AS CCODE,
   items.itemcallnumber,
   biblio.author,
-  Concat_Ws(
-    " ",
-    biblio.title,
+  Concat_Ws(" ", 
+    biblio.title, 
     ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'),
     ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'),
     ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),
@@ -70,36 +62,49 @@ SELECT
   items.replacementprice,
   items.timestamp
 FROM
-  items
-  JOIN biblio ON biblio.biblionumber = items.biblionumber
-  JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
-  LEFT JOIN (SELECT
+  items JOIN
+  biblio ON biblio.biblionumber = items.biblionumber JOIN
+  biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
+  LEFT JOIN
+  (SELECT
       authorised_values.category,
       authorised_values.authorised_value,
       authorised_values.lib
     FROM
       authorised_values
     WHERE
-      authorised_values.category = 'CCODE') ccodes ON ccodes.authorised_value = items.ccode
-  LEFT JOIN (SELECT
+      authorised_values.category = 'CCODE') ccodes ON ccodes.authorised_value =
+      items.ccode LEFT JOIN
+  (SELECT
       authorised_values.category,
       authorised_values.authorised_value,
       authorised_values.lib
     FROM
       authorised_values
     WHERE
-      authorised_values.category = 'LOC') locations ON locations.authorised_value = items.location
-  LEFT JOIN itemtypes ON itemtypes.itemtype = items.itype
+      authorised_values.category = 'LOC') locations ON
+      locations.authorised_value = items.location LEFT JOIN
+  itemtypes ON itemtypes.itemtype = items.itype LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'LOC') plocations ON
+      plocations.authorised_value = items.permanent_location
 WHERE
   items.homebranch = <<Choose your library|LBRANCH>> AND
   Month(items.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) AND
   Year(items.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH)
 GROUP BY
+  plocations.lib,
   items.biblionumber,
   items.itemnumber
 ORDER BY
   items.homebranch,
-  LOCATION,
+  PERMANENT_LOCATION,
   ITYPE,
   CCODE,
   items.itemcallnumber,

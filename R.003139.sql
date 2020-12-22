@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2018-12-07 21:59:03
-Modified on: 2018-12-07 22:14:25
-Date last run: 2019-06-07 11:27:47
+Modified on: 2020-12-03 09:02:12
+Date last run: 2020-12-03 09:02:43
 
 ----------
 
@@ -55,8 +55,8 @@ FROM
       branches,
       authorised_values
     WHERE
-      authorised_values.category = 'CCODE') branchccodes
-  LEFT JOIN (SELECT
+      authorised_values.category = 'CCODE') branchccodes LEFT JOIN
+  (SELECT
       items.homebranch,
       If(items.ccode IS NULL, "XXX", items.ccode) AS ccode,
       Count(items.itemnumber) AS Count_itemnumber
@@ -64,9 +64,10 @@ FROM
       items
     GROUP BY
       items.homebranch,
-      If(items.ccode IS NULL, "XXX", items.ccode)) itemss ON itemss.homebranch = branchccodes.branchcode AND
-    itemss.ccode = branchccodes.authorised_value
-  LEFT JOIN (SELECT
+      If(items.ccode IS NULL, "XXX", items.ccode)) itemss ON itemss.homebranch =
+      branchccodes.branchcode AND
+      itemss.ccode = branchccodes.authorised_value LEFT JOIN
+  (SELECT
       items.homebranch,
       If(items.ccode IS NULL, "XXX", items.ccode) AS ccode,
       Count(items.itemnumber) AS Count_itemnumber
@@ -74,44 +75,52 @@ FROM
       items
     WHERE
       (items.location = 'ADULT' OR
-        items.location = 'LVPLADULT' OR
-        items.location = 'CART' OR
-        items.location = 'CATALOGING' OR
-        items.location = 'PROC' OR
-        items.location IS NULL)
+          items.permanent_location = 'BALDADULT' OR
+          items.permanent_location = 'LVPLADULT' OR
+          items.permanent_location = 'PAOLAADULT' OR
+          items.permanent_location = 'CART' OR
+          items.permanent_location = 'CATALOGING' OR
+          items.permanent_location = 'PROC' OR
+          items.permanent_location IS NULL)
     GROUP BY
       items.homebranch,
-      If(items.ccode IS NULL, "XXX", items.ccode)) adultitems ON adultitems.homebranch = branchccodes.branchcode AND
-    adultitems.ccode = branchccodes.authorised_value
-  LEFT JOIN (SELECT
+      If(items.ccode IS NULL, "XXX", items.ccode)) adultitems ON
+      adultitems.homebranch = branchccodes.branchcode AND
+      adultitems.ccode = branchccodes.authorised_value LEFT JOIN
+  (SELECT
       items.homebranch,
       If(items.ccode IS NULL, "XXX", items.ccode) AS ccode,
       Count(items.itemnumber) AS Count_itemnumber
     FROM
       items
     WHERE
-      (items.location = 'CHILDRENS' OR
-        items.location = 'LVPLCHILD')
+      (items.permanent_location = 'CHILDRENS' OR
+          items.permanent_location = 'BALDCHILD' OR
+          items.permanent_location = 'LVPLCHILD' OR
+          items.permanent_location = 'PAOLACHILD')
     GROUP BY
       items.homebranch,
-      If(items.ccode IS NULL, "XXX", items.ccode)) juvenileitems ON juvenileitems.homebranch = branchccodes.branchcode
-    AND
-    juvenileitems.ccode = branchccodes.authorised_value
-  LEFT JOIN (SELECT
+      If(items.ccode IS NULL, "XXX", items.ccode)) juvenileitems ON
+      juvenileitems.homebranch = branchccodes.branchcode AND
+      juvenileitems.ccode = branchccodes.authorised_value LEFT JOIN
+  (SELECT
       items.homebranch,
       If(items.ccode IS NULL, "XXX", items.ccode) AS ccode,
       Count(items.itemnumber) AS Count_itemnumber
     FROM
       items
     WHERE
-      (items.location = 'YOUNGADULT' OR
-        items.location = 'LVPLYA')
+      (items.permanent_location = 'YOUNGADULT' OR
+          items.permanent_location = 'BALDYA' OR
+          items.permanent_location = 'LVPLYA' OR
+          items.permanent_location = 'PAOLAYA')
     GROUP BY
       items.homebranch,
-      If(items.ccode IS NULL, "XXX", items.ccode)) yaitems ON yaitems.homebranch = branchccodes.branchcode AND
-    yaitems.ccode = branchccodes.authorised_value
+      If(items.ccode IS NULL, "XXX", items.ccode)) yaitems ON
+      yaitems.homebranch = branchccodes.branchcode AND
+      yaitems.ccode = branchccodes.authorised_value
 WHERE
-  branchccodes.branchcode = <<Choose your library|ZBRAN>>
+  branchccodes.branchcode LIKE <<Choose your library|ZBRAN>>
 GROUP BY
   branchccodes.branchcode,
   branchccodes.lib,

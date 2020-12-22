@@ -12,8 +12,8 @@ Group: Circulation
      Overdues
 
 Created on: 2009-06-12 14:19:42
-Modified on: 2013-06-17 02:05:26
-Date last run: 2020-08-12 17:42:32
+Modified on: 2020-12-08 22:58:11
+Date last run: 2020-12-12 11:27:08
 
 ----------
 
@@ -27,7 +27,34 @@ Simplified report of overdue items for shelf check
 ----------
 */
 
-SELECT items.itemcallnumber,  biblio.title, biblio.author, items.itype, items.ccode, items.location,  items.barcode, borrowers.cardnumber FROM borrowers left join issues USING (borrowernumber) LEFT JOIN items USING (itemnumber) LEFT JOIN biblio USING (biblionumber) WHERE (TO_DAYS(curdate())-TO_DAYS(date_due)) >= '2' and issues.branchcode = <<Pick your branch|branches>> order by items.itemcallnumber asc
+SELECT
+  borrowers.cardnumber,
+  items.barcode,
+  items.permanent_location,
+  items.itype,
+  items.ccode,
+  items.itemcallnumber,
+  biblio.author,
+  biblio.title
+FROM
+  borrowers LEFT JOIN
+  issues ON issues.borrowernumber = borrowers.borrowernumber LEFT JOIN
+  items ON items.itemnumber = issues.itemnumber LEFT JOIN
+  biblio ON biblio.biblionumber = items.biblionumber
+WHERE
+  (To_Days(CurDate()) - To_Days(issues.date_due)) >= '2' AND
+  issues.branchcode = <<Choose your library|branches>>
+GROUP BY
+  borrowers.cardnumber,
+  issues.issue_id
+ORDER BY
+  borrowers.cardnumber,
+  items.permanent_location,
+  items.itype,
+  items.ccode,
+  items.itemcallnumber,
+  biblio.author,
+  biblio.title
 
 
 

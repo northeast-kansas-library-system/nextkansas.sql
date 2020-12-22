@@ -73,10 +73,6 @@
       <td>Shows count of new items added to a collection in last month by ccode and shelving location </td>
     </tr>
     <tr>
-      <td>00574<br /><br />Monthly 004 New Patrons by Category<br /><br />-<br />-<br /><br />Created by:<br /> Tongie Book Club</td>
-      <td>Teri: Run, add month and year, then save output.</td>
-    </tr>
-    <tr>
       <td>00575<br /><br />OVERDUE LIST - For Shelf Check<br /><br />Circulation<br />Overdues<br /><br />Created by:<br /> Tongie Book Club</td>
       <td>Simplified report of overdue items for shelf check</td>
     </tr>
@@ -374,10 +370,6 @@
     <tr>
       <td>01307<br /><br />Not For Loan Items<br /><br />Catalog Records and Items<br />Not For Loan<br /><br />Created by:<br />Heather Braum</td>
       <td>Bib number is linked to bib record and title is linked to a search by title. Choose branch. #notforloan</td>
-    </tr>
-    <tr>
-      <td>01308<br /><br />Count of Patrons by Category<br /><br />Patrons<br />Patron Statistics<br /><br />Created by:<br />Heather Braum</td>
-      <td>Choose your library</td>
     </tr>
     <tr>
       <td>01310<br /><br />Top Circing Items in the Last Six Months in Entire Catalog<br /><br />Circulation<br />Circ Stats<br /><br />Created by:<br />Heather Braum</td>
@@ -1289,6 +1281,9 @@
           </ul><br />
           <p><ins>Notes:</ins></p>
           <p></p>
+          <p>Please note the dates in the default - especially "Item added between date1:" + "and date2:" These dates default to 1/1/2000 and today's date. If you have an item that has a "Date acquired" date prior to 1/1/2000, it will not appear on
+            this report. as of the writing of this note (2020.12.17) there are approximately 21,000 items at 43 libraries that have "Date acquired" dates prior to 1/1/2000. </p>
+          <p></p>
           <p>Formerly called "Flexible Weeding Report"</p>
           <p>Replaces reports: <ul>
               <li>664 (Full Shelf List)</li>
@@ -1619,13 +1614,13 @@
       <td>02786<br /><br />GHW - Flexible New Items Report<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
-          <p>This report shows all items added to NExpress at a specific library branch during a date range</p>
+          <p>This report shows all items added to Next Search Catalog at a specific library branch during a date range</p>
           <ul>
-            <li>Shows items that are currently still in NExpress</li>
+            <li>Shows items that are currently still in Next Search Catalog</li>
             <li>Allows user to specify the item's homebranch, shelving location, item type, collection code, and the item's date added</li>
-            <li>grouped by date added, homebranch, location, itype, collection code, and call number</li>
-            <li>sorted by homebranch, location, itype, collection code, and call number</li>
-            <li>contains links directly to the item's bibliographic record</li>
+            <li>grouped by biblionumber and itemnumber</li>
+            <li>sorted by homebranch, location, itype, collection code, call number, author, title</li>
+            <li>contains links directly to the item's bibliographic record in the OPAC</li>
           </ul><br />
         </div>
       </td>
@@ -1978,24 +1973,6 @@
           <p>Contains active links to reports 2784 and 3039</p>
           <p></p>
           <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2842&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>02843<br /><br />GHW - Deleted borrowers count - previous month<br /><br />Patrons<br />Patron Statistics<br /><br />Created by:<br />George H Williams</td>
-      <td>
-        <div id=reportinfo>
-          <p>Count of patrons deleted in the previous calendar month</p>
-          <ul>
-            <li>Looks at patrons who were manually deleted - does not include patrons that were deleted in batch processes</li>
-            <li>Allows you to specify a patron home branch and patron category if you wish</li>
-            <li>grouped by patron home branch and patron category - includes total count by home branch and a total for the entire table</li>
-            <li>sorted by patron home branch and patron category</li>
-          </ul><br />
-          <p><ins>Notes:</ins></p>
-          <p></p>
-          <p>Report created at the request of Paola Free Library.</p>
-          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2843&phase=Run this report" target="_blank">Click here to run in a new window</a></p>
         </div>
       </td>
     </tr>
@@ -2571,7 +2548,7 @@
       </td>
     </tr>
     <tr>
-      <td>02902<br /><br />GHW - Materials added count by item type and location - previous calendar month<br /><br />Daily, Monthly, Yearly Stats<br />Monthly<br /><br />Created by:<br />George H Williams</td>
+      <td>02902<br /><br />GHW - Materials added count by item type and permanent location - previous calendar month<br /><br />Daily, Monthly, Yearly Stats<br />Monthly<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
           <p>Count of items added by shelving location and item type</p>
@@ -2584,23 +2561,6 @@
           <p><ins>Notes:</ins></p>
           <p></p>
           <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2902&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>02903<br /><br />GHW - Patrons added count by category - previous calendar month<br /><br />Daily, Monthly, Yearly Stats<br />Monthly<br /><br />Created by:<br />George H Williams</td>
-      <td>
-        <div id=reportinfo>
-          <p>Count of patrons added by home library and category code</p>
-          <ul>
-            <li>Counts patrons added in the previous calendar month</li>
-            <li>at the library you specify</li>
-            <li>grouped and sorted by home library and category code</li>
-            <li>includes total for the month at the bottom of the results</li>
-          </ul><br />
-          <p><ins>Notes:</ins></p>
-          <p></p>
-          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2903&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
         </div>
       </td>
     </tr>
@@ -3073,8 +3033,8 @@
       <td></td>
     </tr>
     <tr>
-      <td>02963<br /><br />DATE SNIPPETS<br /><br />Administrative Reports<br />Testing<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
+      <td>02963<br /><br />SQL helper - Date Snippets<br /><br />Administrative Reports<br />Testing<br /><br />Created by:<br />George H Williams</td>
+      <td>Reusable code for setting dates in SQL reports</td>
     </tr>
     <tr>
       <td>02964<br /><br />GHW - Collection agency report 01 - Unique management<br /><br />Library-Specific<br />Ottawa<br /><br />Created by:<br />George H Williams</td>
@@ -3341,24 +3301,6 @@
     <tr>
       <td>03007<br /><br />GHW - Single patron address label<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
       <td></td>
-    </tr>
-    <tr>
-      <td>03008<br /><br />GHW - Patron category count <br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td>
-        <div id=reportinfo>
-          <p>Count the number of patrons at a specified library based on patron category.</p>
-          <ul>
-            <li>Shows current total number of patrons plus the number of patrons added last month and the total number of patrons deleted last month</li>
-            <li>At the library you specify</li>
-            <li>grouped and sorted by patron category</li>
-          </ul><br />
-          <p><ins>Notes:</ins></p>
-          <p></p>
-          <p>Can only be run for one library branch at a time.</p>
-          <p></p>
-          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3008&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
-        </div>
-      </td>
     </tr>
     <tr>
       <td>03009<br /><br />GHW - Accountlines by item barcode number<br /><br />Fines/Fees<br />-<br /><br />Created by:<br />George H Williams</td>
@@ -3804,24 +3746,6 @@
           <p><input type="button" id="digireciept" style="margin: 20px; padding: 5px;" value="One time e-mail receipt step 2"></p>
           <p></p>
           <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3076&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td>03077<br /><br />GHW - Borrowers count by category<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td>
-        <div id=reportinfo>
-          <p>Counts the number of borrowers at the library you specify</p>
-          <ul>
-            <li>Counts current borrowers - counts borrowers added last month - and indicates whether staff can create new accounts in that category</li>
-            <li>at the library you specify</li>
-            <li>grouped and sorted by patron home library and patron category description</li>
-          </ul><br />
-          <p><ins>Notes:</ins></p>
-          <p></p>
-          <p>Notes go here.</p>
-          <p></p>
-          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3077&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
         </div>
       </td>
     </tr>
@@ -4398,6 +4322,9 @@
           <p></p>
           <p>Partially replaces report 1930</p>
           <p></p>
+          <p id="rquickdown"><a
+              href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3128&reportname=GHW%20-%20Checkout%20and%20renewal%20count%20by%20item%20type%20and%20shelving%20location%20-%20previous%20calendar%20month&sql_params=%25&param_name=Choose%20check-out%20library%7CLBRANCH">Click
+              here to download for all libraries as a csv file</a></p>
           <p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3128&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
         </div>
       </td>
@@ -4600,6 +4527,9 @@
           <p></p>
           <p>Partially replaces report 1929</p>
           <p></p>
+          <p id="rquickdown"><a
+              href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3159&reportname=GHW%20-%20Checkout%20and%20renewal%20count%20by%20collection%20code%20and%20shelving%20location%20-%20previous%20calendar%20month&sql_params=%25&param_name=Choose%20your%20library%7CLBRANCH">Click
+              here to download for all libraries as a csv file</a></p>
           <p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3159&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
         </div>
       </td>
@@ -5759,7 +5689,7 @@
       <td></td>
     </tr>
     <tr>
-      <td>03304<br /><br />GHW - Count by item type - neesd some work<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>03304<br /><br />GHW - Item Count by item type<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
       <td></td>
     </tr>
     <tr>
@@ -5978,6 +5908,322 @@
     <tr>
       <td>03347<br /><br />GHW - Active holds queue count<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
       <td></td>
+    </tr>
+    <tr>
+      <td>03348<br /><br />GHW - Titles with requests<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03350<br /><br />GHW - Special reopening holds queue report for LEAVENWRTH<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>Run on Friday - Set items aside till Monday - check items in after 2:15 a.m. Monday morning</td>
+    </tr>
+    <tr>
+      <td>03351<br /><br />GHW - Checkout Counts by Patron<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Item counts by patron where the patron has more than 1 item checked out - includes counts by checkout library</p>
+          <ul>
+            <li>Shows items currently checked out</li>
+            <li>At the library you specified</li>
+            <li>grouped by patron barcode number</li>
+            <li>sorted by highest total checkout count to lowest checkout count</li>
+            <li>links</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Does not include INHOUSE or ILL patron categories</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3351&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">tag goes here</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03352<br /><br />GHW - Quick maxissueqty report<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03353<br /><br />ADMINREPORT<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03354<br /><br />GHW - Items marked as "Withdrawn" in the previous calendar month at OTTAWA<br /><br />Library-Specific<br />Ottawa<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates a list of items that were marked as "Withdrawn" in the previous calendar month at OTTAWA and shows the last patron to have had the item billed to their account</p>
+          <ul>
+            <li>Only shows items marked as "Withdrawn" in the previous calendar month</li>
+            <li>where OTTAWA is the item home branch</li>
+            <li>grouped by item number and biblionumber</li>
+            <li>sorted by home library, shelf location, item type, collection code, call number, author, and title</li>
+            <li>contains raw HTML links to the bibliographic record and to the borrower's account page</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Scheduled to automatically e-mail to OTTAWA staff on the first of each month.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3354&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3354">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">#ottawa, #withdrawn, #scheduled</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03355<br /><br />GHW - Statistics - Monthly unique patron count by date<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Unique patron count last month by day and by month overall</p>
+          <ul>
+            <li>Shows a count of unique patron accounts used to check out materials on each day of the previous calendar month</li>
+            <li>includes a unique patron account per month in the final column</li>
+            <li>at all libraries</li>
+            <li>grouped and sorted by branch name</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>The report will time-out if run live on the server. The best way to run this report is to use the scheduler to have it e-mailed directly to whomever wants it.</p>
+          <p></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3355">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">tag goes here</p>
+          <p style="display: none;>george@nekls.org --subject='3355' --format=csv --csv-header -a</p>
+</div></td>
+
+          </tr>
+
+          <tr>
+
+                  <td>03356<br /><br />Sandbox - Date testing with date variables<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+
+                  <td></td>
+
+          </tr>
+
+          <tr>
+
+                  <td>03357<br /><br />Sandbox - Date range test<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+
+                  <td></td>
+
+          </tr>
+
+          <tr>
+
+                  <td>03358<br /><br />GHW - Sandbox - Attribute testing<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+
+                  <td></td>
+
+          </tr>
+
+          <tr>
+
+                  <td>03359<br /><br />GHW - Requests picked up or cancelled during the previous calendar month<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+
+                  <td><div id=reportinfo class=noprint>
+<p>List of requested titles picked up or cancelled in the previous calendar month</p>
+<ul><li>Shows requests in the previous calendar month</li>
+<li>at the request pickup library you specify</li>
+<li>grouped by reserveid number</li>
+<li>sorted by the pickup library plus the normal Next classification order</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>If a request shows up in this report with no classification information it's because no specific item was ever assigned to fill this request.  This can happen in several situations.</p>
+<ul>
+<li>The first situation would be if a title level request was placed and then cancelled before an available item reached the top of the requests queue</li>
+<li>The second situation would be if a request was placed and an item was checked out to the borrower that filled that request before an available item reached the top of the requests queue</li>
+<li>The third situation would be if an item was checked out to the borrower that was deleted after the item was returned but before this report was run</li>
+</ul>
+<p></p>
+<p><a href=" /cgi-bin/koha/reports/guided_reports.pl?reports=3359&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">#requests</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03360<br /><br />GHW - Borrowers who may owe money on lost items checked out at your library<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates a list of borrowers who may owe money on lost items that were checked out at your library</p>
+          <ul>
+            <li>Shows borrowers who may owe money now</li>
+            <li>on lost items that were checked out at the library you select</li>
+            <li>grouped by borrowernumber and item number</li>
+            <li>sorted by borrower name and normal Next classification scheme</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3360&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">#lost #fees #borrowers</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03361<br /><br />GHW - Borrower count<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Counts borrowers</p>
+          <ul>
+            <li>current count plus added, renewed, and deleted last month</li>
+            <li>at the library you specify</li>
+            <li>grouped library code and category code</li>
+            <li>sorted by (in progress)</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Notes go here.</p>
+          <p>Replaces:</p>
+          <ul>
+            <li>Report 574 - Monthly 004 New Patrons by Category</li>
+            <li>Report 1308 - Count of Patrons by Category</li>
+            <li>Report 2843 - GHW - Deleted borrowers count - previous month</li>
+            <li>Report 2903 - GHW - Patrons added count by category - previous calendar month</li>
+            <li>Report 3008 - GHW - Patron category count</li>
+            <li>Report 3077 - GHW - Borrowers count by category</li>
+          </ul>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3361&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">#borrower #count</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03362<br /><br />GHW - Items at a library without a replacement cost<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03363<br /><br />Sandbox - ADMINREPORT<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03364<br /><br />Branchname and Branchemail<br /><br />-<br />-<br /><br />Created by:<br />Bywater bwssupport</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03365<br /><br />GHW - List / virtualshelf report 005 - Display list titles with links to bibliographic records <br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>https://staff.nextkansas.org/cgi-bin/koha/catalogue/detail.pl?biblionumber=323043</td>
+    </tr>
+    <tr>
+      <td>03366<br /><br />GHW - 942 sandbox<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03368<br /><br />GHW - LINWOOD patrons without Kanopy access<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03369<br /><br />GHW - SABETHA patrons without Kanopy access <br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03370<br /><br />GHW - Non-LINWOOD patrons with LINWOOD Kanopy access <br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03371<br /><br />GHW - Non-SABETHA patrons with SABETHA Kanopy access <br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03372<br /><br />koha-US demo 1<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03373<br /><br />koha-US demo 2<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03374<br /><br />koha-US demo 3<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03375<br /><br />koha-us Demo 4<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03376<br /><br />koha-us Demo 5<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03377<br /><br />koha-us Demo 6<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03378<br /><br />koha-us Demo 7<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03379<br /><br />koha-us Demo 8<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03380<br /><br />koha-US Demo 9<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03381<br /><br />koha-US Demo 10<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03382<br /><br />koha-US Demo 51<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03383<br /><br />koha-US Demo 52<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03384<br /><br />koha-US Demo 53<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03385<br /><br />koha-US Demo 54<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03386<br /><br />koha-US Demo 55<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03387<br /><br />SQL helper - Date Snippets<br /><br />Administrative Reports<br />-<br /><br />Created by:<br />-</td>
+      <td>Reusable code for setting dates in SQL reports</td>
+    </tr>
+    <tr>
+      <td>03388<br /><br />GHW - Sandbox<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03389<br /><br />GHW - Open refine ADMINREPORT<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Outputs borrower address in a way that can be easily imported back into Koha via the patron import tool</p>
+          <ul>
+            <li>Shows current borrowers</li>
+            <li>at the library you specify</li>
+            <li>designed to be flexible</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Notes go here.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3389&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">hidden flexible openrefine</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03390<br /><br />GHW - Get Koha version<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Gets the Koha version from the system preferences table and formats it for printing on the staff client home page as a part of the breadcrumbs</p>
+          <ul>
+            <li>Shows the version right now</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>This report grabs the Koha version then formats it in a way that's readable in the breadcrumbs on the home page in the staff client. This report requires separate jQuery to work properly.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3390&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">jQuery required, json report, Koha enhancement</p>
+        </div>
+      </td>
     </tr>
   </table>
 </body>

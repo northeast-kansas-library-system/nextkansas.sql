@@ -12,8 +12,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2016-08-11 16:36:03
-Modified on: 2020-02-22 11:17:58
-Date last run: 2020-08-18 17:18:27
+Modified on: 2020-12-17 11:44:46
+Date last run: 2020-12-22 16:37:28
 
 ----------
 
@@ -34,6 +34,9 @@ Expiry: 0
 
 <p><ins>Notes:</ins></p>
 <p></p>
+<p>Please note the dates in the default - especially "Item added between date1:" +  "and date2:"  These dates default to 1/1/2000 and today's date.  If you have an item that has a "Date acquired" date prior to 1/1/2000, it will not appear on this report.  as of the writing of this note (2020.12.17) there are approximately 21,000 items at 43 libraries that have "Date acquired" dates prior to 1/1/2000.
+</p>
+<p></p>
 <p>Formerly called "Flexible Weeding Report"</p>
 <p>Replaces reports:
 <ul><li>664 (Full Shelf List)</li><li>2686 (Collection Code Super Weeder)</li><li>1013 (Item Type Super Weeder)</li><li>1442 (Super Weeder by Callnumber)</li><li>2471 (BCPL.SuperWeeder.by.Callnumber)</li><li>1017 (Items with NO checkouts (all items))</li><li>1151 (Date last borrowed, Call number and Title limited by Item type)</li><li>1426 (Last seen on a specific date or earlier)</li><li>1807 (Items with NO checkouts -- limited by CCode)</li><li>2202 (Items with NO checkouts (limited to a collection code and location))</li><li>2203 (Items with NO checkouts (limited to a collection code))</li><li>2241 (Last Seen Date, limited by Collection Code)</li><li>2392 (Date last borrowed, Call number and Title limited by Ccode and Location)</li><li>2411 (Date last borrowed)</li><li>1408 (Shelf List of Specific Item Type)</li><li>1409 (Shelf List of Specific CCode and Location)</li><li>1410 (Shelf List of Specific Item Type and Location)</li><li>3014 (GHW - Shelflist with left anchored call number limit)</li><li>2809 (GHW - List of items with display locations)</li><li>886 Videogames Circ List</li></ul></p>
@@ -53,12 +56,19 @@ SELECT
   Concat("-", Coalesce(items.barcode, "-"), "-") AS BARCODE,
   items.homebranch,
   items.holdingbranch,
+  Coalesce(items.permanent_location, "-") AS PERMANENT_LOCATION,
   Coalesce(items.location, "-") AS LOCATION,
   Coalesce(itypes.description, "-") AS ITYPE,
   Coalesce(ccodes.lib, "-") AS CCODE,
   items.itemcallnumber,
   biblio.author,
-  Concat_Ws(" ", biblio.title, ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')) AS FULL_TITLE,
+  Concat_Ws(" ", 
+    biblio.title, 
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'), 
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), 
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'), 
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')
+  ) AS FULL_TITLE,
   biblioitems.publicationyear,
   items.dateaccessioned,
   items.datelastborrowed,
@@ -115,7 +125,7 @@ LEFT JOIN
     itemtypes.description
   FROM itemtypes) itypes ON itypes.itemtype = items.itype
 WHERE items.homebranch LIKE <<Item home library|ZBRAN>> AND
-  Coalesce(items.location, "-") LIKE <<Item shelving location|LLOC>> AND
+  Coalesce(items.permanent_location, "-") LIKE <<Item permanent shelving location|LLOC>> AND
   Coalesce(items.itype, "XXX") LIKE <<Item type|LITYPES>> AND
   Coalesce(items.ccode, "XXX") LIKE <<Item collection code|LCCODE>> AND
   Coalesce(items.itemcallnumber, "-") LIKE Concat(<<Enter first part of call number or a % symbol>>, "%") AND

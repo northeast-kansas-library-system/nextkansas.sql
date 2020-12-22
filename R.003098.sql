@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2018-07-02 15:37:18
-Modified on: 2020-01-31 17:18:14
-Date last run: 2020-07-21 15:46:00
+Modified on: 2020-10-06 10:57:46
+Date last run: 2020-10-06 10:57:49
 
 ----------
 
@@ -32,7 +32,7 @@ SELECT
 FROM
   items
 WHERE
-  items.itemnumber > '2153652' AND
+  items.itemnumber > '2425208' AND
   items.itemcallnumber = 'Hoopla' AND
   (items.ccode = 'DLAUDIO' OR
     items.ccode = 'DLBOOK' OR

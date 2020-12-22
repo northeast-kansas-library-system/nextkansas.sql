@@ -3,7 +3,7 @@ R.003304
 
 ----------
 
-Name: GHW - Count by item type - neesd some work
+Name: GHW - Item Count by item type
 Created by: George H Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2020-01-13 16:10:56
-Modified on: 2020-01-13 16:10:56
-Date last run: -
+Modified on: 2020-12-03 12:17:32
+Date last run: 2020-12-03 12:19:34
 
 ----------
 
@@ -28,218 +28,91 @@ Expiry: 300
 */
 
 SELECT
-  branchntypes.branchname,
-  branchntypes.description,
-  Sum(DISTINCT allitems.Count_itemnumber) AS ALL_ITEMS,
-  Sum(DISTINCT adult.Count_itemnumber) AS ADULT,
-  Sum(DISTINCT childrens.Count_itemnumber) AS CHILDREN,
-  Sum(DISTINCT ya.Count_itemnumber) AS YA,
-  Sum(DISTINCT other.Count_itemnumber) AS OTHER
+  branchtypes.branchcode,
+  branchtypes.description AS ITEM_TYPE,
+  itemss.Count_itemnumber AS TOTAL_ITEMS,
+  adultitems.Count_itemnumber AS ADULT_ITEMS,
+  juvenileitems.Count_itemnumber AS JUVENILE_ITEMS,
+  yaitems.Count_itemnumber AS YOUNG_ADULT_ITEMS
 FROM
-  (
-    SELECT
-      branches.branchname,
+  (SELECT
       branches.branchcode,
+      branches.branchname,
       itemtypes.itemtype,
       itemtypes.description
     FROM
       branches,
-      itemtypes
+      itemtypes) branchtypes LEFT JOIN
+  (SELECT
+      items.homebranch,
+      Coalesce(items.itype, "XXX") AS ITYPE,
+      Count(items.itemnumber) AS Count_itemnumber
+    FROM
+      items
     GROUP BY
-      branches.branchname,
-      branches.branchcode,
-      itemtypes.itemtype,
-      itemtypes.description
-  ) branchntypes
-  LEFT JOIN (
-    SELECT
-      Coalesce(items.homebranch, "NEKLS") AS homebranch,
+      items.homebranch) itemss ON itemss.homebranch = branchtypes.branchcode AND
+      itemss.ITYPE = branchtypes.itemtype LEFT JOIN
+  (SELECT
+      items.homebranch,
       Coalesce(items.itype, "XXX") AS itype,
       Count(items.itemnumber) AS Count_itemnumber
     FROM
       items
     WHERE
-      items.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1)
-    GROUP BY
-      Coalesce(items.homebranch, "NEKLS"),
-      Coalesce(items.itype, "XXX")
-    UNION
-    SELECT
-      Coalesce(deleteditems.homebranch, "NEKLS") AS homebranch,
-      Coalesce(deleteditems.itype, "XXX") AS itype,
-      Count(deleteditems.itemnumber) AS Count_itemnumber
-    FROM
-      deleteditems
-    WHERE
-      deleteditems.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
-      deleteditems.timestamp > AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1)
-    GROUP BY
-      Coalesce(deleteditems.homebranch, "NEKLS"),
-      Coalesce(deleteditems.itype, "XXX")
-  ) allitems
-    ON allitems.homebranch = branchntypes.branchcode AND
-      allitems.itype = branchntypes.itemtype
-  LEFT JOIN (
-    SELECT
-      Coalesce(items.homebranch, "NEKLS") AS homebranch,
-      Coalesce(items.itype, "XXX") AS itype,
-      items.location,
-      Count(items.itemnumber) AS Count_itemnumber
-    FROM
-      items
-    WHERE
-      items.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
       (items.location = 'ADULT' OR
-        items.location = "LVPLADULT" OR
-        items.location = "PAOLAADULT")
+          items.permanent_location = 'BALDADULT' OR
+          items.permanent_location = 'LVPLADULT' OR
+          items.permanent_location = 'PAOLAADULT' OR
+          items.permanent_location = 'CART' OR
+          items.permanent_location = 'CATALOGING' OR
+          items.permanent_location = 'PROC' OR
+          items.permanent_location IS NULL)
     GROUP BY
-      Coalesce(items.homebranch, "NEKLS"),
-      Coalesce(items.itype, "XXX"),
-      items.location
-    UNION
-    SELECT
-      Coalesce(deleteditems.homebranch, "NEKLS") AS homebranch,
-      Coalesce(deleteditems.itype, "XXX") AS itype,
-      deleteditems.location,
-      Count(deleteditems.itemnumber) AS Count_itemnumber
-    FROM
-      deleteditems
-    WHERE
-      deleteditems.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
-      deleteditems.timestamp > AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
-      (deleteditems.location = 'ADULT' OR
-        deleteditems.location = "LVPLADULT" OR
-        deleteditems.location = "PAOLAADULT")
-    GROUP BY
-      Coalesce(deleteditems.homebranch, "NEKLS"),
-      Coalesce(deleteditems.itype, "XXX"),
-      deleteditems.location
-  ) adult
-    ON adult.homebranch = branchntypes.branchcode AND
-      adult.itype = branchntypes.itemtype
-  LEFT JOIN (
-    SELECT
-      Coalesce(items.homebranch, "NEKLS") AS homebranch,
+      items.homebranch,
+      Coalesce(items.itype, "XXX")) adultitems ON adultitems.homebranch =
+      branchtypes.branchcode AND
+      adultitems.itype = branchtypes.itemtype LEFT JOIN
+  (SELECT
+      items.homebranch,
       Coalesce(items.itype, "XXX") AS itype,
-      items.location,
       Count(items.itemnumber) AS Count_itemnumber
     FROM
       items
     WHERE
-      items.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
-      (items.location = 'CHILDRENS' OR
-        items.location = "LVPLCHILD" OR
-        items.location = "PAOLACHILD")
+      (items.permanent_location = 'CHILDRENS' OR
+          items.permanent_location = 'BALDCHILD' OR
+          items.permanent_location = 'LVPLCHILD' OR
+          items.permanent_location = 'PAOLACHILD')
     GROUP BY
-      Coalesce(items.homebranch, "NEKLS"),
-      Coalesce(items.itype, "XXX"),
-      items.location
-    UNION
-    SELECT
-      Coalesce(deleteditems.homebranch, "NEKLS") AS homebranch,
-      Coalesce(deleteditems.itype, "XXX") AS itype,
-      deleteditems.location,
-      Count(deleteditems.itemnumber) AS Count_itemnumber
-    FROM
-      deleteditems
-    WHERE
-      deleteditems.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
-      deleteditems.timestamp > AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
-      (deleteditems.location = 'CHILDRENS' OR
-        deleteditems.location = "LVPLCHILD" OR
-        deleteditems.location = "PAOLACHILD")
-    GROUP BY
-      Coalesce(deleteditems.homebranch, "NEKLS"),
-      Coalesce(deleteditems.itype, "XXX"),
-      deleteditems.location
-  ) childrens
-    ON childrens.homebranch = branchntypes.branchcode AND
-      childrens.itype = branchntypes.itemtype
-  LEFT JOIN (
-    SELECT
-      Coalesce(items.homebranch, "NEKLS") AS homebranch,
+      items.homebranch,
+      Coalesce(items.itype, "XXX")) juvenileitems ON juvenileitems.homebranch =
+      branchtypes.branchcode AND
+      juvenileitems.itype = branchtypes.itemtype LEFT JOIN
+  (SELECT
+      items.homebranch,
       Coalesce(items.itype, "XXX") AS itype,
-      items.location,
       Count(items.itemnumber) AS Count_itemnumber
     FROM
       items
     WHERE
-      items.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
-      (items.location = 'YOUNGADULT' OR
-        items.location = "LVPLYA" OR
-        items.location = "PAOLAYA")
+      (items.permanent_location = 'YOUNGADULT' OR
+          items.permanent_location = 'BALDYA' OR
+          items.permanent_location = 'LVPLYA' OR
+          items.permanent_location = 'PAOLAYA')
     GROUP BY
-      Coalesce(items.homebranch, "NEKLS"),
-      Coalesce(items.itype, "XXX"),
-      items.location
-    UNION
-    SELECT
-      Coalesce(deleteditems.homebranch, "NEKLS") AS homebranch,
-      Coalesce(deleteditems.itype, "XXX") AS itype,
-      deleteditems.location,
-      Count(deleteditems.itemnumber) AS Count_itemnumber
-    FROM
-      deleteditems
-    WHERE
-      deleteditems.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
-      deleteditems.timestamp > AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
-      (deleteditems.location = 'YOUNGADULT' OR
-        deleteditems.location = "LVPLYA" OR
-        deleteditems.location = "PAOLAYA")
-    GROUP BY
-      Coalesce(deleteditems.homebranch, "NEKLS"),
-      Coalesce(deleteditems.itype, "XXX"),
-      deleteditems.location
-  ) ya
-    ON ya.homebranch = branchntypes.branchcode AND
-      ya.itype = branchntypes.itemtype
-  LEFT JOIN (
-    SELECT
-      Coalesce(items.homebranch, "NEKLS") AS homebranch,
-      Coalesce(items.itype, "XXX") AS itype,
-      items.location,
-      Count(items.itemnumber) AS Count_itemnumber
-    FROM
-      items
-    WHERE
-      items.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
-      (items.location = 'CART' OR
-        items.location = "CATALOGING" OR
-        items.location = "PROC" OR
-        items.location = "" OR
-        items.location IS NULL)
-    GROUP BY
-      Coalesce(items.homebranch, "NEKLS"),
-      Coalesce(items.itype, "XXX"),
-      items.location
-    UNION
-    SELECT
-      Coalesce(deleteditems.homebranch, "NEKLS") AS homebranch,
-      Coalesce(deleteditems.itype, "XXX") AS itype,
-      deleteditems.location,
-      Count(deleteditems.itemnumber) AS Count_itemnumber
-    FROM
-      deleteditems
-    WHERE
-      deleteditems.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
-      deleteditems.timestamp > AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
-      (deleteditems.location = 'CART' OR
-        deleteditems.location = "CATALOGING" OR
-        deleteditems.location = "PROC" OR
-        deleteditems.location = "" OR
-        deleteditems.location IS NULL)
-    GROUP BY
-      Coalesce(deleteditems.homebranch, "NEKLS"),
-      Coalesce(deleteditems.itype, "XXX"),
-      deleteditems.location
-  ) other
-    ON other.homebranch = branchntypes.branchcode AND
-      other.itype = branchntypes.itemtype
+      items.homebranch,
+      Coalesce(items.itype, "XXX")) yaitems ON yaitems.homebranch =
+      branchtypes.branchcode AND
+      yaitems.itype = branchtypes.itemtype
 WHERE
-  branchntypes.branchcode = 'CORNING'
+  branchtypes.branchcode LIKE <<Choose your library|ZBRAN>>
 GROUP BY
-  branchntypes.branchname,
-  branchntypes.description
+  branchtypes.branchcode,
+  branchtypes.description,
+  itemss.Count_itemnumber,
+  adultitems.Count_itemnumber,
+  juvenileitems.Count_itemnumber,
+  yaitems.Count_itemnumber
 
 
 

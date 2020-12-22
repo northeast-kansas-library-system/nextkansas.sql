@@ -12,8 +12,8 @@ Group: Administrative Reports
      Testing
 
 Created on: 2017-09-06 13:56:13
-Modified on: 2017-09-06 14:53:12
-Date last run: 2020-07-27 13:32:14
+Modified on: 2020-11-30 16:32:42
+Date last run: 2020-11-30 16:32:46
 
 ----------
 
@@ -71,7 +71,6 @@ SELECT
   borrowers.contactname,
   borrowers.contactfirstname,
   borrowers.contacttitle,
-  borrowers.guarantorid,
   borrowers.borrowernotes,
   borrowers.relationship,
   borrowers.ethnicity,

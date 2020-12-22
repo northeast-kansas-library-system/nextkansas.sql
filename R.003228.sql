@@ -12,8 +12,8 @@ Group: Lists Module
      -
 
 Created on: 2019-07-17 16:43:43
-Modified on: 2019-11-05 10:52:48
-Date last run: 2019-11-07 15:11:10
+Modified on: 2020-11-10 16:56:06
+Date last run: 2020-11-10 16:56:15
 
 ----------
 
@@ -51,7 +51,8 @@ would be list number 6003.</p>
 
 SELECT
   biblio.author,
-  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">', biblio.title, '</a>') AS TITLE
+  biblio.title,
+  Concat('<a class="btn btn-default" href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">Go to title</a>') AS BUTTON
 FROM
   biblio
   JOIN virtualshelfcontents

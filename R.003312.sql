@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2020-02-24 10:37:00
-Modified on: 2020-07-02 11:54:00
-Date last run: 2020-07-02 11:54:06
+Modified on: 2020-09-08 00:09:04
+Date last run: 2020-09-08 00:09:05
 
 ----------
 
@@ -27,9 +27,9 @@ Expiry: 300
 ----------
 */
 
-SELECT
- *
-FROM branches
+SELECT *
+from itemtypes
+
 
 
 
