@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-08-14 15:38:39
-Modified on: 2019-08-18 22:56:59
-Date last run: 2020-12-22 16:39:39
+Modified on: 2021-01-12 23:47:22
+Date last run: 2021-02-07 16:38:24
 
 ----------
 
@@ -29,13 +29,13 @@ Required for new "Damaged item" pop-up on checkin page.
 
 SELECT
   Concat(
-    '<h3 id="damageditem" class="problem" autofocus>Item ',
+    '"><h2>Damaged item message</h2><h3 id="damageditem" class="problem">Item ',
     items.barcode,
     ' marked with DAMAGED status of "',
     damageds.lib,
     '" on ',
     IF(items.damaged_on is null, 'unknown date', Date_Format(items.damaged_on, '%Y-%m-%d')),
-    '.</h3>'
+    '.</h3><p>DAMAGED statuses must be removed manually - they are not removed by the checkin process.</p>'
   ) AS MESSAGE,
   If(items.damaged > 0, 'block', 'none') AS DISPLAY,
   damageds.lib

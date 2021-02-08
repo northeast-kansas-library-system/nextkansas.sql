@@ -8,7 +8,7 @@ Created by: -
 
 ----------
 
-Group: Patrons
+Group: Borrowers
      Patron Statistics
 
 Created on: 2012-02-10 13:36:59

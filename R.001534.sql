@@ -8,7 +8,7 @@ Created by: Heather Braum
 
 ----------
 
-Group: Patrons
+Group: Borrowers
      -
 
 Created on: 2012-09-05 10:56:12

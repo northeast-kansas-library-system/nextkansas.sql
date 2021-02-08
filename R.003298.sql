@@ -12,8 +12,8 @@ Group: Library-Specific
      Leavenworth
 
 Created on: 2020-01-09 15:12:38
-Modified on: 2020-01-09 15:34:15
-Date last run: 2020-05-29 16:29:27
+Modified on: 2020-12-24 15:06:43
+Date last run: 2020-12-24 15:04:18
 
 ----------
 
@@ -22,7 +22,21 @@ Expiry: 300
 
 ----------
 
-
+<div id=reportinfo class=noprint>
+<p>Shows patrons with a LEAVENWRTH home library but without a "Kanopy (LEAVENWRTH): Allowed . . ." borrower attribute.</p>
+<ul><li>Shows borrwoers that currently lack this attribute</li>
+<li>grouped by categorycode and borrowernumber</li>
+<li>sorted by library card number</li>
+<li>links to the borrower account</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Should be run monthly at LEAVENWRTH so the attribute can be added to those accounts</p>
+<p><a href="https://northeast-kansas-library-system.github.io/next/branches/LEAVENWRTH/kanopy.html#running-reports-to-manually-update-kanopy-permission" target="_blank">Go to the training information for the Kanopy (LEAVENWRTH) extended borrower attribute.</a></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3298&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p class= "notetags" style="display: none;">kanopy; patron-extended-attributes; LEAVENWRTH;</p>
+</div>
 
 ----------
 */

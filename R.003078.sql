@@ -8,12 +8,12 @@ Created by: George H Williams
 
 ----------
 
-Group: Patrons
+Group: Borrowers
      -
 
 Created on: 2018-05-01 22:22:47
-Modified on: 2018-05-02 10:11:45
-Date last run: 2020-12-07 10:57:35
+Modified on: 2020-12-30 10:25:35
+Date last run: 2021-01-04 13:42:29
 
 ----------
 
@@ -62,6 +62,7 @@ WHERE
 GROUP BY
   borrowers.borrowernumber
 ORDER BY
+  borrowers.branchcode,
   borrowers.surname,
   borrowers.firstname,
   borrowers.dateofbirth

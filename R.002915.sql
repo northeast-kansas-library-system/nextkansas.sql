@@ -12,8 +12,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2017-03-01 09:17:47
-Modified on: 2020-07-23 16:02:29
-Date last run: 2020-12-01 05:53:16
+Modified on: 2021-01-31 21:21:52
+Date last run: 2021-01-31 21:22:24
 
 ----------
 
@@ -45,10 +45,14 @@ Expiry: 0
 */
 
 SELECT
-  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',
-  biblio.biblionumber, '\" target="_blank">', biblio.biblionumber,
-  '</a>') AS LINK_TO_TITLE,
-  items.itemnumber AS ITEM_NUMBER,
+  Concat(
+    '<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',
+    biblio.biblionumber, 
+    '\" target="_blank">', 
+    biblio.biblionumber,
+    '</a>'
+  ) AS LINK_TO_TITLE,
+  items.itemnumber AS itemnumber,
   Concat("-", items.barcode, "-") AS BARCODE,
   items.homebranch,
   items.holdingbranch,

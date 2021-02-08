@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2020-10-29 13:05:33
-Modified on: 2020-12-07 14:06:58
-Date last run: 2020-12-17 23:03:19
+Modified on: 2020-12-30 17:12:35
+Date last run: 2021-01-18 10:16:57
 
 ----------
 
@@ -80,7 +80,7 @@ SELECT
   branchescategories.upperagelimit) = 0999, "Any age",
   If(Concat(branchescategories.dateofbirthrequired,
   branchescategories.upperagelimit) LIKE "1_999",
-  Concat(branchescategories.dateofbirthrequired, " or older"), Concat_Ws(" - ",
+  Concat(branchescategories.dateofbirthrequired, " or older"), Concat_Ws(" -- ",
   branchescategories.dateofbirthrequired, branchescategories.upperagelimit))) AS
   AGE_RANGE,
   

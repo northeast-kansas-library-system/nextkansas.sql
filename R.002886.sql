@@ -8,7 +8,7 @@ Created by: George H Williams
 
 ----------
 
-Group: Patrons
+Group: Borrowers
      Guarantor/guranantee reports
 
 Created on: 2017-01-24 10:38:37

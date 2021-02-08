@@ -8,7 +8,7 @@ Created by: George H Williams
 
 ----------
 
-Group: Patrons
+Group: Borrowers
      Patron attributes
 
 Created on: 2017-07-05 14:11:52

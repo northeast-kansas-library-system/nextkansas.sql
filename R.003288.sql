@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-12-26 09:46:35
-Modified on: 2020-07-09 13:14:51
-Date last run: 2020-10-13 11:34:51
+Modified on: 2021-01-17 13:30:24
+Date last run: 2021-01-17 14:33:38
 
 ----------
 
@@ -56,7 +56,7 @@ SELECT
   outstanding_fees.accountlines_id,
   outstanding_fees.status,
   Format(outstanding_fees.amountoutstanding, 2) AS amountoutstanding,
-  Trim(Replace(outstanding_fees.note, '\r\n', '||')) AS note
+  Concat('-', Trim(Replace(outstanding_fees.note, '\r\n', '||')), '-') AS note
 FROM
   (SELECT
       issues.branchcode,
@@ -142,7 +142,8 @@ FROM
       accountlines.accountlines_id,
       accountlines.status) outstanding_fees
 WHERE
-  outstanding_fees.branchcode LIKE <<Choose your library|ZBRAN>>
+  outstanding_fees.branchcode LIKE <<Choose your library|ZBRAN>> AND
+  outstanding_fees.debit_type_code LIKE <<Debit type|LDEBITTYPE>>
 GROUP BY
   outstanding_fees.credit_type_code,
   outstanding_fees.debit_type_code,

@@ -8,7 +8,7 @@ Created by: Heather Braum
 
 ----------
 
-Group: Patrons
+Group: Borrowers
      Patron Statistics
 
 Created on: 2015-03-31 12:01:48

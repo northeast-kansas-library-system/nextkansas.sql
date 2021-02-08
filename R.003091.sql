@@ -8,12 +8,12 @@ Created by: George H Williams
 
 ----------
 
-Group: Patrons
+Group: Borrowers
      Patron attributes
 
 Created on: 2018-06-29 08:57:11
-Modified on: 2019-11-21 11:26:22
-Date last run: 2020-12-04 12:53:02
+Modified on: 2020-12-31 18:22:42
+Date last run: 2020-12-31 18:40:49
 
 ----------
 
@@ -78,7 +78,7 @@ FROM
         borrower_attributes.attribute,
         borrower_attributes.code) expired_account ON borrowers.borrowernumber = expired_account.borrowernumber
 WHERE
-  borrowers.branchcode LIKE <<Choose your library|ZBRAN>> AND
+  borrowers.branchcode LIKE <<Choose your library|LBRANCH>> AND
   borrowers.categorycode LIKE <<Choose a borrower category|LBORROWERCAT>> AND
   Coalesce(expired_account.attribute, "~") LIKE <<Select expiration attribute|LEXPIRED>>
 GROUP BY

@@ -8,7 +8,7 @@ Created by: George H Williams
 
 ----------
 
-Group: Patrons
+Group: Borrowers
      Patron Statistics
 
 Created on: 2016-12-02 14:56:53

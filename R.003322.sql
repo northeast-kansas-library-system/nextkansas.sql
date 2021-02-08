@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2020-04-30 15:39:17
-Modified on: 2020-04-30 15:40:19
-Date last run: 2020-05-18 09:26:45
+Modified on: 2020-12-30 11:07:30
+Date last run: 2020-12-30 11:19:33
 
 ----------
 
@@ -32,22 +32,23 @@ SELECT
   Year(account_offsets.created_on),
   Month(account_offsets.created_on),
   Format(Sum(ABS(account_offsets.amount)), 2) AS Sum_amount,
-  accountlines1.accounttype,
+  accountlines1.debit_type_code,
   account_offsets.type
 FROM
   account_offsets JOIN
   accountlines ON accountlines.accountlines_id = account_offsets.credit_id JOIN
   borrowers ON accountlines.manager_id = borrowers.borrowernumber JOIN
-  accountlines accountlines1 ON accountlines1.accountlines_id = account_offsets.debit_id
+  accountlines accountlines1 ON accountlines1.accountlines_id =
+      account_offsets.debit_id
 WHERE
-  accountlines1.accounttype = 'OVERDUE' AND
+  accountlines1.debit_type_code = 'OVERDUE' AND
   account_offsets.type = 'Payment' AND
   borrowers.branchcode LIKE <<Choose your library|ZBRAN>>
 GROUP BY
   borrowers.branchcode,
   Year(account_offsets.created_on),
   Month(account_offsets.created_on),
-  accountlines1.accounttype,
+  accountlines1.debit_type_code,
   account_offsets.type
 ORDER BY
   borrowers.branchcode,

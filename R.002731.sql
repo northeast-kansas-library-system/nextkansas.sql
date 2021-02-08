@@ -12,8 +12,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2016-08-11 16:36:03
-Modified on: 2020-12-17 11:44:46
-Date last run: 2020-12-22 16:37:28
+Modified on: 2021-01-05 13:44:04
+Date last run: 2021-02-06 11:49:56
 
 ----------
 
@@ -50,7 +50,13 @@ Expiry: 0
 */
 
 SELECT
-  Concat('<a class= "clicked" href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', items.biblionumber, '\" target="_blank">', items.biblionumber, '</a>') AS LINK_TO_TITLE,
+  Concat(
+    '<a class= "clicked" href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
+    items.biblionumber, 
+    '\" target="_blank">', 
+    items.biblionumber, 
+    '</a>'
+  ) AS LINK_TO_TITLE,
   items.biblionumber,
   items.itemnumber AS ITEM_NUMBER,
   Concat("-", Coalesce(items.barcode, "-"), "-") AS BARCODE,
@@ -85,7 +91,13 @@ SELECT
   items.replacementprice,
   localcounts.Count_itemnumber AS LOCAL_COPIES,
   systemcounts.Count_itemnumber AS SYSTEM_COPIES,
-  Concat('<a class= "clicked" href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=', items.biblionumber, '&itemnumber=', items.itemnumber, '#edititem\" target="_blank">Edit item</a>') AS EDIT_ITEM
+  Concat(
+    '<a class= "clicked" href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=', 
+    items.biblionumber, 
+    '&itemnumber=', 
+    items.itemnumber, 
+    '#edititem\" target="_blank">Edit item</a>'
+  ) AS EDIT_ITEM
 FROM items
 JOIN biblio ON items.biblionumber = biblio.biblionumber
 JOIN biblio_metadata ON items.biblionumber = biblio_metadata.biblionumber
@@ -126,7 +138,7 @@ LEFT JOIN
   FROM itemtypes) itypes ON itypes.itemtype = items.itype
 WHERE items.homebranch LIKE <<Item home library|ZBRAN>> AND
   Coalesce(items.permanent_location, "-") LIKE <<Item permanent shelving location|LLOC>> AND
-  Coalesce(items.itype, "XXX") LIKE <<Item type|LITYPES>> AND
+  Coalesce(items.itype, "PUNC") LIKE <<Item type|LITYPES>> AND
   Coalesce(items.ccode, "XXX") LIKE <<Item collection code|LCCODE>> AND
   Coalesce(items.itemcallnumber, "-") LIKE Concat(<<Enter first part of call number or a % symbol>>, "%") AND
   IF(notloan.authorised_value = 0, "-", Concat(notloan.lib, "X")) LIKE <<Not for loan status|LNOT_LOAN>> AND

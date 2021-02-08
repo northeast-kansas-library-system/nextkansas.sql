@@ -12,8 +12,8 @@ Group: Clubs
      -
 
 Created on: 2020-06-15 17:13:07
-Modified on: 2020-06-17 11:27:49
-Date last run: 2020-07-28 14:13:36
+Modified on: 2021-02-03 15:11:14
+Date last run: 2021-02-03 15:16:29
 
 ----------
 
@@ -30,17 +30,31 @@ Expiry: 300
 SELECT
   clubs.name AS CLUB_NAME,
   borrowers.cardnumber,
-  Concat_Ws('<br />', Concat(borrowers.surname, ', ', borrowers.firstname,
-  If(borrowers.othernames = '', '', Concat(' (', borrowers.othernames,
-  ')'))), If(name.value = 1, '',
-  '<u>Patron does not want their name shared</u><br />'), borrowers.email,
-  If(email.value = 1, '',
-  '<u>Patron does not want their e-mail shared</u><br />'), borrowers.phone,
-  If(phone.value = 1, '',
-  '<u>Patron does not want their phone number shared</u><br />'),
-  Concat('Joined on: ', Month(club_enrollments.date_enrolled), '/',
-  Day(club_enrollments.date_enrolled), '/',
-  Year(club_enrollments.date_enrolled))) AS CLUB_ROSTER_FOR_LIBRARY_USE_ONLY
+  Concat_Ws('<br />', 
+    Concat(
+      borrowers.surname, 
+      ', ', 
+      borrowers.firstname, 
+      If(
+        borrowers.othernames = '', 
+        '', 
+        Concat(' (', borrowers.othernames,')')
+      )
+    ), 
+    If(name.value = 1, '', '<u>Patron does not want their name shared</u><br />'), 
+    borrowers.email,
+    If(email.value = 1, '', '<u>Patron does not want their e-mail shared</u><br />'), 
+    borrowers.phone, 
+    If(phone.value = 1, '', '<u>Patron does not want their phone number shared</u><br />'),
+    Concat(
+      'Joined on: ', 
+      Month(club_enrollments.date_enrolled), 
+      '/', 
+      Day(club_enrollments.date_enrolled), 
+      '/', 
+      Year(club_enrollments.date_enrolled)
+    )
+  ) AS CLUB_ROSTER_FOR_LIBRARY_USE_ONLY
 FROM
   clubs JOIN
   club_enrollments ON club_enrollments.club_id = clubs.id JOIN

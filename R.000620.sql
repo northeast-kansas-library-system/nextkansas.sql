@@ -8,7 +8,7 @@ Created by:  Tongie Book Club
 
 ----------
 
-Group: Patrons
+Group: Borrowers
      -
 
 Created on: 2009-06-30 09:42:05
