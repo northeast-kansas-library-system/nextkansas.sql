@@ -1,0 +1,43 @@
+/*
+R.003447
+
+----------
+
+Name: koha-US dashboard test 4
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2021-02-12 09:49:26
+Modified on: 2021-02-12 09:49:55
+Date last run: 2021-02-12 11:36:51
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+Step 2.2 from website
+
+Show what the sub-query does
+
+----------
+*/
+
+SELECT
+    authorised_values.category,
+    authorised_values.authorised_value,
+    authorised_values.lib
+  FROM
+    authorised_values
+  WHERE
+    authorised_values.category = 'ccode'
+  LIMIT 1000
+
+
+

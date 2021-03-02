@@ -1,0 +1,176 @@
+/*
+R.003461
+
+----------
+
+Name: koha-US dashboard test 18
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2021-02-12 10:22:12
+Modified on: 2021-02-12 10:23:20
+Date last run: 2021-02-12 12:13:54
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+Step 15 
+
+Add links
+
+----------
+*/
+
+SELECT
+  deleteditems.homebranch,
+  deleteditems.holdingbranch,
+  deleteditems.permanent_location,
+  deleteditems.location,
+  deleteditems.itype,
+  ccodes.lib,
+  deleteditems.itemcallnumber,
+  Coalesce(biblio.author, deletedbiblio.author),
+  Coalesce(biblio.title, deletedbiblio.title),
+  deleteditems.barcode,
+  deleteditems.replacementprice,
+  deleteditems.itemnumber,
+  Concat(damageds.lib, ' ', deleteditems.damaged_on) AS DAMAGED,
+  Concat(losts.lib, ' ', deleteditems.itemlost_on) AS LOST,
+  Concat(withdrawns.lib, ' ', deleteditems.withdrawn_on) AS WITHDRAWN,
+
+
+/* This section uses an if/then statement to display a message if the biblio has been deleted or a link to the biblio record if it has not */
+
+  If(
+    biblio.biblionumber IS NULL,
+    "<br />-- Bibliographic record has been deleted --",
+    Concat(
+      "<br /><a href='/cgi-bin/koha/catalogue/detail.pl?biblionumber=",
+      biblio.biblionumber,
+      "' target='_blank'>Go to the bibliographic record</a>"
+    )
+  ),
+
+
+/* This section links out to a report that searches for the item barcode number in accountlines */
+
+  Concat(
+    "<br /><a href='/cgi-bin/koha/reports/guided_reports.pl?phase=Run+this+report&reports=3009&sql_params=",
+    Replace(
+      Replace(
+        Replace(
+          Replace(
+            Replace(
+              Replace(
+                Replace(
+                  deleteditems.barcode,
+                  Char(43),
+                  "%2B"),
+                Char(47),
+                "%2F"),
+              Char(32),
+              "%20"),
+            Char(45),
+            "%2D"),
+          Char(36),
+          "%24"),
+        Char(37),
+        "%25"),
+      Char(46),
+      "%2E"
+    ),
+    "&limit=50' target='_blank'>Search payment and fee notes and descriptions for this item barcode number</a>"
+  ) AS LINK_TO_REPORT
+
+
+
+FROM
+  deleteditems LEFT JOIN
+  biblio ON deleteditems.biblionumber = biblio.biblionumber  LEFT JOIN
+  deletedbiblio ON deletedbiblio.biblionumber = deleteditems.biblionumber LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'LOC') permanent_locss ON
+      permanent_locss.authorised_value = deleteditems.permanent_location
+  LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'LOC') locss ON locss.authorised_value =
+      deleteditems.location LEFT JOIN
+  (SELECT
+      itemtypes.itemtype,
+      itemtypes.description
+    FROM
+      itemtypes) itemtypess ON itemtypess.itemtype = deleteditems.itype
+  LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'CCODE') ccodes ON ccodes.authorised_value =
+      deleteditems.ccode LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'NOT_LOAN') notforloans ON
+      notforloans.authorised_value = deleteditems.notforloan LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'DAMAGED') damageds ON
+      damageds.authorised_value = deleteditems.damaged LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'LOST') losts ON losts.authorised_value =
+      deleteditems.itemlost LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'WITHDRAWN') withdrawns ON
+      withdrawns.authorised_value = deleteditems.withdrawn
+WHERE
+  deleteditems.barcode LIKE Concat('%', <<Enter item barcode number 0003008200544 /00102000060081/ 1003008100089>>, '%')
+GROUP BY
+  deleteditems.itemnumber,
+  biblio.biblionumber
+
+
+

@@ -1,0 +1,184 @@
+/*
+R.003452
+
+----------
+
+Name: koha-US dashboard test 9
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2021-02-12 10:04:02
+Modified on: 2021-02-12 10:09:35
+Date last run: 2021-02-12 11:44:55
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+Step 6
+
+Add branch transfer data
+
+----------
+*/
+
+SELECT
+  items.homebranch,
+  items.holdingbranch,
+  permanent_locss.lib AS PERM_LOCATION,
+  locss.lib AS LOCATION,
+  itemtypess.description AS ITYPE,
+  ccodes.lib AS CCODE,
+  items.itemcallnumber,
+  biblio.author,
+  Concat_Ws(' ',
+    biblio.title,
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'),
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'),
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]'),
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="c"]')
+  ) AS FULL_TITLE,
+  items.barcode,
+  items.itemnotes,
+  items.itemnotes_nonpublic,
+  items.issues,
+  items.renewals,
+  items.dateaccessioned,
+  items.datelastborrowed,
+  items.datelastseen,
+  items.timestamp,
+  issuesi.date_due,
+  notforloans.lib,
+  Concat(damageds.lib, ' ', items.damaged_on) AS DAMAGED,
+  Concat(losts.lib, ' ', items.itemlost_on) AS LOST,
+  Concat(withdrawns.lib, ' ', items.withdrawn_on) AS WITHDRAWN,
+
+/* Shows if the item is in transit between libraries */
+
+  If(
+    transfersi.frombranch IS NULL,
+    "-",
+    Concat(transfersi.frombranch, " to ", transfersi.tobranch, " since ", transfersi.datesent)
+  ) AS TRANSFER,
+
+
+  If(
+    issuesi.date_due IS NULL, "-",
+    Concat(
+      "<a href='/cgi-bin/koha/circ/circulation.pl?borrowernumber=",
+      issuesi.borrowernumber,
+      "' target='_blank'>go to the borrower's account</a>"
+    )
+  ) AS LINK_TO_BORROWER
+FROM
+  items JOIN
+  biblio ON items.biblionumber = biblio.biblionumber LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'LOC') permanent_locss ON
+      permanent_locss.authorised_value = items.permanent_location LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'LOC') locss ON locss.authorised_value =
+      items.location LEFT JOIN
+  (SELECT
+      itemtypes.itemtype,
+      itemtypes.description
+    FROM
+      itemtypes) itemtypess ON itemtypess.itemtype = items.itype LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'CCODE') ccodes ON ccodes.authorised_value =
+      items.ccode LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'NOT_LOAN') notforloans ON
+      notforloans.authorised_value = items.notforloan LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'DAMAGED') damageds ON
+      damageds.authorised_value = items.damaged LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'LOST') losts ON losts.authorised_value =
+      items.itemlost LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'WITHDRAWN') withdrawns ON
+      withdrawns.authorised_value = items.withdrawn JOIN
+  biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
+  LEFT JOIN
+  (SELECT
+      issues.itemnumber,
+      issues.date_due,
+      issues.borrowernumber
+    FROM
+      issues) issuesi ON issuesi.itemnumber = items.itemnumber
+
+/* Sub query to get data from the issues table */
+
+LEFT JOIN
+  (SELECT
+      branchtransfers.itemnumber,
+      branchtransfers.frombranch,
+      branchtransfers.datesent,
+      branchtransfers.tobranch,
+      branchtransfers.datearrived
+    FROM
+      branchtransfers
+    WHERE
+      branchtransfers.datearrived IS NULL) transfersi ON transfersi.itemnumber =
+      items.itemnumber
+
+
+WHERE
+  items.barcode LIKE Concat('%', <<Enter item barcode number 0003008200544 /00102000060081/ 1003008100089>>, '%')
+GROUP BY
+  items.itemnumber,
+  biblio.biblionumber
+
+
+

@@ -1,0 +1,69 @@
+/*
+R.003445
+
+----------
+
+Name: koha-US dashboard test 2
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2021-02-12 09:46:26
+Modified on: 2021-02-12 10:01:56
+Date last run: 2021-02-12 11:34:17
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+Step 1 from website
+Just the data from items
+
+----------
+*/
+
+SELECT
+  items.homebranch,
+  items.holdingbranch,
+  items.permanent_location,
+  items.location,
+  items.itype,
+  items.ccode,
+  items.itemcallnumber,
+  biblio.author,
+  biblio.title,
+  items.barcode,
+  items.itemnotes,
+  items.itemnotes_nonpublic,
+  items.issues,
+  items.renewals,
+  items.dateaccessioned,
+  items.datelastborrowed,
+  items.datelastseen,
+  items.timestamp,
+  items.onloan,
+  items.notforloan,
+  items.damaged,
+  items.damaged_on,
+  items.itemlost,
+  items.itemlost_on,
+  items.withdrawn,
+  items.withdrawn_on
+FROM
+  items JOIN
+  biblio ON items.biblionumber = biblio.biblionumber
+WHERE
+  items.barcode LIKE CONCAT('%', <<Enter item barcode number 0003008200544 /00102000060081/ 1003008100089>>, '%')
+GROUP BY
+  items.itemnumber,
+  biblio.biblionumber
+
+
+

@@ -1,0 +1,89 @@
+/*
+R.003446
+
+----------
+
+Name: koha-US dashboard test 3
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2021-02-12 09:48:14
+Modified on: 2021-02-12 10:01:15
+Date last run: 2021-02-12 11:36:01
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+Step 2.1 on the website
+
+With 1 sample sub-query
+
+----------
+*/
+
+SELECT
+  items.homebranch,
+  items.holdingbranch,
+  items.permanent_location,
+  items.location,
+  items.itype,
+
+/* Changes items.ccode to ccodes.lib */
+
+  ccodes.lib AS CCODE,
+
+
+  items.itemcallnumber,
+  biblio.author,
+  biblio.title,
+  items.barcode,
+  items.itemnotes,
+  items.itemnotes_nonpublic,
+  items.issues,
+  items.renewals,
+  items.dateaccessioned,
+  items.datelastborrowed,
+  items.datelastseen,
+  items.timestamp,
+  items.onloan,
+  items.notforloan,
+  items.damaged,
+  items.damaged_on,
+  items.itemlost,
+  items.itemlost_on,
+  items.withdrawn,
+  items.withdrawn_on
+FROM
+  items JOIN
+  biblio ON items.biblionumber = biblio.biblionumber
+
+/* Sub-querie called "ccodes" - left joined to items.ccode */
+
+  LEFT JOIN
+    (SELECT
+        authorised_values.category,
+        authorised_values.authorised_value,
+        authorised_values.lib
+      FROM
+        authorised_values
+      WHERE
+        authorised_values.category = 'ccode') ccodes ON ccodes.authorised_value =
+        items.ccode
+
+
+WHERE
+  items.barcode LIKE CONCAT('%', <<Enter item barcode number 0003008200544 /00102000060081/ 1003008100089>>, '%')
+GROUP BY
+  items.itemnumber,
+  biblio.biblionumber
+
+
+

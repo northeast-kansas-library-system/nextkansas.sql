@@ -1,0 +1,139 @@
+/*
+R.003449
+
+----------
+
+Name: koha-US dashboard test 6
+Created by: George H Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2021-02-12 09:53:30
+Modified on: 2021-02-12 10:01:22
+Date last run: 2021-02-12 11:38:48
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+Step 3
+
+Concat the statuses and dates
+
+----------
+*/
+
+SELECT
+  items.homebranch,
+  items.holdingbranch,
+  permanent_locss.lib AS PERM_LOCATION,
+  locss.lib AS LOCATION,
+  itemtypess.description AS ITYPE,
+  ccodes.lib AS CCODE,
+  items.itemcallnumber,
+  biblio.author,
+  biblio.title,
+  items.barcode,
+  items.itemnotes,
+  items.itemnotes_nonpublic,
+  items.issues,
+  items.renewals,
+  items.dateaccessioned,
+  items.datelastborrowed,
+  items.datelastseen,
+  items.timestamp,
+  items.onloan,
+  notforloans.lib,
+
+/* Combines status and status dates into single fields */
+
+  CONCAT(damageds.lib, ' ', items.damaged_on) AS DAMAGED,
+  CONCAT(losts.lib, ' ', items.itemlost_on) AS LOST,
+  CONCAT(withdrawns.lib, ' ', items.withdrawn_on) AS WITHDRAWN
+
+
+FROM
+  items JOIN
+  biblio ON items.biblionumber = biblio.biblionumber LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'LOC') permanent_locss ON
+      permanent_locss.authorised_value = items.permanent_location LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'LOC') locss ON locss.authorised_value =
+      items.location LEFT JOIN
+  (SELECT
+      itemtypes.itemtype,
+      itemtypes.description
+    FROM
+      itemtypes) itemtypess ON itemtypess.itemtype = items.itype LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'CCODE') ccodes ON ccodes.authorised_value =
+      items.ccode LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'NOT_LOAN') notforloans ON
+      notforloans.authorised_value = items.notforloan LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'DAMAGED') damageds ON
+      damageds.authorised_value = items.damaged LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'LOST') losts ON losts.authorised_value =
+      items.itemlost LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'WITHDRAWN') withdrawns ON
+      withdrawns.authorised_value = items.withdrawn
+WHERE
+  items.barcode LIKE CONCAT('%', <<Enter item barcode number 0003008200544 /00102000060081/ 1003008100089>>, '%')
+GROUP BY
+  items.itemnumber,
+  biblio.biblionumber
+
+
+
