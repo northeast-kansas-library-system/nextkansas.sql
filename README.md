@@ -195,3 +195,5 @@ Run the report, download the data as a CSV file and add it to the Github folder.
 
 
 Once all files are saved in the github folder, update your repository.
+
+[Report index](https://northeast-kansas-library-system.github.io/nextkansas.sql/report_index.html)
