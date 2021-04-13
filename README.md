@@ -170,4 +170,28 @@ LIMIT 10000
 
 ----------
 
+Some of these reports rely on non-standard authorised_values tables.
+
+To add a backup of the current authorised_values tables to Github, run report 3493.  The SQL for this report is:
+
+```SQL
+
+SELECT
+  authorised_values.id,
+  authorised_values.category,
+  authorised_values.authorised_value,
+  authorised_values.lib,
+  authorised_values.imageurl,
+  authorised_values.lib_opac
+FROM
+  authorised_values
+ORDER BY
+  authorised_values.category,
+  authorised_values.authorised_value
+
+```
+
+Run the report, download the data as a CSV file and add it to the Github folder.
+
+
 Once all files are saved in the github folder, update your repository.
