@@ -18,25 +18,27 @@
 
 <body>
   <p>NExpress SQL contents as of 2020.03.03</p>
+
   <table>
     <tr>
       <th>NAME</th>
       <th>NOTES</th>
     </tr>
     <tr>
-      <td>00214<br /><br />Null Report - Missing Item Type report for all libraries<br /><br />Administrative Reports<br />Fix Items-admin<br /><br />Created by:<br />-</td>
+      <td>00214<br /><br />Null Report - Missing Item Type report for all libraries<br /><br />-<br />-<br /><br />Created by:<br />-</td>
       <td>
         <div id=reportinfo>
           <p>Shows items with Unknown (itype code XXX) item type or no item type</p>
           <ul>
-            <li>Shows items that currently have problematic item types</li>
-            <li>shows items from all NExpress libraries</li>
-            <li>grouped by item barcode</li>
-            <li>sorted by item homebranches</li>
+            <li>Shows items that currently have an empty item type or an "(Unclassified)" item type</li>
+            <li>shows items at the library or libraries you choose</li>
+            <li>grouped by itemnumber and biblionumber</li>
+            <li>sorted in the standard Next Search Catalog sort order</li>
           </ul><br />
           <p><ins>Notes:</ins></p>
           <p>Should be run monthly</p>
           <p>Report created by Heather Braum. Explanatory notes added by GHW on 2016.08.19.</p>
+          <p>Report updated 2020.12.24</p>
         </div>
       </td>
     </tr>
@@ -53,7 +55,7 @@
       <td>Enhanced - Run, select branch to get a list of items with restricted item types.</td>
     </tr>
     <tr>
-      <td>00434<br /><br />Patrons with no email address<br /><br />Patrons<br />Fix Patrons<br /><br />Created by:<br />-</td>
+      <td>00434<br /><br />Patrons with no email address<br /><br />Borrowers<br />Fix Patrons<br /><br />Created by:<br />-</td>
       <td>List of your library's patrons without an email address.</td>
     </tr>
     <tr>
@@ -61,7 +63,7 @@
       <td>Enter numeric month and year for the month you want to look at. </td>
     </tr>
     <tr>
-      <td>00555<br /><br />NEW PATRONS listed for finding errors<br /><br />Patrons<br />Fix Patrons<br /><br />Created by:<br />-</td>
+      <td>00555<br /><br />NEW PATRONS listed for finding errors<br /><br />Borrowers<br />Fix Patrons<br /><br />Created by:<br />-</td>
       <td>Review added patrons in a month at your library to find mistakes. Use the edit patron link to fix the accounts if you find errors. </td>
     </tr>
     <tr>
@@ -77,7 +79,7 @@
       <td>Simplified report of overdue items for shelf check</td>
     </tr>
     <tr>
-      <td>00579<br /><br />Debarred patrons<br /><br />Patrons<br />-<br /><br />Created by:<br /> Tongie Book Club</td>
+      <td>00579<br /><br />Debarred patrons<br /><br />Borrowers<br />-<br /><br />Created by:<br /> Tongie Book Club</td>
       <td></td>
     </tr>
     <tr>
@@ -107,7 +109,7 @@
       <td>Simple table showing branch names and branchcode</td>
     </tr>
     <tr>
-      <td>00620<br /><br />Identify patron by email address<br /><br />Patrons<br />-<br /><br />Created by:<br /> Tongie Book Club</td>
+      <td>00620<br /><br />Identify patron by email address<br /><br />Borrowers<br />-<br /><br />Created by:<br /> Tongie Book Club</td>
       <td>Run the report and then type in the "enter email address" box the email address you want to look up. </td>
     </tr>
     <tr>
@@ -116,8 +118,8 @@
     </tr>
     <tr>
       <td>00684<br /><br />Current Items on Hold that aren't at your library<br /><br />Acquisitions<br />Collection Development<br /><br />Created by:<br /> Tongie Book Club</td>
-      <td>See holds by your patrons that are being filled OUTSIDE of your owned collection. A Collection Development Report tool. Enhanced. <p><span style="background-color: darkred; color: white">virtually line by line identical to report 799 -
-            merge two to make one report</p>
+      <td>See holds by your patrons that are being filled OUTSIDE of your owned collection. A Collection Development Report tool. Enhanced. <p><span style="background-color: darkred; color: white">virtually line by line identical to report 799 - merge
+            two to make one report</p>
       </td>
     </tr>
     <tr>
@@ -161,7 +163,7 @@
       <td>Lists the items your library deleted in XXXX year. Pick your branch and insert the year.</td>
     </tr>
     <tr>
-      <td>00770<br /><br />All AATEMP patrons<br /><br />Patrons<br />Fix Patrons<br /><br />Created by:<br /> Tongie Book Club</td>
+      <td>00770<br /><br />All AATEMP patrons<br /><br />Borrowers<br />Fix Patrons<br /><br />Created by:<br /> Tongie Book Club</td>
       <td>Please fix!</td>
     </tr>
     <tr>
@@ -184,15 +186,34 @@
       <td>Set for 1 day or more overdue - you can edit this as needed</td>
     </tr>
     <tr>
-      <td>00803<br /><br />Most Reserved Titles<br /><br />Popular Reports<br />-<br /><br />Created by:<br /> Tongie Book Club</td>
-      <td>For Leased ordering/collection development</td>
+      <td>00803<br /><br />Requested titles sorted from greatest number of requests to lowest number of requests<br /><br />Popular Reports<br />-<br /><br />Created by:<br /> Tongie Book Club</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates a list of all bibliographic records with requests sorted by the number of requests on each record</p>
+          <ul>
+            <li>Shows records with unfilled reqeusts on them</li>
+            <li>at all Next Search Catalog libraries</li>
+            <li>grouped by biblionumber</li>
+            <li>sorted by number of reqeusts</li>
+            <li>links to the bibliographic records</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Formerly titled "Most Reserved Titles"</p>
+          <p></p>
+          <p>Updated by GHW on 2021.04.02</p>
+          <p></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=803">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">requests</p>
+        </div>
+      </td>
     </tr>
     <tr>
       <td>00808<br /><br />Collection size by Collection Code & Location (per branch)<br /><br />Catalog Records and Items<br />Collection Statistics<br /><br />Created by:<br /> Tongie Book Club</td>
       <td>Enhanced - Pick Branch. (On Reports Webpages, 5/14/12)</td>
     </tr>
     <tr>
-      <td>00820<br /><br />Patron Category cleanup<br /><br />Patrons<br />Fix Patrons<br /><br />Created by:<br /> Tongie Book Club</td>
+      <td>00820<br /><br />Patron Category cleanup<br /><br />Borrowers<br />Fix Patrons<br /><br />Created by:<br /> Tongie Book Club</td>
       <td>Edit branchcode and categorycode scheme. Find potential patron category errors. </td>
     </tr>
     <tr>
@@ -268,16 +289,12 @@
       <td>Shows items with more than XX total circs for various Item Types and shelving locations. Enhanced. Run and choose itemtype; home branch; location; and enter minimum number of circs. #circ</td>
     </tr>
     <tr>
-      <td>01076<br /><br />Number of Distinct Patrons served by Date range<br /><br />Patrons<br />Patron Statistics<br /><br />Created by:<br />-</td>
+      <td>01076<br /><br />Number of Distinct Patrons served by Date range<br /><br />Borrowers<br />Patron Statistics<br /><br />Created by:<br />-</td>
       <td>Enhanced - Select Run, then enter Date Range and Patron's Libary #patrons</td>
     </tr>
     <tr>
       <td>01078<br /><br />Overdue Report by Date Range<br /><br />Circulation<br />Overdues<br /><br />Created by:<br />-</td>
       <td>Select RUN, then pick your Library and fill in the date range #overdues</td>
-    </tr>
-    <tr>
-      <td>01081<br /><br />Total Number of Borrowers<br /><br />Patrons<br />Patron Statistics<br /><br />Created by:<br />-</td>
-      <td>Enhanced - run, pick your branch and get a total count of your borrowers. #count #patrons</td>
     </tr>
     <tr>
       <td>01099<br /><br />My items overdue elsewhere<br /><br />Circulation<br />Overdues<br /><br />Created by:<br />-</td>
@@ -303,7 +320,7 @@
           <p>Generates a list of the 50 bibliographic records with the greatest numbers of requests</p>
           <ul>
             <li>Shows current data</li>
-            <li>Shows bibliographic records from all NExpress libraries</li>
+            <li>Shows bibliographic records from all Next Search Cataloglibraries</li>
             <li>grouped by biblionumber</li>
             <li>sorted by request count (biggest first)</li>
             <li>contains links to the bibliographic record</li>
@@ -321,7 +338,9 @@
     </tr>
     <tr>
       <td>01162<br /><br />Collection Value<br /><br />Catalog Records and Items<br />Collection Statistics<br /><br />Created by:<br />BASEHOR TECH</td>
-      <td>Enhanced - Select your library and run to get a list of collection codes and the total value of each collection sorted by shelf location. #special</td>
+      <td>Replaced by reports 3471 and 3472 <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3471&phase=Run%20this%20report" target="_blank">Click here to run report 3471 in a new window</a></p>
+        <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3472&phase=Run%20this%20report" target="_blank">Click here to run report 3472 in a new window</a></p>
+      </td>
     </tr>
     <tr>
       <td>01163<br /><br />single collection code value<br /><br />Catalog Records and Items<br />Collection Statistics<br /><br />Created by:<br />BASEHOR TECH</td>
@@ -352,7 +371,7 @@
       <td>Patrons with a hold that was left behind when bib records were deleted. #holds</td>
     </tr>
     <tr>
-      <td>01227<br /><br />Your New Patrons<br /><br />Patrons<br />-<br /><br />Created by:<br />-</td>
+      <td>01227<br /><br />Your New Patrons<br /><br />Borrowers<br />-<br /><br />Created by:<br />-</td>
       <td>Enhanced - Run, add numeric month, numeric year and pick your branch. #patrons</td>
     </tr>
     <tr>
@@ -376,7 +395,7 @@
       <td>#circ</td>
     </tr>
     <tr>
-      <td>01317<br /><br />Patrons, added prior to 2013<br /><br />Patrons<br />Patron Statistics<br /><br />Created by:<br />-</td>
+      <td>01317<br /><br />Patrons, added prior to 2013<br /><br />Borrowers<br />Patron Statistics<br /><br />Created by:<br />-</td>
       <td>Select your library from dropdown</td>
     </tr>
     <tr>
@@ -388,11 +407,11 @@
       <td>Enhanced - enter MM, YYYY and branch #circ</td>
     </tr>
     <tr>
-      <td>01329<br /><br />List of patrons added in a year<br /><br />Patrons<br />-<br /><br />Created by:<br />-</td>
+      <td>01329<br /><br />List of patrons added in a year<br /><br />Borrowers<br />-<br /><br />Created by:<br />-</td>
       <td>Choose branch and enter year added to list. #patrons</td>
     </tr>
     <tr>
-      <td>01338<br /><br />List of all patrons<br /><br />Patrons<br />-<br /><br />Created by:<br />-</td>
+      <td>01338<br /><br />List of all patrons<br /><br />Borrowers<br />-<br /><br />Created by:<br />-</td>
       <td>Run - Pick Branch. May take time, depending on the number of patrons you have. Also includes an Edit Patron link. #patrons</td>
     </tr>
     <tr>
@@ -433,8 +452,8 @@
     </tr>
     <tr>
       <td>01404<br /><br />Shelving Locations to fix<br /><br />Catalog Records and Items<br />Fix Items<br /><br />Created by:<br />Heather Braum</td>
-      <td>Missing/Null Shelving Locations or NonStandard Shelving Locations (NOT ADULT, YOUNGADULT, or CHILDRENS). -- Enhanced -- Choose branch from the dropdowns. Can edit items directly linked from this report. (On Reports Webpages, 5/14/12)
-        #cleanup</td>
+      <td>Missing/Null Shelving Locations or NonStandard Shelving Locations (NOT ADULT, YOUNGADULT, or CHILDRENS). -- Enhanced -- Choose branch from the dropdowns. Can edit items directly linked from this report. (On Reports Webpages, 5/14/12) #cleanup
+      </td>
     </tr>
     <tr>
       <td>01405<br /><br />Missing Call Number<br /><br />Catalog Records and Items<br />Fix Items<br /><br />Created by:<br />Heather Braum</td>
@@ -477,7 +496,7 @@
       <td>Count of Lost Items per Branch. (On Reports Webpages, 5/14/12); #count</td>
     </tr>
     <tr>
-      <td>01482<br /><br />Patron Cardnumbers and usernames<br /><br />Patrons<br />-<br /><br />Created by:<br />-</td>
+      <td>01482<br /><br />Patron Cardnumbers and usernames<br /><br />Borrowers<br />-<br /><br />Created by:<br />-</td>
       <td>enhanced #patrons</td>
     </tr>
     <tr>
@@ -485,7 +504,7 @@
       <td>This is a duplication of report #350 with two differences: the surname & the barcode are linked to the borrower & item view screens. #overdues</td>
     </tr>
     <tr>
-      <td>01534<br /><br />Borrowers in a given zipcode for a given branch<br /><br />Patrons<br />-<br /><br />Created by:<br />Heather Braum</td>
+      <td>01534<br /><br />Borrowers in a given zipcode for a given branch<br /><br />Borrowers<br />-<br /><br />Created by:<br />Heather Braum</td>
       <td>Enhanced: RUN AS IS. This report will report all patrons/addresses in a given zipcode for a given library.</td>
     </tr>
     <tr>
@@ -527,7 +546,7 @@
       <td>A revised version of 1128 #circ</td>
     </tr>
     <tr>
-      <td>01647<br /><br />Patrons with messages<br /><br />Patrons<br />-<br /><br />Created by:<br />ROSSVILLE TECH</td>
+      <td>01647<br /><br />Patrons with messages<br /><br />Borrowers<br />-<br /><br />Created by:<br />ROSSVILLE TECH</td>
       <td>#patrons</td>
     </tr>
     <tr>
@@ -591,7 +610,7 @@
       <td></td>
     </tr>
     <tr>
-      <td>01787<br /><br />AATEMP patrons, limited by branch<br /><br />Patrons<br />Fix Patrons<br /><br />Created by:<br />Heather Braum</td>
+      <td>01787<br /><br />AATEMP patrons, limited by branch<br /><br />Borrowers<br />Fix Patrons<br /><br />Created by:<br />Heather Braum</td>
       <td>Patrons missing a categorycode; Includes edit patron link</td>
     </tr>
     <tr>
@@ -653,7 +672,7 @@
       <td>Enter patron's borrowernumber (database number) to see all the messages sent to them by email or holds slips printed at the library.</td>
     </tr>
     <tr>
-      <td>01909<br /><br />Message Queue table (all notices)<br /><br />Patrons<br />-<br /><br />Created by:<br />Heather Braum</td>
+      <td>01909<br /><br />Message Queue table (all notices)<br /><br />Borrowers<br />-<br /><br />Created by:<br />Heather Braum</td>
       <td>A list of all messages sent to patrons at a certain library (patrons who have email addresses, anyway). </td>
     </tr>
     <tr>
@@ -665,11 +684,11 @@
       <td>Where shelving location is NULL</td>
     </tr>
     <tr>
-      <td>01915<br /><br />Invalid EMAIL format<br /><br />Patrons<br />Fix Patrons<br /><br />Created by:<br />Heather Braum</td>
+      <td>01915<br /><br />Invalid EMAIL format<br /><br />Borrowers<br />Fix Patrons<br /><br />Created by:<br />Heather Braum</td>
       <td>From Koha listserv/wiki</td>
     </tr>
     <tr>
-      <td>01918<br /><br />Circ History for a Patron (Complete)<br /><br />Patrons<br />-<br /><br />Created by:<br />Heather Braum</td>
+      <td>01918<br /><br />Circ History for a Patron (Complete)<br /><br />Borrowers<br />-<br /><br />Created by:<br />Heather Braum</td>
       <td>Full Report</td>
     </tr>
     <tr>
@@ -685,7 +704,7 @@
       <td>Choose your branch and a collection code. Displays item title, callnumber, location, barcode, and an edit link that takes you to the edit item screen in a new window/tab.</td>
     </tr>
     <tr>
-      <td>01953<br /><br />Patrons by Category, Date of Birth, Branch<br /><br />Patrons<br />-<br /><br />Created by:<br />-</td>
+      <td>01953<br /><br />Patrons by Category, Date of Birth, Branch<br /><br />Borrowers<br />-<br /><br />Created by:<br />-</td>
       <td>mc</td>
     </tr>
     <tr>
@@ -711,8 +730,8 @@
           <p></p>
           <p>Monthly cleanup</p>
           <p></p>
-          <p>There are 6 "Lost" statuses in NExpress - (Lost) [status = 1]; Lost (more than 45 days overdue) [status = 2]; Missing (unable to location on shelf) [status = 3]; Lost (Damaged/Replace) [status = 4]; Lost (Patron Claims Returned) [status
-            = 5]; Lost (more than 45 days overdue) [status = 7]. This report only shows items that have a status of "(Lost)" so nothing that was automatically marked as "Lost (more than 45 days overdue)" appears on this report.<br /></p>
+          <p>There are 6 "Lost" statuses in NExpress - (Lost) [status = 1]; Lost (more than 45 days overdue) [status = 2]; Missing (unable to location on shelf) [status = 3]; Lost (Damaged/Replace) [status = 4]; Lost (Patron Claims Returned) [status =
+            5]; Lost (more than 45 days overdue) [status = 7]. This report only shows items that have a status of "(Lost)" so nothing that was automatically marked as "Lost (more than 45 days overdue)" appears on this report.<br /></p>
           <p>The only items that will appear are items that have manually been marked with the "(Lost)" status [status = 1].</p>
           <p></p>
           <p>Report created by HB. Explanatory notes added by GHW on 2018.06.01.</p>
@@ -725,7 +744,7 @@
       <td>Items marked long overdue/assumed lost. Enhanced. Choose branch, run. </td>
     </tr>
     <tr>
-      <td>02031<br /><br />List of short (under 13 characters) patron cardnumbers<br /><br />Patrons<br />Fix Patrons<br /><br />Created by:<br />Heather Braum</td>
+      <td>02031<br /><br />List of short (under 13 characters) patron cardnumbers<br /><br />Borrowers<br />Fix Patrons<br /><br />Created by:<br />Heather Braum</td>
       <td></td>
     </tr>
     <tr>
@@ -753,7 +772,7 @@
       <td></td>
     </tr>
     <tr>
-      <td>02131<br /><br />Circ History for a Patron (Simple)<br /><br />Patrons<br />-<br /><br />Created by:<br />Heather Braum</td>
+      <td>02131<br /><br />Circ History for a Patron (Simple)<br /><br />Borrowers<br />-<br /><br />Created by:<br />Heather Braum</td>
       <td>Lists item callnumber, title, author, checked out date</td>
     </tr>
     <tr>
@@ -837,13 +856,13 @@
       <td>Choose your branch three times. Gives the circulation of your materials at your library in a given month by collection code and location</td>
     </tr>
     <tr>
-      <td>02240<br /><br />Active patrons in set timeperiod<br /><br />Patrons<br />Patron Statistics<br /><br />Created by:<br />Heather Braum</td>
+      <td>02240<br /><br />Active patrons in set timeperiod<br /><br />Borrowers<br />Patron Statistics<br /><br />Created by:<br />Heather Braum</td>
       <td>Provides count of active patrons during a set time period, who interacted with the system in some manner (have entries in the statistics table). Must choose branch twice & enter starting and ending date. </td>
     </tr>
     <tr>
       <td>02244<br /><br />List of Items Checked out in a Collection Code<br /><br />Circulation<br />Checked Out<br /><br />Created by:<br />Heather Braum</td>
-      <td>This report limits on items' home library and collection code, and displays the cardnumber, patron's home library, patron name, item title, location, collection code, item type, item barcode, date checked out, days checked out, date due,
-        days overdue, last date renewed, renewals count, of all materials currently checked out from your library's collection. </td>
+      <td>This report limits on items' home library and collection code, and displays the cardnumber, patron's home library, patron name, item title, location, collection code, item type, item barcode, date checked out, days checked out, date due, days
+        overdue, last date renewed, renewals count, of all materials currently checked out from your library's collection. </td>
     </tr>
     <tr>
       <td>02248<br /><br />Count of Total items currently checked out by collection and location<br /><br />Circulation<br />Checked Out<br /><br />Created by:<br />Heather Braum</td>
@@ -895,7 +914,7 @@
       <td>Related to Report #2331</td>
     </tr>
     <tr>
-      <td>02349<br /><br />Possible Duplicate patrons<br /><br />Patrons<br />Fix Patrons<br /><br />Created by:<br />Heather Braum</td>
+      <td>02349<br /><br />Possible Duplicate patrons<br /><br />Borrowers<br />Fix Patrons<br /><br />Created by:<br />Heather Braum</td>
       <td></td>
     </tr>
     <tr>
@@ -925,7 +944,7 @@
       <td></td>
     </tr>
     <tr>
-      <td>02390<br /><br />Patrons addresses<br /><br />Patrons<br />-<br /><br />Created by:<br />SABETHA TECH</td>
+      <td>02390<br /><br />Patrons addresses<br /><br />Borrowers<br />-<br /><br />Created by:<br />SABETHA TECH</td>
       <td></td>
     </tr>
     <tr>
@@ -957,7 +976,7 @@
       <td>ready for 2016.</td>
     </tr>
     <tr>
-      <td>02443<br /><br />Patron Age Breakout by Category Code<br /><br />Patrons<br />Patron Statistics<br /><br />Created by:<br />Heather Braum</td>
+      <td>02443<br /><br />Patron Age Breakout by Category Code<br /><br />Borrowers<br />Patron Statistics<br /><br />Created by:<br />Heather Braum</td>
       <td></td>
     </tr>
     <tr>
@@ -991,7 +1010,7 @@
       <td></td>
     </tr>
     <tr>
-      <td>02466<br /><br />PATRON LIST WITH EMAIL, PHONE, CITY & ZIP<br /><br />Patrons<br />-<br /><br />Created by:<br />-</td>
+      <td>02466<br /><br />PATRON LIST WITH EMAIL, PHONE, CITY & ZIP<br /><br />Borrowers<br />-<br /><br />Created by:<br />-</td>
       <td></td>
     </tr>
     <tr>
@@ -999,7 +1018,7 @@
       <td></td>
     </tr>
     <tr>
-      <td>02478<br /><br />Active borrowers count in last 6 months and 1 year<br /><br />Patrons<br />Patron Statistics<br /><br />Created by:<br />Heather Braum</td>
+      <td>02478<br /><br />Active borrowers count in last 6 months and 1 year<br /><br />Borrowers<br />Patron Statistics<br /><br />Created by:<br />Heather Braum</td>
       <td>Gives a count of active borrowers interacting at your library (interaction=they have checked out, renewed, or checked in items), during a certain time period.</td>
     </tr>
     <tr>
@@ -1007,11 +1026,11 @@
       <td>This is a duplicate of report #1573 but it's written specifically for Doniphan libraries. </td>
     </tr>
     <tr>
-      <td>02492<br /><br />Patron search<br /><br />Patrons<br />-<br /><br />Created by:<br />SABETHA TECH</td>
+      <td>02492<br /><br />Patron search<br /><br />Borrowers<br />-<br /><br />Created by:<br />SABETHA TECH</td>
       <td></td>
     </tr>
     <tr>
-      <td>02495<br /><br />Patrons expired 2+ years ago, who don't owe anything & don't have anything checked out<br /><br />Patrons<br />-<br /><br />Created by:<br />Heather Braum</td>
+      <td>02495<br /><br />Patrons expired 2+ years ago, who don't owe anything & don't have anything checked out<br /><br />Borrowers<br />-<br /><br />Created by:<br />Heather Braum</td>
       <td>Choose your library. Patrons who expired more than two years ago and don't owe any money. Until we can figure out how to exclude qualified-to-be-deleted guarantors with not-qualified-to-be-deleted guarantees, all guarantors will be included
         in this report.</td>
     </tr>
@@ -1074,7 +1093,7 @@
       <td></td>
     </tr>
     <tr>
-      <td>02527<br /><br />Full Circulation History for a patron<br /><br />Patrons<br />-<br /><br />Created by:<br />Heather Braum</td>
+      <td>02527<br /><br />Full Circulation History for a patron<br /><br />Borrowers<br />-<br /><br />Created by:<br />Heather Braum</td>
       <td>This report queries the statistics table -- which goes back 25 months; patron's account circulation history goes back 13 months (querying issues table). Enter patron's cardnumber; report returns type of action (issue, renewal, return), date
         of action, where item was checked out/return, and the title, item type, collection code, and shelving location of the item. </td>
     </tr>
@@ -1099,7 +1118,7 @@
       <td></td>
     </tr>
     <tr>
-      <td>02609<br /><br />Orphaned holds<br /><br />Holds-Reserves<br />-<br /><br />Created by:<br />Heather Braum</td>
+      <td>02609<br /><br />Orphaned requests<br /><br />Holds-Reserves<br />-<br /><br />Created by:<br />Heather Braum</td>
       <td>The report returns patron's holds on records where, at the time of the hold placing, the record had items available to fulfill holds, but for a number of reasons, no items remain available at this time to fulfill the holds, due to:<br />
         <br /> 1) Last item available is overdue by 30+ days. <br /> 2) Last item available is marked lost/damaged/withdrawn.<br /> 3) Last item available is now not for loan (report ignores items with on-order status)<br />
         <br /> The report returns a link to your patron's account, the patron's name, when the hold was placed and a link to the record.<br />
@@ -1118,8 +1137,8 @@
     </tr>
     <tr>
       <td>02664<br /><br />Collection Switching from New Itype<br /><br />Catalog Records and Items<br />Fix Items<br /><br />Created by:<br />Heather Braum</td>
-      <td>copy the barcodes that return to the batch item editor. 1) This report is set to return 999 items (the batch item editor limit). If you have more than that, you'll need to run this report multiple times. 2) If you are using multiple
-        versions New Item types (ex., new book and new movie), you'll need to run this report multiple times. </td>
+      <td>copy the barcodes that return to the batch item editor. 1) This report is set to return 999 items (the batch item editor limit). If you have more than that, you'll need to run this report multiple times. 2) If you are using multiple versions
+        New Item types (ex., new book and new movie), you'll need to run this report multiple times. </td>
     </tr>
     <tr>
       <td>02665<br /><br />Checking for mismatched itypes<br /><br />Administrative Reports<br />Fix Items-admin<br /><br />Created by:<br />Heather Braum</td>
@@ -1256,9 +1275,9 @@
           <p><ins>Notes:</ins></p>
           <p></p>
           <p>Requests have many dates associated with them. One of these dates is labeled as 'reserves.expirationdate' in the database.</p>
-          <p>This 'expirationdate' date is an internal date that the Koha software uses to determine if a request has been waiting for longer than 7 days. During the upgrade on December 9, 2017, 'expirationdate' dates on all waiting requests were
-            reset by this bug to 2017-12-09 from their original dates. This causes the "Holds awaiting pickup report" at https://staff.nexpresslibrary.org/cgi-bin/koha/circ/waitingreserves.pl to fail to show any requests that have been waiting more
-            than 7 days on the "Holds waiting over 7 days" tab.</p>
+          <p>This 'expirationdate' date is an internal date that the Koha software uses to determine if a request has been waiting for longer than 7 days. During the upgrade on December 9, 2017, 'expirationdate' dates on all waiting requests were reset
+            by this bug to 2017-12-09 from their original dates. This causes the "Holds awaiting pickup report" at https://staff.nexpresslibrary.org/cgi-bin/koha/circ/waitingreserves.pl to fail to show any requests that have been waiting more than 7
+            days on the "Holds waiting over 7 days" tab.</p>
           <p></p>
           <p>This report shows the actual expiration dates of any requests that were waiting prior to December 9, 2017.</p>
           <p></p>
@@ -1283,6 +1302,8 @@
           <p></p>
           <p>Please note the dates in the default - especially "Item added between date1:" + "and date2:" These dates default to 1/1/2000 and today's date. If you have an item that has a "Date acquired" date prior to 1/1/2000, it will not appear on
             this report. as of the writing of this note (2020.12.17) there are approximately 21,000 items at 43 libraries that have "Date acquired" dates prior to 1/1/2000. </p>
+          <p></p>
+          <p>publicationyear data comes from the 264$c subfield. If the data in 264$c is not a 4 digit year, the data will be problematic. If 264$c is blank, the result in this report will be blank.</p>
           <p></p>
           <p>Formerly called "Flexible Weeding Report"</p>
           <p>Replaces reports: <ul>
@@ -1336,8 +1357,8 @@
           </ul><br />
           <p><ins>Notes:</ins></p>
           <p>This report was created to help NExpress libraries identify all titles with more than 20 requests because the previous report (<a
-              href="https://staff.nexpresslibrary.org/cgi-bin/koha/reports/guided_reports.pl?reports=1152&phase=Run%20this%20report" target="_blank">Report 1152</a>) established to fill this role was limited to show only the 20 items with the
-            greatest number of requests.</p>
+              href="https://staff.nexpresslibrary.org/cgi-bin/koha/reports/guided_reports.pl?reports=1152&phase=Run%20this%20report" target="_blank">Report 1152</a>) established to fill this role was limited to show only the 20 items with the greatest
+            number of requests.</p>
           <p>Report created by GHW</p>
         </div>
       </td>
@@ -1524,7 +1545,7 @@
       </td>
     </tr>
     <tr>
-      <td>02779<br /><br />GHW - Count of current un-expired borrowers at a branch<br /><br />Patrons<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>02779<br /><br />GHW - Count of current un-expired borrowers at a branch<br /><br />Borrowers<br />-<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
           <p>Counts un-expired borrowers with a specified homebranch</p>
@@ -1761,9 +1782,15 @@
           <ul>
             <li>Counts circulation during the date range you specify</li>
             <li>At the library you specify</li>
-            <li>grouped and sorted by item type, collection code, and shelving location</li>
+            <li>grouped and sorted by item type, collection code, and shelving location code</li>
           </ul><br />
           <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>This report is in the process of being rewritten due to changes in item type codes and shelving location codes. If you are unsure what a location code or an item type from this report represents, run report 3490 for a list of location
+            codes or 3491 for a list of item type codes.</p>
+          <p></p>
+          <p><a href="https://staff.nextkansas.org/cgi-bin/koha/reports/guided_reports.pl?phase=Run+this+report&reports=3490&limit=1000" target="_blank">Report 3490</a></p>
+          <p><a href="https://staff.nextkansas.org/cgi-bin/koha/reports/guided_reports.pl?phase=Run+this+report&reports=3491&limit=1000" target="_blank">Report 3491</a></p>
           <p></p>
           <p>Updated on 2020.01.06 to reflect changes in the database structure</p>
           <p></p>
@@ -1940,7 +1967,7 @@
       <td>02841<br /><br />GHW - Daily/hourly statistical tracker<br /><br />Statistics<br />-<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
-          <p>Counts check-outs, renewals, and check-ins on an hourly basis</p>
+          <p>Counts check-outs, renewals, and check-ins and borrower accounts used on an hourly basis</p>
           <ul>
             <li>Shows activity during the previous calendar month</li>
             <li>shows activity at a branch you specify</li>
@@ -1949,6 +1976,8 @@
           <p><ins>Notes:</ins></p>
           <p></p>
           <p>Replaces report 590</p>
+          <p></p>
+          <p>Updated to include count of borrowers for each type of transaction.</p>
           <p></p>
           <p>The hour shows in military format - i.e. 13=1:00 p.m., 18=6:00 p.m., etc.</p>
           <p>Koha counts renewals as happening at the location where the initial check-out happened - i.e. if an item was renewed by the patron via the OPAC, it counts as a renewal at the branch where the item was checked out (This is why you may see
@@ -1977,7 +2006,7 @@
       </td>
     </tr>
     <tr>
-      <td>02844<br /><br />GHW - Deleted borrowers count - date range<br /><br />Patrons<br />Patron Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>02844<br /><br />GHW - Deleted borrowers count - date range<br /><br />Borrowers<br />Patron Statistics<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
           <p>Count of patrons deleted during the specified date range<br />(between the beginning of the day on the specified "START DATE" to the end of the day on the specified "END DATE")</p>
@@ -2156,8 +2185,8 @@
           </ul><br />
           <p><ins>Notes:</ins></p>
           <p></p>
-          <p><ins>The report will almost certainly fail if you use extremely broad parameters. If you try to run this report with "All libraries" as the checkout branch, "All libraries" as the item home branch, and no limits on shelving locations,
-              item types, or collection codes and a date range longer than just a few weeks, the report will almost certainly fail and may slow down Koha while it runs.</ins></p>
+          <p><ins>The report will almost certainly fail if you use extremely broad parameters. If you try to run this report with "All libraries" as the checkout branch, "All libraries" as the item home branch, and no limits on shelving locations, item
+              types, or collection codes and a date range longer than just a few weeks, the report will almost certainly fail and may slow down Koha while it runs.</ins></p>
           <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2861&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
         </div>
       </td>
@@ -2332,7 +2361,7 @@
       <td></td>
     </tr>
     <tr>
-      <td>02886<br /><br />GHW - Adult patrons with linked guarantees and E-mail Newsletter permissions<br /><br />Patrons<br />Guarantor/guranantee reports<br /><br />Created by:<br />George H Williams</td>
+      <td>02886<br /><br />GHW - Adult patrons with linked guarantees and E-mail Newsletter permissions<br /><br />Borrowers<br />Guarantor/guranantee reports<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
           <p>Shows all adults with linked child accounts and whether or not the adult's permission to allow you to subscribe that adult to a library newsletter has been recorded in their account.</p>
@@ -2367,8 +2396,8 @@
           </ul><br />
           <p><ins>Notes:</ins></p>
           <p></p>
-          <p>This report was created to help out the Axtell School where they have the library arranged by Accelerated Reader Level. This report won't be perfect because not all items have AR data in the 526 fields, but it might help speed a few
-            things up for them.</p>
+          <p>This report was created to help out the Axtell School where they have the library arranged by Accelerated Reader Level. This report won't be perfect because not all items have AR data in the 526 fields, but it might help speed a few things
+            up for them.</p>
           <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2889&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
         </div>
       </td>
@@ -2534,14 +2563,15 @@
       <td>02901<br /><br />GHW - Materials added count by collection code and location - previous calendar month<br /><br />Daily, Monthly, Yearly Stats<br />Monthly<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
-          <p>Count of items added by location and item collection code</p>
+          <p>Count of items added by item home library and item collection code</p>
           <ul>
             <li>counts items added in the previous calendar month</li>
             <li>at the library you specify</li>
             <li>grouped and sorted by item home branch, location, and collection code</li>
-            <li>includes total for the month at the bottom of the results</li>
           </ul><br />
           <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Updated on 2021.04.06</p>
           <p></p>
           <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2901&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
         </div>
@@ -2602,7 +2632,7 @@
       </td>
     </tr>
     <tr>
-      <td>02910<br /><br />GHW - Bounced e-mail helper<br /><br />Patrons<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>02910<br /><br />GHW - Bounced e-mail helper<br /><br />Borrowers<br />-<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
           <p>Generates a list of patrons based on their e-mail address and produces a "Bounced Email" message that can be quickly cut and pasted into a message on the patron's account.</p>
@@ -2650,7 +2680,7 @@
           <ul>
             <li>Shows items currently in the system</li>
             <li>At the library you specify</li>
-            <li>grouped and sorted by the normal NExpress classification scheme</li>
+            <li>grouped and sorted by the normal Next Search Catalog classification scheme</li>
             <li>contains links to the item's bibliographic record</li>
           </ul><br />
           <p><ins>Notes:</ins></p>
@@ -2681,9 +2711,9 @@
           </ul><br />
           <p><ins>Notes:</ins></p>
           <p></p>
-          <p>Starting in January of 2017, all NExpress items that were overdue more than 45 days began to be moved from being checked-out to being checked in with a "Lost (overdue more than 45 days)" status unless the items were checked out to
-            patrons in certain categories (i.e. student/teacher/inhouse, etc). Please take this into consideration when looking at the number of overdue items that are checked in when they are 46 days overdue. These items will almost always be items
-            that were automatically changed from overdue to "Lost."</p>
+          <p>Starting in January of 2017, all NExpress items that were overdue more than 45 days began to be moved from being checked-out to being checked in with a "Lost (overdue more than 45 days)" status unless the items were checked out to patrons
+            in certain categories (i.e. student/teacher/inhouse, etc). Please take this into consideration when looking at the number of overdue items that are checked in when they are 46 days overdue. These items will almost always be items that were
+            automatically changed from overdue to "Lost."</p>
           <p></p>
           <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2918&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
         </div>
@@ -2701,9 +2731,9 @@
           </ul><br />
           <p><ins>Notes:</ins></p>
           <p></p>
-          <p>Starting in January of 2017, all NExpress items that were overdue more than 45 days began to be moved from being checked-out to being checked in with a "Lost (overdue more than 45 days)" status unless the items were checked out to
-            patrons in certain categories (i.e. student/teacher/inhouse, etc). Please take this into consideration when looking at the number of overdue items that are checked in when they are 46 days overdue. These items will almost always be items
-            that were automatically changed from overdue to "Lost."</p>
+          <p>Starting in January of 2017, all NExpress items that were overdue more than 45 days began to be moved from being checked-out to being checked in with a "Lost (overdue more than 45 days)" status unless the items were checked out to patrons
+            in certain categories (i.e. student/teacher/inhouse, etc). Please take this into consideration when looking at the number of overdue items that are checked in when they are 46 days overdue. These items will almost always be items that were
+            automatically changed from overdue to "Lost."</p>
           <p></p>
           <p>Also note that NExpress old circulation data is purged once it is more than 13 months old. You will not be able to run accurate reports on any check-ins from more than 13 months ago.</p>
           <p></p>
@@ -2807,7 +2837,7 @@
       </td>
     </tr>
     <tr>
-      <td>02931<br /><br />GHW - Card prefix report - NExpress-wide<br /><br />Administrative Reports<br />Testing<br /><br />Created by:<br />George H Williams</td>
+      <td>02931<br /><br />GHW - Card prefix report - System-wide<br /><br />Administrative Reports<br />-<br /><br />Created by:<br />George H Williams</td>
       <td></td>
     </tr>
     <tr>
@@ -2926,9 +2956,9 @@
           </ul><br />
           <p><ins>Notes:</ins></p>
           <p></p>
-          <p>Starting in January of 2017, all NExpress items that were overdue more than 45 days began to be moved from being checked-out to being checked in with a "Lost (overdue more than 45 days)" status unless the items were checked out to
-            patrons in certain categories (i.e. student/teacher/inhouse, etc). Please take this into consideration when looking at the number of overdue items that are checked in when they are 46 days overdue. These items will almost always be items
-            that were automatically changed from overdue to "Lost."</p>
+          <p>Starting in January of 2017, all NExpress items that were overdue more than 45 days began to be moved from being checked-out to being checked in with a "Lost (overdue more than 45 days)" status unless the items were checked out to patrons
+            in certain categories (i.e. student/teacher/inhouse, etc). Please take this into consideration when looking at the number of overdue items that are checked in when they are 46 days overdue. These items will almost always be items that were
+            automatically changed from overdue to "Lost."</p>
           <p></p>
           <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2950&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
         </div>
@@ -2997,11 +3027,11 @@
           <p></p>
           <p><span style="background-color:darkred; color:white;">Updated 2017.09.08 to correct for some errors/problems that have come up in the auto-deletion process.</span></p>
           <p></p>
-          <p>This report goes along with the script that NExpress asked ByWater to write in 2015 that automatically deletes any items that have had a "Lost," "Lost (more than 45 days overdue)," "Missing," "Lost - Damaged/Replace," "Lost - Patron
-            Claims Returned," "In Processing," "Discard," "Lost - Not Returnable," or "Withdrawn" status for more than 13 months. This report allows libraries to see what these items are 2 months before the items are scheduled to be deleted.</p>
+          <p>This report goes along with the script that NExpress asked ByWater to write in 2015 that automatically deletes any items that have had a "Lost," "Lost (more than 45 days overdue)," "Missing," "Lost - Damaged/Replace," "Lost - Patron Claims
+            Returned," "In Processing," "Discard," "Lost - Not Returnable," or "Withdrawn" status for more than 13 months. This report allows libraries to see what these items are 2 months before the items are scheduled to be deleted.</p>
           <p></p>
-          <p>The report will show all deletions that are scheduled to happen 2 months in the future. For example, if you run the report in January, you will see what is going to be deleted automatically through the end of March. If you run it in
-            July, you will see what is going to be deleted through the end of September. If you run it in December, you will see what is going to be deleted through the end of February of the next year.</p>
+          <p>The report will show all deletions that are scheduled to happen 2 months in the future. For example, if you run the report in January, you will see what is going to be deleted automatically through the end of March. If you run it in July,
+            you will see what is going to be deleted through the end of September. If you run it in December, you will see what is going to be deleted through the end of February of the next year.</p>
           <p></p>
           <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2959&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
         </div>
@@ -3121,7 +3151,7 @@
       </td>
     </tr>
     <tr>
-      <td>02971<br /><br />GHW - EOM Cleanup 001<br /><br />Patrons<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
+      <td>02971<br /><br />GHW - EOM Cleanup 001<br /><br />Borrowers<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
           <p>Shows patrons who were added in the last 60 days but have no information in their "Registration Library" field.</p>
@@ -3208,8 +3238,8 @@
           </ul><br />
           <p><ins>Notes:</ins></p>
           <p></p>
-          <p>Data from the statistics table is purged after 25 months so this report cannot generate reports for data more than 25 months old. As with all statistical data, the best practice is to run the reports for the data you want within a month
-            or two of the creation of that data and then to save that data as a spreadsheet.</p>
+          <p>Data from the statistics table is purged after 25 months so this report cannot generate reports for data more than 25 months old. As with all statistical data, the best practice is to run the reports for the data you want within a month or
+            two of the creation of that data and then to save that data as a spreadsheet.</p>
           <p></p>
           <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2979&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
         </div>
@@ -3237,7 +3267,7 @@
       <td></td>
     </tr>
     <tr>
-      <td>03000<br /><br />GHW - Expired patrons 005 - patrons by expired attribute<br /><br />Patrons<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
+      <td>03000<br /><br />GHW - Expired patrons 005 - patrons by expired attribute<br /><br />Borrowers<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
           <p>Lists patrons based on Account Expiration attributes.</p>
@@ -3268,9 +3298,9 @@
           <p><ins>Notes:</ins></p>
           <p></p>
           <p>This report will only show the staff login for checkouts (renewals are not logged) but the way this report gathers data from the action logs is not perfect so you may see renewals with staff login information and checkouts with no staff
-            login information.<br /> Staff login information can only be recovered if the circulation occurred in the previous 60 days. The table where that information is stored has data more than 60 days old purged on a daily basis.<br />
-            Transaction history is only saved for the previous 25 months. You cannot run this report to gather data more than 25 months old.<br /> This report will only cover 1 day at a time. Creating a report that generates a log for multiple days
-            has the potential to disrupt the system.<br />
+            login information.<br /> Staff login information can only be recovered if the circulation occurred in the previous 60 days. The table where that information is stored has data more than 60 days old purged on a daily basis.<br /> Transaction
+            history is only saved for the previous 25 months. You cannot run this report to gather data more than 25 months old.<br /> This report will only cover 1 day at a time. Creating a report that generates a log for multiple days has the
+            potential to disrupt the system.<br />
           </p>
           <p></p>
           <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3004&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
@@ -3306,7 +3336,7 @@
       <td>03009<br /><br />GHW - Accountlines by item barcode number<br /><br />Fines/Fees<br />-<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
-          <p>Shows accountline information for a particular item if the item's barcode number has been stored in the accountlines description field</p>
+          <p>Shows accountline information for a particular item if the item's barcode number has been stored in the accountlines description or accountlines note fields</p>
           <ul>
             <li>Shows all accountlines related to the item barcode number specified</li>
             <li>Shows accountlines related to that item regardless as to which item owns the item or is owed the fee</li>
@@ -3315,9 +3345,11 @@
           </ul><br />
           <p><ins>Notes:</ins></p>
           <p></p>
+          <p style="text-decoration: underline;">This report can only show the fee history on an item if the barcode number of the item was recorded in the description or note fields of the fee record. Currently Koha no longer stores this information
+            automatically in the description or note fields.</p>
           <p>This report can only show the fines history on an item if the fee is unpaid or was paid less than 25 months ago.</p>
-          <p>In older version of Koha, the item barcode number was not always stored in the description field. If the item's barcode number was not stored in the description field, this report cannot recover the data about the fee history.</p>
-          <p>This report will show any entries in the patron's fee history - fees, credits, writeoffs, etc. The only requirement is that the fee description contains the item barcode number you are searching for.</p>
+          <p>In some version of Koha, the item barcode number was not always stored in the description field. If the item's barcode number was not stored in the description or note fields, this report cannot recover the data about the fee history.</p>
+          <p>This report will show any entries in the patron's fee history - fees, credits, notes, writeoffs, etc. The only requirement is that the fee description or note contains the item barcode number you are searching for.</p>
           <p></p>
           <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3009&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
         </div>
@@ -3340,7 +3372,7 @@
       </td>
     </tr>
     <tr>
-      <td>03012<br /><br />GHW - Unneeded restrictions<br /><br />Patrons<br />Fix Patrons<br /><br />Created by:<br />George H Williams</td>
+      <td>03012<br /><br />GHW - Unneeded restrictions<br /><br />Borrowers<br />Fix Patrons<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
           <p>Shows patrons with a restriction on their account that my no longer be justified</p>
@@ -3364,7 +3396,7 @@
       <td></td>
     </tr>
     <tr>
-      <td>03015<br /><br />GHW - Hold Contact Method<br /><br />Patrons<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>03015<br /><br />GHW - Hold Contact Method<br /><br />Borrowers<br />-<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
           <p>Generates a list of patrons based on their holds contact method</p>
@@ -3389,7 +3421,7 @@
       <td>Biblios and items - run at 12:05 a.m. on January 1</td>
     </tr>
     <tr>
-      <td>03019<br /><br />GHW - Users with failed password login attempts<br /><br />Patrons<br />Fix Patrons<br /><br />Created by:<br />George H Williams</td>
+      <td>03019<br /><br />GHW - Users with failed password login attempts<br /><br />Borrowers<br />Fix Patrons<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
           <p>Shows users who have attempted to login in to their account but failed. Patrons with more than 5 failed attempts are locked out.</p>
@@ -3484,8 +3516,8 @@
           </ul><br />
           <p><ins>Notes:</ins></p>
           <p></p>
-          <p>Please note that items renewed via the OPAC are counted as renewals at the library where the item was checked out. Therefore, if you see a circulation count at a library on a day that the library is normally closed, it is almost
-            certainly due to a renewal initiated by the patron via the OPAC.</p>
+          <p>Please note that items renewed via the OPAC are counted as renewals at the library where the item was checked out. Therefore, if you see a circulation count at a library on a day that the library is normally closed, it is almost certainly
+            due to a renewal initiated by the patron via the OPAC.</p>
           <p></p>
           <p>This report replaces reports 2396, 2397, 2398, 2399, 2400, 2401, and 2402</p>
           <p></p>
@@ -3750,7 +3782,7 @@
       </td>
     </tr>
     <tr>
-      <td>03078<br /><br />GHW - List of patrons<br /><br />Patrons<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>03078<br /><br />GHW - List of patrons<br /><br />Borrowers<br />-<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
           <p>Generates a list of patrons with basic contact information</p>
@@ -3793,11 +3825,11 @@
       </td>
     </tr>
     <tr>
-      <td>03085<br /><br />GHW - Patron attributes Report (master)<br /><br />Patrons<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
+      <td>03085<br /><br />GHW - Patron attributes Report (master)<br /><br />Borrowers<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
       <td>Cannot be exported to csv (too large)</td>
     </tr>
     <tr>
-      <td>03086<br /><br />GHW - Patron attributes - Newsletter permissions<br /><br />Patrons<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
+      <td>03086<br /><br />GHW - Patron attributes - Newsletter permissions<br /><br />Borrowers<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
           <p>Generates a list of patrons with contact information based on their "Newsletter permission" attributes</p>
@@ -3819,7 +3851,7 @@
       </td>
     </tr>
     <tr>
-      <td>03087<br /><br />GHW - Patron attributes - Movie permissions<br /><br />Patrons<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
+      <td>03087<br /><br />GHW - Patron attributes - Movie permissions<br /><br />Borrowers<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
           <p>Generates a list of patrons with contact information based on their "Movie permission" attributes</p>
@@ -3839,7 +3871,7 @@
       </td>
     </tr>
     <tr>
-      <td>03088<br /><br />GHW - Patron attributes - Internet permissions<br /><br />Patrons<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
+      <td>03088<br /><br />GHW - Patron attributes - Internet permissions<br /><br />Borrowers<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
           <p>Generates a list of patrons with contact information based on their "Internet permission" attributes</p>
@@ -3859,7 +3891,7 @@
       </td>
     </tr>
     <tr>
-      <td>03089<br /><br />GHW - Patron attributes - Special locations<br /><br />Patrons<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
+      <td>03089<br /><br />GHW - Patron attributes - Special locations<br /><br />Borrowers<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
           <p>Generates a list of patrons with contact information based on their "Special location" attributes</p>
@@ -3879,7 +3911,7 @@
       </td>
     </tr>
     <tr>
-      <td>03090<br /><br />GHW - Patron attributes - Holds contact<br /><br />Patrons<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
+      <td>03090<br /><br />GHW - Patron attributes - Holds contact<br /><br />Borrowers<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
           <p>Generates a list of patrons with contact information based on their "Hold contact" attributes</p>
@@ -3899,7 +3931,7 @@
       </td>
     </tr>
     <tr>
-      <td>03091<br /><br />GHW - Patron attributes - Account expired<br /><br />Patrons<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
+      <td>03091<br /><br />GHW - Patron attributes - Account expired<br /><br />Borrowers<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
           <p>Generates a list of patrons with contact information based on their "Account expired" attributes</p>
@@ -3919,7 +3951,7 @@
       </td>
     </tr>
     <tr>
-      <td>03092<br /><br />GHW - Patron attributes - Collection agency<br /><br />Patrons<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
+      <td>03092<br /><br />GHW - Patron attributes - Collection agency<br /><br />Borrowers<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
           <p>Generates a list of patrons with contact information based on their "Collection agency" attributes</p>
@@ -3939,7 +3971,7 @@
       </td>
     </tr>
     <tr>
-      <td>03093<br /><br />GHW - Patron attributes - Other attributes 1 / Other attirbutes 2 / Registration library<br /><br />Patrons<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
+      <td>03093<br /><br />GHW - Patron attributes - Other attributes 1 / Other attirbutes 2 / Registration library<br /><br />Borrowers<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
           <p>Generates a list of patrons with contact information based on the "Other attributes 1," "Other attributes 2," and "Registration library" attributes</p>
@@ -3962,16 +3994,19 @@
       <td>03094<br /><br />GHW - Monthly circulation by collection code - previously calendar month<br /><br />Statistics<br />Last calendar month<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
-          <p>Reports circulation and renewal counts by branchcode, collection code, and shelving location</p>
-          <ul>
-            <li>Reports counts for the previous calendar month</li>
-            <li>at all libraries</li>
-            <li>grouped by branchcode and collection code</li>
-            <li>sorted by branchcode and collection code description</li>
-          </ul><br />
-          <p><ins>Notes:</ins></p>
-          <p></p>
-          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3094&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p>Broken - doesn't work. Replacement coming soon. Use report 3128 instead.</p>
+          <span style="display: none;">
+            <p>Reports circulation and renewal counts by branchcode, collection code, and shelving location</p>
+            <ul>
+              <li>Reports counts for the previous calendar month</li>
+              <li>at all libraries</li>
+              <li>grouped by branchcode and collection code</li>
+              <li>sorted by branchcode and collection code description</li>
+            </ul><br />
+            <p><ins>Notes:</ins></p>
+            <p></p>
+            <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3094&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          </span>
         </div>
       </td>
     </tr>
@@ -3979,16 +4014,19 @@
       <td>03095<br /><br />GHW - Monthly circulation by collection code<br /><br />Statistics<br />Date range<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
-          <p>Reports circulation and renewal counts by branchcode, collection code, and shelving location</p>
-          <ul>
-            <li>Reports counts for the month you specify (within the previous 25 monhts)</li>
-            <li>at the library you specify</li>
-            <li>grouped by branchcode and collection code</li>
-            <li>sorted by branchcode and collection code description</li>
-          </ul><br />
-          <p><ins>Notes:</ins></p>
-          <p></p>
-          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3095&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p>Broken - doesn't work. Use report 3159 instead.</p>
+          <span style="display: none;">
+            <p>Reports circulation and renewal counts by branchcode, collection code, and shelving location</p>
+            <ul>
+              <li>Reports counts for the month you specify (within the previous 25 monhts)</li>
+              <li>at the library you specify</li>
+              <li>grouped by branchcode and collection code</li>
+              <li>sorted by branchcode and collection code description</li>
+            </ul><br />
+            <p><ins>Notes:</ins></p>
+            <p></p>
+            <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3095&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          </span>
         </div>
       </td>
     </tr>
@@ -4246,13 +4284,13 @@
           <p><ins>Notes:</ins></p>
           <p></p>
           <p>The search will be conducted based on the term or terms you enter. For example, if you enter "Fiction" you will see all results where at least one 655$a contains the word "Fiction" - i.e. Fiction, Fantasy fiction, Legal fiction, Horror
-            fiction, Romance fiction, etc. If you put in "Fantasy fiction" you will only see results where at least one 655$a contains the phrase "Fantasy fiction" in that order with the space between the two words. The search is not case sensitive
-            so "legal" and "Legal" will return the same results.</p>
+            fiction, Romance fiction, etc. If you put in "Fantasy fiction" you will only see results where at least one 655$a contains the phrase "Fantasy fiction" in that order with the space between the two words. The search is not case sensitive so
+            "legal" and "Legal" will return the same results.</p>
           <p></p>
           <p>Also note that any home branch code that ends with "-deleted" indicates a title that checked out in the month specified but has been deleted from the catalog within the last 13 months.</p>
           <p></p>
-          <p>To check a word or phrase to see how many titles in the catalog contain that word or phrase in the 655$a, run report 3124 (<a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3124&phase=Run%20this%20report" target="_blank">click
-              here to run report 3124 in a new window.</a>)</p>
+          <p>To check a word or phrase to see how many titles in the catalog contain that word or phrase in the 655$a, run report 3124 (<a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3124&phase=Run%20this%20report" target="_blank">click here
+              to run report 3124 in a new window.</a>)</p>
           <p></p>
           <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3123&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
         </div>
@@ -4822,9 +4860,9 @@
     <tr>
       <td>03197<br /><br />GHW - Overdue notice delivery history<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
       <td>A work-in-progress<br /> ODUE1 - goes to most patrons XX days after an item is overdue - XX is set on a library-by-library basis<br /> ODUE2 - goes to most patron 35 days after an item is due - warns patrons that they will be billed for the
-        cost of the item in 10 days<br /> ODUE3 - goes to most patrons 45 days after an item is due - warns them that they are being billed for the cost of the item<br /> ODUE1_ILL - goes to ILL partners XX days after an item is overdue - XX is set
-        on a library-by-library basis<br /> ODUE2_ILL - goes to ILL partners 35 days after an item is overdue<br /> ODUE3_ILL - goes to ILL partners 45 days after an item is overdue<br /> ODUE1_SPEC - goes to non-billed patrons XX days after an item
-        is overdue - XX is set on a library-by-library basis<br /> ODUE2_SPEC - goes to non-billed patrons 35 days after an item is overdue<br /> ODUE3_SPEC - goes to non-billed patrons 45 days after an item is overdue<br /></td>
+        cost of the item in 10 days<br /> ODUE3 - goes to most patrons 45 days after an item is due - warns them that they are being billed for the cost of the item<br /> ODUE1_ILL - goes to ILL partners XX days after an item is overdue - XX is set on
+        a library-by-library basis<br /> ODUE2_ILL - goes to ILL partners 35 days after an item is overdue<br /> ODUE3_ILL - goes to ILL partners 45 days after an item is overdue<br /> ODUE1_SPEC - goes to non-billed patrons XX days after an item is
+        overdue - XX is set on a library-by-library basis<br /> ODUE2_SPEC - goes to non-billed patrons 35 days after an item is overdue<br /> ODUE3_SPEC - goes to non-billed patrons 45 days after an item is overdue<br /></td>
     </tr>
     <tr>
       <td>03199<br /><br />GHW - Lookup payment details by receipt number<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
@@ -5067,8 +5105,8 @@
           </ul><br />
           <p><ins>Notes:</ins></p>
           <p></p>
-          <p>To determine the list id number, look at the URL for the list and take the number off of the end of the URL. For example, the list at<br />
-            https://staff.nextkansas.org/cgi-bin/koha/virtualshelves/shelves.pl?op=view&shelfnumber=6003<br /> would be list number 6003.</p>
+          <p>To determine the list id number, look at the URL for the list and take the number off of the end of the URL. For example, the list at<br /> https://staff.nextkansas.org/cgi-bin/koha/virtualshelves/shelves.pl?op=view&shelfnumber=6003<br />
+            would be list number 6003.</p>
           <p></p>
           <p>Can be accessed by running reports 3224 or 3225 and clicking on the link in the "LINKS_TO_TITLES" column</p>
           <p></p>
@@ -5097,8 +5135,8 @@
           </ul><br />
           <p><ins>Notes:</ins></p>
           <p></p>
-          <p>To determine the list id number, look at the URL for the list and take the number off of the end of the URL. For example, the list at<br />
-            https://staff.nextkansas.org/cgi-bin/koha/virtualshelves/shelves.pl?op=view&shelfnumber=6003<br /> would be list number 6003.</p>
+          <p>To determine the list id number, look at the URL for the list and take the number off of the end of the URL. For example, the list at<br /> https://staff.nextkansas.org/cgi-bin/koha/virtualshelves/shelves.pl?op=view&shelfnumber=6003<br />
+            would be list number 6003.</p>
           <p></p>
           <p>Can be accessed by running reports 3224 or 3225 and clicking on the link in the "CALL_NUMBER_REPORT" column</p>
           <p></p>
@@ -5149,7 +5187,7 @@
       <td></td>
     </tr>
     <tr>
-      <td>03231<br /><br />GHW - Borrower messages<br /><br />Patrons<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>03231<br /><br />GHW - Borrower messages<br /><br />Borrowers<br />-<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
           <p>Shows messages on a specific patron's account</p>
@@ -5174,7 +5212,7 @@
       <td>Set for 10</td>
     </tr>
     <tr>
-      <td>03234<br /><br />GHW - Patron count by extended attribute<br /><br />Patrons<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
+      <td>03234<br /><br />GHW - Patron count by extended attribute<br /><br />Borrowers<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
           <p>Generates a count of patrons with extended attributes at your library</p>
@@ -5187,15 +5225,15 @@
           </ul><br />
           <p><ins>Notes:</ins></p>
           <p></p>
-          <p>Patrons can have multiple extended attributes on their accounts. Similarly, patrons may not have any extended attributes on their accounts. A total count of patrons from all of the rows of this report will not indicate an accurate count
-            of total patrons at your library.</p>
+          <p>Patrons can have multiple extended attributes on their accounts. Similarly, patrons may not have any extended attributes on their accounts. A total count of patrons from all of the rows of this report will not indicate an accurate count of
+            total patrons at your library.</p>
           <p></p>
           <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3234&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
         </div>
       </td>
     </tr>
     <tr>
-      <td>03235<br /><br />GHW - Patrons at a specific library with a specific attribute<br /><br />Patrons<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
+      <td>03235<br /><br />GHW - Patrons at a specific library with a specific attribute<br /><br />Borrowers<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo>
           <p>Lists all patrons at your library with the extended attribute category and attribute you specify</p>
@@ -5209,8 +5247,8 @@
           <p></p>
           <p>Designed to work in conjunction with report 3234.</p>
           <p></p>
-          <p>Patrons can have multiple extended attributes on their accounts. Similarly, patrons may not have any extended attributes on their accounts. If this report is configured to report on multiple attributes at one time, it is possible that
-            some patrons will show up on this list multiple times.</p>
+          <p>Patrons can have multiple extended attributes on their accounts. Similarly, patrons may not have any extended attributes on their accounts. If this report is configured to report on multiple attributes at one time, it is possible that some
+            patrons will show up on this list multiple times.</p>
           <p></p>
           <p>For more detailed information than this report provides use the following reports:</p>
           <ul>
@@ -5368,7 +5406,7 @@
     </tr>
     <tr>
       <td>03249<br /><br />GHW - SQL date expressions<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td><a href="/cgi-bin/koha/reports/guided_reports.pl?phase=Run+this+report&reports=3249&limit=10000" target="_blank">Click here to run in a new window</a></p>
+      <td><a href="/cgi-bin/koha/reports/guided_reports.pl?phase=Run+this+report&reports=3249&limit=10000" target="_blank">Click here to run in a new window</a>
       </td>
     </tr>
     <tr>
@@ -5575,11 +5613,27 @@
       <td></td>
     </tr>
     <tr>
-      <td>03282<br /><br />GHW - ADMINREPORT - Item dashboard<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
+      <td>03282<br /><br />GHW - Item dashboard<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Retrieves data and associated reports information based on an item barcode number</p>
+          <ul>
+            <li>Shows current data</li>
+            <li>for the item barcode number you specify</li>
+            <li>grouped and sorted by item number</li>
+            <li>links to the item record, the item's bibliographic record, report 2785, report 3342, report 2784, and report 3039 -- unless the item has already been deleted</li>
+            <li>if the item has already been deleted, there are links to report 3009</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Replaces report 3113</p>
+          <p></p>
+          <p class="notetags" style="display: none;">dashboard</p>
+        </div>
+      </td>
     </tr>
     <tr>
-      <td>03283<br /><br />GHW - Search for borrower by SMS text message number<br /><br />Patrons<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>03283<br /><br />GHW - Search for borrower by SMS text message number<br /><br />Borrowers<br />-<br /><br />Created by:<br />George H Williams</td>
       <td>
         <div id=reportinfo class=noprint>
           <p>Find a patron's card number based on a portion of their SMS text messaging number</p>
@@ -5641,10 +5695,6 @@
       </td>
     </tr>
     <tr>
-      <td>03289<br /><br />GHW - Leavenworth - LEAVENWRTH Kanopy users with non-LEAVENWRTH home library<br /><br />Library-Specific<br />Leavenworth<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
-    </tr>
-    <tr>
       <td>03290<br /><br />GHW - Authorised Values Synchronization - BRANCHES<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
       <td></td>
     </tr>
@@ -5674,19 +5724,91 @@
     </tr>
     <tr>
       <td>03298<br /><br />GHW - LEAVENWRTH patrons without Kanopy access<br /><br />Library-Specific<br />Leavenworth<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Shows patrons with a LEAVENWRTH home library but without a "Kanopy (LEAVENWRTH): Allowed . . ." borrower attribute.</p>
+          <ul>
+            <li>Shows borrwoers that currently lack this attribute</li>
+            <li>grouped by categorycode and borrowernumber</li>
+            <li>sorted by library card number</li>
+            <li>links to the borrower account</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Should be run monthly at LEAVENWRTH so the attribute can be added to those accounts</p>
+          <p><a href="https://northeast-kansas-library-system.github.io/next/branches/LEAVENWRTH/kanopy.html#running-reports-to-manually-update-kanopy-permission" target="_blank">Go to the training information for the Kanopy (LEAVENWRTH) extended
+              borrower attribute.</a></p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3298&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">kanopy; patron-extended-attributes; LEAVENWRTH;</p>
+        </div>
+      </td>
     </tr>
     <tr>
       <td>03299<br /><br />GHW - Non-LEAVENWRTH patrons with LEAVENWRTH Kanopy access<br /><br />Library-Specific<br />Leavenworth<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Shows patrons with a "Kanopy (LEAVENWRTH): Allowed . . ." patron attribute but without a LEAVENWRTH homebranch</p>
+          <ul>
+            <li>Shows borrwoers that currently have this attribute</li>
+            <li>grouped by categorycode and borrowernumber</li>
+            <li>sorted by library card number</li>
+            <li>links to the borrower account</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Should be run monthly at LEAVENWRTH so the attribute can be removed from those accounts</p>
+          <p><a href="https://northeast-kansas-library-system.github.io/next/branches/LEAVENWRTH/kanopy.html#running-reports-to-manually-update-kanopy-permission" target="_blank">Go to the training information for the Kanopy (LEAVENWRTH) extended
+              borrower attribute.</a></p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3299&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">kanopy; patron-extended-attributes;</p>
+        </div>
+      </td>
     </tr>
     <tr>
       <td>03300<br /><br />GHW - OTTAWA patrons without OTTAWA Kanopy access<br /><br />Library-Specific<br />Ottawa<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Shows patrons with a OTTAWA home library but without a "Kanopy (OTTAWA): Allowed . . ." borrower attribute.</p>
+          <ul>
+            <li>Shows borrwoers that currently lack this attribute</li>
+            <li>grouped by categorycode and borrowernumber</li>
+            <li>sorted by library card number</li>
+            <li>links to the borrower account</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Should be run monthly at OTTAWA so the attribute can be added to those accounts</p>
+          <p><a href="https://northeast-kansas-library-system.github.io/next/branches/OTTAWA/kanopy.html#running-reports-to-manually-update-kanopy-permission" target="_blank">Go to the training information for the Kanopy (OTTAWA) extended borrower
+              attribute.</a></p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3300&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">kanopy; patron-extended-attributes; HOMEBRANCH;</p>
+        </div>
+      </td>
     </tr>
     <tr>
       <td>03301<br /><br />GHW - Non-OTTAWA patrons with OTTAWA Kanopy access<br /><br />Library-Specific<br />Ottawa<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Shows patrons with a "Kanopy (OTTAWA): Allowed . . ." patron attribute but without a OTTAWA homebranch</p>
+          <ul>
+            <li>Shows borrwoers that currently have this attribute</li>
+            <li>grouped by categorycode and borrowernumber</li>
+            <li>sorted by library card number</li>
+            <li>links to the borrower account</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Should be run monthly at OTTAWA so the attribute can be removed from those accounts</p>
+          <p><a href="https://northeast-kansas-library-system.github.io/next/branches/OTTAWA/kanopy.html#running-reports-to-manually-update-kanopy-permission" target="_blank">Go to the training information for the Kanopy (OTTAWA) extended borrower
+              attribute.</a></p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3301&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">kanopy; patron-extended-attributes; OTTAWA;</p>
+        </div>
+      </td>
     </tr>
     <tr>
       <td>03304<br /><br />GHW - Item Count by item type<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
@@ -5754,10 +5876,6 @@
       </td>
     </tr>
     <tr>
-      <td>03312<br /><br />TEST <br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
-    </tr>
-    <tr>
       <td>03313<br /><br />GHW - COVID helper<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
       <td>https://www.openmultipleurl.com/</td>
     </tr>
@@ -5823,7 +5941,24 @@
     </tr>
     <tr>
       <td>03333<br /><br />GHW - CLUBS - List of all clubs<br /><br />Clubs<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates a list of all clubs</p>
+          <ul>
+            <li>List shows clubs that are current at the time you run the report</li>
+            <li>at the library you specify</li>
+            <li>grouped by club id number</li>
+            <li>sorted by club home library, club name, and club id number</li>
+            <li>contains links to report 3335 - which generates a list of club members that can be shared with other club members</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Updated on 2020.02.03</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3333&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">clubs</p>
+        </div>
+      </td>
     </tr>
     <tr>
       <td>03334<br /><br />GHW - CLUB Membership roster for library use only<br /><br />Clubs<br />-<br /><br />Created by:<br />George H Williams</td>
@@ -5831,7 +5966,21 @@
     </tr>
     <tr>
       <td>03335<br /><br />GHW - CLUB Membership roster for club use<br /><br />Clubs<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Lists the members of a club in a format that can be shared with other members of the same club</p>
+          <ul>
+            <li>Shows current members of the club that you specify</li>
+            <li>grouped by club id number and borrowernumber</li>
+            <li>sorted by club enrollment number (order in which the members joined)</li>
+            <li>links</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3335&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">clubs</p>
+        </div>
+      </td>
     </tr>
     <tr>
       <td>03336<br /><br />GHW - Items checked out during a date range<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
@@ -5850,10 +5999,6 @@
           <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3336&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
         </div>
       </td>
-    </tr>
-    <tr>
-      <td>03337<br /><br />debit_code test<br /><br />-<br />-<br /><br />Created by:<br />Bywater bwssupport</td>
-      <td></td>
     </tr>
     <tr>
       <td>03338<br /><br />Debit Codes<br /><br />-<br />-<br /><br />Created by:<br />Bywater bwssupport</td>
@@ -5879,7 +6024,7 @@
     </tr>
     <tr>
       <td>03340<br /><br />GHW - Circulation rules<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
+      <td>Replaced by: Report 3486 - Circulation and renewal rules Report 3487 - Fee and suspension rules Report 3488 - Request and miscellaneous rules</td>
     </tr>
     <tr>
       <td>03341<br /><br />GHW - Adults with guarantors<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
@@ -5985,56 +6130,32 @@
           <p></p>
           <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3355">Click here to download as a csv file</a></p>
           <p class="notetags" style="display: none;">tag goes here</p>
-          <p style="display: none;>george@nekls.org --subject='3355' --format=csv --csv-header -a</p>
-</div></td>
+          <p style="display: none;">george@nekls.org --subject='3355' --format=csv --csv-header -a</p>
+  </div></td>
 
-          </tr>
+  </tr>
 
-          <tr>
+  <tr>
 
-                  <td>03356<br /><br />Sandbox - Date testing with date variables<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+          <td>03359<br /><br />GHW - Requests picked up or cancelled during the previous calendar month<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
 
-                  <td></td>
-
-          </tr>
-
-          <tr>
-
-                  <td>03357<br /><br />Sandbox - Date range test<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-
-                  <td></td>
-
-          </tr>
-
-          <tr>
-
-                  <td>03358<br /><br />GHW - Sandbox - Attribute testing<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-
-                  <td></td>
-
-          </tr>
-
-          <tr>
-
-                  <td>03359<br /><br />GHW - Requests picked up or cancelled during the previous calendar month<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-
-                  <td><div id=reportinfo class=noprint>
-<p>List of requested titles picked up or cancelled in the previous calendar month</p>
-<ul><li>Shows requests in the previous calendar month</li>
-<li>at the request pickup library you specify</li>
-<li>grouped by reserveid number</li>
-<li>sorted by the pickup library plus the normal Next classification order</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>If a request shows up in this report with no classification information it's because no specific item was ever assigned to fill this request.  This can happen in several situations.</p>
-<ul>
-<li>The first situation would be if a title level request was placed and then cancelled before an available item reached the top of the requests queue</li>
-<li>The second situation would be if a request was placed and an item was checked out to the borrower that filled that request before an available item reached the top of the requests queue</li>
-<li>The third situation would be if an item was checked out to the borrower that was deleted after the item was returned but before this report was run</li>
-</ul>
-<p></p>
-<p><a href=" /cgi-bin/koha/reports/guided_reports.pl?reports=3359&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <td><div id=reportinfo class=noprint>
+  <p>List of requested titles picked up or cancelled in the previous calendar month</p>
+  <ul><li>Shows requests in the previous calendar month</li>
+  <li>at the request pickup library you specify</li>
+  <li>grouped by reserveid number</li>
+  <li>sorted by the pickup library plus the normal Next classification order</li>
+  </ul><br />
+  <p><ins>Notes:</ins></p>
+  <p></p>
+  <p>If a request shows up in this report with no classification information it's because no specific item was ever assigned to fill this request.  This can happen in several situations.</p>
+  <ul>
+  <li>The first situation would be if a title level request was placed and then cancelled before an available item reached the top of the requests queue</li>
+  <li>The second situation would be if a request was placed and an item was checked out to the borrower that filled that request before an available item reached the top of the requests queue</li>
+  <li>The third situation would be if an item was checked out to the borrower that was deleted after the item was returned but before this report was run</li>
+  </ul>
+  <p></p>
+  <p><a href=" /cgi-bin/koha/reports/guided_reports.pl?reports=3359&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
           <p class="notetags" style="display: none;">#requests</p>
         </div>
       </td>
@@ -6087,14 +6208,28 @@
     </tr>
     <tr>
       <td>03362<br /><br />GHW - Items at a library without a replacement cost<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Searches for items where the "Cost, replacement price" is blank or = $0.00</p>
+          <ul>
+            <li>Shows items currently in the catalog</li>
+            <li>at the library you specify</li>
+            <li>grouped by item number </li>
+            <li>sorted by the standard Next Search Catalog classification scheme</li>
+            <li>contains links to the item's bibliographic record and the edit item page for each individual item</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>If an item's "Cost, replacement price" field is left blank or is set to $0.00, any patron keeping that item overdue for more than 45 days will not be billed for the replacement of that item. If no replacement cost is defined for an item,
+            or of the replacement cost is $0.00, the system will try to bill the patron $0.00 and if the amount due on a lost item invoice is $0.00, the system will simply not print a lost item invoice.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3362&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">replacement price, item fixup</p>
+        </div>
+      </td>
     </tr>
     <tr>
       <td>03363<br /><br />Sandbox - ADMINREPORT<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>03364<br /><br />Branchname and Branchemail<br /><br />-<br />-<br /><br />Created by:<br />Bywater bwssupport</td>
       <td></td>
     </tr>
     <tr>
@@ -6102,92 +6237,92 @@
       <td>https://staff.nextkansas.org/cgi-bin/koha/catalogue/detail.pl?biblionumber=323043</td>
     </tr>
     <tr>
-      <td>03366<br /><br />GHW - 942 sandbox<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
+      <td>03368<br /><br />GHW - LINWOOD patrons without Kanopy access<br /><br />Library-Specific<br />Linwood<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Shows patrons with a LINWOOD home library but without a "Kanopy (LINWOOD): Allowed . . ." borrower attribute.</p>
+          <ul>
+            <li>Shows borrwoers that currently lack this attribute</li>
+            <li>grouped by categorycode and borrowernumber</li>
+            <li>sorted by library card number</li>
+            <li>links to the borrower account</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Should be run monthly at LINWOOD so the attribute can be added to those accounts</p>
+          <p><a href="https://northeast-kansas-library-system.github.io/next/branches/LINWOOD/kanopy.html#running-reports-to-manually-update-kanopy-permission" target="_blank">Go to the training information for the Kanopy (LINWOOD) extended borrower
+              attribute.</a></p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3368&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">kanopy; patron-extended-attributes; LINWOOD;</p>
+        </div>
+      </td>
     </tr>
     <tr>
-      <td>03368<br /><br />GHW - LINWOOD patrons without Kanopy access<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
+      <td>03369<br /><br />GHW - SABETHA patrons without Kanopy access <br /><br />Library-Specific<br />Sabetha<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Shows patrons with a SABETHA home library but without a "Kanopy (SABETHA): Allowed . . ." borrower attribute.</p>
+          <ul>
+            <li>Shows borrwoers that currently lack this attribute</li>
+            <li>grouped by categorycode and borrowernumber</li>
+            <li>sorted by library card number</li>
+            <li>links to the borrower account</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Should be run monthly at SABETHA so the attribute can be added to those accounts</p>
+          <p><a href="https://northeast-kansas-library-system.github.io/next/branches/SABETHA/kanopy.html#running-reports-to-manually-update-kanopy-permission" target="_blank">Go to the training information for the Kanopy (SABETHA) extended borrower
+              attribute.</a></p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3369&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">kanopy; patron-extended-attributes; SABETHA;</p>
+        </div>
+      </td>
     </tr>
     <tr>
-      <td>03369<br /><br />GHW - SABETHA patrons without Kanopy access <br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
+      <td>03370<br /><br />GHW - Non-LINWOOD patrons with LINWOOD Kanopy access <br /><br />Library-Specific<br />Linwood<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Shows patrons with a "Kanopy (LINWOOD): Allowed . . ." patron attribute but without a LINWOOD homebranch</p>
+          <ul>
+            <li>Shows borrwoers that currently have this attribute</li>
+            <li>grouped by categorycode and borrowernumber</li>
+            <li>sorted by library card number</li>
+            <li>links to the borrower account</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Should be run monthly at LINWOOD so the attribute can be removed from those accounts</p>
+          <p><a href="https://northeast-kansas-library-system.github.io/next/branches/LINWOOD/kanopy.html#running-reports-to-manually-update-kanopy-permission" target="_blank">Go to the training information for the Kanopy (LINWOOD) extended borrower
+              attribute.</a></p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3370&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">kanopy; patron-extended-attributes; LINWOOD;</p>
+        </div>
+      </td>
     </tr>
     <tr>
-      <td>03370<br /><br />GHW - Non-LINWOOD patrons with LINWOOD Kanopy access <br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>03371<br /><br />GHW - Non-SABETHA patrons with SABETHA Kanopy access <br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>03372<br /><br />koha-US demo 1<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>03373<br /><br />koha-US demo 2<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>03374<br /><br />koha-US demo 3<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>03375<br /><br />koha-us Demo 4<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>03376<br /><br />koha-us Demo 5<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>03377<br /><br />koha-us Demo 6<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>03378<br /><br />koha-us Demo 7<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>03379<br /><br />koha-us Demo 8<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>03380<br /><br />koha-US Demo 9<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>03381<br /><br />koha-US Demo 10<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>03382<br /><br />koha-US Demo 51<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>03383<br /><br />koha-US Demo 52<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>03384<br /><br />koha-US Demo 53<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>03385<br /><br />koha-US Demo 54<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>03386<br /><br />koha-US Demo 55<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>03387<br /><br />SQL helper - Date Snippets<br /><br />Administrative Reports<br />-<br /><br />Created by:<br />-</td>
-      <td>Reusable code for setting dates in SQL reports</td>
-    </tr>
-    <tr>
-      <td>03388<br /><br />GHW - Sandbox<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
-      <td></td>
+      <td>03371<br /><br />GHW - Non-SABETHA patrons with SABETHA Kanopy access <br /><br />Library-Specific<br />Sabetha<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Shows patrons with a "Kanopy (SABETHA): Allowed . . ." patron attribute but without a SABETHA homebranch</p>
+          <ul>
+            <li>Shows borrwoers that currently have this attribute</li>
+            <li>grouped by categorycode and borrowernumber</li>
+            <li>sorted by library card number</li>
+            <li>links to the borrower account</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Should be run monthly at SABETHA so the attribute can be removed from those accounts</p>
+          <p><a href="https://northeast-kansas-library-system.github.io/next/branches/SABETHA/kanopy.html#running-reports-to-manually-update-kanopy-permission" target="_blank">Go to the training information for the Kanopy (SABETHA) extended borrower
+              attribute.</a></p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3371&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">kanopy; patron-extended-attributes;</p>
+        </div>
+      </td>
     </tr>
     <tr>
       <td>03389<br /><br />GHW - Open refine ADMINREPORT<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
@@ -6225,7 +6360,884 @@
         </div>
       </td>
     </tr>
+    <tr>
+      <td>03391<br /><br />GHW - Sandbox - ADMINREPORT<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03393<br /><br />GHW - Monthly 105 - Circulation by Item Type<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>Monthly statistics - should be run on schedule only - staff at libraries should run report 3128 if they just want data for their library.</td>
+    </tr>
+    <tr>
+      <td>03394<br /><br />GHW - Monthly 106 - Circulation by Collection Code<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>Monthly statistics - should be run on schedule only - staff at libraries should run report 3159 if they just want data for their library.</td>
+    </tr>
+    <tr>
+      <td>03395<br /><br />GHW - Item type update - ADMINREPORT<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03396<br /><br />GHW - 942H ADMINREPORT - ASC<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03397<br /><br />GHW - 942H ADMINREPORT - DESC<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03398<br /><br />GHW - Borrower count by age<br /><br />Borrowers<br />Patron attributes<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Counts borrowers at a library by age (in years) and gender indicator</p>
+          <ul>
+            <li>Counts current borrowers</li>
+            <li>where the borrowers home library matches the library you specify</li>
+            <li>grouped and sorted by borrowers home branch and age</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Counts in the "BLANK_OR_BAD_CODE" column represent borrowers where the gender radio button on their account is either not set, or is set to a data code that is no longer in use.</p>
+          <p></p>
+          <p></p>
+          <p>Partly replaces report 1081.</p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3398&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3398">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">borrower count</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03399<br /><br />GHW - Borrower count by age and borrower category<br /><br />Borrowers<br />Patron Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Counts borrowers at a library by age (in years)</p>
+          <ul>
+            <li>Counts current borrowers</li>
+            <li>where the borrowers home library matches the library you specify and the borrower category matches the category you select</li>
+            <li>grouped and sorted by borrowers home branch, borrowers category, and age</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Counts in the "BLANK_OR_BAD_CODE" column represent borrowers where the gender radio button on their account is either not set, or is set to a data code that is no longer in use.</p>
+          <p></p>
+          <p></p>
+          <p>Replaces report 1081</p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3399&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">borrower count</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03405<br /><br />GHW - VIDEO items with a non-videodisc item type<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Shows list of items with a Video item type and a collection code other than DVD, Blu-ray, Combo, or TV Series</p>
+          <ul>
+            <li>Shows items currently in the system</li>
+            <li>at the library you specify</li>
+            <li>grouped by item number, location, collection code, and bibliographic number</li>
+            <li>sorted by the normal Next classification order</li>
+            <li>links to the bibliographic record and the edit item page</li>
+          </ul><br />
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3405&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">collection code cleanup</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03413<br /><br />GHW - SENECA Lost item processing fee report<br /><br />Library-Specific<br />Seneca Free Library<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Identifies borrowers who need to be assessed a $20.00 lost item processing fee at SENECA</p>
+          <ul>
+            <li>Shows borrowers who borrowed items from SENECA and the item was marked as "Lost (more than 45 days overdue)" within the last XX days</li>
+            <li>Shows items checked out at SENECA regardless of the item's home library</li>
+            <li>grouped by the issue_id of the checkout</li>
+            <li>sorted by the date the item was lost</li>
+            <li>contains links to the item and links to the borrower</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Notes go here.</p>
+          <p></p>
+          <p>Should not be exported to a csv file. This is customized to be run from the screen.</p>
+          <p class="notetags" style="display: none;">#seneca, processing fee, </p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03415<br /><br />GHW - Flexible shelflist for specific item barcode numbers<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates a list of items on in the catalog by list of item barcode numbers</p>
+          <ul>
+            <li>Shows data regarding the supplied barcode numbers at the time the report was run</li>
+            <li>based on the home library of the item barcode numbers provided</li>
+            <li>grouped by item number, item type description, and collection code description</li>
+            <li>sorted by the normal Next Search Catalog classification scheme</li>
+            <li>links to the bibliographic record for each biblionumber and the edit item page for each item number</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>To run, ask nexthelp@nekls.org to set up the report for you -- you will need to supply a text file containing the barcode numbers of all of the items you wish to appear in the results</p>
+          <p>Currently set up for Kelly at PAOLA based on a list of 250 barcode numbers submitted on February 1, 2021.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3415&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">tag goes here</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03416<br /><br />GHW - Multiple items on a bibliographic record<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03417<br /><br />GHW ADMINREPORT - replace 3333<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03418<br /><br />GHW - Monthly 9901 Items and holdings<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>Generates Columns D-I of the monthly statistical report</td>
+    </tr>
+    <tr>
+      <td>03419<br /><br />GHW - Monthly 9902 - Circulation<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03420<br /><br />GHW - Monthly 9903 Borrowers<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03421<br /><br />GHW - Monthly 9904 ILL Loans and borrows<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03422<br /><br />GHW - Monthly 9905 Biblios total<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03423<br /><br />GHW - Monthly statistics - C<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates data for the monthly statistics report - column C</p>
+          <ul>
+            <li>Counts items in the collection on the first day of last month</li>
+            <li>At all Next Search Catalog libraries</li>
+            <li>grouped and sorted by branchcode</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Notes go here.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3423&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3423">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">monthly statistics iko</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03424<br /><br />GHW - Monthly statistics - D<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates data for the monthly statistics report - column D</p>
+          <ul>
+            <li>Counts items in the collection on the last day of last month</li>
+            <li>At all Next Search Catalog libraries</li>
+            <li>grouped and sorted by branchcode</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Notes go here.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3424&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3424">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">monthly statistics iko</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03425<br /><br />GHW - Monthly statistics - E<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates data for the monthly statistics report - column E</p>
+          <ul>
+            <li>Counts items added in the previous month</li>
+            <li>At all Next Search Catalog libraries</li>
+            <li>grouped and sorted by branchcode</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Notes go here.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3425&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3425">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">monthly statistics iko</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03426<br /><br />GHW - Monthly statistics - F<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates data for the monthly statistics report - column F</p>
+          <ul>
+            <li>Counts items deleted in the previous month</li>
+            <li>At all Next Search Catalog libraries</li>
+            <li>grouped and sorted by branchcode</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Notes go here.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3426&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3426">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">monthly statistics iko</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03427<br /><br />GHW - Monthly statistics - G<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates data for the monthly statistics report - column G</p>
+          <ul>
+            <li>Counts total bibliographic records held by a library on the final day of the previous month</li>
+            <li>At all Next Search Catalog libraries</li>
+            <li>grouped and sorted by branchcode</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Notes go here.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3427&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3427">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">monthly statistics iko</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03428<br /><br />GHW - Monthly statistics - H<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates data for the monthly statistics report - column H</p>
+          <ul>
+            <li>Counts bibliographic records added in the previous month</li>
+            <li>At all Next Search Catalog libraries</li>
+            <li>grouped and sorted by branchcode</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Notes go here.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3428&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3428">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">monthly statistics iko</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03429<br /><br />GHW - Monthly statistics - I<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates data for the monthly statistics report - column I</p>
+          <ul>
+            <li>Counts bibliographic records deleted in the previous month</li>
+            <li>At all Next Search Catalog libraries</li>
+            <li>grouped and sorted by branchcode</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Notes go here.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3429&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3429">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">monthly statistics iko</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03430<br /><br />GHW - Monthly statistics - J<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates data for the monthly statistics report - column J</p>
+          <ul>
+            <li>Counts checkouts and renewals last month</li>
+            <li>At all Next Search Catalog libraries</li>
+            <li>grouped and sorted by branchcode</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Notes go here.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3436&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3436">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">monthly statistics iko</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03431<br /><br />GHW - Monthly statistics - K<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates data for the monthly statistics report - column K</p>
+          <ul>
+            <li>Counts checkouts only last month</li>
+            <li>At all Next Search Catalog libraries</li>
+            <li>grouped and sorted by branchcode</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Notes go here.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3435&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3435">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">monthly statistics iko</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03432<br /><br />GHW - Monthly statistics - L<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates data for the monthly statistics report - column L</p>
+          <ul>
+            <li>Counts renewals only last month</li>
+            <li>At all Next Search Catalog libraries</li>
+            <li>grouped and sorted by branchcode</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Notes go here.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3434&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3434">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">monthly statistics iko</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03433<br /><br />GHW - Monthly statistics - M<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates data for the monthly statistics report - column M</p>
+          <ul>
+            <li>Counts returns last month</li>
+            <li>At all Next Search Catalog libraries</li>
+            <li>grouped and sorted by branchcode</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Notes go here.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3433&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3433">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">monthly statistics iko</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03434<br /><br />GHW - Monthly statistics - N<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates data for the monthly statistics report - column N</p>
+          <ul>
+            <li>Counts checkouts and renewals of adult materials last month</li>
+            <li>At all Next Search Catalog libraries</li>
+            <li>grouped and sorted by branchcode</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Notes go here.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3432&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3432">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">monthly statistics iko</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03435<br /><br />GHW - Monthly statistics - O<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates data for the monthly statistics report - column O</p>
+          <ul>
+            <li>Counts checkouts and renewals of children's materials last month</li>
+            <li>At all Next Search Catalog libraries</li>
+            <li>grouped and sorted by branchcode</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Notes go here.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3431&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3431">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">monthly statistics iko</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03436<br /><br />GHW - Monthly statistics - P<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates data for the monthly statistics report - column P</p>
+          <ul>
+            <li>Counts checkouts and renewals of 4 3/4 inch video discs (DVD/Blu-ray/HD DVD, etc)</li>
+            <li>At all Next Search Catalog libraries</li>
+            <li>grouped and sorted by branchcode</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Notes go here.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3430&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3430">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">monthly statistics iko</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03437<br /><br />GHW - Monthly statistics - R<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates data for the monthly statistics report - column R</p>
+          <ul>
+            <li>Counts borrower accounts used to checkout items last month</li>
+            <li>At all Next Search Catalog libraries</li>
+            <li>grouped and sorted by branchcode</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Notes go here.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3437&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3437">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">monthly statistics iko</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03438<br /><br />GHW - Monthly statistics - S<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates data for the monthly statistics report - column S</p>
+          <ul>
+            <li>Counts total borrowers at end of last month</li>
+            <li>At all Next Search Catalog libraries</li>
+            <li>grouped and sorted by branchcode</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Notes go here.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3438&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3438">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">monthly statistics iko</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03439<br /><br />GHW - Monthly statistics - T<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates data for the monthly statistics report - column T</p>
+          <ul>
+            <li>Counts Borrowers added last month</li>
+            <li>At all Next Search Catalog libraries</li>
+            <li>grouped and sorted by branchcode</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Notes go here.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3439&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3439">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">monthly statistics iko</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03440<br /><br />GHW - Monthly statistics - U<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates data for the monthly statistics report - column U</p>
+          <ul>
+            <li>Counts borrowers renewed last month</li>
+            <li>At all Next Search Catalog libraries</li>
+            <li>grouped and sorted by branchcode</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Notes go here.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3440&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3440">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">monthly statistics iko</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03441<br /><br />GHW - Monthly statistics - V<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates data for the monthly statistics report - column V</p>
+          <ul>
+            <li>Counts borrowers deleted last month</li>
+            <li>At all Next Search Catalog libraries</li>
+            <li>grouped and sorted by branchcode</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Notes go here.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3441&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3441">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">monthly statistics iko</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03442<br /><br />GHW - Monthly statistics - W<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates data for the monthly statistics report - column W</p>
+          <ul>
+            <li>Counts Next ILLs loaned last month</li>
+            <li>At all Next Search Catalog libraries</li>
+            <li>grouped and sorted by branchcode</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Notes go here.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3442&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3442">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">monthly statistics iko</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03443<br /><br />GHW - Monthly statistics - X<br /><br />Statistics<br />Monthly Statistics<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates data for the monthly statistics report - column X</p>
+          <ul>
+            <li>Counts Next ILLs borrowed last month</li>
+            <li>At all Next Search Catalog libraries</li>
+            <li>grouped and sorted by branchcode</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Notes go here.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3443&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3443">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">monthly statistics iko</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03466<br /><br />GHW - Update bib locations desc<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03467<br /><br />GHW - Update asc<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03469<br /><br />GHW - Synchronize locations<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03471<br /><br />GHW - Replacement cost of library materials by Collection Code<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Shows replacement cost of collection</p>
+          <ul>
+            <li>Results are based on materials currently in the catalog</li>
+            <li>at the library, shelving location, and collection code you specify</li>
+            <li>grouped and sorted by library, shelving location, and collection code</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>This report will only return values based on the "Cost, replacement price" field in the item record (Marc subfield 952$v). If no value is entered in this field, the value for that item will be $0.00. If that field has been incorrectly
+            entered, that incorrect value will be a part of the total.</p><br />
+          <p>Report 3362 can show you items at your library with a blank or 0 value "Cost, replacement price" field: <a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3362&phase=Run%20this%20report">click here to run report 3362</a></p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3471&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">tag goes here</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03472<br /><br />GHW - Replacement cost of library materials by Item Type<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Shows replacement cost of collection</p>
+          <ul>
+            <li>Results are based on materials currently in the catalog</li>
+            <li>at the library, shelving location, and item type you specify</li>
+            <li>grouped and sorted by library, shelving location, and item type</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>This report will only return values based on the "Cost, replacement price" field in the item record (Marc subfield 952$v). If no value is entered in this field, the value for that item will be $0.00. If that field has been incorrectly
+            entered, that incorrect value will be a part of the total.</p><br />
+          <p>Report 3362 can show you items at your library with a blank or 0 value "Cost, replacement price" field: <a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3362&phase=Run%20this%20report">click here to run report 3362</a></p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3472&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">tag goes here</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03473<br /><br />GHW- Median collection age ADMINREPORT<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03474<br /><br />GHW - ADMINREPORT<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03475<br /><br />GHW - Average age of entire collection with link to Median Age of entire collection<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>This report helps calculate the average age of a library's entire collection based on the publication year listed in the biblioitems.publicationyear field for that item's bibliographic record</p>
+          <ul>
+            <li>It helps make the calculation on items currently in the collection</li>
+            <li>at the library you specify</li>
+            <li>grouped and sorted by library, total item count, count of items with biblioitems.publicationyear data</li>
+            <li>contains links to report 3476 which calculates the same collection's median age</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>The statistical average age is calculated by calculating the sum of the biblioitems.publicationyear and dividing that number by the count of items with data in biblioitems.publicationyear and rounding that number down to 0 decimal places.
+          </p>
+          <p></p>
+          <p>Bibliographic records which contain incorrect, incomplete, or incompatible data in the biblioitems.publicationyear field are not counted when calculating this data.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3475&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">collection statistics, median age, weeding</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03476<br /><br />GHW - Median age of entire collection (see instructions)<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <h3>This report cannot be run on its own. You must run report 3475 and then click the link to trigger a meaningful result from this report</h3><br />
+          <p>This report helps calculate the median age of a library's entire collection based on the publication year listed in the biblioitems.publicationyear field for that item's bibliographic record</p>
+          <ul>
+            <li>It helps make the calculation on items currently in the collection</li>
+            <li>at the library you specify</li>
+            <li>grouped by item number and biblioitems.publicationyear</li>
+            <li>sorted by biblioitems.publicationyear</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>The statistical median age is calculated by listing the publication year of every item in a collection by publication year in order by publication year and then picking the publication year at the list's midpoint.</p>
+          <p></p>
+          <p>This report is designed to be run from report 3475. Running report 3475 calculates the number of items for that collection with numeric data in biblioitems.publicationyear. By clicking on the link in that report to run this one, you're
+            telling that report to look at the middle row of this report, which should give you the statistical median age for the items in the same collection .</p>
+          <p></p>
+          <p>Bibliographic records which contain incorrect, incomplete, or incompatible data in the biblioitems.publicationyear field are not counted when calculating this data.</p>
+          <p></p>
+          <p class="notetags" style="display: none;">collection statistics, median age, weeding</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03477<br /><br />GHW - ADMINREPORT Average age of collection by permanent location<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>In progress</td>
+    </tr>
+    <tr>
+      <td>03478<br /><br />ADMINREPORT - PLACEHOLDER for Median age by location<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>In progress</td>
+    </tr>
+    <tr>
+      <td>03479<br /><br />GHW - Average by location and collection code<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03480<br /><br />ADMINREPORT - PLACEHOLDER for Median age by location and collection code<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>In progress</td>
+    </tr>
+    <tr>
+      <td>03481<br /><br />test report<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03482<br /><br />GHW - Phantom restrictions ADMINREPORT<br /><br />Administrative Reports<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Searches for phantom restrictions</p>
+          <ul>
+            <li>Searches for current instances where data exists in borrowers.debarred but there is no corresponding entry in borrower_debarments.</li>
+            <li>grouped and sorted by borrowernumber</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Run once a week to identify borrowers with phantom restrictions. Then use the batch patron editor to remove all restrictions from the accounts.</p>
+          <p></p>
+          <p><a href="https://northeast-kansas-library-system.github.io/next/bugs/phantom_restrictions.html" target="_blank">Training on this report</a></p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3482&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">borrowers restrictions</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03483<br /><br />GHW- Turnover in the previous 12 months by location and item type<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Shows turnover rate by location and item type</p>
+          <ul>
+            <li>in the previous 12 months</li>
+            <li>at the library you specify</li>
+            <li>grouped by library, location, and item type</li>
+            <li>sorted by library, location, and item type with an "All locations" and "All item types" grouping at the top of the results</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Developed for "Collection development 2.0" workshop</p>
+          <p></p>
+          <p>Please note that these calculations include all items checked out at your library regardless of which library owned the item. If, for example, your library doesn't own any items with a "Pamphlet" item type but one from another library was
+            checked out at your library to fill a request, that item will be counted in these calculations.</p>
+          <p></p>
+          <p>"CURRENT_ITEM_COUNT" is based on an item's item type at the time the report was run. "CKO_RENEW_COUNT" is based on an item's item type at the time it was checked out. It an item's item type changes between the time it was checked out and
+            the time this report is run, the results will be skewed. This will be particularly true of items with the following temporary item types:</p>
+          <ul>
+            <li>Audiobook (new)</li>
+            <li>Book (new)</li>
+            <li>Book (no requests allowed)</li>
+            <li>BORROWED FROM ANOTHER LIBRARY</li>
+            <li>Magazine (new)</li>
+            <li>Video (Local requests only)</li>
+            <li>Video (New)</li>
+            <li>Video (No holds allowed)</li>
+          </ul>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3483&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">statistics, turnover, previous 12 months</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03484<br /><br />GHW- Turnover by location and collection code<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Shows turnover rate by location and collection code</p>
+          <ul>
+            <li>in the previous 12 months</li>
+            <li>at the library you specify</li>
+            <li>grouped by library, location, and collection code</li>
+            <li>sorted by library, location, and collection code with an "All locations" and "All collection codes" grouping at the top of the results</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Developed for "Collection development 2.0" workshop</p>
+          <p></p>
+          <p>Please note that these calculations include all items checked out at your library regardless of which library owned the item. If, for example, your library doesn't own any items with a "VG-Nintendo 3DS" collection code but one from another
+            library was checked out at your library to fill a request, that item will be counted in these calculations.</p>
+          <p></p>
+          <p>"CURRENT_ITEM_COUNT" is based on an item's collection code at the time the report was run. "CKO_RENEW_COUNT" is based on an item's collection code at the time it was checked out. It an item's collection code changes between the time it was
+            checked out and the time this report is run, the results will be skewed. This can be particularly true with temporary items such as ILL items.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3484&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">statistics, turnover, previous 12 months</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03485<br /><br />GHW - ITYPE test<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03486<br /><br />GHW - Circulation/fees/request rules 1 - circulation and renewal<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Verbose listing of circulation/fees/request rules regarding circulation and renewal rules</p>
+          <ul>
+            <li>Shows the current rules</li>
+            <li>at the library you specify</li>
+            <li>grouped and sorted by rule branchcode, borrower category, and item type</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Rules are applied from most specific to least specific and the rules in this report are set to display from most specific to least specific. The higher a rule is in the results of this report, the higher its priority.</p>
+          <p></p>
+          <p>Rules regarding circulation are applied based on the library where the items are being checked out. If an item is shipped from SENECA to OTTAWA to fill a request, it will follow the check-out and renewal rules at OTTAWA when it is checked
+            out at OTTAWA.<br />(Based on the CircControl system preference - 2021.03.10)</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3486&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">rules, circulation</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03487<br /><br />GHW - Circulation/fees/request rules 2 - late fees and suspensions<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Verbose listing of circulation/fees/request rules regarding late fees and "suspensions"</p>
+          <ul>
+            <li>Shows the current rules</li>
+            <li>at the library you specify</li>
+            <li>grouped and sorted by rule branchcode, borrower category, and item type</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Rules are applied from most specific to least specific and the rules in this report are set to display from most specific to least specific. The higher a rule is in the results of this report, the higher its priority.</p>
+          <p></p>
+          <p>In Next Search Catalog, late fee rules follow the rules at the library where an item is checked out. If an item is shipped from ATCHISON to SILVERLAKE to fill a request and it is kept overdue, the borrower will be billed following the
+            rules at SILVERLAKE.<br />(Based on the CircControl system preference - 2021.03.12)</p>
+          <p></p>
+          <p>"Suspensions" in the case of this report relate to a type of late "fee" we are not currently using. Some libraries in Europe use "Suspensions" or "Debarrments" in place of library late fees. If a borrower keeps a book overdue for 5 days,
+            their account is "suspended" or "debarred" from borrowing materials for 5 days. If they keep something overdue 18 days, their account is suspended for 18 days, etc. etc.</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3486&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">rules, circulation</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03488<br /><br />GHW - Circulation/fees/request rules 3 - requests and misceleaneous<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Verbose listing of circulation/fees/request rules regarding requests and some miscellaneous rules</p>
+          <ul>
+            <li>Shows the current rules</li>
+            <li>at the library you specify</li>
+            <li>grouped and sorted by rule branchcode, borrower category, and item type</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Rules are applied from most specific to least specific and the rules in this report are set to display from most specific to least specific. The higher a rule is in the results of this report, the higher its priority.</p>
+          <p></p>
+          <p>In Next Search Catalog, rules for requests are applied following the rules at the library that owns an item.<br />(Based on the ReservesControlBranch system preference - 2021.03.10)</p>
+          <p></p>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3486&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
+          <p class="notetags" style="display: none;">rules, circulation</p>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>03489<br /><br />ADMINREPORT - From g<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03490<br /><br />GHW - List of shelving location values<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03491<br /><br />GHW - List of item types<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>03492<br /><br />GHW - Titles on a list with publication date and date added to the list<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+      <td></td>
+    </tr>
   </table>
+
 </body>
 
 </html>
