@@ -12,8 +12,8 @@ Group: Administrative Reports
      System-admin
 
 Created on: 2015-02-10 14:41:41
-Modified on: 2020-06-28 13:45:57
-Date last run: 2020-07-02 15:14:26
+Modified on: 2021-05-06 12:19:21
+Date last run: 2021-05-06 14:26:03
 
 ----------
 
@@ -36,6 +36,7 @@ SELECT
   borrowers.cardnumber,
   borrowers.categorycode,
   borrowers.branchcode,
+  borrowers.lastseen,
   If(borrowers.flags MOD 2, 'Set', '') AS SuperLib,
   If(MOD(borrowers.flags DIV 2, 2), 'All parameters', GROUP_CONCAT(If(user_permissions.module_bit = 1, permissions.code, '') SEPARATOR ' ')) AS "CircPermissions",
   If(MOD(borrowers.flags DIV 4, 2), 'Set', '') AS 'View staff interface',

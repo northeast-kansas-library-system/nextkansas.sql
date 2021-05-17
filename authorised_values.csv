@@ -12,6 +12,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2066,bibitype,PUNC,(UNCLASSIFIED),,(UNCLASSIFIED)
 1999,bibloc,ADULT,Adult,,Adult
 2000,bibloc,CHILDRENS,Childrens,,Childrens
+2195,bibloc,L_JU,Childrens,,Childrens
 2137,bibloc,L_YA,"Young adult",,"Young adult"
 2001,bibloc,YOUNGADULT,"Young Adult",,"Young Adult"
 205,BOR_NOTES,CheckID,"Need to check patron's ID",,
@@ -238,7 +239,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 483,EmailNews,Yes,Yes,,
 1197,EXPIRED,1,"Account expired for more than 2 years -  scheduled for deletion when expired for 3 years",,"Account expired for more than 2 years -  scheduled for deletion when expired for 3 years"
 1875,EXPIRED,10,"Account expired for more than 3 years - scheduled to be auto-deleted on 06.15",,"Account expired for more than 3 years - scheduled to be auto-deleted on 06.15"
-1876,EXPIRED,11," 	Account expired for more than 3 years - scheduled to be auto-deleted on 07.15",," 	Account expired for more than 3 years - scheduled to be auto-deleted on 07.15"
+1876,EXPIRED,11,"Account expired for more than 3 years - scheduled to be auto-deleted on 07.15",,"Account expired for more than 3 years - scheduled to be auto-deleted on 07.15"
 1877,EXPIRED,12,"Account expired for more than 3 years - scheduled to be auto-deleted on 08.15",,"Account expired for more than 3 years - scheduled to be auto-deleted on 08.15"
 1878,EXPIRED,13,"Account expired for more than 3 years - scheduled to be auto-deleted on 09.15",,"Account expired for more than 3 years - scheduled to be auto-deleted on 09.15"
 1879,EXPIRED,14,"Account expired for more than 3 years - scheduled to be auto-deleted on 10.15",,"Account expired for more than 3 years - scheduled to be auto-deleted on 10.15"
@@ -476,13 +477,9 @@ id,category,authorised_value,lib,imageurl,lib_opac
 1961,LBORROWERCAT,M_DIGJ,"Minor-Digital only (age 00-11)",,"Minor-Digital only (age 00-11)"
 1962,LBORROWERCAT,M_DIGT,"Minor-Digital only (age 12)",,"Minor-Digital only (age 12)"
 1963,LBORROWERCAT,M_DIGY,"Minor-Digital only (ages 13-17)",,"Minor-Digital only (ages 13-17)"
-1356,LBORROWERCAT,MIL%,"Military - all ""Military"" category patrons",,"Military - all ""Military"" category patrons"
-728,LBORROWERCAT,MILADULT,"Military Adult",,"Military Adult"
-729,LBORROWERCAT,MILCHILD,"Military Child",,"Military Child"
 1351,LBORROWERCAT,MINORJ,"Minor - 0-11",,"Minor - 0-11"
 1352,LBORROWERCAT,MINORT,"Minor - 12",,"Minor - 12"
 1353,LBORROWERCAT,MINORY,"Minor - 13-17",,"Minor - 13-17"
-730,LBORROWERCAT,NEKLSTEST,"NEKLS Test Account",,"NEKLS Test Account"
 731,LBORROWERCAT,OSAW-STUD,"Osawatomie Student User",,"Osawatomie Student User"
 1357,LBORROWERCAT,OTHER%,"Other - all ""Other"" category patrons",,"Other - all ""Other"" category patrons"
 732,LBORROWERCAT,OTHERADULT,"Other Adult",,"Other Adult"
@@ -805,7 +802,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2091,LDEBITTYPE,RESERVE_EXPIRED,"Hold waiting too long",,"Hold waiting too long"
 2092,LDEBITTYPE,UNKNOWN,"Unknown fee type (no longer used)",,"Unknown fee type (no longer used)"
 2093,LDEBITTYPE,W,"Writeoff (no longer used)",,"Writeoff (no longer used)"
-1206,LEXPIRED,%," All accounts with an ""expired"" attribute",," All accounts with an ""expired"" attribute"
+1206,LEXPIRED,[1-9]," All accounts with an ""expired"" attribute",," All accounts with an ""expired"" attribute"
 1530,LEXPIRED,~," Any accounts without an ""expiration"" attribute",," Any accounts without an ""expiration"" attribute"
 1202,LEXPIRED,1,"Account expired for more than 2 years -  scheduled for auto-deletion when expired for 3 years",,"Account expired for more than 2 years -  scheduled for auto-deletion when expired for 3 years"
 1892,LEXPIRED,10,"Account expired for more than 3 years - scheduled to be auto-deleted on 06.15",,"Account expired for more than 3 years - scheduled to be auto-deleted on 06.15"
@@ -873,7 +870,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 670,LITYPES,COMPUTER,"PUBLIC USE COMPUTER",,
 671,LITYPES,DIGITAL,"DIGITAL CONTENT",,
 672,LITYPES,EQUIPMENT,EQUIPMENT,,
-673,LITYPES,FLPLAYAWAY,"FLOATING PLAYAWAY (SLK)",,
+673,LITYPES,FLPLAYAWAY,"Audiobook (media player)",,
 674,LITYPES,GAME,VIDEOGAME,,
 1984,LITYPES,HCC_RES,"Highland CC Reserves",,"Highland CC Reserves"
 675,LITYPES,ILL,"BORROWED FROM ANOTHER LIBRARY",,
@@ -882,14 +879,22 @@ id,category,authorised_value,lib,imageurl,lib_opac
 678,LITYPES,LOCALHOLD,"LOCAL HOLD ONLY",,
 680,LITYPES,LOCALHOLD2,"LOCAL HOLD BOOK",,
 681,LITYPES,MAGAZINE,MAGAZINE,,
-683,LITYPES,MIFI,"MIFI DEVICE",,
+683,LITYPES,MIFI,"Wireless internet hotspot",,
 684,LITYPES,MUSIC,"MUSIC CD",,
-1985,LITYPES,NAUDNEW,"NEW AUDIOBOOK",,"NEW AUDIOBOOK"
+1985,LITYPES,NAUDNEW,"Audiobook (new)",,
 2050,LITYPES,NELECOURSE,"E-LEARNING COURSE",,"E-LEARNING COURSE"
+2183,LITYPES,NELECT,"Tablets, e-readers, and personal computing devices",,
 1986,LITYPES,NEQKEY,KEY,,KEY
-2027,LITYPES,NEQUBIKE,Bicycle,,Bicycle
 1987,LITYPES,NEQUDIE,"Die cut equipment",,"Die cut equipment"
 1988,LITYPES,NPASS,PASS,,PASS
+2184,LITYPES,NREL_ART,Artwork,,
+2185,LITYPES,NREL_BIKE,"Bicycles (and bicycle accessories)",,
+2186,LITYPES,NREL_CLOTH,"Clothing, costumes, and masks",,
+2187,LITYPES,NREL_COOK,"Cooking equipment",,
+2188,LITYPES,NREL_TOOL,Tools,,
+2189,LITYPES,NREL_TOY,"Board games, dolls, puzzles, and toys",,
+2190,LITYPES,NROOM,Room,,
+2191,LITYPES,NSOFT,Software,,
 1998,LITYPES,NVID%,"VIDEO - (All 5 VIDEO item types)",,
 682,LITYPES,NVIDEO,"VIDEO ( just VIDEO )",,
 679,LITYPES,NVIDLH,"VIDEO (Local requests only)",,
@@ -897,12 +902,13 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2048,LITYPES,NVIDTV,"Video (Television)",,"Video (Television)"
 691,LITYPES,NVIDWALK,"VIDEO (No requests allowed)",,
 1989,LITYPES,PBBKCLUB,"Book Club Set",,"Book Club Set"
-1990,LITYPES,PBBKNEW,"NEW BOOK",,"NEW BOOK"
+1990,LITYPES,PBBKNEW,"Book (new)",,
 2056,LITYPES,PBBKWALK,"Book (no requests allowed)",,"Book (no requests allowed)"
-1991,LITYPES,PMAGNEW,"NEW MAGAZINE",,"NEW MAGAZINE"
+1991,LITYPES,PMAGNEW,"Magazine (new)",,
+2192,LITYPES,PPHAM,Pamphlet,,
+2193,LITYPES,PSPECIAL,"Special collections (no requests allowed)",,
 2057,LITYPES,PUNC,(UNCLASSIFIED),,(UNCLASSIFIED)
 689,LITYPES,REFERENCE,"REFERENCE MATERIAL",,
-690,LITYPES,WALKIN,"WALKIN ONLY",,
 694,LLOC,%,"  All shelving locations",,
 2011,LLOC,%BALD%,"~Display - BALDWIN - All",,"~Display - BALDWIN - All"
 812,LLOC,%L%V%,"~Display - LEAVENWRTH -  All",,
@@ -962,8 +968,8 @@ id,category,authorised_value,lib,imageurl,lib_opac
 1560,LNEWSPERM,Yes,Yes,,Yes
 1635,LNOT_LOAN,-," All items that can be loaned",," All items that can be loaned"
 1627,LNOT_LOAN,%," All items",," All items"
-1636,LNOT_LOAN,%X," All items with a not for loan status",," All items with a not for loan status"
-1632,LNOT_LOAN,"Download or Online Access%","Download or Online Access",,"Download or Online Access"
+1636,LNOT_LOAN,%.," All items with a not for loan status",," All items with a not for loan status"
+1632,LNOT_LOAN,"Download or Online Access%","Download or Online Access",,"Download or Online Access."
 1634,LNOT_LOAN,"In Processing%","In Processing",,"In Processing"
 1631,LNOT_LOAN,Migration%,Migration,,Migration
 1629,LNOT_LOAN,"Not For Loan%","Not For Loan",,"Not For Loan"
@@ -983,6 +989,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2141,LOC,D_YA_BALD,"~Display - BALDWIN - Young Adult",,"YY Young Adult Display (Baldwin City Library)"
 2139,LOC,D_YA_LEAV,"~Display - LEAVWNWRTH - Young Adult",,"YY Young Adult Display (Leavenworth Public Library)"
 2140,LOC,D_YA_PAOL,"~Display - PAOLA - Young Adult",,"YY Young Adult Display (Paola Free Library)"
+2196,LOC,L_JU,Childrens,,Childrens
 2138,LOC,L_YA," Young adult",," Young adult"
 738,LOC,LVPLADULT,"~Display - LEAVENWRTH - Adult",,"YY Adult Display (Leavenworth Public Library)"
 739,LOC,LVPLCHILD,"~Display - LEAVENWRTH - Children's",,"YY Children's Display (Leavenworth Public Library)"
@@ -1222,16 +1229,16 @@ id,category,authorised_value,lib,imageurl,lib_opac
 1590,MRITYPE,WALKIN1,"WALKIN MOVIE",,"WALKIN MOVIE"
 1591,MRITYPE,WALKIN2,"WALKIN BOOK",,"WALKIN BOOK"
 1592,MRITYPE,XXX,(UNCLASSIFIED),,(UNCLASSIFIED)
-22,NOT_LOAN,-1,Ordered,,
-1866,NOT_LOAN,-8,"Paola repair/mending",,"Paola repair/mending"
-1867,NOT_LOAN,-9,"Paola processing",,"Paola processing"
+22,NOT_LOAN,-1,Ordered,,Ordered.
+1866,NOT_LOAN,-8,"Paola repair/mending",,"Paola repair/mending."
+1867,NOT_LOAN,-9,"Paola processing",,"Paola processing."
 23,NOT_LOAN,0,,,
-24,NOT_LOAN,1,"Not For Loan",,
-25,NOT_LOAN,2,"Staff Collection",,
-191,NOT_LOAN,3,Migration,,
-207,NOT_LOAN,5,"Download or Online Access",,"Download or Online Access"
-214,NOT_LOAN,6,"Online Access",,"Online Access"
-990,NOT_LOAN,7,"In Processing",,"In Processing"
+24,NOT_LOAN,1,"Not For Loan",,"Not For Loan."
+25,NOT_LOAN,2,"Staff Collection",,"Staff Collection."
+191,NOT_LOAN,3,Migration,,Migration.
+207,NOT_LOAN,5,"Download or Online Access",,"Download or Online Access."
+214,NOT_LOAN,6,"Online Access",,"Online Access."
+990,NOT_LOAN,7,"In Processing",,"In Processing."
 403,ORDER_CANCELLATION_REASON,0,"No reason provided",,
 404,ORDER_CANCELLATION_REASON,1,"Out of stock",,
 405,ORDER_CANCELLATION_REASON,2,Restocking,,

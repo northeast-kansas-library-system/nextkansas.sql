@@ -12,8 +12,8 @@ Group: Daily, Monthly, Yearly Stats
      Monthly
 
 Created on: 2017-02-07 15:12:53
-Modified on: 2020-12-02 14:51:34
-Date last run: 2021-04-02 15:32:33
+Modified on: 2021-05-02 20:47:18
+Date last run: 2021-05-02 20:46:03
 
 ----------
 
@@ -47,92 +47,90 @@ SELECT
   Coalesce(itemsother.Count_itemnumber, 0) AS OTHER_ADDED_LM
 FROM
   (SELECT
-      branches.branchname,
-      itemtypes.description,
-      branches.branchcode,
-      itemtypes.itemtype
-    FROM
-      branches,
-      itemtypes
-    WHERE
-      branches.branchcode LIKE <<Choose item home library|LBRANCH>>) branch_itype LEFT JOIN
+     branches.branchname,
+     itemtypes.description,
+     branches.branchcode,
+     itemtypes.itemtype
+   FROM
+     branches,
+     itemtypes
+   WHERE
+     branches.branchcode LIKE <<Choose item home library|LBRANCH>>) branch_itype LEFT JOIN
   (SELECT
-      Count(items.itemnumber) AS Count_itemnumber,
-      items.itype,
-      items.homebranch
-    FROM
-      items
-    WHERE
-      Month(items.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) AND
-      Year(items.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH)
-    GROUP BY
-      items.itype,
-      items.homebranch) itemsall ON itemsall.itype = branch_itype.itemtype AND
+     Count(items.itemnumber) AS Count_itemnumber,
+     items.itype,
+     items.homebranch
+   FROM
+     items
+   WHERE
+     Month(items.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) AND
+     Year(items.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH)
+   GROUP BY
+     items.itype,
+     items.homebranch) itemsall ON itemsall.itype = branch_itype.itemtype AND
       itemsall.homebranch = branch_itype.branchcode LEFT JOIN
   (SELECT
-      Count(items.itemnumber) AS Count_itemnumber,
-      items.itype,
-      items.homebranch
-    FROM
-      items
-    WHERE
-      Month(items.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) AND
-      Year(items.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH) AND
-      (Coalesce(items.permanent_location, "CART") = 'ADULT' OR
-          Coalesce(items.permanent_location, "CART") = 'LVPLADULT')
-    GROUP BY
-      items.itype,
-      items.homebranch) itemsadult ON itemsadult.itype = branch_itype.itemtype
+     Count(items.itemnumber) AS Count_itemnumber,
+     items.itype,
+     items.homebranch
+   FROM
+     items
+   WHERE
+     Month(items.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) AND
+     Year(items.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH) AND
+     (Coalesce(items.permanent_location, "CART") = 'ADULT' OR
+         Coalesce(items.permanent_location, "CART") = 'BALDADULT' OR
+         Coalesce(items.permanent_location, "CART") = 'LVPLADULT' OR
+         Coalesce(items.permanent_location, "CART") = 'PAOLAADULT')
+   GROUP BY
+     items.itype,
+     items.homebranch) itemsadult ON itemsadult.itype = branch_itype.itemtype
       AND
       itemsadult.homebranch = branch_itype.branchcode LEFT JOIN
   (SELECT
-      Count(items.itemnumber) AS Count_itemnumber,
-      items.itype,
-      items.homebranch
-    FROM
-      items
-    WHERE
-      Month(items.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) AND
-      Year(items.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH) AND
-      (Coalesce(items.permanent_location, "CART") = 'YOUNGADULT' OR
-          Coalesce(items.permanent_location, "CART") = 'LVPLYA')
-    GROUP BY
-      items.itype,
-      items.homebranch) itemsya ON itemsya.itype = branch_itype.itemtype AND
+     Count(items.itemnumber) AS Count_itemnumber,
+     items.itype,
+     items.homebranch
+   FROM
+     items
+   WHERE
+     Month(items.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) AND
+     Year(items.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH) AND
+     (Coalesce(items.permanent_location, "CART") = 'YOUNGADULT' OR
+         Coalesce(items.permanent_location, "CART") LIKE '%YA%')
+   GROUP BY
+     items.itype,
+     items.homebranch) itemsya ON itemsya.itype = branch_itype.itemtype AND
       itemsya.homebranch = branch_itype.branchcode LEFT JOIN
   (SELECT
-      Count(items.itemnumber) AS Count_itemnumber,
-      items.itype,
-      items.homebranch
-    FROM
-      items
-    WHERE
-      Month(items.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) AND
-      Year(items.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH) AND
-      (Coalesce(items.permanent_location, "CART") = 'CHILDRENS' OR
-          Coalesce(items.permanent_location, "CART") = 'LVPLCHILD')
-    GROUP BY
-      items.itype,
-      items.homebranch) itemchild ON itemchild.itype = branch_itype.itemtype AND
+     Count(items.itemnumber) AS Count_itemnumber,
+     items.itype,
+     items.homebranch
+   FROM
+     items
+   WHERE
+     Month(items.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) AND
+     Year(items.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH) AND
+     Coalesce(items.permanent_location, "CART") LIKE '%CHILD%'
+   GROUP BY
+     items.itype,
+     items.homebranch) itemchild ON itemchild.itype = branch_itype.itemtype AND
       itemchild.homebranch = branch_itype.branchcode LEFT JOIN
   (SELECT
-      Count(items.itemnumber) AS Count_itemnumber,
-      items.itype,
-      items.homebranch
-    FROM
-      items
-    WHERE
-      Month(items.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) AND
-      Year(items.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH) AND
-      Coalesce(items.permanent_location, "CART") <> 'ADULT' AND
-      Coalesce(items.permanent_location, "CART") <> 'LVPLADULT' AND
-      Coalesce(items.permanent_location, "CART") <> 'YOUNGADULT' AND
-      Coalesce(items.permanent_location, "CART") <> 'LVPLYA' AND
-      Coalesce(items.permanent_location, "CART") <> 'CHILDRENS' AND
-      Coalesce(items.permanent_location, "CART") <> 'LVPLCHILD'
-    GROUP BY
-      items.itype,
-      items.homebranch) itemsother ON itemsother.itype = branch_itype.itemtype
+     Count(items.itemnumber) AS Count_itemnumber,
+     items.itype,
+     items.homebranch
+   FROM
+     items
+   WHERE
+     Month(items.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) AND
+     Year(items.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH) AND
+     Coalesce(items.permanent_location, "CART") NOT LIKE '%ADULT%' AND
+     Coalesce(items.permanent_location, "CART") NOT LIKE '%CHILD%' AND
+     Coalesce(items.permanent_location, "CART") NOT LIKE '%YA%'
+   GROUP BY
+     items.itype,
+     items.homebranch) itemsother ON itemsother.itype = branch_itype.itemtype
       AND
       itemsother.homebranch = branch_itype.branchcode
 GROUP BY

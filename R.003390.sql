@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2020-12-08 17:29:42
-Modified on: 2021-04-05 09:27:06
-Date last run: 2021-04-13 09:02:05
+Modified on: 2021-05-03 09:42:40
+Date last run: 2021-05-17 13:01:54
 
 ----------
 
@@ -41,7 +41,7 @@ SELECT
   Concat(
     '<span style="font-weight: bold; text-decoration: underline;',
     If(
-      systempreferences.value = '20.0509000', 
+      systempreferences.value = '20.0510000', 
       '', 
       ' color: red;'
     ),
@@ -52,7 +52,7 @@ SELECT
     '.',  
     SubString(systempreferences.value FROM 8 FOR 10 ),
     IF(
-      systempreferences.value = '20.0509000', 
+      systempreferences.value = '20.0510000', 
       '', 
       Concat(' (Updated ', Curdate(), ')')
     ),

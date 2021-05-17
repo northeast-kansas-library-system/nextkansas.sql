@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-03-05 17:26:38
-Modified on: 2021-04-12 13:54:46
-Date last run: 2021-04-12 13:54:53
+Modified on: 2021-05-04 13:51:41
+Date last run: 2021-05-04 13:51:58
 
 ----------
 
@@ -28,98 +28,96 @@ Expiry: 300
 */
 
 SELECT
-  Concat(
-    '<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
-    biblio.biblionumber, 
-    '\" target="_blank">', 
-    biblio.biblionumber, 
-    '</a>'
-  ) AS LINK_TO_TITLE,
-  Concat("-", items.barcode, "-") AS BARCODE,
+  biblio.biblionumber AS BIBLIO_NUMBER,
+  items.itemnumber AS ITEM_NUMBER,
+  Concat('-', items.barcode, '-') AS barcode,
   items.homebranch,
-  Concat(itemtypes.description, " (", items.itype, ")") AS ITYPE,
+  items.holdingbranch,
+  permlocs.lib AS PERM_LOCATION,
+  locs.lib AS LOCATION,
+  itypes.description AS ITYPE,
   ccodes.lib AS CCODE,
   items.itemcallnumber,
+  items.copynumber,
   biblio.author,
   Concat_Ws(" ", 
     biblio.title, 
-    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]'),
-    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),
     ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'),
     ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'),
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]'),
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),
     ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="c"]')
   ) AS FULL_TITLE,
-  biblioitems.publicationyear,
-  Greatest(Coalesce(CAST(items.dateaccessioned AS DATE), 0),
-    Coalesce(CAST(items.datelastborrowed AS DATE), 0),
-    Coalesce(CAST(items.datelastseen AS DATE), 0),
-    Coalesce(CAST(items.itemlost_on AS DATE), 0),
-    Coalesce(CAST(items.withdrawn_on AS DATE), 0),
-    Coalesce(CAST(items.timestamp AS DATE), 0)) AS LAST_CHANGE,
-  Greatest(Coalesce(CAST(items.dateaccessioned AS DATE), 0),
-    Coalesce(CAST(items.datelastborrowed AS DATE), 0),
-    Coalesce(CAST(items.datelastseen AS DATE), 0),
-    Coalesce(CAST(items.itemlost_on AS DATE), 0),
-    Coalesce(CAST(items.withdrawn_on AS DATE), 0),
-    Coalesce(CAST(items.timestamp AS DATE), 0)) + INTERVAL 13 MONTH AS AUTO_DELETE_DATE,
-  Concat(Coalesce(lcodes.lib, "-"), " | ", Coalesce(wcodes.lib, "-")) AS STATUS
+  Coalesce(statisticss.Count_datetime, 0) AS CKO_RENEW_PREVIOUS_YEAR
 FROM
-  biblio
-  JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
-  JOIN items ON items.biblionumber = biblio.biblionumber
-  LEFT JOIN (SELECT
-        authorised_values.category,
-        authorised_values.authorised_value,
-        authorised_values.lib
-      FROM
-        authorised_values
-      WHERE
-        authorised_values.category = 'CCODE') ccodes ON items.ccode = ccodes.authorised_value
-  JOIN biblioitems ON biblioitems.biblionumber = biblio.biblionumber AND
-    items.biblioitemnumber = biblioitems.biblioitemnumber
-  JOIN itemtypes ON items.itype = itemtypes.itemtype
-  LEFT JOIN (SELECT
-        authorised_values.category,
-        authorised_values.authorised_value,
-        authorised_values.lib
-      FROM
-        authorised_values
-      WHERE
-        authorised_values.category = 'LOST') lcodes ON items.itemlost = lcodes.authorised_value
-  LEFT JOIN (SELECT
-        authorised_values.category,
-        authorised_values.authorised_value,
-        authorised_values.lib
-      FROM
-        authorised_values
-      WHERE
-        authorised_values.category = 'withdrawn') wcodes ON items.withdrawn = wcodes.authorised_value
+  biblio JOIN
+  biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber JOIN
+  items ON items.biblionumber = biblio.biblionumber LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib,
+      authorised_values.lib_opac
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'LOC') permlocs ON
+      permlocs.authorised_value = items.permanent_location LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib,
+      authorised_values.lib_opac
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'LOC') locs ON locs.authorised_value =
+      items.location LEFT JOIN
+  (SELECT
+      itemtypes.itemtype,
+      itemtypes.description
+    FROM
+      itemtypes) itypes ON itypes.itemtype = items.itype LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib,
+      authorised_values.lib_opac
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'ccode') ccodes ON ccodes.authorised_value =
+      items.ccode LEFT JOIN
+  (SELECT
+      statistics.itemnumber,
+      Count(DISTINCT statistics.datetime) AS Count_datetime
+    FROM
+      statistics
+    WHERE
+      (statistics.type = 'issue' OR
+        statistics.type = 'renew') AND
+      statistics.datetime > CurDate() - INTERVAL 1 YEAR
+    GROUP BY
+      statistics.itemnumber) statisticss ON statisticss.itemnumber =
+      items.itemnumber
 WHERE
-  items.homebranch LIKE <<Choose item home branch|branches:all>> AND
-  ((items.itemlost > 0 AND
-  (Greatest(Coalesce(CAST(items.dateaccessioned AS DATE), 0),
-    Coalesce(CAST(items.datelastborrowed AS DATE), 0),
-    Coalesce(CAST(items.datelastseen AS DATE), 0),
-    Coalesce(CAST(items.itemlost_on AS DATE), 0),
-    Coalesce(CAST(items.withdrawn_on AS DATE), 0),
-    Coalesce(CAST(items.timestamp AS DATE), 0)) + INTERVAL 13 MONTH) < AddDate(Last_Day(SubDate(Now(), INTERVAL -2 MONTH)), 1)) OR
-  (items.withdrawn > 0 AND
-  (Greatest(Coalesce(CAST(items.dateaccessioned AS DATE), 0),
-    Coalesce(CAST(items.datelastborrowed AS DATE), 0),
-    Coalesce(CAST(items.datelastseen AS DATE), 0),
-    Coalesce(CAST(items.itemlost_on AS DATE), 0),
-    Coalesce(CAST(items.withdrawn_on AS DATE), 0),
-    Coalesce(CAST(items.timestamp AS DATE), 0)) + INTERVAL 13 MONTH) < AddDate(Last_Day(SubDate(Now(), INTERVAL -2 MONTH)), 1)))
+  items.homebranch LIKE <<Item home library|ZBRAN>> AND
+  Coalesce(items.permanent_location, 'ADULT') LIKE <<Permanent location|LLOC>> AND
+  Coalesce(items.itype, 'PUNC') LIKE <<Item type|LITYPES>> AND
+  Coalesce(items.ccode, 'XXX') LIKE <<Collection code|LCCODE>>
 GROUP BY
   biblio.biblionumber,
   items.itemnumber
 ORDER BY
   items.homebranch,
+  PERM_LOCATION,
   ITYPE,
   CCODE,
   items.itemcallnumber,
+  items.copynumber,
   biblio.author,
-  FULL_TITLE
+  FULL_TITLE,
+  items.barcode
 
 
 

@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-08-02 23:23:38
-Modified on: 2020-12-31 18:17:18
-Date last run: 2020-12-31 18:17:22
+Modified on: 2021-04-21 09:09:44
+Date last run: 2021-05-17 10:14:47
 
 ----------
 
@@ -32,8 +32,11 @@ Expiry: 300
 */
 
 SELECT
-  Concat('<a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=',
-  borrowers.borrowernumber, '" target="_blank">Link to patron</a>') AS
+  Concat(
+    '<a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=',
+    borrowers.borrowernumber, 
+    '" target="_blank">Link to patron</a>'
+  ) AS
   LINK_TO_PATRON,
   borrowers.borrowernumber,
   borrowers.cardnumber,
@@ -41,17 +44,18 @@ SELECT
   borrowers.categorycode,
   borrowers.dateenrolled,
   borrowers.dateexpiry,
-  If((AddDate(Last_Day(SubDate(borrowers.dateexpiry, INTERVAL -37 MONTH)), 1) +
-  INTERVAL 14 DAY) < CAST('2018-04-15' AS DATE), CAST('2018-04-15' AS DATE),
-  (AddDate(Last_Day(SubDate(borrowers.dateexpiry, INTERVAL -37 MONTH)), 1) +
-  INTERVAL 14 DAY)) AS PROJECTED_DELETION,
+  If(
+    (AddDate(Last_Day(SubDate(borrowers.dateexpiry, INTERVAL -37 MONTH)), 1) + INTERVAL 14 DAY) < CAST('2018-04-15' AS DATE), 
+    CAST('2018-04-15' AS DATE),
+    (AddDate(Last_Day(SubDate(borrowers.dateexpiry, INTERVAL -37 MONTH)), 1) + INTERVAL 14 DAY)
+  ) AS PROJECTED_DELETION,
   Coalesce(accountlinesx.DUE_SUM, 0) AS AMT_DUE,
   Coalesce(issuesx.ICOUNT, 0) AS CHECKOUTS,
   Coalesce(guaranteesx.GCOUNT, 0) AS GUARANTEES,
   Coalesce(requestsx.Count_reserve_id, 0) AS REQUESTS,
   expired_attribute.lib AS ATTRIBUTE,
-  Coalesce(expired_attribute.attribute, 0) AS attribute1,
-  expired_attribute.code
+  Coalesce(expired_attribute.attribute, 0) AS ATTRIBUTE_VALUE,
+  expired_attribute.code AS ATTRIBUTE
 FROM
   borrowers LEFT JOIN
   (SELECT
@@ -113,9 +117,7 @@ WHERE
   Coalesce(requestsx.Count_reserve_id, 0) = 0 AND
   Coalesce(expired_attribute.attribute, 0) < 5
 GROUP BY
-  borrowers.borrowernumber,
-  Coalesce(expired_attribute.attribute, 0),
-  expired_attribute.code
+  borrowers.borrowernumber
 ORDER BY
   borrowers.dateexpiry,
   borrowers.branchcode,

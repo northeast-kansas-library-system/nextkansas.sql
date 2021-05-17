@@ -12,8 +12,8 @@ Group: Borrowers
      Patron attributes
 
 Created on: 2018-06-29 08:57:11
-Modified on: 2021-04-12 13:46:39
-Date last run: 2021-04-12 15:08:47
+Modified on: 2021-04-21 09:40:46
+Date last run: 2021-04-27 14:54:37
 
 ----------
 
@@ -41,12 +41,16 @@ Expiry: 300
 */
 
 SELECT
-  Concat("<a href='/cgi-bin/koha/circ/circulation.pl?borrowernumber=", borrowers.borrowernumber, "' target='_blank'>Borrower</a>") AS LINK_TO_BORROWER,
+  Concat(
+    "<a href='/cgi-bin/koha/circ/circulation.pl?borrowernumber=",
+    borrowers.borrowernumber, 
+    "' target='_blank'>Borrower</a>"
+  ) AS LINK_TO_BORROWER,
   borrowers.cardnumber,
-  Concat_Ws("",
+  Concat_Ws("", 
     If(borrowers.surname = "", "-", borrowers.surname), 
-    " / ", 
-    If(borrowers.firstname = "", "-", borrowers.firstname), 
+    " / ",
+    If(borrowers.firstname = "", "-", borrowers.firstname),
     If(borrowers.othernames = "", " ", Concat(" - (", borrowers.othernames, ")"))
   ) AS NAME,
   borrowers.address,
@@ -60,32 +64,32 @@ SELECT
   borrowers.dateofbirth,
   borrowers.dateenrolled,
   borrowers.dateexpiry,
+  Coalesce(expired_account.attribute, "~") AS ATTRIBUTE_VALUE,
   Coalesce(expired_account.lib, "~") AS EXPIRATION_FLAGS
 FROM
-  borrowers
-  LEFT JOIN (SELECT
-        borrower_attributes.borrowernumber,
-        authorised_values.lib,
-        borrower_attributes.attribute
-      FROM
-        borrower_attributes
-        JOIN authorised_values ON borrower_attributes.attribute = authorised_values.authorised_value
-      WHERE
-        borrower_attributes.code = 'EXPIRED' AND
-        authorised_values.category = 'EXPIRED'
-      GROUP BY
-        borrower_attributes.borrowernumber,
-        borrower_attributes.attribute,
-        borrower_attributes.code) expired_account ON borrowers.borrowernumber = expired_account.borrowernumber
+  borrowers LEFT JOIN
+  (SELECT
+     borrower_attributes.borrowernumber,
+     authorised_values.lib,
+     borrower_attributes.attribute
+   FROM
+     borrower_attributes JOIN
+     authorised_values ON borrower_attributes.attribute =
+         authorised_values.authorised_value
+   WHERE
+     borrower_attributes.code = 'EXPIRED' AND
+     authorised_values.category = 'EXPIRED'
+   GROUP BY
+     borrower_attributes.borrowernumber,
+     borrower_attributes.attribute,
+     borrower_attributes.code) expired_account ON borrowers.borrowernumber =
+      expired_account.borrowernumber
 WHERE
-  borrowers.branchcode LIKE <<Choose your library|LBRANCH>> AND
-  borrowers.categorycode LIKE <<Choose a borrower category|LBORROWERCAT>> AND
-  Coalesce(expired_account.attribute, "~") LIKE <<Select expiration attribute|LEXPIRED>>
+  borrowers.branchcode LIKE '%' AND
+  borrowers.categorycode LIKE '%' AND
+  Coalesce(expired_account.attribute, "~") REGEXP <<Select expiration attribute|LEXPIRED>>
 GROUP BY
-  borrowers.email,
-  borrowers.dateofbirth,
-  borrowers.borrowernumber,
-  borrowers.othernames
+  borrowers.borrowernumber
 ORDER BY
   borrowers.dateexpiry,
   borrowers.surname,

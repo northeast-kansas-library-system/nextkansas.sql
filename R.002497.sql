@@ -12,8 +12,8 @@ Group: Administrative Reports
      Local Holds - Walkin-admin
 
 Created on: 2015-05-14 16:48:51
-Modified on: 2020-01-15 16:05:17
-Date last run: 2020-10-28 10:20:31
+Modified on: 2021-05-05 15:32:06
+Date last run: 2021-05-17 10:42:55
 
 ----------
 
@@ -41,6 +41,7 @@ Expiry: 0
 */
 
 SELECT
+  items.itemnumber,
   items.barcode
 FROM
   items

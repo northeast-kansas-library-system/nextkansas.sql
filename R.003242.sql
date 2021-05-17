@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-08-02 23:13:23
-Modified on: 2020-12-31 18:15:51
-Date last run: 2020-12-31 18:15:54
+Modified on: 2021-04-21 09:09:46
+Date last run: 2021-05-17 10:14:47
 
 ----------
 
@@ -52,8 +52,8 @@ SELECT
   Coalesce(issuesx.ICOUNT, 0) AS CHECKOUTS,
   Coalesce(guaranteesx.GCOUNT, 0) AS GUARANTEES,
   Coalesce(requestsx.Count_reserve_id, 0) AS REQUESTS,
-  expired_attribute.lib AS ATTRIBUTE,
-  Coalesce(expired_attribute.attribute, 0) AS attribute1
+  Coalesce(expired_attribute.attribute, 0) AS ATTRIBUTE_VALUE,
+  expired_attribute.lib AS ATTRIBUTE
 FROM
   borrowers LEFT JOIN
   (SELECT
@@ -116,8 +116,7 @@ WHERE
       Coalesce(requestsx.Count_reserve_id, 0) <> 0) AND
   Coalesce(expired_attribute.attribute, 0) <> 2
 GROUP BY
-  borrowers.borrowernumber,
-  Coalesce(expired_attribute.attribute, 0)
+  borrowers.borrowernumber
 ORDER BY
   borrowers.dateexpiry,
   borrowers.branchcode,

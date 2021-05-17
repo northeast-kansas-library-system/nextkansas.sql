@@ -12,8 +12,8 @@ Group: Fines/Fees
      -
 
 Created on: 2017-01-04 11:48:38
-Modified on: 2019-12-26 11:46:29
-Date last run: 2021-03-12 15:28:59
+Modified on: 2021-05-07 09:30:14
+Date last run: 2021-05-07 09:30:29
 
 ----------
 
@@ -28,46 +28,52 @@ Expiry: 0
 <li>Shows all fees collected/processed at a specified library</li>
 <li>grouped by accountlines_id</li>
 <li>sorted by payment locttion, payment type, payment timestamp</li>
-<li>links</li>
+<li>links to the payment accountline details page</li>
 </ul><br />
 <p><ins>Notes:</ins></p>
 <p></p>
+<p>Updated may 5, 2021.</p>
+<p></p>
 <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2873&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
-
-<p><span style="color: yellow; background-color: red; font-size: 200%;">References accountlines.accounttype.  Needs to be updated after January 4, 2020</span></p>
 
 ----------
 */
 
 SELECT
   staff.branchcode AS PAYMENT_BRANCH,
+  accountlines.accountlines_id AS PAYMENT_ID,
   accountlines.timestamp,
   staff.cardnumber AS STAFF_LOGIN,
   Format(accountlines.amount, 2) AS AMOUNT,
-  patrons.cardnumber AS PATRON,
-  If(accountlines.accounttype = "Pay", "Payment", If(accountlines.accounttype = "C", "Credit", If(accountlines.accounttype = "W", "Writeoff", "-"))) AS PAYMENT_TYPE,
-  Trim(Replace(accountlines.note, '\r\n', ' ')) AS NOTE
+  patrons.cardnumber AS BORROWER,
+  Trim(Replace(accountlines.note, '\r\n', ' ')) AS NOTE,
+  If(
+    accountlines.status IS NULL,
+    accountlines.credit_type_code,
+    Concat(accountlines.credit_type_code, ' / ', accountlines.status)
+  ) AS PAYMENT_TYPE,
+  CONCAT(
+    '<a href="https://staff.nextkansas.org/cgi-bin/koha/members/accountline-details.pl?accountlines_id=', 
+    accountlines.accountlines_id, 
+    '" target="_blank">Go to transaction</a>'
+  ) AS LINK_TO_PAYMENT
 FROM
   accountlines LEFT JOIN
-  borrowers staff
-    ON staff.borrowernumber = accountlines.manager_id LEFT JOIN
-  borrowers patrons
-    ON accountlines.borrowernumber = patrons.borrowernumber
+  borrowers staff ON staff.borrowernumber = accountlines.manager_id LEFT JOIN
+  borrowers patrons ON accountlines.borrowernumber = patrons.borrowernumber
 WHERE
-  (accountlines.accounttype = "Pay" OR
-    accountlines.accounttype = "C" OR
-    accountlines.accounttype = "W") AND
+  staff.branchcode LIKE <<Choose your library|LBRANCH>> AND
+  staff.categorycode = 'STAFF' AND
+  accountlines.credit_type_code IS NOT NULL AND
   Year(accountlines.timestamp) = Year(Now() - INTERVAL 1 MONTH) AND
-  Month(accountlines.timestamp) = Month(Now() - INTERVAL 1 MONTH) AND
-  staff.branchcode LIKE <<Choose branch|ZBRAN>> AND
-  accountlines.accounttype LIKE <<Payment type|ZPAYTYPE>>
+  Month(accountlines.timestamp) = Month(Now() - INTERVAL 1 MONTH)
 GROUP BY
   accountlines.accountlines_id
 ORDER BY
-  staff.branchcode,
-  PAYMENT_TYPE,
-  accountlines.timestamp
+  PAYMENT_BRANCH,
+  accountlines.timestamp,
+  accountlines.accountlines_id
 
 
 

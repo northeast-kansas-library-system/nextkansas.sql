@@ -3,7 +3,7 @@ R.003393
 
 ----------
 
-Name: GHW - Monthly 105 - Circulation by Item Type
+Name: GHW - Monthly 9907 - Circulation by Item Type
 Created by: George H Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: Statistics
      Monthly Statistics
 
 Created on: 2020-12-31 17:36:03
-Modified on: 2021-03-01 09:53:36
-Date last run: 2021-04-10 14:12:11
+Modified on: 2021-04-30 11:38:36
+Date last run: 2021-05-01 00:35:02
 
 ----------
 
@@ -45,7 +45,7 @@ FROM
       branches,
       itemtypes
     WHERE
-      branches.branchcode LIKE '%') branch_itype LEFT JOIN
+      branches.branchcode Like '%') branch_itype Left Join
   (SELECT
       Coalesce(statistics.branch, "NEKLS") AS branch,
       Coalesce(statistics.itemtype, "BOOK") AS itemtype,
@@ -54,7 +54,7 @@ FROM
       statistics
     WHERE
       (statistics.type = 'issue' OR
-          statistics.type = 'renew') AND
+        statistics.type = 'renew') AND
       Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH)
     GROUP BY
@@ -73,13 +73,13 @@ FROM
       statistics
     WHERE
       (statistics.type = 'issue' OR
-          statistics.type = 'renew') AND
+        statistics.type = 'renew') AND
       Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
       (Coalesce(statistics.location, "CART") = 'ADULT' OR
-          Coalesce(statistics.location, "CART") = 'LVPLADULT' OR
-          Coalesce(statistics.location, "CART") = 'PAOLAADULT' OR
-          Coalesce(statistics.location, "CART") = 'BALDADULT')
+        Coalesce(statistics.location, "CART") = 'LVPLADULT' OR
+        Coalesce(statistics.location, "CART") = 'PAOLAADULT' OR
+        Coalesce(statistics.location, "CART") = 'BALDADULT')
     GROUP BY
       Coalesce(statistics.branch, "NEKLS"),
       Coalesce(statistics.itemtype, "BOOK")
@@ -96,21 +96,11 @@ FROM
       statistics
     WHERE
       (statistics.type = 'issue' OR
-          statistics.type = 'renew') AND
+        statistics.type = 'renew') AND
       Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
-      Coalesce(statistics.location, "CART") <> 'ADULT' AND
-      Coalesce(statistics.location, "CART") <> 'LVPLADULT' AND
-      Coalesce(statistics.location, "CART") <> 'PAOLAADULT' AND
-      Coalesce(statistics.location, "CART") <> 'BALDADULT' AND
-      Coalesce(statistics.location, "CART") <> 'YOUNGADULT' AND
-      Coalesce(statistics.location, "CART") <> 'LVPLYA' AND
-      Coalesce(statistics.location, "CART") <> 'PAOLAYA' AND
-      Coalesce(statistics.location, "CART") <> 'BALDYA' AND
-      Coalesce(statistics.location, "CART") <> 'CHILDRENS' AND
-      Coalesce(statistics.location, "CART") <> 'LVPLCHILD' AND
-      Coalesce(statistics.location, "CART") <> 'PAOLACHILD' AND
-      Coalesce(statistics.location, "CART") <> 'BALDCHILD' AND
+      Coalesce(statistics.location, "CART") NOT LIKE "%ADULT%" AND
+      Coalesce(statistics.location, "CART") NOT LIKE "%CHILD%" AND
       Coalesce(statistics.location, "CART") NOT LIKE "%YA%"
     GROUP BY
       Coalesce(statistics.branch, "NEKLS"),
@@ -128,14 +118,11 @@ FROM
       statistics
     WHERE
       (statistics.type = 'issue' OR
-          statistics.type = 'renew') AND
+        statistics.type = 'renew') AND
       Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
-      (Coalesce(statistics.location, "CART") = 'YOUNGADULT' OR
-          Coalesce(statistics.location, "CART") = 'LVPLYA' OR
-          Coalesce(statistics.location, "CART") = 'PAOLAYA' OR
-          Coalesce(statistics.location, "CART") = 'BALDYA' OR
-          Coalesce(statistics.location, "CART") LIKE "%YA%")
+      (Coalesce(statistics.location, "CART") LIKE "%YA%" OR
+        Coalesce(statistics.location, "CART") LIKE "YOUNGADULT")
     GROUP BY
       Coalesce(statistics.branch, "NEKLS"),
       Coalesce(statistics.itemtype, "BOOK")
@@ -152,13 +139,10 @@ FROM
       statistics
     WHERE
       (statistics.type = 'issue' OR
-          statistics.type = 'renew') AND
+        statistics.type = 'renew') AND
       Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
-      (Coalesce(statistics.location, "CART") = 'CHILDRENS' OR
-          Coalesce(statistics.location, "CART") = 'LVPLCHILD' OR
-          Coalesce(statistics.location, "CART") = 'PAOLACHILD' OR
-          Coalesce(statistics.location, "CART") = 'BALDCHILD')
+      Coalesce(statistics.location, "CART") LIKE "%CHILD%"
     GROUP BY
       Coalesce(statistics.branch, "NEKLS"),
       Coalesce(statistics.itemtype, "BOOK")

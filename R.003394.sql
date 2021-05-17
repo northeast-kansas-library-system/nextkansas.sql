@@ -3,7 +3,7 @@ R.003394
 
 ----------
 
-Name: GHW - Monthly 106 - Circulation by Collection Code
+Name: GHW - 9908 Circulation by Collection Code
 Created by: George H Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: Statistics
      Monthly Statistics
 
 Created on: 2020-12-31 17:40:07
-Modified on: 2021-02-05 00:23:11
-Date last run: 2021-03-01 10:13:00
+Modified on: 2021-04-30 12:00:33
+Date last run: 2021-05-01 00:40:02
 
 ----------
 
@@ -28,19 +28,18 @@ Monthly statistics - should be run on schedule only - staff at libraries should 
 */
 
 SELECT
-  branchccodes.branchname,
+  branchccodes.branchcode,
   branchccodes.lib,
-  all_lm.CKO_RENEW AS CKO_RENW_ALL,
-  adult_lm.CKO_RENEW AS CKO_RENEW_ADULT,
-  ya_lm.CKO_RENEW AS CKO_RENEW_YA,
-  childrens_lm.CKO_RENEW AS CKO_RENEW_CHILDRENS,
-  other_lm.CKO_RENEW AS CKO_RENEW_OTHER
+  Coalesce(all_lm.CKO_RENEW, "0") AS CKO_RENW_ALL,
+  Coalesce(adult_lm.CKO_RENEW, "0") AS CKO_RENEW_ADULT,
+  Coalesce(ya_lm.CKO_RENEW, "0") AS CKO_RENEW_YA,
+  Coalesce(childrens_lm.CKO_RENEW, "0") AS CKO_RENEW_CHILDRENS,
+  Coalesce(other_lm.CKO_RENEW, "0") AS CKO_RENEW_OTHER
 FROM
   (SELECT
       branches.branchcode,
       authorised_values.authorised_value,
-      authorised_values.lib,
-      branches.branchname
+      authorised_values.lib
     FROM
       branches,
       authorised_values
@@ -59,7 +58,7 @@ FROM
       Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
       Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       (statistics.type = 'issue' OR
-          statistics.type = 'renew')
+        statistics.type = 'renew')
     GROUP BY
       If(statistics.branch IS NULL, "NEKLS", statistics.branch),
       If(statistics.ccode IS NULL, "XXX", statistics.ccode)) all_lm ON
@@ -73,13 +72,13 @@ FROM
       statistics
     WHERE
       (statistics.type = 'issue' OR
-          statistics.type = 'renew') AND
+        statistics.type = 'renew') AND
       Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
       (Coalesce(statistics.location, "CART") = 'ADULT' OR
-          Coalesce(statistics.location, "CART") = 'LVPLADULT' OR
-          Coalesce(statistics.location, "CART") = 'PAOLAADULT' OR
-          Coalesce(statistics.location, "CART") = 'BALDADULT')
+        Coalesce(statistics.location, "CART") = 'LVPLADULT' OR
+        Coalesce(statistics.location, "CART") = 'PAOLAADULT' OR
+        Coalesce(statistics.location, "CART") = 'BALDADULT')
     GROUP BY
       If(statistics.branch IS NULL, "NEKLS", statistics.branch),
       If(statistics.ccode IS NULL, "XXX", statistics.ccode)) adult_lm ON
@@ -93,13 +92,11 @@ FROM
       statistics
     WHERE
       (statistics.type = 'issue' OR
-          statistics.type = 'renew') AND
+        statistics.type = 'renew') AND
       Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
-      (Coalesce(statistics.location, "CART") = 'YOUNGADULT' OR
-          Coalesce(statistics.location, "CART") = 'LVPLYA' OR
-          Coalesce(statistics.location, "CART") = 'PAOLAYA' OR
-          Coalesce(statistics.location, "CART") = 'BALDYA')
+      (Coalesce(statistics.location, "CART") LIKE "%YA%" OR
+        Coalesce(statistics.location, "CART") LIKE "YOUNGADULT")
     GROUP BY
       If(statistics.branch IS NULL, "NEKLS", statistics.branch),
       If(statistics.ccode IS NULL, "XXX", statistics.ccode)) ya_lm ON
@@ -113,13 +110,13 @@ FROM
       statistics
     WHERE
       (statistics.type = 'issue' OR
-          statistics.type = 'renew') AND
+        statistics.type = 'renew') AND
       Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
       (Coalesce(statistics.location, "CART") = 'CHILDRENS' OR
-          Coalesce(statistics.location, "CART") = 'LVPLCHILD' OR
-          Coalesce(statistics.location, "CART") = 'PAOLACHILD' OR
-          Coalesce(statistics.location, "CART") = 'BALDCHILD')
+        Coalesce(statistics.location, "CART") = 'LVPLCHILD' OR
+        Coalesce(statistics.location, "CART") = 'PAOLACHILD' OR
+        Coalesce(statistics.location, "CART") = 'BALDCHILD')
     GROUP BY
       If(statistics.branch IS NULL, "NEKLS", statistics.branch),
       If(statistics.ccode IS NULL, "XXX", statistics.ccode)) childrens_lm ON
@@ -133,28 +130,21 @@ FROM
       statistics
     WHERE
       (statistics.type = 'issue' OR
-          statistics.type = 'renew') AND
+        statistics.type = 'renew') AND
       Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
-      Coalesce(statistics.location, "CART") <> 'ADULT' AND
-      Coalesce(statistics.location, "CART") <> 'LVPLADULT' AND
-      Coalesce(statistics.location, "CART") <> 'PAOLAADULT' AND
-      Coalesce(statistics.location, "CART") <> 'BALDADULT' AND
-      Coalesce(statistics.location, "CART") <> 'YOUNGADULT' AND
-      Coalesce(statistics.location, "CART") <> 'LVPLYA' AND
-      Coalesce(statistics.location, "CART") <> 'PAOLAYA' AND
-      Coalesce(statistics.location, "CART") <> 'BALDYA' AND
-      Coalesce(statistics.location, "CART") <> 'CHILDRENS' AND
-      Coalesce(statistics.location, "CART") <> 'LVPLCHILD' AND
-      Coalesce(statistics.location, "CART") <> 'PAOLACHILD' AND
-      Coalesce(statistics.location, "CART") <> 'BALDCHILD'
+      Coalesce(statistics.location, "CART") NOT LIKE "%ADULT%" AND
+      Coalesce(statistics.location, "CART") NOT LIKE "%CHILD%" AND
+      Coalesce(statistics.location, "CART") NOT LIKE "%YA%"
     GROUP BY
       If(statistics.branch IS NULL, "NEKLS", statistics.branch),
       If(statistics.ccode IS NULL, "XXX", statistics.ccode)) other_lm ON
       other_lm.branch = branchccodes.branchcode AND
       other_lm.CCODE = branchccodes.authorised_value
+WHERE
+  branchccodes.branchcode LIKE '%'
 ORDER BY
-  branchccodes.branchname,
+  branchccodes.branchcode,
   branchccodes.lib
 
 

@@ -3,7 +3,7 @@ R.003355
 
 ----------
 
-Name: GHW - Statistics - Monthly unique patron count by date
+Name: GHW - Monthly 9910 Monthly unique patron count by date
 Created by: George H Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: Statistics
      Monthly Statistics
 
 Created on: 2020-10-08 22:42:10
-Modified on: 2020-10-09 14:39:46
-Date last run: 2021-01-01 00:45:03
+Modified on: 2021-04-30 12:05:21
+Date last run: 2021-05-01 22:19:53
 
 ----------
 
@@ -35,7 +35,7 @@ Expiry: 300
 <p></p>
 <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3355">Click here to download as a csv file</a></p>
 <p class= "notetags" style="display: none;">tag goes here</p>
-<p style="display: none;>george@nekls.org --subject='3355' --format=csv --csv-header -a</p>
+<p style="display: none";>george@nekls.org --subject='3355' --format=csv --csv-header -a</p>
 </div>
 
 ----------

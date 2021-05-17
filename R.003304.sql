@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2020-01-13 16:10:56
-Modified on: 2020-12-03 12:17:32
-Date last run: 2021-01-14 14:33:24
+Modified on: 2021-04-16 15:52:12
+Date last run: 2021-04-16 16:29:07
 
 ----------
 
@@ -42,7 +42,12 @@ FROM
       itemtypes.description
     FROM
       branches,
-      itemtypes) branchtypes LEFT JOIN
+      itemtypes
+    GROUP BY
+      branches.branchcode,
+      branches.branchname,
+      itemtypes.itemtype,
+      itemtypes.description) branchtypes LEFT JOIN
   (SELECT
       items.homebranch,
       Coalesce(items.itype, "XXX") AS ITYPE,
@@ -50,7 +55,9 @@ FROM
     FROM
       items
     GROUP BY
-      items.homebranch) itemss ON itemss.homebranch = branchtypes.branchcode AND
+      items.homebranch,
+      Coalesce(items.itype, "XXX")) itemss ON itemss.homebranch =
+      branchtypes.branchcode AND
       itemss.ITYPE = branchtypes.itemtype LEFT JOIN
   (SELECT
       items.homebranch,
@@ -60,13 +67,13 @@ FROM
       items
     WHERE
       (items.location = 'ADULT' OR
-          items.permanent_location = 'BALDADULT' OR
-          items.permanent_location = 'LVPLADULT' OR
-          items.permanent_location = 'PAOLAADULT' OR
-          items.permanent_location = 'CART' OR
-          items.permanent_location = 'CATALOGING' OR
-          items.permanent_location = 'PROC' OR
-          items.permanent_location IS NULL)
+        items.permanent_location = 'BALDADULT' OR
+        items.permanent_location = 'LVPLADULT' OR
+        items.permanent_location = 'PAOLAADULT' OR
+        items.permanent_location = 'CART' OR
+        items.permanent_location = 'CATALOGING' OR
+        items.permanent_location = 'PROC' OR
+        items.permanent_location IS NULL)
     GROUP BY
       items.homebranch,
       Coalesce(items.itype, "XXX")) adultitems ON adultitems.homebranch =
@@ -79,10 +86,7 @@ FROM
     FROM
       items
     WHERE
-      (items.permanent_location = 'CHILDRENS' OR
-          items.permanent_location = 'BALDCHILD' OR
-          items.permanent_location = 'LVPLCHILD' OR
-          items.permanent_location = 'PAOLACHILD')
+      items.permanent_location LIKE "%CHILD%"
     GROUP BY
       items.homebranch,
       Coalesce(items.itype, "XXX")) juvenileitems ON juvenileitems.homebranch =
@@ -95,10 +99,8 @@ FROM
     FROM
       items
     WHERE
-      (items.permanent_location = 'YOUNGADULT' OR
-          items.permanent_location = 'BALDYA' OR
-          items.permanent_location = 'LVPLYA' OR
-          items.permanent_location = 'PAOLAYA')
+      (items.permanent_location LIKE "YOUNGADULT" OR
+        items.permanent_location LIKE "%YA%")
     GROUP BY
       items.homebranch,
       Coalesce(items.itype, "XXX")) yaitems ON yaitems.homebranch =
