@@ -12,8 +12,8 @@ Group: Borrowers
      Patron attributes
 
 Created on: 2018-06-29 08:57:11
-Modified on: 2021-04-21 09:40:46
-Date last run: 2021-04-27 14:54:37
+Modified on: 2021-05-27 15:00:12
+Date last run: 2021-07-01 23:02:36
 
 ----------
 
@@ -34,7 +34,7 @@ Expiry: 300
 <p></p>
 <p>This report can be used to determine which patrons at your library have a account expired attribute set.</p>
 <p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3091&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p class= "notetags" style="display: none;">#PP05 #patron_purge</p>
 </div>
 
 ----------

@@ -12,8 +12,8 @@ Group: Statistics
      Monthly Statistics
 
 Created on: 2019-01-27 20:45:59
-Modified on: 2021-04-02 12:10:58
-Date last run: 2021-05-06 15:23:24
+Modified on: 2021-07-02 09:20:54
+Date last run: 2021-07-02 09:22:48
 
 ----------
 
@@ -43,7 +43,7 @@ Expiry: 300
 */
 
 SELECT
-  branchccodes.branchcode,
+  branchccodes.branchname,
   branchccodes.lib,
   Coalesce(all_lm.CKO_RENEW, "0") AS CKO_RENW_ALL,
   Coalesce(adult_lm.CKO_RENEW, "0") AS CKO_RENEW_ADULT,
@@ -54,7 +54,8 @@ FROM
   (SELECT
       branches.branchcode,
       authorised_values.authorised_value,
-      authorised_values.lib
+      authorised_values.lib,
+      branches.branchname
     FROM
       branches,
       authorised_values
@@ -159,7 +160,7 @@ FROM
 WHERE
   branchccodes.branchcode LIKE <<Choose your library|LBRANCH>>
 ORDER BY
-  branchccodes.branchcode,
+  branchccodes.branchname,
   branchccodes.lib
 
 

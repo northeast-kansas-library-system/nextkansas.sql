@@ -23,12 +23,13 @@ id,category,authorised_value,lib,imageurl,lib_opac
 174,CCODE,BILINGUAL,Bilingual,vokal/Book-32px.png,
 1650,CCODE,BINDER,Binder,liblime-kids/faculty-course-manual.png,Binder
 155,CCODE,BIOGRAPHY,Biography,vokal/Book-32px.png,
-195,CCODE,BLU-RAY,Blu-Ray,vokal/BLURAY-32px.png,
+195,CCODE,BLU-RAY,"Blu-Ray (no longer used)",vokal/BLURAY-32px.png,Z
 146,CCODE,BOARDBK,"Board Book",vokal/Book-32px.png,
 157,CCODE,BOOKONCASS,"Book on Cassette",vokal/Book-On-Tape-32px.png,
 156,CCODE,BOOKONCD,"Book on CD",vokal/Book-On-CD-32px.png,
 143,CCODE,BOOKONMP,"Book on Digital (Playaways)",vokal/PlayAway-32px.png,
-1132,CCODE,COMBO,"Blu/Ray - DVD Combo Pack",crystal-clear/cdrom_unmount.png,"Blu/Ray - DVD Combo Pack"
+2198,CCODE,CLASSICS,Classics,,Classics
+1132,CCODE,COMBO,"Blu/Ray - DVD Combo Pack (no longer used)",,Z
 194,CCODE,COMPUTER,"Public Computer",crystal-clear/mymac.png,
 168,CCODE,DISPLAY,"On Display",crystal-clear/bookmark.png,
 385,CCODE,DLAUDIO,"Downloadable Audiobook",crystal-clear/build.png,
@@ -38,7 +39,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 386,CCODE,DLMUSIC,"Downloadable Music",crystal-clear/build.png,
 1184,CCODE,DLTV,"Downloadable TV Show",crystal-clear/build.png,"Downloadable TV Show"
 387,CCODE,DLVIDEO,"Downloadable Movie",crystal-clear/build.png,
-166,CCODE,DVD,DVD,vokal/DVD-32px.png,
+166,CCODE,DVD,"DVD (no longer used)",,Z
 158,CCODE,EASY,"Picture Book",vokal/Book-32px.png,
 175,CCODE,EDUCATION,Education,vokal/Book-32px.png,
 206,CCODE,ERESOURCE,"Online Resource",crystal-clear/build.png,
@@ -59,6 +60,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 165,CCODE,KANSAS,Kansas,vokal/Book-32px.png,
 159,CCODE,LARGEPRINT,"Large Print",vokal/LargePrint-32px.png,
 897,CCODE,LARGEPRNF,"Large Print Non-Fiction",vokal/LargePrint-32px.png,
+2197,CCODE,LGBTQ,LGBTQ+,,LGBTQ+
 2037,CCODE,LYNDA,"Lynda.com course",,"Lynda.com course"
 2146,CCODE,M_AFRICAN,"African American history and literature",,"African American history and literature"
 176,CCODE,MAGAZINE,Magazine,vokal/Periodical-32px.png,
@@ -93,11 +95,19 @@ id,category,authorised_value,lib,imageurl,lib_opac
 169,CCODE,SOFTWARE,Software,crystal-clear/kpackage.png,
 162,CCODE,SPANISH,Spanish,vokal/Book-32px.png,
 1174,CCODE,SWITCH,"VG-Nintendo Switch",crystal-clear/joystick.png,
-219,CCODE,TVSERIES,"TV Series",vokal/DVD-32px.png,
+219,CCODE,TVSERIES,"TV Series (no longer used)",,Z
 167,CCODE,VHS,VHS,vokal/VHS-32px.png,
+2201,CCODE,VID_B,"Video (Blu-ray)",vokal/BLURAY-32px.png,"Video (Blu-ray)"
+2203,CCODE,VID_B_T,"Video-TV series (Blu-ray)",vokal/BLURAY-32px.png,"Video-TV series (Blu-ray)"
+2200,CCODE,VID_C,"Video (Blu-ray/DVD combined edition)",colors/cc66cc.png,"Video (Blu-ray/DVD combined edition)"
+2204,CCODE,VID_C_T,"Video-TV series (Blu-ray/DVD combined edition)",colors/cc66cc.png,"Video-TV series (Blu-ray/DVD combined edition)"
+2202,CCODE,VID_D,"Video (DVD)",vokal/DVD-32px.png,"Video (DVD)"
+2205,CCODE,VID_D_T,"Video-TV series (DVD)",vokal/DVD-32px.png,"Video-TV series (DVD)"
+2207,CCODE,VID_M,"Video (media player)",crystal-clear/pda_blue.png,"Video (media player)"
+2206,CCODE,VID_M_T,"Video-TV series (media player)",crystal-clear/pda_blue.png,"Video-TV series (media player)"
 189,CCODE,VIDEOGAME,VG--Videogame,crystal-clear/joystick.png,
 2059,CCODE,VIDHOLIDAY,"Holiday video",colors/99cc33.png,"Holiday video"
-2058,CCODE,VIDPLAYER,"Video (media player)",,"Video (media player)"
+2058,CCODE,VIDPLAYER,"Video (media player) (no longer used)",,Z
 149,CCODE,WESTERN,Western,vokal/Book-32px.png,
 374,CCODE,WII,"VG-Nintendo Wii",crystal-clear/joystick.png,
 376,CCODE,WIIU,"VG-Nintendo Wii U",crystal-clear/joystick.png,
@@ -616,7 +626,8 @@ id,category,authorised_value,lib,imageurl,lib_opac
 611,LCCODE,BOOKONCASS,"Book on Cassette",,
 612,LCCODE,BOOKONCD,"Book on CD",,
 613,LCCODE,BOOKONMP,"Book on Digital (Playaways)",,
-1737,LCCODE,COMBO,"Blu/Ray - DVD Combo Pack",,"Blu/Ray - DVD Combo Pack"
+2208,LCCODE,CLASSICS,Classics,,Classics
+1737,LCCODE,COMBO," Blu/Ray - DVD Combo Pack (no longer used)",,"Blu/Ray - DVD Combo Pack (no longer used)"
 614,LCCODE,COMPUTER,"Public Computer",,
 615,LCCODE,DISPLAY,"On Display",,
 616,LCCODE,DLAUDIO,"Downloadable Audiobook",,
@@ -626,7 +637,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 618,LCCODE,DLMUSIC,"Downloadable Music",,
 1742,LCCODE,DLTV,"Downloadable TV Show",,"Downloadable TV Show"
 619,LCCODE,DLVIDEO,"Downloadable Video",,
-620,LCCODE,DVD,DVD,,
+620,LCCODE,DVD,"DVD (no longer used)",,"DVD (no longer used)"
 621,LCCODE,EASY,"Picture Book",,
 622,LCCODE,EDUCATION,Education,,
 623,LCCODE,ERESOURCE,"Online Resource",,
@@ -648,6 +659,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 961,LCCODE,LARGE%,"Large Print - All",,
 634,LCCODE,LARGEPRINT,"Large Print",,
 960,LCCODE,LARGEPRNF,"Large Print Non-Fiction",,
+2209,LCCODE,LGBTQ,LGBTQ+,,LGBTQ+
 2049,LCCODE,LYNDA,"Lynda.com course",,"Lynda.com course"
 2147,LCCODE,M_AFRICAN,"African American history and literature",,"African American history and literature"
 635,LCCODE,MAGAZINE,Magazine,,
@@ -683,11 +695,25 @@ id,category,authorised_value,lib,imageurl,lib_opac
 655,LCCODE,SOFTWARE,Software,,
 656,LCCODE,SPANISH,Spanish,,
 1750,LCCODE,SWITCH,"VG-Nintendo Switch",,"VG-Nintendo Switch"
-657,LCCODE,TVSERIES,"TV Series",,
+657,LCCODE,TVSERIES,"TV Series (no longer used)",,"TV Series (no longer used)"
 658,LCCODE,VHS,VHS,,
+2210,LCCODE,VID_B,"Video (Blu-ray)",,"Video (Blu-ray)"
+2211,LCCODE,VID_B_T,"Video-TV series (Blu-ray)",,"Video-TV series (Blu-ray)"
+2219,LCCODE,VID_B%,"Video - All Blu-ray",,"Video - All Blu-ray"
+2215,LCCODE,VID_C,"Video (Blu-ray/DVD combined edition)",,"Video (Blu-ray/DVD combined edition)"
+2216,LCCODE,VID_C_T,"Video-TV series (Blu-ray/DVD combined edition)",,"Video-TV series (Blu-ray/DVD combined edition)"
+2220,LCCODE,VID_C%,"Video - All Blu-ray/DVD combined editions",,"Video - All Blu-ray/DVD combined editions"
+2213,LCCODE,VID_D,"Video (DVD)",,"Video (DVD)"
+2214,LCCODE,VID_D_T,"Video-TV series (DVD)",,"Video-TV series (DVD)"
+2221,LCCODE,VID_D%,"Video - All DVD",,"Video - All DVD"
+2217,LCCODE,VID_M,"Video (media player)",,"Video (media player)"
+2218,LCCODE,VID_M_T,"Video-TV series (media player)",,"Video-TV series (media player)"
+2222,LCCODE,VID_M%,"Video - All Media Player",,"Video - All Media Player"
+2212,LCCODE,VID%,"Video - All",,"Video - All"
+2223,LCCODE,VID%T,"Video - All TV",,"Video - All TV"
 659,LCCODE,VIDEOGAME,VG--Videogame,,
 2149,LCCODE,VIDHOLIDAY,"Holiday video",,"Holiday video"
-2150,LCCODE,VIDPLAYER,"Video (media player)",,"Video (media player)"
+2150,LCCODE,VIDPLAYER,"Video (media player) (no longer used)",,"Video (media player) (no longer used)"
 660,LCCODE,WESTERN,Western,,
 661,LCCODE,WII,"VG-Nintendo Wii",,
 662,LCCODE,WIIU,"VG-Nintendo Wii U",,

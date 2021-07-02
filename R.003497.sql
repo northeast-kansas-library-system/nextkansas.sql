@@ -3,7 +3,7 @@ R.003497
 
 ----------
 
-Name: GHW - Borrowers expired for more than 2 years
+Name: GHW - Borrowers expired for more than 730.5 days
 Created by: George H Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-04-28 14:48:37
-Modified on: 2021-04-28 14:48:37
-Date last run: 2021-05-01 21:51:39
+Modified on: 2021-06-04 12:22:18
+Date last run: 2021-06-09 15:48:03
 
 ----------
 
@@ -22,7 +22,22 @@ Expiry: 300
 
 ----------
 
-
+<div id=reportinfo class=noprint>
+<p>Lists borrower accounts that have been expired for more than 730.5 days (2 years) and includes any account expiration flags</p>
+<ul><li>Shows accounts that are currently expired</li>
+<li>at the home library you specify</li>
+<li>grouped by borrowernumber</li>
+<li>sorted by expiration, borrower home library, and borrower number</li>
+<li>links to the borrower account</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Replaces report 2495</p>
+<p></p>
+<p>Does not include STAFF, Hoopla, or SIP accounts.</p>
+<p></p>
+<p class= "notetags" style="display: none;">#expired borrowers</p>
+</div>
 
 ----------
 */
@@ -39,11 +54,7 @@ SELECT
   borrowers.categorycode,
   borrowers.dateenrolled,
   borrowers.dateexpiry,
-  If(
-    (AddDate(Last_Day(SubDate(borrowers.dateexpiry, INTERVAL -37 MONTH)), 1) + INTERVAL 14 DAY) < CAST('2018-04-15' AS DATE), 
-    CAST('2018-04-15' AS DATE),
-    (AddDate(Last_Day(SubDate(borrowers.dateexpiry, INTERVAL -37 MONTH)), 1) + INTERVAL 14 DAY)
-  ) AS PROJECTED_DELETION,
+  AddDate(Last_Day(SubDate(borrowers.dateexpiry, INTERVAL -37 MONTH)), 1) + INTERVAL 14 DAY AS PROJECTED_DELETION_DATE,
   Coalesce(accountlinesx.DUE_SUM, 0) AS AMT_DUE,
   Coalesce(issuesx.ICOUNT, 0) AS CHECKOUTS,
   Coalesce(guaranteesx.GCOUNT, 0) AS GUARANTEES,

@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-08-02 23:23:38
-Modified on: 2021-04-21 09:09:44
-Date last run: 2021-05-17 10:14:47
+Modified on: 2021-06-04 11:49:29
+Date last run: 2021-07-01 22:03:25
 
 ----------
 
@@ -25,7 +25,7 @@ Expiry: 300
 <div id=reportinfo>
 <p>Part 3 of the patron purge process - part 3 - change extended attribute to 5-16 as appropriate based on PROJECTED_DELETION date</p>
 <p></p>
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3243">Click here to download as a csv file</a></p>
+<p class= "notetags" style="display: none;">#PP03 #patron_purge</p>
 </div>
 
 ----------
@@ -115,7 +115,8 @@ WHERE
   Coalesce(issuesx.ICOUNT, 0) = 0 AND
   Coalesce(guaranteesx.GCOUNT, 0) = 0 AND
   Coalesce(requestsx.Count_reserve_id, 0) = 0 AND
-  Coalesce(expired_attribute.attribute, 0) < 5
+  (Coalesce(expired_attribute.attribute, 0) < 5 OR
+    expired_attribute.attribute IS NULL)
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

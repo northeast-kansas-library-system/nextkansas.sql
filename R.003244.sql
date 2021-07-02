@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-08-02 23:34:40
-Modified on: 2021-04-21 09:09:40
-Date last run: 2021-05-17 10:14:47
+Modified on: 2021-06-04 12:04:39
+Date last run: 2021-07-01 22:03:26
 
 ----------
 
@@ -25,7 +25,7 @@ Expiry: 300
 <div id=reportinfo>
 <p>Part 4 of the patron purge process - part 4 - change extended attribute to 4</p>
 <p></p>
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3244">Click here to download as a csv file</a></p>
+<p class= "notetags" style="display: none;">#PP04 #patron_purge</p>
 </div>
 
 ----------
@@ -33,7 +33,7 @@ Expiry: 300
 
 SELECT
   Concat(
-    '<a href="https://staff.nexpresslibrary.org/cgi-bin/koha/circ/circulation.pl?borrowernumber=', 
+    '<a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=', 
     borrowers.borrowernumber, 
     '" target="_blank">Link to patron</a>'
   ) AS LINK_TO_PATRON,
@@ -62,7 +62,7 @@ FROM
     FROM
       borrower_relationships
     GROUP BY
-      borrower_relationships.guarantor_id) guaranteesx ON guaranteesx.GCOUNT =
+      borrower_relationships.guarantor_id) guaranteesx ON guaranteesx.guarantor_id =
       borrowers.borrowernumber LEFT JOIN
   (SELECT
       accountlines.borrowernumber,
@@ -108,12 +108,12 @@ WHERE
   borrowers.othernames NOT LIKE "%SIP%" AND
   borrowers.categorycode <> 'STAFF' AND
   borrowers.categorycode <> 'ILL' AND
-  borrowers.categorycode <> 'HOOPLA' AND
+  borrowers.categorycode <> 'HOOPLA'  AND
+  Coalesce(expired_attribute.attribute, 0) <> 4 AND
   (Coalesce(accountlinesx.DUE_SUM, 0) <> 0 OR
       Coalesce(issuesx.ICOUNT, 0) <> 0 OR
-      Coalesce(guaranteesx.GCOUNT, 0) <> 0 OR
-      Coalesce(requestsx.Count_reserve_id, 0) <> 0) AND
-  expired_attribute.attribute <> 4
+      Coalesce(guaranteesx.GCOUNT, 0) > 0 OR
+      Coalesce(requestsx.Count_reserve_id, 0) <> 0)
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

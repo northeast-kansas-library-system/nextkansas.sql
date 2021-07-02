@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-08-02 23:13:23
-Modified on: 2021-04-21 09:09:46
-Date last run: 2021-05-17 10:14:47
+Modified on: 2021-05-27 15:00:11
+Date last run: 2021-07-01 22:03:25
 
 ----------
 
@@ -25,7 +25,7 @@ Expiry: 300
 <div id=reportinfo>
 <p>Part 2 of the patron purge process - part 2 - change extended attribute to 2</p>
 <p></p>
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3242">Click here to download as a csv file</a></p>
+<p class= "notetags" style="display: none;">#PP02 #patron_purge</p>
 </div>
 
 ----------

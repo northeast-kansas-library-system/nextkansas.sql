@@ -12,8 +12,8 @@ Group: Circulation
      Circ Stats
 
 Created on: 2014-09-26 15:08:37
-Modified on: 2014-09-26 15:08:37
-Date last run: 2021-05-06 13:10:48
+Modified on: 2021-06-17 16:00:42
+Date last run: 2021-06-17 15:04:22
 
 ----------
 
@@ -22,7 +22,7 @@ Expiry: 300
 
 ----------
 
-
+This report is old and probably isn't giving you the results you really want.  It will be evaluated in the second half of 2021.
 
 ----------
 */

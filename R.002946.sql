@@ -12,13 +12,13 @@ Group: -
      -
 
 Created on: 2017-05-12 01:07:13
-Modified on: 2020-02-24 15:21:01
-Date last run: 2021-05-06 10:42:40
+Modified on: 2021-06-30 22:04:02
+Date last run: 2021-07-02 07:45:17
 
 ----------
 
 Public: 0
-Expiry: 300
+Expiry: 43200
 
 ----------
 
@@ -31,8 +31,8 @@ Expiry: 300
 </ul><br />
 <p><ins>Notes:</ins></p>
 <p></p>
-<p>Instructions:<br />Run the report, then view the source.  When looking at the source, copy all of the data from the results table into the same table in the IntranetCirculationHomeHTML system preference.</p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2946&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p></p>
+<p></p>
 </div>
 
 ----------
@@ -73,7 +73,7 @@ SELECT
    ) AS "Staff contacts / holdings"
 FROM branches
 LEFT JOIN items ON items.homebranch = branches.branchcode
-WHERE branches.branchcode LIKE <<Select library|ZBRAN>>
+WHERE branches.branchcode LIKE "%"
 GROUP BY branches.branchcode
 LIMIT 500
 

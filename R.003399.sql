@@ -12,8 +12,8 @@ Group: Borrowers
      Patron Statistics
 
 Created on: 2021-01-11 17:05:34
-Modified on: 2021-01-11 17:15:57
-Date last run: 2021-04-28 14:49:58
+Modified on: 2021-05-21 16:57:42
+Date last run: 2021-06-08 13:53:37
 
 ----------
 
@@ -33,9 +33,8 @@ Expiry: 300
 <p>Counts in the "BLANK_OR_BAD_CODE" column represent borrowers where the gender radio button on their account is either not set, or is set to a data code that is no longer in use.</p>
 <p></p>
 <p></p>
-<p>Replaces report 1081</p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3399&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-<p class= "notetags" style="display: none;">borrower count</p>
+<p>Replaces report 1081 and 2443</p>
+<p class= "notetags" style="display: none;">borrower count age</p>
 </div>
 
 ----------

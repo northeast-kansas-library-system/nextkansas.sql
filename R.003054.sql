@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2018-03-02 10:10:47
-Modified on: 2020-10-06 21:58:50
-Date last run: 2021-04-23 20:49:12
+Modified on: 2021-06-02 11:49:41
+Date last run: 2021-06-02 11:49:44
 
 ----------
 
@@ -42,7 +42,7 @@ SELECT
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag=130]/subfield[@code="a"]') AS UNTITLE_OA,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag=730]/subfield[@code="a"]') AS UNTITLE_SA,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag=300]/subfield[@code="a"]') AS DESCRIP,
-  Group_Concat(items.ccode) AS Group_Concat_ccode,
+  Group_Concat(DISTINCT items.ccode ORDER BY items.ccode ASC) AS Group_Concat_ccode,
   biblio.frameworkcode,
   Concat_WS("", 
     "-",

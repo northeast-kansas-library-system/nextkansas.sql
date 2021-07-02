@@ -12,8 +12,8 @@ Group: Holds-Reserves
      Holds troubleshooting
 
 Created on: 2016-09-29 10:01:46
-Modified on: 2018-04-16 11:02:26
-Date last run: 2021-04-19 14:21:19
+Modified on: 2021-06-30 12:08:36
+Date last run: 2021-07-02 14:47:34
 
 ----------
 
@@ -46,7 +46,8 @@ SELECT
   branchtransfers.datesent,
   branchtransfers.tobranch,
   branchtransfers.datearrived,
-  branchtransfers.comments
+  branchtransfers.comments,
+  branchtransfers.reason
 FROM
   items
   JOIN branchtransfers ON branchtransfers.itemnumber = items.itemnumber

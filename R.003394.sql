@@ -3,7 +3,7 @@ R.003394
 
 ----------
 
-Name: GHW - 9908 Circulation by Collection Code
+Name: GHW - Monthly 9908 Circulation by Collection Code
 Created by: George H Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: Statistics
      Monthly Statistics
 
 Created on: 2020-12-31 17:40:07
-Modified on: 2021-04-30 12:00:33
-Date last run: 2021-05-01 00:40:02
+Modified on: 2021-07-02 08:48:04
+Date last run: 2021-07-02 08:48:17
 
 ----------
 
@@ -28,7 +28,7 @@ Monthly statistics - should be run on schedule only - staff at libraries should 
 */
 
 SELECT
-  branchccodes.branchcode,
+  branchccodes.branchname,
   branchccodes.lib,
   Coalesce(all_lm.CKO_RENEW, "0") AS CKO_RENW_ALL,
   Coalesce(adult_lm.CKO_RENEW, "0") AS CKO_RENEW_ADULT,
@@ -39,7 +39,8 @@ FROM
   (SELECT
       branches.branchcode,
       authorised_values.authorised_value,
-      authorised_values.lib
+      authorised_values.lib,
+      branches.branchname
     FROM
       branches,
       authorised_values
@@ -144,7 +145,7 @@ FROM
 WHERE
   branchccodes.branchcode LIKE '%'
 ORDER BY
-  branchccodes.branchcode,
+  branchccodes.branchname,
   branchccodes.lib
 
 
