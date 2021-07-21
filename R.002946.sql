@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2017-05-12 01:07:13
-Modified on: 2021-06-30 22:04:02
-Date last run: 2021-07-02 07:45:17
+Modified on: 2021-07-21 12:05:14
+Date last run: 2021-07-21 12:05:16
 
 ----------
 
@@ -67,10 +67,12 @@ SELECT
         Replace(branches.branchaddress3, '|', '<br /><br />'),
         'Director:', '<span style="background: yellow; text-decoration: underline; font-size: 120%;">Director:</span><br />'), 
         'Accreditation:', '<span style="background: aqua; text-decoration: underline; font-size: 120%;">Type:</span><br />'),
-    CONCAT('<br /><span style="background: wheat; text-decoration: underline;">Total titles:</span> ',Count(DISTINCT items.biblionumber)),
-        ' ',
-        CONCAT('<span style="background: wheat; text-decoration: underline;">Total items:</span> ',Count(DISTINCT items.itemnumber))
-   ) AS "Staff contacts / holdings"
+    CONCAT(
+      '<br /><span style="background: wheat; text-decoration: underline;">Total titles:</span> ',Count(DISTINCT items.biblionumber)),
+      ' ',
+      CONCAT('<span style="background: wheat; text-decoration: underline;">Total items:</span> ',Count(DISTINCT items.itemnumber)),
+      CONCAT("<br />Last updated: ", NOW())
+    ) AS "Staff contacts / holdings"
 FROM branches
 LEFT JOIN items ON items.homebranch = branches.branchcode
 WHERE branches.branchcode LIKE "%"

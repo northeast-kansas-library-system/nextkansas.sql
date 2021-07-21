@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-08-02 23:01:21
-Modified on: 2021-05-27 15:01:13
-Date last run: 2021-07-01 22:03:25
+Modified on: 2021-07-05 19:11:29
+Date last run: 2021-07-21 10:25:32
 
 ----------
 
@@ -23,7 +23,7 @@ Expiry: 300
 ----------
 
 <div id=reportinfo>
-<p>Part 1 of the patron purge process - part 1 - change extended attribute to 1 on all results</p>
+<p>Part 1 of the patron purge process - part 1 - change extended attribute to 1 (" Account expired for more than 2 years - scheduled for deletion when expired for 3 years") on all results</p>
 <p></p>
 <p class= "notetags" style="display: none;">#PP01 #patron_purge</p>
 </div>

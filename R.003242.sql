@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-08-02 23:13:23
-Modified on: 2021-05-27 15:00:11
-Date last run: 2021-07-01 22:03:25
+Modified on: 2021-07-05 19:13:25
+Date last run: 2021-07-21 10:25:33
 
 ----------
 
@@ -23,7 +23,7 @@ Expiry: 300
 ----------
 
 <div id=reportinfo>
-<p>Part 2 of the patron purge process - part 2 - change extended attribute to 2</p>
+<p>Part 2 of the patron purge process - part 2 - change extended attribute to 2 ("Account expired for more than 2 years - cannot be deleted due to fines/fees/ouverdues/etc.")</p>
 <p></p>
 <p class= "notetags" style="display: none;">#PP02 #patron_purge</p>
 </div>
@@ -33,7 +33,7 @@ Expiry: 300
 
 SELECT
   Concat(
-    '<a href="https://staff.nexpresslibrary.org/cgi-bin/koha/circ/circulation.pl?borrowernumber=', 
+    '<a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=', 
     borrowers.borrowernumber, 
     '" target="_blank">Link to patron</a>'
   ) AS LINK_TO_PATRON,

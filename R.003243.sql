@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-08-02 23:23:38
-Modified on: 2021-06-04 11:49:29
-Date last run: 2021-07-01 22:03:25
+Modified on: 2021-07-05 19:15:35
+Date last run: 2021-07-21 10:25:32
 
 ----------
 
@@ -23,7 +23,7 @@ Expiry: 300
 ----------
 
 <div id=reportinfo>
-<p>Part 3 of the patron purge process - part 3 - change extended attribute to 5-16 as appropriate based on PROJECTED_DELETION date</p>
+<p>Part 3 of the patron purge process - part 3 - change extended attribute to 5-16 ("Account expired for more than 3 years - scheduled to be auto-deleted on mm.dd") as appropriate based on PROJECTED_DELETION date</p>
 <p></p>
 <p class= "notetags" style="display: none;">#PP03 #patron_purge</p>
 </div>

@@ -12,7 +12,7 @@ Group: -
      -
 
 Created on: 2020-06-19 15:55:38
-Modified on: 2020-06-19 16:11:07
+Modified on: 2021-07-07 14:51:26
 Date last run: 2021-06-22 17:14:33
 
 ----------
@@ -86,7 +86,7 @@ FROM
       authorised_values.category = 'ccode') ccodes ON ccodes.authorised_value =
       items.ccode
 WHERE
-  statistics.datetime BETWEEN <<Between|date>> AND (<<and|date>> + interval 1 day) AND
+  statistics.datetime BETWEEN <<Between the beginning of the day on|date>> AND (<<and the end of the day on|date>> + interval 1 day) AND
   (statistics.type = 'issue' OR
       statistics.type = 'renew') AND
   statistics.branch = <<Checked out or renewed at|ZBRAN>>

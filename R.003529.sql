@@ -1,9 +1,9 @@
 /*
-R.003244
+R.003529
 
 ----------
 
-Name: GHW - Patron Purge 104
+Name: GHW - Patron Purge 105
 Created by: George H Williams
 
 ----------
@@ -11,8 +11,8 @@ Created by: George H Williams
 Group: -
      -
 
-Created on: 2019-08-02 23:34:40
-Modified on: 2021-07-06 10:08:45
+Created on: 2021-07-19 16:10:29
+Modified on: 2021-07-19 16:10:29
 Date last run: 2021-07-21 10:25:33
 
 ----------
@@ -23,9 +23,9 @@ Expiry: 300
 ----------
 
 <div id=reportinfo>
-<p>Part 4 of the patron purge process - part 4 - change extended attribute to 4 ("Account expired for more than 3 years - can't be auto-deleted due to problems with the account ")</p>
+<p>Part 5 of the patron purge process - part 5 - botched patrons - remove the expired attribute because staff forgot to.</p>
 <p></p>
-<p class= "notetags" style="display: none;">#PP04 #patron_purge</p>
+<p class= "notetags" style="display: none;">#PP05 #patron_purge</p>
 </div>
 
 ----------
@@ -33,10 +33,11 @@ Expiry: 300
 
 SELECT
   Concat(
-    '<a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=', 
+    '<a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=',
     borrowers.borrowernumber, 
     '" target="_blank">Link to patron</a>'
-  ) AS LINK_TO_PATRON,
+  ) AS
+  LINK_TO_PATRON,
   borrowers.borrowernumber,
   borrowers.cardnumber,
   borrowers.branchcode,
@@ -56,14 +57,6 @@ SELECT
   expired_attribute.lib AS ATTRIBUTE
 FROM
   borrowers LEFT JOIN
-  (SELECT
-      borrower_relationships.guarantor_id,
-      Count(borrower_relationships.guarantee_id) AS GCOUNT
-    FROM
-      borrower_relationships
-    GROUP BY
-      borrower_relationships.guarantor_id) guaranteesx ON guaranteesx.guarantor_id =
-      borrowers.borrowernumber LEFT JOIN
   (SELECT
       accountlines.borrowernumber,
       Format(Sum(accountlines.amountoutstanding), 2) AS DUE_SUM
@@ -101,19 +94,23 @@ FROM
     WHERE
       borrower_attributes.code = 'expired' AND
       authorised_values.category = 'expired') expired_attribute ON
-      borrowers.borrowernumber = expired_attribute.borrowernumber
+      borrowers.borrowernumber = expired_attribute.borrowernumber LEFT JOIN
+  (SELECT
+      borrower_relationships.guarantor_id,
+      Count(borrower_relationships.guarantee_id) AS GCOUNT
+    FROM
+      borrower_relationships
+    GROUP BY
+      borrower_relationships.guarantor_id) guaranteesx ON
+      guaranteesx.guarantor_id = borrowers.borrowernumber
 WHERE
-  borrowers.dateexpiry < CurDate() - INTERVAL 3 YEAR AND
+  borrowers.dateexpiry > CURRENT_DATE() - INTERVAL 730.5 DAY AND
   borrowers.branchcode LIKE '%' AND
   borrowers.othernames NOT LIKE "%SIP%" AND
   borrowers.categorycode <> 'STAFF' AND
   borrowers.categorycode <> 'ILL' AND
-  borrowers.categorycode <> 'HOOPLA'  AND
-  Coalesce(expired_attribute.attribute, 0) <> 4 AND
-  (Coalesce(accountlinesx.DUE_SUM, 0) <> 0 OR
-      Coalesce(issuesx.ICOUNT, 0) <> 0 OR
-      Coalesce(guaranteesx.GCOUNT, 0) > 0 OR
-      Coalesce(requestsx.Count_reserve_id, 0) <> 0)
+  borrowers.categorycode <> 'HOOPLA' AND
+  Coalesce(expired_attribute.attribute, 0) <> 0
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

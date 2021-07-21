@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2020-01-13 16:10:56
-Modified on: 2021-04-16 15:52:12
-Date last run: 2021-07-01 09:29:56
+Modified on: 2021-07-15 11:41:04
+Date last run: 2021-07-15 11:41:25
 
 ----------
 
@@ -66,7 +66,7 @@ FROM
     FROM
       items
     WHERE
-      (items.location = 'ADULT' OR
+      (items.permanent_location = 'ADULT' OR
         items.permanent_location = 'BALDADULT' OR
         items.permanent_location = 'LVPLADULT' OR
         items.permanent_location = 'PAOLAADULT' OR

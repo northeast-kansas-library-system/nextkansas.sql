@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2018-06-18 11:15:38
-Modified on: 2019-08-16 15:53:25
-Date last run: 2021-07-02 16:17:10
+Modified on: 2021-07-14 17:25:35
+Date last run: 2021-07-21 13:30:53
 
 ----------
 
@@ -38,10 +38,60 @@ Expiry: 300
 */
 
 SELECT
-  Concat_Ws('<br />', tmp_holdsqueue.holdingbranch, items.homebranch, (Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">Go to biblio</a>')), "<br />", If(priority_one.homebranch IS NOT NULL, "<span style='background-color: #FF4500'>TOP PRIORITY</span>", If(priority_two.Count_itemnumber = 1, "<span style='background-color: #FFFF00;'>ONLY COPY</span>", If(priority_three.Count_itemnumber = 1, "<span style='background-color: #FFFF00;'>Only available copy</span>", "Many available copies")))) AS CURRENT_OWNING,
-  Concat_Ws('<br />', items.location, authorised_values.lib, items.itemcallnumber, items.copynumber, Concat('<br />(',items.dateaccessioned, ')')) AS CALL_NUMBER,
-  Concat_Ws('<br />', biblio.author, (Concat_Ws('<br />', biblio.title, ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')))) AS AUTHOR_TITLE,
-  Concat_Ws('<br />', (Concat('<img src="/cgi-bin/koha/svc/barcode?barcode=', '*', Upper(items.barcode), '*', '&type=Code39"></img>')), items.barcode) AS BARCODE
+  Concat_Ws('<br />', 
+    tmp_holdsqueue.holdingbranch, 
+    items.homebranch, 
+    (Concat(
+      '<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
+      biblio.biblionumber, 
+      '\" target="_blank">Go to biblio</a>')
+    ), 
+    "<br />", 
+    If(priority_one.homebranch IS NOT NULL, 
+      "<span style='background-color: #FF4500'>TOP PRIORITY</span>", 
+      If(priority_two.Count_itemnumber = 1, 
+        "<span style='background-color: #FFFF00;'>ONLY COPY</span>", 
+        If(priority_three.Count_itemnumber = 1, 
+          "<span style='background-color: #FFFF00;'>Only available copy</span>", 
+          "Many available copies"
+        )
+      )
+    )
+  ) AS CURRENT_OWNING,
+  Concat_Ws('<br />', 
+    items.location, 
+    authorised_values.lib, 
+    items.itemcallnumber, 
+    items.copynumber, 
+    Concat(
+      '<br />(',
+      items.dateaccessioned, 
+      ')'
+    )
+  ) AS CALL_NUMBER,
+  Concat_Ws('<br />', 
+    biblio.author, 
+    (
+      Concat_Ws('<br />', 
+        biblio.title, 
+        ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), 
+        ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'), 
+        ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')
+      )
+    )
+  ) AS AUTHOR_TITLE,
+  Concat_Ws('<br />', 
+    (
+      Concat(
+        '<img src="/cgi-bin/koha/svc/barcode?barcode=', 
+        '*', 
+        Upper(items.barcode), 
+        '*', 
+        '&type=Code39"></img>'
+      )
+    ), 
+    items.barcode
+  ) AS BARCODE
 FROM
   biblio
   LEFT JOIN (items
@@ -94,7 +144,17 @@ GROUP BY
   tmp_holdsqueue.biblionumber,
   tmp_holdsqueue.itemnumber
 ORDER BY
-  If(priority_one.homebranch IS NOT NULL, "1", If(priority_two.Count_itemnumber = 1, "2", If(priority_three.Count_itemnumber = 1, "2", "4"))),
+  If(
+    priority_one.homebranch IS NOT NULL, 
+    "1", 
+    If(priority_two.Count_itemnumber = 1, 
+      "2", 
+      If(priority_three.Count_itemnumber = 1, 
+        "2", 
+        "4"
+      )
+    )
+  ),
   Concat_Ws('<br />', items.location, authorised_values.lib, items.itemcallnumber),
   authorised_values.category,
   biblio.author,

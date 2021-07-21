@@ -1260,3 +1260,7 @@ GROUP BY
   payments.accountno), items.barcode, items.homebranch, paid.date, paid.amount,
   payments.amountoutstanding, paid.description, Replace(paid.note, "\r\n", ""),
   Concat_Ws("-", paid.accountlines_id, paid.accountno)
+
+
+
+
