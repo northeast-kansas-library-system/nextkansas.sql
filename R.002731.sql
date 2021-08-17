@@ -12,8 +12,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2016-08-11 16:36:03
-Modified on: 2021-03-18 00:42:31
-Date last run: 2021-07-21 13:56:05
+Modified on: 2021-07-28 17:32:24
+Date last run: 2021-08-16 16:13:11
 
 ----------
 
@@ -91,7 +91,7 @@ SELECT
     'No', 
     'Yes'
   ) AS STATUS_PROBLEMS,
-  If(notloan.authorised_value = 0, "-", notloan.lib) AS NOT_FOR_LOAN,
+  Coalesce(notloan.lib, "-") AS NOT_FOR_LOAN,
   items.itemnotes,
   items.itemnotes_nonpublic,
   items.copynumber,
@@ -178,7 +178,7 @@ WHERE items.homebranch LIKE <<Item home library|ZBRAN>> AND
   Coalesce(items.itype, "PUNC") LIKE <<Item type|LITYPES>> AND
   Coalesce(items.ccode, "XXX") LIKE <<Item collection code|LCCODE>> AND
   Coalesce(items.itemcallnumber, "-") LIKE Concat(<<Enter first part of call number or a % symbol>>, "%") AND
-  IF(notloan.authorised_value = 0, "-", Concat(notloan.lib, "X")) LIKE <<Not for loan status|LNOT_LOAN>> AND
+  Coalesce(notloan.lib, "-") LIKE <<Not for loan status|LNOT_LOAN>> AND
   Coalesce(items.dateaccessioned, CurDate()) >= <<Item added between date1|date>> AND
   Coalesce(items.dateaccessioned, "0") <= <<and date2|date>> AND 
   Coalesce(items.datelastborrowed, CurDate()) >= <<Item last borrowed between date1|date>> AND

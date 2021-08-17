@@ -3,17 +3,17 @@ R.003075
 
 ----------
 
-Name: GHW - LEAVENWRTH re-categorize borrowers
+Name: GHW - Re-categorize borrowers ADMINREPORT
 Created by: George H Williams
 
 ----------
 
-Group: Library-Specific
+Group: -
      -
 
 Created on: 2018-04-17 17:38:36
-Modified on: 2018-04-17 17:38:36
-Date last run: 2018-04-25 12:14:07
+Modified on: 2021-07-26 14:58:23
+Date last run: 2021-07-26 14:58:28
 
 ----------
 
@@ -35,14 +35,16 @@ SELECT
   If(Date_Format(From_Days(To_Days(Now()) - To_Days(borrowers.dateofbirth)), '%Y') + 0 BETWEEN 0 AND 11, borrowers.cardnumber, "-") AS MINORJ,
   If(Date_Format(From_Days(To_Days(Now()) - To_Days(borrowers.dateofbirth)), '%Y') + 0 = 12, borrowers.cardnumber, "-") AS MINORT,
   If(Date_Format(From_Days(To_Days(Now()) - To_Days(borrowers.dateofbirth)), '%Y') + 0 BETWEEN 13 AND 17, borrowers.cardnumber, "-") AS MINORY,
-  If(borrowers.categorycode LIKE "MILADULT", borrowers.cardnumber, "-") AS ADULT,
+  If(Date_Format(From_Days(To_Days(Now()) - To_Days(borrowers.dateofbirth)), '%Y') + 0 BETWEEN 0 AND 17, borrowers.cardnumber, "-") AS CHILD,
   Date_Format(From_Days(To_Days(Now()) - To_Days(borrowers.dateofbirth)), '%Y') + 0 AS AGE
 FROM
   borrowers
 WHERE
-  borrowers.branchcode = 'LEAVENWRTH'
+  borrowers.branchcode LIKE <<Choose your library|branches>>
 GROUP BY
   borrowers.borrowernumber
+ORDER BY
+  AGE ASC
 
 
 

@@ -3,17 +3,17 @@ R.003501
 
 ----------
 
-Name: GHW - Local last month - ccode
+Name: GHW - Monthly 615 Local checkouts and renewals last month by Collection code
 Created by: George H Williams
 
 ----------
 
-Group: -
-     -
+Group: Statistics
+     Last month's statistics - Next-wide
 
 Created on: 2021-05-03 01:23:47
-Modified on: 2021-06-01 17:40:43
-Date last run: 2021-06-01 16:13:38
+Modified on: 2021-08-02 17:35:20
+Date last run: 2021-08-02 10:55:34
 
 ----------
 

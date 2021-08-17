@@ -3,17 +3,17 @@ R.003420
 
 ----------
 
-Name: GHW - Monthly 9903 Borrowers
+Name: GHW - Monthly 112 Monthly statistics master - Borrowers
 Created by: George H Williams
 
 ----------
 
 Group: Statistics
-     Monthly Statistics
+     Last month's statistics - Next-wide
 
 Created on: 2021-02-04 17:10:37
-Modified on: 2021-02-04 17:10:56
-Date last run: 2021-07-01 00:15:02
+Modified on: 2021-07-29 17:16:31
+Date last run: 2021-08-02 15:13:43
 
 ----------
 

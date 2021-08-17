@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2020-01-13 16:10:56
-Modified on: 2021-07-15 11:41:04
-Date last run: 2021-07-15 11:41:25
+Modified on: 2021-07-22 09:50:51
+Date last run: 2021-07-22 09:51:12
 
 ----------
 
@@ -107,7 +107,8 @@ FROM
       branchtypes.branchcode AND
       yaitems.itype = branchtypes.itemtype
 WHERE
-  branchtypes.branchcode LIKE <<Choose your library|ZBRAN>>
+  branchtypes.branchcode LIKE <<Choose your library|LBRANCH>> AND
+  branchtypes.itemtype LIKE <<Choose an item type|LITYPES>>
 GROUP BY
   branchtypes.branchcode,
   branchtypes.description,

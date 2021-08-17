@@ -3,17 +3,17 @@ R.003394
 
 ----------
 
-Name: GHW - Monthly 9908 Circulation by Collection Code
+Name: GHW - Monthly 220 Circulation statistics by collection code
 Created by: George H Williams
 
 ----------
 
 Group: Statistics
-     Monthly Statistics
+     Last month's statistics - Next-wide
 
 Created on: 2020-12-31 17:40:07
-Modified on: 2021-07-02 08:48:04
-Date last run: 2021-07-02 08:48:17
+Modified on: 2021-07-29 17:22:09
+Date last run: 2021-08-01 00:35:01
 
 ----------
 

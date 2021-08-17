@@ -9,7 +9,7 @@ Created by: George H Williams
 ----------
 
 Group: Statistics
-     Monthly Statistics
+     End of month statistics
 
 Created on: 2021-02-06 22:42:38
 Modified on: 2021-02-07 20:42:42

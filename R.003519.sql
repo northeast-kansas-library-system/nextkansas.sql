@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-06-11 09:57:11
-Modified on: 2021-06-11 10:04:04
-Date last run: 2021-06-28 16:29:12
+Modified on: 2021-08-07 23:35:34
+Date last run: 2021-08-07 23:36:08
 
 ----------
 
@@ -22,26 +22,35 @@ Expiry: 300
 
 ----------
 
+Setup for 942 cleanup - item type = NVIDEO
 
 
 ----------
 */
 
 SELECT
-  biblioimages.imagenumber,
-  biblioimages.biblionumber,
-  biblioimages.mimetype,
-  BASE64(biblioimages.imagefile),
-  biblioimages.thumbnail,
-  biblioimages.timestamp,
-  CAST(biblioimages.timestamp AS DATE) AS date
+  biblioitems.biblionumber,
+  biblioitems.agerestriction,
+  Group_Concat(DISTINCT items.permanent_location) AS
+  Group_Concat_permanent_location,
+  biblioitems.itemtype,
+  Group_Concat(DISTINCT items.itype) AS Group_Concat_itype,
+  biblioitems.cn_class,
+  Group_Concat(DISTINCT items.ccode) AS Group_Concat_ccode
 FROM
-  biblioimages
+  biblioitems LEFT JOIN
+  items ON items.biblioitemnumber = biblioitems.biblioitemnumber
 WHERE
-  (biblioimages.imagenumber = 41 OR
-    biblioimages.imagenumber = 42 OR
-    biblioimages.imagenumber = 43)
-LIMIT 25
+  biblioitems.itemtype IS NULL
+GROUP BY
+  biblioitems.biblionumber,
+  biblioitems.agerestriction,
+  biblioitems.itemtype,
+  biblioitems.cn_class
+HAVING
+  Group_Concat(DISTINCT items.itype) = 'EQUIPMENT'
+ORDER BY
+  Group_Concat_ccode
 
 
 

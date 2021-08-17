@@ -12,8 +12,8 @@ Group: Circulation
      Overdues
 
 Created on: 2017-02-01 16:54:32
-Modified on: 2019-05-07 11:29:59
-Date last run: 2021-03-17 15:06:44
+Modified on: 2021-08-12 11:41:34
+Date last run: 2021-08-12 11:44:22
 
 ----------
 
@@ -49,6 +49,7 @@ SELECT
   Concat_Ws(' ', biblio.title, ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')) AS FULL_TITLE,
   borrowers.cardnumber AS PATRON_BARCODE,
   borrowers.surname AS PATRON_LASTNAME,
+  borrowers.email,
   borrowers.categorycode AS PATRON_CATEGORY,
   items.onloan AS ITEM_DUE_DATE,
   DateDiff(CurDate(), items.onloan) AS DAYS_OVERDUE

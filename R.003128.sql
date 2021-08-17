@@ -9,11 +9,11 @@ Created by: George H Williams
 ----------
 
 Group: Statistics
-     Monthly Statistics
+     End of month statistics
 
 Created on: 2018-10-09 17:27:16
 Modified on: 2021-04-02 14:21:30
-Date last run: 2021-07-09 09:52:06
+Date last run: 2021-08-11 16:58:16
 
 ----------
 

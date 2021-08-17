@@ -3,17 +3,17 @@ R.003505
 
 ----------
 
-Name: GHW - Circulation last month by zipcode
+Name: GHW - Monthly 230 Circulation by borrower's zipcode
 Created by: George H Williams
 
 ----------
 
-Group: -
-     -
+Group: Statistics
+     Last month's statistics - Next-wide
 
 Created on: 2021-05-12 20:58:05
-Modified on: 2021-05-12 20:58:05
-Date last run: 2021-07-01 01:00:03
+Modified on: 2021-07-30 10:52:42
+Date last run: 2021-08-02 10:01:39
 
 ----------
 

@@ -3,17 +3,17 @@ R.003500
 
 ----------
 
-Name: GHW - Monthly 9913 - Local checkouts and renewals last month
+Name: GHW - Monthly 610 Local checkouts and renewals last month by Item type
 Created by: George H Williams
 
 ----------
 
 Group: Statistics
-     Monthly Statistics
+     Last month's statistics - Next-wide
 
 Created on: 2021-05-03 00:32:33
-Modified on: 2021-06-02 08:30:37
-Date last run: 2021-07-02 16:12:15
+Modified on: 2021-08-02 17:34:51
+Date last run: 2021-08-01 01:10:02
 
 ----------
 

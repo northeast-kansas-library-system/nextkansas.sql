@@ -12,8 +12,8 @@ Group: Circulation
      Overdues
 
 Created on: 2017-02-01 15:28:38
-Modified on: 2020-02-24 12:26:15
-Date last run: 2021-07-12 12:13:50
+Modified on: 2021-08-12 11:34:36
+Date last run: 2021-08-16 15:03:12
 
 ----------
 
@@ -62,6 +62,7 @@ SELECT
                  borrowers.branchcode,
   borrowers.cardnumber AS LAST_PATRON_CARD,
   borrowers.surname AS LAST_PATRON_NAME,
+  borrowers.email,
   items.replacementprice,
   CONCAT('<a href=\"/cgi-bin/koha/members/pay.pl?borrowernumber=', borrowers.borrowernumber, '/" target="_blank">Link to patron</a>') AS LINK_P,
   @SortOrder := <<Sort by|XS_DATE>> AS SORTING

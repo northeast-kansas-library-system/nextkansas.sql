@@ -3,17 +3,17 @@ R.003421
 
 ----------
 
-Name: GHW - Monthly 9904 ILL Loans and borrows
+Name: GHW - Monthly 113 Monthly statistics master - ILL Loans and borrows
 Created by: George H Williams
 
 ----------
 
 Group: Statistics
-     Monthly Statistics
+     Last month's statistics - Next-wide
 
 Created on: 2021-02-04 17:45:36
-Modified on: 2021-02-04 17:45:55
-Date last run: 2021-07-01 00:20:01
+Modified on: 2021-07-29 17:16:48
+Date last run: 2021-08-01 00:20:01
 
 ----------
 

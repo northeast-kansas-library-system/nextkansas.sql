@@ -3,17 +3,17 @@ R.003418
 
 ----------
 
-Name: GHW - Monthly 9901 Items and holdings
+Name: GHW - Monthly 110 Monthly statistics master - Items and holdings
 Created by: George H Williams
 
 ----------
 
 Group: Statistics
-     Monthly Statistics
+     Last month's statistics - Next-wide
 
 Created on: 2021-02-04 16:34:33
-Modified on: 2021-02-04 17:11:45
-Date last run: 2021-07-01 00:05:02
+Modified on: 2021-07-29 17:15:55
+Date last run: 2021-08-01 00:05:01
 
 ----------
 

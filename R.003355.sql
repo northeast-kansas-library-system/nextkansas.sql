@@ -3,17 +3,17 @@ R.003355
 
 ----------
 
-Name: GHW - Monthly 9910 Monthly unique patron count by date
+Name: GHW - Monthly 310 Monthly unique borrower usage count by date
 Created by: George H Williams
 
 ----------
 
 Group: Statistics
-     Monthly Statistics
+     Last month's statistics - Next-wide
 
 Created on: 2020-10-08 22:42:10
-Modified on: 2021-04-30 12:05:21
-Date last run: 2021-07-01 00:50:01
+Modified on: 2021-07-30 10:53:54
+Date last run: 2021-08-01 00:50:02
 
 ----------
 

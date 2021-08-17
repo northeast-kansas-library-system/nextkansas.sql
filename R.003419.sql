@@ -3,17 +3,17 @@ R.003419
 
 ----------
 
-Name: GHW - Monthly 9902 - Circulation
+Name: GHW - Monthly 111 Monthly statistics master - Circulation
 Created by: George H Williams
 
 ----------
 
 Group: Statistics
-     Monthly Statistics
+     Last month's statistics - Next-wide
 
 Created on: 2021-02-04 16:59:13
-Modified on: 2021-02-04 17:03:07
-Date last run: 2021-07-01 00:10:02
+Modified on: 2021-07-29 17:17:27
+Date last run: 2021-08-01 00:10:02
 
 ----------
 
@@ -128,10 +128,10 @@ FROM
       Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
       Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       statistics.itemtype LIKE "NVID%" AND
-      (statistics.ccode LIKE "DVD" OR
-          statistics.ccode LIKE "BLU-RAY" OR
-          statistics.ccode LIKE "COMBO" OR
-          statistics.ccode LIKE "TVSERIES")
+      (statistics.ccode LIKE "VID_B%" OR
+          statistics.ccode LIKE "VID_C" OR
+          statistics.ccode LIKE "VID_D" OR
+          statistics.ccode LIKE "VID_M")
     GROUP BY
       statistics.branch) DVD_CIRC_RENEW_LM ON DVD_CIRC_RENEW_LM.branch =
       branches.branchcode

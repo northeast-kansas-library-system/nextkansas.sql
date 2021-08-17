@@ -3,17 +3,17 @@ R.002975
 
 ----------
 
-Name: GHW - Monthly 9906 requests
+Name: GHW - Monthly 510 Monthly requests
 Created by: George H Williams
 
 ----------
 
 Group: Statistics
-     Monthly Statistics
+     Last month's statistics - Next-wide
 
 Created on: 2017-07-11 11:52:53
-Modified on: 2021-06-30 14:59:05
-Date last run: 2021-07-09 15:39:30
+Modified on: 2021-07-30 10:55:18
+Date last run: 2021-08-01 01:05:02
 
 ----------
 

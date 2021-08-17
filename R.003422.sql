@@ -3,17 +3,17 @@ R.003422
 
 ----------
 
-Name: GHW - Monthly 9905 Biblios total
+Name: GHW - Monthly 114 Monthly statistics master - Biblios total
 Created by: George H Williams
 
 ----------
 
 Group: Statistics
-     Monthly Statistics
+     Last month's statistics - Next-wide
 
 Created on: 2021-02-04 21:38:26
-Modified on: 2021-02-04 21:38:35
-Date last run: 2021-07-01 00:25:02
+Modified on: 2021-07-29 17:17:03
+Date last run: 2021-08-01 00:25:02
 
 ----------
 

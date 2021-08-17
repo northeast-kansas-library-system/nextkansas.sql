@@ -3,17 +3,17 @@ R.003499
 
 ----------
 
-Name: GHW - 9911 Monthly hourly tracker
+Name: GHW - Monthly 240 Hourly statistics
 Created by: George H Williams
 
 ----------
 
-Group: -
-     -
+Group: Statistics
+     Last month's statistics - Next-wide
 
 Created on: 2021-04-30 15:05:03
-Modified on: 2021-04-30 15:05:03
-Date last run: 2021-07-01 00:55:02
+Modified on: 2021-07-30 10:53:14
+Date last run: 2021-08-01 00:45:02
 
 ----------
 

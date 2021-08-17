@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-04-05 22:44:57
-Modified on: 2021-04-05 22:44:57
-Date last run: 2021-06-30 17:25:40
+Modified on: 2021-07-22 09:47:22
+Date last run: 2021-07-22 09:47:24
 
 ----------
 
@@ -34,6 +34,7 @@ FROM
   itemtypes
 ORDER BY
   ITEM_TYPE_DESCRIPTION
+LIMIT 500
 
 
 

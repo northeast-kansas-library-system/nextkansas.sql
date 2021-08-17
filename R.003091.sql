@@ -12,8 +12,8 @@ Group: Borrowers
      Patron attributes
 
 Created on: 2018-06-29 08:57:11
-Modified on: 2021-05-27 15:00:12
-Date last run: 2021-07-19 15:42:20
+Modified on: 2021-07-29 09:14:12
+Date last run: 2021-07-29 09:39:42
 
 ----------
 

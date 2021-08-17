@@ -3,17 +3,17 @@ R.003393
 
 ----------
 
-Name: GHW - Monthly 9907 - Circulation by Item Type
+Name: GHW - Monthly 210 Circulation statistics by item type
 Created by: George H Williams
 
 ----------
 
 Group: Statistics
-     Monthly Statistics
+     Last month's statistics - Next-wide
 
 Created on: 2020-12-31 17:36:03
-Modified on: 2021-04-30 11:38:36
-Date last run: 2021-07-01 00:35:01
+Modified on: 2021-07-29 17:19:53
+Date last run: 2021-08-01 00:30:02
 
 ----------
 
