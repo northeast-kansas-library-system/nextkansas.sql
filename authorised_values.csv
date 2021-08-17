@@ -12,9 +12,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2066,bibitype,PUNC,(UNCLASSIFIED),,(UNCLASSIFIED)
 1999,bibloc,ADULT,Adult,,Adult
 2000,bibloc,CHILDRENS,Childrens,,Childrens
-2195,bibloc,L_JU,Childrens,,Childrens
 2137,bibloc,L_YA,"Young adult",,"Young adult"
-2001,bibloc,YOUNGADULT,"Young Adult",,"Young Adult"
 205,BOR_NOTES,CheckID,"Need to check patron's ID",,
 1759,BOR_NOTES,MID,"<br />UPDATE PATRON'S NAME<br />Please update the account with a middle name or middle initial.<br />",,
 2224,CCODE,ARCHIVE,"Archival materials",bridge/archive.png,"Archival materials"
@@ -26,20 +24,20 @@ id,category,authorised_value,lib,imageurl,lib_opac
 155,CCODE,BIOGRAPHY,Biography,vokal/Book-32px.png,
 195,CCODE,BLU-RAY,"Blu-Ray (no longer used)",vokal/BLURAY-32px.png,Z
 146,CCODE,BOARDBK,"Board Book",vokal/Book-32px.png,
-157,CCODE,BOOKONCASS,"Book on Cassette",vokal/Book-On-Tape-32px.png,
-156,CCODE,BOOKONCD,"Book on CD",vokal/Book-On-CD-32px.png,
-143,CCODE,BOOKONMP,"Book on Digital (Playaways)",vokal/PlayAway-32px.png,
+157,CCODE,BOOKONCASS,"Book on Cassette",vokal/Book-On-Tape-32px.png,"Audiobook (cassette)"
+156,CCODE,BOOKONCD,"Book on CD",vokal/Book-On-CD-32px.png,"Audiobook (CD)"
+143,CCODE,BOOKONMP,"Book on Digital (Playaways)",vokal/PlayAway-32px.png,"Audiobook (media player)"
 2198,CCODE,CLASSICS,Classics,,Classics
 1132,CCODE,COMBO,"Blu/Ray - DVD Combo Pack (no longer used)",,Z
 194,CCODE,COMPUTER,"Public Computer",crystal-clear/mymac.png,
 168,CCODE,DISPLAY,"On Display",crystal-clear/bookmark.png,
-385,CCODE,DLAUDIO,"Downloadable Audiobook",crystal-clear/build.png,
+385,CCODE,DLAUDIO,"Downloadable Audiobook",crystal-clear/build.png,Z
 384,CCODE,DLBOOK,"Downloadable Book",crystal-clear/build.png,
-1183,CCODE,DLGRAPHIC,"Downloadable Graphic Novel",crystal-clear/build.png,"Downloadable Graphic Novel"
+1183,CCODE,DLGRAPHIC,"Downloadable Graphic Novel",crystal-clear/build.png,Z
 1358,CCODE,DLMAG,"Downloadable Magazine",crystal-clear/build.png,"Downloadable Magazine"
-386,CCODE,DLMUSIC,"Downloadable Music",crystal-clear/build.png,
-1184,CCODE,DLTV,"Downloadable TV Show",crystal-clear/build.png,"Downloadable TV Show"
-387,CCODE,DLVIDEO,"Downloadable Movie",crystal-clear/build.png,
+386,CCODE,DLMUSIC,"Downloadable Music",crystal-clear/build.png,Z
+1184,CCODE,DLTV,"Downloadable TV Show",crystal-clear/build.png,Z
+387,CCODE,DLVIDEO,"Downloadable Movie",crystal-clear/build.png,Z
 166,CCODE,DVD,"DVD (no longer used)",,Z
 158,CCODE,EASY,"Picture Book",vokal/Book-32px.png,
 175,CCODE,EDUCATION,Education,vokal/Book-32px.png,
@@ -66,11 +64,11 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2146,CCODE,M_AFRICAN,"African American history and literature",,"African American history and literature"
 176,CCODE,MAGAZINE,Magazine,vokal/Periodical-32px.png,
 199,CCODE,MAP,Map,crystal-clear/internet.png,
-1644,CCODE,MCNA_FIC,"McNaughton Fiction",,"McNaughton Fiction"
-1645,CCODE,MCNA_NON,"McNaughton Non-fiction",,"McNaughton Non-fiction"
+1644,CCODE,MCNA_FIC,"McNaughton Fiction",vokal/Book-32px.png,"McNaughton Fiction"
+1645,CCODE,MCNA_NON,"McNaughton Non-fiction",vokal/NFIC-32px.png,"McNaughton Non-fiction"
 217,CCODE,MISC,Miscellaneous,vokal/Hardware-32px.png,
 152,CCODE,MUSIC,"Music CD",vokal/Music-32px.png,
-1647,CCODE,MYST_COZY,Mystery-Cozy,,"Cozy Mystery"
+1647,CCODE,MYST_COZY,Mystery-Cozy,vokal/Book-32px.png,"Cozy Mystery"
 154,CCODE,MYSTERY,Mystery,vokal/Book-32px.png,
 372,CCODE,NINTENDODS,"VG-Nintendo DS",crystal-clear/joystick.png,
 402,CCODE,NINTNDO3DS,"VG-Nintendo 3DS",crystal-clear/joystick.png,"VG-Nintendo 3DS"
@@ -97,7 +95,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 162,CCODE,SPANISH,Spanish,vokal/Book-32px.png,
 1174,CCODE,SWITCH,"VG-Nintendo Switch",crystal-clear/joystick.png,
 219,CCODE,TVSERIES,"TV Series (no longer used)",,Z
-167,CCODE,VHS,VHS,vokal/VHS-32px.png,
+167,CCODE,VHS,VHS,vokal/VHS-32px.png,"Video - VHS cassette"
 2201,CCODE,VID_B,"Video (Blu-ray)",vokal/BLURAY-32px.png,"Video (Blu-ray)"
 2203,CCODE,VID_B_T,"Video-TV series (Blu-ray)",vokal/BLURAY-32px.png,"Video-TV series (Blu-ray)"
 2200,CCODE,VID_C,"Video (Blu-ray/DVD combined edition)",colors/cc66cc.png,"Video (Blu-ray/DVD combined edition)"
@@ -107,7 +105,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2207,CCODE,VID_M,"Video (media player)",crystal-clear/pda_blue.png,"Video (media player)"
 2206,CCODE,VID_M_T,"Video-TV series (media player)",crystal-clear/pda_blue.png,"Video-TV series (media player)"
 189,CCODE,VIDEOGAME,VG--Videogame,crystal-clear/joystick.png,
-2059,CCODE,VIDHOLIDAY,"Holiday video",colors/99cc33.png,"Holiday video"
+2059,CCODE,VIDHOLIDAY,"Holiday video",colors/99cc33.png,"Video - holiday collection"
 2058,CCODE,VIDPLAYER,"Video (media player) (no longer used)",,Z
 149,CCODE,WESTERN,Western,vokal/Book-32px.png,
 374,CCODE,WII,"VG-Nintendo Wii",crystal-clear/joystick.png,
@@ -1260,7 +1258,6 @@ id,category,authorised_value,lib,imageurl,lib_opac
 22,NOT_LOAN,-1,Ordered,,Ordered.
 1866,NOT_LOAN,-8,"Paola repair/mending",,"Paola repair/mending."
 1867,NOT_LOAN,-9,"Paola processing",,"Paola processing."
-23,NOT_LOAN,0,,,
 24,NOT_LOAN,1,"Not For Loan",,"Not For Loan."
 25,NOT_LOAN,2,"Staff Collection",,"Staff Collection."
 191,NOT_LOAN,3,Migration,,Migration.
@@ -1308,7 +1305,6 @@ id,category,authorised_value,lib,imageurl,lib_opac
 236,REPORT_GROUP,CAT,"Catalog Records and Items",,
 235,REPORT_GROUP,CIRC,Circulation,,
 2015,REPORT_GROUP,CLUB,Clubs,,Clubs
-260,REPORT_GROUP,CUSTOM,Library-Specific,,
 763,REPORT_GROUP,FEES,Fines/Fees,,
 2226,REPORT_GROUP,G_ATCHISON," ATCHISON",," ATCHISON"
 2228,REPORT_GROUP,G_BALDWIN," BALDWIN",," BALDWIN"
@@ -1368,9 +1364,6 @@ id,category,authorised_value,lib,imageurl,lib_opac
 261,REPORT_GROUP,SCHOOL,"School Libraries",,
 262,REPORT_GROUP,STATS,Statistics,,
 308,REPORT_SUBGROUP,ALLTIME,"All Time",,REGULAR
-345,REPORT_SUBGROUP,Basehor,Basehor,,CUSTOM
-358,REPORT_SUBGROUP,BonnerSpgs,"Bonner Springs",,CUSTOM
-400,REPORT_SUBGROUP,Burlingame,Burlingame,,CUSTOM
 896,REPORT_SUBGROUP,CAT_READ,"Reading Program Reports",,CAT
 356,REPORT_SUBGROUP,Checkedout,"Checked Out",,CIRC
 1172,REPORT_SUBGROUP,CIRC_TRANS,Transfers,,CIRC
@@ -1384,28 +1377,19 @@ id,category,authorised_value,lib,imageurl,lib_opac
 275,REPORT_SUBGROUP,COLLSTATAD,"Collection Stats-admin",,ADMIN
 274,REPORT_SUBGROUP,COLLSTATS,"Collection Statistics",,CAT
 305,REPORT_SUBGROUP,DAILY,Daily,,REGULAR
-341,REPORT_SUBGROUP,DONIPHAN,Doniphan,,CUSTOM
 309,REPORT_SUBGROUP,DUPRECAD,"Duplicate Records-admin",,ADMIN
 244,REPORT_SUBGROUP,FINES,Charges,,CIRC
 760,REPORT_SUBGROUP,GHWTEST,Testing,,ADMIN
-339,REPORT_SUBGROUP,HIAW,Hiawatha,,CUSTOM
 861,REPORT_SUBGROUP,HOLDDUP,"Duplicate request problems",,HOLDS
 280,REPORT_SUBGROUP,HOLDSAD,Holds-admin,,ADMIN
 278,REPORT_SUBGROUP,HOLDSTAT,"Holds Statistics",,HOLDS
 759,REPORT_SUBGROUP,HOLDTRBL,"Holds troubleshooting",,HOLDS
-343,REPORT_SUBGROUP,Holton,Holton,,CUSTOM
-480,REPORT_SUBGROUP,LANSING,Lansing,,CUSTOM
-347,REPORT_SUBGROUP,Leavnwrth,Leavenworth,,CUSTOM
 247,REPORT_SUBGROUP,LHW,"Local Hold - Walkins",,CAT
 269,REPORT_SUBGROUP,LHWAD,"Local Holds - Walkin-admin",,ADMIN
-357,REPORT_SUBGROUP,Linwood,Linwood,,CUSTOM
 303,REPORT_SUBGROUP,MONTHLY,Monthly,,REGULAR
 254,REPORT_SUBGROUP,NEWMAT,"New Materials",,CAT
 253,REPORT_SUBGROUP,NOLOAN,"Not For Loan",,CAT
 281,REPORT_SUBGROUP,NOLOANAD,"Not For Loan-admin",,ADMIN
-359,REPORT_SUBGROUP,Osawatomie,Osawatomie,,CUSTOM
-340,REPORT_SUBGROUP,OTT,Ottawa,,CUSTOM
-479,REPORT_SUBGROUP,Overbrook,Overbrook,,CUSTOM
 246,REPORT_SUBGROUP,OVERDUES,Overdues,,CIRC
 1776,REPORT_SUBGROUP,PAT_ATTRIB,"Patron attributes",,PAT
 1130,REPORT_SUBGROUP,PAT_GUARANTOR,"Guarantor/guranantee reports",,PAT
@@ -1414,22 +1398,20 @@ id,category,authorised_value,lib,imageurl,lib_opac
 383,REPORT_SUBGROUP,POSTLANSING,Post-Lansing,,ADMIN
 258,REPORT_SUBGROUP,PURREQ,"Purchase Requests",,ACQ
 293,REPORT_SUBGROUP,REGULARAD,"Daily, Monthly, Yearly Stats-admin",,ADMIN
-542,REPORT_SUBGROUP,Sabetha,Sabetha,,CUSTOM
 543,REPORT_SUBGROUP,SANDBOX,"Reports Testing Ground",,ADMIN
 296,REPORT_SUBGROUP,SCHOOLAD,"School Libraries-admin",,ADMIN
 367,REPORT_SUBGROUP,SCHOverdues,"Overdues (schools)",,SCHOOL
-2096,REPORT_SUBGROUP,SENECA,Seneca,,CUSTOM
 255,REPORT_SUBGROUP,SHELFLIST,"Shelf Lists",,CAT
-1751,REPORT_SUBGROUP,STAT_EOM,"Monthly Statistics",,STATS
+1751,REPORT_SUBGROUP,STAT_EOM,"End of month statistics",,STATS
+2273,REPORT_SUBGROUP,STAT_LM,"Last month's statistics - Next-wide",,STATS
 1176,REPORT_SUBGROUP,STAT_M,"Last calendar month",,STATS
 1177,REPORT_SUBGROUP,STAT_R,"Date range",,STATS
 252,REPORT_SUBGROUP,STATUS,"Status reports-lost, damaged",,CAT
 365,REPORT_SUBGROUP,Students,Students,,SCHOOL
 302,REPORT_SUBGROUP,SYSTEMAD,System-admin,,ADMIN
-507,REPORT_SUBGROUP,Tonganoxie,Tonganoxie,,CUSTOM
+2274,REPORT_SUBGROUP,TT,"Template Toolkit",,ADMIN
 406,REPORT_SUBGROUP,Weeded,"Weeded Already",,CAT
 256,REPORT_SUBGROUP,WEEDING,"Weeding Criteria",,CAT
-351,REPORT_SUBGROUP,Wellsville,Wellsville,,CUSTOM
 304,REPORT_SUBGROUP,YEARLY,Yearly,,REGULAR
 401,REPORT_SUBGROUP,Yearlystats,"Yearly Stats Suite",,REGULAR
 26,RESTRICTED,0,,,
@@ -1489,43 +1471,39 @@ id,category,authorised_value,lib,imageurl,lib_opac
 534,SUGGEST_FORMAT,WALKIN2,"WALKIN BOOK",vokal/Book-32px.png,"WALKIN BOOK"
 511,SUGGEST_FORMAT,XXX,(UNCLASSIFIED),crystal-clear/books-closed-32.png,(UNCLASSIFIED)
 197,SUPPRESS,1,"Suppressed in OPAC",,"This record is hidden from view"
-1864,TEACHER,ATWOOD,Atwood,,Atwood
-1865,TEACHER,CLOWE,Clowe,,Clowe
-2047,TEACHER,DREW,Drew,,Drew
-453,TEACHER,Edelman,Edelman,,Edelman
-2038,TEACHER,ELLIOTT,Elliott,,Elliott
-1598,TEACHER,FISCHER,Fischer,,Fischer
-1600,TEACHER,GILBERT,Gilbert,,Gilbert
-1188,TEACHER,Hann,Hann,,Hann
-1189,TEACHER,Herrmann,Herrmann,,Herrmann
-457,TEACHER,Hughes,Hughes,,Hughes
-1858,TEACHER,KEIM,Keim,,Keim
-2039,TEACHER,KOHAKE,Kohake,,Kohake
-2045,TEACHER,LEIKER,Leiker,,Leiker
-2041,TEACHER,LIERZ,Lierz,,Lierz
-1859,TEACHER,MANN,Mann,,Mann
-1599,TEACHER,MATHEWSON,Mathewson,,Mathewson
-1597,TEACHER,MEYER,Meyer,,Meyer
-2042,TEACHER,MOORE,Moore,,Moore
-1190,TEACHER,Oehm,Oehm,,Oehm
-1862,TEACHER,OSTERHAUS,Osterhaus,,Osterhaus
-2043,TEACHER,PARENTS,"Parents as Teachers",,"Parents as Teachers"
-706,TEACHER,Plattner,Plattner,,Plattner
-464,TEACHER,Ploeger,Ploeger,,Ploeger
-465,TEACHER,Richardson,Richardson,,Richardson
-1596,TEACHER,RONNEBAUM,Ronnebaum,,Ronnebaum
-2044,TEACHER,SANDMANN,Sandmann,,Sandmann
-466,TEACHER,Schuette,Schuette,,Schuette
-1860,TEACHER,STALLBAUMER,Stallbaumer,,Stallbaumer
-468,TEACHER,Stover,Stover,,Stover
-1863,TEACHER,STRATHMAN,Strathman,,Strathman
-2046,TEACHER,STREET,Street,,Street
-707,TEACHER,Streett,Streett,,Streett
-472,TEACHER,Tyler,Tyler,,Tyler
-473,TEACHER,Werner,Werner,,Werner
-2040,TEACHER,WERTENBERGER,Wertenberger,,Wertenberger
-455,TEACHER,Wiltz,Wiltz,,Wiltz
 1221,UPLOAD,IMG,Images,,Images
+2277,USD113_T,BRUNA,Bruna,,Bruna
+2278,USD113_T,DREW,Drew,,Drew
+2279,USD113_T,EDELMAN,Edelman,,Edelman
+2280,USD113_T,ELLIOTT,Elliott,,Elliott
+2281,USD113_T,FISCHER,Fischer,,Fischer
+2307,USD113_T,GILBERT,Gilbert,,Gilbert
+2306,USD113_T,HANN,Hann,,Hann
+2305,USD113_T,HUGHES,Hughes,,Hughes
+2304,USD113_T,JOHNSON,Johnson,,Johnson
+2303,USD113_T,KEIM,Keim,,Keim
+2302,USD113_T,LIERZ,Lierz,,Lierz
+2301,USD113_T,MANN,Mann,,Mann
+2300,USD113_T,MATHEWSON,Mathewson,,Mathewson
+2299,USD113_T,MEYER,Meyer,,Meyer
+2298,USD113_T,MOORE,Moore,,Moore
+2297,USD113_T,OEHM,Oehm,,Oehm
+2296,USD113_T,PARENT,"Parents As Teachers",,"Parents As Teachers"
+2295,USD113_T,PLATTNER,Plattner,,Plattner
+2294,USD113_T,PLOEGER,Ploeger,,Ploeger
+2293,USD113_T,PYLE,Pyle,,Pyle
+2292,USD113_T,RICHARDSON,Richardson,,Richardson
+2291,USD113_T,SANDMANN,Sandmann,,Sandmann
+2290,USD113_T,SCHAFFER,Schaffer,,Schaffer
+2289,USD113_T,SCHUETTE,Schuette,,Schuette
+2288,USD113_T,STALLBAUMER,Stallbaumer,,Stallbaumer
+2287,USD113_T,STOVER,Stover,,Stover
+2286,USD113_T,STREETT,Streett,,Streett
+2285,USD113_T,UPHAUS,Uphaus,,Uphaus
+2284,USD113_T,WERNER,Werner,,Werner
+2283,USD113_T,WERTENBERGER,Wertenberger,,Wertenberger
+2282,USD113_T,WILTZ,Wiltz,,Wiltz
+2308,USD113_T,X,"Holdover from previous year",,"Holdover from previous year"
 20,WITHDRAWN,0,,,
 21,WITHDRAWN,1,Withdrawn,,
 179,WITHDRAWN,2,Discard,,
