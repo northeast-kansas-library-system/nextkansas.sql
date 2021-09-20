@@ -12,8 +12,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2016-08-11 16:36:03
-Modified on: 2021-07-28 17:32:24
-Date last run: 2021-08-16 16:13:11
+Modified on: 2021-09-08 10:53:17
+Date last run: 2021-09-17 14:17:21
 
 ----------
 
@@ -23,9 +23,9 @@ Expiry: 0
 ----------
 
 <div id=reportinfo>
-<p>This report shows all items added to NExpress at a specific library branch after a specified date - includes date added, date last borrowed, date last seen, and total circulations+renewals</p>
+<p>This report shows all items added to Next Search Catalog at a specific library branch after a specified date - includes date added, date last borrowed, date last seen, and total circulations+renewals</p>
 <p>Includes the date the item was added (dateaccessioned), the date the item was last checked out to a patron (datelastborrowed), and the date the item was last scanned on the check-in screen (datelastseen).</p>
-<ul><li>Shows items that are currently still in NExpress</li>
+<ul><li>Shows items that are currently still in Next</li>
 <li>Allows user to specify the item's homebranch, shelving location, item type, collection code, and the item's date added</li>
 <li>grouped by homebranch, location, itype, collection code, and call number</li>
 <li>sorted by homebranch, location, itype, collection code, and call number</li>
@@ -39,9 +39,32 @@ Expiry: 0
 <p></p>
 <p>publicationyear data comes from the 264$c subfield.  If the data in 264$c is not a 4 digit year, the data will be problematic.  If 264$c is blank, the result in this report will be blank.</p>
 <p></p>
+<p>Report updated on 2021.09.08 to include ISBN and ISSN fields.</p>
+<p></p>
 <p>Formerly called "Flexible Weeding Report"</p>
 <p>Replaces reports:
-<ul><li>664 (Full Shelf List)</li><li>2686 (Collection Code Super Weeder)</li><li>1013 (Item Type Super Weeder)</li><li>1442 (Super Weeder by Callnumber)</li><li>2471 (BCPL.SuperWeeder.by.Callnumber)</li><li>1017 (Items with NO checkouts (all items))</li><li>1151 (Date last borrowed, Call number and Title limited by Item type)</li><li>1426 (Last seen on a specific date or earlier)</li><li>1807 (Items with NO checkouts -- limited by CCode)</li><li>2202 (Items with NO checkouts (limited to a collection code and location))</li><li>2203 (Items with NO checkouts (limited to a collection code))</li><li>2241 (Last Seen Date, limited by Collection Code)</li><li>2392 (Date last borrowed, Call number and Title limited by Ccode and Location)</li><li>2411 (Date last borrowed)</li><li>1408 (Shelf List of Specific Item Type)</li><li>1409 (Shelf List of Specific CCode and Location)</li><li>1410 (Shelf List of Specific Item Type and Location)</li><li>3014 (GHW - Shelflist with left anchored call number limit)</li><li>2809 (GHW - List of items with display locations)</li><li>886 Videogames Circ List</li></ul></p>
+<ul>
+  <li>664 (Full Shelf List)</li>
+  <li>2686 (Collection Code Super Weeder)</li>
+  <li>1013 (Item Type Super Weeder)</li>
+  <li>1442 (Super Weeder by Callnumber)</li>
+  <li>2471 (BCPL.SuperWeeder.by.Callnumber)</li>
+  <li>1017 (Items with NO checkouts (all items))</li>
+  <li>1151 (Date last borrowed, Call number and Title limited by Item type)</li>
+  <li>1426 (Last seen on a specific date or earlier)</li>
+  <li>1807 (Items with NO checkouts -- limited by CCode)</li>
+  <li>2202 (Items with NO checkouts (limited to a collection code and location))</li>
+  <li>2203 (Items with NO checkouts (limited to a collection code))</li>
+  <li>2241 (Last Seen Date, limited by Collection Code)</li>
+  <li>2392 (Date last borrowed, Call number and Title limited by Ccode and Location)</li>
+  <li>2411 (Date last borrowed)</li>
+  <li>1408 (Shelf List of Specific Item Type)</li>
+  <li>1409 (Shelf List of Specific CCode and Location)</li>
+  <li>1410 (Shelf List of Specific Item Type and Location)</li>
+  <li>3014 (GHW - Shelflist with left anchored call number limit)</li>
+  <li>2809 (GHW - List of items with display locations)</li>
+  <li>886 Videogames Circ List</li>
+</ul>
 <p></p>
 <p>Added public and non-public notes fields on 2016.12.28</p>
 <p>Added item count fields on 2018.10.03</p>
@@ -77,6 +100,8 @@ SELECT
     ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'), 
     ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')
   ) AS FULL_TITLE,
+  biblioitems.isbn,
+  biblioitems.issn,
   Coalesce(biblioitems.publicationyear, "0") AS publicationyear,
   items.dateaccessioned,
   Coalesce(items.datelastborrowed, 0) AS datelastborrowed,
@@ -184,7 +209,7 @@ WHERE items.homebranch LIKE <<Item home library|ZBRAN>> AND
   Coalesce(items.datelastborrowed, CurDate()) >= <<Item last borrowed between date1|date>> AND
   Coalesce(items.datelastborrowed, "0") <= <<and  date2|date>> AND 
   Coalesce(items.datelastseen, CurDate()) >= <<Item last seen between date1|date>> AND
-  Coalesce(items.datelastseen, "0") <= <<and   date2|date>>
+  Coalesce(items.datelastseen, "0") <= <<and date2|date>>
 GROUP BY
   biblio.biblionumber,
   items.itemnumber

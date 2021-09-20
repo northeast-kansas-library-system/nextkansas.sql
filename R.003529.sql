@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-07-19 16:10:29
-Modified on: 2021-07-19 16:10:29
-Date last run: 2021-08-17 09:47:27
+Modified on: 2021-08-27 09:29:31
+Date last run: 2021-09-16 21:11:09
 
 ----------
 
@@ -106,7 +106,7 @@ FROM
 WHERE
   borrowers.dateexpiry > CURRENT_DATE() - INTERVAL 730.5 DAY AND
   borrowers.branchcode LIKE '%' AND
-  borrowers.othernames NOT LIKE "%SIP%" AND
+  Coalesce(borrowers.othernames, "0") NOT LIKE "%SIP%" AND
   borrowers.categorycode <> 'STAFF' AND
   borrowers.categorycode <> 'ILL' AND
   borrowers.categorycode <> 'HOOPLA' AND

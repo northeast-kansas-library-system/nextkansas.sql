@@ -12,8 +12,8 @@ Group: Borrowers
      Patron attributes
 
 Created on: 2017-09-18 10:49:25
-Modified on: 2021-04-20 19:17:10
-Date last run: 2021-07-22 14:36:21
+Modified on: 2021-08-31 16:08:42
+Date last run: 2021-08-31 16:08:58
 
 ----------
 
@@ -39,7 +39,7 @@ Expiry: 300
 */
 
 SELECT
-  Concat('<a href="https://staff.nexpresslibrary.org/cgi-bin/koha/circ/circulation.pl?borrowernumber=', borrowers.borrowernumber, '" target="_blank">Link to patron</a>') AS LINK_TO_PATRON,
+  Concat('<a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=', borrowers.borrowernumber, '" target="_blank">Link to patron</a>') AS LINK_TO_PATRON,
   borrowers.borrowernumber,
   borrowers.cardnumber,
   borrowers.branchcode,

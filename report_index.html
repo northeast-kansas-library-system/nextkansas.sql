@@ -30,22 +30,46 @@
 
     <tr>
 
-      <td>00214<br /><br />Null Report - Missing Item Type report for all libraries<br /><br />-<br />-<br /><br />Created by:<br />-</td>
+      <td>00214<br /><br />GHW - Items with important fields that are blank or have problematic values<br /><br />-<br />-<br /><br />Created by:<br />-</td>
 
       <td>
-        <div id=reportinfo>
-          <p>Shows items with Unknown (itype code XXX) item type or no item type</p>
+        <div id=reportinfo class=noprint>
+          <p>Shows item records with important fields that are blank or may be problematic</p>
           <ul>
-            <li>Shows items that currently have an empty item type or an "(Unclassified)" item type</li>
-            <li>shows items at the library or libraries you choose</li>
-            <li>grouped by itemnumber and biblionumber</li>
-            <li>sorted in the standard Next Search Catalog sort order</li>
+            <li>Shows items currently in the catalog with the following fields left blank (or in some cases "Unclassified"):</li>
+            <ul>
+              <li>barcode</li>
+              <li>permanent shelving location (blank or cataloging, processing, or recently returned)</li>
+              <li>item type (blank or unclassified)</li>
+              <li>collection code (blank or unclassified)</li>
+              <li>call number</li>
+              <li>replacement price</li>
+            </ul>
+            <li>at the library you specify; and with the blank field you specify</li>
+            <li>grouped by biblio number and item number</li>
+            <li>sorted by item home branch, location, item type, collection code, call number, author, and title</li>
+            <li>contains links to the bibliographic record</li>
           </ul><br />
           <p><ins>Notes:</ins></p>
-          <p>Should be run monthly</p>
-          <p>Report created by Heather Braum. Explanatory notes added by GHW on 2016.08.19.</p>
-          <p>Report updated 2020.12.24</p>
+          <p></p>
+          <p>Replaces reports:</p>
+          <ul>
+            <li>214 - Null Report - Missing Item Type report for all libraries (previous version)</li>
+            <li>1285 - Null Report - Missing Collection Codes all</li>
+            <li>1398 - Collection Codes to Fix</li>
+            <li>1401 - Item Types to Fix</li>
+            <li>1402 - Missing Replacement Prices</li>
+            <li>1404 - Shelving Locations to fix</li>
+            <li>1405 - Missing Call Number</li>
+            <li>1782 - Home or Current Branch is Null</li>
+            <li>1912 - Null report -- Missing Shelving Location all</li>
+            <li>3057 - GHW - Empty LOCATION/ITYPE/CCODES</li>
+            <li>3362 - GHW - Items at a library without a replacement cost</li>
+          </ul>
+          <p></p>
+          <p class="notetags" style="display: none;">tag goes here</p>
         </div>
+
       </td>
 
     </tr>
@@ -267,14 +291,6 @@
       <td>00765<br /><br />Deleted items from a Year, Listed<br /><br />Catalog Records and Items<br />Weeded Already<br /><br />Created by:<br /> Tongie Book Club</td>
 
       <td>Lists the items your library deleted in XXXX year. Pick your branch and insert the year.</td>
-
-    </tr>
-
-    <tr>
-
-      <td>00770<br /><br />All AATEMP patrons<br /><br />Borrowers<br />Fix Patrons<br /><br />Created by:<br /> Tongie Book Club</td>
-
-      <td>Please fix!</td>
 
     </tr>
 
@@ -651,7 +667,13 @@
 
       <td>01285<br /><br />Null Report - Missing Collection Codes all<br /><br />Administrative Reports<br />Fix Items-admin<br /><br />Created by:<br />-</td>
 
-      <td>Monthly report for all missing CCodes.</td>
+      <td>
+        <div id=reportinfo>
+          <h1>Replaced by report 214</h1>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=214&phase=Run%20this%20report" target="_blank">Click here to run report 214</a></p>
+          <p>Will be deleted on November 1, 2021</p>
+        </div>
+      </td>
 
     </tr>
 
@@ -757,7 +779,13 @@
 
       <td>01398<br /><br />Collection Codes to Fix<br /><br />Catalog Records and Items<br />Fix Items<br /><br />Created by:<br />Heather Braum</td>
 
-      <td>Missing/Null, or XXX/Unclassified Ccode -- Enhanced -- Choose branch from the dropdown. Can edit items directly linked from this report. (On Reports Webpages, 5/14/12) #cleanup</td>
+      <td>
+        <div id=reportinfo>
+          <h1>Replaced by report 214</h1>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=214&phase=Run%20this%20report" target="_blank">Click here to run report 214</a></p>
+          <p>Will be deleted on November 1, 2021</p>
+        </div>
+      </td>
 
     </tr>
 
@@ -765,9 +793,13 @@
 
       <td>01401<br /><br />Item Types to Fix<br /><br />Catalog Records and Items<br />Fix Items<br /><br />Created by:<br />Heather Braum</td>
 
-      <td>Missing/Null, or XXX/Unclassified Item Types -- Enhanced -- Choose branch from the dropdown. Can edit items directly linked from this report. (On Reports Webpages, 5/14/12) #cleanup
-
-        HB_Monthly</td>
+      <td>
+        <div id=reportinfo>
+          <h1>Replaced by report 214</h1>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=214&phase=Run%20this%20report" target="_blank">Click here to run report 214</a></p>
+          <p>Will be deleted on November 1, 2021</p>
+        </div>
+      </td>
 
     </tr>
 
@@ -775,7 +807,13 @@
 
       <td>01402<br /><br />Missing Replacement Prices<br /><br />Catalog Records and Items<br />Fix Items<br /><br />Created by:<br />Heather Braum</td>
 
-      <td>Missing Replacement Price: Enhanced -- Choose branch. Can edit items directly linked from this report. (On Reports Webpages, 5/14/12) #cleanup</td>
+      <td>
+        <div id=reportinfo>
+          <h1>Replaced by report 214</h1>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=214&phase=Run%20this%20report" target="_blank">Click here to run report 214</a></p>
+          <p>Will be deleted on November 1, 2021</p>
+        </div>
+      </td>
 
     </tr>
 
@@ -783,8 +821,13 @@
 
       <td>01404<br /><br />Shelving Locations to fix<br /><br />Catalog Records and Items<br />Fix Items<br /><br />Created by:<br />Heather Braum</td>
 
-      <td>Missing/Null Shelving Locations or NonStandard Shelving Locations (NOT ADULT, YOUNGADULT, or CHILDRENS). -- Enhanced -- Choose branch from the dropdowns. Can edit items directly linked from this report. (On Reports Webpages, 5/14/12)
-        #cleanup</td>
+      <td>
+        <div id=reportinfo>
+          <h1>Replaced by report 214</h1>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=214&phase=Run%20this%20report" target="_blank">Click here to run report 214</a></p>
+          <p>Will be deleted on November 1, 2021</p>
+        </div>
+      </td>
 
     </tr>
 
@@ -792,7 +835,13 @@
 
       <td>01405<br /><br />Missing Call Number<br /><br />Catalog Records and Items<br />Fix Items<br /><br />Created by:<br />Heather Braum</td>
 
-      <td>Missing Item Call Number -- Enhanced -- Choose branch. Can edit items directly linked from this report. (On Reports Webpages, 5/14/12) #cleanup</td>
+      <td>
+        <div id=reportinfo>
+          <h1>Replaced by report 214</h1>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=214&phase=Run%20this%20report" target="_blank">Click here to run report 214</a></p>
+          <p>Will be deleted on November 1, 2021</p>
+        </div>
+      </td>
 
     </tr>
 
@@ -1050,7 +1099,13 @@
 
       <td>01782<br /><br />Home or Current Branch is Null<br /><br />Administrative Reports<br />Fix Items-admin<br /><br />Created by:<br />Heather Braum</td>
 
-      <td>(empty/missing homebranch)</td>
+      <td>
+        <div id=reportinfo>
+          <h1>Replaced by report 214</h1>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=214&phase=Run%20this%20report" target="_blank">Click here to run report 214</a></p>
+          <p>Will be deleted on November 1, 2021</p>
+        </div>
+      </td>
 
     </tr>
 
@@ -1059,14 +1114,6 @@
       <td>01783<br /><br />Count of authors in a series<br /><br />Administrative Reports<br />Fix Bib Records-admin<br /><br />Created by:<br />Heather Braum</td>
 
       <td></td>
-
-    </tr>
-
-    <tr>
-
-      <td>01787<br /><br />AATEMP patrons, limited by branch<br /><br />Borrowers<br />Fix Patrons<br /><br />Created by:<br />Heather Braum</td>
-
-      <td>Patrons missing a categorycode; Includes edit patron link</td>
 
     </tr>
 
@@ -1184,7 +1231,13 @@
 
       <td>01912<br /><br />Null report -- Missing Shelving Location all<br /><br />Administrative Reports<br />Fix Items-admin<br /><br />Created by:<br />Heather Braum</td>
 
-      <td>Where shelving location is NULL</td>
+      <td>
+        <div id=reportinfo>
+          <h1>Replaced by report 214</h1>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=214&phase=Run%20this%20report" target="_blank">Click here to run report 214</a></p>
+          <p>Will be deleted on November 1, 2021</p>
+        </div>
+      </td>
 
     </tr>
 
@@ -2245,10 +2298,10 @@
 
       <td>
         <div id=reportinfo>
-          <p>This report shows all items added to NExpress at a specific library branch after a specified date - includes date added, date last borrowed, date last seen, and total circulations+renewals</p>
+          <p>This report shows all items added to Next Search Catalog at a specific library branch after a specified date - includes date added, date last borrowed, date last seen, and total circulations+renewals</p>
           <p>Includes the date the item was added (dateaccessioned), the date the item was last checked out to a patron (datelastborrowed), and the date the item was last scanned on the check-in screen (datelastseen).</p>
           <ul>
-            <li>Shows items that are currently still in NExpress</li>
+            <li>Shows items that are currently still in Next</li>
             <li>Allows user to specify the item's homebranch, shelving location, item type, collection code, and the item's date added</li>
             <li>grouped by homebranch, location, itype, collection code, and call number</li>
             <li>sorted by homebranch, location, itype, collection code, and call number</li>
@@ -2262,6 +2315,8 @@
           </p>
           <p></p>
           <p>publicationyear data comes from the 264$c subfield. If the data in 264$c is not a 4 digit year, the data will be problematic. If 264$c is blank, the result in this report will be blank.</p>
+          <p></p>
+          <p>Report updated on 2021.09.08 to include ISBN and ISSN fields.</p>
           <p></p>
           <p>Formerly called "Flexible Weeding Report"</p>
           <p>Replaces reports:
@@ -2287,10 +2342,9 @@
               <li>2809 (GHW - List of items with display locations)</li>
               <li>886 Videogames Circ List</li>
             </ul>
-          </p>
-          <p></p>
-          <p>Added public and non-public notes fields on 2016.12.28</p>
-          <p>Added item count fields on 2018.10.03</p>
+            <p></p>
+            <p>Added public and non-public notes fields on 2016.12.28</p>
+            <p>Added item count fields on 2018.10.03</p>
 
         </div>
       </td>
@@ -4343,14 +4397,6 @@
 
     <tr>
 
-      <td>02942<br /><br />GHW - Price repair - Excludes Donations and ILL<br /><br /> BONNERSPGS<br />-<br /><br />Created by:<br />George H Williams</td>
-
-      <td></td>
-
-    </tr>
-
-    <tr>
-
       <td>02945<br /><br />GHW - Missing In Transit last 6 months e-mail<br /><br />Circulation<br />Transfers<br /><br />Created by:<br />George H Williams</td>
 
       <td>
@@ -5349,7 +5395,13 @@
 
       <td>03057<br /><br />GHW - Empty LOCATION/ITYPE/CCODES<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
 
-      <td></td>
+      <td>
+        <div id=reportinfo>
+          <h1>Replaced by report 214</h1>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=214&phase=Run%20this%20report" target="_blank">Click here to run report 214</a></p>
+          <p>Will be deleted on November 1, 2021</p>
+        </div>
+      </td>
 
     </tr>
 
@@ -8752,7 +8804,7 @@
             <li>Report 3077 - GHW - Borrowers count by category</li>
           </ul>
           <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3361&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
-          <p class="notetags" style="display: none;">#borrower #count</p>
+          <p class="notetags" style="display: none;">#borrower #count #ultimate</p>
         </div>
       </td>
 
@@ -8763,22 +8815,10 @@
       <td>03362<br /><br />GHW - Items at a library without a replacement cost<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
 
       <td>
-        <div id=reportinfo class=noprint>
-          <p>Searches for items where the "Cost, replacement price" is blank or = $0.00</p>
-          <ul>
-            <li>Shows items currently in the catalog</li>
-            <li>at the library you specify</li>
-            <li>grouped by item number </li>
-            <li>sorted by the standard Next Search Catalog classification scheme</li>
-            <li>contains links to the item's bibliographic record and the edit item page for each individual item</li>
-          </ul><br />
-          <p><ins>Notes:</ins></p>
-          <p></p>
-          <p>If an item's "Cost, replacement price" field is left blank or is set to $0.00, any patron keeping that item overdue for more than 45 days will not be billed for the replacement of that item. If no replacement cost is defined for an item,
-            or of the replacement cost is $0.00, the system will try to bill the patron $0.00 and if the amount due on a lost item invoice is $0.00, the system will simply not print a lost item invoice.</p>
-          <p></p>
-          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3362&phase=Run%20this%20report" target="_blank">Click here to run in a new window</a></p>
-          <p class="notetags" style="display: none;">replacement price, item fixup</p>
+        <div id=reportinfo>
+          <h1>Replaced by report 214</h1>
+          <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=214&phase=Run%20this%20report" target="_blank">Click here to run report 214</a></p>
+          <p>Will be deleted on November 1, 2021</p>
         </div>
       </td>
 
@@ -10834,7 +10874,7 @@
 
     <tr>
 
-      <td>03548<br /><br />GHW - Monthly borrower count by zipcode - in progress<br /><br />Statistics<br />Last month's statistics - Next-wide<br /><br />Created by:<br />George H Williams</td>
+      <td>03548<br /><br />GHW - Monthly borrower count by zipcode<br /><br />Statistics<br />Last month's statistics - Next-wide<br /><br />Created by:<br />George H Williams</td>
 
       <td></td>
 
@@ -10853,6 +10893,109 @@
       <td>03550<br /><br />GHW - Biblio reconciliation Last months adds<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
 
       <td></td>
+
+    </tr>
+
+    <tr>
+
+      <td>03551<br /><br />GHW - Output letter templates as .md files<br /><br />Administrative Reports<br />-<br /><br />Created by:<br />George H Williams</td>
+
+      <td></td>
+
+    </tr>
+
+    <tr>
+
+      <td>03552<br /><br />GHW - Libraries charging late fees<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Generates a list of libraries that still charge late fees</p>
+          <ul>
+            <li>Generates a current list including the item types that are subject to late fees</li>
+            <li>grouped and sorted by whether the library charges fees on all items or if they charge a late fee on just a few item types</li>
+          </ul><br />
+          <p></p>
+          <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3552">Click here to download as a csv file</a></p>
+          <p class="notetags" style="display: none;">#late fees; #fines</p>
+        </div>
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td>03555<br /><br />GHW - Oldest/newest in progress<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+
+      <td></td>
+
+    </tr>
+
+    <tr>
+
+      <td>03556<br /><br />SANDBOX<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+
+      <td></td>
+
+    </tr>
+
+    <tr>
+
+      <td>03557<br /><br />GHW - Items with a specific barcode number length<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Lists all items at a library with a specific item barcode number length</p>
+          <ul>
+            <li>Shows items currently in the catalog</li>
+            <li>At the library you specify and with the item barcode number length you specify</li>
+            <li>grouped by itemnumber and biblionumber</li>
+            <li>sorted by the standard Next Search Catalog classification scheme</li>
+            <li>contains links to the bibliographic record</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>The easiest way to run this report is to run report 3558 for your library and then choose which length barcode for your library you want to list from the right hand column.</p>
+          <p class="notetags" style="display: none;">#item #barcode #length #count</p>
+        </div>
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td>03558<br /><br />GHW - Count of items by barcode number length<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Counts all items at a library based on the length of their barcode numbers</p>
+          <ul>
+            <li>Lists current data</li>
+            <li>At the library you specify</li>
+            <li>grouped and sorted by the name of the library and the length of the barcode numbers</li>
+            <li>links to report 3557 which lists all of the items at a library with a specified barcode number length</li>
+          </ul><br />
+          <p><ins>Notes:</ins></p>
+          <p></p>
+          <p>Can be used to identified errors made when items are entered with an incorrect barcode number</p>
+          <p></p>
+          <p class="notetags" style="display: none;">#item barcode #length #barcode count</p>
+        </div>
+      </td>
+
+    </tr>
+
+    <tr>
+
+      <td>03559<br /><br />GHW - All Koha date fields with oldest and newest dates<br /><br />-<br />-<br /><br />Created by:<br />George H Williams</td>
+
+      <td>
+        <div id=reportinfo class=noprint>
+          <p>Lists every date and timestamp field in every table in Koha and shows the oldest and newest dates.</p>
+          <p>Some dates are further grouped by other field values.</p>
+          <p>Used at the koha-US 2021 conference</p>
+        </div>
+      </td>
 
     </tr>
 

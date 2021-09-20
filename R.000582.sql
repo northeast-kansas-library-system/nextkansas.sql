@@ -12,8 +12,8 @@ Group: Circulation
      Charges
 
 Created on: 2009-06-12 16:22:06
-Modified on: 2018-10-03 09:31:12
-Date last run: 2021-08-11 14:31:11
+Modified on: 2021-08-17 12:55:08
+Date last run: 2021-09-10 14:47:52
 
 ----------
 
@@ -47,7 +47,7 @@ FROM
   borrowers
   LEFT JOIN accountlines ON borrowers.borrowernumber = accountlines.borrowernumber
 WHERE
-  borrowers.branchcode = <<Borrowers home branch|branches>>
+  borrowers.branchcode LIKE <<Borrowers home branch|ZBRAN>>
 GROUP BY
   borrowers.cardnumber
 HAVING

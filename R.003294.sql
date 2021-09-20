@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-12-31 15:05:33
-Modified on: 2020-02-05 16:59:32
-Date last run: 2021-02-04 22:50:55
+Modified on: 2021-09-18 17:30:41
+Date last run: 2021-09-18 17:30:44
 
 ----------
 
@@ -29,9 +29,8 @@ Expiry: 300
 
 SELECT
   rnums.row_number,
-  If(rnums.row_number % 2 <> 0, "Odd", "Even") AS OE,
   itypecnt.code_number,
-  If(Right(itypecnt.code_number, 1) % 2 <> 0, "Odd", "Even") AS EO,
+  CONCAT(If(rnums.row_number % 2 <> 0, "Odd", "Even"), If(Right(itypecnt.code_number, 1) % 2 <> 0, "Odd", "Even")) As EO,
   rnums.branchname AS `Library Name`,
   itemtypes.description AS `Item Type`,
   Concat("") AS `CKO + Renewal`,

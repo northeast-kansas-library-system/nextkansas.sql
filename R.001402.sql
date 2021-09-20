@@ -12,8 +12,8 @@ Group: Catalog Records and Items
      Fix Items
 
 Created on: 2012-05-14 22:08:03
-Modified on: 2017-07-21 16:14:56
-Date last run: 2021-04-13 16:48:05
+Modified on: 2021-09-04 22:49:49
+Date last run: 2021-09-04 22:43:53
 
 ----------
 
@@ -22,43 +22,17 @@ Expiry: 0
 
 ----------
 
-Missing Replacement Price: Enhanced -- Choose branch. Can edit items directly linked from this report. (On Reports Webpages, 5/14/12) #cleanup
+<div id=reportinfo>
+<h1>Replaced by report 214</h1>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=214&phase=Run%20this%20report"  target="_blank">Click here to run report 214</a></p>
+<p>Will be deleted on November 1, 2021</p>
+</div>
 
 ----------
 */
 
 SELECT
-  Concat('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=', biblio.biblionumber,'&itemnumber=', items.itemnumber, '#edititem\" target="_blank">', "Click to edit", '</a>') AS "edit barcode",
-  items.barcode,
-  items.homebranch,
-  items.location,
-  items.itype,
-  items.ccode,
-  items.itemcallnumber,
-  biblio.author,
-  biblio.title,
-  items.dateaccessioned,
-  biblioitems.publicationyear,
-  items.price,
-  items.replacementprice
-FROM
-  items
-  LEFT JOIN biblio ON items.biblionumber = biblio.biblionumber
-  LEFT JOIN biblioitems ON biblio.biblionumber = biblioitems.biblionumber
-WHERE
-  items.homebranch LIKE <<Choose library|ZBRAN>> AND
-  Coalesce(items.replacementprice, 0) >= <<Replacement price greater than or equal to:>> AND
-  Coalesce(items.replacementprice, 0) <= <<Replacement price greater than or equal to:>>
-GROUP BY
-  items.itemnumber
-ORDER BY
-  items.homebranch,
-  items.location,
-  items.itype,
-  items.ccode,
-  items.itemcallnumber,
-  biblio.author,
-  biblio.title
+  CONCAT('<a href="/cgi-bin/koha/reports/guided_reports.pl?reports=214&phase=Run%20this%20report" target="_blank">Click here to run report 214</a>') AS INFO
 
 
 

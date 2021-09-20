@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-08-06 11:01:19
-Modified on: 2021-08-09 09:35:01
-Date last run: 2021-08-17 09:47:26
+Modified on: 2021-08-25 08:25:51
+Date last run: 2021-08-27 09:30:58
 
 ----------
 
@@ -35,9 +35,11 @@ FROM
   biblioitems JOIN
   items ON items.biblioitemnumber = biblioitems.biblioitemnumber
 WHERE
-  biblioitems.agerestriction NOT LIKE "%ADULT%" AND 
-  biblioitems.agerestriction NOT LIKE "%YA%" AND 
-  biblioitems.agerestriction NOT LIKE "%CHILD%"
+  biblioitems.agerestriction LIKE "" OR
+  biblioitems.agerestriction is null OR
+  (biblioitems.agerestriction NOT LIKE "%ADULT%" AND
+  biblioitems.agerestriction NOT LIKE "%YA%" AND
+  biblioitems.agerestriction NOT LIKE "%CHILD%")
 GROUP BY
   biblioitems.biblionumber,
   biblioitems.agerestriction

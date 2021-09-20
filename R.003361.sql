@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2020-10-29 13:05:33
-Modified on: 2020-12-30 17:12:35
-Date last run: 2021-08-16 09:07:51
+Modified on: 2021-09-10 13:08:43
+Date last run: 2021-09-16 16:49:54
 
 ----------
 
@@ -42,7 +42,7 @@ Expiry: 300
   <li>Report 3077 - GHW - Borrowers count by category</li>
 </ul>
 <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3361&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-<p class= "notetags" style="display: none;">#borrower #count</p>
+<p class= "notetags" style="display: none;">#borrower #count #ultimate</p>
 </div>
 
 ----------

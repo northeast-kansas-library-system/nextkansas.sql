@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-12-31 14:13:24
-Modified on: 2020-02-05 15:13:44
-Date last run: 2021-02-04 23:51:04
+Modified on: 2021-09-18 16:37:09
+Date last run: 2021-09-18 17:22:02
 
 ----------
 
@@ -29,9 +29,8 @@ Expiry: 300
 
 Select
   rnums.row_number,
-  If(rnums.row_number % 2 <> 0, "Odd", "Even") As OE,
   ccodess.code_number,
-  If(Right(ccodess.code_number, 1) % 2 <> 0, "Odd", "Even") As EO,
+  CONCAT(If(rnums.row_number % 2 <> 0, "Odd", "Even"), If(Right(ccodess.code_number, 1) % 2 <> 0, "Odd", "Even")) As EO,
   rnums.branchname As `Library Name`,
   authorised_values.lib As `Collection Code`,
   Concat("") As `CKO + Renewal`,

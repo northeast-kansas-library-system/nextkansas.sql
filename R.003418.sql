@@ -12,8 +12,8 @@ Group: Statistics
      Last month's statistics - Next-wide
 
 Created on: 2021-02-04 16:34:33
-Modified on: 2021-07-29 17:15:55
-Date last run: 2021-08-01 00:05:01
+Modified on: 2021-09-18 16:18:19
+Date last run: 2021-09-18 16:18:29
 
 ----------
 
@@ -44,8 +44,7 @@ FROM
     FROM
       items
     WHERE
-      items.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL
-      2 MONTH)), 1)
+      items.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1)
     GROUP BY
       items.homebranch
     UNION
@@ -55,10 +54,8 @@ FROM
     FROM
       deleteditems
     WHERE
-      deleteditems.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 2
-      MONTH)), 1) AND
-      deleteditems.timestamp >= AddDate(Last_Day(SubDate(Now(), INTERVAL 2
-      MONTH)), 1)
+      deleteditems.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) AND
+      deleteditems.timestamp >= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1)
     GROUP BY
       deleteditems.homebranch) START_ITEMS ON branches.branchcode =
       START_ITEMS.homebranch LEFT JOIN
@@ -68,8 +65,7 @@ FROM
     FROM
       items
     WHERE
-      items.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL
-      1 MONTH)), 1)
+      items.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1)
     GROUP BY
       items.homebranch
     UNION
@@ -79,10 +75,8 @@ FROM
     FROM
       deleteditems
     WHERE
-      deleteditems.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1
-      MONTH)), 1) AND
-      deleteditems.timestamp >= AddDate(Last_Day(SubDate(Now(), INTERVAL 1
-      MONTH)), 1)
+      deleteditems.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
+      deleteditems.timestamp >= AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1)
     GROUP BY
       deleteditems.homebranch) END_ITEMS ON branches.branchcode =
       END_ITEMS.homebranch LEFT JOIN
@@ -125,8 +119,7 @@ FROM
     FROM
       items
     WHERE
-      items.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL
-      1 MONTH)), 1)
+      items.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1)
     GROUP BY
       items.homebranch
     UNION
@@ -136,10 +129,8 @@ FROM
     FROM
       deleteditems
     WHERE
-      deleteditems.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1
-      MONTH)), 1) AND
-      deleteditems.timestamp >= AddDate(Last_Day(SubDate(Now(), INTERVAL 1
-      MONTH)), 1)
+      deleteditems.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
+      deleteditems.timestamp >= AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1)
     GROUP BY
       deleteditems.homebranch) TOTAL_HOLDINGS ON branches.branchcode =
       TOTAL_HOLDINGS.homebranch LEFT JOIN

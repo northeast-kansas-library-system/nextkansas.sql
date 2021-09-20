@@ -12,8 +12,8 @@ Group: Administrative Reports
      Fix Items-admin
 
 Created on: 2013-04-01 10:44:22
-Modified on: 2013-07-30 16:27:09
-Date last run: 2019-02-13 13:41:30
+Modified on: 2021-09-04 22:49:44
+Date last run: 2021-09-04 22:43:48
 
 ----------
 
@@ -22,12 +22,17 @@ Expiry: 0
 
 ----------
 
-(empty/missing homebranch)
+<div id=reportinfo>
+<h1>Replaced by report 214</h1>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=214&phase=Run%20this%20report"  target="_blank">Click here to run report 214</a></p>
+<p>Will be deleted on November 1, 2021</p>
+</div>
 
 ----------
 */
 
-SELECT CONCAT ('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',biblionumber,'\" target="_blank">'"link to record"'</a>') AS "Linked Record", itemnumber, homebranch, holdingbranch, barcode FROM items WHERE homebranch IS NULL OR holdingbranch IS NULL
+SELECT
+  CONCAT('<a href="/cgi-bin/koha/reports/guided_reports.pl?reports=214&phase=Run%20this%20report" target="_blank">Click here to run report 214</a>') AS INFO
 
 
 

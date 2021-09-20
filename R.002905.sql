@@ -1235,8 +1235,7 @@ FROM
       accountlines.manager_id AND
       action_logs.object = accountlines.borrowernumber
   WHERE
-    accountlines.accountno = SubString_Index(SubString_Index(action_logs.info,
-    "'accountno' => '", -1), "'", 1) AND
+    accountlines.accountno = SubString_Index(SubString_Index(action_logs.info, "'accountno' => '", -1), "'", 1) AND
     action_logs.module = 'FINES' AND
     action_logs.action Like '%CREAT%' AND
     action_logs.info LIKE "%accountlines_paid%" AND
@@ -1255,8 +1254,17 @@ FROM
   items
     ON paid.itemnumber = items.itemnumber
 GROUP BY
-  staff.branchcode, payments.amount, patron.cardnumber, Replace(payments.note,
-  "\r\n", ""), payments.date, Concat_Ws("-", payments.accountlines_id,
-  payments.accountno), items.barcode, items.homebranch, paid.date, paid.amount,
-  payments.amountoutstanding, paid.description, Replace(paid.note, "\r\n", ""),
+  staff.branchcode,
+  payments.amount,
+  patron.cardnumber,
+  Replace(payments.note, "\r\n", ""),
+  payments.date,
+  Concat_Ws("-", payments.accountlines_id, payments.accountno),
+  items.barcode,
+  items.homebranch,
+  paid.date,
+  paid.amount,
+  payments.amountoutstanding,
+  paid.description,
+  Replace(paid.note, "\r\n", ""),
   Concat_Ws("-", paid.accountlines_id, paid.accountno)

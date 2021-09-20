@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-08-02 23:23:38
-Modified on: 2021-07-05 19:15:35
-Date last run: 2021-08-17 09:47:26
+Modified on: 2021-08-27 09:29:09
+Date last run: 2021-09-16 21:11:07
 
 ----------
 
@@ -107,7 +107,7 @@ FROM
 WHERE
   borrowers.dateexpiry < CurDate() - INTERVAL 3 YEAR AND
   borrowers.branchcode LIKE '%' AND
-  borrowers.othernames NOT LIKE "%SIP%" AND
+  Coalesce(borrowers.othernames, "0") NOT LIKE "%SIP%" AND
   borrowers.categorycode <> 'STAFF' AND
   borrowers.categorycode <> 'ILL' AND
   borrowers.categorycode <> 'HOOPLA' AND
