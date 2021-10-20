@@ -13,7 +13,7 @@ Group: Holds-Reserves
 
 Created on: 2016-09-25 22:37:09
 Modified on: 2021-02-08 14:51:49
-Date last run: 2021-09-18 12:00:11
+Date last run: 2021-10-20 08:55:25
 
 ----------
 
@@ -35,6 +35,8 @@ Expiry: 0
 
 ----------
 */
+
+
 
 SELECT
   Concat_Ws('<br />', 
@@ -115,6 +117,28 @@ ORDER BY
   biblio.author,
   biblio.title,
   items.barcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

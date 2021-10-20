@@ -27,6 +27,8 @@ Circulation of Dewey numbers (grouped by Dewey numbers and location) during a se
 ----------
 */
 
+
+
 SELECT 
 	CASE
 WHEN i.itemcallnumber REGEXP '^.*00[0-9]\..*$' OR i.itemcallnumber REGEXP '^.*01[0-9] .*$' THEN '000 Generalities'
@@ -134,6 +136,28 @@ WHEN i.itemcallnumber REGEXP '^.*99[0-9]\..*$' OR i.itemcallnumber REGEXP '^.*99
 FROM items i LEFT OUTER JOIN statistics s USING(itemnumber)
 WHERE month(s.datetime)=<<Choose Month|Month>> AND year(s.datetime)=<<Choose Year|Year>> AND s.type IN ('issue','renew') AND s.branch=<<choose your library|branches>>
 GROUP BY dewey_number, location
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

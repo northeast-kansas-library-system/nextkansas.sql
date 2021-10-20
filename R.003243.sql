@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-08-02 23:23:38
 Modified on: 2021-08-27 09:29:09
-Date last run: 2021-09-16 21:11:07
+Date last run: 2021-10-20 08:28:07
 
 ----------
 
@@ -30,6 +30,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   Concat(
@@ -125,6 +127,28 @@ ORDER BY
   borrowers.surname,
   borrowers.firstname,
   borrowers.borrowernumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

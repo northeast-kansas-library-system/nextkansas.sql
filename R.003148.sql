@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat("Recently added book: ", biblio.title, "<br /><br />Summary:<br /><br />",
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="520"]//subfield[@code="a"]'),
@@ -70,6 +72,28 @@ HAVING
   Group_Concat(items.notforloan) LIKE "%0%" AND
   Group_Concat(items.location) LIKE "CHILD%"
 LIMIT 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

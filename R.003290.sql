@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat('<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=', LBRANCH.category, '" target="_blank">Link to AV</a>') AS LINK,
   If(LBRANCH.category IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", LBRANCH.category) AS category,
@@ -104,6 +106,28 @@ ORDER BY
   category,
   authorised_value
 LIMIT 10000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

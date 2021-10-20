@@ -41,6 +41,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   items.homebranch AS LIBRARY,
   locs.lib AS SHELVING_LOCATION,
@@ -75,6 +77,28 @@ GROUP BY
   items.homebranch,
   locs.lib,
   ccodes.lib
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

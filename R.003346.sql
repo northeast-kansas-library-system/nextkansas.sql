@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   items.itemnumber,
   items.barcode,
@@ -96,6 +98,28 @@ ORDER BY
   items.itemcallnumber,
   biblio.author,
   FULL_TITLE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

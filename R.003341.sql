@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   borrowers.cardnumber,
   borrowers.surname,
@@ -56,6 +58,28 @@ GROUP BY
   borrowers.borrowernotes,
   borrowers.dateofbirth,
   borrowers.borrowernumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

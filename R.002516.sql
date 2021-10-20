@@ -27,7 +27,31 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT accounttype, COUNT(*) from accountlines LEFT JOIN borrowers USING (borrowernumber) WHERE borrowers.branchcode="EUDORA" AND year(date)="2015" AND month(date)="04" GROUP BY accounttype
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -27,6 +27,8 @@ First draft.
 ----------
 */
 
+
+
 SELECT
   Concat(
     "nexthelp@nekls.org<br /><br />Item deleted at your library that was not owned by your library<br /><br />",
@@ -131,6 +133,28 @@ GROUP BY
   action_logs.action_id,
   deleteditems.itemnumber,
   biblio.biblionumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

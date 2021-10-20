@@ -27,10 +27,34 @@ Simple table showing branch names and branchcode
 ----------
 */
 
+
+
 SELECT branches.branchname,
   branches.branchcode 
 FROM branches 
 ORDER BY branchname ASC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

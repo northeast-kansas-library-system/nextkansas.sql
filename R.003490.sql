@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   authorised_values.category,
   authorised_values.lib AS DESCRIPTION_STAFF,
@@ -43,6 +45,28 @@ GROUP BY
   authorised_values.id
 ORDER BY
   DESCRIPTION_STAFF
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

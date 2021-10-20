@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   statistics.branch AS CHECK_OUT_BRANCH,
   If(borrowers.branchcode IS NULL AND deletedborrowers.branchcode IS NULL, ' --', Concat(Coalesce(borrowers.branchcode, deletedborrowers.branchcode))) AS BORROWERS_HOMEBRANCH,
@@ -62,6 +64,28 @@ GROUP BY
   ITEM_TYPE,
   ITEM_CCODE
   WITH ROLLUP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -37,6 +37,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   old_issues.returndate,
   items.barcode,
@@ -65,6 +67,28 @@ WHERE
   items.barcode = <<Enter item barcode number>>
 ORDER BY
   old_issues.returndate DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

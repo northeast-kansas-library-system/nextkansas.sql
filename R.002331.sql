@@ -27,7 +27,31 @@ This report shows records with 3+ holds by a single library's patrons, and shows
 ----------
 */
 
+
+
 SELECT r.branchcode, CONCAT ('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',r.biblionumber,'\" target="_blank">'"link to record"'</a>') AS "link to record", b.title, count(r.reserve_id) as your_patron_holds, (SELECT count(i.itemnumber) FROM items i WHERE i.biblionumber=r.biblionumber AND i.homebranch=r.branchcode AND i.damaged='0' AND i.withdrawn='0' AND itemlost='0') as your_lib_holdings FROM biblio b LEFT JOIN reserves r USING (biblionumber) JOIN borrowers p USING(borrowernumber)  WHERE r.branchcode=<<choose your library|branches>> GROUP BY r.biblionumber, r.branchcode HAVING count(r.reserve_id) > 2 ORDER BY your_lib_holdings asc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

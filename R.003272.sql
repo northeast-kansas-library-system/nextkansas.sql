@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat_Ws(
     "",
@@ -178,6 +180,28 @@ FROM
   ) receivingbranch
 GROUP BY
   items.itemnumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

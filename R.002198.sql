@@ -27,7 +27,31 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT count(*) FROM borrowers WHERE branchcode=<<branch|branches>> AND year(dateenrolled)=<<enter four-digit year>> AND month(dateenrolled)=<<enter two-digit month>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

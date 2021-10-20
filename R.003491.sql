@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   itemtypes.description AS ITEM_TYPE_DESCRIPTION,
   itemtypes.itemtype AS ITEM_TYPE_CODE
@@ -35,6 +37,28 @@ FROM
 ORDER BY
   ITEM_TYPE_DESCRIPTION
 LIMIT 500
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

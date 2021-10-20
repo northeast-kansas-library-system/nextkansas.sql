@@ -27,12 +27,36 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   items.itemnumber
 FROM
   items
 WHERE
   items.barcode IN (<<Enter item barcode numbers in quotes and separated by commas>>)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

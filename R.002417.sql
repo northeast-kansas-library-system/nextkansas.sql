@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2014-11-17 15:36:58
 Modified on: 2014-11-17 15:36:58
-Date last run: 2021-06-19 10:15:35
+Date last run: 2021-10-01 14:45:00
 
 ----------
 
@@ -27,8 +27,32 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT count(statistics.datetime) AS circs, biblio.title, biblio.author, items.ccode FROM statistics JOIN items USING (itemnumber) 
 LEFT JOIN biblio USING(biblionumber) WHERE DATE(statistics.datetime) > DATE_SUB(CURRENT_DATE(),INTERVAL 6 MONTH) AND DATE(statistics.datetime)<=CURRENT_DATE() AND statistics.itemnumber IS NOT NULL AND statistics.branch=<<choose library|branches>> AND items.ccode=<<ccode|CCODE>> AND items.location =<<location|LOC>> GROUP BY biblio.biblionumber ORDER BY circs DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

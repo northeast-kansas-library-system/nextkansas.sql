@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT concat(b.surname,', ',b.firstname) AS name, count(s.borrowernumber) AS checkouts
 FROM statistics s
 LEFT JOIN borrowers b
@@ -35,6 +37,28 @@ WHERE b.branchcode=<<chopse branch|branches>> AND s.datetime BETWEEN <<Top check
 GROUP BY s.borrowernumber
 ORDER BY count(s.borrowernumber) DESC
 LIMIT 2000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

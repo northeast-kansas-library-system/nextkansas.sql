@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   items.biblionumber,
   GROUP_CONCAT(DISTINCT items.location ORDER BY items.location) AS LOCATIONS,
@@ -46,6 +48,28 @@ WHERE
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="e"]') <> "YOUNGADULT"
 GROUP BY
   items.biblionumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

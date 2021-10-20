@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   reserves.branchcode,
   Concat('<a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=', reserves.borrowernumber, '#reserves " target="_blank">Open in new window</a>') AS LINK,
@@ -46,6 +48,28 @@ GROUP BY
   reserves.suspend_until
 ORDER BY
   reserves.borrowernumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

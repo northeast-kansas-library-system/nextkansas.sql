@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2015-02-12 21:15:52
 Modified on: 2021-07-16 10:42:19
-Date last run: 2021-09-19 17:00:04
+Date last run: 2021-10-20 09:00:03
 
 ----------
 
@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   CURRENT_TIMESTAMP() AS "report time",
   Coalesce(tmp_holdsqueue.holdingbranch, "Total") AS BRANCH,
@@ -36,6 +38,28 @@ FROM
 GROUP BY
   tmp_holdsqueue.holdingbranch WITH ROLLUP
 LIMIT 100
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

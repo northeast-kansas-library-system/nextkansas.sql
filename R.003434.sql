@@ -40,6 +40,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branches.branchcode,
   Coalesce(ADULT.count, 0) AS CR_ADULT_LM
@@ -66,6 +68,28 @@ ORDER BY
   branches.branchcode
 LIMIT
   1000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

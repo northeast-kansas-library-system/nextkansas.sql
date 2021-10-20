@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   statistics.branch,
   If(items.ccode IS NULL AND deleteditems.ccode IS NULL, ' --',
@@ -47,6 +49,28 @@ GROUP BY
   statistics.branch, 
   ITEM_CCODE
   WITH ROLLUP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

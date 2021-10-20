@@ -27,6 +27,8 @@ NExpress ILL Loans
 ----------
 */
 
+
+
 SELECT
   branches.branchcode,
   Coalesce(ILL_LOANED.count, 0) AS NX_ILL_LOANED_LM
@@ -52,6 +54,28 @@ GROUP BY
   branches.branchcode
 ORDER BY
   branches.branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

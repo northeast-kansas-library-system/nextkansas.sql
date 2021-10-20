@@ -37,6 +37,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   reserves.timestamp,
   reserves.biblionumber,
@@ -67,6 +69,28 @@ WHERE
   borrowers.cardnumber = <<Enter patron barcode number>>
 ORDER BY
   reserves.timestamp DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   reserves.reserve_id,
   reserves.borrowernumber,
@@ -52,6 +54,28 @@ FROM
   reserves
 WHERE
   DateDiff(reserves.expirationdate, reserves.reservedate) < 365
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2014-03-11 14:41:38
 Modified on: 2019-11-19 11:27:11
-Date last run: 2021-09-18 11:52:51
+Date last run: 2021-10-09 12:15:17
 
 ----------
 
@@ -26,6 +26,8 @@ Limited by branch, collection code, shelving location.
 
 ----------
 */
+
+
 
 SELECT items.barcode AS 'Barcode',
        items.holdingbranch,
@@ -47,6 +49,28 @@ WHERE items.homebranch= <<Pick Your Branch|branches>>
   AND ((items.issues IS NULL AND items.dateaccessioned < <<enter date item added TO CATALOG TO CHECK PRIOR TO yyyy-mm-dd>>)
        OR items.datelastborrowed < <<LAST date borrowed enter date yyyy-mm-dd>>)
 ORDER BY items.itemcallnumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

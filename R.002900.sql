@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
 concat("<p>NExpress Missing in transit item:  ",items.barcode,"</p><p> </p><p>Dear coleagues,</p><p>The following item has been in transit between two locations for ", DateDiff(CurDate(), branchtransfers.datesent), " days.  The details are as follow:</p><p>", items.location,"<br />", items.itype, "<br />", ccode.lib,"<br />", items.itemcallnumber,"<br />", biblio.author, "<br />", biblio.title, "<br />", items.barcode,"</p><p>Owning library:  ", items.homebranch, "<br />Current library:  ", items.holdingbranch, "<br />In transit from ", branchtransfers.frombranch, " to ", branchtransfers.tobranch,"<br />since ", branchtransfers.datesent, "</p><p>The item was last checked in ", DateDiff(CurDate(), items.datelastseen), " days ago on ", items.datelastseen, ".</p><p>Could you please look for this item at your library and let us know whether or not you find it?</p><p>Thank you</p>") AS LETTER_CONTENT
 FROM
@@ -56,6 +58,28 @@ ORDER BY
   items.itemcallnumber,
   biblio.author,
   biblio.title
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

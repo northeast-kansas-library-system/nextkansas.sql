@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   categorycode,
   description
@@ -34,6 +36,28 @@ FROM categories
 GROUP BY
   categorycode
 LIMIT 300
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

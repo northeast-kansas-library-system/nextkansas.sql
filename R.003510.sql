@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   borrowers.borrowernumber,
   borrowers.cardnumber,
@@ -37,6 +39,28 @@ FROM
 WHERE
   borrowers.branchcode = 'OTTAWA' AND
   borrowers.categorycode = 'ASSOCIATE'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

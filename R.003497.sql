@@ -42,6 +42,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat(
     '<a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=',
@@ -121,6 +123,28 @@ ORDER BY
   borrowers.dateexpiry,
   borrowers.branchcode,
   borrowers.borrowernumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

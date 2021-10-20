@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   statistics.branch,
   statistics.itemtype,
@@ -37,6 +39,28 @@ WHERE statistics.type = "issue" AND
   statistics.branch LIKE <<Enter branch code>>
 GROUP BY statistics.branch, statistics.itemtype
 WITH ROLLUP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2014-04-23 13:48:23
 Modified on: 2014-04-23 14:10:57
-Date last run: 2021-02-24 09:32:28
+Date last run: 2021-09-20 16:26:13
 
 ----------
 
@@ -27,7 +27,31 @@ This report limits on items' home library and collection code, and displays the 
 ----------
 */
 
+
+
 select borrowers.cardnumber, borrowers.branchcode as homelibrary, borrowers.firstname, borrowers.surname, biblio.title, items.itemcallnumber as callnumber, items.location, items.ccode, items.itype, items.barcode, DATE(issues.issuedate) as "date out", (TO_DAYS(curdate())-TO_DAYS(issuedate)) as daysout, DATE(issues.date_due) AS "date due", (TO_DAYS(curdate())-TO_DAYS(date_due)) as "days overdue", date(issues.lastreneweddate) as "last renewed", issues.renewals  from issues join borrowers USING(borrowernumber) join items using(itemnumber) join biblio using(biblionumber)  where items.homebranch=<<branch|branches>> AND items.ccode=<<ccode|CCODE>> ORDER BY daysout DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

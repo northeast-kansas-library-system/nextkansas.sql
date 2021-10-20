@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-09-10 11:59:57
 Modified on: 2019-11-04 15:28:45
-Date last run: 2021-09-15 17:10:54
+Date last run: 2021-10-15 12:17:12
 
 ----------
 
@@ -39,6 +39,8 @@ Expiry: 10
 
 ----------
 */
+
+
 
 SELECT
   Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">Link to title</a>') AS 'LINK_TO_TITLE',
@@ -87,6 +89,28 @@ HAVING
   (Count(DISTINCT reserves.borrowernumber) / Count(DISTINCT items.itemnumber)) > 3
 ORDER BY
   (Count(DISTINCT reserves.borrowernumber) / Count(DISTINCT items.itemnumber)) DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

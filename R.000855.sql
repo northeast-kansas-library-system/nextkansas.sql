@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2010-04-23 14:09:57
 Modified on: 2021-09-07 22:26:30
-Date last run: 2021-09-07 22:29:09
+Date last run: 2021-10-19 12:59:21
 
 ----------
 
@@ -26,6 +26,8 @@ Select branch, enter call number prefix, and run
 
 ----------
 */
+
+
 
 SELECT
   items.itype,
@@ -43,6 +45,28 @@ WHERE
   items.itemcallnumber LIKE Concat(<<Enter Call Number prefix>>, "%")
 ORDER BY
   items.dateaccessioned DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

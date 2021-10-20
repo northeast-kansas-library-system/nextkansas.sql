@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2021-05-03 01:23:47
 Modified on: 2021-08-02 17:35:20
-Date last run: 2021-09-01 00:37:02
+Date last run: 2021-10-01 00:45:01
 
 ----------
 
@@ -26,6 +26,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   branch_itype.branchname,
@@ -183,6 +185,28 @@ GROUP BY
 ORDER BY
   branch_itype.branchname,
   CCODE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

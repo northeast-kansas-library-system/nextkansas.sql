@@ -27,7 +27,31 @@ Expiry: 300
 ----------
 */
 
+
+
 select relationship, count(id) from borrower_relationships group by relationship
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

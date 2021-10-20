@@ -27,7 +27,31 @@ Choose your branch and a collection code. Displays item title, callnumber, locat
 ----------
 */
 
+
+
 SELECT biblio.title, items.itemcallnumber, items.location, items.barcode, CONCAT('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=',biblio.biblionumber,'&itemnumber=',items.itemnumber,'#edititem\" target="_blank">'"edit item"'</a>') as "edit barcode"  FROM biblio JOIN items USING(biblionumber) WHERE items.homebranch=<<branch|branches>> AND items.ccode=<<ccode|CCODE>> ORDER BY biblio.title
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

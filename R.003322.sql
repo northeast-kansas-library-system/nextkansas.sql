@@ -27,6 +27,8 @@ No data prior to August of 2018
 ----------
 */
 
+
+
 SELECT
   borrowers.branchcode,
   Year(account_offsets.created_on),
@@ -54,6 +56,28 @@ ORDER BY
   borrowers.branchcode,
   Year(account_offsets.created_on),
   Month(account_offsets.created_on)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

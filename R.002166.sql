@@ -27,7 +27,31 @@ Groups Book, Localholdbook, walkinbook, newbook, and reference item types togeth
 ----------
 */
 
+
+
 SELECT homebranch, count(itemnumber) as deletedtotal from deleteditems WHERE homebranch=<<branch|branches>> AND year(timestamp) = <<enter year>> AND itype IN ('BOOK','LOCALHOLD2','WALKIN2','REFERENCE','NEWBOOK') GROUP BY homebranch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-08-31 18:42:23
-Modified on: 2021-08-31 18:49:07
-Date last run: 2021-09-07 11:32:47
+Modified on: 2021-10-07 09:30:55
+Date last run: 2021-10-14 13:41:22
 
 ----------
 
@@ -34,6 +34,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   Concat("----") AS LIBRARY,
@@ -102,7 +104,29 @@ GROUP BY
   branches.branchname
 HAVING
   ITEM_TYPE NOT LIKE "All%"
-LIMIT 100
+LIMIT 500
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

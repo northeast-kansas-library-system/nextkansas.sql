@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT CONCAT('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',biblionumber,'\" target="_blank">',biblionumber,'</a>') AS bibnumber, 
 GROUP_CONCAT(DISTINCT ccode),
 COUNT(DISTINCT ccode)
@@ -36,6 +38,28 @@ HAVING
 count(itemnumber) > '1' AND
 COUNT(DISTINCT ccode) > 1 AND
 GROUP_CONCAT(DISTINCT ccode) LIKE Concat("%", <<Enter collection code|LCCODE>>, "%")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

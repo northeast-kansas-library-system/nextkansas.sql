@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branches.branchcode AS CHECK_OUT_BRANCH,
   CurDate() - INTERVAL 1 DAY AS YESTERDAY,
@@ -100,6 +102,28 @@ GROUP BY
   branches.branchcode, Coalesce(yesterday.count, 0), Coalesce(eightdays.count,
   0), Coalesce(fifteendays.count, 0), Coalesce(twentytwo.count, 0),
   Coalesce(twentynine.count, 0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

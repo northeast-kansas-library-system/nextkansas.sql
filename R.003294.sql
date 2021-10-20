@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   rnums.row_number,
   itypecnt.code_number,
@@ -86,6 +88,28 @@ ORDER BY
   `Item Type`,
   rnums.branchcode
 LIMIT 10000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

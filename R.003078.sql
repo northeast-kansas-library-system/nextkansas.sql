@@ -38,6 +38,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   borrowers.cardnumber,
   Concat(borrowers.surname, ", ", borrowers.firstname, If(borrowers.othernames = "", "", Concat(" (", borrowers.othernames, ")"))) AS NAME,
@@ -66,6 +68,28 @@ ORDER BY
   borrowers.surname,
   borrowers.firstname,
   borrowers.dateofbirth
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

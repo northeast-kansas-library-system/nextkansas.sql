@@ -27,6 +27,8 @@ Special project for 2018.04.20 afternoon
 ----------
 */
 
+
+
 SELECT
   borrowers.borrowernumber,
   borrowers.cardnumber,
@@ -45,6 +47,28 @@ GROUP BY
   borrowers.borrowernumber
 ORDER BY
   AGE ASC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -34,6 +34,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">', biblio.biblionumber, '</a>') AS LINK_TO_TITLE,
   items.barcode AS ITEM_BC,
@@ -75,6 +77,28 @@ ORDER BY
   items.itemcallnumber,
   biblio.author,
   FULL_TITLE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

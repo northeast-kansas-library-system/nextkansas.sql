@@ -27,7 +27,31 @@ Identifies the records where your library has multiple copies of a title; includ
 ----------
 */
 
+
+
 SELECT CONCAT ('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',biblio.biblionumber,'\" target="_blank">'"link to record"'</a>') as "link to record", biblio.title, biblio.author, count(itemnumber) as "total items", GROUP_CONCAT(items.barcode SEPARATOR '; ') as barcodes, GROUP_CONCAT(items.ccode SEPARATOR '; ') as ccodes, GROUP_CONCAT(items.location SEPARATOR '; ') as locations, GROUP_CONCAT(items.itemcallnumber SEPARATOR '; ') as callnumbers FROM biblio LEFT JOIN items USING(biblionumber) WHERE items.homebranch=<<choose library|branches>> AND (itype NOT IN ('MAGAZINE','NEWMAGAZINE','WALKIN') OR ccode <> 'MAGAZINE') GROUP BY items.biblionumber HAVING count(items.itemnumber) > 1 ORDER BY biblio.author
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

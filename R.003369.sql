@@ -41,6 +41,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat('<a href="/cgi-bin/koha/members/memberentry.pl?op=modify&borrowernumber=', borrowers.borrowernumber, '&step=4" target="_blank">Go to patron account</a>') AS LINK,
   borrowers.cardnumber
@@ -70,6 +72,28 @@ GROUP BY
   borrowers.borrowernumber
 ORDER BY
   borrowers.cardnumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

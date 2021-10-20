@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2020-11-30 16:48:41
-Modified on: 2020-12-22 16:33:57
-Date last run: 2021-06-15 11:09:11
+Modified on: 2021-10-05 17:03:03
+Date last run: 2021-10-05 17:42:40
 
 ----------
 
@@ -39,6 +39,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   borrowers.cardnumber,
   borrowers.surname,
@@ -56,12 +58,36 @@ FROM
 WHERE
   borrowers.branchcode NOT LIKE "HIGH_CC" AND
   borrowers.branchcode NOT LIKE "PH%" AND
-  borrowers.branchcode LIKE <<Choose a library|branches>> AND
+  borrowers.branchcode LIKE <<Choose a library|branches:all>> AND
   borrowers.categorycode <> "STAFF" AND
   borrowers.cardnumber NOT LIKE "0%" AND
   borrowers.cardnumber IS NOT NULL AND
   borrowers.cardnumber NOT LIKE "" AND
-  borrowers.address LIKE Concat(<<Address>> ,"%")
+  borrowers.address LIKE Concat(<<Address>> ,"%") AND
+  borrowers.city LIKE Concat(<<City>>, "%") AND
+  borrowers.state LIKE Concat(<<State>>, "%")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

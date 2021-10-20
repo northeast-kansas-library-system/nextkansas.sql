@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2012-02-17 13:14:33
 Modified on: 2019-01-10 15:48:52
-Date last run: 2021-06-22 17:03:45
+Date last run: 2021-10-12 13:59:30
 
 ----------
 
@@ -27,7 +27,31 @@ Enhanced - just hit Run #circ
 ----------
 */
 
+
+
 SELECT biblio.title,t.publicationyear,items.replacementprice,items.dateaccessioned,items.issues,items.itype,items.ccode,items.homebranch FROM items LEFT JOIN biblio USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE items.homebranch=<<Pick your branch|branches>> AND items.ccode=<<Pick your Collection Code|CCODE>> GROUP BY biblio.biblionumber, items.itemnumber ORDER BY biblio.title asc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   statistics.branch AS TRANSACTION_BRANCH,
   If(statistics.type = "issue", "checkout", statistics.type) AS STATISTIC_TYPE,
@@ -91,6 +93,28 @@ ORDER BY
   TRANSACTION_BRANCH,
   statistics.datetime,
   statistics.itemnumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

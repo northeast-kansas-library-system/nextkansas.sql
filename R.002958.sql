@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2017-06-15 10:26:44
 Modified on: 2018-04-16 11:11:10
-Date last run: 2021-07-01 08:47:33
+Date last run: 2021-10-15 13:41:41
 
 ----------
 
@@ -38,6 +38,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   deleteditems.barcode,
@@ -97,6 +99,28 @@ ORDER BY
   AUTHOR,
   TITLE,
   deleteditems.itemcallnumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

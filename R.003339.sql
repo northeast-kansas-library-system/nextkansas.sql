@@ -38,6 +38,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   (@row_number:=@row_number + 1) AS num, 
   Concat('<a href="/cgi-bin/koha/members/pay.pl?borrowernumber=',
@@ -64,6 +66,28 @@ GROUP BY
   borrowers.borrowernumber
 ORDER BY
   num
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

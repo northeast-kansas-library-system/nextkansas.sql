@@ -13,7 +13,7 @@ Group: Administrative Reports
 
 Created on: 2010-01-25 09:54:12
 Modified on: 2014-07-01 12:12:24
-Date last run: 2021-09-14 10:27:19
+Date last run: 2021-10-04 15:53:33
 
 ----------
 
@@ -27,12 +27,36 @@ Enhanced! Logic - Counts Library A's items being sent to a library other than Li
 ----------
 */
 
+
+
 SELECT items.homebranch, COUNT(*) 
 FROM branchtransfers 
 LEFT JOIN items USING (itemnumber) 
 WHERE (items.homebranch != branchtransfers.tobranch) AND (branchtransfers.frombranch != branchtransfers.tobranch) 
 AND MONTH(branchtransfers.datesent)=<<Month>> AND YEAR(branchtransfers.datesent)=<<Year>> 
 GROUP BY items.homebranch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

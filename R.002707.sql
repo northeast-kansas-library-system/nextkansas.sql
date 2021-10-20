@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2016-07-12 16:32:22
 Modified on: 2016-07-12 18:21:58
-Date last run: 2021-01-06 17:04:42
+Date last run: 2021-09-20 16:14:08
 
 ----------
 
@@ -36,6 +36,8 @@ Expiry: 0
 
 ----------
 */
+
+
 
 SELECT 
  CHECK_OUT_BRANCH, SHELVING_LOCATION, COLLECTION_CODE, SUM(C_R) AS CHECKOUTS_PLUS_RENEWALS
@@ -62,6 +64,28 @@ WHERE
 GROUP BY CHECK_OUT_BRANCH, SHELVING_LOCATION, COLLECTION_CODE) AS X
 WHERE CHECK_OUT_BRANCH = <<Select branch|branches>>
 GROUP BY CHECK_OUT_BRANCH, SHELVING_LOCATION, COLLECTION_CODE WITH ROLLUP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

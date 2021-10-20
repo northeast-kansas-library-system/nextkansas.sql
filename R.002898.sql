@@ -28,6 +28,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branches.branchcode,
   Coalesce(BORROWERS1.COUNT, 0) AS TOTAL_BORROWERS,
@@ -82,6 +84,28 @@ GROUP BY
   branches.branchcode
 ORDER BY
   branches.branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

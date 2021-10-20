@@ -27,6 +27,8 @@ Adult checkouts and renewals last month
 ----------
 */
 
+
+
 SELECT
   branches.branchcode,
   Coalesce(ADULT.count, 0) AS CR_ADULT_LM
@@ -58,6 +60,28 @@ GROUP BY
   branches.branchcode
 ORDER BY
   branches.branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   requests.ACTIVE_REQUESTS,
   requests.cardnumber,
@@ -94,6 +96,28 @@ WHERE
   requests.ACTIVE_REQUESTS LIKE <<Request status|ZREQTYPE>> AND
   requests.cardnumber LIKE Concat("%",<<Enter patron barcode number>>,"%") AND
   requests.PICK_UP_BRANCH LIKE <<Choose request pick-up branch|LBRANCH>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

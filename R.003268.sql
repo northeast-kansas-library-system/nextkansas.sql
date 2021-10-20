@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   borrowers.borrowernumber,
   borrowers.cardnumber,
@@ -97,6 +99,28 @@ WHERE
   borrower_attributes.attribute IN [<<Enter REGBRANCH code>>]
 ORDER BY
   borrowers.borrowernumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

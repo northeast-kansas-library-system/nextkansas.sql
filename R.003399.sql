@@ -40,6 +40,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branchescategories.branchname,
   branchescategories.description,
@@ -158,6 +160,28 @@ ORDER BY
   branchescategories.branchname,
   branchescategories.description,
   LPad(ages.BORROWER_AGE, 4, 0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

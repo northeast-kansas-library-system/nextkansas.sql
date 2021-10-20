@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   @1:="5175" AS "expiry year",
   branches.branchcode,
@@ -53,6 +55,28 @@ FROM
     ) Query1 ON Query1.homebranch = branches.branchcode
 GROUP BY
   branches.branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

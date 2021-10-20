@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2012-05-14 21:50:49
 Modified on: 2021-09-04 22:49:54
-Date last run: 2021-09-04 22:43:58
+Date last run: 2021-10-01 08:42:46
 
 ----------
 
@@ -31,8 +31,32 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   CONCAT('<a href="/cgi-bin/koha/reports/guided_reports.pl?reports=214&phase=Run%20this%20report" target="_blank">Click here to run report 214</a>') AS INFO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ Group: Holds-Reserves
 
 Created on: 2014-06-10 15:16:34
 Modified on: 2015-08-16 20:51:25
-Date last run: 2021-04-22 13:51:42
+Date last run: 2021-10-15 12:26:47
 
 ----------
 
@@ -27,7 +27,31 @@ Returns titles with holds by your patrons, sorted by the records with the bigges
 ----------
 */
 
+
+
 select CONCAT ('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',r.biblionumber,'\" target="_blank">',r.biblionumber,'</a>') AS "Link to Record", b.title, b.author, t.publicationyear, count(*) AS "Number of Holds by Your Patrons" from reserves r left join biblio b USING (biblionumber) left join biblioitems t USING(biblionumber) where r.branchcode = <<branch|branches>> group by r.biblionumber ORDER BY count(*) DESC, r.reservedate DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

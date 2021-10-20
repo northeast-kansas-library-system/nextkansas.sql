@@ -27,6 +27,8 @@ Remove content from columns E-H then re-import/overwrite.
 ----------
 */
 
+
+
 SELECT
   borrowers.cardnumber,
   borrowers.surname,
@@ -47,6 +49,28 @@ WHERE
   borrowers.contacttitle <> "")
 GROUP BY
   borrowers.borrowernumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

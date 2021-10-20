@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   Concat_Ws('<br />', CONCAT('<ins>',(Concat_Ws(' | ', 'Item details: ', items.itemcallnumber, biblio.author, CONCAT('<span style="text-transform: uppercase">', biblio.title,'</span>'), concat(items.barcode,'</ins>')))),
   (Concat_Ws(' | ',(Concat(DateDiff(Now(), issues.date_due), ' days overdue')), (Concat('Date due: ', CAST(issues.date_due AS date))), (Concat('Replacement price: $', items.replacementprice)))), 
@@ -44,6 +46,28 @@ GROUP BY
   issues.borrowernumber, items.itemnumber
 ORDER BY
   issues.borrowernumber ASC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

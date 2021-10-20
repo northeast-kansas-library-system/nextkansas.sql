@@ -27,6 +27,8 @@ NExpress ILL Borrows
 ----------
 */
 
+
+
 SELECT
   branches.branchcode,
   Coalesce(ILL_BORROWED.count, 0) AS NX_ILL_BORROWED_LM
@@ -52,6 +54,28 @@ GROUP BY
   branches.branchcode
 ORDER BY
   branches.branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

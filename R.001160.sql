@@ -29,7 +29,31 @@ Overdue >30 days report for materials loaned to other libraries through non-NExp
 ----------
 */
 
+
+
 SELECT items.homebranch, borrowers.surname, borrowers.firstname, borrowers.cardnumber, issues.date_due, (TO_DAYS(curdate())-TO_DAYS( date_due)) as 'days overdue', items.itype, items.itemcallnumber, items.replacementprice, items.barcode FROM borrowers LEFT JOIN issues USING(borrowernumber) LEFT JOIN items USING(itemnumber) LEFT JOIN biblio USING(biblionumber) WHERE (TO_DAYS(curdate())-TO_DAYS(date_due)) > '30' and borrowers.categorycode= 'ILL' order by items.homebranch asc, issues.date_due asc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

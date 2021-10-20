@@ -13,7 +13,7 @@ Group: Administrative Reports
 
 Created on: 2015-05-14 16:53:56
 Modified on: 2021-05-05 15:29:34
-Date last run: 2021-09-16 21:11:08
+Date last run: 2021-10-20 08:28:07
 
 ----------
 
@@ -40,6 +40,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   items.itemnumber,
   items.barcode
@@ -56,6 +58,28 @@ ORDER BY
   items.ccode,
   items.dateaccessioned DESC
 LIMIT 1000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

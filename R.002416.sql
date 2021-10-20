@@ -27,7 +27,31 @@ This report returns circulation statistics (checkins, checkouts, renewals) for a
 ----------
 */
 
+
+
 SELECT month(datetime), day(datetime), hour(datetime), type, count(*) FROM statistics WHERE branch=<<choose library|branches>> AND datetime LIKE <<enter date you want to look at circ, yyyy-mm-dd% format, ex. 2014-11-14%'>> GROUP BY day(datetime), hour(datetime), type
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

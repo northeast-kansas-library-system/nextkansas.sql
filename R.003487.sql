@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2021-03-30 09:23:49
 Modified on: 2021-03-30 11:18:15
-Date last run: 2021-09-15 11:00:20
+Date last run: 2021-10-15 15:24:01
 
 ----------
 
@@ -42,6 +42,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   branchess.branchcode,
@@ -252,6 +254,28 @@ ORDER BY
   IF(branchess.branchcode = "ALL", "ZZZZZ", branchess.branchcode),
   IF(categorytypes.BORROWER_CATEGORY = "All borrowers", "ZZZZZ", categorytypes.BORROWER_CATEGORY),
   IF(categorytypes.ITEM_TYPE = "All item types", "ZZZZZ", categorytypes.ITEM_TYPE)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

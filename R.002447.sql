@@ -27,7 +27,31 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT CONCAT('<a href=\"/cgi-bin/koha/circ/circulation.pl?borrowernumber=',borrowers.borrowernumber,'" target="_blank">',borrowers.cardnumber,'</a>') as "link to borrower", accountlines.date, biblio.title, items.barcode, borrowers.firstname, borrowers.surname, borrowers.cardnumber, accountlines.amountoutstanding FROM biblio, items, accountlines, borrowers WHERE items.biblionumber=biblio.biblionumber AND items.itemnumber=accountlines.itemnumber AND accountlines.borrowernumber=borrowers.borrowernumber AND accountlines.accounttype='L' AND items.itemnumber IN (SELECT itemnumber FROM items WHERE homebranch='OTTAWA' AND withdrawn <> '0')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

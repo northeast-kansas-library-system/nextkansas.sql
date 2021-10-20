@@ -13,7 +13,7 @@ Group:  OTTAWA
 
 Created on: 2020-09-29 23:37:01
 Modified on: 2021-08-16 13:44:19
-Date last run: 2021-09-01 05:00:05
+Date last run: 2021-10-01 05:00:03
 
 ----------
 
@@ -41,6 +41,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   Concat('https://staff.nextkansas.org/cgi-bin/koha/catalogue/detail.pl?biblionumber=', items.biblionumber) AS LINK_TO_TITLE,
@@ -185,6 +187,28 @@ ORDER BY
   Trim(REGEXP_REPLACE(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), "[.:;\"\'\/]", "")), 
   Trim(REGEXP_REPLACE(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]'), "[.:;\"\'\/]", "")), 
   Trim(REGEXP_REPLACE(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'), "[.:;\"\'\/]", ""))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

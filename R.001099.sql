@@ -27,7 +27,31 @@ Enter the number of days overdue you want to track (0 or more) and choose your b
 ----------
 */
 
+
+
 SELECT issues.branchcode as 'Transacting Library', borrowers.surname, borrowers.firstname, borrowers.phone, borrowers.cardnumber, borrowers.email, borrowers.address, borrowers.city, borrowers.zipcode, issues.date_due, (TO_DAYS(curdate())-TO_DAYS( date_due)) as 'days overdue', items.itype, items.itemcallnumber, items.barcode, items.homebranch as 'Owning library', biblio.title, biblio.author FROM borrowers join issues USING (borrowernumber) join items USING (itemnumber) JOIN biblio USING (biblionumber) WHERE (TO_DAYS(curdate())-TO_DAYS(date_due)) > <<number of days>> and items.homebranch = <<Pick your branch|branches>> AND issues.branchcode <> <<Pick your branch|branches>> order by borrowers.surname asc, issues.date_due asc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

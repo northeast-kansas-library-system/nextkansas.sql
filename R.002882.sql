@@ -13,7 +13,7 @@ Group: Administrative Reports
 
 Created on: 2017-01-10 11:28:21
 Modified on: 2018-08-30 22:45:47
-Date last run: 2021-09-16 21:11:08
+Date last run: 2021-10-20 08:28:07
 
 ----------
 
@@ -38,6 +38,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   Concat('<a href=\"/cgi-bin/koha/reserve/request.pl?biblionumber=', reserves.biblionumber, '\" target="_blank">',
   reserves.biblionumber, '</a>') AS LINK_TO_REQUESTS,
@@ -57,6 +59,28 @@ GROUP BY
   borrowers.borrowernumber
 HAVING
   Count(reserves.borrowernumber) > 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

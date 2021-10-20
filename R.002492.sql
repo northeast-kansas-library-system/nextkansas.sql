@@ -27,7 +27,31 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT  borrowers.surname,borrowers.firstname,borrowers.branchcode FROM borrowers   WHERE borrowers.branchcode='PHSHS' AND borrowers.categorycode='STUDENT'  AND borrowers.zipcode='66002' ORDER BY borrowers.surname asc,borrowers.firstname asc,borrowers.branchcode asc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

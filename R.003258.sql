@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branch_itype.branchname,
   branch_itype.description,
@@ -154,6 +156,28 @@ GROUP BY
 ORDER BY
   branch_itype.branchname,
   branch_itype.description
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

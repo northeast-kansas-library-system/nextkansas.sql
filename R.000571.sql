@@ -27,6 +27,8 @@ Shows count of new items added to a collection in last month by ccode and shelvi
 ----------
 */
 
+
+
 SELECT
   items.homebranch AS "Library",
   items.ccode AS "Collection Code",
@@ -41,6 +43,28 @@ GROUP BY
   items.homebranch,
   items.ccode,
   items.permanent_location
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

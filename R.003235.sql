@@ -53,6 +53,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat('<a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=', borrowers.borrowernumber, '" target="_blank">Go to patron account</a>') AS LINK,
   borrowers.branchcode,
@@ -81,6 +83,28 @@ ORDER BY
   borrowers.branchcode,
   NAME,
   borrowers.cardnumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

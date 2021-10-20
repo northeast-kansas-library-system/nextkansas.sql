@@ -37,6 +37,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   borrowers.cardnumber,
   borrowers.branchcode AS BORROWER_HOMEBRANCH,
@@ -80,6 +82,28 @@ GROUP BY
   CURRENT_CHECKOUTS,
   OWES,
   IS_GUARANTEED_BY
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -41,6 +41,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat(
     '<a class= "clicked" href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
@@ -168,6 +170,28 @@ GROUP BY
   old_checkouts.itemnumber
 ORDER BY
   item_info.LOST_ON_DATE DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

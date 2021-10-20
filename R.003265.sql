@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-09-12 00:38:59
 Modified on: 2019-09-12 01:02:48
-Date last run: 2021-09-17 13:19:21
+Date last run: 2021-10-15 14:50:26
 
 ----------
 
@@ -33,6 +33,8 @@ Available soon (on order) - Ordered more than 3 months ago
 
 ----------
 */
+
+
 
 SELECT
   Concat_Ws("", '<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">Link to title</a>') AS LINK,
@@ -524,6 +526,28 @@ ORDER BY
   AUTHOR,
   TITLE,
   BC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

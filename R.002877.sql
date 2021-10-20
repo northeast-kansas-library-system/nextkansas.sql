@@ -28,6 +28,8 @@ Report for GHW 2017.01.05
 ----------
 */
 
+
+
 SELECT
   authorised_values.lib,
   items.itemnumber,
@@ -50,6 +52,28 @@ ORDER BY
   authorised_values.lib,
   items.homebranch,
   items.itemlost_on
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

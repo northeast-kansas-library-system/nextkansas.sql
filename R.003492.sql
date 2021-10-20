@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   virtualshelves.shelfname,
   biblio_info.biblionumber,
@@ -82,6 +84,28 @@ FROM
       virtualshelves.shelfnumber
 WHERE
   virtualshelfcontents.shelfnumber = <<Enter list ID number>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

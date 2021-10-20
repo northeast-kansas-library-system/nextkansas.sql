@@ -13,7 +13,7 @@ Group:  OTTAWA
 
 Created on: 2017-06-27 16:32:34
 Modified on: 2021-08-16 13:44:01
-Date last run: 2021-09-17 11:06:56
+Date last run: 2021-10-15 12:05:23
 
 ----------
 
@@ -36,6 +36,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   Upper(borrowers.cardnumber) AS CARDNUMBER,
@@ -139,6 +141,28 @@ HAVING
 ORDER BY
   borrowers.surname,
   borrowers.firstname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

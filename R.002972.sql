@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   borrowers.borrowernumber,
   Concat(borrowers.cardnumber) AS cardnumber,
@@ -107,6 +109,28 @@ ORDER BY
   borrowers.state,
   borrowers.branchcode,
   borrowers.categorycode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

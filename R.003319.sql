@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat(
     '&lt;br /&gt;SELF-REGISTERED DUPLICATE PATRON&lt;br /&gt;This patron appears to have self-registered for a second account during the COVID-19 emergency and now has two accounts.  This account (',
@@ -58,6 +60,28 @@ FROM borrowers pat1,
      borrowers pat2
 WHERE pat1.cardnumber = <<Card one>>
   AND pat2.cardnumber = <<Card two>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

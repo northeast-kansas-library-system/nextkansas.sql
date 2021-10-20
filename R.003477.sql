@@ -27,6 +27,8 @@ In progress
 ----------
 */
 
+
+
 SELECT
   branches_locations.branchcode,
   branches_locations.LOCATION_DESCRIPTION,
@@ -197,6 +199,28 @@ GROUP BY
   branches_locations.LOCATION_DESCRIPTION,
   count_total.Count_itemnumber,
   count_with_pubyear.Count_itemnumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

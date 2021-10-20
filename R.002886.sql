@@ -38,6 +38,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   guarantors.cardnumber AS ADULT_BARCODE,
   Concat(guarantors.surname, ", ", guarantors.firstname) AS ADULT_NAME,
@@ -77,6 +79,28 @@ GROUP BY
   Coalesce(newsletter.authorised_value, 'NotAsked')
 ORDER BY
   ADULT_NAME
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

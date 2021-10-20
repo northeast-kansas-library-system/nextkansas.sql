@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   CONCAT('') AS biblionumber,
   COUNT(*) AS BIB_ITYPE
@@ -45,6 +47,28 @@ WHERE
 GROUP BY
   biblio_metadata.biblionumber
 LIMIT 1999
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

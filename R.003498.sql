@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2021-04-29 11:50:12
 Modified on: 2021-04-29 17:24:24
-Date last run: 2021-09-17 10:51:37
+Date last run: 2021-10-18 11:57:54
 
 ----------
 
@@ -30,6 +30,8 @@ Add parameters to the "where" clauses to create a report for a specific library/
 
 ----------
 */
+
+
 
 SELECT
 IF(
@@ -96,6 +98,28 @@ HAVING
 ORDER BY
   biblio.biblionumber DESC
 LIMIT 25
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

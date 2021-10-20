@@ -40,6 +40,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   staff.branchcode AS PAYMENT_BRANCH,
   accountlines.accountlines_id AS PAYMENT_ID,
@@ -74,6 +76,28 @@ ORDER BY
   PAYMENT_BRANCH,
   accountlines.timestamp,
   accountlines.accountlines_id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

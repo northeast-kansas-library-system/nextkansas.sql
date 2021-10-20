@@ -39,6 +39,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', items.biblionumber, '\" target="_blank">', items.biblionumber, '</a>') AS LINK_TO_TITLE,
   biblio.author,
@@ -85,6 +87,28 @@ GROUP BY
 ORDER BY
   Count_issue_id DESC, biblio.author, biblio.title ASC
 LIMIT 200
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

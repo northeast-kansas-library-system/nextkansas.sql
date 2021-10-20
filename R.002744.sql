@@ -35,6 +35,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   Coalesce(items.copynumber, "~") AS copynumber,
   Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">', biblio.biblionumber, '</a>') AS LINK_TO_TITLE,
@@ -76,6 +78,28 @@ ORDER BY
   items.itemcallnumber,
   biblio.author,
   FULL_TITLE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

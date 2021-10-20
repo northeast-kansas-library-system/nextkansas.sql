@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-10-02 16:50:52
 Modified on: 2020-06-06 01:27:11
-Date last run: 2021-05-21 14:42:50
+Date last run: 2021-10-11 08:15:22
 
 ----------
 
@@ -26,6 +26,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   Concat('<a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=', reserves.borrowernumber, '#reserves" target="_blank">Open in new window</a>') AS LINK,
@@ -46,6 +48,28 @@ GROUP BY
 ORDER BY
   reserves.branchcode,
   reserves.borrowernumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

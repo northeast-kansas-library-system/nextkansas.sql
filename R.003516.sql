@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat_Ws("<br />----------------------<br />",
     "<style type='text/css'>.receipt {width: 45mm; min-height: 297mm; padding: 2mm; color: black;}</style><span class='receipt'>", 
@@ -128,6 +130,28 @@ ORDER BY
   biblio.author,
   biblio.title,
   items.itemcallnumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

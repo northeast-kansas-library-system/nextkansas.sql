@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   statistics.branch AS CHECK_OUT_BRANCH,
   Year(statistics.datetime) AS YEAR,
@@ -47,6 +49,28 @@ GROUP BY
   MONTH,
   DAY,
   HOUR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

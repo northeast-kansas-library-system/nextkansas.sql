@@ -27,7 +27,31 @@ ready for 2016.
 ----------
 */
 
+
+
 SELECT homebranch, count(*) FROM items WHERE (itype IN ('COMPUTER','EQUIPMENT','GAME','ILL','KITS','MICROFORM','MIFI','MUSIC')) OR (itype IN ('LOCALHOLD','REFERENCE','WALKIN') AND ccode IN ('GADGET','COMPUTER','GAMECUBE','MAP','MISC','NINTNDO3DS','PS3','PUZZLESBDG','SOFTWARE','WII','XBOX360')) GROUP BY homebranch LIMIT 100
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

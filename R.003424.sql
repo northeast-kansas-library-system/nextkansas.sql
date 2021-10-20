@@ -40,6 +40,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branches.branchcode AS BRANCH,
   Coalesce(Sum(DISTINCT END_ITEMS.count), 0) AS END_I
@@ -72,6 +74,28 @@ FROM
 GROUP BY
   branches.branchcode
 LIMIT 1000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

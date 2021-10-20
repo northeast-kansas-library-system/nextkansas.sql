@@ -36,6 +36,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   'Total biblios on last day of last month' AS DESCRIPTION,
   count(*) AS COUNT
@@ -61,6 +63,28 @@ FROM
 WHERE
   Month(deletedbiblio.timestamp) = Month(Now() - INTERVAL 1 MONTH) AND
   Year(deletedbiblio.timestamp) = Year(Now() - INTERVAL 1 MONTH)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

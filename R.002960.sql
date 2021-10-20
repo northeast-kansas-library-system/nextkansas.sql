@@ -12,8 +12,8 @@ Group: Administrative Reports
      -
 
 Created on: 2017-06-23 11:25:44
-Modified on: 2018-04-16 11:11:14
-Date last run: 2021-08-17 11:03:30
+Modified on: 2021-09-28 15:30:45
+Date last run: 2021-10-18 11:02:25
 
 ----------
 
@@ -37,22 +37,72 @@ Expiry: 300
 ----------
 */
 
-SELECT
-  Concat(If(letter.branchcode = " ", "AAAAA", letter.branchcode), "\\", letter.code, ".", letter.lang, ".", letter.message_transport_type) AS FILE,
-  Concat(Concat(If(letter.branchcode = " ", "AAAAA", letter.branchcode), ".", letter.code, ".", letter.lang, ".", letter.message_transport_type, ".txt"), CHAR(13), CHAR(10), CHAR(13), CHAR(10),
-  Concat("Name: ", letter.name), CHAR(13), CHAR(10), CHAR(13), CHAR(10),
-  Concat("-----"), CHAR(13), CHAR(10), CHAR(13), CHAR(10),
-  letter.title, CHAR(13), CHAR(10), CHAR(13), CHAR(10),
-  Concat("-----"), CHAR(13), CHAR(10), CHAR(13), CHAR(10),
-  Concat("Message content:"), CHAR(13), CHAR(10), CHAR(13), CHAR(10),
-  Concat("----------"), CHAR(13), CHAR(10), CHAR(13), CHAR(10),
-  letter.content) AS CONTENTS
-FROM
-  letter
-GROUP BY
-  FILE
-ORDER BY
+
+
+SELECT 
+  Concat( 
+    If(letter.branchcode = " ", "AAAAA", letter.branchcode), 
+    "\\", 
+    letter.code, 
+    ".", 
+    letter.lang, 
+    ".", 
+    letter.message_transport_type 
+  ) AS FILE, 
+  Concat( 
+    Concat( 
+      If(letter.branchcode = " ", "AAAAA", letter.branchcode), 
+      ".", 
+      letter.code, 
+      ".", 
+      letter.lang, 
+      ".", 
+      letter.message_transport_type, 
+      ".txt" 
+    ), 
+    CHAR(13), CHAR(10), CHAR(13), CHAR(10), 
+    Concat("Name: ", letter.name), 
+    CHAR(13), CHAR(10), CHAR(13), CHAR(10), 
+    Concat("-----"), 
+    CHAR(13), CHAR(10), CHAR(13), CHAR(10), 
+    letter.title, 
+    CHAR(13), CHAR(10), CHAR(13), CHAR(10), 
+    Concat("-----"), 
+    CHAR(13), CHAR(10), CHAR(13), CHAR(10), 
+    Concat("Message content:"), 
+    CHAR(13), CHAR(10), CHAR(13), CHAR(10), 
+    Concat("----------"), 
+    CHAR(13), CHAR(10), CHAR(13), CHAR(10), 
+    letter.content 
+  ) AS CONTENTS 
+FROM 
+  letter 
+GROUP BY 
+  FILE 
+ORDER BY 
 FILE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

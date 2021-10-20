@@ -53,6 +53,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   Concat('<a href=\"/cgi-bin/koha/members/boraccount.pl?borrowernumber=', borrowers.borrowernumber, '\" target="_blank">Link to fees</a>') AS 'LINK',
   Upper(borrowers.cardnumber) AS CARDNUMBER,
@@ -258,6 +260,28 @@ ORDER BY
   borrowers.surname,
   borrowers.firstname,
   borrowers.cardnumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

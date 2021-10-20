@@ -38,6 +38,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   clubs.name AS CLUB_NAME,
   Concat_Ws(
@@ -128,6 +130,28 @@ GROUP BY
   borrowers.borrowernumber
 ORDER BY
   club_enrollments.id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

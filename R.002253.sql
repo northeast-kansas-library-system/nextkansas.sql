@@ -27,7 +27,31 @@ Includes grade, classroom teacher where applicable, due dates of materials, repl
 ----------
 */
 
+
+
 SELECT p.categorycode, ba_GRADE.attribute AS grade, p.sort1, CONCAT(p.firstname, ' ', p.surname) AS name, b.title, b.author, i.homebranch as "owning library", i.ccode, i.itemcallnumber, i.barcode, s.date_due, CONCAT('$', i.replacementprice, ' replacement fee if lost') FROM borrowers p left join issues s USING (borrowernumber) left join items i USING (itemnumber) left JOIN biblio b USING (biblionumber) LEFT JOIN borrower_attributes ba_GRADE ON (p.borrowernumber = ba_GRADE.borrowernumber AND ba_GRADE.code = 'GRADE') WHERE s.branchcode = <<Pick your branch|branches>> order by p.categorycode asc, ba_GRADE.attribute asc, p.sort1 asc, p.surname asc LIMIT 1000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

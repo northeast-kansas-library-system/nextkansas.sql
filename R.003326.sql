@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   biblio.author,
   Concat_Ws(" ", 
@@ -95,6 +97,28 @@ GROUP BY
   Query1.COUNT,
   Query1.Group_Concat_permanent_location
 LIMIT 500
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

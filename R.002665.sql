@@ -27,6 +27,8 @@ includes lots of common sets; may have to remove to check for these....
 ----------
 */
 
+
+
 SELECT  CONCAT('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',biblionumber,'\" target="_blank">',biblionumber,'</a>') AS bibnumber, GROUP_CONCAT(DISTINCT itype) 
 FROM items 
 WHERE biblionumber NOT IN ('551728','636389','521345','682294','682294','573870','572720','568972','566864','304288','297976','577265','')
@@ -127,6 +129,28 @@ GROUP_CONCAT(DISTINCT itype) <> 'WALKIN,REFERENCE,BOOK' AND
 GROUP_CONCAT(DISTINCT itype) <> 'WALKIN,MAGAZINE' AND 
 GROUP_CONCAT(DISTINCT itype) <> 'MAGAZINE,WALKIN'
 ORDER BY GROUP_CONCAT(DISTINCT itype)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

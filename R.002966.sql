@@ -13,7 +13,7 @@ Group:  OTTAWA
 
 Created on: 2017-06-27 17:08:37
 Modified on: 2021-08-16 13:44:09
-Date last run: 2021-09-17 11:05:41
+Date last run: 2021-10-15 12:04:25
 
 ----------
 
@@ -36,6 +36,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   borrowers.borrowernumber,
@@ -67,6 +69,28 @@ GROUP BY
 ORDER BY
   borrowers.surname,
   borrowers.firstname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

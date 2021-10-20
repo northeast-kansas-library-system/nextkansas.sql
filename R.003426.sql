@@ -40,6 +40,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branches.branchcode AS BRANCH,
   Coalesce(ITEMS_DELETED.count, 0) AS ITEMS_DEL_L_M
@@ -59,6 +61,28 @@ FROM
 GROUP BY
   branches.branchcode
 LIMIT 1000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

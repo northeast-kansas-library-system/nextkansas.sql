@@ -55,6 +55,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   IF(
     virtualshelves.category = 1,
@@ -110,6 +112,28 @@ GROUP BY
   virtualshelves.shelfnumber
 ORDER BY
   virtualshelves.shelfname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

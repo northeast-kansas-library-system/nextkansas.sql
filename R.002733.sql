@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT @1:="2003" AS "expiry year",  Count(DISTINCT borrowers.borrowernumber) AS Count_borrowernumber FROM borrowers WHERE borrowers.dateexpiry LIKE '%2003%'
 UNION
 SELECT @1:="2004", Count(DISTINCT borrowers.borrowernumber) AS Count_borrowernumber FROM borrowers WHERE borrowers.dateexpiry LIKE '%2004%'
@@ -54,6 +56,28 @@ UNION
 SELECT @1:="2015", Count(DISTINCT borrowers.borrowernumber) AS Count_borrowernumber FROM borrowers WHERE borrowers.dateexpiry LIKE '%2015%'
 UNION
 SELECT @1:="2016", Count(DISTINCT borrowers.borrowernumber) AS Count_borrowernumber FROM borrowers WHERE borrowers.dateexpiry LIKE '%2016%'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

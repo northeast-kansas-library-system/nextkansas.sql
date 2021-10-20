@@ -27,7 +27,31 @@ Enhanced - Run, pick and go... #count
 ----------
 */
 
+
+
 SELECT location, homebranch,count(itemnumber) as items FROM items WHERE items.homebranch = <<Pick your branch|branches>> GROUP BY location ORDER BY location asc 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

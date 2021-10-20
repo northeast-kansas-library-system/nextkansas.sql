@@ -49,6 +49,8 @@ would be list number 6003.</p>
 ----------
 */
 
+
+
 SELECT
   biblio.author,
   biblio.title,
@@ -64,6 +66,28 @@ GROUP BY
 ORDER BY
   biblio.author,
   biblio.title
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

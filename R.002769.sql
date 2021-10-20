@@ -35,6 +35,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   CONCAT( '<a href=\"/cgi-bin/koha/circ/circulation.pl?borrowernumber=',borrowers.borrowernumber ,'\" target="_blank">', borrowers.borrowernumber, '</a>' ) AS 'BORROWER_NUMBER',
   borrowers.borrowernumber,
@@ -109,6 +111,28 @@ ORDER BY
   borrowers.surname,
   borrowers.firstname
   ASC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

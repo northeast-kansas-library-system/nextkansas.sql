@@ -13,7 +13,7 @@ Group: Administrative Reports
 
 Created on: 2017-06-26 19:16:07
 Modified on: 2020-10-09 00:57:04
-Date last run: 2021-07-23 14:28:59
+Date last run: 2021-10-05 21:27:47
 
 ----------
 
@@ -26,6 +26,8 @@ Reusable code for setting dates in SQL reports
 
 ----------
 */
+
+
 
 SELECT  
   @1 := 'YESTERDAY'  AS DESCRIPTION,  
@@ -233,6 +235,28 @@ SELECT
   @2 := 'Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) - 14 DAY)',  
   Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) - 14 DAY)  
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

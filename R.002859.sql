@@ -38,6 +38,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   allreserves.timestamp AS LAST_ACTIVITY,
   items.homebranch AS HOME,
@@ -79,6 +81,28 @@ GROUP BY
   allreserves.reserve_id, items.barcode
 ORDER BY
   LAST_ACTIVITY DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

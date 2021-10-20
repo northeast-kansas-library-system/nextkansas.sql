@@ -27,7 +27,31 @@ This report lists ALL libraries and ALL patrons with LOST items outstanding. mc 
 ----------
 */
 
+
+
 SELECT  borrowers.branchcode, borrowers.cardnumber, borrowers.surname, borrowers.firstname, accountlines.description, accountlines.timestamp, FORMAT(SUM(accountlines.amountoutstanding),2) as due FROM borrowers LEFT JOIN accountlines USING(borrowernumber) WHERE accountlines.description LIKE 'lost item%' AND accountlines.amountoutstanding > 0  GROUP BY accountlines.description  ORDER BY borrowers.branchcode ASC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

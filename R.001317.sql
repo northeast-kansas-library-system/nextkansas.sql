@@ -27,7 +27,31 @@ Select your library from dropdown
 ----------
 */
 
+
+
 SELECT branchcode, count(*) FROM borrowers WHERE borrowers.branchcode=<<Select your branch|branches>> AND branchcode IS NOT NULL AND categorycode is not null AND dateenrolled <'2013-01-01' group by branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

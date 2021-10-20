@@ -27,7 +27,31 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT b.categorycode, (SELECT ba.attribute FROM borrower_attributes ba WHERE ba.borrowernumber=b.borrowernumber AND ba.code='Location') as location, count(DISTINCT borrowernumber) FROM borrowers b WHERE b.branchcode='OTTAWA' GROUP BY b.categorycode, location
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

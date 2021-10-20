@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   CONCAT(
     borrowers.firstname,
@@ -44,6 +46,28 @@ FROM
   borrowers
 WHERE
   borrowers.cardnumber LIKE Concat("%", <<Enter patron barcode number>>, "%")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

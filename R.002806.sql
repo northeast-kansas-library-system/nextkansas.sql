@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2016-10-13 16:32:19
 Modified on: 2021-04-06 09:56:34
-Date last run: 2021-09-02 11:15:54
+Date last run: 2021-10-18 16:05:21
 
 ----------
 
@@ -43,6 +43,8 @@ Expiry: 0
 
 ----------
 */
+
+
 
 SELECT
   If(statistics.itemtype IS NULL, "BOOK", statistics.itemtype) AS ITEM_TYPE,
@@ -84,6 +86,28 @@ ORDER BY
   ITEM_TYPE,
   CCODE,
   SHELVING_LOCATION
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

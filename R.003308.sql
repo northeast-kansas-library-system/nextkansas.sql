@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat(
     '<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=',
@@ -126,6 +128,28 @@ ORDER BY
   LINK_TO_CCODE,
   CCODE
 LIMIT 1000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

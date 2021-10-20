@@ -37,6 +37,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   borrowers.cardnumber,
   branches.branchname AS STAFF_HOME_BRANCH,
@@ -65,6 +67,28 @@ GROUP BY
 ORDER BY
   STAFF_HOME_BRANCH,
   regbranch.attribute
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

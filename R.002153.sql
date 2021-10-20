@@ -27,7 +27,31 @@ Choose branch, enter four-digit-year
 ----------
 */
 
+
+
 SELECT Count(*) AS count  FROM statistics WHERE statistics.branch=<<branch|branches>> AND statistics.type IN ('issue','renew','localuse') AND year(statistics.datetime) = <<enter year>> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

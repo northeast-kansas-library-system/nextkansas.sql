@@ -27,6 +27,8 @@ Youth checkouts and renewals last month
 ----------
 */
 
+
+
 SELECT
   branches.branchcode,
   Coalesce(YOUTH.count, 0) AS CR_YOUTH_LM
@@ -56,6 +58,28 @@ GROUP BY
   branches.branchcode
 ORDER BY
   branches.branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

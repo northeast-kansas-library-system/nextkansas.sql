@@ -13,7 +13,7 @@ Group: Monthly cleanup
 
 Created on: 2013-09-03 10:38:20
 Modified on: 2018-06-01 14:26:28
-Date last run: 2021-09-17 16:06:47
+Date last run: 2021-10-07 15:03:40
 
 ----------
 
@@ -43,6 +43,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   items.datelastseen,
   biblio.title,
@@ -64,6 +66,28 @@ WHERE
   items.itemlost = '1'
 ORDER BY
   items.itemcallnumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -27,8 +27,32 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT count(statistics.datetime) AS circs, biblio.title, biblio.author, items.ccode FROM statistics JOIN items USING (itemnumber) 
 LEFT JOIN biblio USING(biblionumber) WHERE DATE(statistics.datetime) > DATE_SUB(CURRENT_DATE(),INTERVAL 6 MONTH) AND DATE(statistics.datetime)<=CURRENT_DATE() AND statistics.itemnumber IS NOT NULL AND items.ccode=<<ccode|CCODE>> AND items.location =<<location|LOC>> GROUP BY biblio.biblionumber ORDER BY circs DESC LIMIT 20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

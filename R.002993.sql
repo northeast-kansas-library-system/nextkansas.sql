@@ -13,7 +13,7 @@ Group: Administrative Reports
 
 Created on: 2017-09-06 13:56:13
 Modified on: 2021-06-15 11:08:03
-Date last run: 2021-06-15 11:08:07
+Date last run: 2021-10-05 16:55:15
 
 ----------
 
@@ -26,6 +26,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   borrowers.borrowernumber,
@@ -105,6 +107,28 @@ WHERE
   borrowers.dateofbirth < CurDate() - INTERVAL 18 YEAR
 GROUP BY
   borrowers.borrowernumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -27,7 +27,31 @@ Expiry: 0
 ----------
 */
 
+
+
 select biblio.title, branchtransfers.itemnumber, datesent, frombranch, datearrived, tobranch, comments from branchtransfers, items, biblio, reserves where branchtransfers.itemnumber = items.itemnumber and items.biblionumber = biblio.biblionumber and branchtransfers.itemnumber = reserves.itemnumber and datearrived is NULL and reserves.waitingdate is not null and reserves.found = 'w' order by branchtransfers.itemnumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

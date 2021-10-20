@@ -40,6 +40,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat(
     '<a href="/cgi-bin/koha/members/memberentry.pl?op=modify&borrowernumber=', 
@@ -69,6 +71,28 @@ GROUP BY
   borrowers.borrowernumber
 ORDER BY
   borrowers.cardnumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

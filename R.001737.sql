@@ -27,7 +27,31 @@ Special report for Doniphan County that includes all their branches and items wi
 ----------
 */
 
+
+
 SELECT i.homebranch, b.biblionumber, b.title, i.itype, i.ccode, i.dateaccessioned, i.itemcallnumber, i.barcode, t.publicationyear, CONCAT('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=',b.biblionumber,'&itemnumber=',i.itemnumber,'#edititem\" target="_blank">'"edit item"'</a>') as "edit item" FROM items i LEFT JOIN biblio b USING (biblionumber)  LEFT JOIN biblioitems t USING(biblionumber) WHERE i.homebranch IN ('DONIELWD','DONIHIGH','DONITROY','DONIWATH') AND i.itype IN ('LOCALHOLD','LOCALHOLD1','LOCALHOLD2','WALKIN','WALKIN1','WALKIN2') ORDER by i.ccode ASC, i.dateaccessioned ASC limit 2000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

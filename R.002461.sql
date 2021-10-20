@@ -27,7 +27,31 @@ Note -- if you haven't been consistent with the names of sources of acquisition,
 ----------
 */
 
+
+
 SELECT booksellerid, count(itemnumber) as "total items", SUM(issues+renewals) as "total circ" FROM items WHERE homebranch=<<choose branch|branches>> GROUP BY booksellerid
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

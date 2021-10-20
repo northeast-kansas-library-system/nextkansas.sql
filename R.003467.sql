@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   items.itemnumber,
   items.permanent_location,
@@ -41,6 +43,28 @@ GROUP BY
   items.permanent_location,
   items.location
 LIMIT 1000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

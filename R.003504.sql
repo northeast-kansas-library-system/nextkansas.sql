@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2021-05-12 16:55:32
 Modified on: 2021-05-12 20:36:04
-Date last run: 2021-08-23 13:06:13
+Date last run: 2021-09-30 20:37:48
 
 ----------
 
@@ -38,6 +38,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   borrowers.branchcode,
   LEFT(borrowers.zipcode, 5) as zipcode,
@@ -52,6 +54,28 @@ GROUP BY
 ORDER BY
   borrowers.branchcode,
   LEFT(borrowers.zipcode, 5)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

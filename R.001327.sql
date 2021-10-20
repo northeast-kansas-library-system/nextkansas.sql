@@ -27,7 +27,31 @@ Enhanced - enter MM, YYYY and branch #circ
 ----------
 */
 
+
+
 SELECT statistics.branch as Library, biblio.title, biblio.author, items.itemcallnumber, items.itype, items.ccode, items.location, items.homebranch as ItemBranch, statistics.itemtype FROM statistics LEFT JOIN items USING (itemnumber) LEFT JOIN biblio USING (biblionumber) WHERE statistics.type IN ('issue', 'renew') AND MONTH(statistics.datetime)= <<Month>> and YEAR(statistics.datetime)=<<Year>> and statistics.branch = <<Pick your branch|branches>> ORDER BY statistics.branch, biblio.title
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

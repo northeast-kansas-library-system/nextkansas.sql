@@ -27,7 +27,31 @@ Enhanced.  Counts number of your items sent to fill holds by year
 ----------
 */
 
+
+
 SELECT items.homebranch, MONTH(datesent), COUNT(*) FROM branchtransfers LEFT JOIN items USING (itemnumber) WHERE (items.homebranch != branchtransfers.tobranch) AND (branchtransfers.frombranch != branchtransfers.tobranch) and YEAR(datesent)=<<Year>> and items.homebranch=<<Pick Items Home Branch|branches>> GROUP BY MONTH(datesent)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

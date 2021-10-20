@@ -27,7 +27,31 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT count(itemnumber) as added, itype, location from items WHERE homebranch=<<branch|branches>> AND year(dateaccessioned) = <<year|Year>> GROUP BY itype,location ORDER BY  itype,location 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

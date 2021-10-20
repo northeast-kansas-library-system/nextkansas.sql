@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   biblio_metadata.biblionumber AS biblionumber1,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/@ind2') AS SECOND_IND,
@@ -67,6 +69,28 @@ GROUP BY
   biblio_metadata.biblionumber
 ORDER BY
   FULL_TITLE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

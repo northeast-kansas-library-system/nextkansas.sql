@@ -13,7 +13,7 @@ Group: Daily, Monthly, Yearly Stats
 
 Created on: 2014-01-08 16:25:53
 Modified on: 2014-01-08 16:25:53
-Date last run: 2021-09-13 10:04:25
+Date last run: 2021-10-18 17:18:11
 
 ----------
 
@@ -27,7 +27,31 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT count(itemnumber) as deleted, ccode, location from deleteditems WHERE homebranch=<<branch|branches>> AND year(timestamp) = <<enter four-digit year>> GROUP BY ccode,location ORDER BY  ccode,location 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

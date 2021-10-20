@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   items.itemnumber,
   items.biblionumber,
@@ -44,6 +46,28 @@ WHERE
   items.itemnumber > '2153653'
 GROUP BY
   items.itemnumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

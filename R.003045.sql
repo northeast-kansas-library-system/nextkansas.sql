@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   action_logs.action_id,
   action_logs.timestamp,
@@ -46,6 +48,28 @@ WHERE
 GROUP BY
   action_logs.action_id,
   borrowers.userid
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

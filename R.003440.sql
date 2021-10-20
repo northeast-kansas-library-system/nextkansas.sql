@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2021-02-07 21:18:21
 Modified on: 2021-02-07 21:37:16
-Date last run: 2021-02-07 21:38:16
+Date last run: 2021-10-05 14:54:42
 
 ----------
 
@@ -40,6 +40,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branches.branchcode,
   Coalesce(BORROWERSR.COUNT, 0) AS B_RENEWED_LM
@@ -62,6 +64,28 @@ ORDER BY
   branches.branchcode
 LIMIT
   1000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

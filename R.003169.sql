@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat(
     "Information needed for ",
@@ -87,6 +89,28 @@ ORDER BY
   biblio.author,
   biblio.title,
   items.barcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

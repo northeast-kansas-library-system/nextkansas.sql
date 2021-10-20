@@ -13,7 +13,7 @@ Group: Holds-Reserves
 
 Created on: 2016-08-17 10:42:23
 Modified on: 2021-03-04 19:13:32
-Date last run: 2021-04-17 10:53:13
+Date last run: 2021-10-01 14:57:45
 
 ----------
 
@@ -39,6 +39,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   COUNT(reserves.reserve_id) as REQUESTS_COUNT,
   CONCAT_WS(' <br /> ',biblio.title, ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code>="b"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')) AS FULL_TITLE,
@@ -56,6 +58,28 @@ HAVING
 ORDER BY
   REQUESTS_COUNT DESC,
   biblio.biblionumber ASC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

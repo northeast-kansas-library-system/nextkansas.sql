@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   letter.message_transport_type,
   letter.code,
@@ -42,6 +44,28 @@ GROUP BY
   letter.code,
   letter.title,
   letter.content
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

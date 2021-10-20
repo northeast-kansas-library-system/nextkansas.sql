@@ -13,7 +13,7 @@ Group: Borrowers
 
 Created on: 2018-06-29 08:57:11
 Modified on: 2021-07-29 09:14:12
-Date last run: 2021-08-27 08:24:59
+Date last run: 2021-10-20 08:36:09
 
 ----------
 
@@ -39,6 +39,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   Concat(
@@ -94,6 +96,28 @@ ORDER BY
   borrowers.dateexpiry,
   borrowers.surname,
   borrowers.firstname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

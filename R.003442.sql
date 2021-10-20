@@ -40,6 +40,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branches.branchcode,
   Coalesce(ILL_LOANED.count, 0) AS NX_ILL_LOANED_LM
@@ -65,6 +67,28 @@ ORDER BY
   branches.branchcode
 LIMIT
   1000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

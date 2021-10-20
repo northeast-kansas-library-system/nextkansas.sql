@@ -41,6 +41,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   borrowers.smsalertnumber AS TEXT_NUMBER,
   borrowers.cardnumber,
@@ -56,6 +58,28 @@ WHERE
   message_queue.to_address LIKE CONCAT("%", <<Enter the e-mail address from the bounced text message error report>>,"%")
 GROUP BY
   borrowers.borrowernumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

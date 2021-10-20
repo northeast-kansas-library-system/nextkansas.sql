@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2009-01-26 12:07:07
 Modified on: 2021-09-08 16:04:27
-Date last run: 2021-09-15 14:04:20
+Date last run: 2021-10-13 16:57:40
 
 ----------
 
@@ -63,6 +63,8 @@ Expiry: 0
 
 ----------
 */
+
+
 
 SELECT
   Concat(
@@ -188,6 +190,28 @@ ORDER BY
   items.copynumber,
   biblio.author,
   "Full title"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

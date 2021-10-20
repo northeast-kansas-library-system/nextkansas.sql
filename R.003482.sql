@@ -40,6 +40,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   borrowers.borrowernumber,
   borrowers.cardnumber,
@@ -57,6 +59,28 @@ GROUP BY
   borrowers.borrowernumber
 ORDER BY
   borrowers.borrowernumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

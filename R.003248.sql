@@ -46,6 +46,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branchsitypes.branchname AS CHECK_OUT_LIBRARY,
   branchsitypes.description AS ITEM_TYPE,
@@ -91,6 +93,28 @@ WHERE
 GROUP BY
   branchsitypes.branchname,
   branchsitypes.description
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

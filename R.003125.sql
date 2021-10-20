@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2018-09-26 11:42:19
 Modified on: 2018-09-26 14:15:38
-Date last run: 2021-02-04 11:58:50
+Date last run: 2021-10-13 14:26:28
 
 ----------
 
@@ -38,6 +38,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   statistics.branch AS TRANSACTION_BRANCH,
@@ -112,6 +114,28 @@ ORDER BY
   statistics.branch,
   statistics.datetime,
   statistics.itemnumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   borrowers.branchcode,
   borrowers.categorycode,
@@ -45,6 +47,28 @@ ORDER BY
   borrowers.branchcode,
   borrowers.categorycode,
   borrowers.surname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

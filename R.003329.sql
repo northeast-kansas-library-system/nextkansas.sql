@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat('<a href="/cgi-bin/koha/reserve/request.pl?biblionumber=', reserves.biblionumber,'" target="_blank">LINK</a>') AS LINK,
   borrowers.cardnumber,
@@ -53,6 +55,28 @@ FROM
 WHERE
   reserves.branchcode = 'HIAWATHA' AND
   reserves.found = 'T'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

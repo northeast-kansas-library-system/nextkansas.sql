@@ -29,7 +29,31 @@ Run <a href="https://staff.nexpresslibrary.org/cgi-bin/koha/reports/guided_repor
 ----------
 */
 
+
+
 SELECT CONCAT(p.firstname, ' ', p.surname, ' Grade: ', ba_GRADE.attribute, '<br /> <br />title: ', b.title, '<br /> <br />by ', b.author, '<br /> <br />barcode: ', i.barcode, '<br /> <br /> Owning Library: ', i.homebranch, '<br /> <br /> <br /> <br /> cost if lost: $', i.replacementprice, '<br /><br />Originally due: ', date(s.date_due), '<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />') as message FROM borrowers p left join issues s USING (borrowernumber) left join items i USING (itemnumber) left JOIN biblio b USING (biblionumber) LEFT JOIN borrower_attributes ba_GRADE ON (p.borrowernumber = ba_GRADE.borrowernumber AND ba_GRADE.code = 'GRADE') LEFT JOIN branches br ON (i.homebranch = br.branchname) WHERE s.branchcode = <<Pick your branch|branches>> AND p.categorycode='STUDENT' AND ba_GRADE.attribute IS NOT NULL order by p.categorycode asc, ba_GRADE.attribute asc, p.sort1 asc, p.surname asc LIMIT 1000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

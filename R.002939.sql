@@ -42,6 +42,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   Concat('<a href=https://staff.nexpresslibrary.org/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=', items.biblionumber, '&itemnumber=', items.itemnumber, '\" target="_blank">', biblio.biblionumber, '</a>') AS
   LINK_TO_ITEM,
@@ -78,6 +80,28 @@ ORDER BY
   items.itemcallnumber,
   biblio.author,
   biblio.title
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

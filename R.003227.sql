@@ -52,6 +52,8 @@ would be list number 6003.</p>
 ----------
 */
 
+
+
 SELECT
   IF(
     virtualshelves.category = 1,
@@ -176,6 +178,28 @@ ORDER BY
   CLASSIFICATION,
   biblio.author,
   biblio.title
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

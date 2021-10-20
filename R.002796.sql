@@ -38,6 +38,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   reserves.biblionumber,
   reserves.borrowernumber,
@@ -47,6 +49,28 @@ FROM reserves JOIN borrowers ON reserves.borrowernumber = borrowers.borrowernumb
 WHERE (reserves.biblionumber LIKE <<Enter biblionumber>>)
 GROUP BY reserves.biblionumber, reserves.borrowernumber
 HAVING COUNT_OF_REQUESTS > 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

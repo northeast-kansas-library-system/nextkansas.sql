@@ -13,7 +13,7 @@ Group:  ATCHISON
 
 Created on: 2021-06-14 11:30:27
 Modified on: 2021-07-20 13:53:56
-Date last run: 2021-08-24 14:11:58
+Date last run: 2021-10-08 11:18:52
 
 ----------
 
@@ -39,6 +39,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   Concat(
@@ -69,6 +71,28 @@ GROUP BY
   borrowers.borrowernumber
 ORDER BY
   borrowers.cardnumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2021-04-30 15:05:03
 Modified on: 2021-07-30 10:53:14
-Date last run: 2021-09-01 00:25:02
+Date last run: 2021-10-01 00:27:02
 
 ----------
 
@@ -26,6 +26,8 @@ Run only on as a scheduled report.  May time out if you attempt to run live.
 
 ----------
 */
+
+
 
 SELECT
   branchess.branchname,
@@ -197,6 +199,28 @@ ORDER BY
   ALL_STATS.DATE,
   ALL_STATS.DAY,
   ALL_STATS.HOUR_OF_DAY
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   items.itemnumber,
   items.barcode,
@@ -62,6 +64,28 @@ ORDER BY
   authorised_values.lib,
   items.homebranch,
   items.itemlost_on
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

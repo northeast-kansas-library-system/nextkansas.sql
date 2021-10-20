@@ -40,6 +40,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   old_issues.branchcode,
   DateDiff(old_issues.returndate, old_issues.date_due) AS DAYS_LATE,
@@ -56,6 +58,28 @@ GROUP BY
 ORDER BY
   old_issues.branchcode,
   DAYS_LATE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

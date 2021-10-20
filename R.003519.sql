@@ -28,6 +28,8 @@ Setup for 942 cleanup - item type = NVIDEO
 ----------
 */
 
+
+
 SELECT
   biblioitems.biblionumber,
   biblioitems.agerestriction,
@@ -51,6 +53,28 @@ HAVING
   Group_Concat(DISTINCT items.itype) = 'EQUIPMENT'
 ORDER BY
   Group_Concat_ccode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

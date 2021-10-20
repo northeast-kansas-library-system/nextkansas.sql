@@ -13,7 +13,7 @@ Group: Administrative Reports
 
 Created on: 2017-01-18 15:46:09
 Modified on: 2017-01-18 15:57:27
-Date last run: 2021-06-30 15:47:03
+Date last run: 2021-10-19 14:49:53
 
 ----------
 
@@ -26,6 +26,8 @@ Expiry: 0
 
 ----------
 */
+
+
 
 SELECT
   items.itemnumber,
@@ -353,6 +355,28 @@ ORDER BY
   items.itemcallnumber,
   biblio.author,
   biblio.title
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

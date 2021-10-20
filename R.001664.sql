@@ -27,7 +27,31 @@ Enhanced - Pick your branch and CCode to get a list of items with
 ----------
 */
 
+
+
 SELECT  items.holdingbranch, items.datelastborrowed,items.datelastseen, items.itemcallnumber,biblio.title, biblio.author FROM items JOIN biblio USING (biblionumber) WHERE items.homebranch = <<Pick your branch|branches>> AND items.ccode=<<Pick your Ccode|CCODE>> ORDER BY biblio.title asc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

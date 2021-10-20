@@ -28,6 +28,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   branches.branchcode AS BRANCH,
   Coalesce(Sum(DISTINCT START_ITEMS.count), 0) AS START_I,
@@ -172,6 +174,28 @@ FROM
     ON branches.branchcode = HOLDINGS_DELETED.homebranch
 GROUP BY
   branches.branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

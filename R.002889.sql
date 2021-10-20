@@ -13,7 +13,7 @@ Group: Holds-Reserves
 
 Created on: 2017-01-31 09:54:21
 Modified on: 2018-08-20 14:45:28
-Date last run: 2021-09-17 11:18:14
+Date last run: 2021-10-20 08:48:24
 
 ----------
 
@@ -38,6 +38,8 @@ Expiry: 0
 
 ----------
 */
+
+
 
 SELECT
   Concat_Ws(", ", ExtractValue(biblio_metadata.metadata, '//datafield[@tag="526"]/subfield[@code="a"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="526"]/subfield[@code="b"]'), ExtractValue(biblio_metadata.metadata,'//datafield[@tag="526"]/subfield[@code="c"]')) AS AR,
@@ -69,6 +71,28 @@ ORDER BY
   items.itemcallnumber,
   biblio.author,
   biblio.title
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

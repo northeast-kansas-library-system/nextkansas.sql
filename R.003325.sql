@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   reserves.branchcode,
   GROUP_CONCAT(items.barcode SEPARATOR "<br />") AS Group_Concat_barcode
@@ -38,6 +40,28 @@ WHERE
   reserves.borrowernumber = <<Enter borrowernumber>>
 GROUP BY
   reserves.branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

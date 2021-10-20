@@ -37,6 +37,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   information1.HOMEBRANCH,
   information1.city,
@@ -99,6 +101,28 @@ GROUP BY
   information1.state,
   borrowers_total.Count_borrowernumber,
   borrowers_unepired.Count_borrowernumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

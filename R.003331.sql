@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   borrowers.cardnumber,
   borrowers.surname,
@@ -50,6 +52,28 @@ WHERE
   borrowers.cardnumber IS NOT NULL AND
   borrowers.cardnumber NOT LIKE "" AND
   Length(borrowers.state) > 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

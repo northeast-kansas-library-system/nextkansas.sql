@@ -27,7 +27,31 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT firstname, surname, cardnumber, length(cardnumber), branchcode, categorycode, dateenrolled, dateexpiry FROM borrowers WHERE length(cardnumber) < '13' AND branchcode NOT LIKE 'PH%' ORDER BY length(cardnumber) ASC LIMIT 5000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

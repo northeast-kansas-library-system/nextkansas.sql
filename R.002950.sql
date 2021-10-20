@@ -13,7 +13,7 @@ Group:  LEAVENWRTH
 
 Created on: 2017-05-23 15:31:22
 Modified on: 2021-08-16 20:33:25
-Date last run: 2021-09-01 06:15:04
+Date last run: 2021-10-01 06:15:03
 
 ----------
 
@@ -38,6 +38,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   old_issues.branchcode,
   DateDiff(old_issues.returndate, old_issues.date_due) AS DAYS_LATE,
@@ -54,6 +56,28 @@ GROUP BY
 ORDER BY
   DAYS_LATE,
   COUNT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

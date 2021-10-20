@@ -27,7 +27,31 @@ This is a duplicate of report #1573 but it's written specifically for Doniphan l
 ----------
 */
 
+
+
 SELECT CONCAT('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',biblio.biblionumber,'\" target="_blank">',biblio.biblionumber,'</a>') as "link to record", biblio.title, biblio.author, count(itemnumber) as "total items", GROUP_CONCAT(items.homebranch SEPARATOR '; ') as "home libraries", GROUP_CONCAT(items.barcode SEPARATOR '; ') as barcodes, GROUP_CONCAT(items.ccode SEPARATOR '; ') as ccodes, GROUP_CONCAT(items.location SEPARATOR '; ') as locations, GROUP_CONCAT(items.itemcallnumber SEPARATOR '; ') as callnumbers FROM biblio LEFT JOIN items USING(biblionumber) WHERE items.homebranch LIKE 'DONI%' GROUP BY items.biblionumber HAVING count(items.itemnumber) > 1 ORDER BY biblio.author
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

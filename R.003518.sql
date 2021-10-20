@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branches_categoriess.branchname AS BRANCH,
   branches_categoriess.description AS CATEGORY,
@@ -118,6 +120,28 @@ GROUP BY
 ORDER BY
   BRANCH,
   CATEGORY
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

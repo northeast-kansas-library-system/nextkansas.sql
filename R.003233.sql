@@ -27,6 +27,8 @@ Set for 10
 ----------
 */
 
+
+
 SELECT
 
   Concat(
@@ -95,6 +97,28 @@ WHERE
   pat8.cardnumber = <<Card 8>> AND
   pat9.cardnumber = <<Card 9>> AND
   pat10.cardnumber = <<Card 10>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

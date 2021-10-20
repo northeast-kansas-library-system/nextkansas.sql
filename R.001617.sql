@@ -27,7 +27,31 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT  dateexpiry,dateenrolled,surname,firstname,branchcode,cardnumber,address,city,phone,email FROM borrowers  WHERE categorycode= 'ILL' ORDER BY surname asc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

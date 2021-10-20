@@ -37,6 +37,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   reserves.timestamp,
   items.barcode,
@@ -66,6 +68,28 @@ WHERE
   items.barcode = <<Enter item barcode number>>
 ORDER BY
   reserves.timestamp DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

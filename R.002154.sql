@@ -27,6 +27,8 @@ Does not account for deleted patron accounts' circulation [which isn't possible 
 ----------
 */
 
+
+
 SELECT borrowers.categorycode, 
 case
   when categories.category_type= 'A' then 'Adult'
@@ -36,6 +38,28 @@ case
   when categories.category_type= 'S' then 'Staff'
   when categories.category_type= 'X' then 'Statistical'
   else categories.category_type end as categorytype, COUNT(*) FROM statistics JOIN borrowers USING (borrowernumber) LEFT JOIN categories USING(categorycode) WHERE statistics.branch=<<branch|branches>> AND statistics.type IN ('issue', 'renew','localuse') AND YEAR(datetime)=<<enter year>> GROUP BY borrowers.categorycode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

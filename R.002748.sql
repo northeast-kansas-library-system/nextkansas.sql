@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   CONCAT('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=',b.title,'&sort_by=title_az\" target="_blank">',b.title,'</a>') AS "Title Search",
   CONCAT(trim(b.title)),
@@ -44,6 +46,28 @@ FROM biblio b
 WHERE (i.ccode NOT IN ('ERESOURCE','DLVIDEO','DLAUDIO','DLBOOK','DLMUSIC'))
 GROUP BY CONCAT(trim(b.title))
 HAVING (count(DISTINCT b.biblionumber) > 1) AND homebranches LIKE '%PAOLA%'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

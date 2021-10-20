@@ -27,7 +27,31 @@ A list of all messages sent to patrons at a certain library (patrons who have em
 ----------
 */
 
+
+
 SELECT message_id, CONCAT('<a href=\"/cgi-bin/koha/circ/circulation.pl?borrowernumber=',borrowernumber,'\" target="_blank">',borrowernumber,'</a>'), borrowernumber, borrowers.branchcode, subject, content, metadata, letter_code, message_transport_type, status, time_queued, to_address, from_address, content_type FROM message_queue LEFT JOIN borrowers USING (borrowernumber) WHERE borrowers.branchcode=<<choose branch|branches>> GROUP BY message_id ORDER BY time_queued DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

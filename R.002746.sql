@@ -27,9 +27,33 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT *
 FROM borrowers
 WHERE borrowers.branchcode = 'PAOLA'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

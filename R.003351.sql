@@ -41,6 +41,8 @@ Expiry: 300
 ----------
 */
 
+
+
 Select
     Concat('<a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=', borrowers.borrowernumber, '" target="_blank">', borrowers.cardnumber, '</a>') AS LINK,
     borrowers.branchcode AS PATRON_HOME_LIBRARY,
@@ -71,6 +73,28 @@ Having
     Count(Distinct issues.issue_id) > 1
 Order By
     CKO_FROM_ALL_LIBRARIES Desc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-12-26 09:46:35
 Modified on: 2021-01-17 13:30:24
-Date last run: 2021-03-02 10:38:27
+Date last run: 2021-10-19 16:57:00
 
 ----------
 
@@ -47,6 +47,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   outstanding_fees.branchcode,
@@ -151,6 +153,28 @@ GROUP BY
 ORDER BY
   outstanding_fees.branchcode,
   outstanding_fees.date
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

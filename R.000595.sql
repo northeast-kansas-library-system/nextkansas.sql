@@ -27,7 +27,31 @@ From John
 ----------
 */
 
+
+
 select date_format(`datetime`,"%X-%V") as 'Week', count(*) as 'Checkouts' from statistics LEFT JOIN items USING (itemnumber) where homebranch=<<Pick your branch|branches>> AND datetime LIKE <<enter date with % (ex. 2012-01-05%>> AND type in ('issue','renew') AND (items.itemcallnumber like <<enter first call number with % ex. JF%>> and type in ('issue','renew') OR <<enter second call number with % ex. E%>> OR items.location in ('CHILDRENS')) group by date_format(`datetime`,"%X-%V") order by date_format(`datetime`,"%X-%V")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

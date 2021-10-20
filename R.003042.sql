@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   biblio_metadata.biblionumber,
   CONCAT("<a href='/cgi-bin/koha/cataloguing/editor.pl#catalog/", biblio_metadata.biblionumber, "' target='_blank'>Go to record</a>") AS LINK
@@ -37,6 +39,28 @@ WHERE
 ORDER BY
   biblio_metadata.biblionumber
   DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

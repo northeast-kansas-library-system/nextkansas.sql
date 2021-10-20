@@ -27,7 +27,31 @@ Run the report and then type in the "enter email address" box the email address 
 ----------
 */
 
+
+
 select cardnumber, surname, firstname, branchcode, email, emailpro, b_email from borrowers where <<enter email address>> in (B_email, email, emailpro)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

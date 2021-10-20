@@ -31,8 +31,32 @@ Replaced by reports 3471 and 3472
 ----------
 */
 
+
+
 SELECT 
   CONCAT('Replaced by report 3471 (replacement cost by collection code) and report 3472 (replacement cost by item type)') AS INFORMATION
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

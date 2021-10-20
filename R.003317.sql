@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat('<a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=', borrowers.borrowernumber, '" target="_blank">Link</a>') AS DIRECT_LINK,
   borrowers.cardnumber,
@@ -48,6 +50,28 @@ WHERE
   borrowers.categorycode = 'A_SELF'
 ORDER BY
   borrowers.cardnumber DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

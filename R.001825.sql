@@ -27,7 +27,31 @@ Gives a timestamp and itemnumber and biblionumber from the deleteditems table fo
 ----------
 */
 
+
+
 SELECT timestamp, itemnumber, bibilonumber FROM deleteditems WHERE barcode=<<enter barcode>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

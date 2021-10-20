@@ -38,6 +38,8 @@ for X cards
 ----------
 */
 
+
+
 SELECT
 
   Concat(
@@ -349,6 +351,28 @@ WHERE
   pat3.cardnumber = <<Card 3>> AND
   pat4.cardnumber = <<Card 4>> AND
   pat5.cardnumber = <<Card 5>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

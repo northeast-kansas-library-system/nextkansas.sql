@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2020-12-31 17:36:03
 Modified on: 2021-07-29 17:19:53
-Date last run: 2021-09-01 00:17:01
+Date last run: 2021-10-01 00:18:02
 
 ----------
 
@@ -26,6 +26,8 @@ Monthly statistics - should be run on schedule only - staff at libraries should 
 
 ----------
 */
+
+
 
 SELECT
   branch_itype.branchname,
@@ -157,6 +159,28 @@ GROUP BY
 ORDER BY
   branch_itype.branchname,
   branch_itype.description
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

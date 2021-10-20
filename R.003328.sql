@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   borrowers.cardnumber,
   If(borrowers.email = "", branchess.branchemail, borrowers.email) AS email,
@@ -71,6 +73,28 @@ GROUP BY
   borrowers.cardnumber,
   branchess.branchemail,
   borrowers.email
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

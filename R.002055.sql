@@ -27,6 +27,8 @@ Linked version of the Unique Report for Hiawatha
 ----------
 */
 
+
+
 SELECT CONCAT ('<a href=\"/cgi-bin/koha/members/maninvoice.pl?borrowernumber=',borrowers.borrowernumber,'\" target="_blank">',borrowers.cardnumber,'</a>') AS "Link to Fines",   borrowers.borrowernumber, borrowers.surname, borrowers.firstname, borrowers.address, borrowers.address2, borrowers.city, borrowers.zipcode, borrowers.phone, borrowers.mobile, borrowers.phonepro AS "Alt Ph 1", borrowers.B_phone AS "Alt Ph 2", borrowers.branchcode, categories.category_type AS "Adult or Child", borrowers.dateofbirth, MAX(accountlines.date) AS "Most recent charge", FORMAT(SUM(accountlines.amountoutstanding),2) AS Due 
 FROM accountlines 
 LEFT JOIN borrowers USING(borrowernumber) 
@@ -38,6 +40,28 @@ AND accountlines.date < DATE_SUB(CURDATE(), INTERVAL 60 day)
 GROUP BY borrowers.borrowernumber 
 HAVING Due >=25.00 
 ORDER BY borrowers.surname ASC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

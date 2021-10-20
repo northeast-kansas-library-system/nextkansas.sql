@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat_Ws("<br />",
     Concat("Borrower BC: ", borrowers.cardnumber, "<br />"),
@@ -94,6 +96,28 @@ GROUP BY
   items.itemnumber
 ORDER BY
   allissues.notedate DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

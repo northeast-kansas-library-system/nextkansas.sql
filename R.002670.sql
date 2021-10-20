@@ -27,7 +27,31 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT CONCAT('<a href=\"/cgi-bin/koha/members/memberentry.pl?op=modify&borrowernumber=',borrowers.borrowernumber,'\" target="_blank">'"edit patron"'</a>') as "edit patron" FROM borrowers WHERE email NOT LIKE '%_@__%.__%' and (email is not NULL and email!="")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

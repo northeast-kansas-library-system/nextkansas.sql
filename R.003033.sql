@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   CONCAT("<a href='https://staff.nexpresslibrary.org/cgi-bin/koha/cataloguing/addbiblio.pl?biblionumber=", biblio_metadata.biblionumber,  " ' target='_blank'>Edit in new window</a>") AS LINK,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="856"]//subfield[@code="u"]') AS URI
@@ -36,6 +38,28 @@ WHERE
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="856"]//subfield[@code="u"]') LIKE "%overdrive%"
 GROUP BY
   biblio_metadata.biblionumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

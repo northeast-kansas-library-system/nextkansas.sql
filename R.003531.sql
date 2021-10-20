@@ -39,6 +39,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branchestypescodes.branchname,
   branchestypescodes.description AS "ITEM TYPE",
@@ -307,6 +309,28 @@ ORDER BY
   branchestypescodes.branchname,
   branchestypescodes.description,
   branchestypescodes.lib
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

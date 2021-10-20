@@ -27,6 +27,8 @@ Holds ratio
 ----------
 */
 
+
+
 SELECT
   biblio.biblionumber,
   biblio.author,
@@ -43,6 +45,28 @@ ORDER BY
   biblio.biblionumber,
   biblio.author,
 FULL_TITLE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

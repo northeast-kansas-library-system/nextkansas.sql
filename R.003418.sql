@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2021-02-04 16:34:33
 Modified on: 2021-09-18 16:18:19
-Date last run: 2021-09-18 16:18:29
+Date last run: 2021-10-01 00:03:03
 
 ----------
 
@@ -26,6 +26,8 @@ Generates Columns D-I of the monthly statistical report
 
 ----------
 */
+
+
 
 SELECT
   branches.branchcode AS BRANCH,
@@ -160,6 +162,28 @@ FROM
       HOLDINGS_DELETED.homebranch
 GROUP BY
   branches.branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

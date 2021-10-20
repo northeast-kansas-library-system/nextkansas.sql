@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2020-01-30 12:21:42
 Modified on: 2020-01-30 12:21:59
-Date last run: 2021-09-19 03:00:05
+Date last run: 2021-10-20 03:00:03
 
 ----------
 
@@ -26,6 +26,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 Select
   borrowers.branchcode,
@@ -63,6 +65,28 @@ Group By
 Order By
   borrowers.branchcode,
   BORROWER_NAME
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

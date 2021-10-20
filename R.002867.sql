@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branches.branchcode,
   Coalesce(Count(BOOK_S.itemnumber), 0) AS '9.1a_BOOK_S'
@@ -145,6 +147,28 @@ FROM
       deleteditems.itemnumber) BOOK_S ON branches.branchcode = BOOK_S.homebranch
 GROUP BY
   branches.branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

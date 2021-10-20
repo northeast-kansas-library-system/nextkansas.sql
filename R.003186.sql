@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-03-20 17:44:30
 Modified on: 2019-03-27 16:45:48
-Date last run: 2021-09-19 16:12:50
+Date last run: 2021-10-20 09:52:02
 
 ----------
 
@@ -38,12 +38,36 @@ Expiry: 1
 ----------
 */
 
+
+
 SELECT
   Group_Concat(borrowers.surname, ", ", borrowers.firstname, " - ") AS BORROWER_NAME
 FROM
   borrowers
 WHERE
   borrowers.borrowernumber = <<borrowernumber>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

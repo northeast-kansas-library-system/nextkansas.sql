@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat(
      '<a href=\"/cgi-bin/koha/reports/guided_reports.pl?reports=3166&phase=Run+this+report&m_name=searchterm&sql_params=',
@@ -41,6 +43,28 @@ WHERE
   Left(Replace(Replace(Replace(biblio.author, ".", ""), ",", ""), "'", ""), 3) LIKE "A%"
 GROUP BY
   Left(Replace(Replace(Replace(biblio.author, ".", ""), ",", ""), "'", ""), 3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

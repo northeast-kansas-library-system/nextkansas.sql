@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2018-08-24 17:48:05
 Modified on: 2018-08-24 17:48:05
-Date last run: 2021-09-13 09:24:33
+Date last run: 2021-10-13 13:09:02
 
 ----------
 
@@ -26,6 +26,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   Concat_Ws("<br />",
@@ -88,6 +90,28 @@ GROUP BY
   items.itemnumber
 ORDER BY
   allissues.notedate DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

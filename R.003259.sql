@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   If(
     issuingrules.branchcode = "*",
@@ -134,6 +136,28 @@ ORDER BY
   If(borrower_categories.category_type = "A", "Adult", If(borrower_categories.category_type = "C", "Child", If(borrower_categories.category_type = "S", "Staff", If(borrower_categories.category_type = "I", "Organization", If(borrower_categories.category_type = "P", "Professional", If(borrower_categories.category_type = "S", "Statistical", "")))))),
   issuingrules.categorycode,
   ITEM_TYPE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

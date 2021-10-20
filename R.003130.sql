@@ -47,6 +47,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branches.branchname,
   Coalesce(lyndaborrowers.Count_borrowernumber, "-") AS LYNDA_USERS_COUNT
@@ -137,6 +139,28 @@ ORDER BY
   branches.branchname
 LIMIT
   100
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -27,7 +27,31 @@ Enhanced - Run, pick your branch and see who has a credit. What is difference be
 ----------
 */
 
+
+
 SELECT  borrowers.cardnumber, borrowers.surname, borrowers.firstname, FORMAT(SUM(accountlines.amountoutstanding),2) as due FROM borrowers LEFT JOIN accountlines USING (borrowernumber) WHERE borrowers.branchcode=<<Pick your branch|branches>> AND accountlines.amountoutstanding != 0 GROUP BY borrowers.cardnumber having SUM(accountlines.amountoutstanding) < 0 ORDER BY borrowers.surname ASC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

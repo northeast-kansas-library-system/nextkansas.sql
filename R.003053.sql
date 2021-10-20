@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   biblio.timestamp,
   Concat(biblio.title, " ", ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code>="b"]')) AS TITLE,
@@ -49,6 +51,28 @@ GROUP BY
   biblio.biblionumber
 ORDER BY
   biblio.biblionumber DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

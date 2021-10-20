@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT CONCAT('<a href=\"/cgi-bin/koha/members/member-flags.pl?member=',borrowernumber,'\" target="_blank">',borrowernumber,'</a>') AS "Edit Permissions",
   firstname, surname,
   userid, flags,
@@ -35,6 +37,28 @@ SELECT CONCAT('<a href=\"/cgi-bin/koha/members/member-flags.pl?member=',borrower
 FROM borrowers
 WHERE flags NOT IN  ('0')
 ORDER BY flags
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

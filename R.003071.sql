@@ -38,6 +38,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat("<a href='/cgi-bin/koha/circ/circulation.pl?borrowernumber=", borrowers.borrowernumber, "#reldebarments' target='_blank'>Go to patron</a>") AS LINK_TO_BORROWER,
   borrowers.borrowernumber,
@@ -104,6 +106,28 @@ ORDER BY
   borrowers.branchcode,
   borrowers.surname,
   borrowers.firstname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

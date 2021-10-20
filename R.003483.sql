@@ -54,6 +54,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat("Today's date:") AS branchcode,
   CURRENT_DATE() AS LOCATION,
@@ -815,6 +817,28 @@ GROUP BY
   branchesitypes.description,
   icounts.Count_itemnumber,
   statcounts.COUNT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -27,7 +27,31 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT borrowers.cardnumber, borrower_attributes.attribute as 'grade', borrowers.categorycode, CONCAT (borrowers.surname,' ',borrowers.firstname) AS name, borrowers.sort1, CONCAT('<a href=\"/cgi-bin/koha/members/memberentry.pl?op=modify&borrowernumber=',borrowers.borrowernumber,'\" target="_blank">'"edit patron"'</a>') as "edit patron" FROM borrowers LEFT JOIN borrower_attributes USING (borrowernumber) WHERE borrowers.branchcode = 'PHSES' GROUP BY borrowers.cardnumber order by grade, borrowers.sort1 LIMIT 500
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

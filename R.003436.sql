@@ -40,6 +40,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branches.branchcode,
   Coalesce(DVD_CIRC_RENEW_LM.count, 0) AS CR_VIDEO_DISC_LM
@@ -69,6 +71,28 @@ ORDER BY
   branches.branchcode
 LIMIT
   1000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

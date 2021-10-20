@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-08-08 15:26:19
 Modified on: 2019-08-13 15:03:47
-Date last run: 2021-08-23 09:55:27
+Date last run: 2021-10-08 09:25:50
 
 ----------
 
@@ -43,6 +43,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   branchsitypes.branchname AS CHECK_OUT_LIBRARY,
@@ -89,6 +91,28 @@ WHERE
 GROUP BY
   branchsitypes.branchname,
   branchsitypes.description
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-04-15 14:47:23
 Modified on: 2019-06-19 13:27:35
-Date last run: 2021-09-19 16:48:49
+Date last run: 2021-10-20 09:52:01
 
 ----------
 
@@ -27,12 +27,36 @@ Expiry: 1
 ----------
 */
 
+
+
 SELECT
   CONCAT("<h1>KLE code:  ", branches.branchnotes, "</h1>") AS SHIP_TO
 FROM
   branches
 WHERE
   branches.branchname LIKE Concat("%", <<branchname>>, "%")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

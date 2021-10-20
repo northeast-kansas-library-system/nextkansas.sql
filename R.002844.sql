@@ -39,6 +39,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   deletedborrowers.branchcode AS PATRON_HOME_LIBRARY,
   deletedborrowers.categorycode AS PATRON_CATEGORY,
@@ -56,6 +58,28 @@ WHERE
 GROUP BY
   PATRON_HOME_LIBRARY, PATRON_CATEGORY
   WITH ROLLUP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

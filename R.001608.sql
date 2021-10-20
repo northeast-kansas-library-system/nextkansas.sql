@@ -27,7 +27,31 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT ExtractValue(metadata, '//datafield[@tag="020"]/subfield[@code="a"]') as isbna, ExtractValue(metadata, '//datafield[@tag="024"]/subfield[@code="a"]') as upc FROM biblio_metadata WHERE (itemtype NOT IN ('MAGAZINE','DIGITAL','KITS','EQUIPMENT','ILL') OR itemtype IS NULL)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -27,7 +27,31 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT cardnumber, surname, firstname,debarred, dateexpiry FROM borrowers WHERE branchcode=<<branch|branches>> ORDER BY surname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

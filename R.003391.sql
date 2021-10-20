@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branchescategories.branchname,
   If(
@@ -219,6 +221,28 @@ GROUP BY
 ORDER BY
   branchname,
   Coalesce(DESCRIPTION, 'Z')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -41,6 +41,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   reserves.branchcode,
   Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', reserves.biblionumber, '\" target="_blank">', "LINK", '</a>') AS LINK,
@@ -81,6 +83,28 @@ ORDER BY
   TITLE,
   LOCAL_COPIES,
   LOCAL_REQUESTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

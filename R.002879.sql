@@ -37,6 +37,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   borrowers.cardnumber,
   borrowers.dateenrolled,
@@ -52,6 +54,28 @@ GROUP BY
   borrowers.cardnumber, borrowers.dateenrolled, borrowers.borrowernumber
 ORDER BY
   PATRON_NUMBER DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

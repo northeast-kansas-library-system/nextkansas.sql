@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2021-02-04 21:38:26
 Modified on: 2021-07-29 17:17:03
-Date last run: 2021-09-01 00:15:03
+Date last run: 2021-10-01 00:15:02
 
 ----------
 
@@ -26,6 +26,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   'Total biblios on last day of last month' AS DESCRIPTION,
@@ -52,6 +54,28 @@ FROM
 WHERE
   Month(deletedbiblio.timestamp) = Month(Now() - INTERVAL 1 MONTH) AND
   Year(deletedbiblio.timestamp) = Year(Now() - INTERVAL 1 MONTH)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

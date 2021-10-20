@@ -13,7 +13,7 @@ Group: Fines/Fees
 
 Created on: 2017-10-23 09:30:01
 Modified on: 2021-02-08 16:44:08
-Date last run: 2021-09-17 09:25:20
+Date last run: 2021-10-11 12:22:36
 
 ----------
 
@@ -42,6 +42,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat('<a href=\"/cgi-bin/koha/members/boraccount.pl?borrowernumber=', borrowers.borrowernumber, '\" target="_blank">LINK</a>') AS LINK,
   borrowers.cardnumber as BORROWER_CARDNUMBER,
@@ -58,6 +60,28 @@ GROUP BY
   accountlines.accountlines_id
 ORDER BY
   accountlines.date DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

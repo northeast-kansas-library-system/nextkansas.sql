@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   biblio.biblionumber,
   Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">', "LINK", '</a>') AS LINK,
@@ -37,6 +39,28 @@ FROM
 ORDER BY
   biblio.biblionumber DESC
   LIMIT 50
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

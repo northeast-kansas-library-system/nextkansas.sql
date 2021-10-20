@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2021-07-29 16:35:30
 Modified on: 2021-07-30 10:54:49
-Date last run: 2021-09-01 11:05:02
+Date last run: 2021-10-01 00:36:02
 
 ----------
 
@@ -38,6 +38,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   branchccodes.branchname,
@@ -255,6 +257,28 @@ GROUP BY
 ORDER BY
   branchccodes.branchname,
   branchccodes.lib
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

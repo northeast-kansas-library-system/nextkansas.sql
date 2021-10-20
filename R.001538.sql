@@ -27,7 +27,31 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT YEAR(timestamp), COUNT(biblionumber) FROM deletedbiblio GROUP BY YEAR(timestamp)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

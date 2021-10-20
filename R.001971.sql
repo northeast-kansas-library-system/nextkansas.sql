@@ -27,7 +27,31 @@ circulation for a month for all of NExpress
 ----------
 */
 
+
+
 SELECT count(*) FROM statistics LEFT JOIN items USING(itemnumber) WHERE  year(statistics.datetime) = <<Choose year|YEAR>> AND  month(statistics.datetime) = <<Choose month|MONTH>> AND statistics.type IN ('issue','renew','localuse')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

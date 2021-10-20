@@ -39,6 +39,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branches.branchname,
   Coalesce(Length(items.barcode), 0) AS ITEM_BARCODE_LENGTH,
@@ -58,6 +60,28 @@ WHERE
 GROUP BY
   branches.branchname,
   Length(items.barcode)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

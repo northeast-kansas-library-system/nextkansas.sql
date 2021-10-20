@@ -36,6 +36,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   action_logs.action_id,
   action_logs.timestamp,
@@ -50,6 +52,28 @@ FROM
 WHERE
   action_logs.timestamp > AddDate(Last_Day(SubDate(Now(), INTERVAL 3 MONTH)), 1) AND
   action_logs.module = 'SYSTEMPREFERENCE'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

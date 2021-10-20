@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2021-02-04 17:10:37
 Modified on: 2021-07-29 17:16:31
-Date last run: 2021-09-01 00:07:02
+Date last run: 2021-10-01 00:09:01
 
 ----------
 
@@ -26,6 +26,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   branches.branchcode,
@@ -100,6 +102,28 @@ GROUP BY
   branches.branchcode
 ORDER BY
   branches.branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

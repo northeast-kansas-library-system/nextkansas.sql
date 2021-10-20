@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   items.itemnumber,
   items.ccode,
@@ -38,6 +40,28 @@ FROM
 WHERE
   items.ccode LIKE '%DVD%' AND
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]') LIKE "%(DVD)%"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

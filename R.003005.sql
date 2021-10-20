@@ -37,6 +37,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
  branch_types.branchcode,
  Coalesce(branch_types.itypename, "~") AS itype,
@@ -170,6 +172,28 @@ GROUP BY
 ORDER BY
  branch_types.branchcode,
  itype
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

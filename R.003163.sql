@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-01-29 09:32:51
 Modified on: 2019-06-05 18:22:44
-Date last run: 2021-09-19 14:18:38
+Date last run: 2021-10-18 12:20:40
 
 ----------
 
@@ -40,6 +40,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   borrowers.cardnumber,
   borrowers.surname,
@@ -61,6 +63,28 @@ GROUP BY
 ORDER BY
   borrowers.surname,
   borrowers.cardnumber  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

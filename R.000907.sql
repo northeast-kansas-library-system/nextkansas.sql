@@ -27,7 +27,31 @@ Expiry: 0
 ----------
 */
 
+
+
 select biblio.title, items.barcode, items.homebranch, items.itype, borrowers.surname, borrowers.firstname, borrowers.cardnumber, borrowers.branchcode as 'patron branch', reserves.branchcode as 'pickup branch', reserves.found as 'status', reserves.waitingdate from reserves, items, borrowers, biblio where reserves.itemnumber = items.itemnumber and reserves.borrowernumber = borrowers.borrowernumber and items.biblionumber = biblio.biblionumber and reserves.priority = '0' and reserves.found in ('T', 'W') and items.itype in ('LOCALHOLD', 'LOCALHOLD1', 'LOCALHOLD2', 'WALKIN', 'WALKIN1', 'WALKIN2') and items.homebranch != borrowers.branchcode order by reserves.found, reserves.branchcode, biblio.title
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

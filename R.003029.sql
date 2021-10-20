@@ -38,6 +38,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branches.branchcode,
   checkins.DATE,
@@ -72,6 +74,28 @@ GROUP BY
 ORDER BY
   branches.branchcode,
   checkins.DATE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

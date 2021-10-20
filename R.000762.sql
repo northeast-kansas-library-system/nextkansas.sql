@@ -27,7 +27,31 @@ Enter Year for Count of patrons added in a certain year. Year End Report
 ----------
 */
 
+
+
 SELECT branchcode,COUNT(*) FROM borrowers WHERE YEAR(dateenrolled)= <<Year>> GROUP BY branchcode ORDER BY branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

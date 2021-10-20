@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   message_queue.message_id,
   message_queue.borrowernumber,
@@ -46,6 +48,28 @@ WHERE
   message_queue.subject = 'Verify Your Account'
 ORDER BY
   message_queue.message_id DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

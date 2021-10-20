@@ -13,7 +13,7 @@ Group: Borrowers
 
 Created on: 2009-05-11 14:05:16
 Modified on: 2017-03-08 13:09:35
-Date last run: 2021-09-14 09:42:15
+Date last run: 2021-10-18 08:57:57
 
 ----------
 
@@ -27,7 +27,31 @@ Review added patrons in a month at your library to find mistakes. Use the edit p
 ----------
 */
 
+
+
 SELECT CONCAT('<a href=\"/cgi-bin/koha/members/memberentry.pl?op=modify&borrowernumber=',borrowers.borrowernumber,'\" target="_blank">'"edit patron"'</a>') as "edit patron", dateenrolled,surname,firstname,branchcode,categorycode,cardnumber,address,city,phone,email FROM borrowers WHERE branchcode=<<Choose Library|branches>> AND year(dateenrolled) = <<Choose Year Patrons Added|Year>> AND month(dateenrolled) = <<Choose month Patrons Added|Month>> ORDER BY borrowers.categorycode ASC, borrowers.branchcode ASC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

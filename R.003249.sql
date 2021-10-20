@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   "YESTERDAY" AS DESCRIPTION,
   "CurDate() - INTERVAL 1 DAY" AS EXPRESSION,
@@ -156,6 +158,28 @@ SELECT
   "D_NEXT_SUNDAY",
   "Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) - 1 DAY) + INTERVAL 1 WEEK",
   Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) - 1 DAY) + INTERVAL 1 WEEK
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

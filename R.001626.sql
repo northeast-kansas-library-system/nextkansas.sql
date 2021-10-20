@@ -27,7 +27,31 @@ A revised version of 1128 #circ
 ----------
 */
 
+
+
 SELECT items.ccode, items.location, substring(items.itemcallnumber,1,1) AS 'Call Number range', count(*) AS count FROM statistics LEFT JOIN items USING (itemnumber) WHERE statistics.type IN ('issue', 'renew') AND YEAR(datetime) = <<Enter Year>> AND statistics.branch = <<branch|branches>> GROUP BY items.ccode, items.location, substring(items.itemcallnumber,1,1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2018-08-13 15:03:41
 Modified on: 2019-03-19 13:56:19
-Date last run: 2021-09-14 14:53:05
+Date last run: 2021-09-29 12:22:54
 
 ----------
 
@@ -37,6 +37,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   Concat_Ws(
@@ -185,6 +187,28 @@ ORDER BY
   deleteditems.itemcallnumber,
   Coalesce(biblio.author, deletedbiblio.author),
   Coalesce(biblio.title, deletedbiblio.title)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat_Ws("<br />",
     Concat("Name: ", z3950servers.servername),
@@ -45,6 +47,28 @@ WHERE
 GROUP BY
   z3950servers.recordtype,
   z3950servers.id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

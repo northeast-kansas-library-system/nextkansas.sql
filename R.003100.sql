@@ -37,6 +37,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   items_last_borrower.id AS ITEMS_LAST_BORROWER_ID
 FROM
@@ -51,6 +53,28 @@ GROUP BY
   items_last_borrower.id
 ORDER BY
   items_last_borrower.created_on
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -27,6 +27,8 @@ Enhanced - Select Run, then enter Date Range and Patron's Libary #patrons
 ----------
 */
 
+
+
 SELECT YEAR(issuedate), MONTH(issuedate), categorycode, COUNT(DISTINCT
 borrowernumber)
 FROM old_issues
@@ -34,6 +36,28 @@ FROM old_issues
 where issuedate between <<Between (yyyy-mm-dd>> and <<and (yyyy-mm-dd>> and
 old_issues.branchcode=<<Enter patrons library|branches>>
 GROUP BY YEAR(issuedate), MONTH(issuedate), categorycode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

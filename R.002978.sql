@@ -36,6 +36,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branches.branchcode,
   Coalesce(CIR_RENEW_LM.BIRTHYEAR, "-") AS BORROWERS_BIRTH_YEAR,
@@ -67,6 +69,28 @@ GROUP BY
 ORDER BY
   branches.branchcode,
   BORROWERS_BIRTH_YEAR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

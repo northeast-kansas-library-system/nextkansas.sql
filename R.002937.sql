@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   items.holdingbranch AS CKO_BRANCH,
   items.barcode AS ITEM_BARCODE,
@@ -88,6 +90,28 @@ ORDER BY
   old_issues.borrowernumber,
   LAST_PATRON_CARD,
   LAST_PATRON_NAME
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

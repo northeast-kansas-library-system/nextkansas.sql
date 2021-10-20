@@ -50,6 +50,8 @@ would be list number 6003.</p>
 ----------
 */
 
+
+
 SELECT
   Concat("<span style='font-size: 125%;'><span style='float: left'><ins>Title:</ins> ", Coalesce(biblio.title, '--'), "</span><span style='float: right'><ins>Author:</ins> ", Coalesce(biblio.author, '--'), "</span></span>") AS TITLE_AUTHOR
 FROM
@@ -62,6 +64,28 @@ GROUP BY
 ORDER BY
   biblio.author,
   biblio.title
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

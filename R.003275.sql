@@ -27,12 +27,36 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Count(*) AS COUNT
 FROM
   items
 WHERE
   items.itype = 'MEDIA'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

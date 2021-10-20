@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2017-05-30 10:34:44
 Modified on: 2017-05-30 10:35:32
-Date last run: 2021-08-13 13:27:20
+Date last run: 2021-09-30 10:20:34
 
 ----------
 
@@ -26,6 +26,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   borrowers.branchcode,
@@ -59,6 +61,28 @@ GROUP BY
   borrowers.cardnumber, borrowers.email
 ORDER BY
   borrowers.branchcode, Concat(borrowers.surname, ", ", borrowers.firstname)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   borrowers.branchcode,
   borrowers.cardnumber,
@@ -49,6 +51,28 @@ GROUP BY
   borrowers.updated_on
 ORDER BY
   borrowers.updated_on DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

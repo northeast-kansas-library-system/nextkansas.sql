@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   <<Number of digits in card prefix|YNUMBER>> AS CARD_PREFIX_LENGTH,
   UPPER(Left(borrowers.cardnumber, <<Number of digits in card prefix|YNUMBER>>)) AS LIBRAY_CARD_PREFIX,
@@ -41,6 +43,28 @@ HAVING
   LIBRARY_CARD_COUNT >= <<Minimum card number count|YNUMBER>>
 ORDER BY
   LIBRAY_CARD_PREFIX, CARD_NUMBER_LENGTH
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

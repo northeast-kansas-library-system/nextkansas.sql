@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   branches.branchcode AS BRANCH,
   Coalesce(YOUTH_C.COUNT, 0) AS '11.2_YOUTH_C'
@@ -50,6 +52,28 @@ FROM
 GROUP BY
   branches.branchcode,
   YOUTH_C.COUNT
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

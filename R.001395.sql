@@ -27,7 +27,31 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT borrowers.categorycode, COUNT(*) FROM statistics JOIN borrowers USING (borrowernumber) WHERE statistics.type IN ('issue', 'renew') AND datetime >= <<Start Date (example: 2009-01-01) >> AND datetime < <<End Date (example: 2010-01-01 >> AND statistics.branch = <<Pick your branch|branches>>  GROUP BY borrowers.categorycode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

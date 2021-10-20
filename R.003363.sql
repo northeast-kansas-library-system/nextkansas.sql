@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 Select
     biblio.biblionumber,
     ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="e"]') As LOCATION,
@@ -72,6 +74,28 @@ Group By
     ITEMLOCS.PERM,
     ICOUNT.Count_itemnumber
 LIMIT 500
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

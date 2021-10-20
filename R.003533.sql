@@ -47,6 +47,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branchtypes.branchname,
   branchtypes.description AS "ITEM TYPE",
@@ -146,6 +148,28 @@ GROUP BY
 ORDER BY
   branchtypes.branchname,
   branchtypes.description
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

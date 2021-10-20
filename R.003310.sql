@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 Select
   Concat('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=', Trim(Replace(Replace(Replace(Replace(Replace(Replace(biblio.title, '/', ''), ':', ''), ';', ''), '.', ''), '"', ''), "'", "")), '&sort_by=title_az\" target="_blank">SEARCH</a>') As SEARCH,
   Trim(Replace(Replace(Replace(Replace(Replace(Replace(biblio.title, '/', ''), ':', ''), ';', ''), '.', ''), '"', ''), "'", "")) As TITLE,
@@ -51,6 +53,28 @@ Having
   Count(biblio.biblionumber) > 1
 Order By
   TITLE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

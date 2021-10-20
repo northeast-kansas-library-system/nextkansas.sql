@@ -27,7 +27,31 @@ From koha-comm reports library
 ----------
 */
 
+
+
 SELECT location, substring(itemcallnumber,1,1) AS 'Call Number range', count(*) AS count FROM statistics LEFT JOIN items USING (itemnumber) WHERE statistics.type IN ('issue', 'renew') AND YEAR(datetime) = <<Enter Year>> AND MONTH(datetime) = <<Enter Month>> AND statistics.branch = <<branch|branches>> AND items.itype = <<Item Type|itemtypes>> AND items.ccode = <<ccode|CCODE>> GROUP BY location, substring(itemcallnumber,1,1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

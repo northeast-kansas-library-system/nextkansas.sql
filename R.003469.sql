@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat(
     '<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=', 
@@ -114,6 +116,28 @@ ORDER BY
   LOC,
   LLOC
 LIMIT 1000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

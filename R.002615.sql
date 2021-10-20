@@ -27,7 +27,31 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT CONCAT ('<a href=\"/cgi-bin/koha/reserve/request.pl?biblionumber=',reserves.biblionumber,'\" target="_blank">',reserves.reserve_id,'</a>') AS "Link to Reserve", (SELECT count(*) FROM items WHERE items.biblionumber=reserves.biblionumber) as itemcount FROM reserves where itemnumber iN (SELECT itemnumber from items where itemlost='4' and damaged='2') GROUP BY itemnumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

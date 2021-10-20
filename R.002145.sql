@@ -27,7 +27,31 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT count(i.itemnumber) as added, i.ccode, i.location from items i WHERE i.homebranch=<<branch|branches>> AND year(i.dateaccessioned) = <<year|Year>> GROUP BY i.ccode,i.location ORDER BY i.ccode,i.location asc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

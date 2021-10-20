@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-05-29 16:21:54
 Modified on: 2019-09-24 14:21:50
-Date last run: 2021-05-18 16:01:02
+Date last run: 2021-10-05 16:55:53
 
 ----------
 
@@ -45,6 +45,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   Trim(If(Coalesce(borrowers.address, borrowers.address2) LIKE "PO%", borrowers.address2, borrowers.address)) AS address,
@@ -96,6 +98,28 @@ ORDER BY
   zipcode,
   HOMEBRANCH,
   borrowers.categorycode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

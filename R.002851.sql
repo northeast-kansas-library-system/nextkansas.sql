@@ -38,6 +38,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   Concat_Ws('<br />',
     Concat('Card: ', patron.cardnumber),
@@ -62,6 +64,28 @@ ORDER BY
   patron.surname,
   patron.cardnumber,
   messages.branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

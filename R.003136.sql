@@ -29,6 +29,8 @@ zbrq
 ----------
 */
 
+
+
 SELECT
   biblio.biblionumber,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag=024]/subfield[@code="a"]') AS UPC,
@@ -57,6 +59,28 @@ GROUP BY
   biblio.biblionumber
 ORDER BY
   biblio.biblionumber DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-09-10 11:38:23
 Modified on: 2019-09-11 16:10:30
-Date last run: 2021-09-20 00:27:18
+Date last run: 2021-10-20 09:50:59
 
 ----------
 
@@ -26,6 +26,8 @@ Expiry: 3600
 
 ----------
 */
+
+
 
 SELECT
   Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', reservess.biblionumber, '\" target="_blank">Link to title</a>') AS GO_TO_RECORD,
@@ -123,6 +125,28 @@ ORDER BY
   REQUESTS_AT_THIS_LIBRARY DESC,
   Coalesce(localitems.Count_itemnumber, 0) DESC,
   totalitems.Count_itemnumber ASC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

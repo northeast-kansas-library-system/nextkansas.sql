@@ -36,6 +36,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   sms_providers.name,
   sms_providers.domain
@@ -44,6 +46,28 @@ FROM
 GROUP BY
   sms_providers.name,
   sms_providers.domain
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

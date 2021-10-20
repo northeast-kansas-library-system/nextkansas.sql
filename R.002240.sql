@@ -13,7 +13,7 @@ Group: Borrowers
 
 Created on: 2014-04-07 22:36:00
 Modified on: 2014-04-07 22:36:26
-Date last run: 2021-09-02 11:18:30
+Date last run: 2021-10-05 08:34:21
 
 ----------
 
@@ -27,8 +27,32 @@ Provides count of active patrons during a set time period, who interacted with t
 ----------
 */
 
+
+
 SELECT count(distinct borrowers.borrowernumber) FROM statistics, borrowers WHERE statistics.borrowernumber=borrowers.borrowernumber AND 
 borrowers.branchcode=<<branch|branches>> AND statistics.branch=<<branch|branches>> AND statistics.datetime BETWEEN <<starting date, ex. 2013-01-01>> AND <<ending date, ex. 2013-12-31>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

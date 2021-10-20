@@ -27,7 +27,31 @@ MC 12/6/12 #fines #patrons
 ----------
 */
 
+
+
 SELECT borrowers.cardnumber, borrowers.surname,borrowers.firstname, borrowers.address, borrowers.city, borrowers.zipcode, borrowers.email, borrowers.phone, borrowers.dateofbirth, borrowers.debarred, FORMAT(SUM(accountlines.amountoutstanding),2) AS Due FROM borrowers LEFT JOIN accountlines USING(borrowernumber) WHERE borrowers.categorycode = <<borrowers.categorycode|categorycode>> GROUP BY borrowers.borrowernumber HAVING SUM(accountlines.amountoutstanding) >= 10.00 ORDER BY borrowers.surname ASC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

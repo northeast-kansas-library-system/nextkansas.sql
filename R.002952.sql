@@ -27,6 +27,8 @@ Checkouts and renewals
 ----------
 */
 
+
+
 SELECT
   branches.branchcode,
   Coalesce(CIR_RENEW_LM.count, 0) AS CHECKOUT_RENEW_LM
@@ -50,6 +52,28 @@ GROUP BY
   branches.branchcode
 ORDER BY
   branches.branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

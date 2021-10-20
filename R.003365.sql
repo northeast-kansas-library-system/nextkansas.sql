@@ -27,6 +27,8 @@ https://staff.nextkansas.org/cgi-bin/koha/catalogue/detail.pl?biblionumber=32304
 ----------
 */
 
+
+
 SELECT
   biblio.author,
   Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">', biblio.title, '</a>') AS TITLE
@@ -41,6 +43,28 @@ GROUP BY
 ORDER BY
   biblio.author,
   biblio.title
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

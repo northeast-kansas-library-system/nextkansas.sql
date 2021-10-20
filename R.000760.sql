@@ -27,7 +27,31 @@ Enter a Year to determine the number of new items added by collection code in th
 ----------
 */
 
+
+
 SELECT i.homebranch, i.itype, i.location, count(i.itemnumber) as added FROM items i WHERE YEAR(i.dateaccessioned) = <<Year>> GROUP BY i.homebranch,i.itype,i.location
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

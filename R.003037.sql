@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   items.dateaccessioned,
   items.barcode,
@@ -46,6 +48,28 @@ WHERE
   items.location = 'ADULT'
 ORDER BY
   items.dateaccessioned
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

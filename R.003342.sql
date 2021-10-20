@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2020-08-13 14:10:41
 Modified on: 2021-04-19 14:30:08
-Date last run: 2021-09-07 10:03:44
+Date last run: 2021-10-18 09:13:50
 
 ----------
 
@@ -26,6 +26,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   action_logs.action_id,
@@ -40,6 +42,28 @@ FROM
   action_logs
 WHERE
   action_logs.info LIKE Concat("%'itemnumber' => ", <<Enter item number>>, "%")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

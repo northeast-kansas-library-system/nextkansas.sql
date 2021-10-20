@@ -27,7 +27,31 @@ Admin - lists item types
 ----------
 */
 
+
+
 select * from itemtypes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

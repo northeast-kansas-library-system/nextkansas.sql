@@ -42,6 +42,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branch.branchcode,
   ours_at_ours.CKO_RENEW AS OUR_STUFF_AT_THIS_LIB,
@@ -162,6 +164,28 @@ GROUP BY
   branch.branchcode
 ORDER BY
   branch.branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

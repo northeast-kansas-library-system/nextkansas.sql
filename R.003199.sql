@@ -38,6 +38,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat('<a href=\"/cgi-bin/koha/members/accountline-details.pl?accountlines_id=', accountlines.accountlines_id, '\" target="_blank">LINK</a>') AS LINK_TO_DETAILS,
   accountlines.borrowernumber,
@@ -54,6 +56,28 @@ WHERE
 GROUP BY
   accountlines.borrowernumber,
   accountlines.accountlines_id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

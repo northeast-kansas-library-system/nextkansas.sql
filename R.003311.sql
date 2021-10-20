@@ -60,6 +60,8 @@ $(window).on("load", function() {
 ----------
 */
 
+
+
 SELECT Concat_Ws('<br />',
   '',
   items.barcode,
@@ -109,6 +111,28 @@ ORDER BY items.homebranch,
          items.copynumber,
          biblio.author,
          biblio.title
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

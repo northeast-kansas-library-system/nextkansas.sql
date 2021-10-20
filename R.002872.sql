@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   branches.branchcode AS BRANCH,
   Coalesce(NEXPRESS_ILLS_BORROWED.count, 0) AS NX_ILLS_BORROWED,
@@ -63,6 +65,28 @@ FROM
     ON branches.branchcode = NEXPRESS_ILLS_BORROWED.tobranch
 GROUP BY
   branches.branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

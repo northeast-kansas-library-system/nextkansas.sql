@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2017-02-01 12:29:04
 Modified on: 2018-12-09 21:25:14
-Date last run: 2021-09-18 12:46:48
+Date last run: 2021-10-19 14:51:33
 
 ----------
 
@@ -39,6 +39,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">', items.barcode, '</a>') AS 'CLICKABLEBC',
@@ -77,6 +79,28 @@ ORDER BY
   biblio.author,
   biblio.title,
   items.barcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

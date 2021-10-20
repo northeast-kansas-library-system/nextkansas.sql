@@ -27,7 +27,31 @@ Count of Lost Items per Branch. (On Reports Webpages, 5/14/12); #count
 ----------
 */
 
+
+
 SELECT items.homebranch, authorised_values.lib, count(items.itemnumber) as items FROM items LEFT JOIN authorised_values ON (items.itemlost=authorised_values.authorised_value) WHERE items.itemlost != 0 AND authorised_values.category='LOST' GROUP BY items.homebranch, authorised_values.lib ORDER BY homebranch, authorised_values.lib asc 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

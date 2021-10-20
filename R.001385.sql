@@ -27,7 +27,31 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT location, count(itemnumber) as items FROM items GROUP BY location ORDER BY location asc 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

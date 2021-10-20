@@ -39,6 +39,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat(
     "<a href='/cgi-bin/koha/catalogue/detail.pl?biblionumber=",
@@ -119,6 +121,28 @@ ORDER BY
   items.copynumber,
   biblio.author,
   "Full title"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

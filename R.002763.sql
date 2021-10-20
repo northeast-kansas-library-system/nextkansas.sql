@@ -38,6 +38,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',  biblio.biblionumber, '\" target="_blank">', biblio.biblionumber,  '</a>') AS LINK_TO_TITLE,
   issues.branchcode AS CHECK_OUT_BRANCH,
@@ -76,6 +78,28 @@ GROUP BY
   biblio.author,
   biblio.title,
   items.onloan
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

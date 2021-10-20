@@ -33,6 +33,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   virtualshelfcontents.shelfnumber,
   virtualshelfcontents.biblionumber,
@@ -72,6 +74,28 @@ GROUP BY
 ORDER BY
   SERIESFOURA,
   SERIESFOURV
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

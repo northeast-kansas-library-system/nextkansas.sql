@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branchtypes.branchcode,
   branchtypes.description AS ITEM_TYPE,
@@ -116,6 +118,28 @@ GROUP BY
   adultitems.Count_itemnumber,
   juvenileitems.Count_itemnumber,
   yaitems.Count_itemnumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -41,6 +41,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   surname,
   firstname,
@@ -56,6 +58,28 @@ GROUP BY
 HAVING
   COUNT(CONCAT(TRIM(surname),'-',TRIM(SUBSTRING_INDEX(firstname, ' ', 1)),'/'))>1 AND
   HOME_BRANCH LIKE CONCAT( '%', <<Select one branch|branches>>, '%')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

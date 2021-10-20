@@ -36,6 +36,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   issues.date_due,
   Concat_Ws(", ", borrowers.surname, borrowers.firstname, borrowers.cardnumber) AS NAME,
@@ -69,6 +71,28 @@ ORDER BY
   issues.date_due,
   borrowers.surname,
   borrowers.firstname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

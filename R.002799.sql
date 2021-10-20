@@ -13,7 +13,7 @@ Group: Fines/Fees
 
 Created on: 2016-10-10 09:36:41
 Modified on: 2018-04-16 11:02:19
-Date last run: 2021-03-12 15:29:50
+Date last run: 2021-10-01 14:59:38
 
 ----------
 
@@ -36,6 +36,8 @@ Expiry: 0
 
 ----------
 */
+
+
 
 SELECT
   items.itemnumber,
@@ -65,6 +67,28 @@ ORDER BY
   items.itemcallnumber,
   biblio.author,
   biblio.title
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

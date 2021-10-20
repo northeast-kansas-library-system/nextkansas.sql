@@ -27,11 +27,35 @@ Lists item callnumber, title, author, checked out date
 ----------
 */
 
+
+
 SELECT items.itemcallnumber, biblio.title, biblio.author, items.ccode, old_issues.issuedate FROM old_issues LEFT JOIN borrowers USING(borrowernumber) LEFT JOIN items USING(itemnumber) LEFT JOIN biblio USING(biblionumber) WHERE borrowers.cardnumber=<<enter patron cardnumber>> AND items.itemnumber IS NOT NULL
 UNION ALL 
 SELECT items.itemcallnumber, biblio.title, biblio.author, items.ccode,  issues.issuedate FROM issues LEFT JOIN borrowers USING(borrowernumber) LEFT JOIN items USING(itemnumber) LEFT JOIN biblio USING(biblionumber) WHERE borrowers.cardnumber=<<enter patron cardnumber a second time>> AND items.itemnumber IS NOT NULL
 ORDER BY issuedate
 LIMIT 10000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

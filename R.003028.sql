@@ -13,7 +13,7 @@ Group: Daily, Monthly, Yearly Stats
 
 Created on: 2018-01-04 09:13:49
 Modified on: 2018-04-16 11:13:37
-Date last run: 2021-09-19 15:01:11
+Date last run: 2021-10-19 16:24:53
 
 ----------
 
@@ -39,6 +39,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   branches.branchcode,
@@ -72,6 +74,28 @@ WHERE
 ORDER BY
   branches.branchcode,
   checkouts.DATE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

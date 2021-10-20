@@ -12,8 +12,8 @@ Group: Circulation
      Overdues
 
 Created on: 2017-02-01 15:28:38
-Modified on: 2021-08-12 11:34:36
-Date last run: 2021-09-16 09:49:40
+Modified on: 2021-10-13 15:13:23
+Date last run: 2021-10-13 15:13:36
 
 ----------
 
@@ -43,6 +43,8 @@ date marked lost, borrowers cardnumber, and then the normal sort order</li>
 ----------
 */
 
+
+
 SELECT
   items.holdingbranch AS CKO_BRANCH,
   CONCAT('<a href=\"/cgi-bin/koha/catalogue/moredetail.pl?itemnumber=', items.itemnumber, '&biblionumber=', items.biblionumber, '/" target="_blank">Link to item</a>') AS LINK_I,
@@ -59,7 +61,7 @@ SELECT
     ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')) AS TITLE,
   losts.lib AS LOST_STATUS,
   Date_Format(old_issues.returndate, '%m/%d/%Y') AS LOST_ON,
-                 borrowers.branchcode,
+  borrowers.branchcode AS BORROWER_HOME_LIBRARY,
   borrowers.cardnumber AS LAST_PATRON_CARD,
   borrowers.surname AS LAST_PATRON_NAME,
   borrowers.email,
@@ -102,6 +104,28 @@ ORDER BY
   (CASE WHEN @SortOrder= 1 THEN CKO_BRANCH END) ASC,
   (CASE WHEN @SortOrder> 1 THEN borrowers.cardnumber END) ASC,
   LOCATION, ITYPE, CCODE, CALL_NUMBER, TITLE, biblio.author, items.barcode, old_issues.borrowernumber, LAST_PATRON_CARD, LAST_PATRON_NAME ASC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

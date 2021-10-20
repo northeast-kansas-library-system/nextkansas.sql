@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT 
 	CASE 
 		WHEN i.itemnumber = '1513837' THEN 'COMPUTER #1'
@@ -38,6 +40,28 @@ SELECT
 		END "computers",
 i.itemnumber, b.firstname, b.surname, s.issuedate, 30 - TIMESTAMPDIFF(MINUTE,s.issuedate,CURRENT_TIMESTAMP()) 'Minutes remaining',
     IF(TIMESTAMPDIFF(MINUTE,s.issuedate,CURRENT_TIMESTAMP())> 30  ,'YES','') 'Kick off?' FROM borrowers b LEFT JOIN issues s USING(borrowernumber) LEFT JOIN items i USING(itemnumber) WHERE i.itemnumber IN ('1513837','1513838','1513839','1513841','1513842','1513844') GROUP BY computers ORDER BY s.issuedate DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

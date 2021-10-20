@@ -39,6 +39,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   old_issues.branchcode AS CHECK_OUT_BRANCH,
   Upper(items.barcode) AS ITEM_BC,
@@ -68,6 +70,28 @@ ORDER BY
   items.itemlost_on DESC,
   barcode DESC,
   account_offsets.type DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

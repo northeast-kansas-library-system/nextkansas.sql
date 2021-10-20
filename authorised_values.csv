@@ -76,6 +76,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 177,CCODE,OVERSIZE,Oversize,vokal/Book-32px.png,
 153,CCODE,PAPERBACK,Paperback,vokal/Book-32px.png,
 163,CCODE,PARENTING,Parenting,vokal/Book-32px.png,
+2327,CCODE,PER_COM,"Periodical - Comic books",npl/Magazine.gif,"Comic books"
 178,CCODE,PROFCOLL,"Professional Collection",vokal/Book-32px.png,
 377,CCODE,PS2,"VG-PlayStation 2 (PS2)",crystal-clear/joystick.png,
 378,CCODE,PS3,"VG-PlayStation 3 (PS3)",crystal-clear/joystick.png,
@@ -93,6 +94,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 151,CCODE,SF-FANT,"Sci Fi-Fantasy",vokal/Book-32px.png,
 169,CCODE,SOFTWARE,Software,crystal-clear/kpackage.png,
 162,CCODE,SPANISH,Spanish,vokal/Book-32px.png,
+2328,CCODE,SPC_DARE,"Special collection - Dyslexic and Autistic Reading Engagement",,"D.A.R.E. to Read"
 1174,CCODE,SWITCH,"VG-Nintendo Switch",crystal-clear/joystick.png,
 219,CCODE,TVSERIES,"TV Series (no longer used)",,Z
 167,CCODE,VHS,VHS,vokal/VHS-32px.png,"Video - VHS cassette"
@@ -1326,6 +1328,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2244,REPORT_GROUP,G_HORTON," HORTON",," HORTON"
 2245,REPORT_GROUP,G_LANSING," LANSING",," LANSING"
 2246,REPORT_GROUP,G_LEAVENWR," LEAVENWRTH",," LEAVENWRTH"
+2329,REPORT_GROUP,G_LIBIQ,LibraryIQ,,LibraryIQ
 2247,REPORT_GROUP,G_LINWOOD," LINWOOD",," LINWOOD"
 2248,REPORT_GROUP,G_LOUISBUR," LOUISBURG",," LOUISBURG"
 2249,REPORT_GROUP,G_LYNDON," LYNDON",," LYNDON"
@@ -1398,6 +1401,9 @@ id,category,authorised_value,lib,imageurl,lib_opac
 383,REPORT_SUBGROUP,POSTLANSING,Post-Lansing,,ADMIN
 258,REPORT_SUBGROUP,PURREQ,"Purchase Requests",,ACQ
 293,REPORT_SUBGROUP,REGULARAD,"Daily, Monthly, Yearly Stats-admin",,ADMIN
+2330,REPORT_SUBGROUP,S_BASEHOR,BASEHOR,,G_LIBIQ
+2331,REPORT_SUBGROUP,S_BONNERSPGS,BONNERSPGS,,G_LIBIQ
+2332,REPORT_SUBGROUP,S_SETUP,Setup,,G_LIBIQ
 543,REPORT_SUBGROUP,SANDBOX,"Reports Testing Ground",,ADMIN
 296,REPORT_SUBGROUP,SCHOOLAD,"School Libraries-admin",,ADMIN
 367,REPORT_SUBGROUP,SCHOverdues,"Overdues (schools)",,SCHOOL

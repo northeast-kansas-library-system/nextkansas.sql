@@ -37,6 +37,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   deleteditems.itemnumber,
   If(biblio.biblionumber IS NULL, deletedbiblio.biblionumber, biblio.biblionumber) AS BIBLIONUMBER,
@@ -95,6 +97,28 @@ GROUP BY
   deleteditems.itemnumber
 ORDER BY
   ITEM_INFORMATION
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

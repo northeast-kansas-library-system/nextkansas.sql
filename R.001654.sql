@@ -27,7 +27,31 @@ Shows count of new items added to a collection in last month by item type and sh
 ----------
 */
 
+
+
 SELECT count(itemnumber) as added, itype, location FROM items WHERE homebranch=<<branch|branches>> AND month(dateaccessioned) = <<enter two-digit month, ex. 02>> AND year(dateaccessioned) = <<enter four-digit year>> GROUP BY itype,location ORDER BY itype,location ASC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

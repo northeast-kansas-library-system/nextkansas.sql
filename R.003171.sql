@@ -47,6 +47,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   issues.branchcode,
   issues.itemnumber,
@@ -62,6 +64,28 @@ GROUP BY
 ORDER BY
   issues.branchcode,
   issues.date_due
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

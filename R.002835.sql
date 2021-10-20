@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   statistics.branch,
   If(items.homebranch IS NULL AND deleteditems.homebranch IS NULL, ' --',
@@ -48,6 +50,28 @@ GROUP BY
   statistics.branch, 
   ITEM_HOMEBRANCH
   WITH ROLLUP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 Select
   Concat('<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=', ltypes.category, '" target="_blank">Link to AV</a>') As LINK,
   If(itypes.itemtype Is Null, "<span style='background-color: red; color: yellow'>Possible errror</span>", itypes.itemtype) As ITYPE,
@@ -80,6 +82,28 @@ ORDER BY
   ITYPE,
   authorised_value
 LIMIT 1000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

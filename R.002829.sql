@@ -27,6 +27,8 @@ Getting item information so far
 ----------
 */
 
+
+
 SELECT
   issues.borrowernumber,
   Concat_Ws('<br />', (Concat_Ws(' / ', '<ins>Call#-Author-Title</ins>', items.itemcallnumber, biblio.author, '<span style="text-transform: uppercase">',biblio.title,'</span>')),
@@ -44,6 +46,28 @@ GROUP BY
   issues.borrowernumber, issues.date_due
 ORDER BY
   issues.borrowernumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

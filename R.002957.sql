@@ -27,6 +27,8 @@ Patron cards used to check out items last month
 ----------
 */
 
+
+
 SELECT
   branches.branchcode,
   Coalesce(ACCT_USED.count, 0) AS PATRON_LM
@@ -51,6 +53,28 @@ GROUP BY
   branches.branchcode
 ORDER BY
   branches.branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

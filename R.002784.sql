@@ -13,7 +13,7 @@ Group: Holds-Reserves
 
 Created on: 2016-09-29 10:01:46
 Modified on: 2021-06-30 12:08:36
-Date last run: 2021-08-20 16:02:02
+Date last run: 2021-10-18 09:16:43
 
 ----------
 
@@ -39,6 +39,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   UPPER(items.barcode) AS ITEM_BC,
   branchtransfers.itemnumber,
@@ -57,6 +59,28 @@ GROUP BY
   branchtransfers.branchtransfer_id
 ORDER BY
   branchtransfers.datesent DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

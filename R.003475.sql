@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2021-03-04 21:44:42
 Modified on: 2021-03-24 21:08:11
-Date last run: 2021-08-12 10:29:21
+Date last run: 2021-09-21 13:34:57
 
 ----------
 
@@ -41,6 +41,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   branches.branchcode,
@@ -100,6 +102,28 @@ GROUP BY
   count_total.Count_itemnumber,
   count_with_pubyear.Count_itemnumber
 LIMIT 1000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

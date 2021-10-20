@@ -43,6 +43,8 @@ This report will only cover 1 day at a time.  Creating a report that generates a
 ----------
 */
 
+
+
 SELECT
   statistics.datetime,
   statistics.branch,
@@ -85,6 +87,28 @@ GROUP BY
   PATRON_BC
 ORDER BY
   statistics.datetime DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

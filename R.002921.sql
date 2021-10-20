@@ -36,6 +36,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   statistics.branch AS CHECK_IN_BRANCH,
   CAST(statistics.datetime AS DATE) AS DATE,
@@ -51,6 +53,28 @@ WHERE
 GROUP BY
   CHECK_IN_BRANCH,
   DATE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

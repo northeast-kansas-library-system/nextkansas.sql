@@ -27,7 +27,31 @@ Expiry: 0
 ----------
 */
 
+
+
 select CONCAT('<a href=\"/cgi-bin/koha/members/memberentry.pl?op=modify&borrowernumber=',borrowers.borrowernumber,'\" target="_blank">'"edit patron"'</a>') as "edit patron", borrowers.firstname, borrowers.surname, borrowers.branchcode, borrowers.cardnumber, borrower_attributes.attribute from borrower_attributes join borrowers USING(borrowernumber) where borrower_attributes.code IN ('LICENSE','ALTID') and borrower_attributes.attribute NOT REGEXP 'verified|YES|on file|proof|bill|needs|need|same|dad|mom|ID|see|^/' and borrower_attributes.attribute REGEXP 'K0|ID#|-' order by borrowers.branchcode asc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -54,6 +54,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat_Ws('<br />',
     Concat(
@@ -104,6 +106,28 @@ GROUP BY
   virtualshelves.shelfnumber
 ORDER BY
   virtualshelves.shelfname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -27,7 +27,31 @@ Shows count of new items added to a collection in last month by ccode and shelvi
 ----------
 */
 
+
+
 SELECT count(itemnumber) as added, ccode, location from items WHERE homebranch=<<branch|branches>> AND month(dateaccessioned) =<<enter two digit month, ex. 02>> AND year (dateaccessioned) = <<enter four digit year>> GROUP BY ccode,location ORDER BY ccode,location asc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

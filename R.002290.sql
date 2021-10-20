@@ -29,6 +29,8 @@ This report can be used for shelf checking on materials that patrons say they re
 ----------
 */
 
+
+
 SELECT borrowernumber, CONCAT (borrowers.firstname, ' ', borrowers.surname) as "patron name", count(items.itemnumber) as "items still out", GROUP_CONCAT(items.itemcallnumber, " ( ",
 biblio.title, ") ") AS "booklist still out"
 FROM (SELECT borrowernumber
@@ -43,6 +45,28 @@ LEFT JOIN biblio USING (biblionumber)
 WHERE (date(issues.date_due) >= ( CURDATE() - INTERVAL 3 DAY ) OR date(issues.date_due) <=  ( CURDATE() + INTERVAL 3 DAY )) AND issues.branchcode=<<branch|branches>>
 GROUP BY borrowernumber
 ORDER BY issues.branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

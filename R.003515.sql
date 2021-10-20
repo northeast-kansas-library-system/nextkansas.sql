@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   biblio.biblionumber,
   biblio.medium,
@@ -39,6 +41,28 @@ FROM
   biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
 WHERE
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="h"]') LIKE "%VIDPLAYER%"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

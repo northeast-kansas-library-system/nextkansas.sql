@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2020-10-29 13:05:33
 Modified on: 2021-09-10 13:08:43
-Date last run: 2021-09-16 16:49:54
+Date last run: 2021-10-18 10:50:58
 
 ----------
 
@@ -47,6 +47,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   branchescategories.branchname,
@@ -231,6 +233,28 @@ GROUP BY
 ORDER BY
   branchname,
   Coalesce(DESCRIPTION, 'Z')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

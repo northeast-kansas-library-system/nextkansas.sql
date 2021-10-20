@@ -27,6 +27,8 @@ Enhanced - Run, add numeric month, numeric year and pick your branch. #patrons
 ----------
 */
 
+
+
 SELECT 
   borrowers.dateenrolled, 
   borrowers.surname, 
@@ -42,6 +44,28 @@ WHERE month(dateenrolled) = << numericmonth >> AND
   year(dateenrolled) = << numericyear >> AND 
   borrowers.branchcode = <<Pick your branch|branches>> 
 ORDER BY borrowers.categorycode ASC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

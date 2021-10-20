@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat("https://staff.nextkansas.org/cgi-bin/koha/catalogue/detail.pl?biblionumber=", biblio.biblionumber) AS LINK,
   biblio.biblionumber,
@@ -45,6 +47,28 @@ HAVING
   Count(items.itemnumber) > 1
 ORDER BY
   Count(items.itemnumber) DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

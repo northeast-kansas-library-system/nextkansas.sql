@@ -27,7 +27,31 @@ Expiry: 0
 ----------
 */
 
+
+
 select surname, firstname, cardnumber, reserves.borrowernumber, reserves.branchcode, reservenotes, priority, found, reserves.timestamp, reserves.itemnumber, waitingdate, biblio.title from reserves LEFT JOIN borrowers USING(borrowernumber) LEFT JOIN biblio USING(biblionumber) WHERE priority = 0 and waitingdate is null and found is not null order by reservedate desc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

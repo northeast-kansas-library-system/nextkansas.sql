@@ -37,6 +37,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   branches.branchcode,
   uniquepatron.itemtype,
@@ -83,6 +85,28 @@ GROUP BY
 ORDER BY
   branches.branchcode,
   uniquepatron.itemtype
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

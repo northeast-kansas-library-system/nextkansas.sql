@@ -27,7 +27,31 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT categorycode from categories where category_type IN ('c','a') order by categorycode desc, category_type desc limit 300
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

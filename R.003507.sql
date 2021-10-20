@@ -37,6 +37,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT 
   branches.branchcode, 
   ckoturnaround.PICKUP_DELAY_DAYS, 
@@ -87,6 +89,28 @@ GROUP BY
   branches.branchcode, 
   ckoturnaround.PICKUP_DELAY_DAYS, 
   ITEMS_PICKED_UP_COUNT 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

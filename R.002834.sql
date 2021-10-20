@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   statistics.branch,
   If(borrowers.categorycode IS NULL AND deletedborrowers.categorycode IS NULL,
@@ -48,6 +50,28 @@ GROUP BY
   statistics.branch,
   PATRON_CATEGORY
   WITH ROLLUP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

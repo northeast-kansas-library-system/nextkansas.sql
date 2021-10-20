@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2017-07-11 11:52:53
 Modified on: 2021-07-30 10:55:18
-Date last run: 2021-09-01 00:32:02
+Date last run: 2021-10-01 00:39:02
 
 ----------
 
@@ -60,6 +60,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   branches.branchcode,
@@ -234,6 +236,28 @@ GROUP BY
   Coalesce(requests_cancelled_before_pulled.Count_reserve_id, 0),
   Coalesce(requests_cancelled.Count_reserve_id, 0),
   requests_expired_unfilled.Count_reserve_id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

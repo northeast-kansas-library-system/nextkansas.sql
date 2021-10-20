@@ -27,6 +27,8 @@ Biblios and items - run at 12:05 a.m. on January 1
 ----------
 */
 
+
+
 SELECT
   branches.branchcode,
   Coalesce(CURRENT_BIBLIO_COUNT.Count_biblionumber, 0) AS BIBLIO_COUNT,
@@ -47,6 +49,28 @@ FROM
         items
       GROUP BY
         items.homebranch) CURRENT_BIBLIO_COUNT ON branches.branchcode = CURRENT_BIBLIO_COUNT.homebranch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

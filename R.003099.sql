@@ -27,6 +27,8 @@ Run after #2 to download data for comparison
 ----------
 */
 
+
+
 SELECT
   items.itemnumber,
   items.biblionumber,
@@ -43,6 +45,28 @@ WHERE
   items.itemcallnumber = 'Hoopla'
 GROUP BY
   STOCK_NUMBER
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

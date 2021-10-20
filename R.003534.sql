@@ -59,6 +59,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   CONCAT('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',biblio.biblionumber, ' " target="_blank">Link</a>') AS LINK,
   items.homebranch,
@@ -145,6 +147,28 @@ ORDER BY
   biblio.author,
   FULL_TITLE,
   items.barcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

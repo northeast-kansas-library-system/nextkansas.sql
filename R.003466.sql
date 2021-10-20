@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   biblio_metadata.biblionumber,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="e"]') AS LOC
@@ -37,6 +39,28 @@ WHERE
 ORDER BY
   biblio_metadata.biblionumber DESC
 LIMIT 999
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

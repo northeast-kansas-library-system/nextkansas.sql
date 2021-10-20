@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
  CONCAT(
    '<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=',
@@ -43,6 +45,28 @@ JOIN items i USING(biblionumber)
 WHERE i.ccode NOT IN ('ERESOURCE')
 GROUP BY TRIM(Replace(Replace(Replace(Replace(Replace(Replace(b.title, "/", ""), ":", "" ), ";", ""), ",", ""), '"', ''), '#', '') )
 HAVING count(DISTINCT b.biblionumber) > 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

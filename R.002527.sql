@@ -13,7 +13,7 @@ Group: Borrowers
 
 Created on: 2015-06-24 17:10:01
 Modified on: 2015-06-24 17:52:48
-Date last run: 2021-01-14 11:22:53
+Date last run: 2021-09-20 16:24:24
 
 ----------
 
@@ -27,7 +27,31 @@ This report queries the statistics table -- which goes back 25 months; patron's 
 ----------
 */
 
+
+
 SELECT statistics.type, date(statistics.datetime) date, statistics.branch as "checkout location", biblio.title AS title, items.itype as "item type", items.ccode as "collection code", items.location as "shelving location" FROM statistics JOIN borrowers USING(borrowernumber) JOIN items USING(itemnumber) JOIN biblio USING(biblionumber) WHERE cardnumber=<<enter cardnumber>> AND statistics.type IN ('renew','issue','return') ORDER BY date asc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

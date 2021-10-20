@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   CONCAT('<a href=\"/cgi-bin/koha/circ/circulation.pl?borrowernumber=', Guarantors.borrowernumber, '\" target="_blank">Link to guarantor</a>') AS LINK_TO_GUARANTOR,
   Concat_WS('<br />',
@@ -62,6 +64,28 @@ ORDER BY
   Guarantors.firstname,
   Guarantees.firstname,
   Guarantees.surname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

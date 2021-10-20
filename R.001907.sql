@@ -27,7 +27,31 @@ Enter patron's borrowernumber (database number) to see all the messages sent to 
 ----------
 */
 
+
+
 SELECT borrowernumber, message_id, content FROM message_queue WHERE borrowernumber=<<patron borrowernumber>> GROUP BY message_id, borrowernumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2009-03-16 15:46:05
 Modified on: 2019-08-18 23:55:17
-Date last run: 2021-09-18 13:57:34
+Date last run: 2021-10-20 09:12:22
 
 ----------
 
@@ -27,6 +27,8 @@ See Report 1078 for Overdue List by Date Range.
 
 ----------
 */
+
+
 
 SELECT
   borrowers.surname,
@@ -65,6 +67,28 @@ ORDER BY
   borrowers.surname,
   "borrowers.surname",
   issues.date_due
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -37,6 +37,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   old_reserves.timestamp,
   items.barcode,
@@ -66,6 +68,28 @@ WHERE
   items.barcode = <<Enter item barcode number>>
 ORDER BY
   old_reserves.timestamp DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

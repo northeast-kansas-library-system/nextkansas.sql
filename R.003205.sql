@@ -27,7 +27,31 @@ Expiry: 29
 ----------
 */
 
+
+
 SELECT  items.barcode,items.issues,items.reserves,items.ccode FROM borrowers LEFT JOIN statistics on (statistics.borrowernumber=borrowers.borrowernumber) LEFT JOIN items on (items.itemnumber = statistics.itemnumber) LEFT JOIN biblioitems on (biblioitems.biblioitemnumber = items.biblioitemnumber)   WHERE items.itype='BOOK'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

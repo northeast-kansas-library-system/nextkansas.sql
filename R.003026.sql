@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   deleteditems.barcode,
   deleteditems.homebranch,
@@ -85,6 +87,28 @@ ORDER BY
   AUTHOR,
   TITLE,
   deleteditems.itemcallnumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

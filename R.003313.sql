@@ -27,6 +27,8 @@ https://www.openmultipleurl.com/
 ----------
 */
 
+
+
 SELECT
   Concat('https://staff.nextkansas.org/cgi-bin/koha/reserve/request.pl?biblionumber=', items.biblionumber) AS LINK,
   items.itemnumber,
@@ -60,6 +62,28 @@ WHERE
   (items.itemlost IS NULL OR
       items.itemlost = '' OR
       items.itemlost = 0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

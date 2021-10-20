@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   Concat_Ws('<br />',CONCAT('<a href=\"/cgi-bin/koha/catalogue/moredetail.pl?itemnumber=',items.itemnumber,'&biblionumber=',items.biblionumber,'\" target="_blank">Link to item</a>'),
     Concat(items.barcode, '<br />'),
@@ -58,6 +60,28 @@ ORDER BY
   items.homebranch,
   CLASSIFICATION,
   AUTH_TITLE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

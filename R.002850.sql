@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   borrowers.cardnumber,
   borrowers.borrowernotes
@@ -34,6 +36,28 @@ FROM
   borrowers
 WHERE
   borrowers.borrowernotes <> ' '
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

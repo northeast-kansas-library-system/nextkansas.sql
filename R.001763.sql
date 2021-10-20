@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 Select
   Count(Distinct reserves.borrowernumber) As reservecount,
   Count(Distinct items.itemnumber) As itemcount,
@@ -50,6 +52,28 @@ Order By
   holdsratio Desc,
   reservecount Desc
 Limit 100
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

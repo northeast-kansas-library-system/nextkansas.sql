@@ -37,6 +37,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   borrowers.branchcode AS BORROWERS_HOME_LIBRARY,
   Count(borrowers.cardnumber) AS CARD_COUNT
@@ -47,6 +49,28 @@ WHERE
 GROUP BY
   borrowers.branchcode
   WITH ROLLUP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

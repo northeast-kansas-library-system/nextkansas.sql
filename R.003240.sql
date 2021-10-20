@@ -28,6 +28,8 @@ FROM borrowers WHERE cardnumber LIKE '%9'
 ----------
 */
 
+
+
 SELECT
   borrowers.cardnumber,
   Concat("Patron") AS surname,
@@ -99,6 +101,28 @@ FROM
   borrowers
 WHERE
   borrowers.dateexpiry < "1900-12-31"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

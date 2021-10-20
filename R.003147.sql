@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Date(action_logs.timestamp) AS DATE,
   Count(action_logs.action_id) AS LOGGED_EVENTS
@@ -37,6 +39,28 @@ WHERE
   Month(action_logs.timestamp) = Month(Now() - INTERVAL 2 MONTH)
 GROUP BY
   Date(action_logs.timestamp)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   If(someone_elses_stuff_our_lib.CKO_BRANCH IS NULL, "-", someone_elses_stuff_our_lib.CKO_BRANCH) AS CKO_BRANCH,
   cko_branch.branchcode AS OWNING_LIB,
@@ -66,6 +68,28 @@ GROUP BY
   someone_elses_stuff_our_lib.CKO_BRANCH
 ORDER BY
   OWNING_LIB
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

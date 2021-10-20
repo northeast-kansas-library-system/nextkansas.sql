@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2021-09-13 20:55:02
 Modified on: 2021-09-17 17:01:37
-Date last run: 2021-09-18 15:19:58
+Date last run: 2021-09-23 11:30:04
 
 ----------
 
@@ -30,6 +30,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   Concat('Borrower fees') AS _GROUP_,

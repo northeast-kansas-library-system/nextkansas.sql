@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2009-06-12 14:19:42
 Modified on: 2020-12-08 22:58:11
-Date last run: 2021-06-08 10:06:14
+Date last run: 2021-10-19 10:41:56
 
 ----------
 
@@ -26,6 +26,8 @@ Simplified report of overdue items for shelf check
 
 ----------
 */
+
+
 
 SELECT
   borrowers.cardnumber,
@@ -55,6 +57,28 @@ ORDER BY
   items.itemcallnumber,
   biblio.author,
   biblio.title
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

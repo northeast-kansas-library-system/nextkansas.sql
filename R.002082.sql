@@ -13,7 +13,7 @@ Group: Administrative Reports
 
 Created on: 2013-10-31 13:37:49
 Modified on: 2016-07-22 09:07:53
-Date last run: 2021-09-19 18:00:04
+Date last run: 2021-10-20 09:00:03
 
 ----------
 
@@ -26,6 +26,8 @@ Analyzes number of items on a record, number of unrestricted & restricted items,
 
 ----------
 */
+
+
 
 SELECT 
     current_timestamp() as "report time", 
@@ -60,6 +62,28 @@ SELECT
 FROM tmp_holdsqueue t LEFT JOIN biblio b USING(biblionumber) LEFT JOIN items i USING(biblionumber) 
 GROUP BY t.itemnumber 
 ORDER BY t.holdingbranch ASC, totalholds DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

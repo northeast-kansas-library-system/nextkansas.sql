@@ -42,6 +42,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   branches.branchname as BRANCHNAME,
   branches.lib as SHELVING_LOCATION,
@@ -82,6 +84,28 @@ WHERE
 GROUP BY
   branches.branchname,
   branches.lib
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

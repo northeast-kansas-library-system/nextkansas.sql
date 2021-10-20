@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-08-14 15:38:39
 Modified on: 2021-01-12 23:47:22
-Date last run: 2021-09-19 21:52:53
+Date last run: 2021-10-20 09:52:03
 
 ----------
 
@@ -26,6 +26,8 @@ Required for new "Damaged item" pop-up on checkin page.
 
 ----------
 */
+
+
 
 SELECT
   Concat(
@@ -57,6 +59,28 @@ FROM
     ON damageds.authorised_value = items.damaged
 WHERE
   items.barcode = <<Enter item barcode number>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

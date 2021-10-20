@@ -27,7 +27,31 @@ Patrons with a hold that was left behind when bib records were deleted. #holds
 ----------
 */
 
+
+
 select * from reserves where biblionumber IS NULL
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

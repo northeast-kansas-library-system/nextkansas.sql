@@ -40,6 +40,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   columncreator.branchcode AS LIBRARY,
   Concat_Ws(' // ', columncreator.CAT_DESC, columncreator.AV_DESC) AS EXTENDED_ATTRIBUTE,
@@ -103,6 +105,28 @@ HAVING
 ORDER BY
   LIBRARY,
   EXTENDED_ATTRIBUTE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ Group: Daily, Monthly, Yearly Stats
 
 Created on: 2017-02-07 15:03:15
 Modified on: 2021-04-06 16:32:23
-Date last run: 2021-09-02 15:13:15
+Date last run: 2021-10-05 10:45:03
 
 ----------
 
@@ -37,6 +37,8 @@ Expiry: 0
 
 ----------
 */
+
+
 
 SELECT
   branch_ccode.branchname AS LIBRARY,
@@ -145,6 +147,28 @@ GROUP BY
 ORDER BY
   LIBRARY,
   COLLECTION_CODE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

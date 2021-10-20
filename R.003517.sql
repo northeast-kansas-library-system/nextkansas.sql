@@ -39,6 +39,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT 
   categories.categorycode AS CODE, 
   categories.description AS CATEGORY_NAME, 
@@ -140,6 +142,28 @@ GROUP BY
   categories.categorycode 
 ORDER BY 
   categories.description
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

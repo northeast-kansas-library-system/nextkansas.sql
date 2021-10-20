@@ -27,9 +27,33 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT CONCAT('<a href=\"/cgi-bin/koha/reports/guided_reports.pl?reports=3337&phase=Run+this+report&param_name=Gimme+a+code&sql_params=', code ,'\">',code,'</a>') AS code,
 	description
 FROM account_debit_types
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

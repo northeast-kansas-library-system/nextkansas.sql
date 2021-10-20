@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branches_locations.branchcode,
   branches_locations.LOCATION_DESCRIPTION,
@@ -215,6 +217,28 @@ GROUP BY
   count_total.Count_itemnumber,
   count_with_pubyear.Count_itemnumber,
   branches_locations.CCODE_CODE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

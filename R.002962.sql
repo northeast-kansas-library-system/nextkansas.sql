@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branches.branchcode,
   Coalesce(circulation.RETURNS, 0) AS CKO_PLUS_RENEW
@@ -47,6 +49,28 @@ WHERE
 GROUP BY
   branches.branchcode,
   Coalesce(circulation.RETURNS, 0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

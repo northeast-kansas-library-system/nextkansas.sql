@@ -42,6 +42,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   statistics.branch AS CKO_BRANCH,
   Year(statistics.datetime) AS YEAR,
@@ -114,6 +116,28 @@ ORDER BY
   YEAR,
   MONTH,
   HOMEBRANCH
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

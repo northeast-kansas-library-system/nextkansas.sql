@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branchesitypes.branchname,
   branchesitypes.description,
@@ -68,6 +70,28 @@ WHERE
 GROUP BY
   branchesitypes.branchname,
   branchesitypes.description
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

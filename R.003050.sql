@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2018-02-26 13:53:16
 Modified on: 2018-09-06 16:51:56
-Date last run: 2021-08-17 09:57:54
+Date last run: 2021-09-20 00:42:35
 
 ----------
 
@@ -26,6 +26,8 @@ Report for uploading SQL to GitHub - part 2
 
 ----------
 */
+
+
 
 SELECT
   Concat(
@@ -68,6 +70,28 @@ GROUP BY
 ORDER BY
   saved_sql.id
 LIMIT 10000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

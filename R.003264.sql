@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat_Ws("", '<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">Link to title</a>') AS LINK,
   Concat("-", items.barcode, "-") AS BC,
@@ -517,6 +519,28 @@ ORDER BY
   AUTHOR,
   TITLE,
   BC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

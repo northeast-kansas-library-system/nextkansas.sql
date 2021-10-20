@@ -27,6 +27,8 @@ Limited by Branch. Edit requests directly from this report by clicking on the An
 ----------
 */
 
+
+
 SELECT
   Concat('<a href=\"/cgi-bin/koha/suggestion/suggestion.pl#ASKED\" target="_blank">All Pending Suggestions</a>') AS "All Pending Suggestions",
   Concat('<a href=\"/cgi-bin/koha/suggestion/suggestion.pl?suggestionid=', suggestions.suggestionid, '&op=edit\" target="_blank">Answer Request</a>') AS Request,
@@ -48,6 +50,28 @@ WHERE
   suggestions.STATUS = 'ASKED'
 ORDER BY
   suggestions.suggesteddate DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

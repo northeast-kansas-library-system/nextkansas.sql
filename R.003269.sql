@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   borrowers.borrowernumber,
   Concat("-", borrowers.cardnumber, "-") AS cardnumber,
@@ -108,6 +110,28 @@ WHERE
   Year(borrowers.dateenrolled) = Year(CurDate() - INTERVAL 0 MONTH)
 ORDER BY
   borrowers.borrowernumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

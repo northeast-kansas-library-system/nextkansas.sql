@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   biblio.author,
   Concat_Ws(" ", 
@@ -98,6 +100,28 @@ GROUP BY
   biblio.biblionumber
 HAVING
   Group_Concat_LOCATIONS LIKE "_____A%"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

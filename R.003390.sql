@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2020-12-08 17:29:42
 Modified on: 2021-08-19 08:40:11
-Date last run: 2021-09-19 20:34:07
+Date last run: 2021-10-20 06:55:31
 
 ----------
 
@@ -36,6 +36,8 @@ Expiry: 21600
 
 ----------
 */
+
+
 
 SELECT
   Concat(
@@ -62,6 +64,28 @@ FROM
   systempreferences
 WHERE
   systempreferences.variable = 'Version'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

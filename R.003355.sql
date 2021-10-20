@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2020-10-08 22:42:10
 Modified on: 2021-07-30 10:53:54
-Date last run: 2021-09-01 00:27:02
+Date last run: 2021-10-01 00:30:02
 
 ----------
 
@@ -40,6 +40,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT  
   branchess.branchname,  
@@ -685,6 +687,28 @@ SELECT
   Concat('-') AS MONTHLY_TOTAL  
 ORDER BY  
   branchname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

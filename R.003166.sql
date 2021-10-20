@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   IF(
     Trim(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'),".",""),",",""),"'",""),"/",""),":",""),";",""),"[",""),"]",""),"(",""),")","")) <> "",
@@ -66,6 +68,28 @@ GROUP BY
 HAVING
   Count(biblio.biblionumber) > 1 AND
   GMD NOT LIKE "%Hoopla%"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2019-03-12 00:46:57
 Modified on: 2021-07-30 10:57:32
-Date last run: 2021-09-01 00:40:02
+Date last run: 2021-10-01 00:48:02
 
 ----------
 
@@ -28,6 +28,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   branches.branchcode,
@@ -90,6 +92,28 @@ FROM
       Coalesce(items.homebranch, deleteditems.homebranch))
   ours_at_other_libraries ON ours_at_other_libraries.branch =
       branches.branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

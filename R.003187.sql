@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-03-25 14:32:50
 Modified on: 2019-04-03 16:15:45
-Date last run: 2021-09-19 20:36:00
+Date last run: 2021-10-20 09:51:48
 
 ----------
 
@@ -36,6 +36,8 @@ Expiry: 1
 ----------
 */
 
+
+
 SELECT
   If(borrowers.login_attempts > 4, "loginblock", "") AS CLASS
 FROM
@@ -55,6 +57,28 @@ FROM
 WHERE
   borrowers.login_attempts >= FAILEDLOGIN.value AND
   borrowers.borrowernumber = <<enter borrower id>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

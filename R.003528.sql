@@ -39,6 +39,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branchess.branchname,
   borrowers.cardnumber,
@@ -85,6 +87,28 @@ GROUP BY
 ORDER BY
   branchess.branchname,
   borrowers.cardnumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

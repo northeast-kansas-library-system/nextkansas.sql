@@ -27,6 +27,8 @@ Enhanced -- enter author name. For catalog cleanup
 ----------
 */
 
+
+
 SELECT
   Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">LINK</a>') AS LINK,
   biblio.biblionumber,
@@ -56,6 +58,28 @@ ORDER BY
   biblio.title,
   biblioitems.pages,
   biblioitems.publishercode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

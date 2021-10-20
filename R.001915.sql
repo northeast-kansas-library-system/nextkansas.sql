@@ -27,11 +27,35 @@ From Koha listserv/wiki
 ----------
 */
 
+
+
 SELECT surname AS Surname, firstname AS "First Name", cardnumber AS
 "Card Number", email AS Email
 FROM borrowers
 WHERE branchcode=<<choose branch|branches>> AND borrowernumber NOT IN (SELECT borrowernumber FROM borrowers WHERE ' ' IN (email)) AND email NOT LIKE '%_@__%.__%' 
 ORDER BY email DESC LIMIT 10000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

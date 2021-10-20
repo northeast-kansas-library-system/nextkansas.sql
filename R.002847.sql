@@ -37,6 +37,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   branches.branchcode AS BRANCH_CODE,
   CONCAT(CONCAT(branches.branchname,'<p><ins>Mailing address:</ins><br />',Concat_Ws('<br />', branches.branchaddress1, Concat(branches.branchcity,', ', branches.branchstate, ' ', branches.branchzip)),'</p>'),
@@ -52,6 +54,28 @@ WHERE
   branches.branchcode LIKE <<Choose your branch|LBRANCH>>
 GROUP BY
   branches.branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

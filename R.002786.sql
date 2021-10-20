@@ -35,6 +35,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   Concat(
     '<a class="btn btn-default" href="https://nextkansas.org/cgi-bin/koha/opac-detail.pl?biblionumber=', 
@@ -114,6 +116,28 @@ ORDER BY
   items.itemcallnumber,
   biblio.author,
   FULL_TITLE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2017-06-21 17:08:16
 Modified on: 2018-08-31 12:45:10
-Date last run: 2021-09-17 15:56:55
+Date last run: 2021-10-07 14:44:31
 
 ----------
 
@@ -43,6 +43,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">', biblio.biblionumber, '</a>') AS LINK_TO_TITLE,
@@ -128,6 +130,28 @@ ORDER BY
   items.itemcallnumber,
   biblio.author,
   FULL_TITLE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

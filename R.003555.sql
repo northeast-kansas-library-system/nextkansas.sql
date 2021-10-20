@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2021-09-07 00:47:08
 Modified on: 2021-09-13 19:56:26
-Date last run: 2021-09-13 22:56:15
+Date last run: 2021-10-11 09:10:04
 
 ----------
 
@@ -26,6 +26,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   Concat("-FINES_FEES-") AS TABLE_NAME,
@@ -536,6 +538,28 @@ SELECT
   Date_Format(Min(deleteditems.timestamp), "%Y - %m - %d") AS OLDEST,
   Date_Format(Max(deleteditems.timestamp), "%Y - %m - %d") AS NEWEST
 FROM deleteditems
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ Group: Holds-Reserves
 
 Created on: 2016-08-10 15:29:50
 Modified on: 2018-04-16 10:48:28
-Date last run: 2021-07-08 10:31:11
+Date last run: 2021-10-01 14:56:30
 
 ----------
 
@@ -42,6 +42,8 @@ Expiry: 0
 
 ----------
 */
+
+
 
 SELECT
   Concat('<a href=\"/cgi-bin/koha/circ/circulation.pl?borrowernumber=', reserves.borrowernumber, '\" target="_blank">Patron record</a>') AS LINK,
@@ -80,6 +82,28 @@ GROUP BY
 ORDER BY
   borrowers.surname,
   borrowers.firstname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

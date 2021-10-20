@@ -39,6 +39,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   authorised_values.id,
   authorised_values.category,
@@ -51,6 +53,28 @@ FROM
 ORDER BY
   authorised_values.category,
   authorised_values.authorised_value
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

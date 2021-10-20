@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2011-01-24 21:34:31
 Modified on: 2013-06-21 13:49:49
-Date last run: 2021-03-24 14:40:09
+Date last run: 2021-10-18 13:53:11
 
 ----------
 
@@ -27,7 +27,31 @@ Enhanced - Pick your branch to find patrons with fines over $10 #fines
 ----------
 */
 
+
+
 SELECT  borrowers.cardnumber, borrowers.surname, borrowers.firstname, Phone, borrowers.altcontactphone, borrowers.email, borrowers.address, borrowers.city, borrowers.zipcode, FORMAT(SUM(accountlines.amountoutstanding),2) as due FROM borrowers LEFT JOIN accountlines USING (borrowernumber) WHERE borrowers.branchcode= <<Pick your branch|branches>> AND accountlines.amountoutstanding != 0 GROUP BY borrowers.cardnumber having SUM(accountlines.amountoutstanding) >10 ORDER BY borrowers.surname ASC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

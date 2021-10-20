@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   @1 := 'YESTERDAY'  AS DESCRIPTION,
   @2 := 'CurDate() - INTERVAL 1 DAY' AS `"SQL"`,
@@ -152,6 +154,28 @@ SELECT
   @2 := 'Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) - 1 DAY) + INTERVAL 1 WEEK',
   Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) - 1 DAY) + INTERVAL 1 WEEK
 LIMIT 50
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

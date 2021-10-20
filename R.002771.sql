@@ -39,6 +39,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   <<Number of digits in card prefix|YNUMBER>> AS CARD_PREFIX_LENGTH,
   borrowers.branchcode AS BORROWERS_HOME_BRANCH,
@@ -57,6 +59,28 @@ HAVING
 ORDER BY
   borrowers.branchcode,
   LIBRAY_CARD_PREFIX
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

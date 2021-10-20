@@ -13,7 +13,7 @@ Group: Borrowers
 
 Created on: 2016-09-27 10:16:31
 Modified on: 2018-04-16 11:02:34
-Date last run: 2021-07-22 14:01:02
+Date last run: 2021-10-07 14:14:29
 
 ----------
 
@@ -33,6 +33,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   borrowers.branchcode AS BORROWER_HOME_LIBRARY,
   Count(borrowers.borrowernumber) AS COUNT_OF_BORROWERS
@@ -43,6 +45,28 @@ WHERE
   borrowers.branchcode LIKE <<Patron home library|LBRANCH>>
 GROUP BY
   borrowers.branchcode WITH ROLLUP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

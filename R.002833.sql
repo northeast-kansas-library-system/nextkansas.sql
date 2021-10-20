@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   statistics.branch,
   Count(*) AS CIRC_PLUS_RENEWALS,
@@ -40,6 +42,28 @@ WHERE
 GROUP BY
   statistics.branch
   WITH ROLLUP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

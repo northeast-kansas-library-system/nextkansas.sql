@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-08-16 14:59:53
 Modified on: 2021-02-08 14:35:58
-Date last run: 2021-09-17 16:24:22
+Date last run: 2021-10-20 09:07:13
 
 ----------
 
@@ -33,6 +33,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   Concat_Ws('<br />', 
@@ -110,6 +112,28 @@ ORDER BY
   biblio.author,
   biblio.title,
   items.barcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

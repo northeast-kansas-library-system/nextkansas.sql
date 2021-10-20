@@ -38,6 +38,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   borrowerinfo.branchcode AS COLLECTED_AT,
   If(
@@ -101,6 +103,28 @@ ORDER BY
   COLLECTED_ON_BEHALF_OF,
   PAYMENT_DATE,
   FEE_REFERENCE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

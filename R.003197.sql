@@ -39,6 +39,8 @@ ODUE3_SPEC - goes to non-billed patrons 45 days after an item is overdue<br />
 ----------
 */
 
+
+
 SELECT
   Date_Format(message_queue.time_queued, "%Y.%m.%d - %W") AS DAY_SENT,
   message_queue.subject,
@@ -61,6 +63,28 @@ ORDER BY
   DAY_SENT DESC,
   message_queue.subject,
   DELIVERY_TYPE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

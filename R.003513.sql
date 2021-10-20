@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-05-27 22:12:05
-Modified on: 2021-05-27 22:12:05
-Date last run: 2021-09-16 21:11:08
+Modified on: 2021-10-19 10:23:10
+Date last run: 2021-10-20 08:28:07
 
 ----------
 
@@ -26,6 +26,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   biblio.author,
@@ -88,14 +90,39 @@ FROM
      Count(DISTINCT items.permanent_location) = '1') bib_locations ON
       bib_locations.biblionumber = biblio.biblionumber
 WHERE
-  locs.lib NOT LIKE '%ADULT%' AND
+  (locs.lib NOT LIKE '%ADULT%' AND
   locs.lib NOT LIKE '%CHILD%' AND
-  bib_locations.Group_Concat_permanent_location LIKE '%YA%'
+  bib_locations.Group_Concat_permanent_location LIKE '%YA%') OR 
+  ((locs.lib is null OR
+  locs.lib = "") AND 
+  (bib_locations.Group_Concat_permanent_location LIKE '%YA%'))
 GROUP BY
   biblio.biblionumber,
   bib_locations.COUNT,
   bib_locations.Group_Concat_permanent_location
 LIMIT 500
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2017-02-23 17:12:52
 Modified on: 2017-02-23 17:27:48
-Date last run: 2021-02-08 15:57:40
+Date last run: 2021-10-13 16:22:50
 
 ----------
 
@@ -26,6 +26,8 @@ Expiry: 0
 
 ----------
 */
+
+
 
 SELECT
   items.barcode,
@@ -114,6 +116,28 @@ ORDER BY
   itemcallnumber,
   author,
   title
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

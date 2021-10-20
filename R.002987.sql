@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branches.branchcode,
   Coalesce(stats.CIRC_PLUS_RENEW, 0) AS CIRC_PLUS_RENEWAL
@@ -47,6 +49,28 @@ WHERE
   branches.branchcode LIKE <<Choose your library|LBRANCH>>
 GROUP BY
   branches.branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

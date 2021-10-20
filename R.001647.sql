@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT b.cardnumber, b.surname, b.firstname,
 b.opacnote, b.borrowernotes, group_concat(DISTINCT m.message separator ', ') AS circmesages
 FROM borrowers b
@@ -36,6 +38,28 @@ NULL AND b.opacnote != '') OR (b.borrowernotes IS NOT NULL AND
 b.borrowernotes != '') OR (m.message IS NOT NULL AND
 m.message != '')) GROUP BY b.borrowernumber ORDER BY b.surname ASC,
 b.firstname ASC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT 
   circulation_rules.id, 
   circulation_rules.branchcode, 
@@ -42,6 +44,28 @@ WHERE circulation_rules.rule_name = "maxissueqty" AND
 ORDER BY 
   circulation_rules.rule_value 
   DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

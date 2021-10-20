@@ -27,7 +27,31 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT MONTH(timestamp), YEAR(timestamp), count(*) FROM old_reserves WHERE old_reserves.branchcode = <<Pick your Branch|branches>> GROUP BY MONTH(timestamp), YEAR(timestamp) ORDER BY YEAR(timestamp) DESC, MONTH(timestamp) DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

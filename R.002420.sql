@@ -13,7 +13,7 @@ Group: Daily, Monthly, Yearly Stats
 
 Created on: 2014-12-03 20:25:09
 Modified on: 2014-12-03 20:25:09
-Date last run: 2021-09-13 10:05:43
+Date last run: 2021-10-18 17:19:38
 
 ----------
 
@@ -27,7 +27,31 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT count(i.itemnumber) as added from items i WHERE i.homebranch=<<branch|branches>> AND year(i.dateaccessioned) = <<enter four-digit year>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ Group: Holds-Reserves
 
 Created on: 2016-10-12 11:57:05
 Modified on: 2018-04-16 11:02:10
-Date last run: 2020-06-16 14:49:03
+Date last run: 2021-10-01 14:58:58
 
 ----------
 
@@ -35,6 +35,8 @@ Expiry: 0
 
 ----------
 */
+
+
 
 SELECT
   borrowers.cardnumber AS PATRON_BC,
@@ -80,6 +82,28 @@ ORDER BY
   items.itype,
   CALL_NUMBER,
   AUTHOR_TITLE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   old_issues.branchcode,
   Cast(old_issues.returndate as date) AS CKI,
@@ -41,6 +43,28 @@ WHERE
 ORDER BY
   old_issues.branchcode,
   CKI
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

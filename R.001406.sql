@@ -27,9 +27,33 @@ Possible nonstandard locations NOT CHILDRENS, ADULT, or YOUNGADULT -- Enhanced -
 ----------
 */
 
+
+
 SELECT i.dateaccessioned,b.title, b.author,t.publicationyear, i.location, i.ccode,i.itype,i.itemcallnumber,i.barcode, CONCAT('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=',b.biblionumber,'&itemnumber=',i.itemnumber,'#edititem\" target="_blank">'"edit item"'</a>') as "edit barcode" FROM items i LEFT JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber)
 WHERE i.homebranch=<<Pick your branch|branches>> AND i.location NOT IN ('ADULT','CHILDRENS','YOUNGADULT')
 ORDER BY i.location desc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -27,6 +27,8 @@ From VOKAL/CIN.
 ----------
 */
 
+
+
 SELECT
   Concat('<a href=\"/cgi-bin/koha/members/member-flags.pl?member=', borrowers.borrowernumber, '\" target="_blank">"edit permissions"</a>') AS "edit permissions",
   borrowers.surname,
@@ -69,6 +71,28 @@ ORDER BY
   borrowers.categorycode,
   borrowers.branchcode,
   borrowers.firstname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

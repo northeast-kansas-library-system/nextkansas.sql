@@ -13,7 +13,7 @@ Group: Fines/Fees
 
 Created on: 2017-01-04 12:34:28
 Modified on: 2021-05-07 09:30:17
-Date last run: 2021-09-14 13:16:29
+Date last run: 2021-09-29 19:47:05
 
 ----------
 
@@ -39,6 +39,8 @@ Expiry: 0
 
 ----------
 */
+
+
 
 SELECT
   staff.branchcode AS PAYMENT_BRANCH,
@@ -73,6 +75,28 @@ ORDER BY
   PAYMENT_BRANCH,
   accountlines.timestamp,
   accountlines.accountlines_id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

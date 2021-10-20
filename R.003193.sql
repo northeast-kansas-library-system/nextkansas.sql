@@ -43,6 +43,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) - 1 DAY) + INTERVAL 1 WEEK AS SCHEDULED_DELETION,
   Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">LINK</a>') AS LINK,
@@ -84,6 +86,28 @@ ORDER BY
   biblio.author,
   biblio.title
   ASC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

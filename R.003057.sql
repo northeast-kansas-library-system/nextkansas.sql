@@ -31,8 +31,32 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   CONCAT('<a href="/cgi-bin/koha/reports/guided_reports.pl?reports=214&phase=Run%20this%20report" target="_blank">Click here to run report 214</a>') AS INFO
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

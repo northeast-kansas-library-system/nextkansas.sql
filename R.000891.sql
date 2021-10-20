@@ -27,7 +27,31 @@ ENHANCED - Select Run and use drop-down menu to select branch.  Report only disp
 ----------
 */
 
+
+
 SELECT  borrowers.cardnumber, borrowers.surname, borrowers.firstname, borrowers.phone, borrowers.email, borrowers.address, borrowers.city, borrowers.zipcode, accountlines.description, accountlines.timestamp, FORMAT(SUM(accountlines.amountoutstanding),2) as due FROM borrowers LEFT JOIN accountlines USING (borrowernumber) WHERE borrowers.branchcode= <<Pick your branch|branches>> AND accountlines.amountoutstanding=' ' AND accountlines.description LIKE 'lost item%' GROUP BY accountlines.description ORDER BY borrowers.surname ASC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

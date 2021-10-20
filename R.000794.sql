@@ -13,7 +13,7 @@ Group: Administrative Reports
 
 Created on: 2010-01-25 09:59:59
 Modified on: 2014-01-06 10:39:42
-Date last run: 2021-09-02 00:04:20
+Date last run: 2021-10-04 15:55:05
 
 ----------
 
@@ -27,7 +27,31 @@ Enhanced! Logic - the items arriving at my branch are not my items.  Use 2-digit
 ----------
 */
 
+
+
 SELECT branchtransfers.tobranch, COUNT(*) FROM branchtransfers LEFT JOIN items USING (itemnumber) WHERE (branchtransfers.tobranch != items.homebranch) AND (branchtransfers.tobranch != branchtransfers.frombranch) AND MONTH(branchtransfers.datesent)= <<Month>> and YEAR(branchtransfers.datesent) = <<Year>> GROUP BY branchtransfers.tobranch
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

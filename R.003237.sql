@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   borrowers.borrowernumber,
   borrowers.cardnumber,
@@ -93,6 +95,28 @@ WHERE
   borrowers.surname = 'FROSTY'
 ORDER BY
   borrowers.borrowernumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

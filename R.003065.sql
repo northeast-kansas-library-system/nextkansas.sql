@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   CONCAT("&lt;br /&gt;REQUEST CANCELLED&lt;br /&gt;The request on the following item was cancelled because there are no longer any copies available on the specified bibliographic record:&lt;br /&gt;", 
     Concat_WS(" ",
@@ -55,6 +57,28 @@ FROM
   JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
 WHERE
   items.barcode Like Concat("%", <<Enter barcode number>>, "%")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

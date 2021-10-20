@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   borrowers.cardnumber,
   REGEXP_REPLACE(Trim(borrowers.surname), '[[:space:]]+', ' ') AS surname,
@@ -47,6 +49,28 @@ WHERE
   borrowers.categorycode <> "STAFF" AND
   Year(borrowers.dateexpiry) = 2020 AND
   borrowers.branchcode LIKE <<Choose your library|ZBRAN>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -40,6 +40,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branches.branchcode AS BRANCH,
   Coalesce(HOLDINGS_ADDED.count, 0) AS HOLD_ADD_L_M
@@ -60,6 +62,28 @@ FROM
 GROUP BY
   branches.branchcode
 LIMIT 1000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

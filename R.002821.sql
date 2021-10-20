@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', reserves.biblionumber, '\" target="_blank">', reserves.biblionumber, '</a>') AS LINK_TO_TITLE,
   Min(reserves.priority) AS Min_priority,
@@ -77,6 +79,28 @@ HAVING
   Min(reserves.priority) <> 0
 ORDER BY
   reserves.biblionumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

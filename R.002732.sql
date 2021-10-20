@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   CONCAT( '<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber,'\" target="_blank">', biblio.biblionumber, '</a>' ) AS 'LINK_TO_BIBLIO',
   biblio.biblionumber,
@@ -56,6 +58,28 @@ GROUP BY
   biblio.biblionumber, biblio.title, items.itype, items.homebranch
 ORDER BY
   biblio.title, items.homebranch ASC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

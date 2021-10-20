@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   items.copynumber,
   items.itemcallnumber,
@@ -50,6 +52,28 @@ GROUP BY
   items.damaged, items.homebranch
 ORDER BY
   items.copynumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

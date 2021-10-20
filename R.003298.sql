@@ -13,7 +13,7 @@ Group:  LEAVENWRTH
 
 Created on: 2020-01-09 15:12:38
 Modified on: 2021-08-16 20:32:56
-Date last run: 2021-09-13 14:07:33
+Date last run: 2021-10-04 16:33:20
 
 ----------
 
@@ -40,6 +40,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   Concat('<a href="/cgi-bin/koha/members/memberentry.pl?op=modify&borrowernumber=', borrowers.borrowernumber, '&step=4" target="_blank">Go to patron account</a>') AS LINK,
@@ -70,6 +72,28 @@ GROUP BY
   borrowers.borrowernumber
 ORDER BY
   borrowers.cardnumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

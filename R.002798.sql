@@ -27,6 +27,8 @@ Report created for "Flexible reports" demo.
 ----------
 */
 
+
+
 SELECT
   statistics.branch,
   statistics.itemtype,
@@ -36,6 +38,28 @@ WHERE statistics.type = "issue" AND
   (statistics.datetime BETWEEN "2016-09-01" AND "2016-09-08")
 GROUP BY statistics.branch, statistics.itemtype
 WITH ROLLUP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

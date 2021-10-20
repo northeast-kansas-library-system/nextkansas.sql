@@ -27,7 +27,31 @@ Expiry: 300
 ----------
 */
 
+
+
 select biblionumber,title from biblio where datecreated='2019-01-12' and biblionumber not in (select biblionumber from items)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

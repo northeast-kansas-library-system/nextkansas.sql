@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT GROUP_CONCAT(items.barcode SEPARATOR ' / ') AS ITEMbarcodes,
      GROUP_CONCAT(items.biblionumber SEPARATOR ' / ') AS ITEMbiblionumber,
      GROUP_CONCAT(items.itemcallnumber SEPARATOR ' / ') AS ITEMcallunumbers,
@@ -41,6 +43,28 @@ SELECT GROUP_CONCAT(items.barcode SEPARATOR ' / ') AS ITEMbarcodes,
   WHERE items.itype = "MEDIA" OR items.itype = "LOCALHOLD1" OR items.itype = "NEWMEDIA" or items.itype = "WALKIN1"
   GROUP BY biblio.title, biblio.author
   HAVING (((Count(items.barcode))>1))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

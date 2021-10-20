@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   cko_branch.branchcode AS CKO_LIB,
   our_stuff_somewhere_else.OWNING_BRANCH AS OWNING_LIB,
@@ -65,6 +67,28 @@ GROUP BY
   our_stuff_somewhere_else.OWNING_BRANCH
 ORDER BY
   CKO_LIB
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

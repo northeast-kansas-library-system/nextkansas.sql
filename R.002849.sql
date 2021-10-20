@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   borrowers.cardnumber,
   message_queue.content
@@ -36,6 +38,28 @@ FROM
     ON message_queue.borrowernumber = borrowers.borrowernumber
 WHERE
   borrowers.cardnumber = 'X5G001'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

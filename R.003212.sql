@@ -27,6 +27,8 @@ List of problematic URLs
 ----------
 */
 
+
+
 SELECT
   Concat("https://staff.nextkansas.org/cgi-bin/koha/rotating_collections/addItems.pl?colId=", collections_tracking.colId, "&barcode=", items.barcode, "&removeItem=1&action=addItem") AS URLS
 FROM
@@ -35,6 +37,28 @@ FROM
     ON items.itemnumber = collections_tracking.itemnumber
 WHERE
   collections_tracking.colId = <<Enter collection ID number>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

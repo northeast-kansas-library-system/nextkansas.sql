@@ -42,6 +42,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branches.branchname,
   ages.BORROWER_AGE AS BORROWER_AGE,
@@ -126,6 +128,28 @@ GROUP BY
 ORDER BY
   branches.branchcode,
   LPad(ages.BORROWER_AGE, 4, 0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

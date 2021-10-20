@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branches.branchcode,
   CKO_RENEW_TOTAL.COUNT AS CKO_REN_TOTAL,
@@ -303,6 +305,28 @@ FROM
       statistics.branch
   ) CKO_RENEW_LOCAL_UNIQUE_6
     ON CKO_RENEW_LOCAL_UNIQUE_6.branch = branches.branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

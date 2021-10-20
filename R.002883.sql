@@ -35,6 +35,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   If(Coalesce(biblio.biblionumber, 0) = deleteditems.biblionumber, Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank"><ins>Click for bibliographic record</ins></a>'), If(Coalesce(deletedbiblio.biblionumber, 0) > 0, '<span style="background-color: yellow; color: red;">Biblio has been deleted</span>', '--') ) AS BIBLIO_RECORD_STATUS,
   deleteditems.barcode,
@@ -65,6 +67,28 @@ ORDER BY
   deleteditems.itemcallnumber,
   AUTHOR,
   TITLE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

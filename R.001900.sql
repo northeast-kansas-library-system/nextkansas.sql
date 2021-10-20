@@ -27,9 +27,33 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT i.datelastseen, b.title, b.author,t.publicationyear, i.location, i.ccode,i.itype,i.itemcallnumber, i.barcode, i.holdingbranch, CONCAT('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=',b.biblionumber,'&itemnumber=',i.itemnumber,'#edititem\" target="_blank">'"edit item"'</a>') as "edit item" FROM items i LEFT JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber)  
 WHERE i.homebranch=<<Pick your branch|branches>> AND i.ccode=<<Pick your collection code|CCODE>> AND i.itemlost = '3'
 ORDER BY  i.itemcallnumber LIMIT 10000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

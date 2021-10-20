@@ -29,7 +29,31 @@ HB_Monthly
 ----------
 */
 
+
+
 select i.itemnumber, i.dateaccessioned, b.title, i.ccode, i.itype, i.itemcallnumber, i.barcode, CONCAT('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=',b.biblionumber,'&itemnumber=',i.itemnumber,'#edititem\" target="_blank">'"edit item"'</a>') as "edit barcode" from biblio b left join items i using (biblionumber) where i.notforloan <>'-1' AND i.homebranch=<<branch|branches>> AND (i.barcode IS NULL OR LENGTH(i.barcode) < 13 OR i.barcode LIKE 'eudora%') ORDER BY i.ccode, i.itemcallnumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

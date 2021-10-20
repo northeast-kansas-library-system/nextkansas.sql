@@ -40,6 +40,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   z3950servers.servername AS SERVER_NAME,
   z3950servers.host AS HOSTNAME,
@@ -57,6 +59,28 @@ GROUP BY
 ORDER BY
   RECORD_TYPE DESC,
   SERVER_NAME
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2016-11-28 15:42:16
 Modified on: 2021-04-30 14:52:05
-Date last run: 2021-09-07 14:04:56
+Date last run: 2021-10-07 14:49:18
 
 ----------
 
@@ -41,6 +41,8 @@ Expiry: 0
 
 ----------
 */
+
+
 
 SELECT
   branchess.branchname,
@@ -212,6 +214,28 @@ ORDER BY
   ALL_STATS.DATE,
   ALL_STATS.DAY,
   ALL_STATS.HOUR_OF_DAY
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

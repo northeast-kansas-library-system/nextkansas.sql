@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   branches.branchcode AS BRANCH,
   Coalesce(TOTAL_PATRONS.COUNT, 0) AS '2.2a_TOTAL_PATRONS'
@@ -42,6 +44,28 @@ FROM
     ON branches.branchcode = TOTAL_PATRONS.branchcode
 GROUP BY
   branches.branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -27,7 +27,31 @@ Run - Pick Branch. May take time, depending on the number of patrons you have. A
 ----------
 */
 
+
+
 SELECT borrowers.dateenrolled, borrowers.surname,borrowers.firstname,borrowers.branchcode,borrowers.categorycode,borrowers.phone,borrowers.cardnumber,borrowers.address,borrowers.city,borrowers.zipcode, CONCAT('<a href=\"/cgi-bin/koha/members/memberentry.pl?op=modify&borrowernumber=',borrowers.borrowernumber,'\" target="_blank">'"edit patron"'</a>') as "edit patron" FROM borrowers WHERE borrowers.branchcode = <<Pick your branch|branches>> ORDER BY borrowers.categorycode ASC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

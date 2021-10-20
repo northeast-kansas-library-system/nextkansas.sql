@@ -27,7 +27,31 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT (borrowers.address), borrowers.surname,borrowers.firstname,borrowers.address FROM borrowers   WHERE borrowers.branchcode='TONGANOXIE' AND borrowers.categorycode='ADULT' GROUP BY borrowers.address
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

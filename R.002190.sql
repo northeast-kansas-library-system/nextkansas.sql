@@ -27,6 +27,8 @@ Written for libraries to edit records with itemnotes data (public note for an it
 ----------
 */
 
+
+
 SELECT
   Concat(
     '<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',
@@ -52,6 +54,28 @@ WHERE
   items.itemnotes IS NOT NULL
 ORDER BY
   items.dateaccessioned DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

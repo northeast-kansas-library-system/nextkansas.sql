@@ -41,6 +41,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   borrowers.email,
   borrowers.cardnumber,
@@ -51,6 +53,28 @@ FROM
 WHERE
   borrowers.email LIKE CONCAT( '%',<<Enter patron's e-mail address>>, '%')
 GROUP BY borrowers.cardnumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

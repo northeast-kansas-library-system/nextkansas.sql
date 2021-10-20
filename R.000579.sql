@@ -27,7 +27,31 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT  borrowers.cardnumber,borrowers.surname,borrowers.firstname,borrowers.branchcode,borrowers.categorycode,borrowers.debarred,borrowers.flags FROM borrowers   WHERE borrowers.branchcode=<<branch|branches>> AND borrowers.debarred IS NOT NULL
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

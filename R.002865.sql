@@ -37,6 +37,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   letter.branchcode,
   letter.code,
@@ -50,6 +52,28 @@ WHERE
   letter.code LIKE <<Choose an overdue notice|ZODUE>>
 GROUP BY
   letter.branchcode, letter.code
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

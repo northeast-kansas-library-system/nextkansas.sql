@@ -38,6 +38,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="655"]/subfield[@code="a"]') AS INDEX_TERM,
   Count(DISTINCT biblio_metadata.biblionumber) AS BIBLIO_COUNT
@@ -47,6 +49,28 @@ WHERE
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="655"]/subfield[@code="a"]') LIKE Concat("%", <<Enter part of an index term (Marc 655 subfield a) or a % symbol>>, "%")
 GROUP BY
   INDEX_TERM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

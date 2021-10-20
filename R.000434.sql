@@ -27,7 +27,31 @@ List of your library's patrons without an email address.
 ----------
 */
 
+
+
 SELECT email, cardnumber, surname, firstname, branchcode, debarred, dateexpiry FROM borrowers WHERE branchcode=<<branch|branches>> AND email = "" ORDER BY branchcode, cardnumber ASC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

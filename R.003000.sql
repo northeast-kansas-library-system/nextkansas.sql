@@ -13,7 +13,7 @@ Group: Borrowers
 
 Created on: 2017-09-18 10:49:25
 Modified on: 2021-08-31 16:08:42
-Date last run: 2021-08-31 16:08:58
+Date last run: 2021-10-20 08:54:12
 
 ----------
 
@@ -37,6 +37,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   Concat('<a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=', borrowers.borrowernumber, '" target="_blank">Link to patron</a>') AS LINK_TO_PATRON,
@@ -118,6 +120,28 @@ ORDER BY
   borrowers.surname,
   borrowers.firstname,
   borrowers.borrowernumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

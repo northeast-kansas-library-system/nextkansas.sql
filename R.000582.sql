@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2009-06-12 16:22:06
 Modified on: 2021-08-17 12:55:08
-Date last run: 2021-09-10 14:47:52
+Date last run: 2021-10-19 13:29:07
 
 ----------
 
@@ -38,6 +38,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   borrowers.cardnumber,
   borrowers.surname,
@@ -54,6 +56,28 @@ HAVING
   AMT_DUE > 0
 ORDER BY
   borrowers.surname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

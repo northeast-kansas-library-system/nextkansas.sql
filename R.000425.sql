@@ -13,7 +13,7 @@ Group: Administrative Reports
 
 Created on: 2009-04-14 16:21:25
 Modified on: 2015-06-30 14:30:38
-Date last run: 2021-07-26 21:56:22
+Date last run: 2021-10-19 10:43:28
 
 ----------
 
@@ -27,7 +27,31 @@ All Libraries
 ----------
 */
 
+
+
 SELECT items.homebranch, items.itype,items.ccode,items.itemcallnumber,items.barcode,items.dateaccessioned,biblio.title,biblioitems.publicationyear FROM items LEFT JOIN biblio USING(biblionumber) LEFT JOIN biblioitems USING(biblionumber) WHERE items.itype LIKE 'LOCALHOLD%' OR items.itype LIKE 'WALKIN%' ORDER BY items.homebranch asc, items.itype, items.ccode, items.dateaccessioned
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

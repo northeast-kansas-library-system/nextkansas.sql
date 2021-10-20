@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   borrowers.borrowernumber,
   borrowers.cardnumber,
@@ -48,6 +50,28 @@ GROUP BY
   borrowers.branchcode,
   borrowers.categorycode,
   Coalesce(floor(DateDiff(CurDate(), borrowers.dateofbirth) / 365.25), '-')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

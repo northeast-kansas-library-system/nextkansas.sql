@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2021-05-12 20:58:05
 Modified on: 2021-07-30 10:52:42
-Date last run: 2021-09-03 16:50:29
+Date last run: 2021-10-01 07:51:41
 
 ----------
 
@@ -37,6 +37,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   statistics.branch AS CKO_BRANCH,
   Left(borrowers.zipcode, 5) AS BORROWER_ZIPCODE,
@@ -55,6 +57,28 @@ GROUP BY
 ORDER BY
   CKO_BRANCH,
   BORROWER_ZIPCODE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

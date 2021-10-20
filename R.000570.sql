@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2009-06-01 16:56:47
 Modified on: 2020-12-08 22:41:10
-Date last run: 2021-09-01 12:52:06
+Date last run: 2021-10-06 10:53:27
 
 ----------
 
@@ -26,6 +26,8 @@ Shows count of new items added to a collection in last month by item type and sh
 
 ----------
 */
+
+
 
 SELECT
   items.homebranch AS "Library",
@@ -41,6 +43,28 @@ GROUP BY
   items.homebranch,
   items.itype,
   items.permanent_location
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

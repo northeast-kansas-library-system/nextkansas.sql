@@ -27,6 +27,8 @@ Testing closure report for Mana
 ----------
 */
 
+
+
 SELECT 
   special_holidays.branchcode AS BRANCH, 
   special_holidays.title AS TITLE, 
@@ -124,6 +126,28 @@ WHERE
 ORDER BY 
   BRANCH, 
   UPCOMING_DATE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

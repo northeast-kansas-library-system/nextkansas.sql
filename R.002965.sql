@@ -13,7 +13,7 @@ Group:  OTTAWA
 
 Created on: 2017-06-27 16:45:08
 Modified on: 2021-08-16 13:44:05
-Date last run: 2021-09-17 11:07:56
+Date last run: 2021-10-15 12:06:23
 
 ----------
 
@@ -37,6 +37,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   Concat('<a href=\"/cgi-bin/koha/members/maninvoice.pl?borrowernumber=', borrowers.borrowernumber, '\" target="_blank">', Upper(borrowers.cardnumber), '</a>') AS "MANUAL_INVOICE",
@@ -118,6 +120,28 @@ HAVING
 ORDER BY
   borrowers.surname,
   borrowers.firstname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

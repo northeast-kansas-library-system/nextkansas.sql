@@ -12,8 +12,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2016-08-11 16:36:03
-Modified on: 2021-09-08 10:53:17
-Date last run: 2021-09-17 14:17:21
+Modified on: 2021-10-12 11:17:19
+Date last run: 2021-10-19 17:50:22
 
 ----------
 
@@ -74,6 +74,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   Concat(
     '<a class= "clicked" href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
@@ -108,8 +110,7 @@ SELECT
   items.datelastseen,
   items.issues,
   items.renewals,
-  Sum((Coalesce(items.issues, 0)) + (Coalesce(items.renewals, 0))) AS
-  CHECKOUTS_PLUS_RENEWALS,
+  Sum((Coalesce(items.issues, 0)) + (Coalesce(items.renewals, 0))) AS CHECKOUTS_PLUS_RENEWALS,
   If(items.onloan IS NULL, 'No', 'Yes') AS CHECKED_OUT,
   If(
     Sum(Coalesce(items.damaged, 0) + Coalesce(items.itemlost, 0) + Coalesce(items.withdrawn, 0)) = 0, 
@@ -209,7 +210,7 @@ WHERE items.homebranch LIKE <<Item home library|ZBRAN>> AND
   Coalesce(items.datelastborrowed, CurDate()) >= <<Item last borrowed between date1|date>> AND
   Coalesce(items.datelastborrowed, "0") <= <<and  date2|date>> AND 
   Coalesce(items.datelastseen, CurDate()) >= <<Item last seen between date1|date>> AND
-  Coalesce(items.datelastseen, "0") <= <<and date2|date>>
+  Coalesce(items.datelastseen, "0") <= <<and   date2|date>>
 GROUP BY
   biblio.biblionumber,
   items.itemnumber
@@ -228,6 +229,28 @@ ORDER BY
   biblio.author,
   FULL_TITLE,
   biblio.title
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

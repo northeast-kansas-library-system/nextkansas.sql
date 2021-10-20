@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   items.biblionumber
 FROM
@@ -36,6 +38,28 @@ items.barcode =  "0003028026436" OR items.barcode = "0003018018451" OR items.bar
 
 GROUP BY
   items.biblionumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2021-08-04 16:23:25
 Modified on: 2021-08-29 21:37:15
-Date last run: 2021-09-01 00:45:01
+Date last run: 2021-10-01 00:54:01
 
 ----------
 
@@ -26,6 +26,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   branches.branchname,
@@ -121,6 +123,28 @@ FROM
 GROUP BY
   branches.branchname,
   branchcodeszipss.ZIPCODE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

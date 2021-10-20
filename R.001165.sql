@@ -27,10 +27,34 @@ Lost items by Collection code
 ----------
 */
 
+
+
 SELECT items.datelastseen, title, items.barcode, itemcallnumber
 FROM items RIGHT JOIN biblio on (items.biblionumber=biblio.biblionumber) 
 WHERE itemlost in (1,3) AND items.homebranch="BASEHOR" AND items.ccode= "DVD" 
 ORDER BY itemcallnumber, title
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

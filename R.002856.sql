@@ -13,7 +13,7 @@ Group: Notices
 
 Created on: 2016-12-15 11:27:46
 Modified on: 2018-12-14 12:32:55
-Date last run: 2021-09-18 10:27:52
+Date last run: 2021-10-19 09:28:49
 
 ----------
 
@@ -39,6 +39,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   message_queue.content
 FROM
@@ -50,6 +52,28 @@ WHERE
   message_queue.subject LIKE <<Choose location|ZNOTICEB>>
 GROUP BY
   message_queue.time_queued, message_queue.content
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

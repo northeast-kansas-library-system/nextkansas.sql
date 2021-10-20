@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2017-02-01 16:27:01
 Modified on: 2020-08-18 16:40:29
-Date last run: 2021-09-14 11:17:31
+Date last run: 2021-10-11 16:55:55
 
 ----------
 
@@ -40,6 +40,8 @@ Expiry: 0
 
 ----------
 */
+
+
 
 SELECT
   items.itemnumber AS ITEM_NUMBER,
@@ -96,6 +98,28 @@ ORDER BY
   CALL_NUMBER,
   FULL_TITLE,
   biblio.author
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

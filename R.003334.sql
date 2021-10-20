@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   clubs.name AS CLUB_NAME,
   borrowers.cardnumber,
@@ -105,6 +107,28 @@ WHERE
   clubs.id = <<Enter club ID number>>
 ORDER BY
   club_enrollments.id
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

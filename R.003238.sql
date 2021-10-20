@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
     CONCAT( p.firstname, ' ', p.surname, ' (', p.branchcode, ')' ) AS 'patron (homebranch)',
     CONCAT( 
@@ -38,6 +40,28 @@ SELECT
     cardnumber AS 'cardnumber text' 
 FROM
     borrowers p
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

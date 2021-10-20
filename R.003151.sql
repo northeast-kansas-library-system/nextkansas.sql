@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   borrowers.address,
   borrowers.city,
@@ -51,6 +53,28 @@ ORDER BY
   borrowers.zipcode,
   borrowers.address,
   AGES DESC
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

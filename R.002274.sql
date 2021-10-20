@@ -27,6 +27,8 @@ Expiry: 0
 ----------
 */
 
+
+
 SELECT
   Concat('<a href=\"/cgi-bin/koha/members/memberentry.pl?op=modify&borrowernumber=', borrowers.borrowernumber,
   '\" target="_blank">edit patron</a>') AS EDIT_PATRON,
@@ -40,6 +42,28 @@ WHERE
     borrowers.borrowernotes REGEXP '[0-9]{3} ?\-? ?[0-9]{2} ?\-? ?[0-9]{4}')
 ORDER BY
   borrowers.branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

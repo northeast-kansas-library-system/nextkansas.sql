@@ -27,6 +27,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   branches.branchcode AS BRANCH,
   Coalesce(CHECKOUT_RENEW_LOCALUSE.count, 0) AS CIRC_RENEW_LAST_M,
@@ -166,6 +168,28 @@ FROM
     ON branches.branchcode = CARDS_USED.branch
 GROUP BY
   branches.branchcode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

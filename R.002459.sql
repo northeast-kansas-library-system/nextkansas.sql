@@ -27,6 +27,8 @@ From VOKAL/CIN.
 ----------
 */
 
+
+
 SELECT
   Concat('<a href=\"/cgi-bin/koha/members/member-flags.pl?member=', borrowers.borrowernumber, '\" target="_blank">edit permissions</a>') AS EDIT_PERMISSIONS,
   Concat('http://staff.nextkansas.org/cgi-bin/koha/members/member-flags.pl?member=', borrowers.borrowernumber) AS RAW_LINK,
@@ -75,6 +77,28 @@ ORDER BY
   borrowers.categorycode,
   borrowers.branchcode,
   borrowers.firstname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

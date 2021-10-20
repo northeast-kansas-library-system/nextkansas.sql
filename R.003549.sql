@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-08-06 11:01:19
-Modified on: 2021-08-25 08:25:51
-Date last run: 2021-08-27 09:30:58
+Modified on: 2021-10-19 10:10:01
+Date last run: 2021-10-20 08:31:12
 
 ----------
 
@@ -26,6 +26,8 @@ Expiry: 300
 
 ----------
 */
+
+
 
 SELECT
   biblioitems.biblionumber,
@@ -43,8 +45,35 @@ WHERE
 GROUP BY
   biblioitems.biblionumber,
   biblioitems.agerestriction
+/*
+HAVING Group_Concat_permanent_location like "%ADULT%"
+HAVING Group_Concat_permanent_location like "%CHILD%"
+HAVING Group_Concat_permanent_location like "%YA%"
+*/
 ORDER BY
   biblioitems.agerestriction
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

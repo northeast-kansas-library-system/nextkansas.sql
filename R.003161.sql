@@ -40,6 +40,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat(
     '<a href=\"/cgi-bin/koha/members/memberentry.pl?op=modify&borrowernumber=',
@@ -71,6 +73,28 @@ ORDER BY
   borrowers.firstname,
   borrowers.branchcode,
   borrowers.categorycode
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

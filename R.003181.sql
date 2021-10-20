@@ -36,6 +36,8 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   statistics.branch,
   Year(statistics.datetime) AS YEAR,
@@ -69,6 +71,28 @@ ORDER BY
   MONTH,
   ITYPE,
   TITLE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
