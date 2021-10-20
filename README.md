@@ -31,9 +31,17 @@ SELECT
     Concat("Expiry: ", Coalesce(saved_sql.cache_expiry, "-")), Char(13), Char(10), Char(13), Char(10),
     Concat("----------"), Char(13), Char(10), Char(13), Char(10),
     Concat(Coalesce(saved_sql.notes, "-")), Char(13), Char(10), Char(13), Char(10),
-    Concat("----------", Char(13), Char(10), "*/"), Char(13), Char(10), Char(13), Char(10),
-    Concat(IF(Length(saved_sql.savedsql) > 32766, "Too large to process", saved_sql.savedsql)), Char(13), Char(10), Char(13), Char(10)
-  ) AS CONTENTS
+    Concat("----------", Char(13), Char(10), "*/"), Char(13), Char(10), Char(13), Char(10)
+  ) AS CONTENTS,
+  SubString(saved_sql.savedsql FROM 1 FOR 30000 ) AS PART_ONE,
+  If(Length(saved_sql.savedsql) > 30000, "||AAAAA||", "") AS SEP_ONE,
+  SubString(saved_sql.savedsql FROM 30001 FOR 30000 ) AS PART_TWO,
+  If(Length(saved_sql.savedsql) > 60000, "||AAAAA||", "") AS SEP_TWO,
+  SubString(saved_sql.savedsql FROM 60001 FOR 30000 ) AS PART_THREE,
+  If(Length(saved_sql.savedsql) > 90000, "||AAAAA||", "") AS SEP_THREE,
+  SubString(saved_sql.savedsql FROM 90001 FOR 30000 ) AS PART_FOUR,
+  If(Length(saved_sql.savedsql) > 120000, "||AAAAA||", "") AS SEP_FOUR,
+  SubString(saved_sql.savedsql FROM 120001 FOR 30000 ) AS PART_FIVE
 FROM
   saved_sql
   LEFT JOIN borrowers ON saved_sql.borrowernumber = borrowers.borrowernumber
@@ -65,6 +73,7 @@ GROUP BY
   saved_sql.id
 ORDER BY
   FILE_NAME
+
 ```
 
 ----------
