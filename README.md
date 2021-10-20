@@ -7,7 +7,7 @@ This is a repostitory for all of the SQL used by the Next Search Catalog library
 
 Instructions:
 
-Run report 3047 and save as a spreadsheet.
+Run Next Search Catalog report 3047 and save as a spreadsheet.
 
 The SQL for this report is:
 
@@ -75,7 +75,7 @@ Open the csv file and run the following VBA macro:
 
 ```
 
-Sub WriteToSQL()
+Sub WriteToTxt()
 
 Const forReading = 1, forAppending = 3, fsoForWriting = 2
 Dim fs, objTextStream, sText As String
@@ -90,7 +90,7 @@ For lRowLoop = 1 To lLastRow
 
     sText = ""
 
-    For lColLoop = 2 To 2
+    For lColLoop = 2 To 15
         sText = sText & Cells(lRowLoop, lColLoop) & Chr(10) & Chr(10)
     Next lColLoop
 
@@ -111,13 +111,15 @@ End Sub
 
 This should give you 1 .sql file for each row in the report.  Each text file represents 1 SQL report from Koha with all of the notes, titles, comments, etc. commented out so that you can run the report from Emacs or Atom if you have the right plugin enabled and a working ODBC connection (reports with runtime parameters will not run from Emacs or Atom without modification).
 
+Any SQL saved in Koha that is more than 32766 will be output with the SQL in several sections.  Each section is separated by two blank lines the text "\|\|AAAAA\|\|" and two more blank lines.  The filenames for these files will also start with the letter "X."  In order to run the SQL from those files, you need to remove the blank lines and the separator text.  I only have 2 reports that exceed the  character limit, so I usually open those files, search for "\|\|AAAAA\|\|" and manually remove that text and the line breaks.  Then I change the "X" in the filename to an "R" so these files sort like all of the others.
+
 Save all of these files into the github folder for your repository.
 
 ----------
 
 Optional -- I have my repository set up with Github Pages so that I can navigate to /myaccount.github.io/repositoryname/report_index.html and see a table with name and comments for each report.  To add report_index.html to your repository:
 
-Run report 3050 but do not save it as a spreadsheet.  Instead, expand the report to show all results on the screen at once.  Then right click the page and view the source.  Copy all of the data from the results table - from the first <table> tag to the final </table> tag in the page source and paste it into report_index.html in an html file called report_index.html.
+Run Next Search Catalog report 3050 but do not save it as a spreadsheet.  Instead, expand the report to show all results on the screen at once.  Then right click the page and view the source.  Copy all of the data from the results table - from the first <table> tag to the final </table> tag in the page source and paste it into report_index.html in an html file called report_index.html.
 
 The SQL for this report is:
 
@@ -172,7 +174,7 @@ LIMIT 10000
 
 Some of these reports rely on non-standard authorised_values tables.
 
-To add a backup of the current authorised_values tables to Github, run report 3493.  The SQL for this report is:
+To add a backup of the current authorised_values tables to Github, run Next Search Catalog report 3493.  The SQL for this report is:
 
 ```SQL
 
