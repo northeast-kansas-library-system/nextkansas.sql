@@ -14,24 +14,49 @@ The SQL for this report is:
 ```SQL
 
 SELECT
-  Concat(If(Length(saved_sql.savedsql) > 32766, "X.", "R."), LPad(saved_sql.id, 6, 0)) AS FILE_NAME,
   Concat(
-    Concat("/*", Char(13), Char(10), "R.", LPad(saved_sql.id, 6, 0)), Char(13), Char(10), Char(13), Char(10),
-    Concat("----------"), Char(13), Char(10), Char(13), Char(10),
-    Concat("Name: ", Coalesce(saved_sql.report_name, "-")), Char(13), Char(10),
-    Concat("Created by: ", If(Coalesce(borrowers.borrowernumber, 0) = 0, "-", Concat(borrowers.firstname, " ", borrowers.surname))), Char(13), Char(10), Char(13), Char(10),
-    Concat("----------"), Char(13), Char(10), Char(13), Char(10),
-    Concat("Group: ", Coalesce(reportgroups.lib, "-")), Char(13), Char(10),
-    Concat("     ", Coalesce(reportsubgroups.lib, "-")), Char(13), Char(10), Char(13), Char(10),
-    Concat("Created on: ", Coalesce(saved_sql.date_created, "-")), Char(13), Char(10),
-    Concat("Modified on: ", Coalesce(saved_sql.last_modified, "-")), Char(13), Char(10),
-    Concat("Date last run: ", Coalesce(saved_sql.last_run, "-")), Char(13), Char(10), Char(13), Char(10),
-    Concat("----------"), Char(13), Char(10), Char(13), Char(10),
-    Concat("Public: ", Coalesce(saved_sql.public, "-")), Char(13), Char(10),
-    Concat("Expiry: ", Coalesce(saved_sql.cache_expiry, "-")), Char(13), Char(10), Char(13), Char(10),
-    Concat("----------"), Char(13), Char(10), Char(13), Char(10),
-    Concat(Coalesce(saved_sql.notes, "-")), Char(13), Char(10), Char(13), Char(10),
-    Concat("----------", Char(13), Char(10), "*/"), Char(13), Char(10), Char(13), Char(10)
+    If(Length(saved_sql.savedsql) > 32766, "X.", "R."), LPad(saved_sql.id, 6, 0)
+  ) AS FILE_NAME,
+  Concat(
+    Concat("/*", Char(13), Char(10), "R.", LPad(saved_sql.id, 6, 0)), 
+    Char(13), Char(10), Char(13), Char(10),
+    Concat("----------"), 
+    Char(13), Char(10), Char(13), Char(10),
+    Concat("Name: ", Coalesce(saved_sql.report_name, "-")), 
+    Char(13), Char(10),
+    Concat(
+      "Created by: ", 
+      If(
+        Coalesce(borrowers.borrowernumber, 0) = 0, 
+        "-", 
+        Concat(borrowers.firstname, " ", borrowers.surname)
+      )
+    ), 
+    Char(13), Char(10), Char(13), Char(10),
+    Concat("----------"), 
+    Char(13), Char(10), Char(13), Char(10),
+    Concat("Group: ", Coalesce(reportgroups.lib, "-")), 
+    Char(13), Char(10),
+    Concat("     ", Coalesce(reportsubgroups.lib, "-")), 
+    Char(13), Char(10), Char(13), Char(10),
+    Concat("Created on: ", Coalesce(saved_sql.date_created, "-")), 
+    Char(13), Char(10),
+    Concat("Modified on: ", Coalesce(saved_sql.last_modified, "-")), 
+    Char(13), Char(10),
+    Concat("Date last run: ", Coalesce(saved_sql.last_run, "-")), 
+    Char(13), Char(10), Char(13), Char(10),
+    Concat("----------"), 
+    Char(13), Char(10), Char(13), Char(10),
+    Concat("Public: ", Coalesce(saved_sql.public, "-")), 
+    Char(13), Char(10),
+    Concat("Expiry: ", Coalesce(saved_sql.cache_expiry, "-")), 
+    Char(13), Char(10), Char(13), Char(10),
+    Concat("----------"), 
+    Char(13), Char(10), Char(13), Char(10),
+    Concat(Coalesce(saved_sql.notes, "-")), Char(13), 
+    Char(10), Char(13), Char(10),
+    Concat("----------", Char(13), Char(10), "*/"), 
+    Char(13), Char(10), Char(13), Char(10)
   ) AS CONTENTS,
   SubString(saved_sql.savedsql FROM 1 FOR 30000 ) AS PART_ONE,
   If(Length(saved_sql.savedsql) > 30000, "||AAAAA||", "") AS SEP_ONE,
