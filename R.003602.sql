@@ -1,9 +1,9 @@
 /*
-R.003571
+R.003602
 
 ----------
 
-Name: LibraryIQ - Bibliographic File (full) - BONNERSPGS
+Name: GHW - LibraryIQ - Bibliographic File BONNERSPGS
 Created by: George H Williams
 
 ----------
@@ -11,9 +11,9 @@ Created by: George H Williams
 Group: LibraryIQ
      BONNERSPGS
 
-Created on: 2021-10-05 23:37:33
-Modified on: 2021-10-13 11:21:08
-Date last run: 2021-10-13 15:46:23
+Created on: 2021-10-29 16:34:48
+Modified on: 2021-10-31 23:54:32
+Date last run: 2021-11-07 00:50:03
 
 ----------
 
@@ -22,7 +22,7 @@ Expiry: 300
 
 ----------
 
-#libraryiq #bibliographic #full #bonnerspgs #monthly
+Notes: #libraryiq #bibliographic #full #bonnerspgs #monthly 
 
 ----------
 */

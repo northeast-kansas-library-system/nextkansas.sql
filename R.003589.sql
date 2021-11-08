@@ -3,7 +3,7 @@ R.003589
 
 ----------
 
-Name: GHW - LibraryIQ - Bibliographic File - deleted yesterday
+Name: GHW - LibraryIQ - Bibliographic File - deleted yesterday - BONNERSPGS
 Created by: George H Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: LibraryIQ
      BONNERSPGS
 
 Created on: 2021-10-13 08:30:10
-Modified on: 2021-10-13 11:14:25
-Date last run: 2021-10-18 00:05:01
+Modified on: 2021-10-29 11:32:16
+Date last run: 2021-11-08 00:15:02
 
 ----------
 

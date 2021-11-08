@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-10-12 15:37:55
-Modified on: 2021-10-12 15:44:05
-Date last run: 2021-10-12 20:44:31
+Modified on: 2021-10-26 00:54:31
+Date last run: 2021-10-26 00:55:08
 
 ----------
 
@@ -32,6 +32,7 @@ Shows messaging preferences for all borrowers in simple spreadsheet layout.  Inc
 SELECT
   borrowers.cardnumber,
   borrowers.branchcode,
+  Group_concat(borrowers.email, borrowers.emailpro) as email,
   Coalesce(
     If(
       If(borrowers.email = "", borrowers.emailpro, borrowers.email) = "", 
@@ -289,11 +290,12 @@ FROM
       borrower_message_preferences.borrower_message_preference_id) checkout_sms
     ON checkout_sms.borrowernumber = borrowers.borrowernumber
 WHERE
-  borrowers.branchcode LIKE <<Choose your library|branches:all>>
+  borrowers.branchcode LIKE <<Choose your library|branches:all>> AND
+  borrowers.categorycode LIKE <<Category|categorycode>>
 GROUP BY
   borrowers.borrowernumber
 ORDER BY
-  borrowers.borrowernumber
+  borrowers.cardnumber
 
 
 

@@ -12,8 +12,8 @@ Group: Statistics
      End of month statistics
 
 Created on: 2018-10-09 17:27:16
-Modified on: 2021-04-02 14:21:30
-Date last run: 2021-10-18 15:42:59
+Modified on: 2021-10-26 12:37:43
+Date last run: 2021-11-05 13:28:45
 
 ----------
 
@@ -34,6 +34,9 @@ Expiry: 300
 <p>Checkouts without an item type will be counted as BOOK</p>
 <p></p>
 <p>Partially replaces report 1930</p>
+<p></p>
+<p></p>
+<p class="updated">SHELVING_LOCATION is based on the shelving location of the item at the time it was checked out *Unless the item had a "Recently returned" shelving location.*  This report falls back to the items' "Permanent shelving location" whenever the statistics data shows that the item's shelving location was "Recently returned."</p>
 <p></p>
 <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3128&reportname=GHW%20-%20Checkout%20and%20renewal%20count%20by%20item%20type%20and%20shelving%20location%20-%20previous%20calendar%20month&sql_params=%25&param_name=Choose%20check-out%20library%7CLBRANCH">Click here to download for all libraries as a csv file</a></p>
 <p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3128&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
@@ -87,16 +90,15 @@ FROM
       Coalesce(statistics.itemtype, "BOOK") AS itemtype,
       Count(*) AS CKO_REN
     FROM
-      statistics
+      statistics LEFT JOIN
+      items ON items.itemnumber = statistics.itemnumber
     WHERE
       (statistics.type = 'issue' OR
         statistics.type = 'renew') AND
       Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
-      (Coalesce(statistics.location, "CART") = 'ADULT' OR
-        Coalesce(statistics.location, "CART") = 'LVPLADULT' OR
-        Coalesce(statistics.location, "CART") = 'PAOLAADULT' OR
-        Coalesce(statistics.location, "CART") = 'BALDADULT')
+      If(statistics.location = "CART", items.permanent_location,
+      statistics.location) LIKE "%ADULT%"
     GROUP BY
       Coalesce(statistics.branch, "NEKLS"),
       Coalesce(statistics.itemtype, "BOOK")
@@ -110,15 +112,16 @@ FROM
       Coalesce(statistics.itemtype, "BOOK") AS itemtype,
       Count(*) AS CKO_REN
     FROM
-      statistics
+      statistics LEFT JOIN
+      items ON items.itemnumber = statistics.itemnumber
     WHERE
       (statistics.type = 'issue' OR
         statistics.type = 'renew') AND
       Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
-      Coalesce(statistics.location, "CART") NOT LIKE "%ADULT%" AND
-      Coalesce(statistics.location, "CART") NOT LIKE "%CHILD%" AND
-      Coalesce(statistics.location, "CART") NOT LIKE "%YA%"
+      Coalesce(If(statistics.location = "CART", items.permanent_location, statistics.location), "CART") NOT LIKE "%ADULT%" AND
+      Coalesce(If(statistics.location = "CART", items.permanent_location, statistics.location), "CART") NOT LIKE "%CHILD%" AND
+      Coalesce(If(statistics.location = "CART", items.permanent_location, statistics.location), "CART") NOT LIKE "%YA%"
     GROUP BY
       Coalesce(statistics.branch, "NEKLS"),
       Coalesce(statistics.itemtype, "BOOK")
@@ -130,19 +133,22 @@ FROM
   (SELECT
       Coalesce(statistics.branch, "NEKLS") AS branch,
       Coalesce(statistics.itemtype, "BOOK") AS itemtype,
-      Count(*) AS CKO_REN
+      Count(*) AS CKO_REN,
+      items.itemnumber
     FROM
-      statistics
+      statistics LEFT JOIN
+      items ON items.itemnumber = statistics.itemnumber
     WHERE
       (statistics.type = 'issue' OR
         statistics.type = 'renew') AND
       Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
-      (Coalesce(statistics.location, "CART") LIKE "%YA%" OR
-        Coalesce(statistics.location, "CART") LIKE "YOUNGADULT")
+      (Coalesce(If(statistics.location = "CART", items.permanent_location, statistics.location), "CART") LIKE "%YA%" OR
+        Coalesce(If(statistics.location = "CART", items.permanent_location, statistics.location), "CART") LIKE "YOUNGADULT")
     GROUP BY
       Coalesce(statistics.branch, "NEKLS"),
-      Coalesce(statistics.itemtype, "BOOK")
+      Coalesce(statistics.itemtype, "BOOK"),
+      items.itemnumber
     ORDER BY
       branch,
       itemtype) statisticsya ON statisticsya.itemtype = branch_itype.itemtype
@@ -153,13 +159,14 @@ FROM
       Coalesce(statistics.itemtype, "BOOK") AS itemtype,
       Count(*) AS CKO_REN
     FROM
-      statistics
+      statistics LEFT JOIN
+      items ON items.itemnumber = statistics.itemnumber
     WHERE
       (statistics.type = 'issue' OR
         statistics.type = 'renew') AND
       Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
-      Coalesce(statistics.location, "CART") LIKE "%CHILD%"
+      Coalesce(If(statistics.location = "CART", items.permanent_location, statistics.location), "CART") LIKE "%CHILD%"
     GROUP BY
       Coalesce(statistics.branch, "NEKLS"),
       Coalesce(statistics.itemtype, "BOOK")

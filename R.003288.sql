@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-12-26 09:46:35
-Modified on: 2021-01-17 13:30:24
-Date last run: 2021-10-19 16:57:00
+Modified on: 2021-10-21 09:28:59
+Date last run: 2021-11-07 15:21:20
 
 ----------
 
@@ -36,7 +36,7 @@ Expiry: 300
 <p>The process this report uses works along 4 pathways</p>
 <ul>
   <li>It looks for all accountlines where the issue_id is still in the issues table (i.e. item with fee is still checked out to the patron) AND the issuing library matches the specified library.</li>
-  <li>It looks for all accountlines where the issue_id is still in the old_issues table (i.e. when the item with the fee was returned within the last ) AND the issuing library matches the specified library.</li>
+  <li>It looks for all accountlines where the issue_id is still in the old_issues table (i.e. when the item with the fee was returned within the last 13 months) AND the issuing library matches the specified library.</li>
   <li>It looks for all accountlines that were created manually based on the home library of the account manually creating the fee.</li>
   <li>It looks for all accountlines where the patron's home library matches the specified library AND the issue_id is null (i.e. no data about where the item was checked out) AND where the manager's ID is also null.  These are generally fees that have gone unpaid for such a long time that there is no longer any way to determine where the item was checked out.</li>
 </ul>

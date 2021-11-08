@@ -12,8 +12,8 @@ Group: LibraryIQ
      BONNERSPGS
 
 Created on: 2021-10-13 10:20:01
-Modified on: 2021-10-13 11:15:04
-Date last run: 2021-10-18 00:03:02
+Modified on: 2021-10-29 17:25:55
+Date last run: 2021-11-08 00:25:03
 
 ----------
 
@@ -49,7 +49,13 @@ SELECT
   deleteditems.itemcallnumber AS `Call Number`,
   locs.lib AS `Shelf Location`,
   deleteditems.dateaccessioned AS ItemCreationDate,
-  Concat_Ws(" ", nfl.lib, damageds.lib, losts.lib, withdrawns.lib) AS `Current Item Status`,
+  Concat_Ws(" ", 
+    nfl.lib, 
+    damageds.lib, 
+    losts.lib, 
+    withdrawns.lib,
+    if(deleteditems.onloan > 0, "Checked out", "")
+  ) AS `Current Item Statusdeleteditems.onloan`,
   deleteditems.datelastseen AS `Check In Date`,
   deleteditems.onloan AS `Due Date`,
   statisticss.Count_datetime AS `YTD Circ Count`,
