@@ -12,8 +12,8 @@ Group: Circulation
      Transfers
 
 Created on: 2016-09-14 09:59:41
-Modified on: 2018-12-14 11:06:35
-Date last run: 2021-11-04 10:12:43
+Modified on: 2022-03-22 14:52:03
+Date last run: 2022-03-21 17:27:43
 
 ----------
 
@@ -23,18 +23,7 @@ Expiry: 300
 ----------
 
 <div id=reportinfo>
-<p>Generates a list of missing in transit items owned by a library, shipped from a library, or shipped to a library</p>
-<ul><li>Shows items that have been in transit between 7 and 180 days ago</li>
-<li>Shows items owned by, shipped from, or shipped to the library you specify</li>
-<li>grouped by item barcode</li>
-<li>sorted by standard NExpress classification</li>
-<li>contains links to the item's bibliographic record</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Use this list to generate a list of items to search for on the shelves at your library</p>
-<p>Use report 2945 to generate an e-mail message to send to other libraries</p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2774&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p>Report is inaccurate since last upgrade.  Work is in progress to correct issues.</p>
 </div>
 
 ----------

@@ -12,8 +12,8 @@ Group: LibraryIQ
      BONNERSPGS
 
 Created on: 2021-10-13 10:20:01
-Modified on: 2021-10-29 17:25:55
-Date last run: 2021-11-08 00:25:03
+Modified on: 2021-11-12 12:02:40
+Date last run: 2022-03-23 00:25:02
 
 ----------
 
@@ -22,7 +22,7 @@ Expiry: 300
 
 ----------
 
-#libraryiq #item #yesterday #bonnerspgs #daily
+#libraryiq #item #deleted #bonnerspgs #daily
 
 ----------
 */

@@ -3,7 +3,7 @@ R.003595
 
 ----------
 
-Name: LibraryIQ - Holds File (cancelled/deleted/filled/expired yesterday) - BONNERSPGS 
+Name: LibraryIQ - Holds File (cancelled/deleted/filled/expired yesterday) - BONNERSPGS
 Created by: George H Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: LibraryIQ
      BONNERSPGS
 
 Created on: 2021-10-13 11:04:17
-Modified on: 2021-10-13 11:04:53
-Date last run: 2021-10-13 11:28:27
+Modified on: 2021-11-12 12:01:10
+Date last run: 2021-12-09 11:24:56
 
 ----------
 
@@ -22,7 +22,7 @@ Expiry: 300
 
 ----------
 
-#libraryiq #item #full #bonnerspgs #monthly
+#libraryiq #item #deleted #bonnerspgs #daily
 
 ----------
 */

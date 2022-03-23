@@ -12,8 +12,8 @@ Group: Daily, Monthly, Yearly Stats
      Yearly
 
 Created on: 2016-04-01 15:57:52
-Modified on: 2016-04-01 15:57:52
-Date last run: 2021-07-09 15:30:35
+Modified on: 2022-01-05 17:43:47
+Date last run: 2022-02-15 12:36:14
 
 ----------
 
@@ -29,7 +29,7 @@ Choose your branch three times. Gives the circulation of your materials at your 
 
 
 
-SELECT IF(items.itype IS NULL AND deleteditems.itype IS NULL, NULL, CONCAT(COALESCE(items.itype,''), COALESCE(deleteditems.itype,''))) AS itype, IF(items.ccode IS NULL AND deleteditems.ccode IS NULL, NULL, CONCAT(COALESCE(items.ccode,''), COALESCE(deleteditems.ccode,''))) AS ccode, IF(items.location IS NULL AND deleteditems.location IS NULL, NULL, CONCAT(COALESCE(items.location,''), COALESCE(deleteditems.location,''))) AS location, Count(*) AS count  FROM statistics LEFT JOIN items USING(itemnumber) LEFT JOIN deleteditems USING(itemnumber) WHERE statistics.branch=<<choose branch|branches>> AND statistics.type IN ('issue','renew','localuse')  AND year(statistics.datetime) = <<Choose year|YEAR>> AND (items.homebranch=<<choose branch|branches>> OR deleteditems.homebranch=<<choose branch|branches>>) GROUP BY itype, ccode, location
+SELECT "Broken - use <a href='https://drive.google.com/uc?id=15CU4wsuzgq5YWLT4imeBFdNEzXKpb6hx&export=download' target='_blank'>https://drive.google.com/uc?id=15CU4wsuzgq5YWLT4imeBFdNEzXKpb6hx&export=download</a> instead"
 
 
 

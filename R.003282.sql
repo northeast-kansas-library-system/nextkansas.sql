@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-11-22 13:25:34
-Modified on: 2021-02-08 16:39:38
-Date last run: 2021-11-04 13:51:54
+Modified on: 2022-01-26 17:53:25
+Date last run: 2022-03-22 18:14:17
 
 ----------
 
@@ -45,6 +45,7 @@ Expiry: 300
 SELECT
   Concat_Ws('<br />',
     '<h3 style="color: white; background-color: #829356; text-align: center;">This item is currently in the catalog</h3>',
+    Concat('<h4>You searched for: "', <<Enter barcode number>>, '"</h4>'),
     Concat('Item homebranch: ', items.homebranch),
     Concat('Current branch: ', items.holdingbranch),
     Concat('Permanent shelving location: ', items.permanent_location),
@@ -85,6 +86,7 @@ SELECT
     Concat("Item in transit history: ", Concat("<a href='/cgi-bin/koha/reports/guided_reports.pl?reports=2784&phase=Run+this+report&sql_params=", items.barcode, "' target='_blank'>see item transit history</a>")),
     Concat("Request history on this title: ", Concat("<a href='/cgi-bin/koha/reports/guided_reports.pl?reports=3039&phase=Run+this+report&sql_params=%25&sql_params=%25&sql_params=%25&sql_params=%25&sql_params=%25&sql_params=", biblio.biblionumber, "&sql_params=%25' target='_blank'>see title's request history</a>")),
     Concat("Request history on this item: ", Concat("<a href='/cgi-bin/koha/reports/guided_reports.pl?reports=3039&phase=Run+this+report&sql_params=%25&sql_params=%25&sql_params=%25&sql_params=%25&sql_params=%25&sql_params=%25&sql_params=", items.barcode, "' target='_blank'>see item's request history</a>")),
+    Concat("<br /><br /><a href='/cgi-bin/koha/reports/guided_reports.pl?phase=Run+this+report&reports=3009&sql_params=", Replace(Replace(Replace(Replace(Replace(Replace(Replace(items.barcode, Char(43), "%2B"), Char(47), "%2F"), Char(32), "%20"), Char(45), "%2D"), Char(36), "%24"), Char(37), "%25"), Char(46), "%2E"), "&limit=50' target='_blank'>Search payment and fee notes and descriptions for this item barcode number</a>"),
     '<br /><h3 style="color: white; background-color: #829356; text-align: center;">This item is currently in the catalog<br />it has not been deleted</h3>'
   ) AS INFO
 FROM
@@ -172,13 +174,14 @@ FROM
   ) issuesi
     ON items.itemnumber = issuesi.itemnumber
 WHERE
-  items.barcode LIKE Concat("%", @brcd := <<Enter barcode number>> COLLATE utf8mb4_unicode_ci, "%")
+  items.barcode LIKE Concat("%", <<Enter barcode number>>, "%")
 GROUP BY
   items.itemnumber
 UNION
 SELECT
   Concat_Ws('<br />',
     '<h2 style="color: white; background-color: #AD2A1A; text-align: center;">This item has been deleted</h2>',
+    Concat('<h4>You searched for: "', <<Enter barcode number>>, '"</h4>'),
     Concat('At the time of its deletion on:  <ins><strong>', deleteditems.timestamp, "<br /></strong></ins> this item's information was as follows:<br />"),
     Concat('Item homebranch: ', deleteditems.homebranch),
     Concat('Current branch: ', deleteditems.holdingbranch),
@@ -250,7 +253,7 @@ FROM
   ) deletedwithdrawni
     ON deletedwithdrawni.authorised_value = deleteditems.withdrawn
 WHERE
-  deleteditems.barcode LIKE Concat("%", @brcd, "%")
+  deleteditems.barcode LIKE Concat("%", <<Enter barcode number>>, "%")
 GROUP BY
   deleteditems.itemnumber
 

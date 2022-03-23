@@ -12,8 +12,8 @@ Group: Borrowers
      Patron attributes
 
 Created on: 2018-06-29 08:24:38
-Modified on: 2019-07-24 17:48:39
-Date last run: 2019-07-24 17:45:01
+Modified on: 2022-03-02 14:30:26
+Date last run: 2022-03-07 13:33:20
 
 ----------
 
@@ -74,7 +74,7 @@ FROM
         borrower_attributes.borrowernumber,
         borrower_attributes.attribute) movie_permissionx ON borrowers.borrowernumber = movie_permissionx.borrowernumber
 WHERE
-  borrowers.branchcode LIKE <<Choose your library|ZBRAN>> AND
+  borrowers.branchcode LIKE <<Choose your library|LBRANCH>> AND
   borrowers.categorycode LIKE <<Choose a borrower category|LBORROWERCAT>> AND
   Coalesce(movie_permissionx.attribute, "~") LIKE <<Select film permission attribute|LFILMPERM>>
 GROUP BY

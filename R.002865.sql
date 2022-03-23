@@ -12,8 +12,8 @@ Group: Administrative Reports
      Testing
 
 Created on: 2016-12-31 19:25:57
-Modified on: 2018-04-16 11:05:00
-Date last run: 2021-06-25 14:05:53
+Modified on: 2022-03-22 15:34:49
+Date last run: 2022-03-22 15:35:22
 
 ----------
 
@@ -40,18 +40,85 @@ Expiry: 0
 
 
 SELECT
-  letter.branchcode,
-  letter.code,
-  letter.name,
-  letter.title,
-  letter.content
+  branchess.branchname,
+  Coalesce(codes_branches.message_transport_type,
+  codes_blanks.message_transport_type) AS TYPE,
+  Coalesce(codes_branches.code, codes_blanks.code) AS LETTER_CODE,
+  Coalesce(codes_branches.name, codes_blanks.name) AS LETTER_NAME,
+  Coalesce(codes_branches.title, codes_blanks.title) AS LETTER_TITLE,
+  Coalesce(codes_branches.content, codes_blanks.content) AS LETTER_CONTENT
 FROM
-  letter
+  (SELECT
+      branches.branchname,
+      branches.branchcode,
+      letter.code,
+      letter.message_transport_type
+    FROM
+      branches,
+      letter
+    WHERE
+      letter.code LIKE "OD%"
+    GROUP BY
+      branches.branchname,
+      branches.branchcode,
+      letter.code,
+      letter.message_transport_type) branchess LEFT JOIN
+  (SELECT
+      letter.branchcode,
+      letter.message_transport_type,
+      letter.code,
+      letter.name,
+      letter.title,
+      letter.content
+    FROM
+      letter
+    WHERE
+      letter.code LIKE "OD%" AND
+      letter.branchcode NOT LIKE ""
+    GROUP BY
+      letter.branchcode,
+      letter.message_transport_type,
+      letter.code
+    ORDER BY
+      letter.branchcode,
+      letter.message_transport_type,
+      letter.code) codes_branches ON codes_branches.branchcode =
+      branchess.branchcode AND
+      codes_branches.code = branchess.code AND
+      codes_branches.message_transport_type = branchess.message_transport_type
+  LEFT JOIN
+  (SELECT
+      letter.branchcode,
+      letter.message_transport_type,
+      letter.code,
+      letter.name,
+      letter.title,
+      letter.content
+    FROM
+      letter
+    WHERE
+      letter.code LIKE "OD%" AND
+      letter.branchcode LIKE ""
+    GROUP BY
+      letter.branchcode,
+      letter.message_transport_type,
+      letter.code
+    ORDER BY
+      letter.branchcode,
+      letter.message_transport_type,
+      letter.code) codes_blanks ON codes_blanks.code = branchess.code AND
+      codes_blanks.message_transport_type = branchess.message_transport_type
 WHERE
-  letter.branchcode LIKE <<Choose a branch|ZBRAN>> AND
-  letter.code LIKE <<Choose an overdue notice|ZODUE>>
+  branchess.branchcode LIKE <<Choose a branch|ZBRAN>> AND
+  branchess.code LIKE <<Choose an overdue notice|ZODUE>>
 GROUP BY
-  letter.branchcode, letter.code
+  branchess.branchname,
+  Coalesce(codes_branches.message_transport_type,
+  codes_blanks.message_transport_type),
+  Coalesce(codes_branches.code, codes_blanks.code),
+  Coalesce(codes_branches.name, codes_blanks.name),
+  Coalesce(codes_branches.title, codes_blanks.title),
+  Coalesce(codes_branches.content, codes_blanks.content)
 
 
 

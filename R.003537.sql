@@ -3,7 +3,7 @@ R.003537
 
 ----------
 
-Name: GHW - Monthly 420 Item count by library and collection code
+Name: GHW - F1 Items and holdings statistics - item count by collection code - Next Search Catalog
 Created by: George H Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: Statistics
      Last month's statistics - Next-wide
 
 Created on: 2021-07-29 16:35:30
-Modified on: 2021-07-30 10:54:49
-Date last run: 2021-11-01 09:43:04
+Modified on: 2022-03-10 17:22:07
+Date last run: 2022-03-10 17:13:38
 
 ----------
 
@@ -42,32 +42,34 @@ Expiry: 300
 
 
 SELECT
-  branchccodes.branchname,
-  branchccodes.lib AS "COLLECTION CODE",
-  itemss.Count_itemnumber AS "TOTAL ITEMS",
-  adultitems.Count_itemnumber AS "ADULT ITEMS",
-  juvenileitems.Count_itemnumber AS "JUVENILE ITEMS",
-  yaitems.Count_itemnumber AS "YOUNG ADULT ITEMS",
-  items_added.Count_itemnumber AS "TOTAL ADDED LM",
-  adult_added.Count_itemnumber AS "ADULT ADDED LM",
-  juvenile_added.Count_itemnumber AS "JUVENILE ADDED LM",
-  ya_added.Count_itemnumber AS "YOUNG ADULT ADDED LM",
-  items_deleted.Count_itemnumber AS "TOTAL DELETED LM",
-  adult_deleted.Count_itemnumber AS "ADULT DELETED LM",
-  juvenile_deleted.Count_itemnumber AS "JUVENILE DELETED LM",
-  ya_deleted.Count_itemnumber AS "YOUNG ADULT DELETED LM"
+  branchtypes.branchname,
+  branchtypes.lib AS `"COLLECTION CODE"`,
+  Sum(itemss.Count_itemnumber) AS "TOTAL ITEMS",
+  Sum(adultitems.Count_itemnumber) AS "ADULT ITEMS",
+  Sum(yaitems.Count_itemnumber) AS "YOUNG ADULT ITEMS",
+  Sum(juvenileitems.Count_itemnumber) AS "JUVENILE ITEMS",
+  Sum(items_added.Count_itemnumber) AS "TOTAL ADDED LM",
+  Sum(adult_added.Count_itemnumber) AS "ADULT ADDED LM",
+  Sum(ya_added.Count_itemnumber) AS "YOUNG ADULT ADDED LM",
+  Sum(juvenile_added.Count_itemnumber) AS "JUVENILE ADDED LM",
+  Sum(items_deleted.Count_itemnumber) AS "TOTAL DELETED LM",
+  Sum(adult_deleted.Count_itemnumber) AS "ADULT DELETED LM",
+  Sum(ya_deleted.Count_itemnumber) AS "YOUNG ADULT DELETED LM",
+  Sum(juvenile_deleted.Count_itemnumber) AS "JUVENILE DELETED LM"
 FROM
   (SELECT
       branches.branchcode,
+      branches.branchname,
+      authorised_values.category,
       authorised_values.authorised_value,
       authorised_values.lib,
-      branches.branchname,
-      authorised_values.id
+      authorised_values.lib_opac
     FROM
       branches,
       authorised_values
     WHERE
-      authorised_values.category = 'CCODE') branchccodes LEFT JOIN
+      branches.branchcode LIKE '%' AND
+      authorised_values.category = 'CCODE') branchtypes LEFT JOIN
   (SELECT
       items.homebranch,
       If(items.ccode IS NULL, "XXX", items.ccode) AS ccode,
@@ -77,8 +79,8 @@ FROM
     GROUP BY
       items.homebranch,
       If(items.ccode IS NULL, "XXX", items.ccode)) itemss ON itemss.homebranch =
-      branchccodes.branchcode AND
-      itemss.ccode = branchccodes.authorised_value LEFT JOIN
+      branchtypes.branchcode AND
+      itemss.ccode = branchtypes.authorised_value LEFT JOIN
   (SELECT
       items.homebranch,
       If(items.ccode IS NULL, "XXX", items.ccode) AS ccode,
@@ -94,8 +96,8 @@ FROM
     GROUP BY
       items.homebranch,
       If(items.ccode IS NULL, "XXX", items.ccode)) adultitems ON
-      adultitems.homebranch = branchccodes.branchcode AND
-      adultitems.ccode = branchccodes.authorised_value LEFT JOIN
+      adultitems.homebranch = branchtypes.branchcode AND
+      adultitems.ccode = branchtypes.authorised_value LEFT JOIN
   (SELECT
       items.homebranch,
       If(items.ccode IS NULL, "XXX", items.ccode) AS ccode,
@@ -107,8 +109,8 @@ FROM
     GROUP BY
       items.homebranch,
       If(items.ccode IS NULL, "XXX", items.ccode)) juvenileitems ON
-      juvenileitems.homebranch = branchccodes.branchcode AND
-      juvenileitems.ccode = branchccodes.authorised_value LEFT JOIN
+      juvenileitems.homebranch = branchtypes.branchcode AND
+      juvenileitems.ccode = branchtypes.authorised_value LEFT JOIN
   (SELECT
       items.homebranch,
       If(items.ccode IS NULL, "XXX", items.ccode) AS ccode,
@@ -120,8 +122,8 @@ FROM
     GROUP BY
       items.homebranch,
       If(items.ccode IS NULL, "XXX", items.ccode)) yaitems ON
-      yaitems.homebranch = branchccodes.branchcode AND
-      yaitems.ccode = branchccodes.authorised_value LEFT JOIN
+      yaitems.homebranch = branchtypes.branchcode AND
+      yaitems.ccode = branchtypes.authorised_value LEFT JOIN
   (SELECT
       items.homebranch,
       If(items.ccode IS NULL, "XXX", items.ccode) AS ccode,
@@ -134,8 +136,8 @@ FROM
     GROUP BY
       items.homebranch,
       If(items.ccode IS NULL, "XXX", items.ccode)) items_added ON
-      items_added.homebranch = branchccodes.branchcode AND
-      items_added.ccode = branchccodes.authorised_value LEFT JOIN
+      items_added.homebranch = branchtypes.branchcode AND
+      items_added.ccode = branchtypes.authorised_value LEFT JOIN
   (SELECT
       items.homebranch,
       If(items.ccode IS NULL, "XXX", items.ccode) AS ccode,
@@ -153,8 +155,8 @@ FROM
     GROUP BY
       items.homebranch,
       If(items.ccode IS NULL, "XXX", items.ccode)) adult_added ON
-      adult_added.homebranch = branchccodes.branchcode AND
-      adult_added.ccode = branchccodes.authorised_value LEFT JOIN
+      adult_added.homebranch = branchtypes.branchcode AND
+      adult_added.ccode = branchtypes.authorised_value LEFT JOIN
   (SELECT
       items.homebranch,
       If(items.ccode IS NULL, "XXX", items.ccode) AS ccode,
@@ -168,8 +170,8 @@ FROM
     GROUP BY
       items.homebranch,
       If(items.ccode IS NULL, "XXX", items.ccode)) juvenile_added ON
-      juvenile_added.homebranch = branchccodes.branchcode AND
-      juvenile_added.ccode = branchccodes.authorised_value LEFT JOIN
+      juvenile_added.homebranch = branchtypes.branchcode AND
+      juvenile_added.ccode = branchtypes.authorised_value LEFT JOIN
   (SELECT
       items.homebranch,
       If(items.ccode IS NULL, "XXX", items.ccode) AS ccode,
@@ -183,11 +185,12 @@ FROM
     GROUP BY
       items.homebranch,
       If(items.ccode IS NULL, "XXX", items.ccode)) ya_added ON
-      ya_added.homebranch = branchccodes.branchcode AND
-      ya_added.ccode = branchccodes.authorised_value LEFT JOIN
+      ya_added.homebranch = branchtypes.branchcode AND
+      ya_added.ccode = branchtypes.authorised_value LEFT JOIN
   (SELECT
       deleteditems.homebranch,
-      If(deleteditems.ccode IS NULL, "XXX", deleteditems.ccode) AS ccode,
+      If(deleteditems.ccode IS NULL, "XXX", If(deleteditems.ccode = "", "XXX",
+      deleteditems.ccode)) AS ccode,
       Count(deleteditems.itemnumber) AS Count_itemnumber
     FROM
       deleteditems
@@ -196,18 +199,20 @@ FROM
       Year(deleteditems.timestamp) = Year(Now() - INTERVAL 1 MONTH)
     GROUP BY
       deleteditems.homebranch,
-      If(deleteditems.ccode IS NULL, "XXX", deleteditems.ccode)) items_deleted
-    ON items_deleted.homebranch = branchccodes.branchcode AND
-      items_deleted.ccode = branchccodes.authorised_value LEFT JOIN
+      If(deleteditems.ccode IS NULL, "XXX", If(deleteditems.ccode = "", "XXX",
+      deleteditems.ccode))) items_deleted ON items_deleted.homebranch =
+      branchtypes.branchcode AND
+      items_deleted.ccode = branchtypes.authorised_value LEFT JOIN
   (SELECT
       deleteditems.homebranch,
-      If(deleteditems.ccode IS NULL, "XXX", deleteditems.ccode) AS ccode,
+      If(deleteditems.ccode IS NULL, "XXX", If(deleteditems.ccode = "", "XXX",
+      deleteditems.ccode)) AS ccode,
       Count(deleteditems.itemnumber) AS Count_itemnumber
     FROM
       deleteditems
     WHERE
-      Month(deleteditems.timestamp) = Month(Now() - INTERVAL 1 MONTH) AND
-      Year(deleteditems.timestamp) = Year(Now() - INTERVAL 1 MONTH) AND
+      Month(deleteditems.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(deleteditems.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH) AND
       (deleteditems.permanent_location LIKE '%ADULT%' OR
         deleteditems.permanent_location = 'CART' OR
         deleteditems.permanent_location = 'CATALOGING' OR
@@ -215,48 +220,49 @@ FROM
         deleteditems.permanent_location IS NULL)
     GROUP BY
       deleteditems.homebranch,
-      If(deleteditems.ccode IS NULL, "XXX", deleteditems.ccode)) adult_deleted
-    ON adult_deleted.homebranch = branchccodes.branchcode AND
-      adult_deleted.ccode = branchccodes.authorised_value LEFT JOIN
+      If(deleteditems.ccode IS NULL, "XXX", If(deleteditems.ccode = "", "XXX",
+      deleteditems.ccode))) adult_deleted ON adult_deleted.homebranch =
+      branchtypes.branchcode AND
+      adult_deleted.ccode = branchtypes.authorised_value LEFT JOIN
   (SELECT
       deleteditems.homebranch,
-      If(deleteditems.ccode IS NULL, "XXX", deleteditems.ccode) AS ccode,
+      If(deleteditems.ccode IS NULL, "XXX", If(deleteditems.ccode = "", "XXX",
+      deleteditems.ccode)) AS ccode,
       Count(deleteditems.itemnumber) AS Count_itemnumber
     FROM
       deleteditems
     WHERE
-      Month(deleteditems.timestamp) = Month(Now() - INTERVAL 1 MONTH) AND
-      Year(deleteditems.timestamp) = Year(Now() - INTERVAL 1 MONTH) AND
+      Month(deleteditems.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(deleteditems.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH) AND
       deleteditems.permanent_location LIKE "%CHILD%"
     GROUP BY
       deleteditems.homebranch,
-      If(deleteditems.ccode IS NULL, "XXX", deleteditems.ccode))
-  juvenile_deleted ON juvenile_deleted.homebranch = branchccodes.branchcode AND
-      juvenile_deleted.ccode = branchccodes.authorised_value LEFT JOIN
+      If(deleteditems.ccode IS NULL, "XXX", If(deleteditems.ccode = "", "XXX",
+      deleteditems.ccode))) juvenile_deleted ON juvenile_deleted.homebranch =
+      branchtypes.branchcode AND
+      juvenile_deleted.ccode = branchtypes.authorised_value LEFT JOIN
   (SELECT
       deleteditems.homebranch,
-      If(deleteditems.ccode IS NULL, "XXX", deleteditems.ccode) AS ccode,
+      If(deleteditems.ccode IS NULL, "XXX", If(deleteditems.ccode = "", "XXX",
+      deleteditems.ccode)) AS ccode,
       Count(deleteditems.itemnumber) AS Count_itemnumber
     FROM
       deleteditems
     WHERE
-      Month(deleteditems.timestamp) = Month(Now() - INTERVAL 1 MONTH) AND
-      Year(deleteditems.timestamp) = Year(Now() - INTERVAL 1 MONTH) AND
+      Month(deleteditems.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(deleteditems.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH) AND
       deleteditems.permanent_location LIKE "%YA%"
     GROUP BY
       deleteditems.homebranch,
-      If(deleteditems.ccode IS NULL, "XXX", deleteditems.ccode)) ya_deleted ON
-      ya_deleted.homebranch = branchccodes.branchcode AND
-      ya_deleted.ccode = branchccodes.authorised_value
-WHERE
-  branchccodes.branchcode LIKE '%' AND
-  branchccodes.authorised_value LIKE '%'
+      If(deleteditems.ccode IS NULL, "XXX", If(deleteditems.ccode = "", "XXX",
+      deleteditems.ccode))) ya_deleted ON ya_deleted.homebranch =
+      branchtypes.branchcode AND
+      ya_deleted.ccode = branchtypes.authorised_value
 GROUP BY
-  branchccodes.branchcode,
-  branchccodes.authorised_value
+  branchtypes.branchname,
+  branchtypes.lib
 ORDER BY
-  branchccodes.branchname,
-  branchccodes.lib
+  branchtypes.branchname
 
 
 

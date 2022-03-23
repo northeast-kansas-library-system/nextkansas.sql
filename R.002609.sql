@@ -12,8 +12,8 @@ Group: Holds-Reserves
      -
 
 Created on: 2015-09-24 17:47:27
-Modified on: 2021-03-01 22:50:20
-Date last run: 2021-10-28 15:58:49
+Modified on: 2022-03-22 16:05:07
+Date last run: 2022-03-22 16:27:57
 
 ----------
 
@@ -43,53 +43,53 @@ credit: Jesse Weaver @ ByWater
 
 
 
-SELECT
-  Concat(
+SELECT 
+  Concat( 
     '<a href="/cgi-bin/koha/members/moremember.pl?borrowernumber=', 
     reserves.borrowernumber, 
-    '" target="_blank">"Link to Patrons Account"</a>'
-  ) AS
-  LINK_TO_BORROWER,
-  reserves.biblionumber,
-  reserves.reservedate,
-  reserves.expirationdate,
-  Concat(
-    '<a href="/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
+    '" target="_blank">Link to borrower</a>' 
+  ) AS LINK_TO_BORROWER, 
+  reserves.biblionumber, 
+  Date_Format(reserves.reservedate, "%m/%d/%Y") AS reservedate, 
+  Date_Format(reserves.expirationdate, "%m/%d/%Y") AS expirationdate, 
+  Date_Format(reserves.reservedate + INTERVAL 1 YEAR, "%m/%d/%Y") AS one_year, 
+  Concat( 
+    '<a href="/cgi-bin/koha/reserve/request.pl?biblionumbers=', 
     reserves.biblionumber, 
-    '" target="_blank">"Link to Record"</a>'
-  ) AS
-  LINK_TO_BIBLIO
-FROM
-  (SELECT
-     items.biblionumber,
-     Count(DISTINCT items.itemnumber) AS Count_itemnumber,
-     items.notforloan,
-     items.damaged,
-     items.itemlost,
-     items.withdrawn
-   FROM
-     items
-   WHERE
-     (items.notforloan < 1 OR
-         items.notforloan IS NULL) AND
-     (items.damaged = 0 OR
-         items.damaged IS NULL) AND
-     (items.itemlost = 0 OR
-         items.itemlost IS NULL) AND
-     (items.withdrawn = 0 OR
-         items.withdrawn IS NULL)
-   GROUP BY
-     items.biblionumber,
-     items.notforloan,
-     items.damaged,
-     items.itemlost,
-     items.withdrawn) counts RIGHT JOIN
-  reserves ON counts.biblionumber = reserves.biblionumber
-WHERE
-  Coalesce(counts.Count_itemnumber, 0) = 0 AND
-  reserves.branchcode LIKE <<Choose your library|LBRANCH>>
-ORDER BY
-  reserves.expirationdate
+    '" target="_blank">Link to request</a>' 
+  ) AS LINK_TO_BIBLIO 
+FROM 
+  (SELECT 
+      items.biblionumber, 
+      Count(DISTINCT items.itemnumber) AS Count_itemnumber, 
+      items.notforloan, 
+      items.damaged, 
+      items.itemlost, 
+      items.withdrawn 
+    FROM 
+      items 
+    WHERE 
+      (items.notforloan < 1 OR 
+        items.notforloan IS NULL) AND 
+      (items.damaged = 0 OR 
+        items.damaged IS NULL) AND 
+      (items.itemlost = 0 OR 
+        items.itemlost IS NULL) AND 
+      (items.withdrawn = 0 OR 
+        items.withdrawn IS NULL) 
+    GROUP BY 
+      items.biblionumber, 
+      items.notforloan, 
+      items.damaged, 
+      items.itemlost, 
+      items.withdrawn) counts RIGHT JOIN 
+  reserves ON counts.biblionumber = reserves.biblionumber 
+WHERE 
+  Coalesce(counts.Count_itemnumber, 0) = 0 AND 
+  reserves.branchcode LIKE <<Choose your library|LBRANCH>> 
+ORDER BY 
+  expirationdate, 
+  one_year DESC 
 
 
 

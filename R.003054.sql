@@ -12,7 +12,7 @@ Group: -
      -
 
 Created on: 2018-03-02 10:10:47
-Modified on: 2021-06-02 11:49:41
+Modified on: 2022-03-08 21:03:58
 Date last run: 2021-10-21 23:01:01
 
 ----------
@@ -51,7 +51,8 @@ SELECT
     ExtractValue(biblio_metadata.metadata, '//datafield[@tag=306]/subfield[@code="a"]'),
     "-"
     ) AS TIMESS,
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=942]/subfield[@code="h"]') AS CCODE
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=942]/subfield[@code="h"]') AS CCODE,
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=942]/subfield[@code="e"]') AS LOC
 FROM  biblio
   JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
   JOIN items ON items.biblionumber = biblio.biblionumber

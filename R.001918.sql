@@ -12,8 +12,8 @@ Group: Borrowers
      -
 
 Created on: 2013-06-24 16:03:51
-Modified on: 2013-12-18 16:41:08
-Date last run: 2021-10-18 13:44:14
+Modified on: 2022-02-07 23:40:17
+Date last run: 2022-02-07 23:42:00
 
 ----------
 
@@ -29,11 +29,17 @@ Full Report
 
 
 
-SELECT biblio.title, biblio.author, items.itemnumber, items.itype, items.ccode, items.itemcallnumber, items.barcode, old_issues.branchcode, old_issues.issuedate, old_issues.renewals, old_issues.date_due, old_issues.returndate FROM old_issues LEFT JOIN borrowers USING(borrowernumber) LEFT JOIN items USING(itemnumber) LEFT JOIN biblio USING(biblionumber) WHERE borrowers.cardnumber=<<enter patron cardnumber>> AND items.itemnumber IS NOT NULL
-UNION ALL 
-SELECT biblio.title, biblio.author, items.itemnumber, items.itype, items.ccode, items.itemcallnumber, items.barcode, issues.branchcode, issues.issuedate, issues.renewals, issues.date_due, issues.returndate FROM issues LEFT JOIN borrowers USING(borrowernumber) LEFT JOIN items USING(itemnumber) LEFT JOIN biblio USING(biblionumber) WHERE borrowers.cardnumber=<<enter patron cardnumber a second time>> AND items.itemnumber IS NOT NULL
-ORDER BY issuedate
-LIMIT 10000
+SELECT
+  borrowers.cardnumber,
+  Concat(
+    '<a class="btn btn-default" href="/cgi-bin/koha/members/readingrec.pl?borrowernumber=', 
+    borrowers.borrowernumber, 
+    '" target="_blank">Go to borrower\'s history</a>'
+  ) AS GO_TO_HISTORY
+FROM
+  borrowers
+WHERE
+  borrowers.cardnumber = <<Enter library card number>>
 
 
 

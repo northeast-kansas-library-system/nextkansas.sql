@@ -3,17 +3,17 @@ R.003393
 
 ----------
 
-Name: GHW - Monthly 210 Circulation statistics by item type
+Name: GHW - C2 Circulation by item details - item type - Next Search Catlog 
 Created by: George H Williams
 
 ----------
 
 Group: Statistics
-     Last month's statistics - Next-wide
+     2022 beginning of month statistics
 
 Created on: 2020-12-31 17:36:03
-Modified on: 2021-10-31 21:35:56
-Date last run: 2021-11-01 09:37:52
+Modified on: 2022-03-10 15:15:14
+Date last run: 2022-03-10 11:46:02
 
 ----------
 
@@ -22,156 +22,212 @@ Expiry: 300
 
 ----------
 
-Monthly statistics - should be run on schedule only - staff at libraries should run report 3128 if they just want data for their library.
-
-<p class="updated">SHELVING_LOCATION is based on the shelving location of the item at the time it was checked out *Unless the item had a "Recently returned" shelving location.*  This report falls back to the items' "Permanent shelving location" whenever the statistics data shows that the item's shelving location was "Recently returned."</p>
-
-<p></p>
-<p class="updated">Updated on 2021.10.20 to include changes based on the "Recently returned" shelving location.</p>
-<p></p>
+<div id=reportinfo class=noprint> 
+<p>Circulation by item details spreadsheet report - circulation by item type</p> 
+<ul><li>Shows counts of check-outs and renewals in the previous calendar month</li> 
+<li>At all Next Search Catalog libraries</li> 
+<li>grouped and sorted by library name</li> 
+</ul><br /> 
+<p><ins>Notes:</ins></p> 
+<p></p> 
+<p>SHELVING_LOCATION is based on the shelving location of the item at the time it was checked out *Unless the item had a "Recently returned" shelving location.*  This report falls back to the items' "Permanent shelving location" whenever the statistics data shows that the item's shelving location was "Recently returned."  If the shelving location is completely ambiguous, the circulation is counted in the CKO_RENEW_OTHER column.</p> 
+<p></p> 
+<ul> 
+  <li>CKO_RENEW_ADULT includes items with these shelving locations:</li> 
+  <ul> 
+    <li>Adult</li> 
+    <li>~Display - BALDWIN - Adult</li> 
+    <li>~Display - LEAVENWRTH - Adult</li> 
+    <li>~Display - PAOLA - Adult</li> 
+    <li>Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Adult" locations</li> 
+  </ul> 
+  <br /> 
+  <li>CKO_RENEW_YA includes items with these shelving locations:</li> 
+  <ul> 
+    <li>Young adult</li> 
+    <li>~Display - BALDWIN - Young Adult</li> 
+    <li>~Display - LEAVENWRTH - Young adult</li> 
+    <li>~Display - PAOLA - Young adult</li> 
+    <li>Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Young adult" locations</li> 
+  </ul> 
+  <br /> 
+  <li>CKO_RENEW_CHILDRENS includes items with these shelving locations:</li> 
+  <ul> 
+    <li>Childrens</li> 
+    <li>~Display - BALDWIN - Childrens</li> 
+    <li>~Display - LEAVENWRTH - Children's</li> 
+    <li>~Display - PAOLA - Children's</li> 
+    <li>Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Childrens" locations</li> 
+  </ul> 
+  <br /> 
+  <li>CKO_RENEW_OTHER includes items with these shelving locations:</li> 
+  <ul> 
+    <li>Cataloging</li> 
+    <li>Processing Center</li> 
+    <li>Any other situation where the recorded shelving location is "Recently returned" but the item's permanent location is ambiguous</li> 
+    <li>Any items where the recorded shelving location is blank or unknown</li> 
+  </ul> 
+</ul> 
+  <br /> 
+<p></p> 
+<p class="updated">This report and these notes updated on 2022.03.10</p> 
+<p></p> 
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id= 3393">Click here to download as a csv file</a></p> 
+<p class= "notetags" style="display: none;">#monthly #statistics #item #details #itype</p> 
+<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
+</div> 
 
 ----------
 */
 
 
 
-SELECT
-  branch_itype.branchname,
-  branch_itype.description,
-  Coalesce(statisticsall.CKO_REN, 0) AS CKO_REN_ALL,
-  Coalesce(statisticsadult.CKO_REN, 0) AS CKO_REN_ADULT,
-  Coalesce(statisticsya.CKO_REN, 0) AS CKO_REN_YA,
-  Coalesce(statisticschildren.CKO_REN, 0) AS CKO_CHILDRENS,
-  Coalesce(statisticsother.CKO_REN, 0) AS CKO_REN_OTHER
-FROM
-  (SELECT
-     branches.branchname,
-     itemtypes.description,
-     branches.branchcode,
-     itemtypes.itemtype
-   FROM
-     branches,
-     itemtypes
-   WHERE
-     branches.branchcode LIKE '%') branch_itype LEFT JOIN
-  (SELECT
-     Coalesce(statistics.branch, "NEKLS") AS branch,
-     Coalesce(statistics.itemtype, "BOOK") AS itemtype,
-     Count(*) AS CKO_REN
-   FROM
-     statistics
-   WHERE
-     (statistics.type = 'issue' OR
-         statistics.type = 'renew') AND
-     Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
-     Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH)
-   GROUP BY
-     Coalesce(statistics.branch, "NEKLS"),
-     Coalesce(statistics.itemtype, "BOOK")
-   ORDER BY
-     branch,
-     itemtype) statisticsall ON branch_itype.branchcode = statisticsall.branch
-      AND
-      branch_itype.itemtype = statisticsall.itemtype LEFT JOIN
-  (SELECT
-     Coalesce(statistics.branch, "NEKLS") AS branch,
-     Coalesce(statistics.itemtype, "BOOK") AS itemtype,
-     Count(*) AS CKO_REN
-   FROM
-     statistics LEFT JOIN
-     items ON items.itemnumber = statistics.itemnumber
-   WHERE
-     (statistics.type = 'issue' OR
-         statistics.type = 'renew') AND
-     Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
-     Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
-     If(
-       Coalesce(statistics.location, "ADULT") = "CART", 
-       items.permanent_location, 
-       Coalesce(statistics.location, "ADULT")
-     ) LIKE "%ADULT%"
-   GROUP BY
-     Coalesce(statistics.branch, "NEKLS"),
-     Coalesce(statistics.itemtype, "BOOK")
-   ORDER BY
-     branch,
-     itemtype) statisticsadult ON branch_itype.branchcode =
-      statisticsadult.branch AND
-      branch_itype.itemtype = statisticsadult.itemtype LEFT JOIN
-  (SELECT
-     Coalesce(statistics.branch, "NEKLS") AS branch,
-     Coalesce(statistics.itemtype, "BOOK") AS itemtype,
-     Count(*) AS CKO_REN
-   FROM
-     statistics
-   WHERE
-     (statistics.type = 'issue' OR
-         statistics.type = 'renew') AND
-     Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
-     Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
-     Coalesce(statistics.location, "CART") NOT LIKE "%ADULT%" AND
-     Coalesce(statistics.location, "CART") NOT LIKE "%CHILD%" AND
-     Coalesce(statistics.location, "CART") NOT LIKE "%YA%"
-   GROUP BY
-     Coalesce(statistics.branch, "NEKLS"),
-     Coalesce(statistics.itemtype, "BOOK")
-   ORDER BY
-     branch,
-     itemtype) statisticsother ON branch_itype.branchcode =
-      statisticsother.branch AND
-      branch_itype.itemtype = statisticsother.itemtype LEFT JOIN
-  (SELECT
-     Coalesce(statistics.branch, "NEKLS") AS branch,
-     Coalesce(statistics.itemtype, "BOOK") AS itemtype,
-     Count(*) AS CKO_REN
-   FROM
-     statistics LEFT JOIN
-     items ON items.itemnumber = statistics.itemnumber
-   WHERE
-     (statistics.type = 'issue' OR
-         statistics.type = 'renew') AND
-     If(
-       Coalesce(statistics.location, "ADULT") = "CART", 
-       items.permanent_location, 
-       Coalesce(statistics.location, "ADULT")
-     ) LIKE "%YA%"
-   GROUP BY
-     Coalesce(statistics.branch, "NEKLS"),
-     Coalesce(statistics.itemtype, "BOOK")
-   ORDER BY
-     branch,
-     itemtype) statisticsya ON statisticsya.itemtype = branch_itype.itemtype AND
-      statisticsya.branch = branch_itype.branchcode LEFT JOIN
-  (SELECT
-     Coalesce(statistics.branch, "NEKLS") AS branch,
-     Coalesce(statistics.itemtype, "BOOK") AS itemtype,
-     Count(*) AS CKO_REN
-   FROM
-     statistics LEFT JOIN
-     items ON items.itemnumber = statistics.itemnumber
-   WHERE
-     (statistics.type = 'issue' OR
-         statistics.type = 'renew') AND
-     Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
-     If(
-       Coalesce(statistics.location, "ADULT") = "CART", 
-       items.permanent_location, 
-       Coalesce(statistics.location, "ADULT")
-     ) LIKE "%CHILD%"
-   GROUP BY
-     Coalesce(statistics.branch, "NEKLS"),
-     Coalesce(statistics.itemtype, "BOOK")
-   ORDER BY
-     branch,
-     itemtype) statisticschildren ON statisticschildren.itemtype =
-      branch_itype.itemtype AND
-      statisticschildren.branch = branch_itype.branchcode
-GROUP BY
-  branch_itype.branchname,
-  branch_itype.description
-ORDER BY
-  branch_itype.branchname,
-  branch_itype.description
+SELECT 
+  branch_itype.branchname AS CHECK_OUT_LIBRARY, 
+  branch_itype.description AS ITEM_TYPE, 
+  Coalesce(SUM(statistics_all.CKO_REN), 0) AS CKO_REN_ALL, 
+  Coalesce(SUM(statistics_adult.CKO_REN), 0) AS CKO_REN_ADULT, 
+  Coalesce(SUM(statistics_ya.CKO_REN), 0) AS CKO_REN_YA, 
+  Coalesce(SUM(statistics_child.CKO_REN), 0) AS CKO_REN_CHILD, 
+  Coalesce(SUM(statistics_other.CKO_REN), 0) AS CKO_REN_OTHER 
+FROM 
+    (SELECT 
+      branches.branchname, 
+      itemtypes.description, 
+      branches.branchcode, 
+      itemtypes.itemtype 
+    FROM 
+      branches, 
+      itemtypes 
+    WHERE 
+      branches.branchcode LIKE '%' 
+    ) branch_itype 
+  LEFT JOIN 
+    (SELECT 
+      Coalesce(statistics.branch, "NEKLS") AS branch, 
+      Coalesce(statistics.itemtype, "BOOK") AS itemtype, 
+      Count(*) AS CKO_REN 
+    FROM 
+      statistics 
+    WHERE 
+      (statistics.type = 'issue' OR 
+        statistics.type = 'renew') AND 
+      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND 
+      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) 
+    GROUP BY 
+      Coalesce(statistics.branch, "NEKLS"), 
+      Coalesce(statistics.itemtype, "BOOK") 
+    ORDER BY 
+      branch, 
+      itemtype 
+    ) statistics_all 
+  ON statistics_all.branch = branch_itype.branchcode AND 
+    statistics_all.itemtype = branch_itype.itemtype LEFT JOIN 
+    (SELECT 
+      Coalesce(statistics.branch, "NEKLS") AS branch, 
+      Coalesce(statistics.itemtype, "BOOK") AS itemtype, 
+      Count(*) AS CKO_REN 
+    FROM 
+      statistics LEFT JOIN 
+      items ON items.itemnumber = statistics.itemnumber 
+    WHERE 
+      (statistics.type = 'issue' OR 
+        statistics.type = 'renew') AND 
+      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND 
+      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND 
+      If( 
+        Coalesce(statistics.location, "PROC") = "CART", 
+        Coalesce(items.permanent_location, "PROC"), 
+        Coalesce(statistics.location, "PROC") 
+      ) LIKE "%ADULT%" 
+    GROUP BY 
+      Coalesce(statistics.branch, "NEKLS"), 
+      Coalesce(statistics.itemtype, "BOOK") 
+    ) statistics_adult 
+  ON statistics_adult.branch = branch_itype.branchcode AND 
+    statistics_adult.itemtype = branch_itype.itemtype LEFT JOIN 
+    (SELECT 
+      Coalesce(statistics.branch, "NEKLS") AS branch, 
+      Coalesce(statistics.itemtype, "BOOK") AS itemtype, 
+      Count(*) AS CKO_REN 
+    FROM 
+      statistics LEFT JOIN 
+      items ON items.itemnumber = statistics.itemnumber 
+    WHERE 
+      (statistics.type = 'issue' OR 
+        statistics.type = 'renew') AND 
+      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND 
+      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND 
+      If( 
+        Coalesce(statistics.location, "PROC") = "CART", 
+        Coalesce(items.permanent_location, "PROC"), 
+        Coalesce(statistics.location, "PROC") 
+      ) LIKE "%YA%" 
+    GROUP BY 
+      Coalesce(statistics.branch, "NEKLS"), 
+      Coalesce(statistics.itemtype, "BOOK") 
+    ) statistics_ya 
+  ON statistics_ya.branch = branch_itype.branchcode AND 
+    statistics_ya.itemtype = branch_itype.itemtype LEFT JOIN 
+    (SELECT 
+      Coalesce(statistics.branch, "NEKLS") AS branch, 
+      Coalesce(statistics.itemtype, "BOOK") AS itemtype, 
+      Count(*) AS CKO_REN 
+    FROM 
+      statistics LEFT JOIN 
+      items ON items.itemnumber = statistics.itemnumber 
+    WHERE 
+      (statistics.type = 'issue' OR 
+        statistics.type = 'renew') AND 
+      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND 
+      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND 
+      If( 
+        Coalesce(statistics.location, "PROC") = "CART", 
+        Coalesce(items.permanent_location, "PROC"), 
+        Coalesce(statistics.location, "PROC") 
+      ) LIKE "%CHILD%" 
+    GROUP BY 
+      Coalesce(statistics.branch, "NEKLS"), 
+      Coalesce(statistics.itemtype, "BOOK") 
+    ) statistics_child 
+  ON statistics_child.branch = branch_itype.branchcode AND 
+    statistics_child.itemtype = branch_itype.itemtype LEFT JOIN 
+    (SELECT 
+      Coalesce(statistics.branch, "NEKLS") AS branch, 
+      Coalesce(statistics.itemtype, "BOOK") AS itemtype, 
+      Count(*) AS CKO_REN 
+    FROM 
+      statistics LEFT JOIN 
+      items ON items.itemnumber = statistics.itemnumber 
+    WHERE 
+      (statistics.type = 'issue' OR 
+        statistics.type = 'renew') AND 
+      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND 
+      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND 
+      If( 
+        Coalesce(statistics.location, "PROC") = "CART", 
+        Coalesce(items.permanent_location, "PROC"), 
+        Coalesce(statistics.location, "PROC") 
+      ) NOT LIKE "%ADULT%" AND 
+      If( 
+        Coalesce(statistics.location, "PROC") = "CART", 
+        Coalesce(items.permanent_location, "PROC"), 
+        Coalesce(statistics.location, "PROC") 
+      ) NOT LIKE "%YA%" AND 
+      If( 
+        Coalesce(statistics.location, "PROC") = "CART", 
+        Coalesce(items.permanent_location, "PROC"), 
+        Coalesce(statistics.location, "PROC") 
+      ) NOT LIKE "%CHILD%" 
+    GROUP BY 
+      Coalesce(statistics.branch, "NEKLS"), 
+      Coalesce(statistics.itemtype, "BOOK") 
+    ) statistics_other 
+  ON statistics_other.branch = branch_itype.branchcode AND 
+    statistics_other.itemtype = branch_itype.itemtype 
+GROUP BY 
+  branch_itype.branchname, 
+  branch_itype.description 
 
 
 

@@ -3,7 +3,7 @@ R.003578
 
 ----------
 
-Name: LibraryIQ - Holds File (full) - BONNERSPGS 
+Name: LibraryIQ - Holds File (full) - BONNERSPGS
 Created by: George H Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: LibraryIQ
      BONNERSPGS
 
 Created on: 2021-10-05 23:56:43
-Modified on: 2021-10-13 11:20:24
-Date last run: 2021-10-31 23:36:27
+Modified on: 2021-11-12 12:01:40
+Date last run: 2021-12-09 11:20:01
 
 ----------
 
@@ -22,7 +22,7 @@ Expiry: 300
 
 ----------
 
-#libraryiq #item #full #bonnerspgs #monthly
+#libraryiq #item #full #bonnerspgs #weekly
 
 ----------
 */

@@ -12,8 +12,8 @@ Group: Statistics
      Last month's statistics - Next-wide
 
 Created on: 2019-03-12 00:46:57
-Modified on: 2021-07-30 10:57:32
-Date last run: 2021-10-01 00:48:02
+Modified on: 2022-03-11 17:12:55
+Date last run: 2022-03-11 17:15:02
 
 ----------
 
@@ -32,13 +32,13 @@ Expiry: 300
 
 
 SELECT
-  branches.branchcode,
-  Coalesce(not_ours_at_ours.COUNTS, 0) AS NOT_OUR_STUFF_AT_OUR_LIBRARY,
-  Coalesce(ours_at_other_libraries.COUNTS, 0) AS OUR_SUFF_AT_OTHER_LIBRARIES,
+  branches.branchname AS "Library",
+  Coalesce(not_ours_at_ours.COUNTS, 0) AS "Other Next library materials checked out at our library",
+  Coalesce(ours_at_other_libraries.COUNTS, 0) AS "Our materials checked out at other Next libraries",
   Coalesce(not_ours_at_ours.COUNTS, 0) -  Coalesce(ours_at_other_libraries.COUNTS, 0) AS NET,
-  If(Coalesce(not_ours_at_ours.COUNTS, 0) -  Coalesce(ours_at_other_libraries.COUNTS, 0) > 0, "Net borrower", "") AS NET_BORROWER,  
-  If(Coalesce(not_ours_at_ours.COUNTS, 0) -  Coalesce(ours_at_other_libraries.COUNTS, 0) < 0, "Net lender", "") AS NET_LENDER,
-  Concat(Format(Coalesce(not_ours_at_ours.COUNTS, 0) / Coalesce(ours_at_other_libraries.COUNTS, 0), 2), " : 1") AS BORROWED_TO_LENT_RATIO
+  If(Coalesce(not_ours_at_ours.COUNTS, 0) -  Coalesce(ours_at_other_libraries.COUNTS, 0) > 0, "We borrowerd more than we lent", "") AS "Net borrower",  
+  If(Coalesce(not_ours_at_ours.COUNTS, 0) -  Coalesce(ours_at_other_libraries.COUNTS, 0) < 0, "We lent more than we borrowed", "") AS "Net lender",
+  Concat(Format(Coalesce(not_ours_at_ours.COUNTS, 0) / Coalesce(ours_at_other_libraries.COUNTS, 0), 2), " : 1") AS "Borrowed to lent ratio"
 FROM
   branches LEFT JOIN
   (SELECT

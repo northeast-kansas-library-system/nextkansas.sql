@@ -3,7 +3,7 @@ R.003579
 
 ----------
 
-Name: LibraryIQ - Circulation File (yesterday) - BONNERSPGS 
+Name: LibraryIQ - Circulation File (yesterday) - BONNERSPGS
 Created by: George H Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: LibraryIQ
      BONNERSPGS
 
 Created on: 2021-10-11 10:38:17
-Modified on: 2021-10-29 11:31:25
-Date last run: 2021-11-08 00:05:03
+Modified on: 2021-11-12 11:59:33
+Date last run: 2022-03-23 00:05:02
 
 ----------
 
@@ -22,7 +22,7 @@ Expiry: 300
 
 ----------
 
-#libraryiq #item #daily #bonnerspgs #daily
+#libraryiq #circulation #added #bonnerspgs #daily
 
 ----------
 */

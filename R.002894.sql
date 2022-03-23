@@ -12,8 +12,8 @@ Group: Circulation
      Transfers
 
 Created on: 2017-02-01 12:29:04
-Modified on: 2018-12-09 21:25:14
-Date last run: 2021-10-19 14:51:33
+Modified on: 2021-11-24 16:37:15
+Date last run: 2022-03-22 15:31:39
 
 ----------
 
@@ -43,39 +43,84 @@ Expiry: 300
 
 
 SELECT
-  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">', items.barcode, '</a>') AS 'CLICKABLEBC',
-  items.location,
-  items.itype,
-  authorised_values.lib AS COLLECTION_CODE,
-  items.itemcallnumber,
+  Concat(
+    '<a class="btn btn-default noprint" href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',
+    biblio.biblionumber, 
+    '\" target="_blank">Go to title</a>'
+  ) AS 'LINK_TO_TITLE',
+  If(
+    items.permanent_location = items.location, 
+    perm_locs.lib, 
+    Concat(perm_locs.lib, ' (', locs.lib, ')')
+  ) AS LOCATION,
+  itemtypes.description AS ITEM_TYPE,
+  ccodes.lib AS CCODE,
+  If(
+    items.copynumber IS NULL, 
+    items.itemcallnumber, 
+    Concat(items.itemcallnumber, ' (Copy number: ', items.copynumber, ')')
+  ) AS CALL_NUMBER,
   biblio.author,
   biblio.title,
-  Concat("-",items.barcode,"-") AS BC,
+  Concat("-", items.barcode, "-") AS BC,
   items.homebranch AS OWNED_BY,
   branchtransfers.frombranch AS SENT_FROM,
   branchtransfers.datesent AS SHIPPED_DATE,
   branchtransfers.tobranch AS SENT_TO,
-  items.datelastseen
+  items.datelastseen,
+  @SortOrder := <<Sort by|XS_BRANCH>> AS SORTING
 FROM
-  (items
-  JOIN branchtransfers ON items.itemnumber = branchtransfers.itemnumber)
-  JOIN biblio ON items.biblionumber = biblio.biblionumber
-  LEFT JOIN authorised_values ON items.ccode = authorised_values.authorised_value
+  (items JOIN
+  branchtransfers ON items.itemnumber = branchtransfers.itemnumber) JOIN
+  biblio ON items.biblionumber = biblio.biblionumber LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib,
+      authorised_values.lib_opac
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'CCODE') ccodes ON ccodes.authorised_value =
+      items.ccode LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib,
+      authorised_values.lib_opac
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'LOC') perm_locs ON
+      perm_locs.authorised_value = items.permanent_location LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib,
+      authorised_values.lib_opac
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'LOC') locs ON locs.authorised_value =
+      items.location LEFT JOIN
+  itemtypes ON itemtypes.itemtype = items.itype
 WHERE
-  (items.datelastseen <= Now() - INTERVAL 7 DAY) AND
-  authorised_values.category = "ccode" AND
+  items.datelastseen <= Now() - INTERVAL 7 DAY AND
   branchtransfers.datearrived IS NULL AND
-  ((items.homebranch = @brn := <<Choose your library|branches>> COLLATE utf8mb4_unicode_ci) OR
-  (branchtransfers.frombranch = @brn) OR
-  (branchtransfers.tobranch = @brn))
+  ((items.homebranch LIKE <<Choose your library|LBRANCH>>) OR
+    (branchtransfers.frombranch LIKE <<Choose your library|LBRANCH>>) OR
+    (branchtransfers.tobranch LIKE <<Choose your library|LBRANCH>>))
 GROUP BY
-  items.barcode
-ORDER BY
-  items.homebranch,
   items.location,
-  items.itype,
-  authorised_values.lib,
-  items.itemcallnumber,
+  items.permanent_location,
+  items.itemnumber
+ORDER BY
+  CASE WHEN SORTING = '1' THEN items.homebranch END ASC,
+  CASE WHEN SORTING = '2' THEN perm_locs.lib END ASC,
+  perm_locs.lib,
+  ITEM_TYPE,
+  CCODE,
+  CALL_NUMBER,
   biblio.author,
   biblio.title,
   items.barcode

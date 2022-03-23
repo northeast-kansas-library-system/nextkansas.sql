@@ -3,7 +3,7 @@ R.003588
 
 ----------
 
-Name: GHW - LibraryIQ - Bibliographic File - added yesterday - BONNERSPGS
+Name: LibraryIQ - Bibliographic File (added yesterday) - BONNERSPGS
 Created by: George H Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: LibraryIQ
      BONNERSPGS
 
 Created on: 2021-10-13 08:15:38
-Modified on: 2021-10-29 11:32:22
-Date last run: 2021-11-08 00:10:02
+Modified on: 2021-12-01 12:48:49
+Date last run: 2022-03-23 00:10:03
 
 ----------
 
@@ -22,7 +22,7 @@ Expiry: 300
 
 ----------
 
-#libraryiq #bibliographic #bonnerspgs #daily 
+#libraryiq #bibliographic #added #bonnerspgs #daily
 
 ----------
 */
@@ -30,28 +30,32 @@ Expiry: 300
 
 
 SELECT
-  items.biblionumber AS BibliographicRecordID,
+  biblio.biblionumber AS BibliographicRecordID,
   biblioitems.isbn AS ISBN,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="024"]/subfield[@code="a"]') AS UPC,
-  itemtypes.description AS `Material Type`,
+  itemtypess.description AS `Material Type`,
   biblio.title AS Title,
   biblio.author AS Author,
-  biblioitems.publicationyear AS `Publish Date`,
-  biblioitems.publishercode AS Publisher,
+  biblioitems.publicationyear `Publish Date`,
+  biblioitems.publishercode Publisher,
   CurDate() AS `Report Date`
 FROM
-  items JOIN
-  biblio ON items.biblionumber = biblio.biblionumber JOIN
-  itemtypes ON itemtypes.itemtype = items.itype JOIN
-  biblioitems ON biblioitems.biblioitemnumber = biblio.biblionumber JOIN
-  biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
+  biblio JOIN
+  biblioitems ON biblioitems.biblionumber = biblio.biblionumber JOIN
+  biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber JOIN
+  items ON items.biblionumber = biblio.biblionumber JOIN
+  (SELECT
+      itemtypes.itemtype,
+      itemtypes.description
+    FROM
+      itemtypes) itemtypess ON itemtypess.itemtype = items.itype
 WHERE
   items.homebranch = 'BONNERSPGS' AND
   Year(items.dateaccessioned) = Year(Now() - INTERVAL 1 DAY) AND
   Month(items.dateaccessioned) = Month(Now() - INTERVAL 1 DAY) AND
   Day(items.dateaccessioned) = Day(Now() - INTERVAL 1 DAY)
 GROUP BY
-  items.biblionumber
+  biblio.biblionumber
 
 
 

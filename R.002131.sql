@@ -12,8 +12,8 @@ Group: Borrowers
      -
 
 Created on: 2013-12-18 16:43:48
-Modified on: 2014-08-11 14:18:52
-Date last run: 2021-04-07 17:08:33
+Modified on: 2022-02-07 23:40:26
+Date last run: 2022-02-17 13:01:00
 
 ----------
 
@@ -29,11 +29,17 @@ Lists item callnumber, title, author, checked out date
 
 
 
-SELECT items.itemcallnumber, biblio.title, biblio.author, items.ccode, old_issues.issuedate FROM old_issues LEFT JOIN borrowers USING(borrowernumber) LEFT JOIN items USING(itemnumber) LEFT JOIN biblio USING(biblionumber) WHERE borrowers.cardnumber=<<enter patron cardnumber>> AND items.itemnumber IS NOT NULL
-UNION ALL 
-SELECT items.itemcallnumber, biblio.title, biblio.author, items.ccode,  issues.issuedate FROM issues LEFT JOIN borrowers USING(borrowernumber) LEFT JOIN items USING(itemnumber) LEFT JOIN biblio USING(biblionumber) WHERE borrowers.cardnumber=<<enter patron cardnumber a second time>> AND items.itemnumber IS NOT NULL
-ORDER BY issuedate
-LIMIT 10000
+SELECT
+  borrowers.cardnumber,
+  Concat(
+    '<a class="btn btn-default" href="/cgi-bin/koha/members/readingrec.pl?borrowernumber=', 
+    borrowers.borrowernumber, 
+    '" target="_blank">Go to borrower\'s history</a>'
+  ) AS GO_TO_HISTORY
+FROM
+  borrowers
+WHERE
+  borrowers.cardnumber = <<Enter library card number>>
 
 
 

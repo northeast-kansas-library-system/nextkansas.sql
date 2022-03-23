@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-12-26 09:46:35
-Modified on: 2021-10-21 09:28:59
-Date last run: 2021-11-07 15:21:20
+Modified on: 2021-12-17 11:36:41
+Date last run: 2022-03-22 10:15:23
 
 ----------
 
@@ -51,108 +51,123 @@ Expiry: 300
 
 
 SELECT
-  outstanding_fees.branchcode,
-  outstanding_fees.date,
-  outstanding_fees.credit_type_code,
-  outstanding_fees.debit_type_code,
-  outstanding_fees.accountlines_id,
-  outstanding_fees.status,
-  Format(outstanding_fees.amountoutstanding, 2) AS amountoutstanding,
-  Concat('-', Trim(Replace(outstanding_fees.note, '\r\n', '||')), '-') AS note
+  branchess.branchname,
+  fees.date AS FEE_CREATED_ON,
+  fees.credit_type_code,
+  fees.debit_type_code,
+  fees.accountlines_id,
+  fees.issue_id,
+  Format(fees.amountoutstanding, 2) AS AMOUNT_OUTSTANDING,
+  items.itype AS ITEM_TYPE,
+  Concat('-', Trim(Replace(fees.note, '\r\n', '||')), '-') AS note,
+  fees.timestamp FEE_UPDATED_ON
 FROM
   (SELECT
-      issues.branchcode,
-      accountlines.date,
-      accountlines.accountlines_id,
-      accountlines.credit_type_code,
-      accountlines.debit_type_code,
-      accountlines.status,
-      accountlines.amountoutstanding,
-      accountlines.note,
-      accountlines.borrowernumber
+      branches.branchname,
+      branches.branchcode
     FROM
-      accountlines JOIN
-      issues ON issues.issue_id = accountlines.issue_id
-    WHERE
-      accountlines.amountoutstanding > 0
-    GROUP BY
-      accountlines.accountlines_id,
-      accountlines.credit_type_code,
-      accountlines.debit_type_code,
-      accountlines.status
+      branches
     UNION
     SELECT
-      old_issues.branchcode,
-      accountlines.date,
+      ' All branches' AS branchname,
+      '--' AS branchcode) branchess JOIN
+  (SELECT
       accountlines.accountlines_id,
+      accountlines.issue_id,
+      accountlines.borrowernumber,
+      accountlines.date,
       accountlines.credit_type_code,
       accountlines.debit_type_code,
       accountlines.status,
       accountlines.amountoutstanding,
+      accountlines.timestamp,
       accountlines.note,
-      accountlines.borrowernumber
+      accountlines.manager_id,
+      Coalesce(Coalesce(issues.branchcode, old_issues.branchcode),
+      '--') AS branchcode,
+      accountlines.itemnumber
     FROM
-      accountlines JOIN
+      accountlines LEFT JOIN
+      issues ON issues.issue_id = accountlines.issue_id LEFT JOIN
       old_issues ON old_issues.issue_id = accountlines.issue_id
     WHERE
-      accountlines.amountoutstanding > 0
+      accountlines.amountoutstanding > 0 AND
+      accountlines.borrowernumber IS NOT NULL
     GROUP BY
       accountlines.accountlines_id,
-      accountlines.status
+      accountlines.credit_type_code,
+      accountlines.note,
+      accountlines.itemnumber
     UNION
     SELECT
-      borrowers.branchcode,
-      accountlines.date,
       accountlines.accountlines_id,
+      accountlines.issue_id,
+      accountlines.borrowernumber,
+      accountlines.date,
       accountlines.credit_type_code,
       accountlines.debit_type_code,
       accountlines.status,
       accountlines.amountoutstanding,
+      accountlines.timestamp,
       accountlines.note,
-      accountlines.borrowernumber
+      accountlines.manager_id,
+      Coalesce(staff.branchcode, '--') AS branchcode,
+      accountlines.itemnumber
     FROM
-      accountlines JOIN
-      borrowers ON borrowers.borrowernumber = accountlines.manager_id
-    WHERE
-      accountlines.amountoutstanding > 0
-    GROUP BY
-      accountlines.accountlines_id,
-      accountlines.status
-    UNION
-    SELECT
-      borrowers.branchcode,
-      accountlines.date,
-      accountlines.accountlines_id,
-      accountlines.credit_type_code,
-      accountlines.debit_type_code,
-      accountlines.status,
-      accountlines.amountoutstanding,
-      accountlines.note,
-      accountlines.borrowernumber
-    FROM
-      accountlines JOIN
-      borrowers ON accountlines.borrowernumber = borrowers.borrowernumber
+      accountlines LEFT JOIN
+      issues ON issues.issue_id = accountlines.issue_id LEFT JOIN
+      old_issues ON old_issues.issue_id = accountlines.issue_id LEFT JOIN
+      borrowers staff ON staff.borrowernumber = accountlines.manager_id
     WHERE
       accountlines.amountoutstanding > 0 AND
-      (accountlines.issue_id IS NULL OR
-          accountlines.issue_id = "" OR
-          accountlines.issue_id = "0") AND
-      (accountlines.manager_id IS NULL OR
-          accountlines.manager_id = "" OR
-          accountlines.manager_id = "0")
+      accountlines.manager_id IS NOT NULL AND
+      accountlines.borrowernumber IS NOT NULL
     GROUP BY
       accountlines.accountlines_id,
-      accountlines.status) outstanding_fees
+      accountlines.credit_type_code,
+      accountlines.note,
+      accountlines.itemnumber
+    UNION
+    SELECT
+      accountlines.accountlines_id,
+      accountlines.issue_id,
+      accountlines.borrowernumber,
+      accountlines.date,
+      accountlines.credit_type_code,
+      accountlines.debit_type_code,
+      accountlines.status,
+      accountlines.amountoutstanding,
+      accountlines.timestamp,
+      accountlines.note,
+      accountlines.manager_id,
+      Coalesce(borrowers.branchcode, '--') AS branchcode1,
+      accountlines.itemnumber
+    FROM
+      accountlines LEFT JOIN
+      issues ON issues.issue_id = accountlines.issue_id LEFT JOIN
+      old_issues ON old_issues.issue_id = accountlines.issue_id LEFT JOIN
+      borrowers staff ON staff.borrowernumber = accountlines.manager_id
+      LEFT JOIN
+      borrowers ON borrowers.borrowernumber = accountlines.borrowernumber
+    WHERE
+      accountlines.amountoutstanding > 0 AND
+      Coalesce(issues.branchcode, old_issues.branchcode) IS NULL AND
+      staff.branchcode IS NULL AND
+      accountlines.borrowernumber IS NOT NULL
+    GROUP BY
+      accountlines.accountlines_id,
+      accountlines.credit_type_code,
+      accountlines.note,
+      accountlines.itemnumber) fees ON fees.branchcode = branchess.branchcode
+  LEFT JOIN
+  items ON items.itemnumber = fees.itemnumber
 WHERE
-  outstanding_fees.branchcode LIKE <<Choose your library|ZBRAN>> AND
-  outstanding_fees.debit_type_code LIKE <<Debit type|LDEBITTYPE>>
+  branchess.branchcode LIKE <<Choose your library|ZBRAN>> AND
+  fees.debit_type_code LIKE <<Debit type|LDEBITTYPE>>
 GROUP BY
-  outstanding_fees.credit_type_code,
-  outstanding_fees.debit_type_code,
-  outstanding_fees.accountlines_id
+  fees.accountlines_id
 ORDER BY
-  outstanding_fees.branchcode,
-  outstanding_fees.date
+  branchess.branchname
 
 
 

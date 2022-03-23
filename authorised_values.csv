@@ -1,44 +1,66 @@
 id,category,authorised_value,lib,imageurl,lib_opac
 1885,ALLOWED,0,"Not allowed",,"Not allowed"
 1886,ALLOWED,1,Allowed,,Allowed
-2061,bibitype,AUDIOBOOK,Audiobook,,Audiobook
-2060,bibitype,BOOK,Book,,Book
-2063,bibitype,GAME,Videogame,,Videogame
-2062,bibitype,MAGAZINE,Magazine,,Magazine
-2064,bibitype,MIFI,"Wireless internet hotspot",,"Wireless internet hotspot"
-2065,bibitype,MUSIC,"Music CD",,"Music CD"
-2022,bibitype,NVIDEO,VIDEO,,VIDEO
-2067,bibitype,PBBKCLUB,"Book Club Set",,"Book Club Set"
+2358,bibitype,BOOK,Book,,Book
+2363,bibitype,COMPUTER,"Computers and internet : Public computer",,"Computers and internet : Public computer"
+2367,bibitype,DIGITAL,"E-content : Digital content",,"E-content : Digital content"
+2383,bibitype,EQUIPMENT,"Things : Equipment",,"Things : Equipment"
+2388,bibitype,GAME,"Video game",,"Video game"
+2360,bibitype,ILL,"Borrowed from another library",,"Borrowed from another library"
+2370,bibitype,KITS,"Kit or multi-part set",,"Kit or multi-part set"
+2362,bibitype,LAUNCHPAD,"Computers and internet : Launchpad tablet",,"Computers and internet : Launchpad tablet"
+2376,bibitype,LOCALHOLD,"Special collections",,"Special collections"
+2371,bibitype,MAGAZINE,Magazine,,Magazine
+2372,bibitype,MUSIC,Music,,Music
+2356,bibitype,N_AB,Audiobook,,Audiobook
+2357,bibitype,N_AB_M,"Audiobook (media player)",,"Audiobook (media player)"
+2368,bibitype,NELECOURSE,"E-content : E-learning course",,"E-content : E-learning course"
+2365,bibitype,NELECT,"Computers and internet : Tablets, e-readers, and personal computing devices",,"Computers and internet : Tablets, e-readers, and personal computing devices"
+2369,bibitype,NEQKEY,Key,,Key
+2382,bibitype,NEQUDIE,"Things : Die cut equipment",,"Things : Die cut equipment"
+2384,bibitype,NPASS,"Things : Museum pass / event pass",,"Things : Museum pass / event pass"
+2378,bibitype,NREL_BIKE,"Things : Bicycles (and bicycle accessories)",,"Things : Bicycles (and bicycle accessories)"
+2380,bibitype,NREL_CLOTH,"Things : Clothing, costumes, and masks",,"Things : Clothing, costumes, and masks"
+2381,bibitype,NREL_COOK,"Things : Cooking equipment",,"Things : Cooking equipment"
+2385,bibitype,NREL_TOOL,"Things : Tools",,"Things : Tools"
+2379,bibitype,NREL_TOY,"Things : Board games, dolls, puzzles, and toys",,"Things : Board games, dolls, puzzles, and toys"
+2375,bibitype,NROOM,Room,,Room
+2364,bibitype,NSOFT,"Computers and internet : Software",,"Computers and internet : Software"
+2386,bibitype,NVIDEO,Video,,Video
+2387,bibitype,NVIDTV,"Video (Television)",,"Video (Television)"
+2374,bibitype,P_REF,"Reference material",,"Reference material"
+2359,bibitype,PBBKCLUB,"Book club set",,"Book club set"
+2373,bibitype,PPHAM,Pamphlet,,Pamphlet
 2066,bibitype,PUNC,(UNCLASSIFIED),,(UNCLASSIFIED)
+2377,bibitype,R_ART,"Things : Artwork",,"Things : Artwork"
+2361,bibitype,R_CMP_LAP,"Computers and internet : Laptop computer",,"Computers and internet : Laptop computer"
+2366,bibitype,R_WIFI,"Computers and internet : Wireless internet hotspot",,"Computers and internet : Wireless internet hotspot"
 1999,bibloc,ADULT,Adult,,Adult
 2000,bibloc,CHILDRENS,Childrens,,Childrens
 2137,bibloc,L_YA,"Young adult",,"Young adult"
 205,BOR_NOTES,CheckID,"Need to check patron's ID",,
 1759,BOR_NOTES,MID,"<br />UPDATE PATRON'S NAME<br />Please update the account with a middle name or middle initial.<br />",,
 2224,CCODE,ARCHIVE,"Archival materials",bridge/archive.png,"Archival materials"
-1643,CCODE,ATLAS,Atlas,,Atlas
+1643,CCODE,ATLAS,Atlas,https://nextkansas.org/images/c170de4aeae2c02357e8b746e89ddd22_p_atlas.png,Atlas
 509,CCODE,BAKEWARE,Bakeware,crystal-clear/kcoloredit.png,Bakeware
-2023,CCODE,BICYCLE,Bicycle,,Bicycle
+2023,CCODE,BICYCLE,Bicycle,https://nextkansas.org/images/9441e9119f0fe1a7ef02ae509ed2247e_itype_nequbike.png,Bicycle
 174,CCODE,BILINGUAL,Bilingual,vokal/Book-32px.png,
 1650,CCODE,BINDER,Binder,liblime-kids/faculty-course-manual.png,Binder
 155,CCODE,BIOGRAPHY,Biography,vokal/Book-32px.png,
-195,CCODE,BLU-RAY,"Blu-Ray (no longer used)",vokal/BLURAY-32px.png,Z
 146,CCODE,BOARDBK,"Board Book",vokal/Book-32px.png,
-157,CCODE,BOOKONCASS,"Book on Cassette",vokal/Book-On-Tape-32px.png,"Audiobook (cassette)"
-156,CCODE,BOOKONCD,"Book on CD",vokal/Book-On-CD-32px.png,"Audiobook (CD)"
-143,CCODE,BOOKONMP,"Book on Digital (Playaways)",vokal/PlayAway-32px.png,"Audiobook (media player)"
+157,CCODE,BOOKONCASS,"Audiobook (cassette)",vokal/Book-On-Tape-32px.png,"Audiobook (cassette)"
+156,CCODE,BOOKONCD,"Audiobook (CD)",vokal/Book-On-CD-32px.png,"Audiobook (CD)"
+143,CCODE,BOOKONMP,"Audiobook (media player)",vokal/PlayAway-32px.png,"Audiobook (media player)"
 2198,CCODE,CLASSICS,Classics,,Classics
-1132,CCODE,COMBO,"Blu/Ray - DVD Combo Pack (no longer used)",,Z
 194,CCODE,COMPUTER,"Public Computer",crystal-clear/mymac.png,
 168,CCODE,DISPLAY,"On Display",crystal-clear/bookmark.png,
-385,CCODE,DLAUDIO,"Downloadable Audiobook",crystal-clear/build.png,Z
+385,CCODE,DLAUDIO,"Audiobook (downloadable)",crystal-clear/build.png,Z
 384,CCODE,DLBOOK,"Downloadable Book",crystal-clear/build.png,
 1183,CCODE,DLGRAPHIC,"Downloadable Graphic Novel",crystal-clear/build.png,Z
 1358,CCODE,DLMAG,"Downloadable Magazine",crystal-clear/build.png,"Downloadable Magazine"
 386,CCODE,DLMUSIC,"Downloadable Music",crystal-clear/build.png,Z
 1184,CCODE,DLTV,"Downloadable TV Show",crystal-clear/build.png,Z
 387,CCODE,DLVIDEO,"Downloadable Movie",crystal-clear/build.png,Z
-166,CCODE,DVD,"DVD (no longer used)",,Z
 158,CCODE,EASY,"Picture Book",vokal/Book-32px.png,
 175,CCODE,EDUCATION,Education,vokal/Book-32px.png,
 206,CCODE,ERESOURCE,"Online Resource",crystal-clear/build.png,
@@ -48,8 +70,8 @@ id,category,authorised_value,lib,imageurl,lib_opac
 1731,CCODE,F_SPORTS,"Sports & Recreation",,"Sports & Recreation"
 160,CCODE,FICTION,Fiction,vokal/FIC-32px.png,
 218,CCODE,GADGET,Gadget,vokal/Hardware-32px.png,
-371,CCODE,GAMEBOY,VG-Gameboy,crystal-clear/joystick.png,
-373,CCODE,GAMECUBE,"VG-Nintendo Gamecube",crystal-clear/joystick.png,
+371,CCODE,GAMEBOY,VG-Gameboy,https://nextkansas.org/images/ae404fbe9c037b9e998b85cf4fe916b6_n_vg_gboy.png,
+373,CCODE,GAMECUBE,"VG-Nintendo Gamecube",https://nextkansas.org/images/9a32253be294051f165afb82b9ff6498_n_vg_gcube.jpg,
 161,CCODE,GENEALOGY,Genealogy,vokal/Reference-32px.png,
 147,CCODE,GRAPHIC,"Graphic Novel",vokal/Book-32px.png,
 164,CCODE,HOLIDAY,Holiday,vokal/HOLIDAY-32px.png,
@@ -59,7 +81,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 165,CCODE,KANSAS,Kansas,vokal/Book-32px.png,
 159,CCODE,LARGEPRINT,"Large Print",vokal/LargePrint-32px.png,
 897,CCODE,LARGEPRNF,"Large Print Non-Fiction",vokal/LargePrint-32px.png,
-2197,CCODE,LGBTQ,LGBTQ+,,LGBTQ+
+2197,CCODE,LGBTQ,LGBTQ+,https://nextkansas.org/images/693146b8e6e1b683753cfb1195e0c138_lgbqt.png,LGBTQ+
 2037,CCODE,LYNDA,"Lynda.com course",,"Lynda.com course"
 2146,CCODE,M_AFRICAN,"African American history and literature",,"African American history and literature"
 176,CCODE,MAGAZINE,Magazine,vokal/Periodical-32px.png,
@@ -70,16 +92,16 @@ id,category,authorised_value,lib,imageurl,lib_opac
 152,CCODE,MUSIC,"Music CD",vokal/Music-32px.png,
 1647,CCODE,MYST_COZY,Mystery-Cozy,vokal/Book-32px.png,"Cozy Mystery"
 154,CCODE,MYSTERY,Mystery,vokal/Book-32px.png,
-372,CCODE,NINTENDODS,"VG-Nintendo DS",crystal-clear/joystick.png,
-402,CCODE,NINTNDO3DS,"VG-Nintendo 3DS",crystal-clear/joystick.png,"VG-Nintendo 3DS"
+372,CCODE,NINTENDODS,"VG-Nintendo DS",https://nextkansas.org/images/f48a67faf32b85a1bf40918ac70b1f8e_n_vg_ds.jpg,
+402,CCODE,NINTNDO3DS,"VG-Nintendo 3DS",https://nextkansas.org/images/2d6f0c5f7a7dae8f27eea6e01c255b73_n_vg_3ds.png,"VG-Nintendo 3DS"
 150,CCODE,NONFICTION,Non-Fiction,vokal/NFIC-32px.png,
 177,CCODE,OVERSIZE,Oversize,vokal/Book-32px.png,
 153,CCODE,PAPERBACK,Paperback,vokal/Book-32px.png,
 163,CCODE,PARENTING,Parenting,vokal/Book-32px.png,
 2327,CCODE,PER_COM,"Periodical - Comic books",npl/Magazine.gif,"Comic books"
 178,CCODE,PROFCOLL,"Professional Collection",vokal/Book-32px.png,
-377,CCODE,PS2,"VG-PlayStation 2 (PS2)",crystal-clear/joystick.png,
-378,CCODE,PS3,"VG-PlayStation 3 (PS3)",crystal-clear/joystick.png,
+377,CCODE,PS2,"VG-PlayStation 2 (PS2)",https://nextkansas.org/images/3f4951a2268f51b30d678d27b2e6e62a_n_vg_ps2.png,
+378,CCODE,PS3,"VG-PlayStation 3 (PS3)",https://nextkansas.org/images/f26e9030385ed9ade3970f213f000e58_n_vg_ps3.png,
 379,CCODE,PS4,"VG-PlayStation 4 (PS4)",crystal-clear/joystick.png,
 2051,CCODE,PS5,"VG-PlayStation 5 (PS5)",crystal-clear/joystick.png,"VG-PlayStation 5 (PS5)"
 380,CCODE,PSP,"VG-PlayStation Portable (PSP)",crystal-clear/joystick.png,
@@ -95,27 +117,25 @@ id,category,authorised_value,lib,imageurl,lib_opac
 169,CCODE,SOFTWARE,Software,crystal-clear/kpackage.png,
 162,CCODE,SPANISH,Spanish,vokal/Book-32px.png,
 2328,CCODE,SPC_DARE,"Special collection - Dyslexic and Autistic Reading Engagement",,"D.A.R.E. to Read"
-1174,CCODE,SWITCH,"VG-Nintendo Switch",crystal-clear/joystick.png,
-219,CCODE,TVSERIES,"TV Series (no longer used)",,Z
+1174,CCODE,SWITCH,"VG-Nintendo Switch",https://nextkansas.org/images/287b16236cf12050a30edb46435fb0f4_n_vg_switch.png,
 167,CCODE,VHS,VHS,vokal/VHS-32px.png,"Video - VHS cassette"
 2201,CCODE,VID_B,"Video (Blu-ray)",vokal/BLURAY-32px.png,"Video (Blu-ray)"
 2203,CCODE,VID_B_T,"Video-TV series (Blu-ray)",vokal/BLURAY-32px.png,"Video-TV series (Blu-ray)"
-2200,CCODE,VID_C,"Video (Blu-ray/DVD combined edition)",colors/cc66cc.png,"Video (Blu-ray/DVD combined edition)"
-2204,CCODE,VID_C_T,"Video-TV series (Blu-ray/DVD combined edition)",colors/cc66cc.png,"Video-TV series (Blu-ray/DVD combined edition)"
+2200,CCODE,VID_C,"Video (Blu-ray/DVD combined edition)",https://nextkansas.org/images/5e5f61e7372f39d0530d4f244864b4d0_n_vid_c.png,"Video (Blu-ray/DVD combined edition)"
+2204,CCODE,VID_C_T,"Video-TV series (Blu-ray/DVD combined edition)",https://nextkansas.org/images/5e5f61e7372f39d0530d4f244864b4d0_n_vid_c.png,"Video-TV series (Blu-ray/DVD combined edition)"
 2202,CCODE,VID_D,"Video (DVD)",vokal/DVD-32px.png,"Video (DVD)"
 2205,CCODE,VID_D_T,"Video-TV series (DVD)",vokal/DVD-32px.png,"Video-TV series (DVD)"
 2207,CCODE,VID_M,"Video (media player)",crystal-clear/pda_blue.png,"Video (media player)"
 2206,CCODE,VID_M_T,"Video-TV series (media player)",crystal-clear/pda_blue.png,"Video-TV series (media player)"
 189,CCODE,VIDEOGAME,VG--Videogame,crystal-clear/joystick.png,
 2059,CCODE,VIDHOLIDAY,"Holiday video",colors/99cc33.png,"Video - holiday collection"
-2058,CCODE,VIDPLAYER,"Video (media player) (no longer used)",,Z
 149,CCODE,WESTERN,Western,vokal/Book-32px.png,
-374,CCODE,WII,"VG-Nintendo Wii",crystal-clear/joystick.png,
-376,CCODE,WIIU,"VG-Nintendo Wii U",crystal-clear/joystick.png,
+374,CCODE,WII,"VG-Nintendo Wii",https://nextkansas.org/images/bc83712763dda1d5a60de13b274a6496_n_vg_wii.jpg,
+376,CCODE,WIIU,"VG-Nintendo Wii U",https://nextkansas.org/images/588dc4af3bdb37f7885b020de555b4c9_n_vg_wiiu.png,
 381,CCODE,XBOX,VG-XBox,crystal-clear/joystick.png,
 382,CCODE,XBOX360,"VG-XBox 360",crystal-clear/joystick.png,
 375,CCODE,XBOXONE,"VG-XBox One",crystal-clear/joystick.png,
-2052,CCODE,XBOXX,"VG-XBox X",crystal-clear/joystick.png,"VG-XBox X"
+2052,CCODE,XBOXX,"VG-XBox X",https://nextkansas.org/images/d9fb583a0900e65c63b8a5d4b7b34fc9_n_vg_xb_x.png,"VG-XBox X"
 183,CCODE,XXX,(Unclassified),crystal-clear/books-closed-32.png,
 1180,COLLAGEN,OTTAWA1,"Sent to collections - OTTAWA",,"Sent to collections - OTTAWA"
 1181,COLLAGEN,OTTAWA2,"Sent to collections - OTTAWA - B",,"Sent to collections - OTTAWA - B"
@@ -277,8 +297,15 @@ id,category,authorised_value,lib,imageurl,lib_opac
 1983,frame_hoop_9528,DLVIDEO,"Downloadable Movie",,"Downloadable Movie"
 1975,frame_hoop_952a,DIGITAL,"Digital Content",,"Digital Content"
 1976,frame_hoop_952y,DIGITAL,"DIGITAL CONTENT",,"DIGITAL CONTENT"
-2024,frame_relia,NEQUBIKE,Bicycle,,Bicycle
-2025,frame_relia,NEQUDIE,"Die cut equipment",,"Die cut equipment"
+2393,frame_relia,EQUIPMENT,"Things : Equipment",,"Things : Equipment"
+2024,frame_relia,NEQUBIKE,"Things : Bicycles (and bicycle accessories)",,"Things : Bicycles (and bicycle accessories)"
+2025,frame_relia,NEQUDIE,"Things : Die cut equipment",,"Things : Die cut equipment"
+2394,frame_relia,NPASS,"Things : Museum pass / event pass",,"Things : Museum pass / event pass"
+2391,frame_relia,NREL_CLOTH,"Things : Clothing, costumes, and masks",,"Things : Clothing, costumes, and masks"
+2392,frame_relia,NREL_COOK,"Things : Cooking equipment",,"Things : Cooking equipment"
+2395,frame_relia,NREL_TOOL,"Things : Tools",,"Things : Tools"
+2390,frame_relia,NREL_TOY,"Things : Board games, dolls, puzzles, and toys",,"Things : Board games, dolls, puzzles, and toys"
+2389,frame_relia,R_ART,"Things : Artwork",,"Things : Artwork"
 702,GRADE,0,Unknown,,Unknown
 223,GRADE,01,01,,1st
 224,GRADE,02,02,,2nd
@@ -445,11 +472,12 @@ id,category,authorised_value,lib,imageurl,lib_opac
 501,InternetPolicy,NotApp,"Not Used at Library",,
 500,InternetPolicy,NotAsked,"Not Asked",,
 485,InternetPolicy,Yes-Signed,"Yes, Signed",,
-537,ITEMTYPECAT,AUDIO,AUDIOBOOKS,vokal/Book-On-CD-32px.png,AUDIOBOOKS
-538,ITEMTYPECAT,BOOKS,BOOKS,vokal/Book-32px.png,BOOKS
-539,ITEMTYPECAT,EQUIPMENT,EQUIPMENT,vokal/Hardware-32px.png,EQUIPMENT
-540,ITEMTYPECAT,MAGAZINE,MAGAZINES,vokal/Periodical-32px.png,MAGAZINES
-541,ITEMTYPECAT,MOVIES,VIDEO,Seshat/DVD.gif,VIDEO
+2343,ITEMTYPECAT,N_AUD,Audiobook,vokal/BookOnCD.png," Audiobook"
+2346,ITEMTYPECAT,N_VID,"Video recordings",Seshat/AV.gif," Video recordings"
+2342,ITEMTYPECAT,P_BBK,Book,vokal/Book.png," Book"
+2345,ITEMTYPECAT,P_MAG,"Magazine - periodical",vokal/Periodical.png," Magazine - periodical"
+2348,ITEMTYPECAT,P_SPEC,"Special collections",bridge/reserve_book.png," Special collections"
+2344,ITEMTYPECAT,R_EQU,Equipment,vokal/Hardware.png,Equipment
 2152,lbibloc,%," All locations",," All locations"
 2153,lbibloc,ADULT,Adult,,Adult
 2154,lbibloc,CHILDRENS,Childrens,,Childrens
@@ -885,6 +913,11 @@ id,category,authorised_value,lib,imageurl,lib_opac
 1342,LHOLDSUS,-,"All non-suspended requests",,"All non-suspended requests"
 1340,LHOLDSUS,%," All requests",," All requests"
 1341,LHOLDSUS,Suspended,"Suspended requests",,"Suspended requests"
+2337,LIB_EA_SC,ATCHISON,"Major Service Center II",,M_SC_020
+2338,LIB_EA_SC,BALDWIN,"Service Center Level 02",,L_SC_020
+2339,LIB_EA_SC,BASEHOR,"Major Service Center 03",,M_SC_030
+2340,LIB_EA_SC,BERN,"Linking Library",,K_LI_020
+2341,LIB_EA_SC,BONNERSPGS,"Major Service Center I",,M_SC_010
 1547,LINTPOLICY,%," All patrons",," All patrons"
 1553,LINTPOLICY,~," Empty fields only",," Empty fields only"
 1550,LINTPOLICY,Needs,"Needs to be Signed",,"Needs to be Signed"
@@ -1008,25 +1041,28 @@ id,category,authorised_value,lib,imageurl,lib_opac
 1869,LNOT_LOAN,Paola%,"Paola all statuses",,"Paola all statuses"
 1630,LNOT_LOAN,"Staff Collection%","Staff Collection",,"Staff Collection"
 170,LOC,ADULT," Adult",," Adult"
-2008,LOC,BALDADULT,"~Display - BALDWIN - Adult",,"YY Adult Display (Baldwin City Library)"
-2009,LOC,BALDCHILD,"~Display - BALDWIN - Childrens",,"YY Children's Display (Baldwin City Library)"
-2010,LOC,BALDYA,"~Display - BALDWIN - Young Adult",,ZZZZZ
-209,LOC,CART,"Recently returned",,"Recently returned"
-173,LOC,CATALOGING,Cataloging,,Cataloging
+2008,LOC,BALDADULT,"~Display - BALDWIN - Adult",,"ZZ Adult Display (Baldwin City Library)"
+2009,LOC,BALDCHILD,"~Display - BALDWIN - Childrens",,"ZZ Children's Display (Baldwin City Library)"
+209,LOC,CART,"Recently returned",,"ZZ Recently returned"
+173,LOC,CATALOGING,Cataloging,,"ZZ Cataloging"
 171,LOC,CHILDRENS," Childrens",," Childrens"
-2141,LOC,D_YA_BALD,"~Display - BALDWIN - Young Adult",,"YY Young Adult Display (Baldwin City Library)"
-2139,LOC,D_YA_LEAV,"~Display - LEAVWNWRTH - Young Adult",,"YY Young Adult Display (Leavenworth Public Library)"
-2140,LOC,D_YA_PAOL,"~Display - PAOLA - Young Adult",,"YY Young Adult Display (Paola Free Library)"
-2196,LOC,L_JU,Childrens,,Childrens
+2353,LOC,D_AD_BALD,"~Display - BALDWIN - Adult",,"ZZ Adult display (Baldwin City Library)"
+2354,LOC,D_AD_LEAV,"~Display - LEAVWNWRTH - Adult",,"ZZ Adult display (Leavenworth Public Library)"
+2355,LOC,D_AD_PAOL,"~Display - PAOLA - Adult",,"ZZ Adult Display (Paola Free Library)"
+2349,LOC,D_JU_BALD,"~Display - BALDWIN - Childrens",,"ZZ Children's display (Baldwin City Library)"
+2350,LOC,D_JU_LEAV,"~Display - LEAVWNWRTH - Children's",,"ZZ Children's display (Leavenworth Public Library)"
+2351,LOC,D_JU_PAOL,"~Display - PAOLA - Children's",,"ZZ Children's display (Paola Free Library)"
+2141,LOC,D_YA_BALD,"~Display - BALDWIN - Young Adult",,"ZZ Young adult display (Baldwin City Library)"
+2139,LOC,D_YA_LEAV,"~Display - LEAVWNWRTH - Young Adult",,"ZZ Young adult display (Leavenworth Public Library)"
+2140,LOC,D_YA_PAOL,"~Display - PAOLA - Young Adult",,"ZZ Young adult display (Paola Free Library)"
+2352,LOC,L_AD,Adult,,"ZZ Adult"
+2196,LOC,L_JU,Childrens,,"ZZ Children's"
 2138,LOC,L_YA," Young adult",," Young adult"
-738,LOC,LVPLADULT,"~Display - LEAVENWRTH - Adult",,"YY Adult Display (Leavenworth Public Library)"
-739,LOC,LVPLCHILD,"~Display - LEAVENWRTH - Children's",,"YY Children's Display (Leavenworth Public Library)"
-740,LOC,LVPLYA,"~Display - LEAVWNWRTH - Young Adult-",,ZZZZZ
-1754,LOC,PAOLAADULT,"~Display - PAOLA - Adult",,"YY Adult Display (Paola Free Library)"
-1753,LOC,PAOLACHILD,"~Display - PAOLA - Children's",,"YY Children's Display (Paola Free Library)"
-1752,LOC,PAOLAYA,"~Display - PAOLA - Young Adult",,ZZZZZ
-210,LOC,PROC,"Processing Center",,"Processing Center"
-172,LOC,YOUNGADULT," Young Adult",,ZZZZZ
+738,LOC,LVPLADULT,"~Display - LEAVENWRTH - Adult",,"ZZ Adult Display (Leavenworth Public Library)"
+739,LOC,LVPLCHILD,"~Display - LEAVENWRTH - Children's",,"ZZ Children's Display (Leavenworth Public Library)"
+1754,LOC,PAOLAADULT,"~Display - PAOLA - Adult",,"ZZ Adult Display (Paola Free Library)"
+1753,LOC,PAOLACHILD,"~Display - PAOLA - Children's",,"ZZ Children's display (Baldwin City Library)"
+210,LOC,PROC,"Processing Center",,"ZZ Processing center"
 3,LOST,1,Lost,,"Lost ~ !"
 1903,LOST,10,"In processing",,"In processing & !"
 1974,LOST,11,"Temporary storage (Carbondale)",,"Temporary storage (Carbondale) & !"
@@ -1261,6 +1297,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 1866,NOT_LOAN,-8,"Paola repair/mending",,"Paola repair/mending."
 1867,NOT_LOAN,-9,"Paola processing",,"Paola processing."
 24,NOT_LOAN,1,"Not For Loan",,"Not For Loan."
+2397,NOT_LOAN,10,"Storage (Sabetha Elementary School)",,"Storage (Sabetha Elementary School)"
 25,NOT_LOAN,2,"Staff Collection",,"Staff Collection."
 191,NOT_LOAN,3,Migration,,Migration.
 207,NOT_LOAN,5,"Download or Online Access",,"Download or Online Access."
@@ -1408,6 +1445,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 296,REPORT_SUBGROUP,SCHOOLAD,"School Libraries-admin",,ADMIN
 367,REPORT_SUBGROUP,SCHOverdues,"Overdues (schools)",,SCHOOL
 255,REPORT_SUBGROUP,SHELFLIST,"Shelf Lists",,CAT
+2398,REPORT_SUBGROUP,STAT_22,"2022 beginning of month statistics",,STATS
 1751,REPORT_SUBGROUP,STAT_EOM,"End of month statistics",,STATS
 2273,REPORT_SUBGROUP,STAT_LM,"Last month's statistics - Next-wide",,STATS
 1176,REPORT_SUBGROUP,STAT_M,"Last calendar month",,STATS
@@ -1422,6 +1460,8 @@ id,category,authorised_value,lib,imageurl,lib_opac
 401,REPORT_SUBGROUP,Yearlystats,"Yearly Stats Suite",,REGULAR
 26,RESTRICTED,0,,,
 27,RESTRICTED,1,"Restricted Access",,
+2333,RETURN_CLAIM_RESOLUTION,BILLED,"Borrower will be billed for the item",,
+2334,RETURN_CLAIM_RESOLUTION,CKO_OTHER,"Item is checked out to another borrower",,"Item is checked out to another borrower"
 2020,RETURN_CLAIM_RESOLUTION,FOUND_IN_LIB,"Found in library",,
 2019,RETURN_CLAIM_RESOLUTION,RET_BY_PATRON,"Returned by patron",,
 389,SIP_MEDIA_TYPE,000,Other,,
@@ -1514,6 +1554,8 @@ id,category,authorised_value,lib,imageurl,lib_opac
 21,WITHDRAWN,1,Withdrawn,,
 179,WITHDRAWN,2,Discard,,
 215,WITHDRAWN,3,"Lost - Not Returnable",,"Lost - Not Returnable"
+2335,XS_BRANCH,1,"Normal sort order including item home library",,"Normal sort order including item home library"
+2336,XS_BRANCH,2,"Normal sort order without item home library",,"Normal sort order without item home library"
 1994,XS_DATE,1," Normal sort order",," Normal sort order"
 1995,XS_DATE,2,"Date (newest to oldest)",,"Date (newest to oldest)"
 1996,XS_DATE,3,"Date (oldest to newest)",,"Date (oldest to newest)"
@@ -1550,6 +1592,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 449,Year,2019,2019,,2019
 1973,Year,2020,2020,,2020
 2136,Year,2021,2021,,2021
+2396,Year,2022,2022,,2022
 1125,YEMAILNEWS,%," All newsletter permissions",," All newsletter permissions"
 1126,YEMAILNEWS,No,No,,No
 1128,YEMAILNEWS,NotApp,"Not Used at Library",,"Not Used at Library"

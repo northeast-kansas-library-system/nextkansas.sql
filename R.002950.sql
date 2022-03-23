@@ -12,8 +12,8 @@ Group:  LEAVENWRTH
      -
 
 Created on: 2017-05-23 15:31:22
-Modified on: 2021-08-16 20:33:25
-Date last run: 2021-11-01 06:15:03
+Modified on: 2022-01-05 09:42:44
+Date last run: 2022-03-01 06:15:03
 
 ----------
 
@@ -42,7 +42,7 @@ Expiry: 300
 
 SELECT
   old_issues.branchcode,
-  DateDiff(old_issues.returndate, old_issues.date_due) AS DAYS_LATE,
+  LPad(DateDiff(old_issues.returndate, old_issues.date_due), 3, 0) AS DAYS_LATE,
   Count(DISTINCT old_issues.issue_id) AS COUNT
 FROM
   old_issues
@@ -52,8 +52,15 @@ WHERE
   Year(old_issues.returndate) = Year(Now() - INTERVAL 1 MONTH) AND
   old_issues.date_due < old_issues.returndate
 GROUP BY
-  old_issues.branchcode, DateDiff(old_issues.returndate, old_issues.date_due)
+  old_issues.branchcode,
+  DateDiff(old_issues.returndate, old_issues.date_due)
+UNION
+SELECT
+  " Month" AS Column1,
+  Concat(Year(Now() - INTERVAL 1 MONTH), " - ", Month(Now() - INTERVAL 1 MONTH)) AS Column2,
+  NULL AS Column3
 ORDER BY
+  branchcode,
   DAYS_LATE,
   COUNT
 

@@ -3,7 +3,7 @@ R.003589
 
 ----------
 
-Name: GHW - LibraryIQ - Bibliographic File - deleted yesterday - BONNERSPGS
+Name: LibraryIQ - Bibliographic File (deleted yesterday) - BONNERSPGS
 Created by: George H Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: LibraryIQ
      BONNERSPGS
 
 Created on: 2021-10-13 08:30:10
-Modified on: 2021-10-29 11:32:16
-Date last run: 2021-11-08 00:15:02
+Modified on: 2021-12-01 12:54:42
+Date last run: 2022-03-23 00:15:04
 
 ----------
 
@@ -22,7 +22,7 @@ Expiry: 300
 
 ----------
 
-#libraryiq #bibliographic #bonnerspgs #daily 
+#libraryiq #bibliographic #deleted #bonnerspgs #daily
 
 ----------
 */
@@ -30,31 +30,34 @@ Expiry: 300
 
 
 SELECT
-  deleteditems.biblionumber AS BibliographicRecordID,
+  deletedbiblio.biblionumber AS BibliographicRecordID,
   deletedbiblioitems.isbn AS ISBN,
   ExtractValue(deletedbiblio_metadata.metadata, '//datafield[@tag="024"]/subfield[@code="a"]') AS UPC,
-  itemtypes.description AS `Material Type`,
+  itemtypess.description AS `Material Type`,
   deletedbiblio.title AS Title,
   deletedbiblio.author AS Author,
-  deletedbiblioitems.publicationyear AS `Publish Date`,
-  deletedbiblioitems.publishercode AS Publisher,
+  deletedbiblioitems.publicationyear `Publish Date`,
+  deletedbiblioitems.publishercode Publisher,
   CurDate() AS `Report Date`
 FROM
-  deleteditems  JOIN
-  deletedbiblio ON deletedbiblio.biblionumber = deleteditems.biblionumber
-   JOIN
-  itemtypes ON itemtypes.itemtype = deleteditems.itype  JOIN
-  deletedbiblio_metadata ON deletedbiblio_metadata.biblionumber =
-      deletedbiblio.biblionumber  JOIN
+  deletedbiblio JOIN
   deletedbiblioitems ON deletedbiblioitems.biblionumber =
-      deletedbiblio.biblionumber
+      deletedbiblio.biblionumber JOIN
+  deletedbiblio_metadata ON deletedbiblio_metadata.biblionumber =
+      deletedbiblio.biblionumber JOIN
+  deleteditems ON deleteditems.biblionumber = deletedbiblio.biblionumber JOIN
+  (SELECT
+      itemtypes.itemtype,
+      itemtypes.description
+    FROM
+      itemtypes) itemtypess ON itemtypess.itemtype = deleteditems.itype
 WHERE
   deleteditems.homebranch = 'BONNERSPGS' AND
   Year(deleteditems.timestamp) = Year(Now() - INTERVAL 1 DAY) AND
   Month(deleteditems.timestamp) = Month(Now() - INTERVAL 1 DAY) AND
   Day(deleteditems.timestamp) = Day(Now() - INTERVAL 1 DAY)
 GROUP BY
-  deleteditems.biblionumber
+  deletedbiblio.biblionumber
 
 
 

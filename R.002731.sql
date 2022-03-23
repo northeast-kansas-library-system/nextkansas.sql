@@ -12,8 +12,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2016-08-11 16:36:03
-Modified on: 2021-10-12 11:17:19
-Date last run: 2021-11-05 16:22:20
+Modified on: 2021-11-16 17:49:45
+Date last run: 2022-03-22 15:45:31
 
 ----------
 
@@ -26,7 +26,7 @@ Expiry: 0
 <p>This report shows all items added to Next Search Catalog at a specific library branch after a specified date - includes date added, date last borrowed, date last seen, and total circulations+renewals</p>
 <p>Includes the date the item was added (dateaccessioned), the date the item was last checked out to a patron (datelastborrowed), and the date the item was last scanned on the check-in screen (datelastseen).</p>
 <ul><li>Shows items that are currently still in Next</li>
-<li>Allows user to specify the item's homebranch, shelving location, item type, collection code, and the item's date added</li>
+<li>Allows user to specify the item's homebranch, permanent shelving location, item type, collection code, and the item's date added</li>
 <li>grouped by homebranch, location, itype, collection code, and call number</li>
 <li>sorted by homebranch, location, itype, collection code, and call number</li>
 <li>contains links directly to the item's bibliographic record</li>
@@ -34,8 +34,14 @@ Expiry: 0
 
 <p><ins>Notes:</ins></p>
 <p></p>
-<p>Please note the dates in the default - especially "Item added between date1:" +  "and date2:"  These dates default to 1/1/2000 and today's date.  If you have an item that has a "Date acquired" date prior to 1/1/2000, it will not appear on this report.  as of the writing of this note (2020.12.17) there are approximately 21,000 items at 43 libraries that have "Date acquired" dates prior to 1/1/2000.
-</p>
+<p>This report now handles dateaccessioned, datelastborrowed, and datelastseen as follows:</p>
+<ul>
+  <li>dateaccessioned that are blank or older than 2000 are filtered as if they were added on January 2, 2000</li>
+  <li>datelastborrowed that are blank or older than 2000 are filtered as if they were added on January 2, 2000</li>
+  <li>datelastseen that are blank or older than 2000 are filtered as if they were added on January 2, 2000</li>
+</ul>
+<p>These dates will still show the actual dates in the appropriate columns, but you will no longer need to adjust the filters in order to identify dates prior to 2000.  The side-effect of this change is that you will no longer be able filter for dates prior to January 1, 2000.  If you run this report and specify dates before January 3, 2000, you will be able to see these items, but you cannot really specify dates older than January 1, 2000.</p>
+<p></p>
 <p></p>
 <p>publicationyear data comes from the 264$c subfield.  If the data in 264$c is not a 4 digit year, the data will be problematic.  If 264$c is blank, the result in this report will be blank.</p>
 <p></p>
@@ -78,46 +84,48 @@ Expiry: 0
 
 SELECT
   Concat(
-    '<a class= "clicked" href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
+    '<a class="btn btn-default" href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
     items.biblionumber, 
-    '\" target="_blank">', 
-    items.biblionumber, 
-    '</a>'
+    '\" target="_blank">Go to title</a>'
   ) AS LINK_TO_TITLE,
-  items.biblionumber,
+  biblio.biblionumber AS BIBLIO_NUMBER,
   items.itemnumber AS ITEM_NUMBER,
-  Concat("-", Coalesce(items.barcode, "-"), "-") AS BARCODE,
+  Concat('-', items.barcode, '-') AS BARCODE,
   items.homebranch,
   items.holdingbranch,
-  Coalesce(permlocs.lib, "-") AS PERMANENT_LOCATION,
-  Coalesce(locs.lib, "-") AS LOCATION,
-  Coalesce(itypes.description, "-") AS ITYPE,
-  Coalesce(ccodes.lib, "-") AS CCODE,
+  perm_locs.lib AS PERMANENT_LOCATION,
+  current_locs.lib AS LOCATION,
+  itemtypes.description AS ITYPE,
+  ccodes.lib AS CCODE,
   items.itemcallnumber,
   biblio.author,
   Concat_Ws(" ", 
     biblio.title, 
-    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'),
-    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), 
-    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'), 
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'),  
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'),  
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),  
     ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')
   ) AS FULL_TITLE,
+  biblioitems.publicationyear,
   biblioitems.isbn,
-  biblioitems.issn,
-  Coalesce(biblioitems.publicationyear, "0") AS publicationyear,
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="022"]/subfield[@code="a"]') AS ISSN,
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="024"]/subfield[@code="a"]') AS UPC,
   items.dateaccessioned,
-  Coalesce(items.datelastborrowed, 0) AS datelastborrowed,
+  items.datelastborrowed,
   items.datelastseen,
   items.issues,
   items.renewals,
-  Sum((Coalesce(items.issues, 0)) + (Coalesce(items.renewals, 0))) AS CHECKOUTS_PLUS_RENEWALS,
-  If(items.onloan IS NULL, 'No', 'Yes') AS CHECKED_OUT,
-  If(
-    Sum(Coalesce(items.damaged, 0) + Coalesce(items.itemlost, 0) + Coalesce(items.withdrawn, 0)) = 0, 
-    'No', 
-    'Yes'
-  ) AS STATUS_PROBLEMS,
-  Coalesce(notloan.lib, "-") AS NOT_FOR_LOAN,
+  Sum((Coalesce(items.issues, 0)) + (Coalesce(items.renewals, 0))) AS
+  CHECKOUTS_PLUS_RENEWALS,
+  If(items.onloan IS NULL, 'No', 'Yes') AS CHECKED_OUT_NOW,
+  not_loans.lib AS NOT_FOR_LOAN,
+  If(Sum(Coalesce(items.damaged, 0) + Coalesce(items.itemlost, 0) +
+  Coalesce(items.withdrawn, 0)) = 0, 'No', 'Yes') AS STATUS_PROBLEMS,
+  Concat_Ws('', 
+    If(Coalesce(damageds.lib, 0) = '', '', Concat(damageds.lib, ' (', Date_Format(items.damaged_on, "%Y.%m.%d"), ') / ')), 
+    If(Coalesce(losts.lib, 0) = '', '', Concat(losts.lib, ' (', Date_Format(items.itemlost_on, "%Y.%m.%d"), ') / ')), 
+    If(Coalesce(withdrawns.lib, 0) = '', '', Concat(withdrawns.lib, ' (', Date_Format(items.withdrawn_on, "%Y.%m.%d"), ')'))
+  ) AS STATUSSES,
   items.itemnotes,
   items.itemnotes_nonpublic,
   items.copynumber,
@@ -125,98 +133,140 @@ SELECT
   localcounts.Count_itemnumber AS LOCAL_COPIES,
   systemcounts.Count_itemnumber AS SYSTEM_COPIES,
   Concat(
-    '<a class= "clicked" href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=', 
+    '<a class="btn btn-default" href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=', 
     items.biblionumber, 
     '&itemnumber=', 
     items.itemnumber, 
     '#edititem\" target="_blank">Edit item</a>'
   ) AS EDIT_ITEM
 FROM
-  items JOIN
-  biblio ON items.biblionumber = biblio.biblionumber JOIN
-  biblio_metadata ON items.biblionumber = biblio_metadata.biblionumber JOIN
-  biblioitems ON items.biblioitemnumber = biblioitems.biblioitemnumber JOIN
+  biblio JOIN
+  biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber JOIN
+  items ON items.biblionumber = biblio.biblionumber LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib,
+      authorised_values.lib_opac
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'LOC') perm_locs ON
+      perm_locs.authorised_value = items.permanent_location LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib,
+      authorised_values.lib_opac
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'LOC') current_locs ON
+      current_locs.authorised_value = items.location LEFT JOIN
+  itemtypes ON itemtypes.itemtype = items.itype LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib,
+      authorised_values.lib_opac
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'CCODE') ccodes ON ccodes.authorised_value =
+      items.ccode JOIN
+  biblioitems ON biblioitems.biblionumber = biblio.biblionumber LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib,
+      authorised_values.lib_opac
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'NOT_LOAN') not_loans ON
+      not_loans.authorised_value = items.notforloan LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib,
+      authorised_values.lib_opac
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'damaged') damageds ON
+      damageds.authorised_value = items.damaged LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib,
+      authorised_values.lib_opac
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'lost') losts ON losts.authorised_value =
+      items.itemlost LEFT JOIN
+  (SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib,
+      authorised_values.lib_opac
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'withdrawn') withdrawns ON
+      withdrawns.authorised_value = items.withdrawn LEFT JOIN
   (SELECT
       items.biblionumber,
       items.homebranch,
       Count(items.itemnumber) AS Count_itemnumber
     FROM
       items
+    WHERE
+      items.homebranch LIKE <<Item home library|ZBRAN>>
     GROUP BY
       items.biblionumber,
-      items.homebranch) localcounts ON items.biblionumber =
-      localcounts.biblionumber AND
-      items.homebranch = localcounts.homebranch JOIN
+      items.homebranch) localcounts ON localcounts.biblionumber =
+      items.biblionumber AND
+      localcounts.homebranch = items.homebranch LEFT JOIN
   (SELECT
       items.biblionumber,
       Count(items.itemnumber) AS Count_itemnumber
     FROM
       items
     GROUP BY
-      items.biblionumber) systemcounts ON items.biblionumber =
-      systemcounts.biblionumber LEFT JOIN
-  (SELECT
-      authorised_values.category,
-      authorised_values.authorised_value,
-      authorised_values.lib
-    FROM
-      authorised_values
-    WHERE
-      authorised_values.category = 'NOT_LOAN'
-    GROUP BY
-      authorised_values.category,
-      authorised_values.authorised_value) notloan ON notloan.authorised_value =
-      items.notforloan LEFT JOIN
-  (SELECT
-      authorised_values.category,
-      authorised_values.authorised_value,
-      authorised_values.lib
-    FROM
-      authorised_values
-    WHERE
-      authorised_values.category = 'ccode') ccodes ON ccodes.authorised_value =
-      items.ccode LEFT JOIN
-  (SELECT
-      itemtypes.itemtype,
-      itemtypes.description
-    FROM
-      itemtypes) itypes ON itypes.itemtype = items.itype LEFT JOIN
-  (SELECT
-      authorised_values.category,
-      authorised_values.authorised_value,
-      authorised_values.lib
-    FROM
-      authorised_values
-    WHERE
-      authorised_values.category = 'LOC') permlocs ON
-      permlocs.authorised_value = items.permanent_location LEFT JOIN
-  (SELECT
-      authorised_values.category,
-      authorised_values.authorised_value,
-      authorised_values.lib
-    FROM
-      authorised_values
-    WHERE
-      authorised_values.category = 'LOC') locs ON locs.authorised_value =
-      items.location
-WHERE items.homebranch LIKE <<Item home library|ZBRAN>> AND
+      items.biblionumber) systemcounts ON systemcounts.biblionumber =
+      items.biblionumber
+WHERE
+  items.homebranch LIKE <<Item home library|ZBRAN>> AND
   Coalesce(items.permanent_location, "-") LIKE <<Item permanent shelving location|LLOC>> AND
   Coalesce(items.itype, "PUNC") LIKE <<Item type|LITYPES>> AND
   Coalesce(items.ccode, "XXX") LIKE <<Item collection code|LCCODE>> AND
   Coalesce(items.itemcallnumber, "-") LIKE Concat(<<Enter first part of call number or a % symbol>>, "%") AND
-  Coalesce(notloan.lib, "-") LIKE <<Not for loan status|LNOT_LOAN>> AND
-  Coalesce(items.dateaccessioned, CurDate()) >= <<Item added between date1|date>> AND
-  Coalesce(items.dateaccessioned, "0") <= <<and date2|date>> AND 
-  Coalesce(items.datelastborrowed, CurDate()) >= <<Item last borrowed between date1|date>> AND
-  Coalesce(items.datelastborrowed, "0") <= <<and  date2|date>> AND 
-  Coalesce(items.datelastseen, CurDate()) >= <<Item last seen between date1|date>> AND
-  Coalesce(items.datelastseen, "0") <= <<and   date2|date>>
+  Coalesce(not_loans.lib_opac, "-") LIKE <<Not for loan status|LNOT_LOAN>> AND
+  (If(
+    Coalesce(Year(Coalesce(items.dateaccessioned)), '1999') < '2000', 
+    '2000-01-02', 
+    items.dateaccessioned
+  ) BETWEEN <<Item added between date1|date>> AND <<and date2|date>>) AND
+  If(items.onloan IS NULL, 'No', 'Yes') LIKE '%' AND
+  (If(
+    Coalesce(Year(Coalesce(items.datelastborrowed)), '1999') < '2000', 
+    '2000-01-02', 
+    items.datelastborrowed
+  ) BETWEEN <<Item last borrowed between date1|date>> AND <<and  date2|date>>) AND
+  (If(
+    Coalesce(Year(Coalesce(items.datelastseen)), '1999') < '2000', 
+    '2000-01-02', 
+    items.datelastseen
+  ) BETWEEN <<Item last seen between date1|date>> AND <<and   date2|date>>) AND
+  localcounts.Count_itemnumber >= 0 AND
+  systemcounts.Count_itemnumber >= 0
 GROUP BY
   biblio.biblionumber,
   items.itemnumber
 HAVING
   CHECKOUTS_PLUS_RENEWALS <= <<With X or fewer checkouts|ZNUMBERS>> AND
-  CHECKED_OUT LIKE <<Display checked out items|ZYES_NO>> AND
+  CHECKED_OUT_NOW LIKE <<Display checked out items|ZYES_NO>> AND
   STATUS_PROBLEMS LIKE <<Display lost, missing, and withdrawn items|ZYES_NO>> AND
   LOCAL_COPIES >= <<With X or more copies at this library|YNUMBER>> AND
   SYSTEM_COPIES >= <<With X or more copies at throughout the catalog|YNUMBER>>
@@ -227,8 +277,7 @@ ORDER BY
   CCODE,
   items.itemcallnumber,
   biblio.author,
-  FULL_TITLE,
-  biblio.title
+  FULL_TITLE
 
 
 

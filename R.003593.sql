@@ -3,7 +3,7 @@ R.003593
 
 ----------
 
-Name: LibraryIQ - Patron Data File (deleted yesterday) - BONNERSPGS 
+Name: LibraryIQ - Patron Data File (deleted yesterday) - BONNERSPGS
 Created by: George H Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: LibraryIQ
      BONNERSPGS
 
 Created on: 2021-10-13 10:51:10
-Modified on: 2021-10-13 11:17:05
-Date last run: 2021-11-08 00:35:02
+Modified on: 2021-11-12 12:04:11
+Date last run: 2022-03-23 00:35:03
 
 ----------
 
@@ -22,7 +22,7 @@ Expiry: 300
 
 ----------
 
-#libraryiq #item #full #bonnerspgs #daily
+#libraryiq #item #deleted #bonnerspgs #daily
 
 ----------
 */

@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-07-19 16:10:29
-Modified on: 2021-08-27 09:29:31
-Date last run: 2021-11-08 08:28:54
+Modified on: 2021-11-10 09:35:36
+Date last run: 2022-03-23 08:29:01
 
 ----------
 
@@ -46,11 +46,6 @@ SELECT
   borrowers.categorycode,
   borrowers.dateenrolled,
   borrowers.dateexpiry,
-  If(
-    (AddDate(Last_Day(SubDate(borrowers.dateexpiry, INTERVAL -37 MONTH)), 1) + INTERVAL 14 DAY) < CAST('2018-04-15' AS DATE), 
-    CAST('2018-04-15' AS DATE),
-    (AddDate(Last_Day(SubDate(borrowers.dateexpiry, INTERVAL -37 MONTH)), 1) + INTERVAL 14 DAY)
-  ) AS PROJECTED_DELETION,
   Coalesce(accountlinesx.DUE_SUM, 0) AS AMT_DUE,
   Coalesce(issuesx.ICOUNT, 0) AS CHECKOUTS,
   Coalesce(guaranteesx.GCOUNT, 0) AS GUARANTEES,

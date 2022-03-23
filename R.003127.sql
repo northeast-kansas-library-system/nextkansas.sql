@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2018-10-04 22:35:11
-Modified on: 2021-06-02 11:48:44
-Date last run: 2021-06-02 11:48:47
+Modified on: 2022-03-08 21:03:42
+Date last run: 2022-03-03 22:20:32
 
 ----------
 
@@ -47,14 +47,14 @@ SELECT
   Group_Concat(DISTINCT items.ccode ORDER BY items.ccode ASC) AS Group_Concat_ccode,
   biblio.frameworkcode,
   Concat("-",ExtractValue(biblio_metadata.metadata, '//datafield[@tag=306]/subfield[@code="a"]'), "-") AS TIMESS,
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=942]/subfield[@code="h"]') AS CCODE
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=942]/subfield[@code="h"]') AS CCODE,
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=942]/subfield[@code="e"]') AS LOC
 FROM
   biblio
   JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
   JOIN items ON items.biblionumber = biblio.biblionumber
 WHERE
-  (items.itype = 'AUDIOBOOK' OR
-    items.itype = 'NEWAUDIO ')
+  items.itype LIKE 'N_AB%'
 GROUP BY
   biblio.biblionumber
 ORDER BY

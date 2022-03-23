@@ -12,8 +12,8 @@ Group: Circulation
      Circ Stats
 
 Created on: 2016-12-19 10:09:30
-Modified on: 2018-11-01 12:03:20
-Date last run: 2021-08-19 08:59:36
+Modified on: 2022-01-05 12:12:15
+Date last run: 2022-01-05 14:07:20
 
 ----------
 
@@ -32,6 +32,12 @@ Expiry: 0
 </ul><br />
 <p><ins>Notes:</ins></p>
 <p></p>
+<p>This report was updated and fixed on January 5, 2022</p>
+<p></p>
+<p>Please note that, because this report gathers data from the issues and oldissues tables in Koha, you cannot see accurate data from more than 13 months old.</p>
+<p></p>
+<p>Also note that this report cannot count the circulation of items that have been deleted.  If an item circulates 50 times on Tuesday, but is deleted on Wednesday, it will not be counted by this report if the report is run on Thursday.</p>
+<p></p>
 <p><ins>The report will almost certainly fail if you use extremely broad parameters.  If you try to run this report with "All libraries" as the checkout branch, "All libraries" as the item home branch, and no limits on shelving locations, item types, or collection codes and a date range longer than just a few weeks, the report will almost certainly fail and may slow down Koha while it runs.</ins></p>
 <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2861&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
@@ -42,50 +48,65 @@ Expiry: 0
 
 
 SELECT
-  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', items.biblionumber, '\" target="_blank">', items.biblionumber, '</a>') AS LINK_TO_TITLE,
+  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',
+  items.biblionumber, '\" target="_blank">', items.biblionumber, '</a>') AS
+  LINK_TO_TITLE,
   biblio.author,
-  Concat_Ws(' ',
-    biblio.title,
+  Concat_Ws(' ', 
+    biblio.title, 
     ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'),
     ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),
     ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')
   ) AS TITLE,
-  Count(all_issues.issue_id) AS Count_issue_id
+  Count(DISTINCT allissues.issue_id) AS CIRCULATION_COUNT
 FROM
-  items JOIN
   (SELECT
-    issues.issue_id,
-    issues.itemnumber,
-    issues.branchcode,
-    issues.renewals,
-    issues.issuedate
-  FROM
-    issues
-  UNION
-  SELECT
-    old_issues.issue_id,
-    old_issues.itemnumber,
-    old_issues.branchcode,
-    old_issues.renewals,
-    old_issues.issuedate
-  FROM
-    old_issues) all_issues
-        ON items.itemnumber = all_issues.itemnumber JOIN
-  biblio
-    ON items.biblionumber = biblio.biblionumber JOIN
-  biblio_metadata
-    ON biblio_metadata.biblionumber = biblio.biblionumber
+      issues.issue_id,
+      issues.itemnumber,
+      issues.branchcode,
+      issues.issuedate
+    FROM
+      issues
+    WHERE
+      issues.branchcode LIKE <<Choose check-out branch|ZBRAN>> AND
+      issues.issuedate BETWEEN 
+        <<Count checkouts between the beginning of the day on|date>> AND 
+        (<<and the end of the day on|date>> + INTERVAL 1 DAY)
+    GROUP BY
+      issues.issue_id,
+      issues.itemnumber,
+      issues.branchcode,
+      issues.issuedate
+    UNION
+    SELECT
+      old_issues.issue_id,
+      old_issues.itemnumber,
+      old_issues.branchcode,
+      old_issues.issuedate
+    FROM
+      old_issues
+    WHERE
+      old_issues.branchcode LIKE <<Choose check-out branch|ZBRAN>> AND
+      old_issues.issuedate BETWEEN 
+        <<Count checkouts between the beginning of the day on|date>> AND 
+        (<<and the end of the day on|date>> + INTERVAL 1 DAY)
+    GROUP BY
+      old_issues.issue_id,
+      old_issues.itemnumber,
+      old_issues.branchcode,
+      old_issues.issuedate) allissues  JOIN
+  items ON items.itemnumber = allissues.itemnumber  JOIN
+  biblio ON items.biblionumber = biblio.biblionumber  JOIN
+  biblio_metadata ON biblio_metadata.biblionumber = items.biblionumber
 WHERE
-  all_issues.branchcode LIKE <<Choose check-out branch|ZBRAN>> AND
   items.homebranch LIKE <<Choose item homebranch|LBRANCH>> AND
-  items.location LIKE <<Choose item shelving location|LLOC>> AND
+  items.permanent_location LIKE <<Choose item permanent shelving location|LLOC>> AND
   items.itype LIKE <<Choose item type|LITYPES>> AND
-  items.ccode LIKE <<Choose item collection code|LCCODE>> AND
-  all_issues.issuedate BETWEEN <<Count checkouts between start date|date>> AND (<<and end date|date>> + interval 1 day)
+  items.ccode LIKE <<Choose item collection code|LCCODE>>
 GROUP BY
-  biblio.author, biblio.title
+  biblio.biblionumber
 ORDER BY
-  Count_issue_id DESC, biblio.author, biblio.title ASC
+  CIRCULATION_COUNT DESC
 LIMIT 200
 
 

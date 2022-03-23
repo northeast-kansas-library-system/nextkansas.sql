@@ -12,8 +12,8 @@ Group: Borrowers
      Patron attributes
 
 Created on: 2018-06-29 08:32:01
-Modified on: 2019-07-24 17:47:19
-Date last run: 2020-12-04 11:36:16
+Modified on: 2022-03-03 13:44:14
+Date last run: 2022-03-08 14:23:44
 
 ----------
 
@@ -76,7 +76,7 @@ FROM
         borrower_attributes.attribute) internet_permission ON
     borrowers.borrowernumber = internet_permission.borrowernumber
 WHERE
-  borrowers.branchcode LIKE <<Choose your library|ZBRAN>> AND
+  borrowers.branchcode LIKE <<Choose your library|LBRANCH>> AND
   borrowers.categorycode LIKE <<Choose a borrower category|LBORROWERCAT>> AND
   Coalesce(internet_permission.attribute, "~") LIKE <<Select internet policy attribute|LINTPOLICY>>
 GROUP BY
