@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-06-11 09:57:11
-Modified on: 2021-08-07 23:35:34
-Date last run: 2021-08-07 23:36:08
+Modified on: 2022-07-26 14:44:53
+Date last run: 2022-07-26 15:43:37
 
 ----------
 
@@ -31,28 +31,35 @@ Setup for 942 cleanup - item type = NVIDEO
 
 
 SELECT
-  biblioitems.biblionumber,
-  biblioitems.agerestriction,
-  Group_Concat(DISTINCT items.permanent_location) AS
-  Group_Concat_permanent_location,
-  biblioitems.itemtype,
-  Group_Concat(DISTINCT items.itype) AS Group_Concat_itype,
-  biblioitems.cn_class,
-  Group_Concat(DISTINCT items.ccode) AS Group_Concat_ccode
+  message_queue.message_id,
+  Concat(
+    '<a href=\"/cgi-bin/koha/circ/circulation.pl?borrowernumber=',
+    borrowers.borrowernumber, 
+    '\" target="_blank">', 
+    borrowers.borrowernumber,
+    '</a>'
+  ) AS LINK_TO_BORROWER,
+  borrowers.borrowernumber,
+  borrowers.branchcode,
+  message_queue.subject,
+  Replace(message_queue.content, '<', '&lt;')  AS CONTENT, 
+  message_queue.metadata,
+  message_queue.letter_code,
+  message_queue.message_transport_type,
+  message_queue.status,
+  message_queue.time_queued,
+  message_queue.to_address,
+  message_queue.from_address,
+  message_queue.content_type
 FROM
-  biblioitems LEFT JOIN
-  items ON items.biblioitemnumber = biblioitems.biblioitemnumber
+  message_queue LEFT JOIN
+  borrowers ON borrowers.borrowernumber = message_queue.borrowernumber
 WHERE
-  biblioitems.itemtype IS NULL
+  borrowers.branchcode = <<choose branch|branches>>
 GROUP BY
-  biblioitems.biblionumber,
-  biblioitems.agerestriction,
-  biblioitems.itemtype,
-  biblioitems.cn_class
-HAVING
-  Group_Concat(DISTINCT items.itype) = 'EQUIPMENT'
+  message_queue.message_id
 ORDER BY
-  Group_Concat_ccode
+  message_queue.time_queued DESC
 
 
 

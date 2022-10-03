@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2022-02-01 09:46:22
-Modified on: 2022-02-01 09:46:22
-Date last run: 2022-02-01 09:46:27
+Modified on: 2022-04-04 21:30:35
+Date last run: 2022-04-04 21:30:38
 
 ----------
 
@@ -31,7 +31,8 @@ Expiry: 300
 
 SELECT
   Left(Trim(borrowers.zipcode), 5) AS ZIP,
-  Count(DISTINCT borrowers.borrowernumber) AS Count_borrowernumber
+  Count(DISTINCT borrowers.borrowernumber) AS Count_borrowernumber,
+  Group_concat(distinct borrowers.borrowernumber) AS BORROWERNUMBERS
 FROM
   borrowers
 GROUP BY

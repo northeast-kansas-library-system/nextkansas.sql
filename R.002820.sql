@@ -12,8 +12,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2016-11-08 15:24:15
-Modified on: 2017-12-19 09:30:37
-Date last run: 2022-01-09 13:13:46
+Modified on: 2022-03-29 12:13:14
+Date last run: 2022-03-29 12:13:23
 
 ----------
 
@@ -23,7 +23,7 @@ Expiry: 0
 ----------
 
 Currently configured for Overbrook
-<p><span style="background-color: blue; color: white">Metadata conversion is done on test server.  Update this SQL with SQL from the same report on the test server after the 17.05 upgrade.</p>
+
 
 ----------
 */
@@ -39,13 +39,16 @@ SELECT
   items.itemcallnumber,
   items.barcode,
   biblio.author,
-  Concat_Ws(' ', biblio.title, ExtractValue(biblio_metadata.metadata,
-  '//datafield[@tag="245"]/subfield[@code="b"]'),
-  ExtractValue(biblio_metadata.metadata,
-  '//datafield[@tag="245"]/subfield[@code="p"]'),
-  ExtractValue(biblio_metadata.metadata,
-  '//datafield[@tag="245"]/subfield[@code="n"]')) AS FULL_TITLE,
-  Concat_Ws(' ', ExtractValue(biblio_metadata.metadata, '//datafield[@tag="490"]/subfield[@code="a"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="490"]/subfield[@code="v"]'))AS SERIES,
+  Concat_Ws(' ', 
+    biblio.title, 
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'),
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')
+  ) AS FULL_TITLE,
+  Concat_Ws(' ', 
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="490"]/subfield[@code="a"]'), 
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="490"]/subfield[@code="v"]')
+   )AS SERIES,
   items.onloan,
   If(items.onloan IS NULL, '0', '1') AS CHECKED_OUT,
   If(Sum(items.damaged + items.itemlost + items.withdrawn) = 0, '0', '1') AS STATUS_PROBLEM,
@@ -73,7 +76,8 @@ SELECT
 	If(items.itemcallnumber RLIKE "^SF [a-zA-Z]", SubString(items.itemcallnumber FROM 1 FOR 6 ),
 	If(items.itemcallnumber RLIKE "^SFF [a-zA-Z]", SubString(items.itemcallnumber FROM 1 FOR 7 ),
 	If(items.itemcallnumber RLIKE "^WII [a-zA-Z]", SubString(items.itemcallnumber FROM 1 FOR 7 ),
-	If(items.itemcallnumber RLIKE "^YA [a-zA-Z]", SubString(items.itemcallnumber FROM 1 FOR 6 ), items.itemcallnumber))))))))))))))))))))))))) AS ALPHACALL,
+	If(items.itemcallnumber RLIKE "^YA [a-zA-Z]", SubString(items.itemcallnumber FROM 1 FOR 6 ), items.itemcallnumber))))))))))))))))))))))))
+  ) AS ALPHACALL,
   If(items.itemcallnumber LIKE "%#%", SubString_Index(items.itemcallnumber, "#", -1), "") AS ALPHASERIES,
   If(biblio.author LIKE "%., ", SubString(biblio.author FROM 1 FOR Char_Length(biblio.author) - 3 ),
   If(biblio.author LIKE "%.,", SubString(biblio.author FROM 1 FOR Char_Length(biblio.author) - 2 ),

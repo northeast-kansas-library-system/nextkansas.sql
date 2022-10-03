@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2020-10-29 13:05:33
-Modified on: 2021-09-10 13:08:43
-Date last run: 2022-03-15 14:37:48
+Modified on: 2022-08-18 13:45:56
+Date last run: 2022-10-03 10:51:01
 
 ----------
 
@@ -163,7 +163,7 @@ FROM
       branchescategories.branchcode AND
       LM_RENEWED.categorycode = branchescategories.categorycode
 WHERE
-  (branchescategories.branchcode LIKE @brn := <<Choose your library|branches>> COLLATE utf8mb4_unicode_ci)
+  (branchescategories.branchcode LIKE @brn := <<Choose your library|branches:all>> COLLATE utf8mb4_unicode_ci)
 GROUP BY
   branchescategories.branchname,
   branchescategories.categorycode

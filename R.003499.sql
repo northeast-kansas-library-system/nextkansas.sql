@@ -12,8 +12,8 @@ Group: Statistics
      2022 beginning of month statistics
 
 Created on: 2021-04-30 15:05:03
-Modified on: 2022-03-10 15:11:03
-Date last run: 2022-03-10 11:13:01
+Modified on: 2022-04-05 15:29:38
+Date last run: 2022-10-01 00:30:02
 
 ----------
 
@@ -54,156 +54,176 @@ Expiry: 300
 
 
 
-SELECT 
-  branchccodes.branchname AS CHECK_OUT_LIBRARY, 
-  branchccodes.lib AS COLLECTION_CODE, 
-  Coalesce(SUM(all_lm.CKO_RENEW), "0") AS CKO_RENW_ALL, 
-  Coalesce(SUM(adult_lm.CKO_RENEW), "0") AS CKO_RENEW_ADULT, 
-  Coalesce(SUM(ya_lm.CKO_RENEW), "0") AS CKO_RENEW_YA, 
-  Coalesce(SUM(childrens_lm.CKO_RENEW), "0") AS CKO_RENEW_CHILDRENS, 
-  Coalesce(SUM(other_lm.CKO_RENEW), "0") AS CKO_RENEW_OTHER 
-FROM 
-    (SELECT 
-      branches.branchcode, 
-      authorised_values.authorised_value, 
-      authorised_values.lib, 
-      branches.branchname 
-    FROM 
-      branches, 
-      authorised_values 
-    WHERE 
-      authorised_values.category = 'CCODE' AND 
-      branches.branchcode LIKE "%" 
-    ORDER BY 
-      branches.branchcode, 
-      authorised_values.lib 
-    ) branchccodes 
-  LEFT JOIN 
-    (SELECT 
-        If(statistics.branch IS NULL, "NEKLS", statistics.branch) AS branch, 
-        If(statistics.ccode IS NULL, "XXX", statistics.ccode) AS CCODE, 
-        Count(*) AS CKO_RENEW 
-      FROM 
-        statistics 
-      WHERE 
-        Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND 
-        Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND 
-        (statistics.type = 'issue' OR 
-          statistics.type = 'renew') 
-      GROUP BY 
-        If(statistics.branch IS NULL, "NEKLS", statistics.branch), 
-        If(statistics.ccode IS NULL, "XXX", statistics.ccode) 
-    ) all_lm 
-  ON all_lm.branch = branchccodes.branchcode AND 
-    all_lm.CCODE = branchccodes.authorised_value LEFT JOIN 
-    (SELECT 
-      If(statistics.branch IS NULL, "NEKLS", statistics.branch) AS branch, 
-      If(statistics.ccode IS NULL, "XXX", statistics.ccode) AS CCODE, 
-      Count(*) AS CKO_RENEW 
-    FROM 
-      statistics LEFT JOIN 
-      items ON items.itemnumber = statistics.itemnumber 
-    WHERE 
-      (statistics.type = 'issue' OR 
-        statistics.type = 'renew') AND 
-      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND 
-      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND 
-      If( 
-        Coalesce(statistics.location, "PROC") = "CART", 
-        Coalesce(items.permanent_location, "PROC"), 
-        Coalesce(statistics.location, "PROC") 
-      ) LIKE "%ADULT%" 
-    GROUP BY 
-      If(statistics.branch IS NULL, "NEKLS", statistics.branch), 
-      If(statistics.ccode IS NULL, "XXX", statistics.ccode) 
-    ) adult_lm 
-  ON adult_lm.branch = branchccodes.branchcode AND 
-    adult_lm.CCODE = branchccodes.authorised_value LEFT JOIN 
-    (SELECT 
-      If(statistics.branch IS NULL, "NEKLS", statistics.branch) AS branch, 
-      If(statistics.ccode IS NULL, "XXX", statistics.ccode) AS CCODE, 
-      Count(*) AS CKO_RENEW 
-    FROM 
-      statistics LEFT JOIN 
-      items ON items.itemnumber = statistics.itemnumber 
-    WHERE 
-      (statistics.type = 'issue' OR 
-        statistics.type = 'renew') AND 
-      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND 
-      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND 
-      If( 
-        Coalesce(statistics.location, "PROC") = "CART", 
-        Coalesce(items.permanent_location, "PROC"), 
-        Coalesce(statistics.location, "PROC") 
-      ) LIKE "%YA%" 
-    GROUP BY 
-      If(statistics.branch IS NULL, "NEKLS", statistics.branch), 
-      If(statistics.ccode IS NULL, "XXX", statistics.ccode) 
-    ) ya_lm 
-  ON ya_lm.branch = branchccodes.branchcode AND 
-    ya_lm.CCODE = branchccodes.authorised_value LEFT JOIN 
-    (SELECT 
-      If(statistics.branch IS NULL, "NEKLS", statistics.branch) AS branch, 
-      If(statistics.ccode IS NULL, "XXX", statistics.ccode) AS CCODE, 
-      Count(*) AS CKO_RENEW 
-    FROM 
-      statistics LEFT JOIN 
-      items ON items.itemnumber = statistics.itemnumber 
-    WHERE 
-      (statistics.type = 'issue' OR 
-        statistics.type = 'renew') AND 
-      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND 
-      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND 
-      If( 
-        Coalesce(statistics.location, "PROC") = "CART", 
-        Coalesce(items.permanent_location, "PROC"), 
-        Coalesce(statistics.location, "PROC") 
-      ) LIKE "%CHILD%" 
-    GROUP BY 
-      If(statistics.branch IS NULL, "NEKLS", statistics.branch), 
-      If(statistics.ccode IS NULL, "XXX", statistics.ccode) 
-    ) childrens_lm 
-  ON childrens_lm.branch = branchccodes.branchcode AND 
-    childrens_lm.CCODE = branchccodes.authorised_value LEFT JOIN 
-    (SELECT 
-      If(statistics.branch IS NULL, "NEKLS", statistics.branch) AS branch, 
-      If(statistics.ccode IS NULL, "XXX", statistics.ccode) AS CCODE, 
-      Count(*) AS CKO_RENEW 
-    FROM 
-      statistics LEFT JOIN 
-      items ON items.itemnumber = statistics.itemnumber 
-    WHERE 
-      (statistics.type = 'issue' OR 
-        statistics.type = 'renew') AND 
-      Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND 
-      Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND 
-      If( 
-        Coalesce(statistics.location, "PROC") = "CART", 
-        Coalesce(items.permanent_location, "PROC"), 
-        Coalesce(statistics.location, "PROC") 
-      ) NOT LIKE "%ADULT%" AND 
-      If( 
-        Coalesce(statistics.location, "PROC") = "CART", 
-        Coalesce(items.permanent_location, "PROC"), 
-        Coalesce(statistics.location,"PROC") 
-      ) NOT LIKE "%YA%" AND 
-      If( 
-        Coalesce(statistics.location, "PROC") = "CART", 
-        Coalesce(items.permanent_location, "PROC"), 
-        Coalesce(statistics.location, "PROC") 
-      ) NOT LIKE "%CHILD%" 
-    GROUP BY 
-      If(statistics.branch IS NULL, "NEKLS", statistics.branch), 
-      If(statistics.ccode IS NULL, "XXX", statistics.ccode) 
-    ) other_lm 
-  ON other_lm.branch = branchccodes.branchcode AND 
-    other_lm.CCODE = branchccodes.authorised_value 
-GROUP BY 
-  branchccodes.branchname, 
-  branchccodes.lib 
-ORDER BY 
-  branchccodes.branchname, 
-  branchccodes.lib 
+SELECT
+  branchess.branchname,
+  ALL_STATS.DATE,
+  ALL_STATS.DAY,
+  Concat(ALL_STATS.HOUR_OF_DAY, ":00 - ", ALL_STATS.HOUR_OF_DAY, ":59") AS HOUR,
+  Coalesce(CKO.COUNT, 0) AS CKO,
+  Coalesce(RENEWALS.COUNT, 0) AS RENEW,
+  Coalesce(RETURNS.COUNT, 0) AS RETURNS,
+  ALL_STATS.COUNT AS TOTAL_CKO_RENEW_RETURN,
+  Coalesce(ckoborrowers.Count_borrowernumber, 0) AS CKO_BORROWERS,
+  Coalesce(renewborrowers.Count_borrowernumber, 0) AS RENEW_BORROWERS,
+  totalborrowers.Count_borrowernumber AS CKO_AND_RENEW_BORROWERS
+FROM
+  (SELECT
+     branches.branchcode,
+     branches.branchname
+   FROM
+     branches) branchess LEFT JOIN
+  (SELECT
+     statistics.branch,
+     DayName(statistics.datetime) AS DAY,
+     Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE,
+     Hour(statistics.datetime) AS HOUR_OF_DAY,
+     count(*) AS COUNT
+   FROM
+     statistics
+   WHERE
+     (statistics.type = 'issue' OR
+         statistics.type = 'renew' OR
+         statistics.type = 'return') AND
+     Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+     Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH)
+   GROUP BY
+     statistics.branch,
+     DayName(statistics.datetime),
+     Date_Format(statistics.datetime, '%Y-%m-%d'),
+     Hour(statistics.datetime)) ALL_STATS ON ALL_STATS.branch =
+      branchess.branchcode LEFT JOIN
+  (SELECT
+     statistics.branch,
+     DayName(statistics.datetime) AS DAY,
+     Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE,
+     Hour(statistics.datetime) AS HOUR_OF_DAY,
+     count(*) AS COUNT
+   FROM
+     statistics
+   WHERE
+     statistics.type = 'return' AND
+     Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+     Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH)
+   GROUP BY
+     statistics.branch,
+     DayName(statistics.datetime),
+     Date_Format(statistics.datetime, '%Y-%m-%d'),
+     Hour(statistics.datetime)) RETURNS ON RETURNS.branch = branchess.branchcode
+      AND
+      RETURNS.DATE = ALL_STATS.DATE AND
+      RETURNS.HOUR_OF_DAY = ALL_STATS.HOUR_OF_DAY LEFT JOIN
+  (SELECT
+     statistics.branch,
+     DayName(statistics.datetime) AS DAY,
+     Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE,
+     Hour(statistics.datetime) AS HOUR_OF_DAY,
+     count(*) AS COUNT
+   FROM
+     statistics
+   WHERE
+     statistics.type = 'issue' AND
+     Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+     Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH)
+   GROUP BY
+     statistics.branch,
+     DayName(statistics.datetime),
+     Date_Format(statistics.datetime, '%Y-%m-%d'),
+     Hour(statistics.datetime)) CKO ON CKO.branch = branchess.branchcode AND
+      CKO.DATE = ALL_STATS.DATE AND
+      CKO.HOUR_OF_DAY = ALL_STATS.HOUR_OF_DAY LEFT JOIN
+  (SELECT
+     statistics.branch,
+     DayName(statistics.datetime) AS DAY,
+     Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE,
+     Hour(statistics.datetime) AS HOUR_OF_DAY,
+     count(*) AS COUNT
+   FROM
+     statistics
+   WHERE
+     statistics.type = 'renew' AND
+     Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+     Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH)
+   GROUP BY
+     statistics.branch,
+     DayName(statistics.datetime),
+     Date_Format(statistics.datetime, '%Y-%m-%d'),
+     Hour(statistics.datetime)) RENEWALS ON
+      RENEWALS.branch = branchess.branchcode AND
+      RENEWALS.DATE = ALL_STATS.DATE AND
+      RENEWALS.HOUR_OF_DAY = ALL_STATS.HOUR_OF_DAY LEFT JOIN
+  (SELECT
+     statistics.branch,
+     DayName(statistics.datetime) AS DAY,
+     Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE,
+     Hour(statistics.datetime) AS HOUR_OF_DAY,
+     Count(DISTINCT statistics.borrowernumber) AS Count_borrowernumber
+   FROM
+     statistics
+   WHERE
+     Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+     Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
+     (statistics.type = 'issue' OR
+         statistics.type = 'renew')
+   GROUP BY
+     statistics.branch,
+     DayName(statistics.datetime),
+     Date_Format(statistics.datetime, '%Y-%m-%d'),
+     Hour(statistics.datetime)) totalborrowers ON totalborrowers.branch =
+      branchess.branchcode AND
+      totalborrowers.DATE = ALL_STATS.DATE AND
+      totalborrowers.HOUR_OF_DAY = ALL_STATS.HOUR_OF_DAY LEFT JOIN
+  (SELECT
+     statistics.branch,
+     DayName(statistics.datetime) AS DAY,
+     Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE,
+     Hour(statistics.datetime) AS HOUR_OF_DAY,
+     Count(DISTINCT statistics.borrowernumber) AS Count_borrowernumber
+   FROM
+     statistics
+   WHERE
+     Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+     Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
+     statistics.type = 'issue'
+   GROUP BY
+     statistics.branch,
+     DayName(statistics.datetime),
+     Date_Format(statistics.datetime, '%Y-%m-%d'),
+     Hour(statistics.datetime)) ckoborrowers ON ckoborrowers.branch =
+      branchess.branchcode AND
+      ckoborrowers.DATE = ALL_STATS.DATE AND
+      ckoborrowers.HOUR_OF_DAY = ALL_STATS.HOUR_OF_DAY LEFT JOIN
+  (SELECT
+     statistics.branch,
+     DayName(statistics.datetime) AS DAY,
+     Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE,
+     Hour(statistics.datetime) AS HOUR_OF_DAY,
+     Count(DISTINCT statistics.borrowernumber) AS Count_borrowernumber
+   FROM
+     statistics
+   WHERE
+     Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
+     Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
+     statistics.type = 'renew'
+   GROUP BY
+     statistics.branch,
+     DayName(statistics.datetime),
+     Date_Format(statistics.datetime, '%Y-%m-%d'),
+     Hour(statistics.datetime)) renewborrowers ON renewborrowers.branch =
+      branchess.branchcode AND
+      renewborrowers.DATE = ALL_STATS.DATE AND
+      renewborrowers.HOUR_OF_DAY = ALL_STATS.HOUR_OF_DAY
+WHERE
+  branchess.branchcode LIKE '%'
+GROUP BY
+  branchess.branchname,
+  ALL_STATS.DATE,
+  ALL_STATS.DAY,
+  ALL_STATS.HOUR_OF_DAY
+ORDER BY
+  branchess.branchname,
+  ALL_STATS.DATE,
+  ALL_STATS.DAY,
+  ALL_STATS.HOUR_OF_DAY
 
 
 

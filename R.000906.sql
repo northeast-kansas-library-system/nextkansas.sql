@@ -12,8 +12,8 @@ Group: Administrative Reports
      Holds-admin
 
 Created on: 2010-08-20 14:15:54
-Modified on: 2013-06-18 18:25:42
-Date last run: 2021-12-04 12:57:36
+Modified on: 2022-03-29 12:00:52
+Date last run: 2022-03-29 12:00:33
 
 ----------
 
@@ -22,14 +22,15 @@ Expiry: 0
 
 ----------
 
-
+Report is obselete
 
 ----------
 */
 
 
 
-select biblio.title, branchtransfers.itemnumber, datesent, frombranch, datearrived, tobranch, comments from branchtransfers, items, biblio, reserves where branchtransfers.itemnumber = items.itemnumber and items.biblionumber = biblio.biblionumber and branchtransfers.itemnumber = reserves.itemnumber and datearrived is NULL and reserves.waitingdate is not null and reserves.found = 'w' order by branchtransfers.itemnumber
+SELECT
+  Concat('Report is now obselete - it is no longer possible for an item to be "In transit" and "Waiting."') AS INFO
 
 
 

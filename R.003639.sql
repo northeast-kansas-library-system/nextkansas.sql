@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2022-01-05 11:09:50
-Modified on: 2022-01-05 11:09:50
-Date last run: 2022-01-05 11:11:12
+Modified on: 2022-03-29 12:16:48
+Date last run: 2022-03-29 13:30:49
 
 ----------
 
@@ -50,8 +50,8 @@ SELECT
   ) AS FULL_TITLE,
   "2" AS SORTING
 FROM
-  items INNER JOIN
-  biblio ON items.biblionumber = biblio.biblionumber INNER JOIN
+  items JOIN
+  biblio ON items.biblionumber = biblio.biblionumber JOIN
   biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
   LEFT JOIN
   (SELECT
@@ -161,7 +161,7 @@ SELECT
   "4" AS SORTING
 FROM
   items JOIN
-  biblio ON items.biblionumber = biblio.biblionumber INNER JOIN
+  biblio ON items.biblionumber = biblio.biblionumber JOIN
   biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
   LEFT JOIN
   (SELECT

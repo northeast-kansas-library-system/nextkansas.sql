@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2020-11-30 16:48:41
-Modified on: 2021-10-05 17:03:03
-Date last run: 2021-11-05 14:04:38
+Modified on: 2022-08-16 22:50:00
+Date last run: 2022-08-16 22:54:40
 
 ----------
 
@@ -42,7 +42,7 @@ Expiry: 300
 
 
 SELECT
-  borrowers.cardnumber,
+  UPPER(borrowers.cardnumber) AS cardnumber,
   borrowers.surname,
   borrowers.firstname,
   borrowers.address,
@@ -57,8 +57,8 @@ FROM
   borrowers
 WHERE
   borrowers.branchcode NOT LIKE "HIGH_CC" AND
-  borrowers.branchcode NOT LIKE "PH%" AND
-  borrowers.branchcode LIKE <<Choose a library|branches:all>> AND
+  /* borrowers.branchcode NOT LIKE "PH%" AND */
+  borrowers.branchcode LIKE <<Choose your library|branches:all>> AND
   borrowers.categorycode <> "STAFF" AND
   borrowers.cardnumber NOT LIKE "0%" AND
   borrowers.cardnumber IS NOT NULL AND

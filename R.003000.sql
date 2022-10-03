@@ -12,8 +12,8 @@ Group: Borrowers
      Patron attributes
 
 Created on: 2017-09-18 10:49:25
-Modified on: 2021-08-31 16:08:42
-Date last run: 2022-03-20 22:25:31
+Modified on: 2022-04-14 17:30:59
+Date last run: 2022-09-19 10:35:17
 
 ----------
 
@@ -48,10 +48,11 @@ SELECT
   borrowers.categorycode,
   borrowers.dateenrolled,
   borrowers.dateexpiry,
-  If((AddDate(Last_Day(SubDate(borrowers.dateexpiry, INTERVAL -37 MONTH)), 1) +
-  INTERVAL 14 DAY) < CAST('2018-04-15' AS DATE), CAST('2018-04-15' AS DATE),
-  (AddDate(Last_Day(SubDate(borrowers.dateexpiry, INTERVAL -37 MONTH)), 1) +
-  INTERVAL 14 DAY)) AS PROJECTED_DELETION,
+  If(
+    (AddDate(Last_Day(SubDate(borrowers.dateexpiry, INTERVAL -37 MONTH)), 1) + INTERVAL 14 DAY) < CAST('2018-04-15' AS DATE), 
+    CAST('2018-04-15' AS DATE), 
+    (AddDate(Last_Day(SubDate(borrowers.dateexpiry, INTERVAL -37 MONTH)), 1) + INTERVAL 14 DAY)
+  ) AS PROJECTED_DELETION,
   Coalesce(accountlinesx.DUE_SUM, 0) AS AMT_DUE,
   Coalesce(issuesx.ICOUNT, 0) AS CHECKOUTS,
   Coalesce(guaranteesx.GCOUNT, 0) AS GUARANTEES,

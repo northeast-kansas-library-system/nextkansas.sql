@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2015-06-03 16:10:57
-Modified on: 2016-05-11 15:27:34
-Date last run: 2022-01-19 10:45:01
+Modified on: 2022-03-29 12:07:40
+Date last run: 2022-09-27 14:07:22
 
 ----------
 
@@ -22,14 +22,15 @@ Expiry: 0
 
 ----------
 
-Choose your library twice
+Obselete.  Use Report 3658 - GHW - Missing in transit items - instead.
 
 ----------
 */
 
 
 
-SELECT CONCAT ('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',b.biblionumber,'\" target="_blank">'"link to record"'</a>') as "link to record", date_format(bt.datesent, '%Y-%m-%d') as "date of transfer", DATEDIFF(CURDATE(), bt.datesent) as "days overdue", bt.frombranch as sending_library, bt.tobranch as receiving_library,b.title, i.itype, i.ccode, i.itemcallnumber,i.barcode, i.homebranch FROM branchtransfers bt LEFT JOIN items i using(itemnumber) LEFT JOIN biblio b USING(biblionumber) WHERE bt.datearrived IS NULL and  DATEDIFF(NOW(), bt.datesent) > 6 AND (bt.frombranch = <<choose your library|branches>> OR bt.tobranch = <<choose your library|branches>>) AND i.itemlost = '0' ORDER BY sending_library, receiving_library
+SELECT 
+  CONCAT('Obselete.  Use Report 3658 - GHW - Missing in transit items - instead.')
 
 
 

@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2016-11-15 10:29:39
-Modified on: 2020-12-07 16:13:31
-Date last run: 2022-02-23 09:55:03
+Modified on: 2022-07-07 10:24:06
+Date last run: 2022-07-07 10:24:10
 
 ----------
 
@@ -38,7 +38,7 @@ Expiry: 0
 
 
 SELECT
-  special_holidays.branchcode AS BRANCH,
+  (special_holidays.branchcode COLLATE utf8mb4_unicode_ci) AS BRANCH,
   special_holidays.title AS TITLE,
   special_holidays.description AS DESCRIPTION,
 

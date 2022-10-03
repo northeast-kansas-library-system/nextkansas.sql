@@ -9,11 +9,11 @@ Created by: George H Williams
 ----------
 
 Group: Statistics
-     Last month's statistics - Next-wide
+     2022 beginning of month statistics
 
 Created on: 2021-07-26 11:25:35
-Modified on: 2022-03-10 17:47:54
-Date last run: 2022-03-10 17:48:22
+Modified on: 2022-06-09 16:16:29
+Date last run: 2022-10-01 01:10:02
 
 ----------
 

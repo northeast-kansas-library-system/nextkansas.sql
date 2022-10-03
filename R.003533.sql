@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-07-26 16:27:18
-Modified on: 2021-07-26 23:11:38
-Date last run: 2021-11-16 17:17:35
+Modified on: 2022-07-25 11:41:17
+Date last run: 2022-08-11 23:18:01
 
 ----------
 
@@ -49,15 +49,17 @@ Expiry: 300
 
 
 
-SELECT
-  branchtypes.branchname,
-  branchtypes.description AS "ITEM TYPE",
-  itemss.Count_itemnumber AS "TOTAL ITEMS",
-  adultitems.Count_itemnumber AS "ADULT ITEMS",
-  juvenileitems.Count_itemnumber AS "JUVENILE ITEMS",
-  yaitems.Count_itemnumber AS "YOUNG ADULT ITEMS",
-  Concat(
-    '<a class= "clicked" href=\"/cgi-bin/koha/reports/guided_reports.pl?reports=2731&phase=Run+this+report', 
+SELECT 
+  branchtypes.branchname, 
+  branchtypes.description AS "ITEM TYPE", 
+  itemss.Count_itemnumber AS "TOTAL ITEMS", 
+  adultitems.Count_itemnumber AS "ADULT ITEMS", 
+  juvenileitems.Count_itemnumber AS "JUVENILE ITEMS", 
+  yaitems.Count_itemnumber AS "YOUNG ADULT ITEMS", 
+  Concat( 
+    '<a class="btn btn-default"', 
+    'href=\"', 
+    '/cgi-bin/koha/reports/guided_reports.pl?reports=2731&phase=Run+this+report', 
     '&param_name=Item+home+library%7CZBRAN&sql_params=', 
     branchtypes.branchcode, 
     '&param_name=Item+permanent+shelving+location%7CLLOC&sql_params=%25', 
@@ -74,80 +76,83 @@ SELECT
     '&param_name=Display+checked+out+items%7CZYES_NO&sql_params=%25', 
     '&param_name=Display+lost%2C+missing%2C+and+withdrawn+items%7CZYES_NO&sql_params=%25', 
     '&param_name=With+X+or+more+copies+at+this+library%7CYNUMBER&sql_params=0', 
-    '&param_name=With+X+or+more+copies+at+throughout+the+catalog%7CYNUMBER&sql_params=0"', ' target="_blank">', 'Shelflist for these items</a>'
-  ) AS SHELFLIST
-FROM
-  (SELECT
-      branches.branchcode,
-      branches.branchname,
-      itemtypes.itemtype,
-      itemtypes.description
-    FROM
-      itemtypes,
-      branches) branchtypes LEFT JOIN
-  (SELECT
-      items.homebranch,
-      If(items.itype IS NULL, "XXX", items.itype) AS itype,
-      Count(items.itemnumber) AS Count_itemnumber
-    FROM
-      items
-    GROUP BY
-      items.homebranch,
-      If(items.itype IS NULL, "XXX", items.itype)) itemss ON itemss.homebranch =
-      branchtypes.branchcode AND
-      itemss.itype = branchtypes.itemtype LEFT JOIN
-  (SELECT
-      items.homebranch,
-      If(items.itype IS NULL, "XXX", items.itype) AS itype,
-      Count(items.itemnumber) AS Count_itemnumber
-    FROM
-      items
-    WHERE
-      (items.permanent_location LIKE '%ADULT%' OR
-        items.permanent_location = 'CART' OR
-        items.permanent_location = 'CATALOGING' OR
-        items.permanent_location = 'PROC' OR
-        items.permanent_location IS NULL)
-    GROUP BY
-      items.homebranch,
-      If(items.itype IS NULL, "XXX", items.itype)) adultitems ON
-      adultitems.homebranch = branchtypes.branchcode AND
-      adultitems.itype = branchtypes.itemtype LEFT JOIN
-  (SELECT
-      items.homebranch,
-      If(items.itype IS NULL, "XXX", items.itype) AS itype,
-      Count(items.itemnumber) AS Count_itemnumber
-    FROM
-      items
-    WHERE
-      items.permanent_location LIKE "%CHILD%"
-    GROUP BY
-      items.homebranch,
-      If(items.itype IS NULL, "XXX", items.itype)) juvenileitems ON
-      juvenileitems.homebranch = branchtypes.branchcode AND
-      juvenileitems.itype = branchtypes.itemtype LEFT JOIN
-  (SELECT
-      items.homebranch,
-      If(items.itype IS NULL, "XXX", items.itype) AS itype,
-      Count(items.itemnumber) AS Count_itemnumber
-    FROM
-      items
-    WHERE
-      items.permanent_location LIKE "%YA%"
-    GROUP BY
-      items.homebranch,
-      If(items.itype IS NULL, "XXX", items.itype)) yaitems ON
-      yaitems.homebranch = branchtypes.branchcode AND
-      yaitems.itype = branchtypes.itemtype
-WHERE
-  branchtypes.branchcode LIKE <<Choose your library and leave item type as "All"|branches:all>> AND
-  branchtypes.itemtype LIKE <<Or leave library as "All" and choose an item type|itemtypes:all>>
-GROUP BY
-  branchtypes.branchname,
-  branchtypes.description
-ORDER BY
-  branchtypes.branchname,
-  branchtypes.description
+    '&param_name=With+X+or+more+copies+at+throughout+the+catalog%7CYNUMBER&sql_params=0" ', 
+    'target="_blank">', 
+    'Shelflist for these items</a>' 
+  ) AS SHELFLIST 
+FROM 
+  (SELECT 
+      branches.branchcode, 
+      branches.branchname, 
+      itemtypes.itemtype, 
+      itemtypes.description 
+    FROM 
+      itemtypes, 
+      branches) branchtypes LEFT JOIN 
+  (SELECT 
+      items.homebranch, 
+      If(items.itype IS NULL, "XXX", items.itype) AS itype, 
+      Count(items.itemnumber) AS Count_itemnumber 
+    FROM 
+      items 
+    GROUP BY 
+      items.homebranch, 
+      If(items.itype IS NULL, "XXX", items.itype)) itemss ON itemss.homebranch = 
+      branchtypes.branchcode AND 
+      itemss.itype = branchtypes.itemtype LEFT JOIN 
+  (SELECT 
+      items.homebranch, 
+      If(items.itype IS NULL, "XXX", items.itype) AS itype, 
+      Count(items.itemnumber) AS Count_itemnumber 
+    FROM 
+      items 
+    WHERE 
+      (items.permanent_location LIKE '%ADULT%' OR 
+        items.permanent_location = 'CART' OR 
+        items.permanent_location = 'CATALOGING' OR 
+        items.permanent_location = 'PROC' OR 
+        items.permanent_location IS NULL) 
+    GROUP BY 
+      items.homebranch, 
+      If(items.itype IS NULL, "XXX", items.itype)) adultitems ON 
+      adultitems.homebranch = branchtypes.branchcode AND 
+      adultitems.itype = branchtypes.itemtype LEFT JOIN 
+  (SELECT 
+      items.homebranch, 
+      If(items.itype IS NULL, "XXX", items.itype) AS itype, 
+      Count(items.itemnumber) AS Count_itemnumber 
+    FROM 
+      items 
+    WHERE 
+      items.permanent_location LIKE "%CHILD%" 
+    GROUP BY 
+      items.homebranch, 
+      If(items.itype IS NULL, "XXX", items.itype)) juvenileitems ON 
+      juvenileitems.homebranch = branchtypes.branchcode AND 
+      juvenileitems.itype = branchtypes.itemtype LEFT JOIN 
+  (SELECT 
+      items.homebranch, 
+      If(items.itype IS NULL, "XXX", items.itype) AS itype, 
+      Count(items.itemnumber) AS Count_itemnumber 
+    FROM 
+      items 
+    WHERE 
+      items.permanent_location LIKE "%YA%" 
+    GROUP BY 
+      items.homebranch, 
+      If(items.itype IS NULL, "XXX", items.itype)) yaitems ON 
+      yaitems.homebranch = branchtypes.branchcode AND 
+      yaitems.itype = branchtypes.itemtype 
+WHERE 
+  branchtypes.branchcode LIKE <<Choose your library and leave item type as "All"|branches:all>> AND 
+  branchtypes.itemtype LIKE <<Or leave library as "All" and choose an item type|itemtypes:all>> 
+GROUP BY 
+  branchtypes.branchname, 
+  branchtypes.description 
+ORDER BY 
+  branchtypes.branchname, 
+  branchtypes.description 
+LIMIT 500 
 
 
 

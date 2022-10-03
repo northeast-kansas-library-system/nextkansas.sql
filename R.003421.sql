@@ -12,8 +12,8 @@ Group: Statistics
      2022 beginning of month statistics
 
 Created on: 2021-02-04 17:45:36
-Modified on: 2022-03-10 15:03:47
-Date last run: 2022-03-10 14:57:35
+Modified on: 2022-03-29 11:43:58
+Date last run: 2022-10-01 00:20:01
 
 ----------
 
@@ -67,7 +67,8 @@ FROM
       Year(branchtransfers.datesent) = Year(Now() - INTERVAL 1 MONTH) AND 
       Month(branchtransfers.datesent) = Month(Now() - INTERVAL 1 MONTH) AND 
       branchtransfers.tobranch <> branchtransfers.frombranch AND 
-      branchtransfers.comments IS NULL 
+      branchtransfers.comments IS NULL  AND
+      branchtransfers.reason = 'reserve'
     GROUP BY 
       items.homebranch 
     ) ILL_LOANED 
@@ -80,10 +81,11 @@ FROM
       items ON branchtransfers.itemnumber = items.itemnumber 
     WHERE 
       branchtransfers.tobranch <> items.homebranch AND 
-      Month(branchtransfers.datesent) = Month(Now() - INTERVAL 1 MONTH) AND 
-      Year(branchtransfers.datesent) = Year(Now() - INTERVAL 1 MONTH) AND 
+      Month(branchtransfers.datearrived) = Month(Now() - INTERVAL 1 MONTH) AND 
+      Year(branchtransfers.datearrived) = Year(Now() - INTERVAL 1 MONTH) AND 
       branchtransfers.frombranch <> branchtransfers.tobranch AND 
-      branchtransfers.comments IS NULL 
+      branchtransfers.comments IS NULL  AND
+      branchtransfers.reason = 'reserve'
     GROUP BY 
       branchtransfers.tobranch 
     ) ILL_BORROWED 

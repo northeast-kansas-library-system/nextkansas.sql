@@ -12,8 +12,8 @@ Group: Borrowers
      Patron attributes
 
 Created on: 2018-06-29 08:54:23
-Modified on: 2019-07-24 17:47:01
-Date last run: 2020-02-03 10:39:15
+Modified on: 2022-04-06 08:54:54
+Date last run: 2022-08-12 15:03:20
 
 ----------
 
@@ -43,9 +43,30 @@ Expiry: 300
 
 
 SELECT
-  Concat("<a href='/cgi-bin/koha/circ/circulation.pl?borrowernumber=", borrowers.borrowernumber, "' target='_blank'>Patron</a>") AS LINK_TO_PATRON,
+  Concat(
+    "<a href='/cgi-bin/koha/circ/circulation.pl?borrowernumber=", 
+    borrowers.borrowernumber, 
+    "' target='_blank'>Patron</a>"
+  ) AS LINK_TO_PATRON,
   borrowers.cardnumber,
-  Concat_Ws("", If(borrowers.surname = "", "-", borrowers.surname), " / ", If(borrowers.firstname = "", "-", borrowers.firstname), If(borrowers.othernames = "", " ", Concat(" - (", borrowers.othernames, ")"))) AS NAME,
+  Concat_Ws("", 
+    If(
+      borrowers.surname = "", 
+      "-", 
+      borrowers.surname
+    ), 
+    " / ", 
+    If(
+      borrowers.firstname = "", 
+      "-", 
+      borrowers.firstname
+    ), 
+    If(
+      borrowers.othernames = "", 
+      " ", 
+      Concat(" - (", borrowers.othernames, ")")
+    )
+  ) AS NAME,
   borrowers.address,
   borrowers.address2,
   borrowers.city,
@@ -60,20 +81,23 @@ SELECT
   Coalesce(holdscontact.lib, "~") AS HOLDS_CONTACT
 FROM
   borrowers
-  LEFT JOIN (SELECT
-        borrower_attributes.borrowernumber,
-        authorised_values.lib,
-        borrower_attributes.attribute
-      FROM
-        borrower_attributes
-        JOIN authorised_values ON borrower_attributes.attribute = authorised_values.authorised_value
-      WHERE
-        borrower_attributes.code = 'HOLD' AND
-        authorised_values.category = 'HoldsContact'
-      GROUP BY
-        borrower_attributes.borrowernumber,
-        borrower_attributes.attribute,
-        borrower_attributes.code) holdscontact ON borrowers.borrowernumber = holdscontact.borrowernumber
+  LEFT JOIN 
+    (SELECT
+      borrower_attributes.borrowernumber,
+      authorised_values.lib,
+      borrower_attributes.attribute
+    FROM
+      borrower_attributes
+    JOIN authorised_values ON borrower_attributes.attribute = authorised_values.authorised_value
+    WHERE
+      borrower_attributes.code = 'HOLD' AND
+      authorised_values.category = 'HoldsContact'
+    GROUP BY
+      borrower_attributes.borrowernumber,
+      borrower_attributes.attribute,
+      borrower_attributes.code
+    ) holdscontact 
+  ON borrowers.borrowernumber = holdscontact.borrowernumber
 WHERE
   borrowers.branchcode LIKE <<Choose your library|ZBRAN>> AND
   borrowers.categorycode LIKE <<Choose a borrower category|LBORROWERCAT>> AND

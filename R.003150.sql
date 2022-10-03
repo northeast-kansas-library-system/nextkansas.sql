@@ -12,8 +12,8 @@ Group: Administrative Reports
      -
 
 Created on: 2018-12-27 12:02:59
-Modified on: 2019-10-02 08:33:03
-Date last run: 2020-03-01 22:13:56
+Modified on: 2022-05-03 16:37:50
+Date last run: 2022-05-03 16:37:52
 
 ----------
 
@@ -40,16 +40,40 @@ Expiry: 300
 SELECT
   adult_book.NEWSTUFF AS TEXT_TO_PASTE_TO_HOOTSUITE
 FROM
-  (SELECT
-      Concat("Recently added fiction:<br /><br />", Upper(Replace(Replace(Replace(Replace(biblio.title, " /", ""), " :", ""), " ;", ""), ".", "")), "<br /><br />https://nextkansas.org/cgi-bin/koha/opac-detail.pl?biblionumber=", biblio.biblionumber) AS NEWSTUFF,
+  (
+    SELECT
+      Concat(
+        "Recently added fiction:<br /><br />",
+        Upper(
+          Replace(
+            Replace(
+              Replace(
+                Replace(
+                  biblio.title, 
+                  " /", 
+                  ""
+                ), 
+                " :", 
+                ""
+              ), 
+              " ;", 
+              ""
+            ), 
+            ".", 
+            ""
+          )
+        ),
+        "<br /><br />https://nextkansas.org/cgi-bin/koha/opac-detail.pl?biblionumber=", 
+        biblio.biblionumber
+      ) AS NEWSTUFF,
       biblio.biblionumber
     FROM
-      biblio
-      JOIN items ON items.biblionumber = biblio.biblionumber
+      biblio JOIN
+      items ON items.biblionumber = biblio.biblionumber
     WHERE
       items.barcode <> "" AND
       (items.itype = "BOOK" OR
-        items.itype = "NEWBOOK ") AND
+        items.itype = "PBBKNEW") AND
       items.location = 'ADULT' AND
       items.ccode = 'FICTION' AND
       (items.notforloan = 0 OR
@@ -62,23 +86,46 @@ FROM
         items.withdrawn IS NULL)
     ORDER BY
       biblio.biblionumber DESC
-    LIMIT 1) adult_book
+    LIMIT 1
+  ) adult_book
 UNION
 SELECT
   adult_movie.NEWSTUFF
 FROM
-  (SELECT
-      Concat("Recently added DVD:<br /><br />", Upper(Replace(Replace(Replace(Replace(biblio.title, " /", ""), " :", ""), " ;", ""), ".", "")), "<br /><br />https://nextkansas.org/cgi-bin/koha/opac-detail.pl?biblionumber=", biblio.biblionumber) AS NEWSTUFF,
+  (
+    SELECT
+      Concat("Recently added DVD:<br /><br />",
+        Upper(
+          Replace(
+            Replace(
+              Replace(
+                Replace(
+                  biblio.title, 
+                  " /", 
+                  ""
+                ), 
+                " :", 
+                ""
+              ), 
+              " ;", 
+              ""
+            ), 
+            ".", 
+            ""
+          )
+        ),
+        "<br /><br />https://nextkansas.org/cgi-bin/koha/opac-detail.pl?biblionumber=", 
+        biblio.biblionumber
+      ) AS NEWSTUFF,
       biblio.biblionumber
     FROM
-      biblio
-      JOIN items ON items.biblionumber = biblio.biblionumber
+      biblio JOIN
+      items ON items.biblionumber = biblio.biblionumber
     WHERE
       items.barcode <> "" AND
-      (items.itype = 'NVIDEO' OR
-        items.itype = 'NEWMEDIA') AND
+      items.itype LIKE "NVID%" AND
       items.location = 'ADULT' AND
-      items.ccode = 'DVD' AND
+      items.ccode = 'VID_D' AND
       (items.notforloan = 0 OR
         items.notforloan IS NULL) AND
       (items.damaged = 0 OR
@@ -89,21 +136,46 @@ FROM
         items.withdrawn IS NULL)
     ORDER BY
       biblio.biblionumber DESC
-    LIMIT 1) adult_movie
+    LIMIT 1
+  ) adult_movie
 UNION
 SELECT
   child_book.NEWSTUFF
 FROM
-  (SELECT
-      Concat("Recently added children's fiction:<br /><br />", Upper(Replace(Replace(Replace(Replace(biblio.title, " /", ""), " :", ""), " ;", ""), ".", "")), "<br /><br />https://nextkansas.org/cgi-bin/koha/opac-detail.pl?biblionumber=", biblio.biblionumber) AS NEWSTUFF,
+  (
+    SELECT
+      Concat(
+        "Recently added children's fiction:<br /><br />",
+        Upper(
+          Replace(
+            Replace(
+              Replace(
+                Replace(
+                  biblio.title, 
+                  " /", 
+                  ""
+                ), 
+                " :", 
+                ""
+              ), 
+              " ;", 
+              ""
+            ), 
+            ".", 
+            ""
+          )
+        ),
+        "<br /><br />https://nextkansas.org/cgi-bin/koha/opac-detail.pl?biblionumber=", 
+        biblio.biblionumber
+      ) AS NEWSTUFF,
       biblio.biblionumber
     FROM
-      biblio
-      JOIN items ON items.biblionumber = biblio.biblionumber
+      biblio JOIN
+      items ON items.biblionumber = biblio.biblionumber
     WHERE
       items.barcode <> "" AND
       (items.itype = "BOOK" OR
-        items.itype = 'NEWBOOK') AND
+        items.itype = "PBBKNEW") AND
       items.location = 'CHILDRENS' AND
       items.ccode = 'FICTION' AND
       (items.notforloan = 0 OR
@@ -116,23 +188,47 @@ FROM
         items.withdrawn IS NULL)
     ORDER BY
       biblio.biblionumber DESC
-    LIMIT 1) child_book
+    LIMIT 1
+  ) child_book
 UNION
 SELECT
   child_movie.NEWSTUFF
 FROM
-  (SELECT
-      Concat("Recently added children's DVD:<br /><br />", Upper(Replace(Replace(Replace(Replace(biblio.title, " /", ""), " :", ""), " ;", ""), ".", "")), "<br /><br />https://nextkansas.org/cgi-bin/koha/opac-detail.pl?biblionumber=", biblio.biblionumber) AS NEWSTUFF,
+  (
+    SELECT
+      Concat(
+        "Recently added children's DVD:<br /><br />",
+        Upper(
+          Replace(
+            Replace(
+              Replace(
+                Replace(
+                  biblio.title, 
+                  " /", 
+                  ""
+                ), 
+                " :", 
+                ""
+              ), 
+              " ;", 
+              ""
+            ), 
+            ".", 
+            ""
+          )
+        ),
+        "<br /><br />https://nextkansas.org/cgi-bin/koha/opac-detail.pl?biblionumber=", 
+        biblio.biblionumber
+      ) AS NEWSTUFF,
       biblio.biblionumber
     FROM
-      biblio
-      JOIN items ON items.biblionumber = biblio.biblionumber
+      biblio JOIN
+      items ON items.biblionumber = biblio.biblionumber
     WHERE
       items.barcode <> "" AND
-      (items.itype = 'NVIDEO' OR
-        items.itype = 'NEWMEDIA') AND
+      items.itype LIKE "NVID%" AND
       items.location = 'CHILDRENS' AND
-      items.ccode = 'DVD' AND
+      items.ccode = 'VID_D' AND
       (items.notforloan = 0 OR
         items.notforloan IS NULL) AND
       (items.damaged = 0 OR
@@ -143,17 +239,42 @@ FROM
         items.withdrawn IS NULL)
     ORDER BY
       biblio.biblionumber DESC
-    LIMIT 1) child_movie
+    LIMIT 1
+  ) child_movie
 UNION
 SELECT
   ya_book.NEWSTUFF
 FROM
-  (SELECT
-      Concat("Recently added young adult fiction:<br /><br />", Upper(Replace(Replace(Replace(Replace(biblio.title, " /", ""), " :", ""), " ;", ""), ".", "")), "<br /><br />https://nextkansas.org/cgi-bin/koha/opac-detail.pl?biblionumber=", biblio.biblionumber) AS NEWSTUFF,
+  (
+    SELECT
+      Concat(
+        "Recently added young adult fiction:<br /><br />",
+        Upper(
+          Replace(
+            Replace(
+              Replace(
+                Replace(
+                  biblio.title, 
+                  " /", 
+                  ""
+                ), 
+                " :", 
+                ""
+              ), 
+              " ;", 
+              ""
+            ), 
+            ".", 
+            ""
+          )
+        ),
+        "<br /><br />https://nextkansas.org/cgi-bin/koha/opac-detail.pl?biblionumber=", 
+        biblio.biblionumber
+      ) AS NEWSTUFF,
       biblio.biblionumber
     FROM
-      biblio
-      JOIN items ON items.biblionumber = biblio.biblionumber
+      biblio JOIN
+      items ON items.biblionumber = biblio.biblionumber
     WHERE
       items.barcode <> "" AND
       (items.itype = "BOOK" OR
@@ -170,20 +291,44 @@ FROM
         items.withdrawn IS NULL)
     ORDER BY
       biblio.biblionumber DESC
-    LIMIT 1) ya_book
+    LIMIT 1
+  ) ya_book
 UNION
 SELECT
   adult_audio.NEWSTUFF
 FROM
-  (SELECT
-      Concat("Recently added audiobook:<br /><br />", Upper(Replace(Replace(Replace(Replace(biblio.title, " /", ""), " :", ""), " ;", ""), ".", "")), "<br /><br />https://nextkansas.org/cgi-bin/koha/opac-detail.pl?biblionumber=", biblio.biblionumber) AS NEWSTUFF,
-      biblio.biblionumber
+  (
+    SELECT
+      Concat("Recently added audiobook:<br /><br />",
+        Upper(
+          Replace(
+            Replace(
+              Replace(
+                Replace(
+                  biblio.title, 
+                  " /", 
+                  ""
+                ), 
+                " :", 
+                ""
+              ), 
+              " ;", 
+              ""
+            ), 
+            ".", 
+            ""
+          )
+        ),
+        "<br /><br />https://nextkansas.org/cgi-bin/koha/opac-detail.pl?biblionumber=", 
+        biblio.biblionumber
+      ) AS NEWSTUFF,
+     biblio.biblionumber
     FROM
-      biblio
-      JOIN items ON items.biblionumber = biblio.biblionumber
+      biblio JOIN
+      items ON items.biblionumber = biblio.biblionumber
     WHERE
       items.barcode <> "" AND
-      items.itype = 'AUDIOBOOK' AND
+      items.itype LIKE "N_AB%" AND
       items.location = 'ADULT' AND
       items.ccode = 'BOOKONCD' AND
       (items.notforloan = 0 OR
@@ -201,15 +346,39 @@ UNION
 SELECT
   child_audio.NEWSTUFF
 FROM
-  (SELECT
-      Concat("Recently added children's audiobook:<br /><br />", Upper(Replace(Replace(Replace(Replace(biblio.title, " /", ""), " :", ""), " ;", ""), ".", "")), "<br /><br />https://nextkansas.org/cgi-bin/koha/opac-detail.pl?biblionumber=", biblio.biblionumber) AS NEWSTUFF,
+  (
+    SELECT
+      Concat(
+        "Recently added children's audiobook:<br /><br />",
+        Upper(
+          Replace(
+            Replace(
+              Replace(
+                Replace(
+                  biblio.title, 
+                  " /", 
+                  ""
+                ), 
+                " :", 
+                ""
+              ), 
+              " ;", 
+              ""
+            ), 
+            ".", 
+            ""
+          )
+        ),
+        "<br /><br />https://nextkansas.org/cgi-bin/koha/opac-detail.pl?biblionumber=", 
+        biblio.biblionumber
+      ) AS NEWSTUFF,
       biblio.biblionumber
     FROM
-      biblio
-      JOIN items ON items.biblionumber = biblio.biblionumber
+      biblio JOIN
+      items ON items.biblionumber = biblio.biblionumber
     WHERE
       items.barcode <> "" AND
-      items.itype = 'AUDIOBOOK' AND
+      items.itype LIKE "N_AB%" AND
       items.location = 'CHILDRENS' AND
       items.ccode = 'BOOKONCD' AND
       (items.notforloan = 0 OR

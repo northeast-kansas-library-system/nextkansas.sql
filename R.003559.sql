@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-09-13 20:55:02
-Modified on: 2021-09-17 17:01:37
-Date last run: 2021-12-22 14:43:55
+Modified on: 2022-03-29 12:21:25
+Date last run: 2022-07-25 15:20:38
 
 ----------
 
@@ -430,16 +430,6 @@ SELECT
   Date_Format(Max(biblio_metadata.timestamp), '%Y - %m - %d') AS NEWEST
 FROM
   biblio_metadata
-UNION
-SELECT
-  Concat('') AS _GROUP_,
-  Concat('biblioimages') AS TABLE_NAME,
-  Concat('timestamp') AS SUBFIELD,
-  Concat('') AS TYPE,
-  Date_Format(Min(biblioimages.timestamp), '%Y - %m - %d') AS OLDEST,
-  Date_Format(Max(biblioimages.timestamp), '%Y - %m - %d') AS NEWEST
-FROM
-  biblioimages
 UNION
 SELECT
   Concat('') AS _GROUP_,
@@ -1879,16 +1869,6 @@ SELECT
   Concat('') AS TYPE,
   Date_Format(Min(opac_news.expirationdate), '%Y - %m - %d') AS OLDEST,
   Date_Format(Max(opac_news.expirationdate), '%Y - %m - %d') AS NEWEST
-FROM
-  opac_news
-UNION
-SELECT
-  Concat('') AS _GROUP_,
-  Concat('opac_news') AS TABLE_NAME,
-  Concat('timestamp') AS SUBFIELD,
-  Concat('') AS TYPE,
-  Date_Format(Min(opac_news.timestamp), '%Y - %m - %d') AS OLDEST,
-  Date_Format(Max(opac_news.timestamp), '%Y - %m - %d') AS NEWEST
 FROM
   opac_news
 UNION

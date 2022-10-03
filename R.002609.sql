@@ -12,8 +12,8 @@ Group: Holds-Reserves
      -
 
 Created on: 2015-09-24 17:47:27
-Modified on: 2022-03-22 16:05:07
-Date last run: 2022-03-22 16:27:57
+Modified on: 2022-09-29 09:30:01
+Date last run: 2022-09-29 10:00:41
 
 ----------
 
@@ -50,9 +50,9 @@ SELECT
     '" target="_blank">Link to borrower</a>' 
   ) AS LINK_TO_BORROWER, 
   reserves.biblionumber, 
-  Date_Format(reserves.reservedate, "%m/%d/%Y") AS reservedate, 
-  Date_Format(reserves.expirationdate, "%m/%d/%Y") AS expirationdate, 
-  Date_Format(reserves.reservedate + INTERVAL 1 YEAR, "%m/%d/%Y") AS one_year, 
+  Date_Format(reserves.reservedate, "%Y-%m-%d") AS reservedate, 
+  Date_Format(reserves.expirationdate, "%Y-%m-%d") AS expirationdate, 
+  Date_Format(reserves.reservedate + INTERVAL 1 YEAR, "%Y-%m-%d") AS one_year, 
   Concat( 
     '<a href="/cgi-bin/koha/reserve/request.pl?biblionumbers=', 
     reserves.biblionumber, 

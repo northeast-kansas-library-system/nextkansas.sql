@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-11-22 13:25:34
-Modified on: 2022-01-26 17:53:25
-Date last run: 2022-03-22 18:14:17
+Modified on: 2022-05-25 15:42:09
+Date last run: 2022-10-03 11:47:47
 
 ----------
 
@@ -71,7 +71,9 @@ SELECT
     Concat('<br />Date added: ', items.dateaccessioned),
     Concat('Last borrowed: ', items.datelastborrowed),
     Concat('Last seen: ', items.datelastseen),
-    Concat('Item record last modified: ', items.timestamp),
+    Concat('<br />Circs in the previous 12 months: ', statistics_one.last_one),
+    Concat('Circs in the previous 24 months: ', statistics_two.last_two),
+    Concat('<br />Item record last modified: ', items.timestamp),
     Concat('<br />Due date: ', If(issuesi.date_due IS NULL, "-", Date_Format(issuesi.date_due, "%Y.%m.%d"))),
     Concat("Not for loan status: ", If(items.notforloan = 0, "-", If(items.notforloan IS NULL, "-", nfl.lib))),
     Concat("Damaged status: ", If(items.damaged = 0, "-", If(items.damaged IS NULL, "-", damagedi.lib))),
@@ -172,7 +174,31 @@ FROM
     FROM
       issues
   ) issuesi
-    ON items.itemnumber = issuesi.itemnumber
+    ON items.itemnumber = issuesi.itemnumber 
+  LEFT JOIN (
+    SELECT
+      statistics.itemnumber,
+      Count(*) AS last_one
+    FROM
+      statistics
+    WHERE
+      (statistics.type = 'issue' OR
+        statistics.type = 'renew') AND
+      statistics.datetime > CurDate() - INTERVAL 1 YEAR
+    GROUP BY
+      statistics.itemnumber) statistics_one ON statistics_one.itemnumber = items.itemnumber 
+  LEFT JOIN (
+     SELECT
+      statistics.itemnumber,
+      Count(*) AS last_two
+    FROM
+      statistics
+    WHERE
+      (statistics.type = 'issue' OR
+        statistics.type = 'renew') AND
+      statistics.datetime > CurDate() - INTERVAL 2 YEAR
+    GROUP BY
+      statistics.itemnumber) statistics_two ON statistics_two.itemnumber = items.itemnumber
 WHERE
   items.barcode LIKE Concat("%", <<Enter barcode number>>, "%")
 GROUP BY

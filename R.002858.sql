@@ -12,8 +12,8 @@ Group: Fines/Fees
      -
 
 Created on: 2016-12-15 16:10:39
-Modified on: 2020-03-05 10:02:36
-Date last run: 2022-03-03 09:27:27
+Modified on: 2022-03-30 09:09:29
+Date last run: 2022-09-20 13:07:53
 
 ----------
 
@@ -43,7 +43,28 @@ Expiry: 0
 
 
 SELECT
-  Concat_Ws('<br />', Concat(borrowers.firstname, ' ', borrowers.surname),  (IF(borrowers.address2 = "", borrowers.address, Concat(borrowers.address, '<br />', borrowers.address2))), Concat(borrowers.city, ', ',  borrowers.state, ' ', borrowers.zipcode)) AS ADDRESS,
+  Concat_Ws('<br />', 
+    Concat(
+      borrowers.firstname, 
+      ' ', 
+      borrowers.surname
+    ),  
+    (
+      IF(
+        borrowers.address2 = "", 
+        borrowers.address, 
+        Concat(borrowers.address, '<br />', borrowers.address2)
+      )
+    ), 
+    Concat(
+      borrowers.city, 
+      ', ',  
+      borrowers.state, 
+      ' ', 
+      borrowers.zipcode
+    ),
+    borrowers.categorycode
+  ) AS ADDRESS,
   borrowers.firstname,
   borrowers.surname,
   borrowers.address,

@@ -12,8 +12,8 @@ Group: Holds-Reserves
      Holds troubleshooting
 
 Created on: 2016-09-29 10:01:46
-Modified on: 2021-06-30 12:08:36
-Date last run: 2022-02-22 10:12:41
+Modified on: 2022-03-29 13:37:48
+Date last run: 2022-09-30 14:02:26
 
 ----------
 
@@ -33,6 +33,7 @@ Expiry: 0
 <p></p>
 <p>Report created to help troubleshoot problems with requested items (i.e. missing in transit, item on holds list not found, etc.).</p>
 <p>Report 3039 actively links to this report</p>
+<p>Updated on 2022.03.29</p>
 <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2784&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
 
@@ -47,8 +48,10 @@ SELECT
   branchtransfers.frombranch,
   branchtransfers.datesent,
   branchtransfers.tobranch,
+  branchtransfers.datecancelled,
   branchtransfers.datearrived,
   branchtransfers.comments,
+  branchtransfers.cancellation_reason,
   branchtransfers.reason
 FROM
   items

@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2020-12-08 17:29:42
-Modified on: 2022-01-18 20:46:11
-Date last run: 2022-03-23 06:41:09
+Modified on: 2022-08-21 19:59:15
+Date last run: 2022-10-03 13:07:33
 
 ----------
 
@@ -30,6 +30,8 @@ Expiry: 21600
 <p></p>
 <p>This report grabs the Koha version then formats it in a way that's readable in the breadcrumbs on the home page in the staff client.  This report requires separate jQuery to work properly.</p>
 <p></p>
+<p>Updated to Koha 21.05.14 on 2022.05.26</p>
+<p></p>
 <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3390&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 <p class= "notetags" style="display: none;">jQuery required, json report, Koha enhancement</p>
 </div>
@@ -43,7 +45,7 @@ SELECT
   Concat(
     '<span style="font-weight: bold; text-decoration: underline;',
     If(
-      systempreferences.value = '21.0508000', 
+      systempreferences.value = '21.1110000', 
       '', 
       ' color: red;'
     ),
@@ -54,7 +56,7 @@ SELECT
     '.',  
     SubString(systempreferences.value FROM 8 FOR 10 ),
     IF(
-      systempreferences.value = '21.0508000', 
+      systempreferences.value = '21.1110000', 
       '', 
       Concat(' (Updated ', Curdate(), ')')
     ),

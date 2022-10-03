@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2018-03-02 10:10:47
-Modified on: 2022-03-08 21:03:58
-Date last run: 2021-10-21 23:01:01
+Modified on: 2022-05-16 08:20:06
+Date last run: 2022-10-02 21:51:32
 
 ----------
 
@@ -46,13 +46,10 @@ SELECT
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag=300]/subfield[@code="a"]') AS DESCRIP,
   Group_Concat(DISTINCT items.ccode ORDER BY items.ccode ASC) AS Group_Concat_ccode,
   biblio.frameworkcode,
-  Concat_WS("", 
-    "-",
-    ExtractValue(biblio_metadata.metadata, '//datafield[@tag=306]/subfield[@code="a"]'),
-    "-"
-    ) AS TIMESS,
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=942]/subfield[@code="h"]') AS CCODE,
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=942]/subfield[@code="e"]') AS LOC
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=306]/subfield[@code="a"]') AS TIMESS,
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=942]/subfield[@code="e"]') AS BIB_LOC,
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=942]/subfield[@code="c"]') AS BIB_ITYPE,
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=942]/subfield[@code="h"]') AS BIB_CCODE
 FROM  biblio
   JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
   JOIN items ON items.biblionumber = biblio.biblionumber
