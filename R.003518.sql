@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-06-10 14:33:05
-Modified on: 2021-06-10 15:57:07
-Date last run: 2022-09-28 10:02:33
+Modified on: 2022-10-11 09:08:39
+Date last run: 2022-10-12 10:30:08
 
 ----------
 
@@ -37,17 +37,19 @@ SELECT
   max_holds.rule_value AS MAX_REQUESTS,
   If(
     categories_branches.branchcode IS NOT NULL, 
-    'Yes',
+    'Yes', 
     ''
   ) AS STAFF_CAN_CREATE_NEW_BORROWERS
 FROM
-  (SELECT
+  (
+    SELECT
       branchess.branchcode,
       branchess.branchname,
       categoriess.categorycode,
       categoriess.description
     FROM
-      (SELECT
+      (
+        SELECT
           branches.branchcode,
           branches.branchname
         FROM
@@ -57,8 +59,10 @@ FROM
           Concat('*') AS branchcode,
           Concat(' All libraries') AS branchname
         FROM
-          branches) branchess,
-      (SELECT
+          branches
+      ) branchess,
+      (
+        SELECT
           categories.categorycode,
           categories.description
         FROM
@@ -68,8 +72,16 @@ FROM
           Concat('*') AS categorycode,
           Concat(' All borrower categories') AS description
         FROM
-          categories) categoriess) branches_categoriess LEFT JOIN
-  (SELECT
+          categories
+      ) categoriess
+    WHERE
+      (branchess.branchcode LIKE <<Choose your library|LBRANCH>> OR
+      branchess.branchcode LIKE '*') AND
+      (categoriess.categorycode LIKE <<Choose borrower category|LBORROWERCAT>> OR
+      categoriess.categorycode LIKE '*')
+  ) branches_categoriess LEFT JOIN
+  (
+    SELECT
       circulation_rules.id,
       Coalesce(circulation_rules.branchcode, '*') AS branchcode,
       Coalesce(circulation_rules.categorycode, '*') AS categorycode,
@@ -79,11 +91,13 @@ FROM
     FROM
       circulation_rules
     WHERE
-      circulation_rules.rule_name = 'patron_maxissueqty') patron_maxissueqty ON
+      circulation_rules.rule_name = 'patron_maxissueqty'
+  ) patron_maxissueqty ON
       patron_maxissueqty.branchcode = branches_categoriess.branchcode AND
       patron_maxissueqty.categorycode = branches_categoriess.categorycode
   LEFT JOIN
-  (SELECT
+  (
+    SELECT
       circulation_rules.id,
       Coalesce(circulation_rules.branchcode, '*') AS branchcode,
       Coalesce(circulation_rules.categorycode, '*') AS categorycode,
@@ -93,12 +107,13 @@ FROM
     FROM
       circulation_rules
     WHERE
-      circulation_rules.rule_name = 'patron_maxonsiteissueqty')
-  patron_maxonsiteissueqty ON patron_maxonsiteissueqty.branchcode =
-      branches_categoriess.branchcode AND
+      circulation_rules.rule_name = 'patron_maxonsiteissueqty'
+  ) patron_maxonsiteissueqty ON 
+      patron_maxonsiteissueqty.branchcode = branches_categoriess.branchcode AND
       patron_maxonsiteissueqty.categorycode = branches_categoriess.categorycode
   LEFT JOIN
-  (SELECT
+  (
+    SELECT
       circulation_rules.id,
       Coalesce(circulation_rules.branchcode, '*') AS branchcode,
       Coalesce(circulation_rules.categorycode, '*') AS categorycode,
@@ -108,11 +123,12 @@ FROM
     FROM
       circulation_rules
     WHERE
-      circulation_rules.rule_name = 'max_holds') max_holds ON
+      circulation_rules.rule_name = 'max_holds'
+  ) max_holds ON
       max_holds.branchcode = branches_categoriess.branchcode AND
       max_holds.categorycode = branches_categoriess.categorycode LEFT JOIN
-  categories_branches ON categories_branches.branchcode =
-      branches_categoriess.branchcode AND
+    categories_branches ON 
+      categories_branches.branchcode = branches_categoriess.branchcode AND
       categories_branches.categorycode = branches_categoriess.categorycode
 GROUP BY
   branches_categoriess.branchname,

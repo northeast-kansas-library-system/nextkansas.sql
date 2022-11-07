@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2017-02-20 16:37:40
-Modified on: 2019-07-23 10:03:51
-Date last run: 2022-06-21 17:48:42
+Modified on: 2022-10-04 11:02:56
+Date last run: 2022-10-11 16:18:26
 
 ----------
 
@@ -46,7 +46,7 @@ Expiry: 0
 SELECT
   surname,
   firstname,
-  GROUP_CONCAT(CONCAT(surname, '-', firstname) ORDER BY borrowernumber SEPARATOR '<br />'),
+  GROUP_CONCAT(CONCAT(surname, '-', firstname) ORDER BY borrowernumber SEPARATOR '<br />') AS NNAME,
   GROUP_CONCAT(cardnumber ORDER BY borrowernumber SEPARATOR '<br />') as CARD_NUMBER,
   GROUP_CONCAT(dateofbirth ORDER BY borrowernumber SEPARATOR '<br />') as BIRTH_DATE,
   GROUP_CONCAT((Concat('<a href=\"/cgi-bin/koha/members/moremember.pl?borrowernumber=', borrowernumber, '\" target="_blank">', borrowernumber, '</a>')) ORDER BY borrowernumber SEPARATOR '<br />') as BORROWER_NUMBER,

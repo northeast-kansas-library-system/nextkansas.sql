@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2022-02-28 17:51:25
-Modified on: 2022-02-28 18:19:33
-Date last run: 2022-02-28 18:17:27
+Modified on: 2022-10-20 15:23:20
+Date last run: 2022-10-20 15:23:38
 
 ----------
 
@@ -47,7 +47,8 @@ SELECT
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]')
     ),
     Concat(
-      '<a class="btn btn-default noprint" href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
+      '<a class="btn btn-default btn-xs noprint"', 
+      'href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
       items.biblionumber, 
       '\" target="_blank">Go to title</a><br />'
     )

@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-12-01 11:00:54
-Modified on: 2021-12-01 11:11:53
-Date last run: 2021-12-06 20:16:00
+Modified on: 2022-10-20 15:34:46
+Date last run: 2022-10-26 11:04:15
 
 ----------
 
@@ -49,7 +49,8 @@ Expiry: 300
 
 SELECT
   Concat(
-    '<a class="btn btn-default noprint" href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
+    '<a class="btn btn-default btn-xs noprint" ', 
+    'href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
     items.biblionumber, 
     '\" target="_blank">Go to title</a>'
   ) AS LINK_TO_TITLE,
@@ -72,7 +73,8 @@ SELECT
   If(items.withdrawn_on IS NULL, withdrawns.lib, Concat_Ws("", withdrawns.lib, " on ", items.withdrawn_on)) AS WITHDRAWN,
   items.onloan,
   Concat(
-    '<a class="btn btn-default noprint" href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=', 
+    '<a class="btn btn-default btn-xs noprint" ',
+    'href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=', 
     items.biblionumber, 
     '&itemnumber=', 
     items.itemnumber, 

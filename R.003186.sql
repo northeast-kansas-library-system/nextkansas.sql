@@ -12,12 +12,12 @@ Group: -
      -
 
 Created on: 2019-03-20 17:44:30
-Modified on: 2019-03-27 16:45:48
-Date last run: 2022-10-03 13:43:59
+Modified on: 2022-11-07 09:31:47
+Date last run: 2022-11-07 09:35:56
 
 ----------
 
-Public: 1
+Public: 0
 Expiry: 1
 
 ----------
@@ -32,7 +32,6 @@ Expiry: 1
 <p></p>
 <p>The purpose of this report is to provide JSON output in order to put the patron's name on the "Hold filled" checkin message pop-up.</p>
 <p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3186&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
 
 ----------

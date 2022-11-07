@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-07-28 15:14:53
-Modified on: 2021-07-28 15:30:11
-Date last run: 2022-07-25 16:08:00
+Modified on: 2022-10-20 15:36:45
+Date last run: 2022-10-24 11:58:41
 
 ----------
 
@@ -62,7 +62,12 @@ Expiry: 300
 
 
 SELECT
-  CONCAT('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',biblio.biblionumber, ' " target="_blank">Link</a>') AS LINK,
+  CONCAT(
+    '<a class="btn btn-default btn-xs noprint" ', 
+    'href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
+    biblio.biblionumber, ' 
+    " target="_blank">Go to title</a>'
+  ) AS LINK,
   items.homebranch,
   If(
     items.permanent_location = items.location, 

@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2022-03-31 16:55:23
-Modified on: 2022-03-31 17:39:43
-Date last run: 2022-04-01 09:33:52
+Modified on: 2022-10-20 15:20:02
+Date last run: 2022-10-20 15:20:06
 
 ----------
 
@@ -44,7 +44,8 @@ Expiry: 300
 
 SELECT
   Concat_Ws('',
-    '<a class="btn btn-default noprint" href=\"/cgi-bin/koha/members/moremember.pl?borrowernumber=', 
+    '<a class="btn btn-default btn-xs noprint"', 
+    'href=\"/cgi-bin/koha/members/moremember.pl?borrowernumber=', 
     borrowers.borrowernumber, 
     '" target="_blank">Borrower</a>'
   ) AS LINK,

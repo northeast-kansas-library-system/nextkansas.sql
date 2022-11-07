@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2022-03-25 18:26:18
-Modified on: 2022-03-29 12:06:48
-Date last run: 2022-09-29 10:14:19
+Modified on: 2022-10-20 15:21:50
+Date last run: 2022-11-04 14:02:08
 
 ----------
 
@@ -56,7 +56,8 @@ Expiry: 300
 
 SELECT 
   Concat( 
-    '<a class="btn btn-default noprint" href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
+    '<a class="btn btn-default btn-xs noprint"', 
+    'href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
     item_info.biblionumber, 
     '\" target="_blank">BIBLIO</a>' 
   ) AS 'LINK', 
@@ -67,7 +68,7 @@ SELECT
   item_info.CCODE, 
   item_info.CALL_NUMBER, 
   item_info.author, 
-  UPPER(item_info.TITLE) AS TITLE, 
+  item_info.TITLE, 
   item_info.datelastseen, 
   item_info.barcode1, 
   item_info.homebranch AS OWNED_BY, 
@@ -76,7 +77,8 @@ SELECT
   tobranches.branchname AS SENT_TO, 
   branchtransfers.reason AS TRANSFER_REASON, 
   Concat_WS('', 
-    '<a class="btn btn-default noprint" href="mailto:', 
+    '<a class="btn btn-default btn-xs noprint" ', 
+    'href="mailto:', 
     item_info.branchemail, 
     '?subject=Missing&nbsp;in&nbsp;transit&nbsp;', 
     branchtransfers.branchtransfer_id, 

@@ -1257,7 +1257,11 @@ FROM
   items
     ON paid.itemnumber = items.itemnumber
 GROUP BY
-  staff.branchcode, payments.amount, patron.cardnumber, Replace(payments.note,
+  staff.b
+
+
+
+ranchcode, payments.amount, patron.cardnumber, Replace(payments.note,
   "\r\n", ""), payments.date, Concat_Ws("-", payments.accountlines_id,
   payments.accountno), items.barcode, items.homebranch, paid.date, paid.amount,
   payments.amountoutstanding, paid.description, Replace(paid.note, "\r\n", ""),

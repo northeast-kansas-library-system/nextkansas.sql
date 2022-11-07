@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2022-02-28 17:45:23
-Modified on: 2022-02-28 17:45:45
-Date last run: 2022-09-27 10:36:13
+Modified on: 2022-10-20 15:24:49
+Date last run: 2022-11-03 14:57:48
 
 ----------
 
@@ -31,7 +31,8 @@ Expiry: 300
 
 SELECT
   Concat(
-    '<a class="btn btn-default" href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
+    '<a class="btn btn-default btn-xs noprint"', 
+    'href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
     items.biblionumber, 
     '\" target="_blank">Go to title</a>'
   ) AS LINK_TO_TITLE,

@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2018-03-02 10:10:47
-Modified on: 2022-05-16 08:20:06
-Date last run: 2022-10-02 21:51:32
+Modified on: 2022-10-20 11:36:10
+Date last run: 2022-11-03 10:46:32
 
 ----------
 
@@ -33,6 +33,9 @@ zbrq
 
 SELECT
   biblio.biblionumber,
+  ExtractValue(biblio_metadata.metadata, '//leader') AS LEADER,
+  ExtractValue(biblio_metadata.metadata, '//controlfield[@tag=007]') AS ZERO_SEVEN,
+  ExtractValue(biblio_metadata.metadata, '//controlfield[@tag=008]') AS ZERO_EIGHT,
   biblio.datecreated,
   biblio.timestamp,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag=245]/subfield[@code="a"]') AS TITLE_A,
