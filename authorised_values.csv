@@ -39,8 +39,8 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2361,bibitype,R_CMP_LAP,"Computers and internet : Laptop computer",,"Computers and internet : Laptop computer"
 2446,bibitype,R_PAS_PARK,"Things : Kansas Parks Pass ",,"Things : Kansas Parks Pass "
 2366,bibitype,R_WIFI,"Computers and internet : Wireless internet hotspot",,"Computers and internet : Wireless internet hotspot"
-1999,bibloc,ADULT,Adult,,Adult
-2000,bibloc,CHILDRENS,Childrens,,Childrens
+1999,bibloc,L_AD,Adult,,Adult
+2000,bibloc,L_JU,Childrens,,Childrens
 2137,bibloc,L_YA,"Young adult",,"Young adult"
 205,BOR_NOTES,CheckID,"Need to check patron's ID",,
 1759,BOR_NOTES,MID,"<br />UPDATE PATRON'S NAME<br />Please update the account with a middle name or middle initial.<br />",,
@@ -299,8 +299,8 @@ id,category,authorised_value,lib,imageurl,lib_opac
 1874,EXPIRED,9,"Account expired for more than 3 years - scheduled to be auto-deleted on 05.15",,"Account expired for more than 3 years - scheduled to be auto-deleted on 05.15"
 2439,facode,ILL,"Interlibrary Loan",,"Interlibrary Loan"
 2440,facode,XXX,(Unclassified),,(Unclassified)
-2430,faloc,ADULT,Adult,,Adult
-2431,faloc,CHILDRENS,Childrens,,Childrens
+2430,faloc,L_AD,Adult,,Adult
+2431,faloc,L_JU,Childrens,,Childrens
 2432,faloc,L_YA,"Young adult",,"Young adult"
 2433,fatype,I_ILL,"Inter-library loan",,"Inter-library loan"
 2434,fatype,I_ILL_07,"Inter-library loan -- Inter-library loan - 07 day loan ",,"Inter-library loan -- Inter-library loan - 07 day loan "
@@ -499,8 +499,8 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2348,ITEMTYPECAT,P_SPEC,"Special collections",bridge/reserve_book.png," Special collections"
 2344,ITEMTYPECAT,R_EQU,Equipment,vokal/Hardware.png,Equipment
 2152,lbibloc,%," All locations",," All locations"
-2153,lbibloc,ADULT,Adult,,Adult
-2154,lbibloc,CHILDRENS,Childrens,,Childrens
+2153,lbibloc,L_AD,Adult,,Adult
+2154,lbibloc,L_JU,Childrens,,Childrens
 2155,lbibloc,L_YA,"Young adult",,"Young adult"
 714,LBORROWERCAT,%," All patron categories",," All patron categories"
 2053,LBORROWERCAT,A_60,"Adult temporary",,"Adult temporary"
@@ -544,6 +544,8 @@ id,category,authorised_value,lib,imageurl,lib_opac
 733,LBORROWERCAT,OTHERCHILD,"Other Child",,"Other Child"
 1964,LBORROWERCAT,PU_STU,"Student - Public Library",,"Student - Public Library"
 1965,LBORROWERCAT,PU_TEACH,"Teacher/Faculty/Administrator - Public Library",,"Teacher/Faculty/Administrator - Public Library"
+2478,LBORROWERCAT,S_SIP,"Staff - SIP user",,"Staff - SIP user"
+2474,LBORROWERCAT,S_TT,"Staff - Permissions template",,"Staff - Permissions template"
 734,LBORROWERCAT,STAFF,"SYSTEM login only (exempt)",,"SYSTEM login only (exempt)"
 735,LBORROWERCAT,STATISTIC,"For statistical purposes ",,"For statistical purposes "
 736,LBORROWERCAT,STUDENT,"Student (exempt)",,"Student (exempt)"
@@ -980,28 +982,21 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2418,LITYPES,R_ART,"Things : Artwork",,"Things : Artwork"
 2419,LITYPES,R_CMP_LAP,"Computers and internet : Laptop computer",,"Computers and internet : Laptop computer"
 2420,LITYPES,R_WIFI,"Computers and internet : Wireless internet hotspot",,"Computers and internet : Wireless internet hotspot"
-694,LLOC,%,"  All shelving locations",,
-2011,LLOC,%BALD%,"~Display - BALDWIN - All",,"~Display - BALDWIN - All"
-812,LLOC,%L%V%,"~Display - LEAVENWRTH -  All",,
+694,LLOC,%,"  All shelving locations",,"  All shelving locations"
+2011,LLOC,%BALD%,"~Display - BALDWIN -  All",,"~Display - BALDWIN -  All"
+812,LLOC,%LEAV%,"~Display - LEAVENWRTH -  All",,"~Display - LEAVENWRTH -  All"
 1755,LLOC,%PAOL%,"~Display - PAOLA -  All",,"~ All PAOLA display locations"
-695,LLOC,ADULT," Adult",,
-2012,LLOC,BALDADULT,"~Display - BALDWIN - Adult",,"~Display - BALDWIN - Adult"
-2013,LLOC,BALDCHILD,"~Display - BALDWIN - Childrens",,"~Display - BALDWIN - Childrens"
-2014,LLOC,BALDYA,"~Display - BALDWIN - Young Adult",,"~Display - BALDWIN - Young Adult"
-699,LLOC,CART," Recently returned",,
-698,LLOC,CATALOGING," Cataloging",,
-696,LLOC,CHILDRENS," Childrens",,
+699,LLOC,CART," Recently returned",," Recently returned"
+698,LLOC,CATALOGING," Cataloging",," Cataloging"
+2475,LLOC,D_AD_BALD,"~Display - BALDWIN - Adult",,"~Display - BALDWIN - Adult"
+2476,LLOC,D_JU_BALD,"~Display - BALDWIN - Childrens",,"~Display - BALDWIN - Childrens"
 2143,LLOC,D_YA_BALD,"~Display - BALDWIN - Young adult",,"~Display - BALDWIN - Young adult"
 2144,LLOC,D_YA_LEAV,"~Display - LEAVWNWRTH - Young adult",,"~Display - LEAVWNWRTH - Young adult"
 2145,LLOC,D_YA_PAOL,"~Display - PAOLA - Young adult",,"~Display - PAOLA - Young adult"
+695,LLOC,L_AD," Adult",," Adult"
+2479,LLOC,L_JU,Childrens,,Childrens
 2142,LLOC,L_YA," Young adult",," Young adult"
-746,LLOC,LVPLADULT,"~Display - LEAVENWRTH - Adult",," "
-747,LLOC,LVPLCHILD,"~Display - LEAVENWRTH - Children's",," "
-748,LLOC,LVPLYA,"~Display - LEAVENWRTH - Young Adult",," "
-1756,LLOC,PAOLAADULT,"~Display - PAOLA - Adult",,"~PAOLA Adult Display"
-1757,LLOC,PAOLACHILD,"~Display - PAOLA - Children's",,"~PAOLA Children's Display"
-1758,LLOC,PAOLAYA,"~Display - PAOLA - Young Adult",,"~PAOLA Young Adult Display"
-700,LLOC,PROC," Processing Center",,
+700,LLOC,PROC," Processing Center",," Processing Center"
 964,LLOST,%," Show all statusses",," Show all statusses"
 963,LLOST,1,(Lost),,(Lost)
 2032,LLOST,10,"In processing",,"In processing"
@@ -1049,12 +1044,12 @@ id,category,authorised_value,lib,imageurl,lib_opac
 1871,LNOT_LOAN,"Paola repair/mending","Paola repair/mending",,"Paola repair/mending"
 1869,LNOT_LOAN,Paola%,"Paola all statuses",,"Paola all statuses"
 1630,LNOT_LOAN,"Staff Collection%","Staff Collection",,"Staff Collection"
-170,LOC,ADULT," Adult",," Adult"
+170,LOC,ADULT," ADULT",," ADULT"
 2008,LOC,BALDADULT,"~Display - BALDWIN - Adult",,"ZZ Adult Display (Baldwin City Library)"
 2009,LOC,BALDCHILD,"~Display - BALDWIN - Childrens",,"ZZ Children's Display (Baldwin City Library)"
 209,LOC,CART,"Recently returned",,"ZZ Recently returned"
 173,LOC,CATALOGING,Cataloging,,"ZZ Cataloging"
-171,LOC,CHILDRENS," Childrens",," Childrens"
+171,LOC,CHILDRENS," CHILDRENS",,"ZZ CHILDRENS"
 2353,LOC,D_AD_BALD,"~Display - BALDWIN - Adult",,"ZZ Adult display (Baldwin City Library)"
 2354,LOC,D_AD_LEAV,"~Display - LEAVENWRTH - Adult",,"ZZ Adult display (Leavenworth Public Library)"
 2355,LOC,D_AD_PAOL,"~Display - PAOLA - Adult",,"ZZ Adult Display (Paola Free Library)"
@@ -1064,8 +1059,8 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2141,LOC,D_YA_BALD,"~Display - BALDWIN - Young Adult",,"ZZ Young adult display (Baldwin City Library)"
 2139,LOC,D_YA_LEAV,"~Display - LEAVENWRTH - Young Adult",,"ZZ Young adult display (Leavenworth Public Library)"
 2140,LOC,D_YA_PAOL,"~Display - PAOLA - Young Adult",,"ZZ Young adult display (Paola Free Library)"
-2352,LOC,L_AD,Adult,,"ZZ Adult"
-2196,LOC,L_JU,Childrens,,"ZZ Children's"
+2352,LOC,L_AD," Adult",," Adult"
+2196,LOC,L_JU," Childrens",," Children's"
 2138,LOC,L_YA," Young adult",," Young adult"
 738,LOC,LVPLADULT,"~Display - LEAVENWRTH - Adult",,"ZZ Adult Display (Leavenworth Public Library)"
 739,LOC,LVPLCHILD,"~Display - LEAVENWRTH - Children's",,"ZZ Children's Display (Leavenworth Public Library)"
@@ -1854,6 +1849,8 @@ id,category,authorised_value,lib,imageurl,lib_opac
 1135,ZNOT_LOAN,5,"Download or Online Access",,"Download or Online Access"
 1139,ZNOT_LOAN,6,"Online Access",,"Online Access"
 1136,ZNOT_LOAN,7,"In Processing",,"In Processing"
+1019,ZNOTICEB,"% - High%","Doniphan County Library-Highland",,"Doniphan County Library-Highland"
+2477,ZNOTICEB,"%and Com%","Highland Community College",,"Highland Community College"
 1007,ZNOTICEB,%Atchison%,"Atchison Public Library",,"Atchison Public Library"
 1045,ZNOTICEB,"%Axtell Public%","Prairie Hills Schools - Axtell Public School",,"Prairie Hills Schools - Axtell Public School"
 1008,ZNOTICEB,%Baldwin%,"Baldwin City Public Library",,"Baldwin City Public Library"
@@ -1871,7 +1868,6 @@ id,category,authorised_value,lib,imageurl,lib_opac
 1023,ZNOTICEB,%Eudora%,"Eudora Public Library",,"Eudora Public Library"
 1024,ZNOTICEB,%Everest%,"Everest, Barnes Reading Room",,"Everest, Barnes Reading Room"
 1025,ZNOTICEB,%Hiawatha%,"Hiawatha, Morrill Public Library",,"Hiawatha, Morrill Public Library"
-1019,ZNOTICEB,%Highland%,"Doniphan County Library-Highland",,"Doniphan County Library-Highland"
 1026,ZNOTICEB,%Holton%,"Holton, Beck-Bookman Library",,"Holton, Beck-Bookman Library"
 1027,ZNOTICEB,%Horton%,"Horton Public Library",,"Horton Public Library"
 1028,ZNOTICEB,%Lansing%,"Lansing Community Library",,"Lansing Community Library"
