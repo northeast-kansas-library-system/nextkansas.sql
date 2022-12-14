@@ -12,8 +12,8 @@ Group:  ROSSVILLE
      -
 
 Created on: 2021-05-07 15:45:28
-Modified on: 2021-08-16 22:00:25
-Date last run: 2022-11-06 23:46:43
+Modified on: 2022-12-04 15:06:23
+Date last run: 2022-12-14 11:01:36
 
 ----------
 
@@ -81,7 +81,7 @@ WHERE
   items.homebranch LIKE 'ROSSVILLE' AND
   biblioitems.isbn IS NOT NULL AND
   items.itype LIKE 'BOOK' AND
-  items.permanent_location LIKE 'CHILDRENS' AND
+  items.permanent_location LIKE 'L_JU' AND
   items.ccode LIKE "%" AND
   items.notforloan = 0 AND
   items.damaged = 0 AND

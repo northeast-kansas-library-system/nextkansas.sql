@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2020-08-14 15:14:53
-Modified on: 2022-08-30 16:35:53
-Date last run: 2022-08-30 16:37:18
+Modified on: 2022-12-14 09:30:56
+Date last run: 2022-12-14 09:31:05
 
 ----------
 
@@ -30,18 +30,16 @@ Expiry: 300
 
 
 SELECT
+  borrowers.borrowernumber,
   borrowers.cardnumber,
-  borrower_attributes.borrowernumber,
-  borrower_attribute_types.description,
-  borrower_attribute_types.code,
-  borrower_attributes.attribute
+  borrowers.categorycode,
+  borrowers.dateofbirth,
+  borrowers.branchcode
 FROM
-  borrower_attribute_types INNER JOIN
-  borrower_attributes ON
-      borrower_attributes.code = borrower_attribute_types.code INNER JOIN
-  borrowers ON borrower_attributes.borrowernumber = borrowers.borrowernumber
+  borrowers
 WHERE
-  borrower_attribute_types.code = 'USD113_T'
+  borrowers.branchcode = 'SABETHA' AND
+  borrowers.categorycode = 'TEACHER'
 
 
 

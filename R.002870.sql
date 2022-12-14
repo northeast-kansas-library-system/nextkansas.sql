@@ -12,8 +12,8 @@ Group: Daily, Monthly, Yearly Stats
      Yearly Stats Suite
 
 Created on: 2017-01-01 22:51:24
-Modified on: 2020-12-31 15:46:42
-Date last run: 2022-01-27 09:11:00
+Modified on: 2022-12-02 10:17:50
+Date last run: 2022-12-02 10:17:52
 
 ----------
 
@@ -45,8 +45,8 @@ FROM
       Year(statistics.datetime) = Year(Now() - INTERVAL 1 YEAR) AND
       (statistics.type = 'issue' OR
           statistics.type = 'renew') AND
-      ((Coalesce(deleteditems.permanent_location, deleteditems.location) = 'ADULT') OR
-          (Coalesce(items.permanent_location, items.location) = 'ADULT'))
+      ((Coalesce(deleteditems.permanent_location, deleteditems.location) LIKE '%AD%') OR
+          (Coalesce(items.permanent_location, items.location) LIKE '%AD%'))
     GROUP BY
       statistics.branch) ADULT_C ON branches.branchcode = ADULT_C.branch
 GROUP BY

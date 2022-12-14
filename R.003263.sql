@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-09-10 11:59:57
-Modified on: 2019-11-04 15:28:45
-Date last run: 2022-11-02 13:43:20
+Modified on: 2022-11-29 16:39:20
+Date last run: 2022-12-10 09:05:31
 
 ----------
 
@@ -34,7 +34,6 @@ Expiry: 10
 <p></p>
 <p>Notes go here.</p>
 <p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports= XX PUT REPORTNUMBER HERE and remove XXs and Spaces XX &phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
 
 ----------

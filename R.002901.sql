@@ -12,8 +12,8 @@ Group: Daily, Monthly, Yearly Stats
      Monthly
 
 Created on: 2017-02-07 15:03:15
-Modified on: 2021-04-06 16:32:23
-Date last run: 2022-11-02 16:08:30
+Modified on: 2022-12-02 11:15:08
+Date last run: 2022-12-08 17:37:10
 
 ----------
 
@@ -84,14 +84,10 @@ FROM
     WHERE
       Month(items.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) AND
       Year(items.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH) AND
-      (Coalesce(items.permanent_location, "CART") = 'ADULT' OR
-        Coalesce(items.permanent_location, "CART") = 'LVPLADULT' OR
-        Coalesce(items.permanent_location, "CART") = 'PAOLAADULT' OR
-        Coalesce(items.permanent_location, "CART") = 'BALDADULT')
+      Coalesce(items.permanent_location, "CART") LIKE '%AD%'
     GROUP BY
       Coalesce(items.homebranch, "NEKLS"),
-      Coalesce(items.ccode, "XXX")) itemsadult ON itemsadult.homebranch =
-      branch_ccode.branchcode AND
+      Coalesce(items.ccode, "XXX")) itemsadult ON itemsadult.homebranch = branch_ccode.branchcode AND
       itemsadult.ccode = branch_ccode.authorised_value LEFT JOIN
   (SELECT
       Count(items.itemnumber) AS Count_itemnumber,
@@ -118,7 +114,8 @@ FROM
     WHERE
       Month(items.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) AND
       Year(items.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH) AND
-      Coalesce(items.permanent_location, "CART") LIKE "%CHILD%"
+      (Coalesce(items.permanent_location, "CART") LIKE "%CHILD%" OR
+        Coalesce(items.permanent_location, "CART") LIKE "%JU%")
     GROUP BY
       Coalesce(items.homebranch, "NEKLS"),
       Coalesce(items.ccode, "XXX")) itemchild ON itemchild.homebranch =
@@ -133,8 +130,9 @@ FROM
     WHERE
       Month(items.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) AND
       Year(items.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH) AND
-      Coalesce(items.permanent_location, "CART") NOT LIKE "%ADULT%" AND
+      Coalesce(items.permanent_location, "CART") NOT LIKE "%AD%" AND
       Coalesce(items.permanent_location, "CART") NOT LIKE "%CHILD%" AND
+      Coalesce(items.permanent_location, "CART") NOT LIKE "%JU%" AND
       Coalesce(items.permanent_location, "CART") NOT LIKE "%YA%"
     GROUP BY
       Coalesce(items.homebranch, "NEKLS"),

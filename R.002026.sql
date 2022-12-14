@@ -12,8 +12,8 @@ Group: Monthly cleanup
      -
 
 Created on: 2013-09-03 10:38:20
-Modified on: 2018-06-01 14:26:28
-Date last run: 2022-10-31 17:27:42
+Modified on: 2022-11-16 15:29:28
+Date last run: 2022-12-05 10:14:14
 
 ----------
 
@@ -63,7 +63,7 @@ FROM
   LEFT JOIN biblioitems ON biblio.biblionumber = biblioitems.biblionumber
 WHERE
   items.homebranch = <<Pick your branch|branches>> AND
-  items.itemlost = '1'
+  items.itemlost LIKE <<Status|LOST>>
 ORDER BY
   items.itemcallnumber
 

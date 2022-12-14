@@ -12,8 +12,8 @@ Group: Statistics
      2022 beginning of month statistics
 
 Created on: 2021-02-04 16:59:13
-Modified on: 2022-03-10 15:00:29
-Date last run: 2022-11-01 00:10:01
+Modified on: 2022-12-02 09:46:37
+Date last run: 2022-12-01 00:10:02
 
 ----------
 
@@ -117,7 +117,7 @@ FROM
         Coalesce(statistics.location, "ADULT") = "CART", 
         items.permanent_location, 
         Coalesce(statistics.location, "ADULT") 
-      ) LIKE "%ADULT%" 
+      ) LIKE "%AD%" 
     GROUP BY 
       statistics.branch 
     ) ADULT 
@@ -137,7 +137,7 @@ FROM
         Coalesce(statistics.location, "ADULT") = "CART", 
         items.permanent_location, 
         Coalesce(statistics.location, "ADULT") 
-      ) NOT LIKE "%ADULT%" 
+      ) NOT LIKE "%AD%" 
     GROUP BY 
       statistics.branch 
     ) YOUTH 

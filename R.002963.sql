@@ -12,8 +12,8 @@ Group: Administrative Reports
      Testing
 
 Created on: 2017-06-26 19:16:07
-Modified on: 2020-10-09 00:57:04
-Date last run: 2022-10-24 17:16:42
+Modified on: 2022-12-14 11:29:57
+Date last run: 2022-12-14 11:30:04
 
 ----------
 
@@ -32,7 +32,7 @@ Reusable code for setting dates in SQL reports
 SELECT  
   @1 := 'YESTERDAY'  AS DESCRIPTION,  
   @2 := 'CurDate() - INTERVAL 1 DAY' AS `"SQL"`,  
-  CurDate() - INTERVAL 1 DAY  
+  CurDate() - INTERVAL 1 DAY AS RESULT 
 UNION  
 SELECT  
   @1 := 'TODAY',  

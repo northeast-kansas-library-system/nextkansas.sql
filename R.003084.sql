@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2018-06-18 11:15:38
-Modified on: 2022-07-21 19:38:45
-Date last run: 2022-11-07 08:52:58
+Modified on: 2022-12-12 21:32:02
+Date last run: 2022-12-14 13:38:23
 
 ----------
 
@@ -33,8 +33,8 @@ Expiry: 300
 <p></p>
 <p>Notes:</p>
 <p></p>
-<p>Highest priority = request is for pickup at this library</p>
-<p>High priority = the copy requested is the only copy owned by any Next Search Catalog library</p>
+<p><span style="text-decoration: underline;">Highest priority</span> = request is for pickup at this library</p>
+<p><span style="text-decoration: underline;">High priority</span> = the copy requested is the only copy owned by any Next Search Catalog library</p>
 <p></p>
 <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3084&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
@@ -58,18 +58,18 @@ SELECT
     items.copynumber, 
     If( 
       hold_fill_targets.source_branchcode = priority.branchcode, 
-      "(Highest priority)", 
+      "<span style='font-weight: bold;'>(Highest priority)</span>", 
       If( 
         hold_fill_targets.item_level_request = 1, 
-        "(Highest priority)", 
+        "<span style='font-weight: bold;'>(Highest priority)</span>", 
         If( 
           priority.Count_itemnumber = 1, 
-          "High priority", 
+          "<span>(High priority)</span>",
           "" 
         ) 
       ) 
     ), 
-    Concat('Accessioned date: ', items.dateaccessioned), 
+    Concat('<span class="noprint">Accessioned date: ', items.dateaccessioned, '</span>'), 
     (Concat( 
       '<br />', 
       '<a class="btn btn-default noprint" href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 

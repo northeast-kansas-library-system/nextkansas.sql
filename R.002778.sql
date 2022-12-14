@@ -12,8 +12,8 @@ Group: Holds-Reserves
      -
 
 Created on: 2016-09-25 22:37:09
-Modified on: 2022-03-01 10:11:53
-Date last run: 2022-11-05 12:14:26
+Modified on: 2022-12-02 14:38:57
+Date last run: 2022-12-14 13:28:36
 
 ----------
 
@@ -105,7 +105,7 @@ FROM
     FROM
       itemtypes) ITEMTYPESS ON ITEMTYPESS.itemtype = items.itype
 WHERE
-  hold_fill_targets.source_branchcode LIKE <<Select your branch|LBRANCH>>
+  hold_fill_targets.source_branchcode LIKE <<Select your library|LBRANCH>>
 GROUP BY
   hold_fill_targets.itemnumber
 ORDER BY

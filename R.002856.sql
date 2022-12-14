@@ -12,8 +12,8 @@ Group: Notices
      -
 
 Created on: 2016-12-15 11:27:46
-Modified on: 2018-12-14 12:32:55
-Date last run: 2022-11-05 14:42:08
+Modified on: 2022-11-16 10:15:44
+Date last run: 2022-12-14 12:39:05
 
 ----------
 
@@ -33,7 +33,6 @@ Expiry: 0
 <p></p>
 <p>This report was created to work with the new notices NExpress will start using on January 1, 2016.</p>
 <p>You should run the report and then download the results into Excel or another spreadsheet program.  The results will be very hard to read on the screen in Koha.</p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2856&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
 
 ----------

@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2022-02-06 01:06:29
-Modified on: 2022-03-09 16:06:04
-Date last run: 2022-11-01 16:42:27
+Modified on: 2022-12-02 09:56:31
+Date last run: 2022-12-08 16:35:15
 
 ----------
 
@@ -98,7 +98,7 @@ FROM
      If(statistics.location = "CART", 
        Coalesce(items.permanent_location, deleteditems.permanent_location), 
        statistics.location
-     ) LIKE "%ADULT%"
+     ) LIKE "%AD%"
    GROUP BY
      statistics.branch,
      If(statistics.location = "CART", 

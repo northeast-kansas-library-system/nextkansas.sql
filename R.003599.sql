@@ -12,8 +12,8 @@ Group:  LINWOOD
      -
 
 Created on: 2021-10-20 15:32:03
-Modified on: 2021-10-20 15:32:54
-Date last run: 2022-11-06 13:34:05
+Modified on: 2022-12-04 15:07:18
+Date last run: 2022-12-13 17:40:30
 
 ----------
 
@@ -81,7 +81,7 @@ WHERE
   items.homebranch LIKE 'LINWOOD' AND
   biblioitems.isbn IS NOT NULL AND
   items.itype LIKE 'BOOK' AND
-  items.permanent_location LIKE 'CHILDRENS' AND
+  items.permanent_location LIKE 'L_JU' AND
   items.ccode LIKE "%" AND
   items.notforloan = 0 AND
   items.damaged = 0 AND

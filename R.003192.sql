@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-03-31 16:43:47
-Modified on: 2019-03-31 16:49:33
-Date last run: 2022-08-23 15:09:46
+Modified on: 2022-11-07 15:50:45
+Date last run: 2022-11-08 14:28:14
 
 ----------
 
@@ -22,7 +22,9 @@ Expiry: 300
 
 ----------
 
+Borrowernumber is marked as "confidential."
 
+Total unfilled requests and total borrowers with requests are included to expedite the creation of the percent value.
 
 ----------
 */
@@ -30,7 +32,7 @@ Expiry: 300
 
 
 SELECT
-  Concat("patron") AS PATRON,
+  Concat("confidential") AS PATRON,
   Count(reserves.reserve_id) AS ACTIVE_UNFILLED_THIS_PATRON,
   Concat(Format(((Count(reserves.reserve_id) / unfilledholds.Count_reserve_id) * 100), 5), "%") AS SYSTEM_WIDE_PERCENTAGE,
   unfilledholds.Count_reserve_id AS ACTIVE_UNFILLED_TOTAL,

@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-09-13 20:55:02
-Modified on: 2022-03-29 12:21:25
-Date last run: 2022-07-25 15:20:38
+Modified on: 2022-12-12 15:52:58
+Date last run: 2022-12-12 15:53:02
 
 ----------
 
@@ -1855,7 +1855,7 @@ FROM
   old_reserves
 UNION
   SELECT
-    Concat('Opac news') AS _GROUP_,
+    Concat('Additional contents (Opac news and HTML)') AS _GROUP_,
     Concat('===================='),
     Concat('===================='),
     Concat('===================='),
@@ -1864,13 +1864,14 @@ UNION
 UNION
 SELECT
   Concat('') AS _GROUP_,
-  Concat('opac_news') AS TABLE_NAME,
-  Concat('expirationdate') AS SUBFIELD,
-  Concat('') AS TYPE,
-  Date_Format(Min(opac_news.expirationdate), '%Y - %m - %d') AS OLDEST,
-  Date_Format(Max(opac_news.expirationdate), '%Y - %m - %d') AS NEWEST
+  Concat('additional_contents') AS TABLE_NAME,
+  Concat('content') AS SUBFIELD,
+  Concat('date') AS TYPE,
+  Date_Format(Min(additional_contents.published_on), '%Y - %m - %d')
+  AS OLDEST,
+  Date_Format(Max(additional_contents.expirationdate), '%Y - %m - %d') AS NEWEST
 FROM
-  opac_news
+  additional_contents
 UNION
   SELECT
     Concat('Privacy') AS _GROUP_,
@@ -2375,3 +2376,21 @@ SELECT
   Date_Format(Max(zebraqueue.time), '%Y - %m - %d') AS NEWEST
 FROM
   zebraqueue
+LIMIT 1000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

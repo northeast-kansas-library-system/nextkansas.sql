@@ -795,8 +795,8 @@ FROM
   (SELECT
       cicounts.branchcode,
       IF(
-        Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 28 DAY) = Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1)),
-        Sum(DISTINCT cicounts.Count_issue_id),
+        Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 28 DAY) = Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1)), 
+        Sum(DISTINCT cicounts.Count_issue_id), 
         '-'
       ) AS Sum_Count_issue_id
     FROM
@@ -825,8 +825,8 @@ FROM
   (SELECT
       cjcounts.branchcode,
       If(
-        Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 29 DAY) = Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1)),
-        Sum(DISTINCT cjcounts.Count_issue_id),
+        Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 29 DAY) = Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1)), 
+        Sum(DISTINCT cjcounts.Count_issue_id), 
         '-'
       ) AS Sum_Count_issue_id
     FROM
@@ -855,8 +855,8 @@ FROM
   (SELECT
       dacounts.branchcode,
       If(
-        Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 30 DAY) = Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1)),
-        Sum(DISTINCT dacounts.Count_issue_id),
+        Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 30 DAY) = Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1)), 
+        Sum(DISTINCT dacounts.Count_issue_id), 
         '-'
       ) AS Sum_Count_issue_id
     FROM
@@ -884,97 +884,118 @@ FROM
       dacounts.branchcode) da ON da.branchcode = branches.branchcode
 GROUP BY
   branches.branchname
-UNION
-  SELECT
-    Concat(" DATE") AS branchname,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) AS `01`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 1 DAY AS `02`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 2 DAY AS `03`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 3 DAY AS `04`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 4 DAY AS `05`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 5 DAY AS `06`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 6 DAY AS `07`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 7 DAY AS `08`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 8 DAY AS `09`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 9 DAY AS `10`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 10 DAY AS `11`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 11 DAY AS `12`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 12 DAY AS `13`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 13 DAY AS `14`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 14 DAY AS `15`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 15 DAY AS `16`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 16 DAY AS `17`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 17 DAY AS `18`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 18 DAY AS `19`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 19 DAY AS `20`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 20 DAY AS `21`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 21 DAY AS `22`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 22 DAY AS `23`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 23 DAY AS `24`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 24 DAY AS `25`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 25 DAY AS `26`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 26 DAY AS `27`,
-    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 27 DAY AS `28`,
-    If(
-      Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 28 DAY) = Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1)),
-      AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 28 DAY,
-      "NA"
-    ) AS `29`,
-    If(
-      Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 29 DAY) = Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1)),
-      AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 29 DAY,
-      "NA"
-    ) AS `30`,
-    If(
-      Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 30 DAY) = Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1)),
-      AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 30 DAY,
-      "NA"
-    ) AS `31`
-UNION
-  SELECT
-    Concat(" DAY") AS branchname,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1), "%W") AS `01`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 1 DAY, "%W") AS `02`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 2 DAY, "%W") AS `03`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 3 DAY, "%W") AS `04`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 4 DAY, "%W") AS `05`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 5 DAY, "%W") AS `06`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 6 DAY, "%W") AS `07`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 7 DAY, "%W") AS `08`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 8 DAY, "%W") AS `09`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 9 DAY, "%W") AS `10`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 10 DAY, "%W") AS `11`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 11 DAY, "%W") AS `12`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 12 DAY, "%W") AS `13`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 13 DAY, "%W") AS `14`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 14 DAY, "%W") AS `15`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 15 DAY, "%W") AS `16`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 16 DAY, "%W") AS `17`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 17 DAY, "%W") AS `18`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 18 DAY, "%W") AS `19`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 19 DAY, "%W") AS `20`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 20 DAY, "%W") AS `21`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 21 DAY, "%W") AS `22`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 22 DAY, "%W") AS `23`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 23 DAY, "%W") AS `24`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 24 DAY, "%W") AS `25`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 25 DAY, "%W") AS `26`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 26 DAY, "%W") AS `27`,
-    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 27 DAY, "%W") AS `28`,
-    If(
-      Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 28 DAY) = Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1)),
-      Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 28 DAY, "%W"),
-      "NA"
-    ) AS `29`,
-    If(
-      Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 29 DAY) = Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1)),
-      Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 29 DAY, "%W"),
-      "NA"
-    ) AS `30`,
-    If(
-      Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 30 DAY) = Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1)),
-      Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 30 DAY, "%W"),
-      "NA"
-    ) AS `31`
-ORDER BY
+UNION  
+  SELECT  
+    Concat(" DATE") AS branchname,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) AS `01`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 1 DAY AS `02`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 2 DAY AS `03`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 3 DAY AS `04`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 4 DAY AS `05`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 5 DAY AS `06`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 6 DAY AS `07`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 7 DAY AS `08`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 8 DAY AS `09`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 9 DAY AS `10`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 10 DAY AS `11`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 11 DAY AS `12`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 12 DAY AS `13`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 13 DAY AS `14`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 14 DAY AS `15`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 15 DAY AS `16`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 16 DAY AS `17`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 17 DAY AS `18`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 18 DAY AS `19`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 19 DAY AS `20`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 20 DAY AS `21`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 21 DAY AS `22`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 22 DAY AS `23`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 23 DAY AS `24`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 24 DAY AS `25`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 25 DAY AS `26`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 26 DAY AS `27`,  
+    AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 27 DAY AS `28`,  
+    If(  
+      Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 28 DAY) = Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1)),  
+      AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 28 DAY,  
+      "NA"  
+    ) AS `29`,  
+    If(  
+      Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 29 DAY) = Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1)),  
+      AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 29 DAY,  
+      "NA"  
+    ) AS `30`,  
+    If(  
+      Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 30 DAY) = Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1)),  
+      AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 30 DAY,  
+      "NA"  
+    ) AS `31` 
+UNION  
+  SELECT  
+    Concat(" DAY") AS branchname,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1), "%W") AS `01`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 1 DAY, "%W") AS `02`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 2 DAY, "%W") AS `03`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 3 DAY, "%W") AS `04`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 4 DAY, "%W") AS `05`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 5 DAY, "%W") AS `06`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 6 DAY, "%W") AS `07`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 7 DAY, "%W") AS `08`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 8 DAY, "%W") AS `09`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 9 DAY, "%W") AS `10`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 10 DAY, "%W") AS `11`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 11 DAY, "%W") AS `12`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 12 DAY, "%W") AS `13`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 13 DAY, "%W") AS `14`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 14 DAY, "%W") AS `15`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 15 DAY, "%W") AS `16`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 16 DAY, "%W") AS `17`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 17 DAY, "%W") AS `18`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 18 DAY, "%W") AS `19`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 19 DAY, "%W") AS `20`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 20 DAY, "%W") AS `21`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 21 DAY, "%W") AS `22`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 22 DAY, "%W") AS `23`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 23 DAY, "%W") AS `24`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 24 DAY, "%W") AS `25`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 25 DAY, "%W") AS `26`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 26 DAY, "%W") AS `27`,  
+    Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 27 DAY, "%W") AS `28`,  
+    If(  
+      Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 28 DAY) = Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1)),  
+      Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 28 DAY, "%W"),  
+      "NA"  
+    ) AS `29`,  
+    If(  
+      Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 29 DAY) = Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1)),  
+      Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 29 DAY, "%W"),  
+      "NA"  
+    ) AS `30`,  
+    If(  
+      Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 30 DAY) = Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1)),  
+      Date_Format(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 30 DAY, "%W"),  
+      "NA"  
+    ) AS `31`  
+ORDER BY  
   branchname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

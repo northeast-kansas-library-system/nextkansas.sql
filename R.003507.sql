@@ -12,8 +12,8 @@ Group: Statistics
      -
 
 Created on: 2021-05-20 15:40:51
-Modified on: 2021-05-20 18:28:43
-Date last run: 2021-05-23 23:43:35
+Modified on: 2022-11-30 21:09:20
+Date last run: 2022-11-30 21:09:38
 
 ----------
 
@@ -84,7 +84,7 @@ FROM
   ) ckoturnaround ON 
       ckoturnaround.branchcode = branches.branchcode 
 WHERE 
-  branches.branchcode LIKE <<Choose your library|LBRANCH>> 
+  branches.branchcode LIKE <<Choose your library|branches:all>> 
 GROUP BY 
   branches.branchcode, 
   ckoturnaround.PICKUP_DELAY_DAYS, 

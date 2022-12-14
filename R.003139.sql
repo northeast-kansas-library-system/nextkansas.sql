@@ -12,8 +12,8 @@ Group: Statistics
      -
 
 Created on: 2018-12-07 21:59:03
-Modified on: 2021-07-26 22:45:23
-Date last run: 2022-08-05 15:56:32
+Modified on: 2022-12-02 12:09:58
+Date last run: 2022-12-02 12:10:00
 
 ----------
 
@@ -87,7 +87,7 @@ FROM
     FROM
       items
     WHERE
-      (items.permanent_location LIKE '%ADULT%' OR
+      (items.permanent_location LIKE '%AD%' OR
         items.permanent_location = 'CART' OR
         items.permanent_location = 'CATALOGING' OR
         items.permanent_location = 'PROC' OR
@@ -104,7 +104,8 @@ FROM
     FROM
       items
     WHERE
-      items.permanent_location LIKE "%CHILD%"
+      (items.permanent_location LIKE "%CHILD%" OR
+        items.permanent_location LIKE "%JU%")
     GROUP BY
       items.homebranch,
       If(items.ccode IS NULL, "XXX", items.ccode)) juvenileitems ON
@@ -148,7 +149,7 @@ FROM
     WHERE
       Month(items.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) AND
       Year(items.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH) AND
-      (items.permanent_location LIKE '%ADULT%' OR
+      (items.permanent_location LIKE '%AD%' OR
         items.permanent_location = 'CART' OR
         items.permanent_location = 'CATALOGING' OR
         items.permanent_location = 'PROC' OR
@@ -168,7 +169,8 @@ FROM
     WHERE
       Month(items.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) AND
       Year(items.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH) AND
-      items.permanent_location LIKE "%CHILD%"
+      (items.permanent_location LIKE "%CHILD%" OR
+        items.permanent_location LIKE "%JU%")
     GROUP BY
       items.homebranch,
       If(items.ccode IS NULL, "XXX", items.ccode)) juvenile_added ON
@@ -215,7 +217,7 @@ FROM
     WHERE
       Month(deleteditems.timestamp) = Month(Now() - INTERVAL 1 MONTH) AND
       Year(deleteditems.timestamp) = Year(Now() - INTERVAL 1 MONTH) AND
-      (deleteditems.permanent_location LIKE '%ADULT%' OR
+      (deleteditems.permanent_location LIKE '%AD%' OR
         deleteditems.permanent_location = 'CART' OR
         deleteditems.permanent_location = 'CATALOGING' OR
         deleteditems.permanent_location = 'PROC' OR
@@ -237,7 +239,8 @@ FROM
     WHERE
       Month(deleteditems.timestamp) = Month(Now() - INTERVAL 1 MONTH) AND
       Year(deleteditems.timestamp) = Year(Now() - INTERVAL 1 MONTH) AND
-      deleteditems.permanent_location LIKE '%CHILD%'
+      (deleteditems.permanent_location LIKE '%CHILD%' OR
+        deleteditems.permanent_location LIKE '%JU%')
     GROUP BY
       deleteditems.homebranch,
       If(deleteditems.ccode IS NULL, "XXX", If(deleteditems.ccode = "", "XXX",

@@ -12,8 +12,8 @@ Group: Administrative Reports
      -
 
 Created on: 2018-12-27 12:02:59
-Modified on: 2022-05-03 16:37:50
-Date last run: 2022-05-03 16:37:52
+Modified on: 2022-12-02 12:12:43
+Date last run: 2022-12-02 12:12:45
 
 ----------
 
@@ -74,7 +74,7 @@ FROM
       items.barcode <> "" AND
       (items.itype = "BOOK" OR
         items.itype = "PBBKNEW") AND
-      items.location = 'ADULT' AND
+      items.location LIKE '%AD%' AND
       items.ccode = 'FICTION' AND
       (items.notforloan = 0 OR
         items.notforloan IS NULL) AND
@@ -124,7 +124,7 @@ FROM
     WHERE
       items.barcode <> "" AND
       items.itype LIKE "NVID%" AND
-      items.location = 'ADULT' AND
+      items.location LIKE '%AD%' AND
       items.ccode = 'VID_D' AND
       (items.notforloan = 0 OR
         items.notforloan IS NULL) AND
@@ -176,7 +176,8 @@ FROM
       items.barcode <> "" AND
       (items.itype = "BOOK" OR
         items.itype = "PBBKNEW") AND
-      items.location = 'CHILDRENS' AND
+      (items.location LIKE '%CH%' OR
+        items.location LIKE '%JU%') AND
       items.ccode = 'FICTION' AND
       (items.notforloan = 0 OR
         items.notforloan IS NULL) AND
@@ -227,7 +228,8 @@ FROM
     WHERE
       items.barcode <> "" AND
       items.itype LIKE "NVID%" AND
-      items.location = 'CHILDRENS' AND
+      (items.location LIKE '%CH%' OR
+        items.location LIKE '%JU%') AND
       items.ccode = 'VID_D' AND
       (items.notforloan = 0 OR
         items.notforloan IS NULL) AND
@@ -279,7 +281,7 @@ FROM
       items.barcode <> "" AND
       (items.itype = "BOOK" OR
         items.itype = 'NEWBOOK') AND
-      items.location = 'YOUNGADULT' AND
+      items.location LIKE '%YA%' AND
       items.ccode = 'FICTION' AND
       (items.notforloan = 0 OR
         items.notforloan IS NULL) AND
@@ -329,7 +331,7 @@ FROM
     WHERE
       items.barcode <> "" AND
       items.itype LIKE "N_AB%" AND
-      items.location = 'ADULT' AND
+      items.location LIKE '%AD%' AND
       items.ccode = 'BOOKONCD' AND
       (items.notforloan = 0 OR
         items.notforloan IS NULL) AND
@@ -379,7 +381,8 @@ FROM
     WHERE
       items.barcode <> "" AND
       items.itype LIKE "N_AB%" AND
-      items.location = 'CHILDRENS' AND
+      (items.location LIKE '%CH%' OR
+        items.location LIKE '%JU%') AND
       items.ccode = 'BOOKONCD' AND
       (items.notforloan = 0 OR
         items.notforloan IS NULL) AND

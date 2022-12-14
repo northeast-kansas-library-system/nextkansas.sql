@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2009-01-26 12:07:07
-Modified on: 2022-09-29 15:20:30
-Date last run: 2022-11-03 15:18:01
+Modified on: 2022-11-30 10:48:24
+Date last run: 2022-12-02 15:13:03
 
 ----------
 
@@ -89,23 +89,23 @@ SELECT
   items.replacementprice AS "Replacement price",
   items.dateaccessioned AS "Date added",
   Concat_Ws("", 
-    If(items.barcode IS NULL, "Empty barcode / ", ""), 
-    If(plocs.lib IS NULL, "Empty permanent location / ", 
-      If(plocs.lib LIKE "%Cataloging%", "Cataloging location / ", 
-        If(plocs.lib LIKE "%Processing%", "Processing location / ", 
-          If(plocs.lib LIKE "%Recently%", "Recently returned location / ", "")
+    If(items.barcode IS NULL, "Barcode is blank / ", ""), 
+    If(plocs.lib IS NULL, "Permanent location is blank / ", 
+      If(plocs.lib LIKE "%Cataloging%", "Permanent location = cataloging / ", 
+        If(plocs.lib LIKE "%Processing%", "Permanent location = processing / ", 
+          If(plocs.lib LIKE "%Recently%", "Permanent location = recently returned / ", "")
         )
       )
     ), 
-    If(ccodes.lib IS NULL, "Empty collection code / ", 
-      If(ccodes.lib LIKE "%(UN%", "(Unclassified) collection code / ", "")
+    If(ccodes.lib IS NULL, "Collection code is blank / ", 
+      If(ccodes.lib LIKE "%(UN%", "Collection code = (Unclassified) / ", "")
     ), 
-    If(itypes.description IS NULL, "Empty item type ", 
-      If(itypes.description LIKE "%(UN%", "(Unclassified) item type / ", "")
+    If(itypes.description IS NULL, "Item type is blank ", 
+      If(itypes.description LIKE "%(UN%", "Item type = (Unclassified) / ", "")
     ), 
-    If(items.itemcallnumber IS NULL, "Empty call number / ", ""), 
-    If(items.replacementprice IS NULL, "Empty replacement price / ", 
-      If(items.replacementprice = 0, "$0.00 replacement price / ", "")
+    If(items.itemcallnumber IS NULL, "Call number is blank / ", ""), 
+    If(items.replacementprice IS NULL, "Replacement price is blank / ", 
+      If(items.replacementprice = 0, "Replacement price = $0.00 / ", "")
     )
   ) AS "Problem field"
 FROM

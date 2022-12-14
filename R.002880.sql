@@ -12,8 +12,8 @@ Group: Statistics
      End of month statistics
 
 Created on: 2017-01-09 09:39:56
-Modified on: 2021-10-26 12:00:25
-Date last run: 2022-03-29 10:19:39
+Modified on: 2022-12-02 11:10:25
+Date last run: 2022-12-02 10:50:36
 
 ----------
 
@@ -74,7 +74,7 @@ FROM
           statistics.location LIKE "CART", 
           items.permanent_location,
           statistics.location
-        ) LIKE '%ADULT%' OR
+        ) LIKE '%AD%' OR
         statistics.location IS NULL)
     GROUP BY
       statistics.branch) ADULT ON branches.branchcode = ADULT.branch LEFT JOIN
@@ -138,7 +138,7 @@ FROM
         statistics.location LIKE "CART", 
         items.permanent_location,
         statistics.location
-      ) NOT LIKE "%ADULT%"
+      ) NOT LIKE "%AD%"
     GROUP BY
       statistics.branch) YOUTH ON branches.branchcode = YOUTH.branch
 GROUP BY

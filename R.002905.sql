@@ -643,7 +643,11 @@ FROM
     action_logs.action Like '%CREAT%' AND
     action_logs.info LIKE "%accountlines_paid%" AND
     action_logs.info NOT LIKE "%create_writeoff%" AND
-    Month(action_logs.timestamp) = Month(CurDate() - INTERVAL 1 MONTH) AND
+    Month(action_logs.timestamp) = Month(CurDate
+
+||AAAAA||
+
+() - INTERVAL 1 MONTH) AND
     Year(action_logs.timestamp) = Year(CurDate() - INTERVAL 1 MONTH)
   UNION
   SELECT
@@ -1257,12 +1261,25 @@ FROM
   items
     ON paid.itemnumber = items.itemnumber
 GROUP BY
-  staff.b
-
-
-
-ranchcode, payments.amount, patron.cardnumber, Replace(payments.note,
+  staff.branchcode, payments.amount, patron.cardnumber, Replace(payments.note,
   "\r\n", ""), payments.date, Concat_Ws("-", payments.accountlines_id,
   payments.accountno), items.barcode, items.homebranch, paid.date, paid.amount,
   payments.amountoutstanding, paid.description, Replace(paid.note, "\r\n", ""),
   Concat_Ws("-", paid.accountlines_id, paid.accountno)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -12,8 +12,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2016-08-11 16:36:03
-Modified on: 2022-11-04 10:02:15
-Date last run: 2022-11-06 08:21:22
+Modified on: 2022-11-07 14:54:49
+Date last run: 2022-12-14 13:17:41
 
 ----------
 
@@ -310,18 +310,18 @@ WHERE
     Coalesce(Year(Coalesce(items.dateaccessioned)), '1999') < '2000', 
     '2000-01-02', 
     items.dateaccessioned 
-  ) BETWEEN <<Item added between date1|date>> AND <<and date2|date>>) AND 
+  ) BETWEEN <<Item added between date1|date>> AND <<and-date2|date>>) AND 
   If(items.onloan IS NULL, 'No', 'Yes') LIKE '%' AND 
   (If( 
     Coalesce(Year(Coalesce(items.datelastborrowed)), '1999') < '2000', 
     '2000-01-02', 
     items.datelastborrowed 
-  ) BETWEEN <<Item last borrowed between date1|date>> AND <<and date2|date>>) AND 
+  ) BETWEEN <<Item last borrowed between date1|date>> AND <<and--date2|date>>) AND 
   (If( 
     Coalesce(Year(Coalesce(items.datelastseen)), '1999') < '2000', 
     '2000-01-02', 
     items.datelastseen 
-  ) BETWEEN <<Item last seen between date1|date>> AND <<and  date2|date>>) AND 
+  ) BETWEEN <<Item last seen between date1|date>> AND <<and---date2|date>>) AND 
   localcounts.Count_itemnumber >= 0 AND 
   systemcounts.Count_itemnumber >= 0 
 GROUP BY 

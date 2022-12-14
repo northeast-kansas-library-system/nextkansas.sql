@@ -12,8 +12,8 @@ Group: Administrative Reports
      Holds-admin
 
 Created on: 2010-11-19 15:14:42
-Modified on: 2013-06-18 18:29:30
-Date last run: 2021-03-02 17:06:45
+Modified on: 2022-12-14 12:03:26
+Date last run: 2022-12-14 12:03:29
 
 ----------
 
@@ -29,7 +29,27 @@ Expiry: 0
 
 
 
-select surname, firstname, cardnumber, reserves.borrowernumber, reserves.branchcode, reservenotes, priority, found, reserves.timestamp, reserves.itemnumber, waitingdate, biblio.title from reserves LEFT JOIN borrowers USING(borrowernumber) LEFT JOIN biblio USING(biblionumber) WHERE priority = 0 and waitingdate is null and found is not null order by reservedate desc
+SELECT 
+  surname, 
+  firstname, 
+  cardnumber, 
+  reserves.borrowernumber, 
+  reserves.branchcode, 
+  reservenotes, 
+  priority, 
+  found, 
+  reserves.timestamp, 
+  reserves.itemnumber, 
+  waitingdate, 
+  biblio.title 
+FROM reserves 
+  LEFT JOIN borrowers USING(borrowernumber) 
+  LEFT JOIN biblio USING(biblionumber) 
+WHERE 
+  priority = 0 and 
+  waitingdate is null and 
+  found is not null 
+ORDER BY reservedate DESC
 
 
 
