@@ -3,17 +3,17 @@ R.003420
 
 ----------
 
-Name: GHW - A3 Monthly overview - Borrowers - Next Search Catalog
+Name: A3 Monthly overview - Borrowers
 Created by: George H Williams
 
 ----------
 
 Group: Statistics
-     2022 beginning of month statistics
+     2023 beginning of month statistics
 
 Created on: 2021-02-04 17:10:37
-Modified on: 2022-03-10 14:58:24
-Date last run: 2022-12-01 00:15:02
+Modified on: 2023-02-10 14:08:50
+Date last run: 2023-03-01 00:15:02
 
 ----------
 
@@ -44,7 +44,7 @@ Expiry: 300
 <p class="updated">This report and these notes updated on 2022.03.10</p> 
 <p></p> 
 <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3420">Click here to download as a csv file</a></p> 
-<p class= "notetags" style="display: none;">#monthly #statistics #overview</p> 
+<p class= "notetags" style="display: none;">#monthly #statistics #overview #monthly_overview</p> 
 <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
 </div> 
 

@@ -3,17 +3,17 @@ R.002975
 
 ----------
 
-Name: GHW - G2 Request and sharing statistics - request statistics - Next Search Catalog
+Name: G2 Request and sharing statistics - request statistics
 Created by: George H Williams
 
 ----------
 
 Group: Statistics
-     2022 beginning of month statistics
+     2023 beginning of month statistics
 
 Created on: 2017-07-11 11:52:53
-Modified on: 2022-03-11 15:44:34
-Date last run: 2022-12-01 01:10:02
+Modified on: 2023-02-10 14:11:14
+Date last run: 2023-03-01 01:25:01
 
 ----------
 

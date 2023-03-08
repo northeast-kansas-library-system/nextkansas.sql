@@ -3,17 +3,17 @@ R.003505
 
 ----------
 
-Name: GHW - D2 Circulation by borrower details - circulation by zipcode - Next Search Catalog
+Name: D3 Circulation by borrower details - circulation by zipcode
 Created by: George H Williams
 
 ----------
 
 Group: Statistics
-     2022 beginning of month statistics
+     2023 beginning of month statistics
 
 Created on: 2021-05-12 20:58:05
-Modified on: 2022-09-06 15:47:00
-Date last run: 2022-12-01 00:50:02
+Modified on: 2023-02-10 14:01:03
+Date last run: 2023-03-01 00:55:01
 
 ----------
 
@@ -40,7 +40,7 @@ Expiry: 300
 <p class="updated">This report and these notes updated on 2022.03.10</p> 
 <p></p> 
 <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id= 3505">Click here to download as a csv file</a></p> 
-<p class= "notetags" style="display: none;">#monthly #statistics #borrower #details #zipcode</p> 
+<p class= "notetags" style="display: none;">#monthly #statistics #borrower #details #zipcode #circulation_by_borrower_details</p> 
 <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
 </div> 
 

@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2018-06-18 11:15:38
-Modified on: 2022-12-12 21:32:02
-Date last run: 2022-12-14 13:38:23
+Modified on: 2023-03-03 16:44:10
+Date last run: 2023-03-08 14:34:06
 
 ----------
 
@@ -22,7 +22,7 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class="noprint">
+<div id="reportinfo" class="noprint reportinfo">
 <p>Print holds queue report with scannable barcodes and divided into priorities.</p>
 <ul><li>Shows items in the current holds queue</li>
 <li>at the location you specify</li>
@@ -33,7 +33,7 @@ Expiry: 300
 <p></p>
 <p>Notes:</p>
 <p></p>
-<p><span style="text-decoration: underline;">Highest priority</span> = request is for pickup at this library</p>
+<p><span style="text-decoration: underline;">Highest priority</span> = request is for pickup at this library || or || this is an item level request.</p>
 <p><span style="text-decoration: underline;">High priority</span> = the copy requested is the only copy owned by any Next Search Catalog library</p>
 <p></p>
 <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3084&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
@@ -128,7 +128,9 @@ SELECT
       '*', 
       '&type=Code39"></img>' 
     ), 
-    items.barcode 
+    items.barcode , 
+    '<br />', 
+    items.holdingbranch
   ) AS BARCODE 
 FROM 
   biblio LEFT JOIN 

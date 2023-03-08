@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-01-27 22:47:48
-Modified on: 2020-12-02 15:10:38
-Date last run: 2022-08-18 11:58:28
+Modified on: 2023-02-10 16:22:53
+Date last run: 2023-03-07 11:45:40
 
 ----------
 
@@ -42,76 +42,105 @@ Expiry: 300
 
 
 
-SELECT
-  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">', items.biblionumber, '</a>') AS LINK_TO_TITLE,
-  Concat("-", Coalesce(items.barcode, "-"), "-") AS BARCODE,
-  items.homebranch,
-  plocations.lib AS PERMANENT_LOCATION,
-  locations.lib AS LOCATION,
-  itemtypes.description AS ITYPE,
-  ccodes.lib AS CCODE,
-  items.itemcallnumber,
-  biblio.author,
-  Concat_Ws(" ", 
+Select
+  Concat(
+    '<a ',
+    'class="btn btn-success noprint" ',
+    'style="color: white;" '
+    'href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
+    biblio.biblionumber, 
+    '\" target="_blank">',
+    items.biblionumber, 
+    '</a>'
+  ) As 'Link to title',
+  Concat(
+    "-", 
+    Coalesce(items.barcode, "-"), 
+    "-"
+  ) As "Item barcode",
+  branches.branchname As 'LIbrary',
+  perm_locs.lib As 'Permanent location',
+  If(
+    locs.lib = perm_locs.lib, 
+    '', 
+    locs.lib
+  ) As 'Current location',
+  itemtypes.description As 'Item type',
+  ccodes.lib As 'Collection code',
+  items.itemcallnumber As 'Call number',
+  biblio.author As 'Author',
+  Concat_Ws(
+    " ", 
     biblio.title, 
     ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'),
     ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'),
     ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),
     ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')
-  ) AS FULL_TITLE,
-  items.dateaccessioned,
-  items.price,
-  items.replacementprice,
-  items.timestamp
-FROM
-  items JOIN
-  biblio ON biblio.biblionumber = items.biblionumber JOIN
-  biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
-  LEFT JOIN
-  (SELECT
+  ) As 'Full title',
+  items.dateaccessioned As 'Date added',
+  items.price As 'Normal purchase price',
+  items.replacementprice As 'Replacement price',
+  items.timestamp As 'Last updated on'
+From
+  items Join
+  biblio 
+    On biblio.biblionumber = items.biblionumber Join 
+  biblio_metadata 
+    On biblio_metadata.biblionumber = biblio.biblionumber Left Join
+  (
+    Select
       authorised_values.category,
       authorised_values.authorised_value,
       authorised_values.lib
-    FROM
+    From
       authorised_values
-    WHERE
-      authorised_values.category = 'CCODE') ccodes ON ccodes.authorised_value =
-      items.ccode LEFT JOIN
-  (SELECT
+    Where
+      authorised_values.category = 'CCODE'
+  ) ccodes 
+    On ccodes.authorised_value = items.ccode Left Join
+  (
+    Select
       authorised_values.category,
       authorised_values.authorised_value,
       authorised_values.lib
-    FROM
+    From
       authorised_values
-    WHERE
-      authorised_values.category = 'LOC') locations ON
-      locations.authorised_value = items.location LEFT JOIN
-  itemtypes ON itemtypes.itemtype = items.itype LEFT JOIN
-  (SELECT
+    Where
+      authorised_values.category = 'LOC'
+  ) locs 
+    On locs.authorised_value = items.location 
+  Left Join itemtypes 
+    On itemtypes.itemtype = items.itype 
+  Left Join
+  (
+    Select
       authorised_values.category,
       authorised_values.authorised_value,
       authorised_values.lib
-    FROM
+    From
       authorised_values
-    WHERE
-      authorised_values.category = 'LOC') plocations ON
-      plocations.authorised_value = items.permanent_location
-WHERE
-  items.homebranch = <<Choose your library|LBRANCH>> AND
-  Month(items.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) AND
-  Year(items.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH)
-GROUP BY
-  plocations.lib,
+    Where
+      authorised_values.category = 'LOC'
+  ) perm_locs 
+    On perm_locs.authorised_value = items.permanent_location 
+  Join branches 
+    On items.holdingbranch = branches.branchcode 
+    And items.homebranch = branches.branchcode
+Where
+  items.homebranch Like <<Choose your library|LBRANCH>> And
+  Month(items.dateaccessioned) = Month(Now() - Interval 1 Month) And
+  Year(items.dateaccessioned) = Year(Now() - Interval 1 Month)
+Group By
   items.biblionumber,
   items.itemnumber
-ORDER BY
-  items.homebranch,
-  PERMANENT_LOCATION,
-  ITYPE,
-  CCODE,
-  items.itemcallnumber,
-  biblio.author,
-  FULL_TITLE
+Order By
+  'LIbrary',
+  'Permanent location',
+  'Item type',
+  'Collection code',
+  'Call number',
+  'Author',
+  'Full title'
 
 
 

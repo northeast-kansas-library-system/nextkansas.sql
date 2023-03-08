@@ -12,8 +12,8 @@ Group:  ROSSVILLE
      -
 
 Created on: 2021-05-07 15:11:43
-Modified on: 2021-08-16 22:00:38
-Date last run: 2022-12-14 11:01:38
+Modified on: 2023-01-23 16:53:26
+Date last run: 2023-03-08 14:31:39
 
 ----------
 
@@ -22,7 +22,16 @@ Expiry: 300
 
 ----------
 
-
+<div id=reportinfo class=noprint>
+  <p>Creates a list of new adult book ISBNs for the Wordpress bookshelves plugin for ROSSVILLE</p>
+  <ul>
+    <li>Shows the 25 most recently added 10 digit ISBNs for items owned by ROSSVILLE</li>
+    <li>only titles owned by ROSSVILLE</li>
+    <li>grouped and sorted by biblionumber (descending sort)</li>
+  </ul><br />
+  <p class= "notetags" style="display: none;">#wordpress #bookshelves</p>
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div>
 
 ----------
 */
@@ -81,7 +90,7 @@ WHERE
   items.homebranch LIKE 'ROSSVILLE' AND
   biblioitems.isbn IS NOT NULL AND
   items.itype LIKE 'BOOK' AND
-  items.permanent_location LIKE 'ADULT' AND
+  items.permanent_location LIKE 'L_AD' AND
   items.ccode LIKE "%" AND
   items.notforloan = 0 AND
   items.damaged = 0 AND

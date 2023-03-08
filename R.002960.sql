@@ -12,8 +12,8 @@ Group: Administrative Reports
      -
 
 Created on: 2017-06-23 11:25:44
-Modified on: 2021-09-28 15:30:45
-Date last run: 2022-11-08 11:12:41
+Modified on: 2023-02-17 16:12:26
+Date last run: 2023-02-17 16:12:28
 
 ----------
 
@@ -50,16 +50,6 @@ SELECT
     letter.message_transport_type 
   ) AS FILE, 
   Concat( 
-    Concat( 
-      If(letter.branchcode = " ", "AAAAA", letter.branchcode), 
-      ".", 
-      letter.code, 
-      ".", 
-      letter.lang, 
-      ".", 
-      letter.message_transport_type, 
-      ".txt" 
-    ), 
     CHAR(13), CHAR(10), CHAR(13), CHAR(10), 
     Concat("Name: ", letter.name), 
     CHAR(13), CHAR(10), CHAR(13), CHAR(10), 

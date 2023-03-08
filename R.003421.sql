@@ -3,17 +3,17 @@ R.003421
 
 ----------
 
-Name: GHW - A4 Monthly overview - Inter-Next loans and borrows - Next Search Catalog
+Name: A4 Monthly overview - Inter-Next loans and borrows
 Created by: George H Williams
 
 ----------
 
 Group: Statistics
-     2022 beginning of month statistics
+     2023 beginning of month statistics
 
 Created on: 2021-02-04 17:45:36
-Modified on: 2022-03-29 11:43:58
-Date last run: 2022-12-01 00:20:02
+Modified on: 2023-02-10 14:09:03
+Date last run: 2023-03-01 00:20:02
 
 ----------
 
@@ -41,7 +41,7 @@ Expiry: 300
 <p class="updated">This report and these notes updated on 2022.03.10</p> 
 <p></p> 
 <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3421">Click here to download as a csv file</a></p> 
-<p class= "notetags" style="display: none;">#monthly #statistics #overview</p> 
+<p class= "notetags" style="display: none;">#monthly #statistics #overview #monthly_overview</p> 
 <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
 </div> 
 

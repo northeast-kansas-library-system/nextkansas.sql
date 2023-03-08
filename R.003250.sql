@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-08-14 15:38:39
-Modified on: 2021-01-12 23:47:22
-Date last run: 2022-12-14 13:49:32
+Modified on: 2023-02-26 12:18:09
+Date last run: 2023-03-08 14:37:19
 
 ----------
 
@@ -37,7 +37,8 @@ SELECT
     damageds.lib,
     '" on ',
     IF(items.damaged_on is null, 'unknown date', Date_Format(items.damaged_on, '%Y-%m-%d')),
-    '.</h3><p>DAMAGED statuses must be removed manually - they are not removed by the checkin process.</p>'
+    '.</h3><p>DAMAGED statuses must be removed manually - they are not removed by the checkin process.</p>',
+    '<span class="hidden dialog alert lostreturned"><button class="focus" id="damagedbutton">damaged</button></span>'
   ) AS MESSAGE,
   If(items.damaged > 0, 'block', 'none') AS DISPLAY,
   damageds.lib

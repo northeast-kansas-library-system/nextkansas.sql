@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-10-02 16:50:52
-Modified on: 2020-06-06 01:27:11
-Date last run: 2022-02-18 14:24:56
+Modified on: 2023-02-09 09:16:57
+Date last run: 2023-03-08 12:18:30
 
 ----------
 
@@ -39,7 +39,8 @@ FROM
 WHERE
   reserves.branchcode LIKE <<Choose your library|LBRANCH>> AND
   reserves.found IS NULL AND
-  reserves.suspend = ""
+  reserves.suspend = "" AND 
+  reserves.reservedate <= CURRENT_DATE()
 GROUP BY
   reserves.borrowernumber,
   reserves.branchcode,

@@ -3,7 +3,7 @@ R.003682
 
 ----------
 
-Name: GHW - Upcoming closures for home page
+Name: GHW - Upcoming closures for home page for jQuery enhancement
 Created by: George H Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2022-11-27 16:14:02
-Modified on: 2022-11-27 22:05:41
-Date last run: 2022-12-14 13:49:11
+Modified on: 2022-12-14 15:10:13
+Date last run: 2023-03-08 14:36:21
 
 ----------
 
@@ -22,7 +22,21 @@ Expiry: 5
 
 ----------
 
-
+<div id=reportinfo class=noprint>
+  <p>Produces a list of upcoming closures at a library</p>
+  <ul>
+    <li>Shows data current for the date and time the report is run</li>
+    <li>shows closures at the library you're logged in at</li>
+    <li>grouped by special_holidays.id and repeatable_holidays.id</li>
+    <li>sorted by branchcode and date</li>
+  </ul><br />
+  <p><ins>Notes:</ins></p>
+  <p></p>
+  <p>Relies on jQuery to work properly</p>
+  <p></p>
+  <p class= "notetags" style="display: none;">#jquery_enhancement</p>
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div>
 
 ----------
 */

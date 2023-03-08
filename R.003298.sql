@@ -12,8 +12,8 @@ Group:  LEAVENWRTH
      -
 
 Created on: 2020-01-09 15:12:38
-Modified on: 2021-08-16 20:32:56
-Date last run: 2022-12-05 15:06:30
+Modified on: 2023-01-25 13:05:34
+Date last run: 2023-02-13 10:40:37
 
 ----------
 
@@ -66,6 +66,7 @@ WHERE
   borrowers.categorycode <> "ILL" AND
   borrowers.categorycode <> "INHOUSE" AND
   borrowers.categorycode <> "STATISTIC" AND
+  borrowers.categorycode <> "S_SIP" AND
   borrowers.othernames <> 'SIP2 test account'
 GROUP BY
   borrowers.categorycode,

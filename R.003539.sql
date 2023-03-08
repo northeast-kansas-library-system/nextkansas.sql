@@ -3,17 +3,17 @@ R.003539
 
 ----------
 
-Name: GHW - E1 Borrower statistics - Detailed count of borrowers
+Name: E1 Borrower statistics - borrower count by borrower category
 Created by: George H Williams
 
 ----------
 
 Group: Statistics
-     2022 beginning of month statistics
+     2023 beginning of month statistics
 
 Created on: 2021-08-03 09:12:55
-Modified on: 2022-03-10 15:32:42
-Date last run: 2022-12-01 00:55:02
+Modified on: 2023-02-10 14:21:52
+Date last run: 2023-03-01 01:00:03
 
 ----------
 

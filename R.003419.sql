@@ -3,17 +3,17 @@ R.003419
 
 ----------
 
-Name: GHW - A2 Monthly overview - Circulation - Next Search Catalog
+Name: A2 Monthly overview - Circulation
 Created by: George H Williams
 
 ----------
 
 Group: Statistics
-     2022 beginning of month statistics
+     2023 beginning of month statistics
 
 Created on: 2021-02-04 16:59:13
-Modified on: 2022-12-02 09:46:37
-Date last run: 2022-12-01 00:10:02
+Modified on: 2023-02-10 14:08:40
+Date last run: 2023-03-01 00:10:01
 
 ----------
 
@@ -69,7 +69,7 @@ Expiry: 300
 <p></p> 
 <p></p> 
 <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3419">Click here to download as a csv file</a></p> 
-<p class= "notetags" style="display: none;">#monthly #statistics #overview</p> 
+<p class= "notetags" style="display: none;">#monthly #statistics #overview #monthly_overview</p> 
 <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
 </div> 
 

@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-09-07 12:04:47
-Modified on: 2022-05-04 15:50:04
-Date last run: 2022-05-04 15:50:06
+Modified on: 2023-01-25 15:07:44
+Date last run: 2023-01-25 15:08:22
 
 ----------
 
@@ -29,96 +29,75 @@ Expiry: 300
 
 
 
-SELECT 
-  Concat( 
-    Concat(Replace(branches.branchname, ' - ', '<br />'), '<p><ins>Mailing address:</ins><br />', 
-    Concat_Ws('<br />', branches.branchaddress1, Concat(branches.branchcity, ', ', branches.branchstate, ' ', branches.branchzip)), '</p>'), 
-    Concat('<ins>Street address:</ins><br />', Concat_Ws('<br />', If(branches.branchaddress2 = ' ', branches.branchaddress1, branches.branchaddress2), 
-    Concat(branches.branchcity, ', ', branches.branchstate, '<br />'))) 
-  ) AS Library, 
-  Concat_Ws('<p>', 
-    Concat('<p>Phone: ', branches.branchphone, '</p>'), 
-    Concat('Fax: ', branches.branchfax, '</p>'), 
-    Concat('e-mail: ', branches.branchemail, '</p>'), 
-    Concat('Website: <a href="', branches.branchurl, '" target="_blank">Click here</a></p>'), 
-    Concat('Courier route #: ', branches.branchcountry, '</p>') 
-  ) AS "Contact information", 
-  Concat_Ws('<br />', 
-    Replace( 
-      Replace( 
-        Replace( 
-          branches.branchaddress3, '|', '<br /><br />' 
-        ), 
-        'Director:', '<span style="background: yellow; text-decoration: underline; font-size: 120%;">Director:</span><br />' 
-      ), 
-      'Accreditation:', '<span style="background: aqua; text-decoration: underline; font-size: 120%;">Type:</span><br />' 
-    ), 
-    ' ', 
-    Concat('<span style="background: wheat; text-decoration: underline;">Registered borrowers:</span> ', total_borrowerss.TOTAL_REGISTERED), 
-    Concat('<span style="background: wheat; text-decoration: underline;">Active borrowers - previous 12 months:</span> ', active_one.ACTIVE_ONE), 
-    Concat('<span style="background: wheat; text-decoration: underline;">Active borrowers - previous 24 months:</span> ', active_two.ACTIVE_TWO), 
-    ' ', 
-    Concat('<span style="background: wheat; text-decoration: underline;">Total titles:</span> ', Count(DISTINCT items.biblionumber)), 
-    Concat('<span style="background: wheat; text-decoration: underline;">Total items:</span> ', Count(DISTINCT items.itemnumber)), 
-    ' ', 
-    Concat('Last updated: ', Now()) 
-  ) AS "Staff contacts / holdings" 
-FROM 
-  branches LEFT JOIN 
-  items ON items.homebranch = branches.branchcode LEFT JOIN 
-  ( 
-    SELECT 
-      borrowers.branchcode, 
-      Count(DISTINCT borrowers.borrowernumber) AS TOTAL_REGISTERED 
-    FROM 
-      borrowers 
-    GROUP BY 
-      borrowers.branchcode 
-  ) total_borrowerss 
-  ON total_borrowerss.branchcode = branches.branchcode LEFT JOIN 
-  ( 
-    SELECT 
-      Coalesce(borrowers.branchcode, deletedborrowers.branchcode) AS branchcode, 
-      Count(DISTINCT statistics.borrowernumber) AS ACTIVE_ONE 
-    FROM 
-      statistics LEFT JOIN 
-      borrowers ON borrowers.borrowernumber = statistics.borrowernumber 
-      LEFT JOIN 
-      deletedborrowers ON deletedborrowers.borrowernumber = 
-          statistics.borrowernumber 
-    WHERE 
-      (statistics.type = 'issue' OR 
-        statistics.type = 'renew') AND 
-      statistics.datetime BETWEEN CurDate() - INTERVAL 1 YEAR AND CurDate() 
-    GROUP BY 
-      Coalesce(borrowers.branchcode, deletedborrowers.branchcode) 
-  ) active_one 
-  ON active_one.branchcode = branches.branchcode LEFT JOIN 
-  ( 
-    SELECT 
-      Coalesce(borrowers.branchcode, deletedborrowers.branchcode) AS branchcode, 
-      Count(DISTINCT statistics.borrowernumber) AS ACTIVE_TWO 
-    FROM 
-      statistics LEFT JOIN 
-      borrowers ON borrowers.borrowernumber = statistics.borrowernumber 
-      LEFT JOIN 
-      deletedborrowers ON deletedborrowers.borrowernumber = 
-          statistics.borrowernumber 
-    WHERE 
-      (statistics.type = 'issue' OR 
-        statistics.type = 'renew') AND 
-      statistics.datetime BETWEEN CurDate() - INTERVAL 2 YEAR AND CurDate() 
-    GROUP BY 
-      Coalesce(borrowers.branchcode, deletedborrowers.branchcode) 
-  ) active_two 
-  ON active_two.branchcode = branches.branchcode 
-WHERE 
-  branches.branchcode LIKE "%" 
-GROUP BY 
-  branches.branchcode 
-ORDER BY 
-  Library 
-LIMIT 500
+Select 
+  branchesscodess.branchname,
+  branchesscodess.branchcode,
+  branchesscodess.LOCATION,
+  branchesscodess.LOCATION_CODE,
+  branchesscodess.ITEM_TYPE,
+  branchesscodess.ITEM_TYPE_CODE,
+  branchesscodess.COLLECTION_CODE_DESCRIPTION,
+  branchesscodess.COLLECTION_CODE_CODE,
+  statistics.type,
+  Count(statistics.datetime) As COUNT
+From (
+    Select 
+      branches.branchcode,
+      branches.branchname,
+      locss.lib As LOCATION,
+      locss.authorised_value As LOCATION_CODE,
+      itemtypes.description As ITEM_TYPE,
+      itemtypes.itemtype As ITEM_TYPE_CODE,
+      ccodess.lib As COLLECTION_CODE_DESCRIPTION,
+      ccodess.authorised_value As COLLECTION_CODE_CODE
+    From branches,
+      (
+        Select authorised_values.category,
+          authorised_values.authorised_value,
+          authorised_values.lib,
+          authorised_values.lib_opac
+        From authorised_values
+        Where authorised_values.category = 'LOC'
+      ) locss,
+      itemtypes,
+      (
+        Select authorised_values.category,
+          authorised_values.authorised_value,
+          authorised_values.lib,
+          authorised_values.lib_opac
+        From authorised_values
+        Where authorised_values.category = 'CCODE'
+      ) ccodess
+    Where branches.branchcode Like <<Choose your library|ZBRAN>>
+  ) branchesscodess
+  Join statistics On statistics.branch = branchesscodess.branchcode
+  And statistics.location = branchesscodess.LOCATION_CODE
+  And statistics.itemtype = branchesscodess.ITEM_TYPE_CODE
+  And statistics.ccode = branchesscodess.COLLECTION_CODE_CODE
+Where (
+    statistics.type = 'issue'
+    Or statistics.type = 'renew'
+  )
+  And statistics.datetime Between <<The beginning of the day on|date>> And (<<the end of the day on|date>> + Interval 1 Day)
+Group By 
+  branchesscodess.branchname,
+  branchesscodess.branchcode,
+  branchesscodess.LOCATION,
+  branchesscodess.LOCATION_CODE,
+  branchesscodess.ITEM_TYPE,
+  branchesscodess.ITEM_TYPE_CODE,
+  branchesscodess.COLLECTION_CODE_DESCRIPTION,
+  branchesscodess.COLLECTION_CODE_CODE,
+  statistics.type
+Order By 
+  branchesscodess.branchname,
+  branchesscodess.branchcode,
+  branchesscodess.LOCATION,
+  branchesscodess.LOCATION_CODE,
+  branchesscodess.ITEM_TYPE,
+  branchesscodess.ITEM_TYPE_CODE,
+  branchesscodess.COLLECTION_CODE_DESCRIPTION,
+  branchesscodess.COLLECTION_CODE_CODE
 
 
 

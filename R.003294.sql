@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-12-31 15:05:33
-Modified on: 2021-09-18 17:30:41
-Date last run: 2021-09-18 17:30:44
+Modified on: 2023-02-01 14:45:20
+Date last run: 2023-02-01 14:45:47
 
 ----------
 
@@ -56,13 +56,13 @@ From
       UNION
       Select
         Concat("DONIZ") As branchcode,
-        Concat("Doniphan County Library -- Combined") As branchname
+        Concat("Y Doniphan County Library -- All") As branchname
       From
         branches
       UNION
       Select
         Concat("PHZ") As branchcode,
-        Concat("Prairie Hills Schools -- Combined") As branchname
+        Concat("Z Prairie Hills Schools -- All") As branchname
       From
         branches) branchesx
    Order By
@@ -78,10 +78,12 @@ From
           @code_number := 0
       ) AS t,
       itemtypes
+    Group By
+      itemtypes.description
     ORDER BY
       itemtypes.description
   ) itypecnt
-  INNER JOIN itemtypes
+  JOIN itemtypes
     ON itypecnt.itemtype = itemtypes.itemtype
 ORDER BY
   `Library Name`,

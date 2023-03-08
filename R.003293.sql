@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-12-31 14:13:24
-Modified on: 2021-09-18 16:37:09
-Date last run: 2021-09-18 17:22:02
+Modified on: 2023-02-01 16:17:40
+Date last run: 2023-02-01 16:26:40
 
 ----------
 
@@ -56,13 +56,13 @@ From
       UNION
       Select
         Concat("DONIZ") As branchcode,
-        Concat("Doniphan County Library -- Combined") As branchname
+        Concat("YY Doniphan County Library -- Combined") As branchname
       From
         branches
       UNION
       Select
         Concat("PHZ") As branchcode,
-        Concat("Prairie Hills Schools -- Combined") As branchname
+        Concat("ZZ Prairie Hills Schools -- Combined") As branchname
       From
         branches) branchesx
    Order By
@@ -79,6 +79,8 @@ From
      authorised_values
    Where
      authorised_values.category = 'ccode'
+   Group By
+     authorised_values.lib
    Order By
      authorised_values.lib,
      authorised_values.authorised_value) ccodess On ccodess.authorised_value = authorised_values.authorised_value

@@ -3,17 +3,17 @@ R.003499
 
 ----------
 
-Name: GHW - B1 Circulation by library details - hourly statistics - Next Search Catalog
+Name: B1 Circulation by library details - hourly statistics
 Created by: George H Williams
 
 ----------
 
 Group: Statistics
-     2022 beginning of month statistics
+     2023 beginning of month statistics
 
 Created on: 2021-04-30 15:05:03
-Modified on: 2022-04-05 15:29:38
-Date last run: 2022-12-01 00:30:01
+Modified on: 2023-02-10 14:09:34
+Date last run: 2023-03-01 00:30:02
 
 ----------
 
@@ -45,7 +45,7 @@ Expiry: 300
 <p class="updated">This report and these notes updated on 2022.03.10</p> 
 <p></p> 
 <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id= 3499">Click here to download as a csv file</a></p> 
-<p class= "notetags" style="display: none;">#monthly #statistics #library #details #hourly</p> 
+<p class= "notetags" style="display: none;">#monthly #statistics #library #details #hourly #cirulation_by_library_details</p> 
 <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
 </div> 
 

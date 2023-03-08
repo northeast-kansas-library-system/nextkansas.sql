@@ -3,7 +3,7 @@ R.003687
 
 ----------
 
-Name: GHW - Holds queue count
+Name: GHW - Holds queue count for jQuery enhancement
 Created by: George H Williams
 
 ----------
@@ -12,17 +12,31 @@ Group: -
      -
 
 Created on: 2022-12-11 21:57:00
-Modified on: 2022-12-13 16:42:05
-Date last run: 2022-12-14 13:49:11
+Modified on: 2023-02-25 00:00:22
+Date last run: 2023-03-08 14:36:21
 
 ----------
 
 Public: 0
-Expiry: 60
+Expiry: 300
 
 ----------
 
-
+<div id=reportinfo class=noprint>
+  <p>Creates the holds queue button on the home page in the staff client</p>
+  <ul>
+    <li>Creates button to take staff to the current holds queue</li>
+    <li>for the library you're logged in at</li>
+    <li>grouped by holds queue branchcode</li>
+    <li>button links to report 3084</li>
+  </ul><br />
+  <p><ins>Notes:</ins></p>
+  <p></p>
+  <p>Relies on jQuery to work properly</p>
+  <p></p>
+  <p class= "notetags" style="display: none;">#jquery_enhancement</p>
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div>
 
 ----------
 */

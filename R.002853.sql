@@ -8,12 +8,12 @@ Created by: George H Williams
 
 ----------
 
-Group: Administrative Reports
-     Testing
+Group: -
+     -
 
 Created on: 2016-12-14 08:35:31
-Modified on: 2019-11-11 22:08:21
-Date last run: 2021-05-17 10:42:55
+Modified on: 2023-02-22 22:18:21
+Date last run: 2023-02-22 22:18:55
 
 ----------
 
@@ -51,7 +51,8 @@ FROM
   action_logs
 WHERE
   action_logs.timestamp > AddDate(Last_Day(SubDate(Now(), INTERVAL 3 MONTH)), 1) AND
-  action_logs.module = 'SYSTEMPREFERENCE'
+  action_logs.module = 'reports' AND 
+  action_logs.object = "2946"
 
 
 

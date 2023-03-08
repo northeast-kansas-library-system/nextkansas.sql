@@ -12,8 +12,8 @@ Group: Statistics
      -
 
 Created on: 2016-09-12 01:04:34
-Modified on: 2021-10-20 12:16:54
-Date last run: 2022-12-02 10:13:47
+Modified on: 2023-01-18 17:38:18
+Date last run: 2023-02-16 12:30:21
 
 ----------
 
@@ -64,9 +64,9 @@ FROM
       statistics.branch,
       Count(*) AS CKO_RENEW_COUNT,
       If(
-        Coalesce(statistics.location, "ADULT") = "CART",
+        Coalesce(statistics.location, "L_AD") = "CART",
         items.permanent_location, 
-        Coalesce(statistics.location, "ADULT")
+        Coalesce(statistics.location, "L_AD")
       ) AS
       location
     FROM
@@ -80,7 +80,7 @@ FROM
         statistics.type = 'renew')
     GROUP BY
       statistics.branch,
-      Coalesce(statistics.location, "ADULT")) statisticss ON
+      Coalesce(statistics.location, "L_AD")) statisticss ON
       statisticss.branch = branches.branchcode AND
       statisticss.location = branches.authorised_value
 WHERE

@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2009-01-26 12:07:07
-Modified on: 2022-11-30 10:48:24
-Date last run: 2022-12-02 15:13:03
+Modified on: 2023-02-28 11:34:04
+Date last run: 2023-02-28 11:47:37
 
 ----------
 
@@ -22,7 +22,7 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo class=noprint>
+<div class="noprint report_info">
 <p>Shows item records with important fields that are blank or may be problematic</p>
 <ul>
   <li>Shows items currently in the catalog with the following fields left blank (or in some cases "Unclassified"):</li>

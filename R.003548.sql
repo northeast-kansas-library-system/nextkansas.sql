@@ -3,17 +3,17 @@ R.003548
 
 ----------
 
-Name: GHW - E2 Borrower statistics - borrower count by zip code - Next Search Catalog
+Name: E2 Borrower statistics - borrower count by zip code
 Created by: George H Williams
 
 ----------
 
 Group: Statistics
-     2022 beginning of month statistics
+     2023 beginning of month statistics
 
 Created on: 2021-08-04 16:23:25
-Modified on: 2022-03-10 17:21:49
-Date last run: 2022-12-01 01:00:01
+Modified on: 2023-02-10 14:10:37
+Date last run: 2023-03-01 00:05:02
 
 ----------
 

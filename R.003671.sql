@@ -3,7 +3,7 @@ R.003671
 
 ----------
 
-Name: GHW - In transit count
+Name: GHW - In transit - Count of items still in transit by week
 Created by: George H Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2022-10-17 15:13:34
-Modified on: 2022-10-24 22:13:07
-Date last run: 2022-10-25 17:01:43
+Modified on: 2022-12-14 16:46:50
+Date last run: 2022-12-14 16:44:12
 
 ----------
 
@@ -22,7 +22,21 @@ Expiry: 300
 
 ----------
 
-
+<div id=reportinfo class=noprint>
+  <p>Counts the items that are still in transit and orders them by the week they were shipped</p>
+  <ul>
+    <li>Shows data for items that are currently in transit</li>
+    <li>at all Next libraries</li>
+    <li>grouped and sorted by the week shipped</li>
+    <li>links to report 3672</li>
+  </ul><br />
+  <p><ins>Notes:</ins></p>
+  <p></p>
+  <p>Created to isolate possible courier issues.</p>
+  <p></p>
+  <p class= "notetags" style="display: none;">#transit #courier</p>
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div>
 
 ----------
 */
@@ -39,10 +53,10 @@ SELECT
     '<a class="btn btn-default btn-xs noprint"', 
     'href=\"/cgi-bin/koha/reports/guided_reports.pl?reports=3672', 
     '&phase=Run+this+report', 
-    '&param_name=Between+date1', 
+    '&param_name=Between+%28YYYY-MM-DD%29', 
     '&sql_params=', 
     weeks.d1, 
-    '&param_name=and+date2', 
+    '&param_name=and+%28YYYY-MM-DD%29', 
     '&sql_params=', 
     weeks.d2, 
     '" target="_blank">All items for week</a>' 

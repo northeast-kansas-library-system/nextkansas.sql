@@ -9,11 +9,11 @@ Created by: George H Williams
 ----------
 
 Group: Statistics
-     2022 beginning of month statistics
+     2023 beginning of month statistics
 
 Created on: 2022-04-18 22:01:38
 Modified on: 2022-04-18 22:20:08
-Date last run: 2022-12-02 09:47:40
+Date last run: 2023-03-01 01:30:02
 
 ----------
 

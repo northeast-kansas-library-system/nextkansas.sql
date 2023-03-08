@@ -3,7 +3,7 @@ R.003672
 
 ----------
 
-Name: GHW - TEST Date range courier issues
+Name: GHW - Items till in transit shipped during a date range
 Created by: George H Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2022-10-24 17:38:06
-Modified on: 2022-10-25 17:13:41
-Date last run: 2022-10-25 17:14:03
+Modified on: 2022-12-14 16:50:36
+Date last run: 2022-12-14 16:42:20
 
 ----------
 
@@ -22,7 +22,22 @@ Expiry: 300
 
 ----------
 
-
+<div id=reportinfo class=noprint>
+  <p>Displays a list of items shipped during a specific date range that are still "in transit."</p>
+  <ul>
+    <li>Shows items that are still in transit during the date range you specify</li>
+    <li>at all Next libraries</li>
+    <li>grouped by biblio and item number</li>
+    <li>sorted in the standard Next Search Catalog classification order</li>
+    <li>links to the bibliographic record and a mailto link to contact all libraries involved in the transfer</li>
+  </ul><br />
+  <p><ins>Notes:</ins></p>
+  <p></p>
+  <p>Designed to help libraries track items that are missing in transit.</p>
+  <p></p>
+  <p class= "notetags" style="display: none;">#transfers #missing_in_transit #courier</p>
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div>
 
 ----------
 */

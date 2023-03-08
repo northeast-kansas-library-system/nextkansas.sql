@@ -12,13 +12,13 @@ Group: -
      -
 
 Created on: 2017-05-12 01:07:13
-Modified on: 2022-05-04 16:26:32
-Date last run: 2022-12-14 07:05:08
+Modified on: 2023-02-23 18:24:23
+Date last run: 2023-02-24 09:00:08
 
 ----------
 
 Public: 0
-Expiry: 43200
+Expiry: 86400
 
 ----------
 
@@ -31,12 +31,9 @@ Expiry: 43200
 </ul><br />
 <p><ins>Notes:</ins></p>
 <p></p>
-<p>Updated on 2022.05.04 to include:</p>
-<ul>
-  <li>Registered borrowers = Number of borrowers with this home library</li>
-  <li>Active borrowers - previous 12 months = number of borrowers that used their card to check out or renew physical materials in the previous 12 months</li>
-  <li>Active borrowers - previous 24 months = number of borrowers that used their card to check out or renew physical materials in the previous 24 months</li>
-</ul>
+<p>Updated on 2022.05.04 to include: Registered borrowers = Number of borrowers with this home library</p>
+<p></p>
+<p>Updated on 2023.02.23 to remove active borrowers in previous 12 months</p>
 <p></p>
 </div>
 
@@ -46,111 +43,107 @@ Expiry: 43200
 
 
 SELECT 
-  Concat( 
+  Concat(
     Concat(
-      Replace(branches.branchname, ' - ', '<br />'), 
-      '<p><ins>Mailing address:</ins><br />', 
-      Concat_Ws('<br />', 
-        branches.branchaddress1, 
-        Concat(branches.branchcity, ', ', branches.branchstate, ' ', branches.branchzip)
-      ), 
+      Replace(branches.branchname, ' - ', '<br />'),
+      '<p><ins>Mailing address:</ins><br />',
+      Concat_Ws(
+        '<br />',
+        branches.branchaddress1,
+        Concat(
+          branches.branchcity,
+          ', ',
+          branches.branchstate,
+          ' ',
+          branches.branchzip
+        )
+      ),
       '</p>'
-    ), 
+    ),
     Concat(
-      '<ins>Street address:</ins><br />', 
-      Concat_Ws('<br />', 
-        If(branches.branchaddress2 = ' ', branches.branchaddress1, branches.branchaddress2), 
-        Concat(branches.branchcity, ', ', branches.branchstate, '<br />')
+      '<ins>Street address:</ins><br />',
+      Concat_Ws(
+        '<br />',
+        If(
+          branches.branchaddress2 = ' ',
+          branches.branchaddress1,
+          branches.branchaddress2
+        ),
+        Concat(
+          branches.branchcity,
+          ', ',
+          branches.branchstate,
+          '<br />'
+        )
       )
-    ) 
-  ) AS Library, 
-  Concat_Ws('<p>', 
-    Concat('<p>Phone: ', branches.branchphone, '</p>'), 
-    Concat('Fax: ', branches.branchfax, '</p>'), 
-    Concat('e-mail: ', branches.branchemail, '</p>'), 
-    Concat('Website: <a href="', branches.branchurl, '" target="_blank">Click here</a></p>'), 
-    Concat('Courier route #: ', branches.branchcountry, '</p>') 
-  ) AS "Contact information", 
-  Concat_Ws('<br />', 
-    Replace( 
-      Replace( 
-        Replace( 
-          branches.branchaddress3, 
-          '|', 
-          '<br /><br />' 
-        ), 
-        'Director:', 
-        '<span style="background: yellow; text-decoration: underline; font-size: 120%;">Director:</span><br />' 
-      ), 
-      'Accreditation:', 
-      '<span style="background: aqua; text-decoration: underline; font-size: 120%;">Type:</span><br />' 
-    ), 
-    ' ', 
-    Concat('<span style="background: wheat; text-decoration: underline;">Registered borrowers:</span> ', total_borrowerss.TOTAL_REGISTERED), 
-    Concat('<span style="background: wheat; text-decoration: underline;">Active borrowers - previous 12 months:</span> ', active_one.ACTIVE_ONE), 
-    Concat('<span style="background: wheat; text-decoration: underline;">Active borrowers - previous 24 months:</span> ', active_two.ACTIVE_TWO), 
-    ' ', 
-    Concat('<span style="background: wheat; text-decoration: underline;">Total titles:</span> ', Count(DISTINCT items.biblionumber)), 
-    Concat('<span style="background: wheat; text-decoration: underline;">Total items:</span> ', Count(DISTINCT items.itemnumber)), 
-    ' ', 
-    Concat('Last updated: ', Now()) 
-  ) AS "Staff contacts / holdings" 
-FROM 
-  branches LEFT JOIN 
-  items ON items.homebranch = branches.branchcode LEFT JOIN 
-  ( 
-    SELECT 
-      borrowers.branchcode, 
-      Count(DISTINCT borrowers.borrowernumber) AS TOTAL_REGISTERED 
-    FROM 
-      borrowers 
-    GROUP BY 
-      borrowers.branchcode 
+    )
+  ) AS Library,
+  Concat_Ws(
+    '<p>',
+    Concat('<p>Phone: ', branches.branchphone, '</p>'),
+    Concat('Fax: ', branches.branchfax, '</p>'),
+    Concat('e-mail: ', branches.branchemail, '</p>'),
+    Concat(
+      'Website: <a href="',
+      branches.branchurl,
+      '" target="_blank">Click here</a></p>'
+    ),
+    Concat(
+      'Courier route #: ',
+      branches.branchcountry,
+      '</p>',
+      Concat('<br /><p>Branch name: ', branches.branchname),
+      '</p>',
+      Concat('<p>Branch code: ', branches.branchcode),
+      '</p>'
+    )
+  ) AS "Contact information",
+  Concat_Ws(
+    '<br />',
+    Replace(
+      Replace(
+        Replace(branches.branchaddress3, '|', '<br /><br />'),
+        'Director:',
+        '<span style="background: yellow; text-decoration: underline; font-size: 120%;">Director:</span><br />'
+      ),
+      'Accreditation:',
+      '<span style="background: aqua; text-decoration: underline; font-size: 120%;">Type:</span><br />'
+    ),
+    ' ',
+    Concat(
+      '<span style="background: wheat; text-decoration: underline;">Registered borrowers:</span> ',
+      total_borrowerss.TOTAL_REGISTERED
+    ),
+    ' ',
+    Concat(
+      '<span style="background: wheat; text-decoration: underline;">Total titles:</span> ',
+      Count(DISTINCT items.biblionumber)
+    ),
+    Concat(
+      '<span style="background: wheat; text-decoration: underline;">Total items:</span> ',
+      Count(DISTINCT items.itemnumber)
+    ),
+    ' ',
+    Concat('Last updated: ', Now())
+  ) AS "Staff contacts / holdings"
+FROM branches
+  LEFT JOIN items 
+    ON items.homebranch = branches.branchcode
+  LEFT JOIN (
+    SELECT borrowers.branchcode,
+      Count(DISTINCT borrowers.borrowernumber) AS TOTAL_REGISTERED
+    FROM borrowers
+    GROUP BY borrowers.branchcode
   ) total_borrowerss 
-  ON total_borrowerss.branchcode = branches.branchcode LEFT JOIN 
-  ( 
-    SELECT 
-      Coalesce(borrowers.branchcode, deletedborrowers.branchcode) AS branchcode, 
-      Count(DISTINCT statistics.borrowernumber) AS ACTIVE_ONE 
-    FROM 
-      statistics LEFT JOIN 
-      borrowers ON borrowers.borrowernumber = statistics.borrowernumber 
-      LEFT JOIN 
-      deletedborrowers ON deletedborrowers.borrowernumber = 
-          statistics.borrowernumber 
-    WHERE 
-      (statistics.type = 'issue' OR 
-        statistics.type = 'renew') AND 
-      statistics.datetime BETWEEN CurDate() - INTERVAL 1 YEAR AND CurDate() 
-    GROUP BY 
-      Coalesce(borrowers.branchcode, deletedborrowers.branchcode) 
-  ) active_one 
-  ON active_one.branchcode = branches.branchcode LEFT JOIN 
-  ( 
-    SELECT 
-      Coalesce(borrowers.branchcode, deletedborrowers.branchcode) AS branchcode, 
-      Count(DISTINCT statistics.borrowernumber) AS ACTIVE_TWO 
-    FROM 
-      statistics LEFT JOIN 
-      borrowers ON borrowers.borrowernumber = statistics.borrowernumber 
-      LEFT JOIN 
-      deletedborrowers ON deletedborrowers.borrowernumber = 
-          statistics.borrowernumber 
-    WHERE 
-      (statistics.type = 'issue' OR 
-        statistics.type = 'renew') AND 
-      statistics.datetime BETWEEN CurDate() - INTERVAL 2 YEAR AND CurDate() 
-    GROUP BY 
-      Coalesce(borrowers.branchcode, deletedborrowers.branchcode) 
-  ) active_two 
-  ON active_two.branchcode = branches.branchcode 
+    ON total_borrowerss.branchcode = branches.branchcode
 WHERE 
-  branches.branchcode LIKE "%" 
+  branches.branchcode LIKE "%"
 GROUP BY 
-  branches.branchcode 
+  branches.branchcode
 ORDER BY 
-  Library 
-LIMIT 500
+  Library
+LIMIT 
+  500
 
 
 
