@@ -131,7 +131,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 162,CCODE,SPANISH,Spanish,vokal/Book-32px.png,
 2328,CCODE,SPC_DARE,"Special collection - Dyslexic and Autistic Reading Engagement",,"D.A.R.E. to Read"
 1174,CCODE,SWITCH,"VG-Nintendo Switch",https://nextkansas.org/images/287b16236cf12050a30edb46435fb0f4_n_vg_switch.png,
-167,CCODE,VHS,VHS,vokal/VHS-32px.png,"Video - VHS cassette"
+167,CCODE,VHS,"Video (VHS cassette)",vokal/VHS-32px.png,"Video (VHS cassette)"
 2201,CCODE,VID_B,"Video (Blu-ray)",vokal/BLURAY-32px.png,"Video (Blu-ray)"
 2203,CCODE,VID_B_T,"Video-TV series (Blu-ray)",vokal/BLURAY-32px.png,"Video-TV series (Blu-ray)"
 2200,CCODE,VID_C,"Video (Blu-ray/DVD combined edition)",https://nextkansas.org/images/5e5f61e7372f39d0530d4f244864b4d0_n_vid_c.png,"Video (Blu-ray/DVD combined edition)"
@@ -326,6 +326,10 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2395,frame_relia,NREL_TOOL,"Things : Tools",,"Things : Tools"
 2390,frame_relia,NREL_TOY,"Things : Board games, dolls, puzzles, and toys",,"Things : Board games, dolls, puzzles, and toys"
 2389,frame_relia,R_ART,"Things : Artwork",,"Things : Artwork"
+2484,Framework_ALWAYS_SUPPRESSED,1,"Suppressed in OPAC",,"This record is hidden from view"
+2483,Framework_NST_CCCODE,PROFCOLL,"Professional Collection",,"Professional Collection"
+2482,Framework_NST_ITYPE,R_K_STW,"Story walk",,"Story walk"
+2481,Framework_NST_LOC,L_JU,Childrens,,Childrens
 702,GRADE,0,Unknown,,Unknown
 223,GRADE,01,01,,1st
 224,GRADE,02,02,,2nd
@@ -1457,7 +1461,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 296,REPORT_SUBGROUP,SCHOOLAD,"School Libraries-admin",,ADMIN
 367,REPORT_SUBGROUP,SCHOverdues,"Overdues (schools)",,SCHOOL
 255,REPORT_SUBGROUP,SHELFLIST,"Shelf Lists",,CAT
-2398,REPORT_SUBGROUP,STAT_22,"2022 beginning of month statistics",,STATS
+2398,REPORT_SUBGROUP,STAT_22,"2023 beginning of month statistics",,STATS
 1751,REPORT_SUBGROUP,STAT_EOM,"End of month statistics",,STATS
 2273,REPORT_SUBGROUP,STAT_LM,"Last month's statistics - Next-wide",,STATS
 1176,REPORT_SUBGROUP,STAT_M,"Last calendar month",,STATS
@@ -1502,32 +1506,12 @@ id,category,authorised_value,lib,imageurl,lib_opac
 187,SUGGEST,DENY2,"Item out of print or otherwise unavailable. ",,"Item out of print or otherwise unavailable. "
 188,SUGGEST,DENY3,"Sorry, item will not be purchased by library. ",,"Sorry, item will not be purchased by library. "
 1604,SUGGEST,DENY4,"Item is already available for digital download.  Ask at the library for more information.",,"Item is already available for digital download.  Ask at the library for more information."
-512,SUGGEST_FORMAT,AUDIOBOOK,AUDIOBOOK,vokal/Book-On-CD-32px.png,AUDIOBOOK
-513,SUGGEST_FORMAT,BOOK,BOOK,vokal/Book-32px.png,BOOK
-531,SUGGEST_FORMAT,COMPUTER,"PUBLIC USE COMPUTER",crystal-clear/display.png,"PUBLIC USE COMPUTER"
-515,SUGGEST_FORMAT,DIGITAL,"DIGITAL CONTENT",crystal-clear/build.png,"DIGITAL CONTENT"
-516,SUGGEST_FORMAT,EQUIPMENT,EQUIPMENT,vokal/Hardware-32px.png,EQUIPMENT
-517,SUGGEST_FORMAT,FLPLAYAWAY,"FLOATING PLAYAWAY (SLK)",vokal/PlayAway-32px.png,"FLOATING PLAYAWAY (SLK)"
-533,SUGGEST_FORMAT,GAME,VIDEOGAME,crystal-clear/joystick.png,VIDEOGAME
-514,SUGGEST_FORMAT,ILL,"BORROWED FROM ANOTHER LIBRARY",vokal/ILL-32px.png,"BORROWED FROM ANOTHER LIBRARY"
-518,SUGGEST_FORMAT,KITS,"KIT OR MULTI-PART SET",vokal/Kit_Bag_Word-32px.png,"KIT OR MULTI-PART SET"
-519,SUGGEST_FORMAT,LAUNCHPAD,"LAUNCHPAD TABLET",,"LAUNCHPAD TABLET"
-522,SUGGEST_FORMAT,LOCALHOLD,"LOCAL HOLD ONLY",crystal-clear/books-closed-32.png,"LOCAL HOLD ONLY"
-521,SUGGEST_FORMAT,LOCALHOLD1,"LOCAL HOLD MOVIE",Seshat/DVD.gif,"LOCAL HOLD MOVIE"
-520,SUGGEST_FORMAT,LOCALHOLD2,"LOCAL HOLD BOOK",vokal/Book-32px.png,"LOCAL HOLD BOOK"
-523,SUGGEST_FORMAT,MAGAZINE,MAGAZINE,vokal/Periodical-32px.png,MAGAZINE
-525,SUGGEST_FORMAT,MEDIA,MOVIES,Seshat/DVD.gif,MOVIES
-524,SUGGEST_FORMAT,MIFI,"MIFI DEVICE",crystal-clear/download_manager.png,"MIFI DEVICE"
-526,SUGGEST_FORMAT,MUSIC,"MUSIC CD",vokal/Music-32px.png,"MUSIC CD"
-527,SUGGEST_FORMAT,NEWAUDIO,"NEW AUDIOBOOK",vokal/Book-On-CD-32px.png,"NEW AUDIOBOOK"
-528,SUGGEST_FORMAT,NEWBOOK,"NEW BOOK",vokal/Book-32px.png,"NEW BOOK"
-529,SUGGEST_FORMAT,NEWMAG,"NEW MAGAZINE",vokal/Periodical-32px.png,"NEW MAGAZINE"
-530,SUGGEST_FORMAT,NEWMEDIA,"NEW MOVIE",Seshat/DVD.gif,"NEW MOVIE"
-532,SUGGEST_FORMAT,REFERENCE,"REFERENCE MATERIAL",vokal/Reference-32px.png,"REFERENCE MATERIAL"
-536,SUGGEST_FORMAT,WALKIN,"WALKIN ONLY",crystal-clear/books-closed-32.png,"WALKIN ONLY"
-535,SUGGEST_FORMAT,WALKIN1,"WALKIN MOVIE",Seshat/DVD.gif,"WALKIN MOVIE"
-534,SUGGEST_FORMAT,WALKIN2,"WALKIN BOOK",vokal/Book-32px.png,"WALKIN BOOK"
-511,SUGGEST_FORMAT,XXX,(UNCLASSIFIED),crystal-clear/books-closed-32.png,(UNCLASSIFIED)
+2490,SUGGEST,DENY5,"purchase suggestions must be made in person at the library",,"purchase suggestions must be made in person at the library"
+2485,SUGGEST_FORMAT,BOOK,Book,,Book
+2488,SUGGEST_FORMAT,GAME,"Video game",,"Video game"
+2486,SUGGEST_FORMAT,N_AB,Audiobook,,Audiobook
+2487,SUGGEST_FORMAT,NVIDEO,Video,,Video
+2489,SUGGEST_FORMAT,OTHER,"Other (please specify in the notes field)",,"Other (please specify in the notes field)"
 197,SUPPRESS,1,"Suppressed in OPAC",,"This record is hidden from view"
 1221,UPLOAD,IMG,Images,,Images
 2277,USD113_T,BRUNA,Bruna,,Bruna
@@ -1621,6 +1605,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 1973,Year,2020,2020,,2020
 2136,Year,2021,2021,,2021
 2396,Year,2022,2022,,2022
+2480,Year,2023,2023,,2023
 1125,YEMAILNEWS,%," All newsletter permissions",," All newsletter permissions"
 1126,YEMAILNEWS,No,No,,No
 1128,YEMAILNEWS,NotApp,"Not Used at Library",,"Not Used at Library"
