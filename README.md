@@ -109,7 +109,7 @@ Open the csv file and run the following VBA macro:
 
 ```
 
-Sub WriteToTxt()
+Sub WriteToSQL()
 
 Const forReading = 1, forAppending = 3, fsoForWriting = 2
 Dim fs, objTextStream, sText As String
@@ -121,6 +121,42 @@ For lRowLoop = 1 To lLastRow
 
     Set fs = CreateObject("Scripting.FileSystemObject")
     Set objTextStream = fs.opentextfile("c:\git\" & Cells(lRowLoop, 1) & ".sql", fsoForWriting, True)
+
+    sText = ""
+
+    For lColLoop = 2 To 15
+        sText = sText & Cells(lRowLoop, lColLoop) & Chr(10) & Chr(10)
+    Next lColLoop
+
+    objTextStream.writeline (Left(sText, Len(sText) - 1))
+
+
+    objTextStream.Close
+    Set objTextStream = Nothing
+    Set fs = Nothing
+
+Next lRowLoop
+
+End Sub
+
+```
+
+Alternately you can use this VBA file to convert the data into rst files for Sphinx:
+
+```
+
+Sub WriteToRST()
+
+Const forReading = 1, forAppending = 3, fsoForWriting = 2
+Dim fs, objTextStream, sText As String
+Dim lLastRow As Long, lRowLoop As Long, lLastCol As Long, lColLoop As Long
+
+lLastRow = Cells(Rows.Count, 1).End(xlUp).Row
+
+For lRowLoop = 1 To lLastRow
+
+    Set fs = CreateObject("Scripting.FileSystemObject")
+    Set objTextStream = fs.opentextfile("c:\git\" & Cells(lRowLoop, 1) & ".rst", fsoForWriting, True)
 
     sText = ""
 
