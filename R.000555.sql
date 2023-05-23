@@ -12,8 +12,8 @@ Group: Borrowers
      Fix Patrons
 
 Created on: 2009-05-11 14:05:16
-Modified on: 2022-02-02 18:06:39
-Date last run: 2023-03-08 13:32:25
+Modified on: 2023-03-28 16:30:10
+Date last run: 2023-05-22 14:38:15
 
 ----------
 
@@ -22,14 +22,14 @@ Expiry: 0
 
 ----------
 
-Review added patrons in a month at your library to find mistakes. Use the edit patron link to fix the accounts if you find errors. 
+Replaced by report 3161
 
 ----------
 */
 
 
 
-SELECT CONCAT('<a class="btn btn-default" href=\"/cgi-bin/koha/members/memberentry.pl?op=modify&borrowernumber=',borrowers.borrowernumber,'\" target="_blank">'"edit patron"'</a>') as "Edit this borrower", dateenrolled,surname,firstname,branchcode,categorycode,cardnumber,address,city,phone,email FROM borrowers WHERE branchcode=<<Choose Library|branches>> AND year(dateenrolled) = <<Choose Year Patrons Added|Year>> AND month(dateenrolled) = <<Choose month Patrons Added|Month>> ORDER BY borrowers.categorycode ASC, borrowers.branchcode ASC
+SELECT CONCAT('Replaced by report 3161') AS 'Report 3161'
 
 
 

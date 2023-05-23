@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2022-01-05 11:09:50
-Modified on: 2022-03-29 12:16:48
-Date last run: 2022-12-14 11:54:37
+Modified on: 2023-03-29 08:56:57
+Date last run: 2023-03-29 08:57:06
 
 ----------
 
@@ -30,7 +30,7 @@ Expiry: 300
 
 
 SELECT
-  items.itemnumber,
+  items.itemnumber AS ITEM_NUMBER,
   items.barcode,
   items.homebranch,
   items.holdingbranch,

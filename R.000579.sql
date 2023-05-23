@@ -12,8 +12,8 @@ Group: Borrowers
      -
 
 Created on: 2009-06-12 15:39:47
-Modified on: 2013-11-17 12:49:30
-Date last run: 2022-08-10 11:56:31
+Modified on: 2023-03-29 10:40:46
+Date last run: 2023-03-29 10:40:52
 
 ----------
 
@@ -29,7 +29,19 @@ Expiry: 0
 
 
 
-SELECT  borrowers.cardnumber,borrowers.surname,borrowers.firstname,borrowers.branchcode,borrowers.categorycode,borrowers.debarred,borrowers.flags FROM borrowers   WHERE borrowers.branchcode=<<branch|branches>> AND borrowers.debarred IS NOT NULL
+SELECT 
+  borrowers.cardnumber,
+  borrowers.surname,
+  borrowers.firstname,
+  borrowers.branchcode,
+  borrowers.categorycode,
+  borrowers.debarred,
+  borrowers.flags
+FROM 
+  borrowers
+WHERE 
+  borrowers.branchcode = <<Choose your library|branches>>
+  AND borrowers.debarred IS NOT NULL
 
 
 

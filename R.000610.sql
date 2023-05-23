@@ -12,8 +12,8 @@ Group: Administrative Reports
      System-admin
 
 Created on: 2009-06-24 16:26:50
-Modified on: 2017-12-18 21:33:47
-Date last run: 2017-12-18 21:34:17
+Modified on: 2023-03-28 16:32:40
+Date last run: 2023-03-28 16:32:43
 
 ----------
 
@@ -29,10 +29,14 @@ Simple table showing branch names and branchcode
 
 
 
-SELECT branches.branchname,
+SELECT 
+  branches.branchname, 
   branches.branchcode 
 FROM branches 
-ORDER BY branchname ASC
+ORDER BY 
+  branchname ASC 
+LIMIT
+  500
 
 
 

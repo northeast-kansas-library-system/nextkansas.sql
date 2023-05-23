@@ -230,7 +230,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 1857,DEPARTMENT,HCC_0730,"HCC - Viticulture",,"HCC - Viticulture"
 1784,DEPARTMENT,HCC_1,"HCC - Music",,"HCC - Music"
 1906,DISTRICT,0," Not allowed",," Not allowed"
-1904,DISTRICT,ATCHISON,"Allowed (Atchison Public Library)",,"Allowed (Atchison Public Library)"
+1904,DISTRICT,ATCHISON,"Allowed ( Atchison Public Library )",,"Allowed ( Atchison Public Library )"
 1905,DISTRICT,BALDWIN,"Allowed (Baldwin City Public Library)",,"Allowed (Baldwin City Public Library)"
 1907,DISTRICT,BASEHOR,"Allowed (Basehor Community Library)",,"Allowed (Basehor Community Library)"
 1908,DISTRICT,BERN,"Allowed (Bern Community Library)",,"Allowed (Bern Community Library)"
@@ -481,12 +481,12 @@ id,category,authorised_value,lib,imageurl,lib_opac
 29,HINGS_UT,a,"Basic bibliographic unit",,
 30,HINGS_UT,c,"Secondary bibliographic unit: supplements, special issues, accompanying material",,
 31,HINGS_UT,d,Indexes,,
-505,HoldsContact,BookClub,"Book Club.",,"Book Club."
-490,HoldsContact,Email,Email.,,Email.
-504,HoldsContact,HomeDel,"Home Delivery.",,"Home Delivery."
-503,HoldsContact,MailPost,"Mail Postcard.",,"Mail Postcard."
+505,HoldsContact,BookClub,"Book Club",,"Book Club"
+490,HoldsContact,Email,Email,,Email
+504,HoldsContact,HomeDel,"Home Delivery",,"Home Delivery"
+503,HoldsContact,MailPost,"Mail Postcard",,"Mail Postcard"
 1349,HoldsContact,NOCON,"Do not contact",,"Do not contact"
-489,HoldsContact,Phone,Phone.,,Phone.
+489,HoldsContact,Phone,Phone,,Phone
 497,HoldsContact,Text,Text,,Text
 1171,HSBND_FREQ,EW,"Every week",,
 200,I_SUPPRESS,0,"Do not Suppress",,
@@ -1074,6 +1074,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 3,LOST,1,Lost,,"Lost ~ !"
 1903,LOST,10,"In processing",,"In processing & !"
 1974,LOST,11,"Temporary storage (Carbondale)",,"Temporary storage (Carbondale) & !"
+2492,LOST,12,"Topeka warehouse fire",,"Topeka warehouse fire"
 1993,LOST,13,Incomplete,,"Incomplete & !"
 1997,LOST,14,"Temporary storage (HIAWATHA)",,"Temporary storage (HIAWATHA) & !"
 962,LOST,2,"Lost (more than 45 days overdue)",,"Lost (more than 45 days overdue) ~ !"
@@ -1348,10 +1349,10 @@ id,category,authorised_value,lib,imageurl,lib_opac
 1775,Q_BORROWER_ATTRIBUTES_A,TEACHER,Teacher,,Teacher
 1764,Q_BORROWER_ATTRIBUTES_A,UPDATED,"Flag for Updating Account in Bulk",,"Flag for Updating Account in Bulk"
 2399,R_YEAR,%," Any and all years",," Any and all years"
-2403,R_YEAR,2019,2019,,2019
 2402,R_YEAR,2020,2020,,2020
 2401,R_YEAR,2021,2021,,2021
 2400,R_YEAR,2022,2022,,2022
+2493,R_YEAR,2023,2023,,2023
 1638,RECEIPT_PRINT,PRRE_EMAIL,"Email receipt",,"Email receipt"
 1639,RECEIPT_PRINT,PRRE_NO,"Never print a receipt",,"Never print a receipt"
 1637,RECEIPT_PRINT,PRRE_YES,"Always print a receipt",,"Always print a receipt"
@@ -1550,6 +1551,8 @@ id,category,authorised_value,lib,imageurl,lib_opac
 21,WITHDRAWN,1,Withdrawn,,
 179,WITHDRAWN,2,Discard,,
 215,WITHDRAWN,3,"Lost - Not Returnable",,"Lost - Not Returnable"
+2491,WITHDRAWN,4,"WIthdrawn during cataloging freeze",,"WIthdrawn during cataloging freeze"
+2494,WITHDRAWN,5,"Withdrawn - Wetmore Academic Center",,"Withdrawn - Wetmore Academic Center"
 2456,XS_BORROWER,1,"Sort by borrower's home library",,"Sort by borrower's home library"
 2466,XS_BORROWER,10,"Sort by borrower's last name (Z-A)",,"Sort by borrower's last name (Z-A)"
 2467,XS_BORROWER,11,"Sort by account creation date (newest to oldest)",,"Sort by account creation date (newest to oldest)"

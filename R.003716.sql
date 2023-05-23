@@ -3,7 +3,7 @@ R.003716
 
 ----------
 
-Name: GHW - Library quick data
+Name: GHW - Library quick statistics
 Created by: George H Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2023-02-24 23:38:52
-Modified on: 2023-03-01 08:40:30
-Date last run: 2023-03-07 14:36:57
+Modified on: 2023-03-28 15:54:25
+Date last run: 2023-05-23 11:26:43
 
 ----------
 
@@ -29,67 +29,73 @@ Expiry: 300
 
 
 
-SELECT 
-  branches.branchname AS 'Library',
-  Coalesce(borrowers_count.Count_borrowernumber, 0) AS 'Current borrower count',
-  Coalesce(biblio_count.Count_biblionumber, 0) AS 'Current title count',
-  Coalesce(item_count.Count_itemnumber, 0) AS 'Current item count',
-  Coalesce(cko_renew_count.cko_renew, 0) AS 'Checkouts + renewals - previous 365 days',
-  Coalesce(unique_borrowers.Count_borrowernumber, 0) AS 'Unique borrowers - previous 365 days'
-FROM branches
-  LEFT JOIN (
-    SELECT borrowers.branchcode,
-      Count(DISTINCT borrowers.borrowernumber) AS Count_borrowernumber
-    FROM borrowers
-    WHERE borrowers.branchcode LIKE <<Choose your library|ZBRAN>>
-    GROUP BY borrowers.branchcode
-  ) borrowers_count ON borrowers_count.branchcode = branches.branchcode
-  LEFT JOIN (
-    SELECT items.homebranch,
-      Count(DISTINCT items.biblionumber) AS Count_biblionumber
-    FROM items
-    WHERE items.homebranch LIKE <<Choose your library|ZBRAN>>
-    GROUP BY items.homebranch
-  ) biblio_count ON biblio_count.homebranch = branches.branchcode
-  LEFT JOIN (
-    SELECT items.homebranch,
-      Count(DISTINCT items.itemnumber) AS Count_itemnumber
-    FROM items
-    WHERE items.homebranch LIKE <<Choose your library|ZBRAN>>
-    GROUP BY items.homebranch
-  ) item_count ON item_count.homebranch = branches.branchcode
-  LEFT JOIN (
-    SELECT statistics.branch,
-      Count(*) AS cko_renew
-    FROM statistics
-    WHERE (
-        statistics.type = 'issue'
-        OR statistics.type = 'renew'
-      )
-      AND statistics.datetime BETWEEN CurDate() - INTERVAL 1 YEAR
-      AND CurDate()
-      AND statistics.branch LIKE <<Choose your library|ZBRAN>>
-    GROUP BY statistics.branch
-  ) cko_renew_count ON cko_renew_count.branch = branches.branchcode
-  LEFT JOIN (
-    SELECT statistics.branch,
-      Count(DISTINCT statistics.borrowernumber) AS Count_borrowernumber
-    FROM statistics
-    WHERE (
-        statistics.type = 'issue'
-        OR statistics.type = 'renew'
-      )
-      AND statistics.datetime BETWEEN CurDate() - INTERVAL 1 YEAR
-      AND CurDate()
-      AND statistics.branch LIKE <<Choose your library|ZBRAN>>
-    GROUP BY statistics.branch
-  ) unique_borrowers ON unique_borrowers.branch = branches.branchcode
-WHERE 
+SELECT
+  branches.branchname,
+  'Current borrowers' AS STATISTIC,
+  coalesce(Count(DISTINCT borrowers.borrowernumber), 0) AS Count
+FROM
+  branches LEFT JOIN
+  borrowers ON borrowers.branchcode = branches.branchcode
+WHERE
   branches.branchcode LIKE <<Choose your library|ZBRAN>>
-GROUP BY 
+GROUP BY
   branches.branchname
-ORDER BY 
-  'Library'
+UNION
+SELECT
+  branches.branchname,
+  'Current titles' AS STATISTIC,
+  coalesce(Count(DISTINCT items.biblionumber), 0) AS Count_biblionumber
+FROM
+  branches LEFT JOIN
+  items ON items.homebranch = branches.branchcode
+WHERE
+  branches.branchcode LIKE <<Choose your library|ZBRAN>>
+GROUP BY
+  branches.branchname
+UNION
+SELECT
+  branches.branchname,
+  'Current items' AS STATISTIC,
+  coalesce(Count(DISTINCT items.itemnumber), 0) AS Count_itemnumber
+FROM
+  branches LEFT JOIN
+  items ON items.homebranch = branches.branchcode
+WHERE
+  branches.branchcode LIKE <<Choose your library|ZBRAN>>
+GROUP BY
+  branches.branchname
+UNION
+SELECT
+  branches.branchname,
+  'Checkouts + renewals - previous 365 days' AS STATISTIC,
+  coalesce(Count(*), 0)
+FROM
+  branches LEFT JOIN
+  statistics ON statistics.branch = branches.branchcode
+WHERE
+  branches.branchcode LIKE <<Choose your library|ZBRAN>> AND
+  (statistics.type = 'issue' OR
+    statistics.type = 'renew') AND
+  statistics.datetime BETWEEN CurDate() - INTERVAL 1 YEAR AND CurDate()
+GROUP BY
+  branches.branchname
+UNION
+SELECT
+  branches.branchname,
+  'Unique borrowers - previous 365 days' AS STATISTIC,
+  coalesce(Count(DISTINCT statistics.borrowernumber), 0) AS Count_borrowernumber
+FROM
+  branches LEFT JOIN
+  statistics ON statistics.branch = branches.branchcode
+WHERE
+  branches.branchcode LIKE <<Choose your library|ZBRAN>> AND
+  (statistics.type = 'issue' OR
+    statistics.type = 'renew') AND
+  statistics.datetime BETWEEN CurDate() - INTERVAL 1 YEAR AND CurDate()
+GROUP BY
+  branches.branchname
+ORDER BY
+  branchname
 
 
 

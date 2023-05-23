@@ -12,8 +12,8 @@ Group: Circulation
      Overdues
 
 Created on: 2009-03-16 15:46:05
-Modified on: 2019-08-18 23:55:17
-Date last run: 2023-03-08 13:04:17
+Modified on: 2023-03-29 10:38:03
+Date last run: 2023-05-22 13:07:12
 
 ----------
 
@@ -62,7 +62,7 @@ FROM
     ON biblioitems.biblionumber = biblio.biblionumber
 WHERE
   (To_Days(CurDate()) - To_Days(issues.date_due)) > <<number of days>> AND
-  issues.branchcode = <<Pick your branch|branches>>
+  issues.branchcode = <<Choose your library|branches>>
 ORDER BY
   borrowers.surname,
   "borrowers.surname",

@@ -12,8 +12,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2016-08-11 16:36:03
-Modified on: 2022-11-07 14:54:49
-Date last run: 2023-03-07 15:52:34
+Modified on: 2023-03-28 15:03:13
+Date last run: 2023-05-23 10:08:38
 
 ----------
 
@@ -70,11 +70,14 @@ Expiry: 0
   <li>3014 (GHW - Shelflist with left anchored call number limit)</li>
   <li>2809 (GHW - List of items with display locations)</li>
   <li>886 Videogames Circ List</li>
+  <li>536 New acquisitions for a specific month</li>
 </ul>
 <p></p>
 <p>Added public and non-public notes fields on 2016.12.28</p>
 <p>Added item count fields on 2018.10.03</p>
 <p>Added column "CKO_LAST_12M" which shows a count of the number of times an item has checked out in the previous 12 months.</p>
+
+<p style="display: none;">#2731</p>
 
 </div>
 
@@ -306,22 +309,28 @@ WHERE
   Coalesce(items.ccode, "XXX") LIKE <<Item collection code|LCCODE>> AND 
   Coalesce(items.itemcallnumber, "-") LIKE Concat(<<Enter first part of call number or a % symbol>>, "%") AND 
   Coalesce(not_loans.lib_opac, "-") LIKE <<Not for loan status|LNOT_LOAN>> AND 
-  (If( 
-    Coalesce(Year(Coalesce(items.dateaccessioned)), '1999') < '2000', 
-    '2000-01-02', 
-    items.dateaccessioned 
-  ) BETWEEN <<Item added between date1|date>> AND <<and-date2|date>>) AND 
+  (
+    If( 
+      Coalesce(Year(Coalesce(items.dateaccessioned)), '1999') < '2000', 
+      '2000-01-02', 
+      items.dateaccessioned 
+    ) BETWEEN <<Item added between date1|date>> AND <<and-date2|date>>
+  ) AND 
   If(items.onloan IS NULL, 'No', 'Yes') LIKE '%' AND 
-  (If( 
-    Coalesce(Year(Coalesce(items.datelastborrowed)), '1999') < '2000', 
-    '2000-01-02', 
-    items.datelastborrowed 
-  ) BETWEEN <<Item last borrowed between date1|date>> AND <<and--date2|date>>) AND 
-  (If( 
-    Coalesce(Year(Coalesce(items.datelastseen)), '1999') < '2000', 
-    '2000-01-02', 
-    items.datelastseen 
-  ) BETWEEN <<Item last seen between date1|date>> AND <<and---date2|date>>) AND 
+  (
+    If( 
+      Coalesce(Year(Coalesce(items.datelastborrowed)), '1999') < '2000', 
+      '2000-01-02', 
+      items.datelastborrowed 
+    ) BETWEEN <<Item last borrowed between date1|date>> AND <<and--date2|date>>
+  ) AND 
+  (
+    If( 
+      Coalesce(Year(Coalesce(items.datelastseen)), '1999') < '2000', 
+      '2000-01-02', 
+      items.datelastseen 
+    ) BETWEEN <<Item last seen between date1|date>> AND <<and---date2|date>> 
+  ) AND 
   localcounts.Count_itemnumber >= 0 AND 
   systemcounts.Count_itemnumber >= 0 
 GROUP BY 

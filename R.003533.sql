@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-07-26 16:27:18
-Modified on: 2022-07-25 11:41:17
-Date last run: 2022-10-25 12:10:16
+Modified on: 2023-03-21 14:58:35
+Date last run: 2023-04-10 10:11:06
 
 ----------
 
@@ -59,24 +59,46 @@ SELECT
   Concat( 
     '<a class="btn btn-default"', 
     'href=\"', 
-    '/cgi-bin/koha/reports/guided_reports.pl?reports=2731&phase=Run+this+report', 
-    '&param_name=Item+home+library%7CZBRAN&sql_params=', 
+    '/cgi-bin/koha/reports/guided_reports.pl?reports=2731&', 
+    'phase=Run+this+report&', 
+    'param_name=Item+home+library%7CZBRAN&', 
+    'sql_params=', 
     branchtypes.branchcode, 
-    '&param_name=Item+permanent+shelving+location%7CLLOC&sql_params=%25', 
-    '&param_name=Item+type%7CLITYPES&sql_params=', 
+    '&', 
+    'param_name=Item+permanent+shelving+location%7CLLOC&', 
+    'sql_params=%25&', 
+    'param_name=Item+type%7CLITYPES&', 
+    'sql_params=', 
     branchtypes.itemtype, 
-    '&param_name=Item+collection+code%7CLCCODE&sql_params=%25', 
-    '&param_name=Enter+first+part+of+call+number+or+a+%25+symbol&sql_params=%25', 
-    '&param_name=Not+for+loan+status%7CLNOT_LOAN&sql_params=%25', 
-    '&param_name=Item+added+between+date1%7Cdate&sql_params=01%2F01%2F1900&', 'param_name=and+date2%7Cdate&sql_params=12%2F31%2F2099', 
-    '&param_name=Item+last+borrowed+between+date1%7Cdate&sql_params=01%2F01%2F1900', 
-    '&param_name=and++date2%7Cdate&sql_params=12%2F31%2F2099&', 'param_name=Item+last+seen+between+date1%7Cdate&sql_params=01%2F01%2F1900', 
-    '&param_name=and+++date2%7Cdate&sql_params=12%2F31%2F2099', 
-    '&param_name=With+X+or+fewer+checkouts%7CZNUMBERS&sql_params=999999999999', 
-    '&param_name=Display+checked+out+items%7CZYES_NO&sql_params=%25', 
-    '&param_name=Display+lost%2C+missing%2C+and+withdrawn+items%7CZYES_NO&sql_params=%25', 
-    '&param_name=With+X+or+more+copies+at+this+library%7CYNUMBER&sql_params=0', 
-    '&param_name=With+X+or+more+copies+at+throughout+the+catalog%7CYNUMBER&sql_params=0" ', 
+    '&', 
+    'param_name=Item+collection+code%7CLCCODE&', 
+    'sql_params=%25&', 
+    'param_name=Enter+first+part+of+call+number+or+a+%25+symbol&', 
+    'sql_params=%25&', 
+    'param_name=Not+for+loan+status%7CLNOT_LOAN&', 
+    'sql_params=%25&', 
+    'param_name=Item+added+between+date1%7Cdate&', 
+    'sql_params=01%2F01%2F1900&', 
+    'param_name=and-date2%7Cdate&', 
+    'sql_params=12%2F31%2F2099&', 
+    'param_name=Item+last+borrowed+between+date1%7Cdate&', 
+    'sql_params=01%2F01%2F1900&', 
+    'param_name=and--date2%7Cdate&', 
+    'sql_params=12%2F31%2F2099&', 
+    'param_name=Item+last+seen+between+date1%7Cdate&', 
+    'sql_params=01%2F01%2F1900&', 
+    'param_name=and---date2%7Cdate&', 
+    'sql_params=12%2F31%2F2099&', 
+    'param_name=With+X+or+fewer+checkouts%7CZNUMBERS&', 
+    'sql_params=999999999999&', 
+    'param_name=Display+checked+out+items%7CZYES_NO&', 
+    'sql_params=%25&', 
+    'param_name=Display+lost%2C+missing%2C+and+withdrawn+items%7CZYES_NO&', 
+    'sql_params=%25&', 
+    'param_name=With+X+or+more+copies+at+this+library%7CYNUMBER&', 
+    'sql_params=0&', 
+    'param_name=With+X+or+more+copies+at+throughout+the+catalog%7CYNUMBER&', 
+    'sql_params=0', 
     'target="_blank">', 
     'Shelflist for these items</a>' 
   ) AS SHELFLIST 
@@ -107,7 +129,7 @@ FROM
     FROM 
       items 
     WHERE 
-      (items.permanent_location LIKE '%ADULT%' OR 
+      (items.permanent_location LIKE '%AD%' OR 
         items.permanent_location = 'CART' OR 
         items.permanent_location = 'CATALOGING' OR 
         items.permanent_location = 'PROC' OR 
@@ -124,7 +146,7 @@ FROM
     FROM 
       items 
     WHERE 
-      items.permanent_location LIKE "%CHILD%" 
+      items.permanent_location LIKE "%JU%" 
     GROUP BY 
       items.homebranch, 
       If(items.itype IS NULL, "XXX", items.itype)) juvenileitems ON 

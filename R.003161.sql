@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-01-27 23:01:25
-Modified on: 2022-10-05 16:04:27
-Date last run: 2023-03-07 11:43:50
+Modified on: 2023-03-28 16:28:29
+Date last run: 2023-05-22 14:30:18
 
 ----------
 
@@ -90,7 +90,7 @@ FROM
   branches ON borrowers.branchcode = branches.branchcode LEFT JOIN
   categories ON borrowers.categorycode = categories.categorycode
 WHERE
-  borrowers.branchcode LIKE <<Choose the patron home library|LBRANCH>> AND
+  borrowers.branchcode LIKE <<Choose your library|LBRANCH>> AND
   Year(borrowers.dateenrolled) = Year(Now() - INTERVAL 1 MONTH) AND
   Month(borrowers.dateenrolled) = Month(Now() - INTERVAL 1 MONTH)
 GROUP BY

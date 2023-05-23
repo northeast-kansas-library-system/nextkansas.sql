@@ -3,17 +3,17 @@ R.003200
 
 ----------
 
-Name: GHW - Ours/not ours
+Name: GHW - G3 Sharing statistics - Ours/not ours
 Created by: George H Williams
 
 ----------
 
-Group: -
-     -
+Group: Statistics
+     2023 beginning of month statistics
 
 Created on: 2019-05-07 14:47:46
-Modified on: 2019-05-07 16:08:41
-Date last run: 2023-02-04 11:45:35
+Modified on: 2023-03-15 12:13:25
+Date last run: 2023-05-01 01:45:02
 
 ----------
 
@@ -23,7 +23,7 @@ Expiry: 300
 ----------
 
 <div id=reportinfo>
-<p>Counts checkouts and renewals at a library during the previous calendar month based on whether the items circulated were owned by that library or owned by a different library</p>
+<p>Counts checkouts and renewals at a library during the previous calendar month based on whether the items circulated were owned by the check-out library or owned by a different library</p>
 <ul><li>Counts circulation and renewals in the previous calendar month</li>
 <li>at all libraries</li>
 <li>grouped and sorted by checkout branchcode</li>
@@ -35,7 +35,6 @@ Expiry: 300
 <p>All items owned by Doniphan County Library District are considered Doniphan County Library District items at all of their libraries - i.e. a DONITROY item checked out at DONIELWD counts as a DONIELWD item.</p>
 <p>All items owned by Prairie Hills School District are considered Prairie Hills School District items at all of their libraries - i.e. a PHWAC item checked out at PHSHS counts as a PHSHS item.</p>
 <p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3200&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3200">Click here to download as a csv file</a></p>
 </div>
 
@@ -45,10 +44,10 @@ Expiry: 300
 
 
 SELECT
-  branch.branchcode,
-  ours_at_ours.CKO_RENEW AS OUR_STUFF_AT_THIS_LIB,
-  notours_at_ours.CKO_RENEW AS SOMEONE_ELSES_STUFF_AT_THIS_LIB,
-  total.CKO_RENEW AS TOTAL_AT_THIS_LIB
+  branch.branchname AS Library,
+  ours_at_ours.CKO_RENEW AS 'Items owned by this library checked out at this library this month',
+  notours_at_ours.CKO_RENEW AS 'Items owned by other libraries checked out at this library this month',
+  total.CKO_RENEW AS 'Total circulation this month'
 FROM
   (
     SELECT
@@ -161,9 +160,9 @@ FROM
   ) total
     ON total.CKO_BRANCH = branch.branchcode
 GROUP BY
-  branch.branchcode
+  branch.branchname
 ORDER BY
-  branch.branchcode
+  branch.branchname
 
 
 

@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-09-30 22:29:07
-Modified on: 2019-10-02 14:16:53
-Date last run: 2022-12-14 11:33:35
+Modified on: 2023-03-29 09:58:06
+Date last run: 2023-03-29 09:58:19
 
 ----------
 
@@ -51,7 +51,7 @@ FROM
     FROM
       branches
     WHERE
-      branches.branchcode LIKE <<library|branches>>
+      branches.branchcode LIKE <<Choose your library|branches>>
   ) reportingbranch
 WHERE
   items.barcode LIKE Concat("%", <<item barcode>>, "%")

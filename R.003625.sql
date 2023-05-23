@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-11-30 12:43:25
-Modified on: 2021-11-30 12:43:25
-Date last run: 2022-12-14 11:52:05
+Modified on: 2023-03-29 08:58:26
+Date last run: 2023-03-29 09:00:17
 
 ----------
 
@@ -32,7 +32,7 @@ Expiry: 300
 SELECT  ' ' AS Checkbox, b.title, b.author, i.itemcallnumber, i.barcode
 FROM items i
 JOIN biblio b USING (biblionumber)
-WHERE i.homebranch=<<Branch|branches>> AND 
+WHERE i.homebranch=<<Choose your library|branches>> AND 
       b.author LIKE CONCAT(<<Author: Last Name, First Name>>,'%')
 ORDER BY b.title
 

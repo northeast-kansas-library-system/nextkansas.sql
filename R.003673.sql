@@ -12,8 +12,8 @@ Group: Catalog Records and Items
      -
 
 Created on: 2022-10-27 09:56:09
-Modified on: 2022-10-27 09:56:15
-Date last run: 2022-10-27 10:05:38
+Modified on: 2023-03-29 08:55:12
+Date last run: 2023-03-29 08:55:18
 
 ----------
 
@@ -29,7 +29,7 @@ Enhanced - Run, Pick Your Branch and Shelving Location to get a list of material
 
 
 
-SELECT b.biblionumber, i.dateaccessioned, b.title, b.author, i.ccode, i.location, i.itemcallnumber, i.itype, t.publicationyear, i.barcode, i.replacementprice, CONCAT('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=',b.biblionumber,'&itemnumber=',i.itemnumber,'#edititem\" target="_blank">'"edit item"'</a>') as "edit item" FROM items i LEFT JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE i.homebranch=<<branch|branches>> AND i.location = <<location|LOC>> ORDER BY i.itemcallnumber asc
+SELECT b.biblionumber, i.dateaccessioned, b.title, b.author, i.ccode, i.location, i.itemcallnumber, i.itype, t.publicationyear, i.barcode, i.replacementprice, CONCAT('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=',b.biblionumber,'&itemnumber=',i.itemnumber,'#edititem\" target="_blank">'"edit item"'</a>') as "edit item" FROM items i LEFT JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE i.homebranch=<<Choose your library|branches>> AND i.location = <<location|LOC>> ORDER BY i.itemcallnumber asc
 
 
 

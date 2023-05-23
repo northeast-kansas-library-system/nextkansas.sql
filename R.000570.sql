@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2009-06-01 16:56:47
-Modified on: 2022-02-02 18:05:22
-Date last run: 2023-03-03 15:41:58
+Modified on: 2023-03-27 12:24:27
+Date last run: 2023-05-11 12:30:21
 
 ----------
 
@@ -37,28 +37,66 @@ SELECT
   descriptions.description AS ITEM_TYPE,
   descriptions.ccode AS COLLECTION_CODE,
   new.Count_itemnumber,
-  Concat(
-    '<a class="btn btn-default" href=\"/cgi-bin/koha/reports/guided_reports.pl?reports=2731&phase=Run+this+report&param_name=Item+home+library%7CZBRAN&sql_params=', 
+  Concat( 
+    '<a class="btn btn-default" href=\"', 
+    '/cgi-bin/koha/reports/guided_reports.pl?reports=2731&', 
+    'phase=Run+this+report&', 
+    'param_name=Item+home+library%7CZBRAN&', 
+    'sql_params=', 
     <<Choose your library|branches>>, 
-    '&param_name=Item+permanent+shelving+location%7CLLOC&sql_params=%25',
-    '&param_name=Item+type%7CLITYPES&sql_params=',
-    descriptions.itemtype,
-    '&param_name=Item+collection+code%7CLCCODE&sql_params=',
-    descriptions.ccode_code,
-    '&param_name=Enter+first+part+of+call+number+or+a+%25+symbol&sql_params=%25', 
-    '&param_name=Not+for+loan+status%7CLNOT_LOAN&sql_params=%25&param_name=Item+added+between+date1%7Cdate&sql_params=',
-    <<Choose month|MONTH>>,
-    '%2F01%2F',
-    <<Choose year|YEAR>>,
-    '&param_name=and+date2%7Cdate&sql_params=12%2F31%2F2050',
-    '&param_name=Item+last+borrowed+between+date1%7Cdate&sql_params=01%2F01%2F2000&param_name=and++date2%7Cdate&sql_params=12%2F31%2F2050',
-    '&param_name=Item+last+seen+between+date1%7Cdate&sql_params=01%2F01%2F2000&param_name=and+++date2%7Cdate&sql_params=12%2F31%2F2050',
-    '&param_name=With+X+or+fewer+checkouts%7CZNUMBERS&sql_params=999999999999',
-    '&param_name=Display+checked+out+items%7CZYES_NO&sql_params=%25',
-    '&param_name=Display+lost%2C+missing%2C+and+withdrawn+items%7CZYES_NO&sql_params=%25',
-    '&param_name=With+X+or+more+copies+at+this+library%7CYNUMBER&sql_params=0',
-    '&param_name=With+X+or+more+copies+at+throughout+the+catalog%7CYNUMBER&sql_params=0" ',
-    'target="_blank">Go to title</a>'
+    '&', 
+    'param_name=Item+permanent+shelving+location%7CLLOC&', 
+    'sql_params=', 
+    descriptions.permanent_location_code, 
+    '&', 
+    'param_name=Item+type%7CLITYPES&', 
+    'sql_params=', 
+    descriptions.itemtype, 
+    '&', 
+    'param_name=Item+collection+code%7CLCCODE&', 
+    'sql_params=', 
+    descriptions.ccode_code, 
+    '&', 
+    'param_name=Enter+first+part+of+call+number+or+a+%25+symbol&', 
+    'sql_params=%25&', 
+    'param_name=Not+for+loan+status%7CLNOT_LOAN&', 
+    'sql_params=%25&', 
+    'param_name=Item+added+between+date1%7Cdate&', 
+    'sql_params=', 
+    <<Choose month|MONTH>>, 
+    '%2F01%2F', 
+    <<Choose year|YEAR>>, 
+    '&', 
+    'param_name=and-date2%7Cdate&', 
+    'sql_params=', 
+    STR_TO_DATE(
+      concat(
+        <<Choose month|MONTH>>, 
+        '/01/', 
+        <<Choose year|YEAR>>
+      ), 
+      '%m/%d/%Y'
+    ) + interval 1 month,
+    '&', 
+    'param_name=Item+last+borrowed+between+date1%7Cdate&', 
+    'sql_params=01%2F01%2F1900&', 
+    'param_name=and--date2%7Cdate&', 
+    'sql_params=12%2F31%2F2050&', 
+    'param_name=Item+last+seen+between+date1%7Cdate&', 
+    'sql_params=01%2F01%2F1900&', 
+    'param_name=and---date2%7Cdate&', 
+    'sql_params=12%2F31%2F2050&', 
+    'param_name=With+X+or+fewer+checkouts%7CZNUMBERS&', 
+    'sql_params=999999999999&', 
+    'param_name=Display+checked+out+items%7CZYES_NO&', 
+    'sql_params=%25&', 
+    'param_name=Display+lost%2C+missing%2C+and+withdrawn+items%7CZYES_NO&', 
+    'sql_params=%25&', 
+    'param_name=With+X+or+more+copies+at+this+library%7CYNUMBER&', 
+    'sql_params=0&', 
+    'param_name=With+X+or+more+copies+at+throughout+the+catalog%7CYNUMBER&', 
+    'sql_params=0" ', 
+    'target="_blank">Go to title</a>' 
   ) AS LINK_TO_2731
 FROM
   (SELECT

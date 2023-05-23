@@ -12,8 +12,8 @@ Group: Administrative Reports
      Testing
 
 Created on: 2017-01-10 11:28:21
-Modified on: 2018-08-30 22:45:47
-Date last run: 2023-03-08 09:18:19
+Modified on: 2023-04-18 13:58:53
+Date last run: 2023-05-23 09:56:44
 
 ----------
 
@@ -43,8 +43,8 @@ Expiry: 0
 SELECT
   Concat('<a href=\"/cgi-bin/koha/reserve/request.pl?biblionumber=', reserves.biblionumber, '\" target="_blank">',
   reserves.biblionumber, '</a>') AS LINK_TO_REQUESTS,
-  reserves.biblionumber,
-  borrowers.cardnumber,
+  reserves.biblionumber AS BIBLIO,
+  borrowers.cardnumber AS CARD_NUMBER,
   Count(reserves.borrowernumber) AS Count_borrowernumber,
   Concat('<a href=\"/cgi-bin/koha/members/moremember.pl?borrowernumber=', borrowers.borrowernumber, '\" target="_blank">', borrowers.borrowernumber, '</a>') AS LINK_TO_PATRON
 FROM

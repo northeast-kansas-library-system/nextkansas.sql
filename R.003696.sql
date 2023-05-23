@@ -12,8 +12,8 @@ Group:  TONGANOXIE
      -
 
 Created on: 2023-01-19 16:31:58
-Modified on: 2023-02-17 09:01:07
-Date last run: 2023-03-08 13:55:35
+Modified on: 2023-05-11 16:13:56
+Date last run: 2023-05-23 13:33:28
 
 ----------
 
@@ -27,6 +27,7 @@ Expiry: 3600
   <ul>
     <li>Shows the 25 most recently added 10 digit ISBNs for items owned by TONGANOXIE</li>
     <li>only titles owned by TONGANOXIE</li>
+    <li>only titles where the TONGANOXIE copy has an ADULT permanent shelving location</li>
     <li>grouped and sorted by biblionumber (descending sort)</li>
   </ul><br />
   <p class= "notetags" style="display: none;">#wordpress #bookshelves</p>
