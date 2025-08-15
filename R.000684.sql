@@ -13,7 +13,7 @@ Group: Acquisitions
 
 Created on: 2009-09-28 13:12:52
 Modified on: 2018-07-02 09:44:38
-Date last run: 2023-04-26 11:35:25
+Date last run: 2025-07-23 07:58:51
 
 ----------
 
@@ -24,7 +24,7 @@ Expiry: 0
 
 See holds by your patrons that are being filled OUTSIDE of your owned collection. A Collection Development Report tool. Enhanced.
 
-<p><span style="background-color: darkred; color: white">virtually line by line identical to report 799 - merge two to make one report</p>
+virtually line by line identical to report 799 - merge two to make one report
 
 ----------
 */
@@ -44,7 +44,7 @@ FROM
   LEFT JOIN items ON issues.itemnumber = items.itemnumber
   LEFT JOIN biblio ON items.biblionumber = biblio.biblionumber
 WHERE
-  issues.branchcode = <<Pick your branch|branches>> AND
+  issues.branchcode = &lt;&gt; AND
   items.holdingbranch != items.homebranch
 ORDER BY
   items.itemcallnumber,

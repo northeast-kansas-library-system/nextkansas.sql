@@ -4,7 +4,7 @@ R.003348
 ----------
 
 Name: GHW - Titles with requests
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -32,17 +32,17 @@ Expiry: 300
 SELECT
   reserves.branchcode AS PICKUP_AT,
   reserves.reservedate AS REQUESTED_ON,
-  If(reserves.suspend_until > 1, Concat('Suspended until ', Date_Format(reserves.suspend_until, "%m/%d/%Y")), If(reserves.suspend = '', 'Active', 'Suspended indefinitely')) AS SUSPENDED,
+  If(reserves.suspend_until &gt; 1, Concat('Suspended until ', Date_Format(reserves.suspend_until, "%m/%d/%Y")), If(reserves.suspend = '', 'Active', 'Suspended indefinitely')) AS SUSPENDED,
   biblio.author,
   biblio.title,
   If(reserves.item_level_hold = '', '-', 'Item level request') AS ITEM_LEVEL,
-  Concat('<a href=\"/cgi-bin/koha/reserve/request.pl?biblionumber=', reserves.biblionumber, '\" target="_blank">', reserves.biblionumber, '</a>') AS LINK_TO_REQUEST
+  Concat('', reserves.biblionumber, '') AS LINK_TO_REQUEST
 FROM
   reserves JOIN
   biblio ON reserves.biblionumber = biblio.biblionumber
 WHERE
-  reserves.branchcode LIKE <<Choose pick-up library|ZBRAN>> AND
-  If(reserves.suspend > 0, 'Yes', 'No') LIKE <<Display suspended requests|ZYES_NO>>
+  reserves.branchcode LIKE &lt;&gt; AND
+  If(reserves.suspend &gt; 0, 'Yes', 'No') LIKE &lt;&gt;
 GROUP BY
   reserves.reserve_id
 ORDER BY

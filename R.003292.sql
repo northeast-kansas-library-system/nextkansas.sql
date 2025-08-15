@@ -4,7 +4,7 @@ R.003292
 ----------
 
 Name: GHW - Authorised Values Synchronization - Branch names
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-12-30 12:37:13
 Modified on: 2020-01-28 16:04:55
-Date last run: 2021-04-26 17:05:00
+Date last run: 2023-10-23 17:07:44
 
 ----------
 
@@ -30,12 +30,12 @@ Expiry: 300
 
 
 SELECT
-  Concat('<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=', LBRNAME.category, '" target="_blank">Link to AV</a>') AS LINK,
-  If(LBRNAME.category IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", LBRNAME.category) AS category,
-  If(LBRNAME.authorised_value IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", LBRNAME.authorised_value) AS authorised_value,
-  If(LBRNAME.lib IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", LBRNAME.lib) AS lib,
-  If(BRANCHESS.branchcode IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", BRANCHESS.branchcode) AS branchcode,
-  If(BRANCHESS.branchname IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", BRANCHESS.branchname) AS branchname
+  Concat('Link to AV') AS LINK,
+  If(LBRNAME.category IS NULL, "Possible error", LBRNAME.category) AS category,
+  If(LBRNAME.authorised_value IS NULL, "Possible error", LBRNAME.authorised_value) AS authorised_value,
+  If(LBRNAME.lib IS NULL, "Possible error", LBRNAME.lib) AS lib,
+  If(BRANCHESS.branchcode IS NULL, "Possible error", BRANCHESS.branchcode) AS branchcode,
+  If(BRANCHESS.branchname IS NULL, "Possible error", BRANCHESS.branchname) AS branchname
 FROM
   (
     SELECT
@@ -66,12 +66,12 @@ GROUP BY
   BRANCHESS.branchname
 UNION
 SELECT
-  Concat('<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=', LBRNAME.category, '" target="_blank">Link to AV</a>') AS LINK,
-  If(LBRNAME.category IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", LBRNAME.category) AS category,
-  If(LBRNAME.authorised_value IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", LBRNAME.authorised_value) AS authorised_value,
-  If(LBRNAME.lib IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", LBRNAME.lib) AS lib,
-  If(BRANCHESS.branchcode IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", BRANCHESS.branchcode) AS branchcode,
-  If(BRANCHESS.branchname IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", BRANCHESS.branchname) AS branchname
+  Concat('Link to AV') AS LINK,
+  If(LBRNAME.category IS NULL, "Possible error", LBRNAME.category) AS category,
+  If(LBRNAME.authorised_value IS NULL, "Possible error", LBRNAME.authorised_value) AS authorised_value,
+  If(LBRNAME.lib IS NULL, "Possible error", LBRNAME.lib) AS lib,
+  If(BRANCHESS.branchcode IS NULL, "Possible error", BRANCHESS.branchcode) AS branchcode,
+  If(BRANCHESS.branchname IS NULL, "Possible error", BRANCHESS.branchname) AS branchname
 FROM
   (
     SELECT

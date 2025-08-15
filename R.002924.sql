@@ -4,7 +4,7 @@ R.002924
 ----------
 
 Name: GHW - BONNERSPGS price repair
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,7 +12,7 @@ Group:  BONNERSPGS
      -
 
 Created on: 2017-03-17 16:59:13
-Modified on: 2021-08-16 20:41:35
+Modified on: 2024-01-17 11:49:27
 Date last run: 2019-12-26 17:27:38
 
 ----------
@@ -22,20 +22,20 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>Report for Bonner Springs to help add discounted costs of items to records</p>
-<ul><li>Shows items added in the date range you specify</li>
-<li>Shows items owned by Bonner Springs with a value in the 952g field of less than $0.01</li>
-<li>Allows the user to specify shelving location, collection code, item type, and source of acquisition</li>
-<li>sorted by standard NExpress classification scheme</li>
-<li>links to the "Edit item" page for each item</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>The sources of acquisition in the database appear to be ‚ÄúAMAZON,‚Äù ‚ÄúAUTHOR,‚Äù ‚ÄúCENTER POINT,‚Äù ‚ÄúCHILDREN'S PLUS,‚Äù ‚ÄúDonation,‚Äù ‚ÄúGALE,‚Äù ‚ÄúINGRAM,‚Äù ‚ÄúINGRAMS,‚Äù ‚ÄúMIDWEST TAPE,‚Äù ‚ÄúMIDWEST TAPES,‚Äù ‚ÄúNEW READERS PRESS,‚Äù ‚ÄúOMNIGRAPHICS,‚Äù "PUBLISHER DIRECT," "RECATALOG," ‚ÄúRECORDED BOOKS,‚Äù and ‚ÄúTURN THE PAGE KC.‚Äù  If staff want to limit to one source, they can enter the exact name of the source in the "Source of acquisition" field in this report, or, since Ingram appears to be spelled two different ways, staff can type "Ing%" to get all items from Ingram - even if "Ingram" is misspelled in the item record.</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2924=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Report for Bonner Springs to help add discounted costs of items to records
+Shows items added in the date range you specify
+Shows items owned by Bonner Springs with a value in the 952g field of less than $0.01
+Allows the user to specify shelving location, collection code, item type, and source of acquisition
+sorted by standard NExpress classification scheme
+links to the "Edit item" page for each item
+
+Notes:
+
+The sources of acquisition in the database appear to be ìAMAZON,î ìAUTHOR,î ìCENTER POINT,î ìCHILDREN'S PLUS,î ìDonation,î ìGALE,î ìINGRAM,î ìINGRAMS,î ìMIDWEST TAPE,î ìMIDWEST TAPES,î ìNEW READERS PRESS,î ìOMNIGRAPHICS,î "PUBLISHER DIRECT," "RECATALOG," ìRECORDED BOOKS,î and ìTURN THE PAGE KC.î  If staff want to limit to one source, they can enter the exact name of the source in the "Source of acquisition" field in this report, or, since Ingram appears to be spelled two different ways, staff can type "Ing%" to get all items from Ingram - even if "Ingram" is misspelled in the item record.
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -43,7 +43,7 @@ Expiry: 0
 
 
 SELECT
-  Concat('<a href=https://staff.nexpresslibrary.org/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=', items.biblionumber, '&itemnumber=', items.itemnumber, '\" target="_blank">', biblio.biblionumber, '</a>') AS
+  Concat('', biblio.biblionumber, '') AS
   LINK_TO_ITEM,
   items.barcode,
   items.homebranch,
@@ -63,13 +63,13 @@ FROM
   JOIN biblio ON items.biblionumber = biblio.biblionumber
   JOIN biblio_metadata ON items.biblionumber = biblio_metadata.biblionumber
 WHERE
-  items.dateaccessioned BETWEEN <<Items added after|date>> AND <<but before|date>> AND
+  items.dateaccessioned BETWEEN &lt;&gt; AND &lt;&gt; AND
   items.homebranch = "BONNERSPGS" AND
-  items.location LIKE <<Enter shelving location|LLOC>> AND
-  items.itype LIKE <<Enter item type|LITYPES>> AND
-  items.ccode LIKE <<Enter item collection code|LCCODE>> AND
-  Coalesce(items.booksellerid, "-") LIKE Concat("%", <<Enter the name, or part of the name, of the acquisition source>>, "%") AND
-  Coalesce(items.price, 0) < .01
+  items.location LIKE &lt;&gt; AND
+  items.itype LIKE &lt;&gt; AND
+  items.ccode LIKE &lt;&gt; AND
+  Coalesce(items.booksellerid, "-") LIKE Concat("%", &lt;&gt;, "%") AND
+  Coalesce(items.price, 0) &lt; .01
 GROUP BY
   items.barcode
 ORDER BY

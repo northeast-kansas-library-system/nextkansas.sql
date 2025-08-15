@@ -3,17 +3,17 @@ R.002975
 
 ----------
 
-Name: G2 Request and sharing statistics - request statistics
-Created by: George H Williams
+Name: 0125 - 2024_99_g_requests monthly_statistics
+Created by: George Williams
 
 ----------
 
 Group: Statistics
-     2023 beginning of month statistics
+     2025 beginning of month statistics
 
 Created on: 2017-07-11 11:52:53
-Modified on: 2023-02-10 14:11:14
-Date last run: 2023-05-01 01:40:02
+Modified on: 2025-04-30 11:54:03
+Date last run: 2025-08-01 01:25:02
 
 ----------
 
@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint> 
-<p>Request and sharing statistics - request statistics</p> 
-<ul><li>during the previous calendar month</li> 
-<li>at all system libraries</li> 
-<li>grouped and sorted by pick up library</li> 
-</ul><br /> 
-<p><ins>Notes:</ins></p> 
-<p></p> 
-<p class="updated">This report and these notes updated on 2022.03.11</p> 
-<p></p> 
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=2975">Click here to download as a csv file</a></p> 
-<p class= "notetags" style="display: none;">#monthly #statistics #requests #count</p> 
-<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
-</div> 
+ 
+Request and sharing statistics - request statistics 
+during the previous calendar month 
+at all system libraries 
+grouped and sorted by pick up library 
+ 
+Notes: 
+ 
+This report and these notes updated on 2022.03.11 
+ 
+Click here to download as a csv file 
+#monthly #statistics #requests #count 
+ 
+ 
 
 
 
@@ -48,6 +48,18 @@ Expiry: 300
 
 
 SELECT 
+  'Library' AS 'Library',
+  'Requests placed last month' AS 'Requests placed last month',
+  'Requests filled last month' AS 'Requests filled last month',
+  'Requests cancelled after placement on hold shelf' AS 'Requests cancelled after placement on hold shelf',
+  'Requests cancelled while in transit' AS 'Requests cancelled while in transit',
+  'Requests cancelled before an item was found' AS 'Requests cancelled before an item was found',
+  'Requests cancelled total' AS 'Requests cancelled total',
+  'Requests expired last month' AS 'Requests expired last month',
+  'Requests placed by staff' AS 'Requests placed by staff',
+  'Requests placed in the OPAC' AS 'Requests placed in the OPAC'
+UNION 
+(SELECT 
   branches.branchname AS "Library", 
   Sum(Coalesce(requests_placed.Count_reserve_id, 0)) AS "Requests placed last month", 
   Coalesce(requests_filled.Count_reserve_id, 0) AS "Requests filled last month", 
@@ -94,7 +106,7 @@ FROM
       Year(action_logs.timestamp) = Year(Now() - INTERVAL 1 MONTH) AND 
       old_reserves.found = 'F' AND 
       action_logs.module = 'HOLDS' AND 
-      action_logs.action LIKE "DEL%" 
+      action_logs.action LIKE "FILL" 
     GROUP BY 
       old_reserves.branchcode 
     ) requests_filled 
@@ -107,7 +119,7 @@ FROM
     WHERE 
       Month(old_reserves.cancellationdate) = Month(Now() - INTERVAL 1 MONTH) AND 
       Year(old_reserves.cancellationdate) = Year(Now() - INTERVAL 1 MONTH) AND 
-      (old_reserves.found <> 'F' OR 
+      (old_reserves.found &lt;&gt; 'F' OR 
         old_reserves.found IS NULL) 
     GROUP BY 
       old_reserves.branchcode 
@@ -210,6 +222,7 @@ GROUP BY
   requests_expired_unfilled.Count_reserve_id 
 ORDER BY 
   Library 
+) 
 
 
 

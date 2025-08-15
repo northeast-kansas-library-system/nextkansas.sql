@@ -4,7 +4,7 @@ R.003529
 ----------
 
 Name: GHW - Patron Purge 105
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-07-19 16:10:29
-Modified on: 2021-11-10 09:35:36
-Date last run: 2023-05-23 09:56:45
+Modified on: 2024-01-17 11:30:45
+Date last run: 2025-08-14 08:22:05
 
 ----------
 
@@ -22,11 +22,11 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Part 5 of the patron purge process - part 5 - botched patrons - remove the expired attribute because staff forgot to.</p>
-<p></p>
-<p class= "notetags" style="display: none;">#PP05 #patron_purge</p>
-</div>
+ 
+Part 5 of the patron purge process - part 5 - botched patrons - remove the expired attribute because staff forgot to.
+
+#PP05 #patron_purge
+
 
 ----------
 */
@@ -35,9 +35,7 @@ Expiry: 300
 
 SELECT
   Concat(
-    '<a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=',
-    borrowers.borrowernumber, 
-    '" target="_blank">Link to patron</a>'
+    'Link to patron'
   ) AS
   LINK_TO_PATRON,
   borrowers.borrowernumber,
@@ -101,13 +99,13 @@ FROM
       borrower_relationships.guarantor_id) guaranteesx ON
       guaranteesx.guarantor_id = borrowers.borrowernumber
 WHERE
-  borrowers.dateexpiry > CURRENT_DATE() - INTERVAL 730.5 DAY AND
+  borrowers.dateexpiry &gt; CURRENT_DATE() - INTERVAL 730.5 DAY AND
   borrowers.branchcode LIKE '%' AND
   Coalesce(borrowers.othernames, "0") NOT LIKE "%SIP%" AND
-  borrowers.categorycode <> 'STAFF' AND
-  borrowers.categorycode <> 'ILL' AND
-  borrowers.categorycode <> 'HOOPLA' AND
-  Coalesce(expired_attribute.attribute, 0) <> 0
+  borrowers.categorycode &lt;&gt; 'STAFF' AND
+  borrowers.categorycode &lt;&gt; 'ILL' AND
+  borrowers.categorycode &lt;&gt; 'HOOPLA' AND
+  Coalesce(expired_attribute.attribute, 0) &lt;&gt; 0
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

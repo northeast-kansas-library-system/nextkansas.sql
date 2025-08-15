@@ -13,7 +13,7 @@ Group: Popular Reports
 
 Created on: 2013-02-25 12:18:01
 Modified on: 2020-01-28 15:07:07
-Date last run: 2023-03-14 11:48:06
+Date last run: 2023-08-30 19:12:12
 
 ----------
 
@@ -34,7 +34,7 @@ Select
   Count(Distinct items.itemnumber) As itemcount,
   ROUND(Count(Distinct reserves.borrowernumber) / Count(Distinct items.itemnumber)) As holdsratio,
   biblio.title,
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code>="b"]') As 'Remainder of Title',
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code&gt;="b"]') As 'Remainder of Title',
   items.ccode,
   items.itype,
   biblio.biblionumber

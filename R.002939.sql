@@ -4,7 +4,7 @@ R.002939
 ----------
 
 Name: GHW - BONNERSPGS Auditor's inventory with prices
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,7 +12,7 @@ Group:  BONNERSPGS
      -
 
 Created on: 2017-05-03 10:19:32
-Modified on: 2021-08-16 20:41:41
+Modified on: 2024-01-17 11:49:36
 Date last run: 2019-12-31 15:55:46
 
 ----------
@@ -22,22 +22,22 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>Report for Bonner Springs to generate list of materials for auditing</p>
-<ul><li>Shows items currently in the catalog which were added in the date range you specify (items that were added during that time-frame but have already been deleted will not appear in this list)</li>
-<li>Includes the 952$g and 952$v price informaiton</li>
-<li>Allows the user to specify shelving location, collection code, item type, and source of acquisition</li>
-<li>sorted by standard NExpress classification scheme</li>
-<li>links to the "Edit item" page for each item</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>The sources of acquisition in the database appear to be ‚ÄúAMAZON,‚Äù ‚ÄúAUTHOR,‚Äù ‚ÄúCENTER POINT,‚Äù ‚ÄúCHILDREN'S PLUS,‚Äù ‚ÄúDonation,‚Äù ‚ÄúGALE,‚Äù ‚ÄúINGRAM,‚Äù ‚ÄúINGRAMS,‚Äù ‚ÄúMIDWEST TAPE,‚Äù ‚ÄúMIDWEST TAPES,‚Äù ‚ÄúNEW READERS PRESS,‚Äù ‚ÄúOMNIGRAPHICS,‚Äù "PUBLISHER DIRECT," "RECATALOG," ‚ÄúRECORDED BOOKS,‚Äù and ‚ÄúTURN THE PAGE KC.‚Äù  If staff want to limit to one source, they can enter the exact name of the source in the "Source of acquisition" field in this report, or, since Ingram appears to be spelled two different ways, staff can type "Ing%" to get all items from Ingram - even if "Ingram" is misspelled in the item record.</p>
-<p></p>
-<p>For a full list of items, put a "%" in the "Enter the name, or part of the name, of the acquisition source" input field.</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2939=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Report for Bonner Springs to generate list of materials for auditing
+Shows items currently in the catalog which were added in the date range you specify (items that were added during that time-frame but have already been deleted will not appear in this list)
+Includes the 952$g and 952$v price informaiton
+Allows the user to specify shelving location, collection code, item type, and source of acquisition
+sorted by standard NExpress classification scheme
+links to the "Edit item" page for each item
+
+Notes:
+
+The sources of acquisition in the database appear to be ìAMAZON,î ìAUTHOR,î ìCENTER POINT,î ìCHILDREN'S PLUS,î ìDonation,î ìGALE,î ìINGRAM,î ìINGRAMS,î ìMIDWEST TAPE,î ìMIDWEST TAPES,î ìNEW READERS PRESS,î ìOMNIGRAPHICS,î "PUBLISHER DIRECT," "RECATALOG," ìRECORDED BOOKS,î and ìTURN THE PAGE KC.î  If staff want to limit to one source, they can enter the exact name of the source in the "Source of acquisition" field in this report, or, since Ingram appears to be spelled two different ways, staff can type "Ing%" to get all items from Ingram - even if "Ingram" is misspelled in the item record.
+
+For a full list of items, put a "%" in the "Enter the name, or part of the name, of the acquisition source" input field.
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -45,7 +45,7 @@ Expiry: 0
 
 
 SELECT
-  Concat('<a href=https://staff.nexpresslibrary.org/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=', items.biblionumber, '&itemnumber=', items.itemnumber, '\" target="_blank">', biblio.biblionumber, '</a>') AS
+  Concat('', biblio.biblionumber, '') AS
   LINK_TO_ITEM,
   CONCAT("-",items.barcode,"-") AS BARCODE,
   items.homebranch,
@@ -64,12 +64,12 @@ FROM
   JOIN biblio ON items.biblionumber = biblio.biblionumber
   JOIN biblio_metadata ON items.biblionumber = biblio_metadata.biblionumber
 WHERE
-  items.dateaccessioned BETWEEN <<Items added after|date>> AND <<but before|date>> AND
+  items.dateaccessioned BETWEEN &lt;&gt; AND &lt;&gt; AND
   items.homebranch = "BONNERSPGS" AND
-  items.location LIKE <<Enter shelving location|LLOC>> AND
-  items.itype LIKE <<Enter item type|LITYPES>> AND
-  items.ccode LIKE <<Enter item collection code|LCCODE>> AND
-  Coalesce(items.booksellerid, "-") LIKE Concat("%", <<Enter the name, or part of the name, of the acquisition source>>, "%")
+  items.location LIKE &lt;&gt; AND
+  items.itype LIKE &lt;&gt; AND
+  items.ccode LIKE &lt;&gt; AND
+  Coalesce(items.booksellerid, "-") LIKE Concat("%", &lt;&gt;, "%")
 GROUP BY
   items.barcode
 ORDER BY

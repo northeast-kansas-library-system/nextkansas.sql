@@ -4,7 +4,7 @@ R.003647
 ----------
 
 Name: Test
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

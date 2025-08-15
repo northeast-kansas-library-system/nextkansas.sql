@@ -4,7 +4,7 @@ R.003065
 ----------
 
 Name: GHW - Request cancelled note
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -56,7 +56,7 @@ FROM
   JOIN biblio ON items.biblionumber = biblio.biblionumber
   JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
 WHERE
-  items.barcode Like Concat("%", <<Enter barcode number>>, "%")
+  items.barcode Like Concat("%", &lt;&gt;, "%")
 
 
 

@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2012-05-14 14:25:25
 Modified on: 2013-09-21 16:27:44
-Date last run: 2023-05-03 12:34:36
+Date last run: 2025-04-21 08:43:47
 
 ----------
 
@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-SELECT borrowers.categorycode, COUNT(*) FROM statistics JOIN borrowers USING (borrowernumber) WHERE statistics.type IN ('issue', 'renew') AND datetime >= <<Start Date (example: 2009-01-01) >> AND datetime < <<End Date (example: 2010-01-01 >> AND statistics.branch = <<Pick your branch|branches>>  GROUP BY borrowers.categorycode
+SELECT borrowers.categorycode, COUNT(*) FROM statistics JOIN borrowers USING (borrowernumber) WHERE statistics.type IN ('issue', 'renew') AND datetime &gt;= &lt;&gt; AND datetime &lt; &lt;&gt; AND statistics.branch = &lt;&gt;  GROUP BY borrowers.categorycode
 
 
 

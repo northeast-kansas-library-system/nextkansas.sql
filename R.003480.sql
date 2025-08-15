@@ -4,7 +4,7 @@ R.003480
 ----------
 
 Name: ADMINREPORT - PLACEHOLDER for Median age by location and collection code
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

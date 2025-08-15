@@ -4,7 +4,7 @@ R.003167
 ----------
 
 Name: GHW - Insightly groups from library information
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

@@ -4,7 +4,7 @@ R.003559
 ----------
 
 Name: GHW - All Koha date fields with oldest and newest dates
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-09-13 20:55:02
-Modified on: 2022-12-12 15:52:58
-Date last run: 2023-05-22 12:15:51
+Modified on: 2024-01-17 11:22:25
+Date last run: 2024-05-21 18:16:48
 
 ----------
 
@@ -22,35 +22,37 @@ Expiry: 300
 
 ----------
 
-<div id= "reportinfo" class="noprint reportinfo">
-<p>Lists every date and timestamp field in every table in Koha and shows the oldest and newest dates.</p>
-<p>Some dates are further grouped by other field values - specifically type of event that occurred on that date/time.</p>
-<p>Used at the koha-US 2021 conference</p>
-<ul>
-  <li>_GROUP_ = the kind of group that the table/field belongs to - i.e. I manually grouped all of the borrower fees tables/fields togehter; I manually grouped all of the acquisitions tables/fields together; etc. </li>
-  <li>
-    TABLE_NAME = the name of the table the date/datetime field exists in</li>
-  <li>
-    FIELD_NAME = the name of the date/datetime field</li>
-  <li>
+ 
+Lists every date and timestamp field in every table in Koha and shows the oldest and newest dates.
+Some dates are further grouped by other field values - specifically type of change that occurred on that date/time.
+Used at the koha-US 2021 conference
+
+  _GROUP_ = the kind of group that the table/field belongs to - i.e. I manually grouped all of the borrower fees tables/fields togehter; I manually grouped all of the acquisitions tables/fields together; etc. 
+  
+    TABLE_NAME = the name of the table the date/datetime field exists in
+  
+    FIELD_NAME = the name of the date/datetime field
+  
     TYPE_OF_EVENT = if the table data includes a descriptive field that explains the type of event that happened to the data at the specified time, then that description is included here
-    <ul>
-      <li>
-        A "-" or a " " in this column indicates that the TYPE_OF_EVENT was recorded as a null value or an empty string in the database
-      </li>
-    </ul>
-  </li>
-  <li>
+    
+      
+        A "-" or a " " in this column indicates that the TYPE_OF_EVENT was recorded as a null value or a blank space in the database
+      
+    
+  
+  
     OLDEST_DATE = the minimum date available that meets the first 4 criteria
-  </li>
-  <li>
+  
+  
     NEWEST_DATE = the maximum date available that meets the first 4 criteria
-  </li>
-</ul>
-</div>
+  
+
+
 
 ----------
 */
+
+
 
 SELECT
   Concat('Borrower fees') AS _GROUP_,
@@ -2384,3 +2386,20 @@ SELECT
 FROM
   zebraqueue
 LIMIT 1000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

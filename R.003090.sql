@@ -4,7 +4,7 @@ R.003090
 ----------
 
 Name: GHW - Patron attributes - Holds contact
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Borrowers
      Patron attributes
 
 Created on: 2018-06-29 08:54:23
-Modified on: 2022-04-06 08:54:54
-Date last run: 2022-08-12 15:03:20
+Modified on: 2024-01-17 11:58:06
+Date last run: 2023-08-17 16:38:42
 
 ----------
 
@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Generates a list of patrons with contact information based on their "Hold contact" attributes</p>
-<ul><li>Shows current patrons</li>
-<li>with the home library and hold contact method you specify</li>
-<li>grouped by borrower number and attribute</li>
-<li>sorted by patron last name/patron first name</li>
-<li>contains links to the patron's account</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>This report can be used to determine which patrons at your library have a hold contract attribute set.</p>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3090&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Generates a list of patrons with contact information based on their "Hold contact" attributes
+Shows current patrons
+with the home library and hold contact method you specify
+grouped by borrower number and attribute
+sorted by patron last name/patron first name
+contains links to the patron's account
+
+Notes:
+
+This report can be used to determine which patrons at your library have a hold contract attribute set.
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -44,9 +44,7 @@ Expiry: 300
 
 SELECT
   Concat(
-    "<a href='/cgi-bin/koha/circ/circulation.pl?borrowernumber=", 
-    borrowers.borrowernumber, 
-    "' target='_blank'>Patron</a>"
+    "Patron"
   ) AS LINK_TO_PATRON,
   borrowers.cardnumber,
   Concat_Ws("", 
@@ -99,9 +97,9 @@ FROM
     ) holdscontact 
   ON borrowers.borrowernumber = holdscontact.borrowernumber
 WHERE
-  borrowers.branchcode LIKE <<Choose your library|ZBRAN>> AND
-  borrowers.categorycode LIKE <<Choose a borrower category|LBORROWERCAT>> AND
-  Coalesce(holdscontact.attribute, "~") LIKE <<Select holds contact attribute|LHOLDSCON>>
+  borrowers.branchcode LIKE &lt;&gt; AND
+  borrowers.categorycode LIKE &lt;&gt; AND
+  Coalesce(holdscontact.attribute, "~") LIKE &lt;&gt;
 GROUP BY
   borrowers.borrowernumber,
   Coalesce(holdscontact.lib, "~")

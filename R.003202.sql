@@ -4,7 +4,7 @@ R.003202
 ----------
 
 Name: GHW - Where did our stuff check out last month
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -57,7 +57,7 @@ FROM
       Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       (statistics.type = 'issue' OR
         statistics.type = 'renew') AND
-      If(Coalesce(items.homebranch, deleteditems.homebranch) IS NULL, "NEKLS", Coalesce(items.homebranch, deleteditems.homebranch)) = <<Select your library|branches>>
+      If(Coalesce(items.homebranch, deleteditems.homebranch) IS NULL, "NEKLS", Coalesce(items.homebranch, deleteditems.homebranch)) = &lt;&gt;
     GROUP BY
       If(statistics.branch IS NULL, "NEKLS", statistics.branch)
   ) our_stuff_somewhere_else

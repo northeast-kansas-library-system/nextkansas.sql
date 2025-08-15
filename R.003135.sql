@@ -4,7 +4,7 @@ R.003135
 ----------
 
 Name: GHW Bad guarantor information - ADMINREPORT
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -41,12 +41,12 @@ SELECT
 FROM
   borrowers
 WHERE
-  (borrowers.dateofbirth <= CurDate() - INTERVAL 18 YEAR or borrowers.dateofbirth IS NULL) AND
+  (borrowers.dateofbirth &lt;= CurDate() - INTERVAL 18 YEAR or borrowers.dateofbirth IS NULL) AND
   (borrowers.guarantorid is not null OR
-  borrowers.guarantorid <> "" OR
-  borrowers.contactname <> "" OR
-  borrowers.contactfirstname <> "" OR
-  borrowers.contacttitle <> "")
+  borrowers.guarantorid &lt;&gt; "" OR
+  borrowers.contactname &lt;&gt; "" OR
+  borrowers.contactfirstname &lt;&gt; "" OR
+  borrowers.contacttitle &lt;&gt; "")
 GROUP BY
   borrowers.borrowernumber
 

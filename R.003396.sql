@@ -4,7 +4,7 @@ R.003396
 ----------
 
 Name: GHW - 942H ADMINREPORT - ASC
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-01-07 16:28:26
-Modified on: 2023-01-03 09:21:50
-Date last run: 2023-01-03 09:23:24
+Modified on: 2024-01-24 21:19:38
+Date last run: 2024-06-18 14:19:44
 
 ----------
 
@@ -30,6 +30,7 @@ Expiry: 300
 
 
 SELECT
+  Concat('https://staff.nextkansas.org/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblioitems.biblionumber) AS RAW_LINK,
   biblioitems.biblionumber,
   biblio.author,
   biblio.title,
@@ -52,7 +53,7 @@ FROM
       biblioitems.biblionumber
 WHERE
   biblioitems.cn_class IS NULL AND
-  itemccode.Group_Concat_ccode = 'NONFICTION'
+  itemccode.Group_Concat_ccode = 'FICTION'
 GROUP BY
   biblioitems.biblionumber,
   biblio.author,

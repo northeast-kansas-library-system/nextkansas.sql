@@ -4,7 +4,7 @@ R.003132
 ----------
 
 Name: SDR
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -33,7 +33,7 @@ SELECT
   items.biblionumber,
   items.homebranch,
   items.itype,
-  Concat_Ws('<br />', items.location, authorised_values.lib, items.itemcallnumber) AS CALL_NUMBER,
+  Concat_Ws('', items.location, authorised_values.lib, items.itemcallnumber) AS CALL_NUMBER,
   biblio.author,
   biblio.title,
   items.itemnotes,
@@ -42,10 +42,8 @@ SELECT
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="526"]//subfield[@code="b"]') AS INTEREST_LEVEL,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="526"]//subfield[@code="c"]') AS READING_LEVEL,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="526"]//subfield[@code="d"]') AS POINTS,
-  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber,
-  '\" target="_blank">Go to staff client</a>') AS LINK_TO_STAFF,
-  Concat('<a href=\"https://nextkansas.org/cgi-bin/koha/opac-detail.pl?biblionumber=', biblio.biblionumber,
-  '\" target="_blank">Go to OPAC</a>') AS LINK_TO_OPAC
+  Concat('Go to staff client') AS LINK_TO_STAFF,
+  Concat('Go to OPAC') AS LINK_TO_OPAC
 FROM
   items
   JOIN biblio ON items.biblionumber = biblio.biblionumber

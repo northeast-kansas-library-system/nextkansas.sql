@@ -4,7 +4,7 @@ R.002854
 ----------
 
 Name: GHW - Hiawatha Sample
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -37,7 +37,7 @@ WHERE
   (message_queue.letter_code = 'OVERDUE' OR
     message_queue.letter_code = 'FREEZE') AND
   message_queue.message_transport_type = 'email' AND
-  message_queue.time_queued LIKE CONCAT(<<Enter date|date>>, '%') AND
+  message_queue.time_queued LIKE CONCAT(&lt;&gt;, '%') AND
   message_queue.from_address LIKE '%hiawathalibrary.org%'
 
 

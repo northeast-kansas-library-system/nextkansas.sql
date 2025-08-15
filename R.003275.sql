@@ -4,7 +4,7 @@ R.003275
 ----------
 
 Name: GHW - ADMINREPORT - Quick count
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

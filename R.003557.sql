@@ -4,7 +4,7 @@ R.003557
 ----------
 
 Name: GHW - Items with a specific barcode number length
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,7 +12,7 @@ Group: -
      -
 
 Created on: 2021-09-08 16:13:34
-Modified on: 2021-09-08 17:56:27
+Modified on: 2024-01-17 11:28:39
 Date last run: 2021-09-08 17:56:57
 
 ----------
@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Lists all items at a library with a specific item barcode number length</p>
-<ul><li>Shows items currently in the catalog</li>
-<li>At the library you specify and with the item barcode number length you specify</li>
-<li>grouped by itemnumber and biblionumber</li>
-<li>sorted by the standard Next Search Catalog classification scheme</li>
-<li>contains links to the bibliographic record</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>The easiest way to run this report is to run report 3558 for your library and then choose which length barcode for your library you want to list from the right hand column.</p>
-<p class= "notetags" style="display: none;">#item #barcode #length #count</p>
-</div>
+ 
+Lists all items at a library with a specific item barcode number length
+Shows items currently in the catalog
+At the library you specify and with the item barcode number length you specify
+grouped by itemnumber and biblionumber
+sorted by the standard Next Search Catalog classification scheme
+contains links to the bibliographic record
+
+Notes:
+
+The easiest way to run this report is to run report 3558 for your library and then choose which length barcode for your library you want to list from the right hand column.
+#item #barcode #length #count
+
 
 ----------
 */
@@ -43,9 +43,7 @@ Expiry: 300
 
 SELECT
   Concat(
-    "<a href='/cgi-bin/koha/catalogue/detail.pl?biblionumber=",
-    biblio.biblionumber, 
-    "' target='_blank'>go to the bibliographic record</a>"
+    "go to the bibliographic record"
   )
   AS LINK,
   biblio.biblionumber,
@@ -106,8 +104,8 @@ FROM
     FROM
       itemtypes) itypes ON itypes.itemtype = items.itype
 WHERE
-    items.homebranch LIKE <<Choose your library|ZBRAN>> AND
-    Coalesce(Length(items.barcode), 0) LIKE <<Enter barcode length>>
+    items.homebranch LIKE &lt;&gt; AND
+    Coalesce(Length(items.barcode), 0) LIKE &lt;&gt;
 GROUP BY
   biblio.biblionumber,
   items.itemnumber,

@@ -4,7 +4,7 @@ R.003240
 ----------
 
 Name: 23390
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -100,7 +100,7 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.dateexpiry < "1900-12-31"
+  borrowers.dateexpiry &lt; "1900-12-31"
 
 
 

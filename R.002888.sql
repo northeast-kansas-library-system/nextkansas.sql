@@ -4,7 +4,7 @@ R.002888
 ----------
 
 Name: GHW - Patrons with specified category
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: Administrative Reports
 
 Created on: 2017-01-24 16:21:30
 Modified on: 2017-01-24 16:21:30
-Date last run: 2020-12-17 22:59:59
+Date last run: 2025-01-29 16:52:21
 
 ----------
 
@@ -38,8 +38,8 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.categorycode LIKE <<Borrower's category|categorycode>> AND
-  borrowers.branchcode LIKE <<Borrower's home library|ZBRAN>>
+  borrowers.categorycode LIKE &lt;&gt; AND
+  borrowers.branchcode LIKE &lt;&gt;
 GROUP BY
   borrowers.branchcode, borrowers.categorycode, borrowers.cardnumber,
   borrowers.surname, borrowers.dateexpiry

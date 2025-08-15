@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2012-05-14 23:40:18
 Modified on: 2015-08-16 18:11:42
-Date last run: 2023-05-15 08:09:27
+Date last run: 2025-08-06 11:25:36
 
 ----------
 
@@ -29,8 +29,8 @@ Enhanced -- Choose Library.(On Reports Web Page, 5/14/12). #lost
 
 
 
-SELECT i.datelastseen, b.title, b.author,t.publicationyear, i.location, i.ccode,i.itype,i.itemcallnumber, i.barcode, i.holdingbranch, CONCAT('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=',b.biblionumber,'&itemnumber=',i.itemnumber,'#edititem\" target="_blank">'"edit item"'</a>') as "edit item" FROM items i LEFT JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber)
-WHERE i.homebranch=<<Pick your branch|branches>> AND i.itemlost = '3'
+SELECT i.datelastseen, b.title, b.author,t.publicationyear, i.location, i.ccode,i.itype,i.itemcallnumber, i.barcode, i.holdingbranch, CONCAT(''"edit item"'') as "edit item" FROM items i LEFT JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber)
+WHERE i.homebranch=&lt;&gt; AND i.itemlost = '3'
 ORDER BY  i.itemcallnumber
 
 

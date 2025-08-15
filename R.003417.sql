@@ -4,7 +4,7 @@ R.003417
 ----------
 
 Name: GHW ADMINREPORT - replace 3333
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -30,12 +30,12 @@ Expiry: 300
 
 
 SELECT
-  Concat_Ws("<br />&#160;&#160;&#160;&#160;&#160;", 
+  Concat_Ws("&#160;&#160;&#160;&#160;&#160;", 
     clubs.name,
     branches.branchname, 
     club_templates.name
   ) AS CLUB_NAME,
-  Concat_WS("<br />",
+  Concat_WS("",
     liaisons.LIAISON,
     leaders.LEADER,
     frequencys.FREQUENCY,
@@ -46,9 +46,7 @@ SELECT
     )
   ) AS CLUB_INFO,
   CONCAT(
-    '<a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3335&phase=Run+this+report&param_name=Enter+club+ID+number&sql_params=', 
-    clubs.id, 
-    '" target="_blank">Link to club roster for club members</a>'
+    'Link to club roster for club members'
   ) AS LINK_TO_ROSTER
 FROM
   clubs JOIN
@@ -126,7 +124,7 @@ FROM
    GROUP BY
      club_enrollments.club_id) counts ON counts.club_id = clubs.id
 WHERE
-  clubs.branchcode LIKE <<Choose your library|ZBRAN>>
+  clubs.branchcode LIKE &lt;&gt;
 GROUP BY
   liaisons.LIAISON,
   leaders.LEADER,

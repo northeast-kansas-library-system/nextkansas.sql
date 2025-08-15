@@ -4,7 +4,7 @@ R.003469
 ----------
 
 Name: GHW - Synchronize locations
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2021-03-02 14:45:41
 Modified on: 2021-03-02 14:45:41
-Date last run: 2022-11-10 10:34:52
+Date last run: 2024-08-28 08:36:18
 
 ----------
 
@@ -31,25 +31,21 @@ Expiry: 300
 
 SELECT
   Concat(
-    '<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=', 
-    locs.category, 
-    '" target="_blank">Link to LOC</a>'
+    'Link to LOC'
   ) AS LINK_TO_LOC,
   If(
     locs.category IS NULL, 
-    "<span style='background-color: red; color: yellow'>Possible errror</span>", 
+    "Possible errror", 
     locs.category
   ) AS CATEGORY,
   locs.authorised_value AS LOC,
   If(
     llocs.category IS NULL, 
-    "<span style='background-color: red; color: yellow'>Possible errror</span>", 
+    "Possible errror", 
     llocs.category
   ) AS ALT_CATEGORY,
   Concat(
-    '<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=', 
-    llocs.category, 
-    '" target="_blank">Link to LLOC</a>'
+    'Link to LLOC'
   ) AS LINK_TO_LLOC,
   llocs.authorised_value AS LLOC
 FROM
@@ -73,25 +69,21 @@ FROM
 UNION
 SELECT
   Concat(
-    '<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=', 
-    locsx.category, 
-    '" target="_blank">Link to LOC</a>'
+    'Link to LOC'
   ) AS LINK,
   If(
     locsx.category IS NULL, 
-    "<span style='background-color: red; color: yellow'>Possible errror</span>", 
+    "Possible errror", 
     locsx.category
   ) AS category,
   locsx.authorised_value,
   If(
     llocsx.category IS NULL, 
-    "<span style='background-color: red; color: yellow'>Possible errror</span>", 
+    "Possible errror", 
     llocsx.category
   ) AS category1,
   Concat(
-    '<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=', 
-    llocsx.category, 
-    '" target="_blank">Link to LLOC</a>'
+    'Link to LLOC'
   ) AS LINK1,
   llocsx.authorised_value AS authorised_value1
 FROM

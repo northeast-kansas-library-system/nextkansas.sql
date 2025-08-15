@@ -4,7 +4,7 @@ R.003322
 ----------
 
 Name: GHW - Total late fees collected at a library - by month
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -45,7 +45,7 @@ FROM
 WHERE
   accountlines1.debit_type_code = 'OVERDUE' AND
   account_offsets.type = 'Payment' AND
-  borrowers.branchcode LIKE <<Choose your library|ZBRAN>>
+  borrowers.branchcode LIKE &lt;&gt;
 GROUP BY
   borrowers.branchcode,
   Year(account_offsets.created_on),

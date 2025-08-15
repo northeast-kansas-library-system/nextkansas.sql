@@ -12,8 +12,8 @@ Group: Popular Reports
      -
 
 Created on: 2010-02-03 11:08:36
-Modified on: 2021-04-02 16:08:09
-Date last run: 2023-03-14 12:01:12
+Modified on: 2023-10-16 21:57:07
+Date last run: 2025-08-06 10:42:29
 
 ----------
 
@@ -22,23 +22,23 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Generates a list of all bibliographic records with requests sorted by the number of requests on each record</p>
-<ul><li>Shows records with unfilled reqeusts on them</li>
-<li>at all Next Search Catalog libraries</li>
-<li>grouped by biblionumber</li>
-<li>sorted by number of reqeusts</li>
-<li>links to the bibliographic records</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Formerly titled "Most Reserved Titles"</p>
-<p></p>
-<p>Updated by GHW on 2021.04.02</p>
-<p></p>
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=803">Click here to download as a csv file</a></p>
-<p class= "notetags" style="display: none;">requests</p>
-</div>
+ 
+Generates a list of all bibliographic records with requests sorted by the number of requests on each record
+Shows records with unfilled reqeusts on them
+at all Next Search Catalog libraries
+grouped by biblionumber
+sorted by number of reqeusts
+links to the bibliographic records
+
+Notes:
+
+Formerly titled "Most Reserved Titles"
+
+Updated by GHW on 2021.04.02
+
+Click here to download as a csv file
+requests
+
 
 ----------
 */
@@ -63,9 +63,7 @@ SELECT
   old_reservess.Count_reserve_id AS PREVIOUSLY_FILLED_REQUESTS, 
   biblio.biblionumber AS BIBLIO_NUMBER, 
   Concat( 
-    '<a class= "clicked" href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
-    biblio.biblionumber, 
-    '\" target="_blank">Go to title</a>' 
+    'Go to title' 
   ) AS LINK_TO_TITLE 
 FROM 
   biblio JOIN 

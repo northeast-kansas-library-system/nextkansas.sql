@@ -13,7 +13,7 @@ Group: -
 
 Created on: -
 Modified on: 2021-10-12 16:22:00
-Date last run: 2023-02-01 01:00:01
+Date last run: 2023-11-29 17:41:49
 
 ----------
 
@@ -30,7 +30,7 @@ This report shows records that have a mismatch between the 008 publication date 
 
 
 SELECT
-  CONCAT('<a target="new" href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">LINK</a>') AS LINK,
+  CONCAT('LINK') AS LINK,
   eight.DATE,
   biblioitems.publicationyear
 FROM
@@ -44,7 +44,7 @@ FROM
   JOIN
   biblioitems ON biblioitems.biblionumber = biblio.biblionumber
 WHERE
-  eight.DATE <> biblioitems.publicationyear
+  eight.DATE &lt;&gt; biblioitems.publicationyear
 
 
 

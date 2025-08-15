@@ -4,7 +4,7 @@ R.003234
 ----------
 
 Name: GHW - Patron count by extended attribute
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Borrowers
      Patron attributes
 
 Created on: 2019-07-24 13:40:33
-Modified on: 2019-07-25 08:30:25
-Date last run: 2021-09-10 12:59:24
+Modified on: 2024-01-17 12:08:31
+Date last run: 2025-02-10 14:52:48
 
 ----------
 
@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Generates a count of patrons with extended attributes at your library</p>
-<ul><li>Counts current patrons with attributes</li>
-<li>at the library you specify</li>
-<li>allows you to specify a minimum patron count for displaying an attribute count (i.e. only show attributes assigned to at least X patrons)</li>
-<li>grouped and sorted by patron home branch, attribute category, and attribute</li>
-<li>contains links to report 3235 which will list all of the patrons at your library with the attribute specified</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Patrons can have multiple extended attributes on their accounts.  Similarly, patrons may not have any extended attributes on their accounts.  A total count of patrons from all of the rows of this report will not indicate an accurate count of total patrons at your library.</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3234&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Generates a count of patrons with extended attributes at your library
+Counts current patrons with attributes
+at the library you specify
+allows you to specify a minimum patron count for displaying an attribute count (i.e. only show attributes assigned to at least X patrons)
+grouped and sorted by patron home branch, attribute category, and attribute
+contains links to report 3235 which will list all of the patrons at your library with the attribute specified
+
+Notes:
+
+Patrons can have multiple extended attributes on their accounts.  Similarly, patrons may not have any extended attributes on their accounts.  A total count of patrons from all of the rows of this report will not indicate an accurate count of total patrons at your library.
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -46,7 +46,7 @@ SELECT
   columncreator.branchcode AS LIBRARY,
   Concat_Ws(' // ', columncreator.CAT_DESC, columncreator.AV_DESC) AS EXTENDED_ATTRIBUTE,
   Count(borrowerss.borrowernumber) AS PATRON_COUNT,
-  Concat('<a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3235&phase=Run+this+report&param_name=Choose+your+library%7CLBRANCH&sql_params=', columncreator.branchcode, '&param_name=Choose+attribute+type%7CQ_BORROWER_ATTRIBUTES_A&sql_params=', columncreator.CAT_CODE, '&param_name=Enter+attribute+value+or+a+%25+symbol&sql_params=', IF(columncreator.AV_CODE = 'X', '%', columncreator.AV_CODE), ' " target="_blank">Go to detailed report</a>') AS LINK_TO_DETAILED_REPORT
+  Concat('Go to detailed report') AS LINK_TO_DETAILED_REPORT
 FROM
   (
     SELECT
@@ -94,14 +94,14 @@ FROM
       borrowerss.code = columncreator.CAT_CODE AND
       borrowerss.attribute = columncreator.AV_CODE
 WHERE
-  columncreator.branchcode LIKE <<Choose your library|ZBRAN>> AND
-  columncreator.CAT_CODE LIKE <<Extended attribute category|Q_BORROWER_ATTRIBUTES_A>>
+  columncreator.branchcode LIKE &lt;&gt; AND
+  columncreator.CAT_CODE LIKE &lt;&gt;
 GROUP BY
   columncreator.branchcode,
   columncreator.CAT_CODE,
   columncreator.AV_CODE
 HAVING
-  PATRON_COUNT >= <<View rows with at least X patrons|YNUMBER>>
+  PATRON_COUNT &gt;= &lt;&gt;
 ORDER BY
   LIBRARY,
   EXTENDED_ATTRIBUTE

@@ -4,7 +4,7 @@ R.003316
 ----------
 
 Name: Update all 2020 patron expirations to 2021
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -46,9 +46,9 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.categorycode <> "STAFF" AND
+  borrowers.categorycode &lt;&gt; "STAFF" AND
   Year(borrowers.dateexpiry) = 2020 AND
-  borrowers.branchcode LIKE <<Choose your library|ZBRAN>>
+  borrowers.branchcode LIKE &lt;&gt;
 
 
 

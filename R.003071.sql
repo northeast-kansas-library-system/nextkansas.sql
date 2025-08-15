@@ -4,7 +4,7 @@ R.003071
 ----------
 
 Name: GHW - Restrictions no longer needed
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2018-04-13 16:53:35
-Modified on: 2020-01-09 11:44:09
-Date last run: 2022-08-10 12:14:27
+Modified on: 2024-01-17 11:58:19
+Date last run: 2025-02-05 12:45:35
 
 ----------
 
@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Reports on patrons who have had a restriction added to their account due to an overdue item but the item has been returned and their fees are less than $10.00</p>
-<ul><li>Shows patrons who currently have restrictions created by the overdues process, no overdues, and less than $10.00 in fees</li>
-<li>at all Next libraries</li>
-<li>grouped by borrowernumber</li>
-<li>sorted by borrower home branch, borrowers last name, borrowers first name</li>
-<li>links directly to the restriction page of the borrower</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3071&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Reports on patrons who have had a restriction added to their account due to an overdue item but the item has been returned and their fees are less than $10.00
+Shows patrons who currently have restrictions created by the overdues process, no overdues, and less than $10.00 in fees
+at all Next libraries
+grouped by borrowernumber
+sorted by borrower home branch, borrowers last name, borrowers first name
+links directly to the restriction page of the borrower
+
+Notes:
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -41,7 +41,7 @@ Expiry: 300
 
 
 SELECT
-  Concat("<a href='/cgi-bin/koha/circ/circulation.pl?borrowernumber=", borrowers.borrowernumber, "#reldebarments' target='_blank'>Go to patron</a>") AS LINK_TO_BORROWER,
+  Concat("Go to patron") AS LINK_TO_BORROWER,
   borrowers.borrowernumber,
   borrowers.cardnumber,
   borrowers.surname,
@@ -61,7 +61,7 @@ FROM
     FROM
       issues
     WHERE
-      issues.date_due < Now()
+      issues.date_due &lt; Now()
     GROUP BY
       issues.borrowernumber,
       issues.itemnumber,
@@ -76,7 +76,7 @@ FROM
     FROM
       accountlines
     WHERE
-      accountlines.amountoutstanding > 0
+      accountlines.amountoutstanding &gt; 0
     GROUP BY
       accountlines.borrowernumber
   ) fees
@@ -95,9 +95,9 @@ WHERE
   (Char_Length(borrowers.debarredcomment) = 33 OR
     Char_Length(borrowers.debarredcomment) = 54 OR
     (borrowers.debarredcomment IS NULL)) AND
-  Coalesce(borrowers.gonenoaddress, 0) < 1 AND
-  Coalesce(borrowers.lost, 0) < 1 AND
-  fees.SUM <= 10
+  Coalesce(borrowers.gonenoaddress, 0) &lt; 1 AND
+  Coalesce(borrowers.lost, 0) &lt; 1 AND
+  fees.SUM &lt;= 10
 GROUP BY
   borrowers.borrowernumber
 HAVING

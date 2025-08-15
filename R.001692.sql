@@ -29,7 +29,7 @@ Enter a Year to determine the number of new items added in that year.  Year End 
 
 
 
-SELECT i.homebranch, count(i.itemnumber) from items i WHERE YEAR(i.dateaccessioned) = <<Year>> GROUP BY i.homebranch ORDER BY i.homebranch LIMIT 50
+SELECT i.homebranch, count(i.itemnumber) from items i WHERE YEAR(i.dateaccessioned) = &lt;&gt; GROUP BY i.homebranch ORDER BY i.homebranch LIMIT 50
 
 
 

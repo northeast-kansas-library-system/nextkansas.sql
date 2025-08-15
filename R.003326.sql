@@ -4,7 +4,7 @@ R.003326
 ----------
 
 Name: GHW - 942e phase 4
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -43,9 +43,7 @@ SELECT
   Date_Format(biblio.datecreated, "%Y.%m.%d") AS DATE_ADDED,
   biblio.biblionumber,
   Concat(
-    '<a class= "clicked" href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
-    biblio.biblionumber, 
-    '\" target="_blank">Go to title</a>'
+    'Go to title'
   ) AS LINK_TO_TITLE,
   Query1.COUNT,
   Query1.Group_Concat_permanent_location

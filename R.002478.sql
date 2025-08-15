@@ -13,7 +13,7 @@ Group: Borrowers
 
 Created on: 2015-03-31 12:01:48
 Modified on: 2015-08-20 10:15:20
-Date last run: 2022-08-31 12:06:04
+Date last run: 2025-05-08 16:46:12
 
 ----------
 
@@ -29,20 +29,20 @@ Gives a count of active borrowers interacting at your library (interaction=they 
 
 
 
-SELECT @1:="Last 6 months: Active Unique Borrowers" AS "Active Borrowers", count(DISTINCT s.borrowernumber) AS "Count" FROM statistics s WHERE s.branch = <<Choose library|branches>>AND s.datetime >= date_sub(now(), interval 6 month)
+SELECT @1:="Last 6 months: Active Unique Borrowers" AS "Active Borrowers", count(DISTINCT s.borrowernumber) AS "Count" FROM statistics s WHERE s.branch = &lt;&gt;AND s.datetime &gt;= date_sub(now(), interval 6 month)
 
 UNION
 
 
-SELECT @1:="Last 1 year: Active Unique Borrowers", count(DISTINCT s.borrowernumber)  FROM statistics s WHERE s.branch=<<Choose library|branches>> AND s.datetime >= date_sub(now(), interval 1 year)
+SELECT @1:="Last 1 year: Active Unique Borrowers", count(DISTINCT s.borrowernumber)  FROM statistics s WHERE s.branch=&lt;&gt; AND s.datetime &gt;= date_sub(now(), interval 1 year)
 
 UNION
 
-SELECT @1:="Last 6 months: Active Unique Registered Borrowers", count(DISTINCT s.borrowernumber) FROM statistics s LEFT JOIN borrowers b USING(borrowernumber) WHERE s.branch=<<Choose library|branches>> AND b.branchcode=<<Choose library|branches>> AND s.datetime >= date_sub(now(), interval 6 month)
+SELECT @1:="Last 6 months: Active Unique Registered Borrowers", count(DISTINCT s.borrowernumber) FROM statistics s LEFT JOIN borrowers b USING(borrowernumber) WHERE s.branch=&lt;&gt; AND b.branchcode=&lt;&gt; AND s.datetime &gt;= date_sub(now(), interval 6 month)
 
 UNION
 
-SELECT @1:="Last 1 year: Active Unique Registered Borrowers", count(DISTINCT s.borrowernumber) FROM statistics s LEFT JOIN borrowers b USING(borrowernumber) WHERE s.branch=<<Choose library|branches>> AND b.branchcode=<<Choose library|branches>> AND s.datetime >= date_sub(now(), interval 1 year)
+SELECT @1:="Last 1 year: Active Unique Registered Borrowers", count(DISTINCT s.borrowernumber) FROM statistics s LEFT JOIN borrowers b USING(borrowernumber) WHERE s.branch=&lt;&gt; AND b.branchcode=&lt;&gt; AND s.datetime &gt;= date_sub(now(), interval 1 year)
 
 
 

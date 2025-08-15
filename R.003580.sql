@@ -4,7 +4,7 @@ R.003580
 ----------
 
 Name: LibraryIQ - Basic circulation rules (setup)
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -43,7 +43,7 @@ FROM
   LEFT JOIN
   itemtypes ON circulation_rules.itemtype = itemtypes.itemtype
 WHERE
-  circulation_rules.branchcode = <<Choose your library|branches>> AND
+  circulation_rules.branchcode = &lt;&gt; AND
   circulation_rules.rule_name = 'issuelength'
 ORDER BY
   circulation_rules.branchcode,

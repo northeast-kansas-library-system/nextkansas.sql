@@ -4,7 +4,7 @@ R.003643
 ----------
 
 Name: GHW - ADMINREPORT - GMD search
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -35,14 +35,12 @@ SELECT
   biblio.title,
   biblio.medium,
   Concat(
-    '<a class="btn btn-default" href=\"/cgi-bin/koha/cataloguing/addbiblio.pl?biblionumber=',
-    biblio.biblionumber,
-    '" target="_blank">Link</a>'
+    'Link'
   ) AS LINK
 FROM
   biblio
 WHERE
-  biblio.medium LIKE concat('%', <<Enter search term>>, '%')
+  biblio.medium LIKE concat('%', &lt;&gt;, '%')
 ORDER BY
   biblio.medium
 

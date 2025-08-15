@@ -4,7 +4,7 @@ R.003721
 ----------
 
 Name: Wok in progress
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -43,8 +43,8 @@ Where
       statistics.type = 'payment' Or
       statistics.type = 'renew' Or
       statistics.type = 'writeoff') And
-  statistics.branch LIKE <<Choose your library|branches>> And
-  statistics.datetime Between <<Choose a date|date>> And (<<Choose a date|date>> + interval 1 day)
+  statistics.branch LIKE &lt;&gt; And
+  statistics.datetime Between &lt;&gt; And (&lt;&gt; + interval 1 day)
 Order By
   statistics.datetime
 

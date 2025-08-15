@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2015-01-27 10:55:11
 Modified on: 2022-08-09 09:49:58
-Date last run: 2023-01-05 13:19:14
+Date last run: 2023-10-25 10:53:07
 
 ----------
 
@@ -31,14 +31,8 @@ Expiry: 0
 
 SELECT
   CONCAT_WS('',
-    '<a ',
-    'class="btn btn-default noprint" ', 
-    'href="/cgi-bin/koha/cataloguing/additem.pl?op=edititem&frameworkcode=&biblionumber=',
-    items.biblionumber,
-    '&itemnumber=',
-    items.itemnumber,
-    '" target="_blank">',
-    'Link to edit item</a>'
+    '',
+    'Link to edit item'
   ) AS LINK_TO_ITEM,
   items.itemnumber,
   Replace(items.itemcallnumber, ' ', '|') AS CALL_NUMBER_W_BREAKS,
@@ -142,12 +136,12 @@ FROM
     FROM
       items
     WHERE
-      items.homebranch Like <<Choose your library|branches:all>> AND
-      (Length(Replace(items.itemcallnumber, ' ', '-')) - Length(Replace(items.itemcallnumber, ' ', '')) + 1) > <<Greater than X lines on the spine label|YNUMBER>>) cnlines 
+      items.homebranch Like &lt;&gt; AND
+      (Length(Replace(items.itemcallnumber, ' ', '-')) - Length(Replace(items.itemcallnumber, ' ', '')) + 1) &gt; &lt;&gt;) cnlines 
     ON cnlines.itemnumber = items.itemnumber AND
       cnlines.homebranch = items.homebranch
 WHERE
-  items.homebranch Like <<Choose your library|branches:all>> AND
+  items.homebranch Like &lt;&gt; AND
   (Replace(items.itemcallnumber, ' ', '|') LIKE "\|%" OR
     Replace(items.itemcallnumber, ' ', '|') LIKE "%\|\|%" OR
     Replace(items.itemcallnumber, ' ', '|') LIKE "%\|")

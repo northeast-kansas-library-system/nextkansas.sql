@@ -4,7 +4,7 @@ R.003192
 ----------
 
 Name: GHW - Patrons with more than 20 unfilled requests
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -49,9 +49,9 @@ FROM
       JOIN borrowers
         ON reserves.borrowernumber = borrowers.borrowernumber
     WHERE
-      borrowers.categorycode <> "ILL" AND
-      borrowers.categorycode <> "ASSOCIATE" AND
-      borrowers.categorycode <> "STAFF" AND
+      borrowers.categorycode &lt;&gt; "ILL" AND
+      borrowers.categorycode &lt;&gt; "ASSOCIATE" AND
+      borrowers.categorycode &lt;&gt; "STAFF" AND
       reserves.found IS NULL AND
       reserves.suspend = 0
     ORDER BY
@@ -65,23 +65,23 @@ FROM
       JOIN borrowers
         ON reserves.borrowernumber = borrowers.borrowernumber
     WHERE
-      borrowers.categorycode <> "ILL" AND
-      borrowers.categorycode <> "ASSOCIATE" AND
-      borrowers.categorycode <> "STAFF" AND
+      borrowers.categorycode &lt;&gt; "ILL" AND
+      borrowers.categorycode &lt;&gt; "ASSOCIATE" AND
+      borrowers.categorycode &lt;&gt; "STAFF" AND
       reserves.found IS NULL AND
       reserves.suspend = 0
   ) borrowerswrequests
 WHERE
-  borrowers.categorycode <> "ILL" AND
-  borrowers.categorycode <> "ASSOCIATE" AND
-  borrowers.categorycode <> "STAFF" AND
+  borrowers.categorycode &lt;&gt; "ILL" AND
+  borrowers.categorycode &lt;&gt; "ASSOCIATE" AND
+  borrowers.categorycode &lt;&gt; "STAFF" AND
   reserves.found IS NULL AND
   reserves.suspend = 0
 GROUP BY
   reserves.borrowernumber,
   borrowerswrequests.Count_borrowernumber
 HAVING
-  Count(reserves.reserve_id) > 20
+  Count(reserves.reserve_id) &gt; 20
 ORDER BY
   ACTIVE_UNFILLED_THIS_PATRON DESC
 

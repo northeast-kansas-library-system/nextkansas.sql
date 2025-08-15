@@ -4,7 +4,7 @@ R.003086
 ----------
 
 Name: GHW - Patron attributes - Newsletter permissions
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Borrowers
      Patron attributes
 
 Created on: 2018-06-28 18:09:20
-Modified on: 2020-05-08 15:20:19
-Date last run: 2023-05-01 09:34:17
+Modified on: 2024-01-17 11:58:14
+Date last run: 2025-08-01 15:20:12
 
 ----------
 
@@ -22,22 +22,22 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Generates a list of patrons with contact information based on their "Newsletter permission" attributes</p>
-<ul><li>Shows current patrons</li>
-<li>with the home library and newsletter permission you specify</li>
-<li>grouped by borrower number and attribute</li>
-<li>sorted by patron last name/patron first name</li>
-<li>contains links to the patron's account</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Replaces report 2887 (GHW - Patrons with Newsletter permission flag).</p>
-<p></p>
-<p>This report can be used to determine which patrons at your library have agreed to let you use their e-mail address from the catalog for the purposes of sending them an e-mail newsletter.</p>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3086&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Generates a list of patrons with contact information based on their "Newsletter permission" attributes
+Shows current patrons
+with the home library and newsletter permission you specify
+grouped by borrower number and attribute
+sorted by patron last name/patron first name
+contains links to the patron's account
+
+Notes:
+
+Replaces report 2887 (GHW - Patrons with Newsletter permission flag).
+
+This report can be used to determine which patrons at your library have agreed to let you use their e-mail address from the catalog for the purposes of sending them an e-mail newsletter.
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -46,9 +46,7 @@ Expiry: 300
 
 SELECT
   Concat(
-    "<a href='/cgi-bin/koha/circ/circulation.pl?borrowernumber=", 
-    borrowers.borrowernumber, 
-    "' target='_blank'>Patron</a>"
+    "Patron"
   ) AS LINK_TO_PATRON,
   borrowers.cardnumber,
   If(
@@ -65,9 +63,9 @@ SELECT
   If(
     Coalesce(newsletter_permission.lib, "~") = "YES", 
     Concat(borrowers.address, 
-    "<br />", 
+    "", 
     borrowers.address2, 
-    "<br />", 
+    "", 
     borrowers.city, 
     ", ",
     borrowers.state, 
@@ -106,9 +104,9 @@ FROM
       borrower_attributes.borrowernumber,
       borrower_attributes.attribute) newsletter_permission ON borrowers.borrowernumber = newsletter_permission.borrowernumber
 WHERE
-  borrowers.branchcode LIKE <<Choose your library|ZBRAN>> AND
-  borrowers.categorycode LIKE <<Choose a borrower category|LBORROWERCAT>> AND
-  Coalesce(newsletter_permission.attribute, "~") LIKE <<Select newsletter permission attribute|LNEWSPERM>>
+  borrowers.branchcode LIKE &lt;&gt; AND
+  borrowers.categorycode LIKE &lt;&gt; AND
+  Coalesce(newsletter_permission.attribute, "~") LIKE &lt;&gt;
 GROUP BY
   Coalesce(newsletter_permission.lib, "~"),
   If(borrowers.email LIKE "%", "X", "Y"),

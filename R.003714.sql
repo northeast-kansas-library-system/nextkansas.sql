@@ -4,7 +4,7 @@ R.003714
 ----------
 
 Name: Test x 1
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2023-02-22 22:14:25
-Modified on: 2023-02-27 16:28:24
-Date last run: 2023-02-27 16:28:29
+Modified on: 2023-09-17 23:46:23
+Date last run: 2023-09-17 23:46:41
 
 ----------
 
@@ -29,146 +29,124 @@ Expiry: 300
 
 
 
-Select 
-  biblio.biblionumber,
-  items.itemnumber,
-  items.barcode,
-  If(
-    items.homebranch = items.holdingbranch,
-    homebranches.branchname,
-    Concat(
-      homebranches.branchname,
-      ' (Currently at: ',
-      holdingbranches.branchname,
-      ')'
-    )
-  ) As LIBRARY,
-  If(
-    items.permanent_location = items.location,
-    permanent_locs.lib,
-    Concat(permanent_locs.lib, ' (', locs.lib, ')')
-  ) As SHELVING_LOCATION,
-  itemtypes.description As ITEM_TYPE,
-  ccodes.lib As COLLECTION_CODE,
-  items.itemcallnumber,
-  biblio.author,
-  Concat_Ws(
-    " ",
-    biblio.title,
-    ExtractValue(
-      biblio_metadata.metadata,
-      '//datafield[@tag="245"]/subfield[@code="h"]'
-    ),
-    ExtractValue(
-      biblio_metadata.metadata,
-      '//datafield[@tag="245"]/subfield[@code="b"]'
-    ),
-    ExtractValue(
-      biblio_metadata.metadata,
-      '//datafield[@tag="245"]/subfield[@code="p"]'
-    ),
-    ExtractValue(
-      biblio_metadata.metadata,
-      '//datafield[@tag="245"]/subfield[@code="n"]'
-    )
-  ) As FULL_TITLE,
-  items.onloan As DUE_DATE,
-  not_loans.lib As NOT_FOR_LOAN,
-  damages.lib As DAMAGED,
-  items.damaged_on,
-  losts.lib As LOST,
-  items.itemlost_on,
-  withdrawns.lib As WITHDRAWN,
-  items.withdrawn_on
-From items
-  Join biblio On items.biblionumber = biblio.biblionumber
-  Join biblio_metadata On biblio_metadata.biblionumber = biblio.biblionumber
-  Left Join branches homebranches On homebranches.branchcode = items.homebranch
-  Left Join branches holdingbranches On holdingbranches.branchcode = items.holdingbranch
-  Left Join 
-    (
-      Select authorised_values.category,
-        authorised_values.authorised_value,
-        authorised_values.lib,
-        authorised_values.lib_opac
-      From authorised_values
-      Where authorised_values.category = 'LOC'
-    ) permanent_locs On permanent_locs.authorised_value = items.permanent_location
-  Left Join 
-    (
-      Select authorised_values.category,
-        authorised_values.authorised_value,
-        authorised_values.lib,
-        authorised_values.lib_opac
-      From authorised_values
-      Where authorised_values.category = 'LOC'
-    ) locs On locs.authorised_value = items.location
-  Left Join itemtypes On itemtypes.itemtype = items.itype
-  Left Join 
-    (
-      Select authorised_values.category,
-        authorised_values.authorised_value,
-        authorised_values.lib,
-        authorised_values.lib_opac
-      From authorised_values
-      Where authorised_values.category = 'CCODE'
-    ) ccodes On ccodes.authorised_value = items.ccode
-  Left Join 
-    (
-      Select authorised_values.category,
-        authorised_values.authorised_value,
-        authorised_values.lib,
-        authorised_values.lib_opac
-      From authorised_values
-      Where authorised_values.category = 'NOT_LOAN'
-    ) not_loans On not_loans.authorised_value = items.notforloan
-  Left Join 
-    (
-      Select authorised_values.category,
-        authorised_values.authorised_value,
-        authorised_values.lib,
-        authorised_values.lib_opac
-      From authorised_values
-      Where authorised_values.category = 'DAMAGED'
-    ) damages On damages.authorised_value = items.damaged
-  Left Join 
-    (
-      Select authorised_values.category,
-        authorised_values.authorised_value,
-        authorised_values.lib,
-        authorised_values.lib_opac
-      From authorised_values
-      Where authorised_values.category = 'LOST'
-    ) losts On losts.authorised_value = items.itemlost
-  Left Join 
-    (
-      Select authorised_values.category,
-        authorised_values.authorised_value,
-        authorised_values.lib,
-        authorised_values.lib_opac
-      From authorised_values
-      Where authorised_values.category = 'WITHDRAWN'
-    ) withdrawns On withdrawns.authorised_value = items.withdrawn
-Where items.homebranch Like <<Home library|branches:all>>
-  And items.holdingbranch Like <<Current library|branches:all>>
-  And items.permanent_location Like <<Permanent shelving location|LOC:all>>
-  And items.location Like <<Current shelving location|LOC:all>>
-  And items.itype Like <<Item type|itemtypes:all>>
-  And items.ccode Like <<Item collection code|CCODE:all>>
-  And items.notforloan Like <<Not for loan status|NOT_LOAN:all>>
-  And items.damaged Like <<Damaged status|DAMAGED:all>>
-  And items.itemlost Like <<Lost status|LOST:all>>
-  And items.withdrawn Like <<Withdrawn status|WITHDRAWN:all>>
+SELECT 
+  Concat( 
+    'BIBLIO' 
+  ) AS 'LINK', 
+  item_info.HOME_LIBRARY, 
+  item_info.branchname AS CURRENTLY_AT, 
+  item_info.LOCATION, 
+  item_info.ITYPE, 
+  item_info.CCODE, 
+  item_info.CALL_NUMBER, 
+  item_info.author, 
+  item_info.TITLE, 
+  item_info.datelastseen, 
+  item_info.barcode1, 
+  item_info.homebranch AS OWNED_BY, 
+  frombranches.branchname AS SENT_FROM, 
+  branchtransfers.datesent AS SENT_DATE, 
+  tobranches.branchname AS SENT_TO, 
+  branchtransfers.reason AS TRANSFER_REASON, 
+  Concat_WS('', 
+    'Send e-mail' 
+  ) AS MAILTO_LINK
+FROM 
+  branchtransfers JOIN 
+  branches frombranches ON branchtransfers.frombranch = frombranches.branchcode JOIN 
+  branches tobranches ON branchtransfers.tobranch = tobranches.branchcode JOIN 
+  (SELECT 
+    items.biblionumber, 
+    items.itemnumber, 
+    items.barcode, 
+    home.branchname AS HOME_LIBRARY, 
+    holding.branchname, 
+    perm_locs.lib AS PERM_LOCATION, 
+    Concat_Ws('', 
+      perm_locs.lib, 
+      If(locs.lib = 'Recently returned', ' (Recently returned)', '') 
+    ) AS LOCATION, 
+    itemtypes.description AS ITYPE, 
+    ccodes.lib AS CCODE, 
+    items.itemcallnumber, 
+    Concat_Ws('', 
+      items.itemcallnumber, 
+      If(items.copynumber IS NULL, '', Concat(' (Copy number: ', items.copynumber, ')')) 
+    ) AS CALL_NUMBER, 
+    biblio.author, 
+    Concat_Ws(' ', biblio.title, biblio.medium, biblio.subtitle, 
+    biblioitems.number, biblio.part_name) AS TITLE, 
+    items.datelastseen, 
+    items.copynumber, 
+    Concat('-', items.barcode, '-') AS barcode1, 
+    items.homebranch, 
+    home.branchemail 
+  FROM 
+    items JOIN 
+    biblio ON items.biblionumber = biblio.biblionumber JOIN 
+    biblioitems ON biblioitems.biblionumber = biblio.biblionumber LEFT JOIN 
+    (SELECT 
+      authorised_values.category, 
+      authorised_values.authorised_value, 
+      authorised_values.lib, 
+      authorised_values.lib_opac 
+    FROM 
+      authorised_values 
+    WHERE 
+      authorised_values.category = 'LOC' 
+    ) 
+    perm_locs ON perm_locs.authorised_value = items.permanent_location LEFT JOIN 
+    (SELECT 
+      authorised_values.category, 
+      authorised_values.authorised_value, 
+      authorised_values.lib, 
+      authorised_values.lib_opac 
+    FROM 
+      authorised_values 
+    WHERE 
+      authorised_values.category = 'LOC' 
+    ) locs ON locs.authorised_value = items.location LEFT JOIN 
+    itemtypes ON itemtypes.itemtype = items.itype LEFT JOIN 
+    (SELECT 
+      authorised_values.category, 
+      authorised_values.authorised_value, 
+      authorised_values.lib, 
+      authorised_values.lib_opac 
+    FROM 
+      authorised_values 
+    WHERE 
+      authorised_values.category = 'CCODE' 
+    ) 
+    ccodes ON 
+    ccodes.authorised_value = items.ccode LEFT JOIN 
+    branches home ON home.branchcode = items.homebranch LEFT JOIN 
+    branches holding ON holding.branchcode = items.holdingbranch 
+  GROUP BY 
+    items.biblionumber, 
+    items.itemnumber 
+  ) 
+  item_info ON item_info.itemnumber = branchtransfers.itemnumber 
+WHERE 
+  branchtransfers.datearrived IS NULL AND 
+  branchtransfers.datecancelled IS NULL AND 
+  Concat_Ws(' | ', 
+    item_info.homebranch, 
+    branchtransfers.frombranch, 
+    branchtransfers.tobranch 
+  ) LIKE Concat('%', &lt;&gt;, '%') AND 
+  branchtransfers.datesent &lt; CurDate() - INTERVAL 7 DAY 
+GROUP BY 
+  item_info.biblionumber, 
+  item_info.itemnumber 
 ORDER BY 
-  homebranches.branchname,
-  permanent_locs.lib,
-  itemtypes.description,
-  ccodes.lib,
-  items.itemcallnumber,
-  biblio.author,
-  biblio.title,
-  items.barcode
-  
+  item_info.HOME_LIBRARY, 
+  item_info.PERM_LOCATION, 
+  item_info.ITYPE, 
+  item_info.CCODE, 
+  item_info.itemcallnumber, 
+  item_info.author, 
+  item_info.TITLE, 
+  item_info.copynumber 
 
 
 

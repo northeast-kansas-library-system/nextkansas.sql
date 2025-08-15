@@ -4,7 +4,7 @@ R.002969
 ----------
 
 Name: GHW - Monthly 104
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Statistics
      End of month statistics
 
 Created on: 2017-07-01 13:22:33
-Modified on: 2019-11-14 09:20:23
-Date last run: 2023-02-16 12:26:58
+Modified on: 2024-01-17 11:51:46
+Date last run: 2025-06-12 12:28:07
 
 ----------
 
@@ -22,14 +22,14 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Generates end of month data for spreadsheet report</p>
-<ul><li>Reports end of month data for Next-wide spreadsheet - Cells G58, H58, and I58</li>
-</ul><br />
-<p></p>
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=2969">Click here to download as a csv file</a></p>
-<p class= "notetags" style="display: none;">Monthly</p>
-</div>
+ 
+Generates end of month data for spreadsheet report
+Reports end of month data for Next-wide spreadsheet - Cells G58, H58, and I58
+
+
+Click here to download as a csv file
+Monthly
+
 
 
 
@@ -44,7 +44,7 @@ SELECT
 FROM
   biblio
 WHERE
-  biblio.datecreated < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1)
+  biblio.datecreated &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1)
 UNION
 SELECT
   'Biblios added last month' AS DESCRIPTION,

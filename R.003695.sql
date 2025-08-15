@@ -4,7 +4,7 @@ R.003695
 ----------
 
 Name: GHW - YE 9.1a-9.4
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2023-01-03 11:29:45
-Modified on: 2023-01-03 11:29:45
-Date last run: 2023-02-06 15:08:00
+Modified on: 2024-01-02 10:24:43
+Date last run: 2024-01-02 13:23:57
 
 ----------
 
@@ -54,7 +54,7 @@ FROM branches
     SELECT items.homebranch,
       Count(DISTINCT items.itemnumber) AS Count_itemnumber
     FROM items
-    WHERE Year(items.dateaccessioned) < 2022
+    WHERE Year(items.dateaccessioned) &lt; 2023
       AND (
         items.itype = 'BOOK'
         OR items.itype = 'LOCALHOLD2'
@@ -70,10 +70,10 @@ FROM branches
     SELECT Count(DISTINCT deleteditems.itemnumber) AS Count_itemnumber,
       deleteditems.homebranch
     FROM deleteditems
-    WHERE Year(deleteditems.dateaccessioned) < 2022
+    WHERE Year(deleteditems.dateaccessioned) &lt; 2023
       AND (
-        Year(deleteditems.timestamp) = 2022
-        OR Year(deleteditems.timestamp) = 2023
+        Year(deleteditems.timestamp) = 2023
+        OR Year(deleteditems.timestamp) = 2024
       )
       AND (
         deleteditems.itype = 'BOOK'
@@ -90,7 +90,7 @@ FROM branches
     SELECT items.homebranch,
       Count(DISTINCT items.itemnumber) AS Count_itemnumber
     FROM items
-    WHERE Year(items.dateaccessioned) = 2022
+    WHERE Year(items.dateaccessioned) = 2023
       AND (
         items.itype = 'BOOK'
         OR items.itype = 'LOCALHOLD2'
@@ -106,7 +106,7 @@ FROM branches
     SELECT Count(DISTINCT deleteditems.itemnumber) AS Count_itemnumber,
       deleteditems.homebranch
     FROM deleteditems
-    WHERE Year(deleteditems.timestamp) = 2022
+    WHERE Year(deleteditems.timestamp) = 2023
       AND (
         deleteditems.itype = 'BOOK'
         OR deleteditems.itype = 'LOCALHOLD2'
@@ -122,7 +122,7 @@ FROM branches
     SELECT Count(DISTINCT items.itemnumber) AS Count_itemnumber,
       items.homebranch
     FROM items
-    WHERE Year(items.dateaccessioned) <> 2023
+    WHERE Year(items.dateaccessioned) &lt;&gt; 2024
       AND (
         items.itype = 'AUDIOBOOK'
         OR items.itype = 'N_AB'
@@ -139,7 +139,7 @@ FROM branches
     SELECT Count(DISTINCT deleteditems.itemnumber) AS Count_itemnumber,
       deleteditems.homebranch
     FROM deleteditems
-    WHERE Year(deleteditems.timestamp) = 2023
+    WHERE Year(deleteditems.timestamp) = 2024
       AND (
         deleteditems.itype = 'AUDIOBOOK'
         OR deleteditems.itype = 'N_AB'
@@ -149,7 +149,7 @@ FROM branches
         OR deleteditems.itype = 'NAUDNEW'
         OR deleteditems.itype = 'MUSIC'
       )
-      AND Year(deleteditems.dateaccessioned) < 2023
+      AND Year(deleteditems.dateaccessioned) &lt; 2024
     GROUP BY deleteditems.homebranch
   ) total_audio_deleteditems ON total_audio_deleteditems.homebranch = branches.branchcode
   LEFT JOIN 
@@ -157,7 +157,7 @@ FROM branches
     SELECT Count(DISTINCT items.itemnumber) AS Count_itemnumber,
       items.homebranch
     FROM items
-    WHERE Year(items.dateaccessioned) <> 2023
+    WHERE Year(items.dateaccessioned) &lt;&gt; 2024
       AND items.itype LIKE 'NVID%'
     GROUP BY items.homebranch
   ) total_video_items ON total_video_items.homebranch = branches.branchcode
@@ -166,9 +166,9 @@ FROM branches
     SELECT Count(DISTINCT deleteditems.itemnumber) AS Count_itemnumber,
       deleteditems.homebranch
     FROM deleteditems
-    WHERE Year(deleteditems.timestamp) = 2023
+    WHERE Year(deleteditems.timestamp) = 2024
       AND deleteditems.itype LIKE 'NVID%'
-      AND Year(deleteditems.dateaccessioned) < 2023
+      AND Year(deleteditems.dateaccessioned) &lt; 2024
     GROUP BY deleteditems.homebranch
   ) total_video_deleteditems ON total_video_deleteditems.homebranch = branches.branchcode
   LEFT JOIN 
@@ -176,7 +176,7 @@ FROM branches
     SELECT Count(DISTINCT items.itemnumber) AS Count_itemnumber,
       items.homebranch
     FROM items
-    WHERE Year(items.dateaccessioned) <> 2023
+    WHERE Year(items.dateaccessioned) &lt;&gt; 2024
       AND (
         items.itype = 'COMPUTER'
         OR items.itype = 'DIGITAL'
@@ -226,8 +226,8 @@ FROM branches
     SELECT Count(DISTINCT deleteditems.itemnumber) AS Count_itemnumber,
       deleteditems.homebranch
     FROM deleteditems
-    WHERE Year(deleteditems.timestamp) = 2023
-      AND Year(deleteditems.dateaccessioned) < 2023
+    WHERE Year(deleteditems.timestamp) = 2024
+      AND Year(deleteditems.dateaccessioned) &lt; 2024
       AND (
         deleteditems.itype = 'COMPUTER'
         OR deleteditems.itype = 'DIGITAL'

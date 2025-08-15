@@ -4,7 +4,7 @@ R.002933
 ----------
 
 Name: GHW - SMS notices
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

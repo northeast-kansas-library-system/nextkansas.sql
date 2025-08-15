@@ -4,7 +4,7 @@ R.003022
 ----------
 
 Name: GHW - Paypal report - previous calendar month
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Fines/Fees
      -
 
 Created on: 2017-12-22 16:12:49
-Modified on: 2019-12-26 11:46:58
-Date last run: 2022-09-23 16:18:06
+Modified on: 2024-01-17 11:52:16
+Date last run: 2024-07-16 15:48:41
 
 ----------
 
@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Generates a report of payments made to libraries via Paypal in the previous calendar month</p>
-<ul><li>Shows payments made in the previous calendar month</li>
-<li>At all libraries</li>
-<li>grouped by account offsets ID</li>
-<li>sorted by library owed the fee, payment date, and fee reference ID</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3022&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
-<p><span style="color: yellow; background-color: red; font-size: 200%;">References accountlines.accounttype.  Needs to be updated after January 4, 2020</span></p>
+ 
+Generates a report of payments made to libraries via Paypal in the previous calendar month
+Shows payments made in the previous calendar month
+At all libraries
+grouped by account offsets ID
+sorted by library owed the fee, payment date, and fee reference ID
+
+Notes:
+
+Click here to run in a new window
+
+References accountlines.accounttype.  Needs to be updated after January 4, 2020
 
 ----------
 */
@@ -96,7 +96,7 @@ WHERE
         borrowerinfo.branchcode
       )
     )
-  ) LIKE <<Choose your library|LBRANCH>>
+  ) LIKE &lt;&gt;
 GROUP BY
   account_offsets.id
 ORDER BY

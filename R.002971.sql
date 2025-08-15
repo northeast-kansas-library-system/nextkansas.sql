@@ -4,7 +4,7 @@ R.002971
 ----------
 
 Name: GHW - EOM Cleanup 001
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,7 +12,7 @@ Group: Borrowers
      Patron attributes
 
 Created on: 2017-07-05 14:11:52
-Modified on: 2019-07-24 17:48:07
+Modified on: 2024-01-17 11:51:49
 Date last run: 2020-07-13 16:52:03
 
 ----------
@@ -22,17 +22,17 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Shows patrons who were added in the last 60 days but have no information in their "Registration Library" field.</p>
-<ul><li>Shows patrons added in the last 60 days without at registration library</li>
-<li>at any NExpress library</li>
-<li>grouped by patron barcode number</li>
-<li>sorted by STAFF_HOME_BRANCH and borrower.attribute</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2971&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Shows patrons who were added in the last 60 days but have no information in their "Registration Library" field.
+Shows patrons added in the last 60 days without at registration library
+at any NExpress library
+grouped by patron barcode number
+sorted by STAFF_HOME_BRANCH and borrower.attribute
+
+Notes:
+
+Click here to run in a new window
+
 
 ----------
 */

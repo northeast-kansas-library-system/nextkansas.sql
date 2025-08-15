@@ -4,7 +4,7 @@ R.003588
 ----------
 
 Name: LibraryIQ - Bibliographic File (added yesterday) - BONNERSPGS
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

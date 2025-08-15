@@ -4,7 +4,7 @@ R.003517
 ----------
 
 Name: GHW - Borrower Categories List
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-06-08 16:41:55
-Modified on: 2021-06-08 16:41:55
-Date last run: 2022-08-18 13:44:20
+Modified on: 2025-04-30 22:15:46
+Date last run: 2025-04-30 22:15:46
 
 ----------
 
@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Report version of the patron category summary page</p>
-<ul><li>Shows current patron categories</li>
-<li>shows all borrower categories system-wide</li>
-<li>grouped by category code</li>
-<li>sorted by category description</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p></p>
-<p></p>
-<p class= "notetags" style="display: none;">tag goes here</p>
-</div>
+ 
+Report version of the patron category summary page
+Shows current patron categories
+shows all borrower categories system-wide
+grouped by category code
+sorted by category description
+
+Notes:
+
+
+
+tag goes here
+
 
 ----------
 */
@@ -96,7 +96,7 @@ SELECT
   ) AS DEFAULT_MESSAGING, 
   GROUP_CONCAT( 
     DISTINCT categories_branchess.branchcode 
-    SEPARATOR " | " 
+    SEPARATOR "  " 
   ) AS BRANCH_LIMITATIONS, 
   categories.default_privacy AS DEFAULT_PRIVACY 
 FROM categories 
@@ -141,7 +141,9 @@ FROM categories
 GROUP BY 
   categories.categorycode 
 ORDER BY 
-  categories.description
+  TYPE,
+  CATEGORY_NAME
+LIMIT 1000
 
 
 

@@ -4,7 +4,7 @@ R.002987
 ----------
 
 Name: Koha US Sample 07
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -46,7 +46,7 @@ FROM
     GROUP BY
       statistics.branch) stats ON branches.branchcode = stats.branch
 WHERE
-  branches.branchcode LIKE <<Choose your library|LBRANCH>>
+  branches.branchcode LIKE &lt;&gt;
 GROUP BY
   branches.branchcode
 

@@ -4,7 +4,7 @@ R.003334
 ----------
 
 Name: GHW - CLUB Membership roster for library use only
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -32,7 +32,7 @@ Expiry: 300
 SELECT
   clubs.name AS CLUB_NAME,
   borrowers.cardnumber,
-  Concat_Ws('<br />', 
+  Concat_Ws('', 
     Concat(
       borrowers.surname, 
       ', ', 
@@ -43,11 +43,11 @@ SELECT
         Concat(' (', borrowers.othernames,')')
       )
     ), 
-    If(name.value = 1, '', '<u>Patron does not want their name shared</u><br />'), 
+    If(name.value = 1, '', 'Patron does not want their name shared'), 
     borrowers.email,
-    If(email.value = 1, '', '<u>Patron does not want their e-mail shared</u><br />'), 
+    If(email.value = 1, '', 'Patron does not want their e-mail shared'), 
     borrowers.phone, 
-    If(phone.value = 1, '', '<u>Patron does not want their phone number shared</u><br />'),
+    If(phone.value = 1, '', 'Patron does not want their phone number shared'),
     Concat(
       'Joined on: ', 
       Month(club_enrollments.date_enrolled), 
@@ -104,7 +104,7 @@ FROM
       phone.club_enrollment_id = club_enrollments.id JOIN
   borrowers ON club_enrollments.borrowernumber = borrowers.borrowernumber
 WHERE
-  clubs.id = <<Enter club ID number>>
+  clubs.id = &lt;&gt;
 ORDER BY
   club_enrollments.id
 

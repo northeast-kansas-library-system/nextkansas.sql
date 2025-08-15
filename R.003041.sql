@@ -4,7 +4,7 @@ R.003041
 ----------
 
 Name: GHW - Flexible requests history spreadsheet
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,7 +12,7 @@ Group: Administrative Reports
      Testing
 
 Created on: 2018-01-17 14:45:13
-Modified on: 2018-04-16 11:13:55
+Modified on: 2024-01-17 11:58:26
 Date last run: 2022-08-23 11:33:47
 
 ----------
@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Generates a spreadsheet style report of current and past request information based on very flexible parameters</p>
-<ul><li>Shows the history of any active, filled, and cancelled requests in NExpress</li>
-<li>at all pickup libraries or at the pickup library you specify</li>
-<li>with the request status and progress that you specify</li>
-<li>with the hold suspension status you specify</li>
-<li>and with the library card, biblionumber, or item barcode number you specify</li>
-<li>grouped by reserve ID number</li>
-<li>sorted by the last time the request was updated</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3041&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Generates a spreadsheet style report of current and past request information based on very flexible parameters
+Shows the history of any active, filled, and cancelled requests in NExpress
+at all pickup libraries or at the pickup library you specify
+with the request status and progress that you specify
+with the hold suspension status you specify
+and with the library card, biblionumber, or item barcode number you specify
+grouped by reserve ID number
+sorted by the last time the request was updated
+
+Notes:
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -117,13 +117,13 @@ FROM
   LEFT JOIN biblio ON requests.biblionumber = biblio.biblionumber
   LEFT JOIN deletedbiblio ON requests.biblionumber = deletedbiblio.biblionumber
 WHERE
-  requests.branchcode LIKE <<Choose pickup library|LBRANCH>> AND
-  requests.statuss LIKE <<Choose request status|LHOLDACT>> AND
-  If(requests.cancellationdate IS NOT NULL, "Cancelled", If(requests.found = "T", "In transit", If(requests.found = "F", "Filled", If(requests.found = "W", "Waiting for pickup", "Still active")))) LIKE <<Choose request progress|LHOLDPROG>> AND
-  If(requests.suspend <> 0, "Suspended", "-") LIKE <<Choose suspended status|LHOLDSUS>> AND
-  borrowers.cardnumber LIKE Concat("%", <<Enter borrower barcode number or a % symbol>>, "%") AND
-  requests.biblionumber LIKE Concat("%", <<Enter title biblio number or a % symbol>>, "%") AND
-  Coalesce(Coalesce(items.barcode, "-"), Coalesce(deleteditems.barcode, "-")) LIKE Concat("%", <<Enter item barcode number or a % symbol>>, "%")
+  requests.branchcode LIKE &lt;&gt; AND
+  requests.statuss LIKE &lt;&gt; AND
+  If(requests.cancellationdate IS NOT NULL, "Cancelled", If(requests.found = "T", "In transit", If(requests.found = "F", "Filled", If(requests.found = "W", "Waiting for pickup", "Still active")))) LIKE &lt;&gt; AND
+  If(requests.suspend &lt;&gt; 0, "Suspended", "-") LIKE &lt;&gt; AND
+  borrowers.cardnumber LIKE Concat("%", &lt;&gt;, "%") AND
+  requests.biblionumber LIKE Concat("%", &lt;&gt;, "%") AND
+  Coalesce(Coalesce(items.barcode, "-"), Coalesce(deleteditems.barcode, "-")) LIKE Concat("%", &lt;&gt;, "%")
 GROUP BY
   requests.reserve_id
 ORDER BY

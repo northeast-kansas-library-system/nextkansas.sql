@@ -13,7 +13,7 @@ Group: Holds-Reserves
 
 Created on: 2015-09-24 17:47:27
 Modified on: 2022-09-29 09:30:01
-Date last run: 2023-05-11 14:00:41
+Date last run: 2025-07-22 15:55:33
 
 ----------
 
@@ -22,20 +22,20 @@ Expiry: 0
 
 ----------
 
-The report returns patron's holds on records where, at the time of the hold placing, the record had items available to fulfill holds, but for a number of reasons, no items remain available at this time to fulfill the holds, due to:<br />
-<br />
-1) Last item available is overdue by 30+ days. <br />
-2) Last item available is marked lost/damaged/withdrawn.<br />
-3) Last item available is now not for loan (report ignores items with on-order status)<br />
-<br />
-The report returns a link to your patron's account, the patron's name, when the hold was placed and a link to the record.<br />
-<br />
-Please do the following to clean these up: <br />
-<br />
-1) Determine if your patron still wants the requested material. <br />
-2) If the patron does still want the item, delete the hold, and either see if another record of the same title, similar format, is available in NExpress or request through ILL.<br />
-3) If your patron does not want the item, please delete the hold. <br />
-<br />
+The report returns patron's holds on records where, at the time of the hold placing, the record had items available to fulfill holds, but for a number of reasons, no items remain available at this time to fulfill the holds, due to:
+
+1) Last item available is overdue by 30+ days. 
+2) Last item available is marked lost/damaged/withdrawn.
+3) Last item available is now not for loan (report ignores items with on-order status)
+
+The report returns a link to your patron's account, the patron's name, when the hold was placed and a link to the record.
+
+Please do the following to clean these up: 
+
+1) Determine if your patron still wants the requested material. 
+2) If the patron does still want the item, delete the hold, and either see if another record of the same title, similar format, is available in NExpress or request through ILL.
+3) If your patron does not want the item, please delete the hold. 
+
 credit: Jesse Weaver @ ByWater
 
 ----------
@@ -45,18 +45,14 @@ credit: Jesse Weaver @ ByWater
 
 SELECT 
   Concat( 
-    '<a href="/cgi-bin/koha/members/moremember.pl?borrowernumber=', 
-    reserves.borrowernumber, 
-    '" target="_blank">Link to borrower</a>' 
+    'Link to borrower' 
   ) AS LINK_TO_BORROWER, 
   reserves.biblionumber, 
   Date_Format(reserves.reservedate, "%Y-%m-%d") AS reservedate, 
   Date_Format(reserves.expirationdate, "%Y-%m-%d") AS expirationdate, 
   Date_Format(reserves.reservedate + INTERVAL 1 YEAR, "%Y-%m-%d") AS one_year, 
   Concat( 
-    '<a href="/cgi-bin/koha/reserve/request.pl?biblionumbers=', 
-    reserves.biblionumber, 
-    '" target="_blank">Link to request</a>' 
+    'Link to request' 
   ) AS LINK_TO_BIBLIO 
 FROM 
   (SELECT 
@@ -69,7 +65,7 @@ FROM
     FROM 
       items 
     WHERE 
-      (items.notforloan < 1 OR 
+      (items.notforloan &lt; 1 OR 
         items.notforloan IS NULL) AND 
       (items.damaged = 0 OR 
         items.damaged IS NULL) AND 
@@ -86,7 +82,7 @@ FROM
   reserves ON counts.biblionumber = reserves.biblionumber 
 WHERE 
   Coalesce(counts.Count_itemnumber, 0) = 0 AND 
-  reserves.branchcode LIKE <<Choose your library|LBRANCH>> 
+  reserves.branchcode LIKE &lt;&gt; 
 ORDER BY 
   expirationdate, 
   one_year DESC 

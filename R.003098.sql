@@ -4,7 +4,7 @@ R.003098
 ----------
 
 Name: GHW - Hoopla 001
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -34,7 +34,7 @@ SELECT
 FROM
   items
 WHERE
-  items.itemnumber > '2425208' AND
+  items.itemnumber &gt; '2425208' AND
   items.itemcallnumber = 'Hoopla' AND
   (items.ccode = 'DLAUDIO' OR
     items.ccode = 'DLBOOK' OR

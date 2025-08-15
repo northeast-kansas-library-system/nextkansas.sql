@@ -4,7 +4,7 @@ R.003089
 ----------
 
 Name: GHW - Patron attributes - Special locations
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Borrowers
      Patron attributes
 
 Created on: 2018-06-29 08:33:47
-Modified on: 2019-07-24 17:47:09
-Date last run: 2023-02-21 19:33:53
+Modified on: 2024-01-17 11:58:09
+Date last run: 2023-09-07 16:57:38
 
 ----------
 
@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Generates a list of patrons with contact information based on their "Special location" attributes</p>
-<ul><li>Shows current patrons</li>
-<li>with the home library and special location you specify</li>
-<li>grouped by borrower number and attribute</li>
-<li>sorted by patron last name/patron first name</li>
-<li>contains links to the patron's account</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>This report can be used to determine which patrons at your library have a special location attribute set on their account.</p>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3089&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Generates a list of patrons with contact information based on their "Special location" attributes
+Shows current patrons
+with the home library and special location you specify
+grouped by borrower number and attribute
+sorted by patron last name/patron first name
+contains links to the patron's account
+
+Notes:
+
+This report can be used to determine which patrons at your library have a special location attribute set on their account.
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -43,7 +43,7 @@ Expiry: 300
 
 
 SELECT
-  Concat("<a href='/cgi-bin/koha/circ/circulation.pl?borrowernumber=", borrowers.borrowernumber, "' target='_blank'>Patron</a>") AS LINK_TO_PATRON,
+  Concat("Patron") AS LINK_TO_PATRON,
   borrowers.cardnumber,
   Concat_Ws("", If(borrowers.surname = "", "-", borrowers.surname), " / ", If(borrowers.firstname = "", "-", borrowers.firstname), If(borrowers.othernames = "", " ", Concat(" - (", borrowers.othernames, ")"))) AS NAME,
   borrowers.address,
@@ -75,9 +75,9 @@ FROM
         borrower_attributes.attribute,
         borrower_attributes.code) location ON borrowers.borrowernumber = location.borrowernumber
 WHERE
-  borrowers.branchcode LIKE <<Choose your library|LBRANCH>> AND
-  borrowers.categorycode LIKE <<Choose a borrower category|LBORROWERCAT>> AND
-  Coalesce(location.attribute, "~") LIKE <<Select special locations attribute|LSPECLOC>>
+  borrowers.branchcode LIKE &lt;&gt; AND
+  borrowers.categorycode LIKE &lt;&gt; AND
+  Coalesce(location.attribute, "~") LIKE &lt;&gt;
 GROUP BY
   borrowers.email,
   borrowers.dateofbirth,

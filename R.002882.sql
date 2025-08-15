@@ -4,7 +4,7 @@ R.002882
 ----------
 
 Name: GHW - Patrons with multiple holds on 1 biblio
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Administrative Reports
      Testing
 
 Created on: 2017-01-10 11:28:21
-Modified on: 2023-04-18 13:58:53
-Date last run: 2023-05-23 09:56:44
+Modified on: 2024-01-17 11:46:26
+Date last run: 2025-08-14 08:22:05
 
 ----------
 
@@ -22,18 +22,18 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>Generates a list of all items where 1 patron has more than 1 hold on 1 bibliographic record</p>
-<ul><li>Shows current multiple holds</li>
-<li>at all NExpress libraries</li>
-<li>grouped by biblionumber, patron barcode, and borrowernumber</li>
-<li>sorted by biblionumber, patron barcode, and borrowernumber</li>
-<li>contains links to the request record and the patron record</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2882&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Generates a list of all items where 1 patron has more than 1 hold on 1 bibliographic record
+Shows current multiple holds
+at all NExpress libraries
+grouped by biblionumber, patron barcode, and borrowernumber
+sorted by biblionumber, patron barcode, and borrowernumber
+contains links to the request record and the patron record
+
+Notes:
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -41,24 +41,24 @@ Expiry: 0
 
 
 SELECT
-  Concat('<a href=\"/cgi-bin/koha/reserve/request.pl?biblionumber=', reserves.biblionumber, '\" target="_blank">',
-  reserves.biblionumber, '</a>') AS LINK_TO_REQUESTS,
+  Concat('',
+  reserves.biblionumber, '') AS LINK_TO_REQUESTS,
   reserves.biblionumber AS BIBLIO,
   borrowers.cardnumber AS CARD_NUMBER,
   Count(reserves.borrowernumber) AS Count_borrowernumber,
-  Concat('<a href=\"/cgi-bin/koha/members/moremember.pl?borrowernumber=', borrowers.borrowernumber, '\" target="_blank">', borrowers.borrowernumber, '</a>') AS LINK_TO_PATRON
+  Concat('', borrowers.borrowernumber, '') AS LINK_TO_PATRON
 FROM
   reserves
   JOIN borrowers ON reserves.borrowernumber = borrowers.borrowernumber
 WHERE
-  borrowers.categorycode <> 'BOOKCLUB'  AND
+  borrowers.categorycode &lt;&gt; 'BOOKCLUB'  AND
   reserves.found IS NULL   
 GROUP BY
   reserves.biblionumber,
   borrowers.cardnumber,
   borrowers.borrowernumber
 HAVING
-  Count(reserves.borrowernumber) > 1
+  Count(reserves.borrowernumber) &gt; 1
 
 
 

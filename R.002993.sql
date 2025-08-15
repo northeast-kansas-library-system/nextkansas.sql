@@ -4,7 +4,7 @@ R.002993
 ----------
 
 Name: Patron re-import
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Administrative Reports
      Testing
 
 Created on: 2017-09-06 13:56:13
-Modified on: 2021-06-15 11:08:03
-Date last run: 2022-10-18 11:48:39
+Modified on: 2025-07-21 08:52:30
+Date last run: 2025-07-21 08:53:35
 
 ----------
 
@@ -73,15 +73,12 @@ SELECT
   borrowers.contactname,
   borrowers.contactfirstname,
   borrowers.contacttitle,
-  borrowers.borrowernotes,
   borrowers.relationship,
   borrowers.ethnicity,
   borrowers.ethnotes,
   borrowers.sex,
-  borrowers.password,
   borrowers.flags,
   borrowers.userid,
-  borrowers.opacnote,
   borrowers.contactnote,
   borrowers.sort1,
   borrowers.sort2,
@@ -104,7 +101,8 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.dateofbirth < CurDate() - INTERVAL 18 YEAR
+  (borrowers.sex = 'M' OR
+    borrowers.sex = 'F')
 GROUP BY
   borrowers.borrowernumber
 

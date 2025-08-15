@@ -13,7 +13,7 @@ Group:  OSAWATOMIE
 
 Created on: 2009-12-21 15:06:18
 Modified on: 2021-08-16 13:45:41
-Date last run: 2023-02-22 13:22:02
+Date last run: 2025-04-04 13:08:06
 
 ----------
 
@@ -29,7 +29,7 @@ Set for 7 days overdue.  Lists all items checked out at your Library.
 
 
 
-SELECT borrowers.surname, borrowers.firstname, borrowers.phone, borrowers.cardnumber, borrowers.address, borrowers.city, borrowers.zipcode, issues.date_due, (TO_DAYS(curdate())-TO_DAYS( date_due)) as 'days overdue', items.itype, items.itemcallnumber, items.barcode, items.homebranch, biblio.title, biblio.author FROM borrowers left join issues on (borrowers.borrowernumber=issues.borrowernumber) left join items on (issues.itemnumber=items.itemnumber) LEFT JOIN biblio on (items.biblionumber=biblio.biblionumber) WHERE (TO_DAYS(curdate())-TO_DAYS(date_due)) > '7' and issues.branchcode = 'osawatomie' order by borrowers.surname asc, issues.date_due asc
+SELECT borrowers.surname, borrowers.firstname, borrowers.phone, borrowers.cardnumber, borrowers.address, borrowers.city, borrowers.zipcode, issues.date_due, (TO_DAYS(curdate())-TO_DAYS( date_due)) as 'days overdue', items.itype, items.itemcallnumber, items.barcode, items.homebranch, biblio.title, biblio.author FROM borrowers left join issues on (borrowers.borrowernumber=issues.borrowernumber) left join items on (issues.itemnumber=items.itemnumber) LEFT JOIN biblio on (items.biblionumber=biblio.biblionumber) WHERE (TO_DAYS(curdate())-TO_DAYS(date_due)) &gt; '7' and issues.branchcode = 'osawatomie' order by borrowers.surname asc, issues.date_due asc
 
 
 

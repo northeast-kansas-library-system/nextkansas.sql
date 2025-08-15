@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2009-06-01 16:58:23
 Modified on: 2020-12-08 22:47:06
-Date last run: 2022-10-21 10:11:31
+Date last run: 2025-05-05 12:51:03
 
 ----------
 
@@ -37,8 +37,8 @@ SELECT
 FROM
   items
 WHERE
-  Year(items.dateaccessioned) = << Choose year|YEAR>> AND
-  Month(items.dateaccessioned) = << Choose month|MONTH >>
+  Year(items.dateaccessioned) = &lt;&lt; Choose year|YEAR&gt;&gt; AND
+  Month(items.dateaccessioned) = &lt;&lt; Choose month|MONTH &gt;&gt;
 GROUP BY
   items.homebranch,
   items.ccode,

@@ -4,7 +4,7 @@ R.002875
 ----------
 
 Name: GHW - message queue test
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

@@ -4,7 +4,7 @@ R.003645
 ----------
 
 Name: GHW - Zipcodes with fewer than 10 borrowers
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -38,7 +38,7 @@ FROM
 GROUP BY
   Left(Trim(borrowers.zipcode), 5)
 HAVING
-  Count(DISTINCT borrowers.borrowernumber) < 10
+  Count(DISTINCT borrowers.borrowernumber) &lt; 10
 
 
 

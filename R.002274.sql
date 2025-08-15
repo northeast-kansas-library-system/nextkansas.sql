@@ -13,7 +13,7 @@ Group: Administrative Reports
 
 Created on: 2014-06-05 15:14:42
 Modified on: 2019-02-10 21:11:55
-Date last run: 2019-06-19 15:41:48
+Date last run: 2025-04-28 21:57:16
 
 ----------
 
@@ -30,8 +30,7 @@ Expiry: 0
 
 
 SELECT
-  Concat('<a href=\"/cgi-bin/koha/members/memberentry.pl?op=modify&borrowernumber=', borrowers.borrowernumber,
-  '\" target="_blank">edit patron</a>') AS EDIT_PATRON,
+  Concat('edit patron') AS EDIT_PATRON,
   borrowers.branchcode,
   borrowers.contactnote,
   borrowers.borrowernotes

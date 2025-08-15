@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2013-07-11 13:39:56
 Modified on: 2013-11-17 15:06:41
-Date last run: 2023-03-31 12:47:10
+Date last run: 2025-07-21 12:30:01
 
 ----------
 
@@ -29,7 +29,7 @@ Choose your branch and a collection code. Displays item title, callnumber, locat
 
 
 
-SELECT biblio.title, items.itemcallnumber, items.location, items.barcode, CONCAT('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=',biblio.biblionumber,'&itemnumber=',items.itemnumber,'#edititem\" target="_blank">'"edit item"'</a>') as "edit barcode"  FROM biblio JOIN items USING(biblionumber) WHERE items.homebranch=<<branch|branches>> AND items.ccode=<<ccode|CCODE>> ORDER BY biblio.title
+SELECT biblio.title, items.itemcallnumber, items.location, items.barcode, CONCAT(''"edit item"'') as "edit barcode"  FROM biblio JOIN items USING(biblionumber) WHERE items.homebranch=&lt;&gt; AND items.ccode=&lt;&gt; ORDER BY biblio.title
 
 
 

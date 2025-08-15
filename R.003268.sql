@@ -4,7 +4,7 @@ R.003268
 ----------
 
 Name: GHW - ADMINREPORT - REGBRANCH cleanup
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -96,7 +96,7 @@ FROM
     ON borrowers.branchcode = branches.branchcode
 WHERE
   borrower_attributes.code = 'REGBRANCH' AND
-  borrower_attributes.attribute IN [<<Enter REGBRANCH code>>]
+  borrower_attributes.attribute IN [&lt;&gt;]
 ORDER BY
   borrowers.borrowernumber
 

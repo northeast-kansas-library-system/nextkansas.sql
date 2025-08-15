@@ -4,7 +4,7 @@ R.003661
 ----------
 
 Name: Item numbers and barcodes by library/location/itype/ccode
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2022-05-16 16:05:33
 Modified on: 2022-05-16 16:44:18
-Date last run: 2023-05-01 07:37:53
+Date last run: 2025-07-31 15:31:17
 
 ----------
 
@@ -66,11 +66,11 @@ FROM
       authorised_values.category = 'CCODE') ccodes ON ccodes.authorised_value =
       items.ccode
 WHERE
-  items.homebranch LIKE <<Choose a library|LBRANCH>> AND
-  items.permanent_location LIKE <<Shelving location|LLOC>> AND
-  items.itype LIKE <<Choose an item type|LITYPES>> AND
-  items.ccode LIKE <<Choose a collection code|LCCODE>> AND
-  items.dateaccessioned BETWEEN <<Added between date1|date>> AND <<date2|date>>
+  items.homebranch LIKE &lt;&gt; AND
+  items.permanent_location LIKE &lt;&gt; AND
+  items.itype LIKE &lt;&gt; AND
+  items.ccode LIKE &lt;&gt; AND
+  items.dateaccessioned BETWEEN &lt;&gt; AND &lt;&gt;
 GROUP BY
   items.itemnumber
 ORDER BY

@@ -4,7 +4,7 @@ R.003332
 ----------
 
 Name: GHW - ADMINREPORT permanent location fix
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

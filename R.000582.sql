@@ -12,8 +12,8 @@ Group: Circulation
      Charges
 
 Created on: 2009-06-12 16:22:06
-Modified on: 2021-08-17 12:55:08
-Date last run: 2023-05-15 13:14:50
+Modified on: 2025-06-02 14:09:26
+Date last run: 2025-07-02 12:57:07
 
 ----------
 
@@ -22,18 +22,207 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>Generates a list of all patrons with fees on their account</p>
-<ul><li>Lists patrons that currently have an account balance due greater than $0.01</li>
-<li>lists patrons whose home library is the branchcode you specify - regardless of where the fees were generated.</li>
-<li>grouped by the borrower's card number</li>
-<li>sorted by the borrowers last name</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Explanatory notes added by GHW on 2017.04.20.</p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=582&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+
+
+  
+    Generates a list of all patrons with fees on their account
+    Report created by: ~Author variable~
+  
+
+  
+
+    
+      
+        
+            Report function:
+        
+      
+
+      
+        
+          
+            Lists patrons that currently have an account balance due greater than $0.01
+            ists patrons whose home library is the branchcode you specify - regardless of where the fees were generated.
+            grouped by the borrower's card number
+            sorted by the borrowers last name
+            ~links to~
+          
+
+          ~Function notes~
+
+        
+      
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+      #fines: 
+      #fees: 
+
+
+
+
+
+
+
+
+    
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    Collapse report notes
+    
+  
+
+
+
 
 ----------
 */
@@ -49,11 +238,11 @@ FROM
   borrowers
   LEFT JOIN accountlines ON borrowers.borrowernumber = accountlines.borrowernumber
 WHERE
-  borrowers.branchcode LIKE <<Borrowers home branch|ZBRAN>>
+  borrowers.branchcode LIKE &lt;&gt;
 GROUP BY
   borrowers.cardnumber
 HAVING
-  AMT_DUE > 0
+  AMT_DUE &gt; 0
 ORDER BY
   borrowers.surname
 

@@ -4,7 +4,7 @@ R.003532
 ----------
 
 Name: GHW - Item count by library and/or collection code
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-07-26 15:37:59
-Modified on: 2023-03-21 15:07:54
-Date last run: 2023-03-21 15:08:01
+Modified on: 2024-01-17 11:28:04
+Date last run: 2025-07-01 08:44:35
 
 ----------
 
@@ -22,29 +22,29 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Item count by collection code</p>
-<ul><li>Counts items currently in the collection</li>
-<li>At the library you specify - or with the collection code you specify</li>
-<li>grouped and sorted by library name and collection code</li>
-<li>links to report 2731 to generate a shelflist for the items being counted</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Non-standard shelving locations are counted as "Adult" locations.</p>
-<p>Items with blank collection codes are counted as "(Unclassified)."</p>
-<p></p>
-<p><strong>Replaces all other item count by collection code reports.</strong></p>
-<ul>
-  <li>716 - Count of Yearly New items added by CCode</li>
-  <li>808 - Collection size by Collection Code & Location (per branch)</li>
-  <li>1666 - Collection size by Collection Code</li>
-  <li>2970 - GHW - Collection Statistics - Items at a library</li>
-  <li>3172 - GHW - Collection code count by Library</li>
-  <li>3180 - GHW - CCODE count by library</li>
-</ul>
-<p class= "notetags" style="display: none;">#ultimate #itemcount #ccode item count collection code ccode</p>
-</div>
+ 
+Item count by collection code
+Counts items currently in the collection
+At the library you specify - or with the collection code you specify
+grouped and sorted by library name and collection code
+links to report 2731 to generate a shelflist for the items being counted
+
+Notes:
+
+Non-standard shelving locations are counted as "Adult" locations.
+Items with blank collection codes are counted as "(Unclassified)."
+
+Replaces all other item count by collection code reports.
+
+  716 - Count of Yearly New items added by CCode
+  808 - Collection size by Collection Code & Location (per branch)
+  1666 - Collection size by Collection Code
+  2970 - GHW - Collection Statistics - Items at a library
+  3172 - GHW - Collection code count by Library
+  3180 - GHW - CCODE count by library
+
+#ultimate #itemcount #ccode item count collection code ccode
+
 
 ----------
 */
@@ -64,50 +64,8 @@ SELECT
     "Yes"
   ) AS "THIS LIB CAN USE/MAKE", 
   Concat( 
-    '<a class="btn btn-default"', 
-    'href=\"', 
-    '/cgi-bin/koha/reports/guided_reports.pl?reports=2731&' 
-    'phase=Run+this+report&' 
-    'param_name=Item+home+library%7CZBRAN&' 
-    'sql_params=', 
-    branchccodes.branchcode, 
-    '&', 
-    'param_name=Item+permanent+shelving+location%7CLLOC&' 
-    'sql_params=%25&' 
-    'param_name=Item+type%7CLITYPES&' 
-    'sql_params=%25&' 
-    'param_name=Item+collection+code%7CLCCODE&' 
-    'sql_params=', 
-    branchccodes.authorised_value, 
-    '&' 
-    'param_name=Enter+first+part+of+call+number+or+a+%25+symbol&' 
-    'sql_params=%25&' 
-    'param_name=Not+for+loan+status%7CLNOT_LOAN&' 
-    'sql_params=%25&' 
-    'param_name=Item+added+between+date1%7Cdate&' 
-    'sql_params=01%2F01%2F1900&' 
-    'param_name=and-date2%7Cdate&' 
-    'sql_params=12%2F31%2F2099&' 
-    'param_name=Item+last+borrowed+between+date1%7Cdate&' 
-    'sql_params=01%2F01%2F1900&' 
-    'param_name=and--date2%7Cdate&' 
-    'sql_params=12%2F31%2F2099&' 
-    'param_name=Item+last+seen+between+date1%7Cdate&' 
-    'sql_params=01%2F01%2F1900&' 
-    'param_name=and---date2%7Cdate&' 
-    'sql_params=12%2F31%2F2099&' 
-    'param_name=With+X+or+fewer+checkouts%7CZNUMBERS&' 
-    'sql_params=999999999999&' 
-    'param_name=Display+checked+out+items%7CZYES_NO&' 
-    'sql_params=%25&' 
-    'param_name=Display+lost%2C+missing%2C+and+withdrawn+items%7CZYES_NO&' 
-    'sql_params=%25&' 
-    'param_name=With+X+or+more+copies+at+this+library%7CYNUMBER&' 
-    'sql_params=0&' 
-    'param_name=With+X+or+more+copies+at+throughout+the+catalog%7CYNUMBER&' 
-    'sql_params=0' 
-    ' target="_blank">', 
-    'Shelflist for these items</a>' 
+    '', 
+    'Shelflist for these items' 
   ) AS SHELFLIST 
 FROM 
   (
@@ -200,8 +158,8 @@ FROM
   ON branchlimits.av_id = branchccodes.id 
   AND branchlimits.branchcode = branchccodes.branchcode 
 WHERE 
-  branchccodes.branchcode LIKE <<Choose your library and leave collection code as "All"|branches:all>> AND 
-  branchccodes.authorised_value LIKE <<Or leave library as "All" and choose a collection code|CCODE:all>> 
+  branchccodes.branchcode LIKE &lt;&gt; AND 
+  branchccodes.authorised_value LIKE &lt;&gt; 
 GROUP BY 
   branchccodes.branchcode, 
   branchccodes.authorised_value 

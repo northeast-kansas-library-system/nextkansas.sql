@@ -4,7 +4,7 @@ R.003615
 ----------
 
 Name: LibraryIQ - Patron Data File (added yesterday) - BASEHOR
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: LibraryIQ
 
 Created on: 2021-11-08 11:21:01
 Modified on: 2021-11-12 10:44:42
-Date last run: 2022-05-18 16:49:13
+Date last run: 2023-06-30 16:45:27
 
 ----------
 
@@ -54,7 +54,7 @@ FROM
     FROM
       statistics
     WHERE
-      statistics.datetime > CurDate() - INTERVAL 1 YEAR
+      statistics.datetime &gt; CurDate() - INTERVAL 1 YEAR
     GROUP BY
       statistics.borrowernumber) cko_count_ty ON cko_count_ty.borrowernumber =
       borrowers.borrowernumber LEFT JOIN

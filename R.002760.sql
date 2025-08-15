@@ -4,7 +4,7 @@ R.002760
 ----------
 
 Name: GHW - Branch Contact Information
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

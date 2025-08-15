@@ -4,7 +4,7 @@ R.003610
 ----------
 
 Name: LibraryIQ - Circulation File (yesterday) - BASEHOR
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

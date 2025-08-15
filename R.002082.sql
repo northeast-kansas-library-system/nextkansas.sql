@@ -13,7 +13,7 @@ Group: Administrative Reports
 
 Created on: 2013-10-31 13:37:49
 Modified on: 2016-07-22 09:07:53
-Date last run: 2023-05-23 14:00:04
+Date last run: 2025-08-15 13:00:05
 
 ----------
 
@@ -31,7 +31,7 @@ Analyzes number of items on a record, number of unrestricted & restricted items,
 
 SELECT 
     current_timestamp() as "report time", 
-    CONCAT ('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',t.biblionumber,'\" target="_blank">'"link to record"'</a>') AS "Link to Record", 
+    CONCAT (''"link to record"'') AS "Link to Record", 
     b.title, b.author, t.holdingbranch, i.ccode, count(i.itemnumber) as "total items on record", 
     (SELECT count(r.reserve_id) FROM reserves r WHERE r.biblionumber=t.biblionumber GROUP BY t.biblionumber) AS totalholds,
     (SELECT count(i.itemnumber)
@@ -44,19 +44,19 @@ SELECT
         GROUP BY t.biblionumber) as "restricted count", 
     (SELECT count(i.itemnumber) 
         FROM items i 
-        WHERE i.biblionumber=t.biblionumber AND i.notforloan <> '0'
+        WHERE i.biblionumber=t.biblionumber AND i.notforloan &lt;&gt; '0'
         GROUP BY t.biblionumber) as "notforloan count", 
     (SELECT count(i.itemnumber) 
         FROM items i 
-        WHERE i.biblionumber=t.biblionumber AND i.damaged <> '0'
+        WHERE i.biblionumber=t.biblionumber AND i.damaged &lt;&gt; '0'
         GROUP BY t.biblionumber) as "damaged count", 
     (SELECT count(i.itemnumber)
         FROM items i 
-        WHERE i.biblionumber=t.biblionumber AND i.itemlost <> '0'
+        WHERE i.biblionumber=t.biblionumber AND i.itemlost &lt;&gt; '0'
         GROUP BY t.biblionumber) as "lost count",
     (SELECT count(i.itemnumber)
         FROM items i 
-        WHERE i.biblionumber=t.biblionumber AND i.withdrawn <> '0'
+        WHERE i.biblionumber=t.biblionumber AND i.withdrawn &lt;&gt; '0'
         GROUP BY t.biblionumber) as "withdrawn count" ,
     t.barcode
 FROM tmp_holdsqueue t LEFT JOIN biblio b USING(biblionumber) LEFT JOIN items i USING(biblionumber) 

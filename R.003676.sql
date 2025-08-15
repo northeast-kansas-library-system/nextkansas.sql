@@ -4,7 +4,7 @@ R.003676
 ----------
 
 Name: GHW - Backup - Label layouts and templates
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2022-11-07 17:26:57
-Modified on: 2022-12-14 16:27:15
-Date last run: 2022-12-14 16:27:18
+Modified on: 2024-01-17 11:29:41
+Date last run: 2024-08-28 08:35:18
 
 ----------
 
@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-  <p>Outputs label layout and template data to a spreadsheet as a backup</p>
-  <ul>
-    <li>Outputs current label data as of the time the report is run</li>
-    <li>for all Next libraries</li>
-    <li>grouped by creator_layouts.layout_id and creator_templates.template_id</li>
-    <li>sorted by file name</li>
-  </ul><br />
-  <p></p>
-  <p class= "notetags" style="display: none;">#backup</p>
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div>
+ 
+  Outputs label layout and template data to a spreadsheet as a backup
+  
+    Outputs current label data as of the time the report is run
+    for all Next libraries
+    grouped by creator_layouts.layout_id and creator_templates.template_id
+    sorted by file name
+  
+  
+  #backup
+  
+
 
 ----------
 */

@@ -4,7 +4,7 @@ R.002769
 ----------
 
 Name: GHW - TEST accounts
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Administrative Reports
      -
 
 Created on: 2016-09-10 23:12:34
-Modified on: 2018-04-16 10:48:39
-Date last run: 2018-01-24 16:28:48
+Modified on: 2024-01-17 11:36:45
+Date last run: 2023-06-26 21:22:50
 
 ----------
 
@@ -22,15 +22,15 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>Shows all of the NExpress test accounts</p>
-<ul><li>Shows current accounts</li>
-<li>at all NExpress libraries</li>
-<li>links directly to the details page of the account (links open in a new window)</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p>This report lists all of the information from the patron's account except the userid, password, and flags fields so that the report can be downloaded, the "borrowernumber" links column can be deleted, changes can be made to the account information, and then the data can be imported back into Koha without accidentally changing the userid, password, or flags fields (which can screw up the accounts - yes - learned this one the hard way - again).</p>
-</div>
+ 
+Shows all of the NExpress test accounts
+Shows current accounts
+at all NExpress libraries
+links directly to the details page of the account (links open in a new window)
+
+Notes:
+This report lists all of the information from the patron's account except the userid, password, and flags fields so that the report can be downloaded, the "borrowernumber" links column can be deleted, changes can be made to the account information, and then the data can be imported back into Koha without accidentally changing the userid, password, or flags fields (which can screw up the accounts - yes - learned this one the hard way - again).
+
 
 ----------
 */
@@ -38,7 +38,7 @@ Expiry: 0
 
 
 SELECT
-  CONCAT( '<a href=\"/cgi-bin/koha/circ/circulation.pl?borrowernumber=',borrowers.borrowernumber ,'\" target="_blank">', borrowers.borrowernumber, '</a>' ) AS 'BORROWER_NUMBER',
+  CONCAT( '', borrowers.borrowernumber, '' ) AS 'BORROWER_NUMBER',
   borrowers.borrowernumber,
   borrowers.cardnumber,
   borrowers.surname,
@@ -82,7 +82,6 @@ SELECT
   borrowers.contactname,
   borrowers.contactfirstname,
   borrowers.contacttitle,
-  borrowers.guarantorid,
   borrowers.borrowernotes,
   borrowers.relationship,
   borrowers.ethnicity,

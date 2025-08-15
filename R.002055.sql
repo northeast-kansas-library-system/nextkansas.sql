@@ -31,11 +31,9 @@ Linked version of the Unique Report for Hiawatha
 
 SELECT 
   Concat(
-    '<a href=\"/cgi-bin/koha/members/maninvoice.pl?borrowernumber=',
-    borrowers.borrowernumber,
-    '\" target="_blank">',
+    '',
     borrowers.cardnumber,
-    '</a>'
+    ''
   ) AS "Link to Fines",
   borrowers.borrowernumber,
   borrowers.surname,
@@ -58,10 +56,10 @@ FROM accountlines
   LEFT JOIN categories ON categories.categorycode = borrowers.categorycode
 WHERE borrowers.branchcode IN ('HIAWATHA')
   AND borrowers.sort1 != 'yes'
-  AND accountlines.date > Date_Sub(CurDate(), INTERVAL 3 YEAR)
-  AND accountlines.date < Date_Sub(CurDate(), INTERVAL 60 DAY)
+  AND accountlines.date &gt; Date_Sub(CurDate(), INTERVAL 3 YEAR)
+  AND accountlines.date &lt; Date_Sub(CurDate(), INTERVAL 60 DAY)
 GROUP BY borrowers.borrowernumber
-HAVING Due >= 25.00
+HAVING Due &gt;= 25.00
 ORDER BY borrowers.surname
 
 

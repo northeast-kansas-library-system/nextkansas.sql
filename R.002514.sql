@@ -13,7 +13,7 @@ Group:  BURLINGAME
 
 Created on: 2015-05-26 13:41:59
 Modified on: 2021-08-16 13:38:33
-Date last run: 2023-02-01 10:23:07
+Date last run: 2024-03-26 14:03:25
 
 ----------
 
@@ -39,7 +39,7 @@ SELECT
 		WHEN i.itemnumber = '1513844' THEN 'COMPUTER #6'
 		END "computers",
 i.itemnumber, b.firstname, b.surname, s.issuedate, 30 - TIMESTAMPDIFF(MINUTE,s.issuedate,CURRENT_TIMESTAMP()) 'Minutes remaining',
-    IF(TIMESTAMPDIFF(MINUTE,s.issuedate,CURRENT_TIMESTAMP())> 30  ,'YES','') 'Kick off?' FROM borrowers b LEFT JOIN issues s USING(borrowernumber) LEFT JOIN items i USING(itemnumber) WHERE i.itemnumber IN ('1513837','1513838','1513839','1513841','1513842','1513844') GROUP BY computers ORDER BY s.issuedate DESC
+    IF(TIMESTAMPDIFF(MINUTE,s.issuedate,CURRENT_TIMESTAMP())&gt; 30  ,'YES','') 'Kick off?' FROM borrowers b LEFT JOIN issues s USING(borrowernumber) LEFT JOIN items i USING(itemnumber) WHERE i.itemnumber IN ('1513837','1513838','1513839','1513841','1513842','1513844') GROUP BY computers ORDER BY s.issuedate DESC
 
 
 

@@ -4,7 +4,7 @@ R.003263
 ----------
 
 Name: GHW - 3:1 requests ratio report
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-09-10 11:59:57
-Modified on: 2022-11-29 16:39:20
-Date last run: 2023-05-22 16:33:43
+Modified on: 2024-01-17 12:08:58
+Date last run: 2025-03-05 11:13:42
 
 ----------
 
@@ -22,19 +22,19 @@ Expiry: 10
 
 ----------
 
-<div id=reportinfo>
-<p>Presents a list of items that have a higher than 3:1 requests to copies ratio.</p>
-<ul><li>Shows titles that currently have more than 3 requests per copy</li>
-<li>system wide</li>
-<li>grouped by biblio number</li>
-<li>sorted by highest ratio to lowest ratio</li>
-<li>contains links to the bibliographic records</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Notes go here.</p>
-<p></p>
-</div>
+ 
+Presents a list of items that have a higher than 3:1 requests to copies ratio.
+Shows titles that currently have more than 3 requests per copy
+system wide
+grouped by biblio number
+sorted by highest ratio to lowest ratio
+contains links to the bibliographic records
+
+Notes:
+
+Notes go here.
+
+
 
 ----------
 */
@@ -42,8 +42,8 @@ Expiry: 10
 
 
 SELECT
-  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">Link to title</a>') AS 'LINK_TO_TITLE',
-  Concat_Ws("<br />", biblio.title, ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]')) AS TITLE,
+  Concat('Link to title') AS 'LINK_TO_TITLE',
+  Concat_Ws("", biblio.title, ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]')) AS TITLE,
   Count(DISTINCT reserves.borrowernumber) AS HOLDCOUNT,
   Count(DISTINCT items.itemnumber) AS ITEMCOUNT,
   Concat(Format(Count(DISTINCT reserves.borrowernumber) / Count(DISTINCT items.itemnumber), 2), " : 1") AS RATIO,
@@ -85,7 +85,7 @@ GROUP BY
   biblio.biblionumber,
   biblio_metadata.metadata
 HAVING
-  (Count(DISTINCT reserves.borrowernumber) / Count(DISTINCT items.itemnumber)) > 3
+  (Count(DISTINCT reserves.borrowernumber) / Count(DISTINCT items.itemnumber)) &gt; 3
 ORDER BY
   (Count(DISTINCT reserves.borrowernumber) / Count(DISTINCT items.itemnumber)) DESC
 

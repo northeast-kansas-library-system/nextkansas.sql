@@ -4,7 +4,7 @@ R.003689
 ----------
 
 Name: GHW - Quick count - Current holds queue count
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2022-12-12 21:46:37
-Modified on: 2022-12-14 15:40:29
-Date last run: 2022-12-15 07:15:41
+Modified on: 2023-10-16 21:59:30
+Date last run: 2023-08-26 23:15:44
 
 ----------
 
@@ -22,17 +22,17 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-  <p>Gives a count for the requests queue at all Next Search Catalog libraries</p>
-  <ul>
-    <li>Shows counts for current holds queue</li>
-    <li>at all Next libraries</li>
-    <li>grouped and sorted by library with a total at the top of the column</li>
-  </ul><br />
-  <p></p>
-  <p class= "notetags" style="display: none;">#quick_count</p>
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div>
+ 
+  Gives a count for the requests queue at all Next Search Catalog libraries
+  
+    Shows counts for current holds queue
+    at all Next libraries
+    grouped and sorted by library with a total at the top of the column
+  
+  
+  #quick_count
+  
+
 
 ----------
 */

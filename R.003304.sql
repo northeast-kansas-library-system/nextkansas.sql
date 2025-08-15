@@ -4,7 +4,7 @@ R.003304
 ----------
 
 Name: GHW - Item Count by item type
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2020-01-13 16:10:56
 Modified on: 2021-07-22 09:50:51
-Date last run: 2022-08-30 10:39:02
+Date last run: 2024-11-18 15:27:08
 
 ----------
 
@@ -109,8 +109,8 @@ FROM
       branchtypes.branchcode AND
       yaitems.itype = branchtypes.itemtype
 WHERE
-  branchtypes.branchcode LIKE <<Choose your library|LBRANCH>> AND
-  branchtypes.itemtype LIKE <<Choose an item type|LITYPES>>
+  branchtypes.branchcode LIKE &lt;&gt; AND
+  branchtypes.itemtype LIKE &lt;&gt;
 GROUP BY
   branchtypes.branchcode,
   branchtypes.description,

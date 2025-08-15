@@ -4,7 +4,7 @@ R.003232
 ----------
 
 Name: GHW - Multi card duplicate helper
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -31,7 +31,7 @@ for X cards
 
 Add 
 
-patX.cardnumber = <<Card X>>
+patX.cardnumber = &lt;&gt;
 
 for X cards
 
@@ -43,11 +43,11 @@ for X cards
 SELECT
 
   Concat(
-    '&lt;br /&gt;DUPLICATE ACCOUNTS&lt;br /&gt;<br />This patron appears to have multiple accounts.&lt;br /&gt;<br />This account (',
+    '&lt;br /&gt;DUPLICATE ACCOUNTS&lt;br /&gt;This patron appears to have multiple accounts.&lt;br /&gt;This account (',
     pat1.cardnumber,
     ' - ',
     pat1.branchcode,
-    '), and the following accounts:&lt;ul&gt;<br />',
+    '), and the following accounts:&lt;ul&gt;',
 
     '&lt;li&gt;&lt;a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=',
     pat1.borrowernumber,
@@ -55,7 +55,7 @@ SELECT
     pat1.cardnumber,
     ' - ',
     pat1.branchcode,
-    '&lt;/a&gt;&lt;/li&gt;<br />',
+    '&lt;/a&gt;&lt;/li&gt;',
 
     '&lt;li&gt;&lt;a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=',
     pat2.borrowernumber,
@@ -63,7 +63,7 @@ SELECT
     pat2.cardnumber,
     ' - ',
     pat2.branchcode,
-    '&lt;/a&gt;&lt;/li&gt;<br />',
+    '&lt;/a&gt;&lt;/li&gt;',
 
     '&lt;li&gt;&lt;a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=',
     pat3.borrowernumber,
@@ -71,7 +71,7 @@ SELECT
     pat3.cardnumber,
     ' - ',
     pat3.branchcode,
-    '&lt;/a&gt;&lt;/li&gt;<br />',
+    '&lt;/a&gt;&lt;/li&gt;',
 
     '&lt;li&gt;&lt;a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=',
     pat4.borrowernumber,
@@ -79,7 +79,7 @@ SELECT
     pat4.cardnumber,
     ' - ',
     pat4.branchcode,
-    '&lt;/a&gt;&lt;/li&gt;<br />',
+    '&lt;/a&gt;&lt;/li&gt;',
 
     '&lt;li&gt;&lt;a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=',
     pat5.borrowernumber,
@@ -87,18 +87,18 @@ SELECT
     pat5.cardnumber,
     ' - ',
     pat5.branchcode,
-    '&lt;/a&gt;&lt;/li&gt;<br />',
+    '&lt;/a&gt;&lt;/li&gt;',
 
     '&lt;/ul&gt;',
-    'Please check with the patron to determine which account is the active account and', ' d', 'elete all of the inactive accounts.&lt;br /&gt;<br />',
-    'These accounts appear similar because&lt;ul&gt;<br />',
-    '&lt;li&gt;These accounts have the same/similar names&lt;/li&gt;<br />',
-    '&lt;li&gt;These accounts have the same/similar birthdates&lt;/li&gt;<br />',
-    '&lt;li&gt;These accounts have the same/similar contact information&lt;/li&gt;<br />',
-    '&lt;li&gt;These accounts have the same/similar addresses&lt;/li&gt;<br />',
-    '&lt;li&gt;These accounts have the same/similar phone numbers&lt;/li&gt;<br />',
-    '&lt;li&gt;These accounts have the same/similar email addresses&lt;/li&gt;<br />',
-    '&lt;br /&gt; PER Next Search Catalog policy, with few exceptions, each patron should only have one account.&lt;br /&gt;<br />GHW - NEKLS&lt;br /&gt;<br />'
+    'Please check with the patron to determine which account is the active account and', ' d', 'elete all of the inactive accounts.&lt;br /&gt;',
+    'These accounts appear similar because&lt;ul&gt;',
+    '&lt;li&gt;These accounts have the same/similar names&lt;/li&gt;',
+    '&lt;li&gt;These accounts have the same/similar birthdates&lt;/li&gt;',
+    '&lt;li&gt;These accounts have the same/similar contact information&lt;/li&gt;',
+    '&lt;li&gt;These accounts have the same/similar addresses&lt;/li&gt;',
+    '&lt;li&gt;These accounts have the same/similar phone numbers&lt;/li&gt;',
+    '&lt;li&gt;These accounts have the same/similar email addresses&lt;/li&gt;',
+    '&lt;br /&gt; PER Next Search Catalog policy, with few exceptions, each patron should only have one account.&lt;br /&gt;GHW - NEKLS&lt;br /&gt;'
   ) AS CARDONE,
 
   Concat(
@@ -346,11 +346,11 @@ FROM
   borrowers pat5
 
 WHERE
-  pat1.cardnumber = <<Card 1>> AND
-  pat2.cardnumber = <<Card 2>> AND
-  pat3.cardnumber = <<Card 3>> AND
-  pat4.cardnumber = <<Card 4>> AND
-  pat5.cardnumber = <<Card 5>>
+  pat1.cardnumber = &lt;&gt; AND
+  pat2.cardnumber = &lt;&gt; AND
+  pat3.cardnumber = &lt;&gt; AND
+  pat4.cardnumber = &lt;&gt; AND
+  pat5.cardnumber = &lt;&gt;
 
 
 

@@ -4,7 +4,7 @@ R.003592
 ----------
 
 Name: LibraryIQ - Patron Data File (added yesterday) - BONNERSPGS
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: LibraryIQ
 
 Created on: 2021-10-13 10:44:37
 Modified on: 2021-11-12 12:03:43
-Date last run: 2022-04-20 00:30:03
+Date last run: 2025-07-02 16:05:19
 
 ----------
 
@@ -54,7 +54,7 @@ FROM
     FROM
       statistics
     WHERE
-      statistics.datetime > CurDate() - INTERVAL 1 YEAR
+      statistics.datetime &gt; CurDate() - INTERVAL 1 YEAR
     GROUP BY
       statistics.borrowernumber) cko_count_ty ON cko_count_ty.borrowernumber =
       borrowers.borrowernumber LEFT JOIN

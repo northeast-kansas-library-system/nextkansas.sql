@@ -13,7 +13,7 @@ Group: Popular Reports
 
 Created on: 2014-08-16 13:15:23
 Modified on: 2017-02-01 08:15:32
-Date last run: 2022-09-22 11:40:24
+Date last run: 2025-07-01 15:18:36
 
 ----------
 
@@ -29,7 +29,7 @@ This report shows records with 3+ holds by a single library's patrons, and shows
 
 
 
-SELECT r.branchcode, CONCAT ('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',r.biblionumber,'\" target="_blank">'"link to record"'</a>') AS "link to record", b.title, count(r.reserve_id) as your_patron_holds, (SELECT count(i.itemnumber) FROM items i WHERE i.biblionumber=r.biblionumber AND i.homebranch=r.branchcode AND i.damaged='0' AND i.withdrawn='0' AND itemlost='0') as your_lib_holdings FROM biblio b LEFT JOIN reserves r USING (biblionumber) JOIN borrowers p USING(borrowernumber)  WHERE r.branchcode=<<choose your library|branches>> GROUP BY r.biblionumber, r.branchcode HAVING count(r.reserve_id) > 2 ORDER BY your_lib_holdings asc
+SELECT r.branchcode, CONCAT (''"link to record"'') AS "link to record", b.title, count(r.reserve_id) as your_patron_holds, (SELECT count(i.itemnumber) FROM items i WHERE i.biblionumber=r.biblionumber AND i.homebranch=r.branchcode AND i.damaged='0' AND i.withdrawn='0' AND itemlost='0') as your_lib_holdings FROM biblio b LEFT JOIN reserves r USING (biblionumber) JOIN borrowers p USING(borrowernumber)  WHERE r.branchcode=&lt;&gt; GROUP BY r.biblionumber, r.branchcode HAVING count(r.reserve_id) &gt; 2 ORDER BY your_lib_holdings asc
 
 
 

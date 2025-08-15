@@ -4,7 +4,7 @@ R.003336
 ----------
 
 Name: GHW - Items checked out during a date range
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,7 +12,7 @@ Group: -
      -
 
 Created on: 2020-06-19 15:55:38
-Modified on: 2021-07-07 14:51:26
+Modified on: 2024-01-17 12:04:43
 Date last run: 2021-07-23 12:11:38
 
 ----------
@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Shows items checked out or renewed during a date range</p>
-<ul><li>Shows items checked out or renewed during the date range you specify</li>
-<li>at the library you specify</li>
-<li>grouped by itemnumber, biblionumber, and the timestamp for the checkout/renewal</li>
-<li>sorted by the checkout or renewal date, the item homebranch, the item permanent location, the item type, the collection code, the call number, the author, and the title</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Report created by George Williams.</p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3336&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Shows items checked out or renewed during a date range
+Shows items checked out or renewed during the date range you specify
+at the library you specify
+grouped by itemnumber, biblionumber, and the timestamp for the checkout/renewal
+sorted by the checkout or renewal date, the item homebranch, the item permanent location, the item type, the collection code, the call number, the author, and the title
+
+Notes:
+
+Report created by George Williams.
+Click here to run in a new window
+
 
 ----------
 */
@@ -88,10 +88,10 @@ FROM
       authorised_values.category = 'ccode') ccodes ON ccodes.authorised_value =
       items.ccode
 WHERE
-  statistics.datetime BETWEEN <<Between the beginning of the day on|date>> AND (<<and the end of the day on|date>> + interval 1 day) AND
+  statistics.datetime BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day) AND
   (statistics.type = 'issue' OR
       statistics.type = 'renew') AND
-  statistics.branch = <<Checked out or renewed at|ZBRAN>>
+  statistics.branch = &lt;&gt;
 GROUP BY
   items.itemnumber,
   biblio.biblionumber,

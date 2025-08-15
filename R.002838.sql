@@ -3,8 +3,8 @@ R.002838
 
 ----------
 
-Name: GHW 998 - Circulation count during a date range
-Created by: George H Williams
+Name: GHW 998 - Circulation count during a date range ADMINREPORT
+Created by: George Williams
 
 ----------
 
@@ -12,7 +12,7 @@ Group: -
      -
 
 Created on: 2016-11-28 11:11:26
-Modified on: 2020-06-19 15:06:53
+Modified on: 2024-03-01 15:45:18
 Date last run: 2022-01-06 21:56:12
 
 ----------
@@ -48,14 +48,14 @@ FROM
   deleteditems
     ON statistics.itemnumber = deleteditems.itemnumber
 WHERE
-  (statistics.datetime BETWEEN  <<Start date|date>>  AND (<<End date|date>>+ INTERVAL 1 DAY)) AND
+  (statistics.datetime BETWEEN  &lt;&gt;  AND (&lt;&gt;+ INTERVAL 1 DAY)) AND
   (statistics.type = 'issue' OR statistics.type = 'renew' OR statistics.type = 'localuse') AND
-  statistics.branch LIKE <<Check-out branch|LBRANCH>> AND
-  If(borrowers.branchcode IS NULL AND deletedborrowers.branchcode IS NULL, ' --', Concat(Coalesce(borrowers.branchcode, deletedborrowers.branchcode))) LIKE <<Borrower home branch|LBRANCH>> AND
-  If(borrowers.categorycode IS NULL AND deletedborrowers.categorycode IS NULL, ' --', Concat(Coalesce(borrowers.categorycode, deletedborrowers.categorycode))) LIKE <<Borrower category|LBORROWERCAT>> AND
-  If(items.homebranch IS NULL AND deleteditems.homebranch IS NULL, ' --', Concat(Coalesce(items.homebranch, deleteditems.homebranch))) LIKE <<Item home branch|LBRANCH>> AND
-  If(items.itype IS NULL AND deleteditems.itype IS NULL, ' --', Concat(Coalesce(items.itype , deleteditems.itype ))) LIKE <<Item type|LITYPES>> AND
-  If(items.ccode IS NULL AND deleteditems.ccode IS NULL, ' --', Concat(Coalesce(items.ccode, deleteditems.ccode))) LIKE <<Item collection code|LCCODE>>
+  statistics.branch LIKE &lt;&gt; AND
+  If(borrowers.branchcode IS NULL AND deletedborrowers.branchcode IS NULL, ' --', Concat(Coalesce(borrowers.branchcode, deletedborrowers.branchcode))) LIKE &lt;&gt; AND
+  If(borrowers.categorycode IS NULL AND deletedborrowers.categorycode IS NULL, ' --', Concat(Coalesce(borrowers.categorycode, deletedborrowers.categorycode))) LIKE &lt;&gt; AND
+  If(items.homebranch IS NULL AND deleteditems.homebranch IS NULL, ' --', Concat(Coalesce(items.homebranch, deleteditems.homebranch))) LIKE &lt;&gt; AND
+  If(items.itype IS NULL AND deleteditems.itype IS NULL, ' --', Concat(Coalesce(items.itype , deleteditems.itype ))) LIKE &lt;&gt; AND
+  If(items.ccode IS NULL AND deleteditems.ccode IS NULL, ' --', Concat(Coalesce(items.ccode, deleteditems.ccode))) LIKE &lt;&gt;
 GROUP BY
   CHECK_OUT_BRANCH,
   BORROWERS_HOMEBRANCH,

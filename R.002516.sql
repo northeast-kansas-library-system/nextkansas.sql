@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2015-05-28 10:30:15
 Modified on: 2019-12-26 11:46:17
-Date last run: 2022-06-08 17:56:20
+Date last run: 2023-09-08 16:15:57
 
 ----------
 
@@ -22,7 +22,7 @@ Expiry: 0
 
 ----------
 
-<p><span style="color: yellow; background-color: red; font-size: 200%;">References accountlines.accounttype.  Needs to be updated after January 4, 2020</span></p>
+References accountlines.accounttype.  Needs to be updated after January 4, 2020
 
 ----------
 */

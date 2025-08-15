@@ -4,7 +4,7 @@ R.002824
 ----------
 
 Name: GHW - Upcoming closed dates at a branch
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2016-11-15 10:29:39
-Modified on: 2022-07-07 10:24:06
-Date last run: 2023-01-21 21:55:06
+Modified on: 2024-01-17 11:47:01
+Date last run: 2025-06-23 14:07:10
 
 ----------
 
@@ -22,15 +22,15 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>Shows upcoming closures at a specified branch</p>
-<ul><li>Shows repeating closures for the next 12 months and all future closures on individually specified dates</li>
-<li>Shows closures at the branch you specify</li>
-<li>sorted by branch and date of holiday (repeating weekly holidays appear first on the list)</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2824&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Shows upcoming closures at a specified branch
+Shows repeating closures for the next 12 months and all future closures on individually specified dates
+Shows closures at the branch you specify
+sorted by branch and date of holiday (repeating weekly holidays appear first on the list)
+
+Notes:
+Click here to run in a new window
+
 
 ----------
 */
@@ -56,10 +56,10 @@ SELECT
 FROM
   special_holidays
 WHERE
-  (special_holidays.branchcode LIKE @brn:=<<Enter your branch|LBRANCH>> COLLATE utf8mb4_unicode_ci) AND
+  (special_holidays.branchcode LIKE @brn:=&lt;&gt; COLLATE utf8mb4_unicode_ci) AND
   Str_To_Date(
     Concat(special_holidays.month, '/', special_holidays.day, '/', special_holidays.year), '%m/%d/%Y'
-  ) > Now() - INTERVAL 1 DAY
+  ) &gt; Now() - INTERVAL 1 DAY
 UNION
 SELECT
   repeatable_holidays.branchcode AS BRANCH,
@@ -67,7 +67,7 @@ SELECT
   repeatable_holidays.description AS DESCRIPTION,
 
   Str_To_Date(
-    Concat(repeatable_holidays.month, '/', repeatable_holidays.day, '/', (If(repeatable_holidays.month >= Month(CurDate()), Year(CurDate()), Year(CurDate()) + 1))), '%m/%d/%Y'
+    Concat(repeatable_holidays.month, '/', repeatable_holidays.day, '/', (If(repeatable_holidays.month &gt;= Month(CurDate()), Year(CurDate()), Year(CurDate()) + 1))), '%m/%d/%Y'
   ) AS UPCOMING_DATE,
 
   If(repeatable_holidays.weekday = 0, 'Every Sunday', 
@@ -79,7 +79,7 @@ SELECT
               If(repeatable_holidays.weekday = 6, 'Every Saturday', 
                 Date_Format(
                   Str_To_Date(
-                    Concat(repeatable_holidays.month, '/', repeatable_holidays.day, '/', (If(repeatable_holidays.month >= Month(CurDate()), Year(CurDate()), Year(CurDate()) + 1))), '%m/%d/%Y'
+                    Concat(repeatable_holidays.month, '/', repeatable_holidays.day, '/', (If(repeatable_holidays.month &gt;= Month(CurDate()), Year(CurDate()), Year(CurDate()) + 1))), '%m/%d/%Y'
                     ), 
                   '%W'
                 )
@@ -102,14 +102,14 @@ WHERE
   (
     repeatable_holidays.branchcode LIKE @brn AND
     Str_To_Date(
-      Concat(repeatable_holidays.month, '/', repeatable_holidays.day, '/', (If(repeatable_holidays.month >= Month(CurDate()), Year(CurDate()), Year(CurDate()) + 1))), '%m/%d/%Y'
-    ) > Now() - INTERVAL 1 DAY
+      Concat(repeatable_holidays.month, '/', repeatable_holidays.day, '/', (If(repeatable_holidays.month &gt;= Month(CurDate()), Year(CurDate()), Year(CurDate()) + 1))), '%m/%d/%Y'
+    ) &gt; Now() - INTERVAL 1 DAY
 
   ) OR (
 
     repeatable_holidays.branchcode LIKE @brn AND 
     Str_To_Date(
-      Concat(repeatable_holidays.month, '/', repeatable_holidays.day, '/', (If(repeatable_holidays.month >= Month(CurDate()), Year(CurDate()), Year(CurDate()) + 1))), '%m/%d/%Y'
+      Concat(repeatable_holidays.month, '/', repeatable_holidays.day, '/', (If(repeatable_holidays.month &gt;= Month(CurDate()), Year(CurDate()), Year(CurDate()) + 1))), '%m/%d/%Y'
     ) IS NULL
   )
 ORDER BY

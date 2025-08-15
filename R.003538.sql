@@ -4,7 +4,7 @@ R.003538
 ----------
 
 Name: GHW - Build report schedule links
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

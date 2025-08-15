@@ -4,7 +4,7 @@ R.003594
 ----------
 
 Name: LibraryIQ - Holds File (added yesterday) - BONNERSPGS
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

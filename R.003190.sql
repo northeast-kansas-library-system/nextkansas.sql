@@ -4,7 +4,7 @@ R.003190
 ----------
 
 Name: GHW - Deletion problem
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -31,8 +31,8 @@ First draft.
 
 SELECT
   Concat(
-    "nexthelp@nekls.org<br /><br />Item deleted at your library that was not owned by your library<br /><br />",
-    ",<br /><br />We have some libraries noticing lately that their items are being deleted without their knowledge, so I'm trying to track what's going on.  It doesn't appear to happen often - about 5-10 items a month - but it's upsetting some libraries.<br /><br />So, on ",
+    "nexthelp@nekls.orgItem deleted at your library that was not owned by your library",
+    ",We have some libraries noticing lately that their items are being deleted without their knowledge, so I'm trying to track what's going on.  It doesn't appear to happen often - about 5-10 items a month - but it's upsetting some libraries.So, on ",
     Date_Format(action_logs.timestamp, "%Y.%m.%d"),
     " at ",
     Date_Format(action_logs.timestamp, "%l:%i %p"),
@@ -42,30 +42,30 @@ SELECT
     borrowers.userid,
     ") deleted an item owned by ",
     deleteditems.homebranch,
-    ".<br /><br />Specifically, ",
+    ".Specifically, ",
     borrowers.userid,
-    " deleted the following item:<br /><br />Item homebranch: ",
+    " deleted the following item:Item homebranch: ",
     Coalesce(deleteditems.homebranch, " "),
-    "<br />Shelving location: ",
+    "Shelving location: ",
     Coalesce(deleteditems.location, " "),
-    "<br />Item type: ",
+    "Item type: ",
     Coalesce(deleteditems.itype, " "),
-    "<br />Collection code: ",
+    "Collection code: ",
     Coalesce(CCODES.lib, " "),
-    "<br />Call number: ",
+    "Call number: ",
     Coalesce(deleteditems.itemcallnumber, " "),
-    "<br />Author: ",
+    "Author: ",
     Coalesce(biblio.author, deletedbiblio.author, " "),
-    "<br />Title: ",
+    "Title: ",
     Coalesce(biblio.title, deletedbiblio.title, " "),
-    "<br />Barcode number: ",
+    "Barcode number: ",
     Coalesce(deleteditems.barcode, " "),
-    If(Coalesce(LOST.lib, "-") LIKE "-", "", Concat("<br /><br />Lost status at time of deletion: ", Coalesce(LOST.lib, "-"))),
-    If(Coalesce(WITHDRAWN.lib, "") LIKE "", "", Concat("<br /><br />Withdrawn status at time of deletion: ", Coalesce(WITHDRAWN.lib, ""))),
-    IF(Coalesce(DAMAGED.lib, "") LIKE "", "", CONCAT("<br /><br />Damaged status at time of deletion: ", Coalesce(DAMAGED.lib, ""))),
-    "<br /><br />Do you have any idea why you might have deleted this item that was not owned by your library?  Did you contact ",
+    If(Coalesce(LOST.lib, "-") LIKE "-", "", Concat("Lost status at time of deletion: ", Coalesce(LOST.lib, "-"))),
+    If(Coalesce(WITHDRAWN.lib, "") LIKE "", "", Concat("Withdrawn status at time of deletion: ", Coalesce(WITHDRAWN.lib, ""))),
+    IF(Coalesce(DAMAGED.lib, "") LIKE "", "", CONCAT("Damaged status at time of deletion: ", Coalesce(DAMAGED.lib, ""))),
+    "Do you have any idea why you might have deleted this item that was not owned by your library?  Did you contact ",
     deleteditems.homebranch,
-    " before you deleted the item?<br /><br />Please let us know,<br /><br />George"
+    " before you deleted the item?Please let us know,George"
   ) AS INFO
 FROM
   action_logs
@@ -126,9 +126,9 @@ WHERE
   action_logs.action LIKE 'DEL%' AND
   action_logs.info = 'item' AND
   If(borrowers.branchcode LIKE "DONI%", "DONI", If(borrowers.branchcode LIKE "PH%", "PH", borrowers.branchcode))
-    <>
+    &lt;&gt;
   If(borrowers.branchcode LIKE "DONI%", "DONI", If(deleteditems.homebranch LIKE "PH%", "PH", deleteditems.homebranch)) AND
-  deleteditems.homebranch <> 'digital'
+  deleteditems.homebranch &lt;&gt; 'digital'
 GROUP BY
   action_logs.action_id,
   deleteditems.itemnumber,

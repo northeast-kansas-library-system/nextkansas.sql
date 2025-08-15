@@ -4,7 +4,7 @@ R.003099
 ----------
 
 Name: GHW - Hoopla 002
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

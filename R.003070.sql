@@ -4,7 +4,7 @@ R.003070
 ----------
 
 Name: GHW - Z39.50 Backup - ADMINREPORT
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -30,7 +30,7 @@ Expiry: 300
 
 
 SELECT
-  Concat_Ws("<br />",
+  Concat_Ws("",
     Concat("Name: ", z3950servers.servername),
     Concat("Host name: ", z3950servers.host),
     Concat("Port: ", z3950servers.port),
@@ -38,7 +38,7 @@ SELECT
     Concat("Syntax: ",  z3950servers.syntax),
     Concat("Encoding: ", z3950servers.encoding),
     Concat("Record type: ", z3950servers.recordtype),
-    "<br />"
+    ""
   ) AS SERVERS
 FROM
   z3950servers

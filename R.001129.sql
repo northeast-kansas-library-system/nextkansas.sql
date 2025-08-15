@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-select count(*) from biblio WHERE datecreated < <<Choose date (usually first of month, to count total records in system through end of previous month|date>>
+select count(*) from biblio WHERE datecreated &lt; &lt;&gt;
 
 
 

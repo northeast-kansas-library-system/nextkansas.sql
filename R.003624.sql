@@ -4,7 +4,7 @@ R.003624
 ----------
 
 Name: GHW - Fish Heads
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -33,7 +33,7 @@ SELECT
   return_claims.id,
   issues.branchcode AS CHECKOUT_BRANCH,
   items.barcode,
-  Concat_Ws('<br />', 
+  Concat_Ws('', 
     items.homebranch, 
     locs.lib, 
     itemtypes.description,
@@ -47,7 +47,7 @@ SELECT
   return_claims.notes,
   Concat_Ws(' ', staff.firstname, staff.surname) AS MARKED_CR_BY,
   return_claims.created_on,
-  If(return_claims.borrowernumber <> currentissues.borrowernumber,
+  If(return_claims.borrowernumber &lt;&gt; currentissues.borrowernumber,
   'Item is checked out to a different borrower', '') AS CKO_TO_OTHER,
   If(return_claims.resolved_on IS NULL, 'Unresolved', Concat('Resolved on ',
   return_claims.resolved_on)) AS resolved_on,

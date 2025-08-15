@@ -4,7 +4,7 @@ R.003103
 ----------
 
 Name: GHW - Details on a specific biblio
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -46,7 +46,7 @@ SELECT
 FROM
   biblio
 LEFT JOIN items on (biblio.biblionumber = items.biblionumber)
-WHERE biblio.biblionumber = <<Enter biblio number>>
+WHERE biblio.biblionumber = &lt;&gt;
 GROUP BY
   biblio.biblionumber
 ORDER BY

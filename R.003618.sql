@@ -4,7 +4,7 @@ R.003618
 ----------
 
 Name: LibraryIQ - Holds File (cancelled/deleted/filled/expired yesterday) - BASEHOR
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

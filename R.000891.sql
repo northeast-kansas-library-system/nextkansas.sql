@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2010-07-12 12:22:10
 Modified on: 2013-06-18 10:47:25
-Date last run: 2022-12-05 13:00:20
+Date last run: 2025-04-04 09:47:59
 
 ----------
 
@@ -29,7 +29,7 @@ ENHANCED - Select Run and use drop-down menu to select branch.  Report only disp
 
 
 
-SELECT  borrowers.cardnumber, borrowers.surname, borrowers.firstname, borrowers.phone, borrowers.email, borrowers.address, borrowers.city, borrowers.zipcode, accountlines.description, accountlines.timestamp, FORMAT(SUM(accountlines.amountoutstanding),2) as due FROM borrowers LEFT JOIN accountlines USING (borrowernumber) WHERE borrowers.branchcode= <<Pick your branch|branches>> AND accountlines.amountoutstanding=' ' AND accountlines.description LIKE 'lost item%' GROUP BY accountlines.description ORDER BY borrowers.surname ASC
+SELECT  borrowers.cardnumber, borrowers.surname, borrowers.firstname, borrowers.phone, borrowers.email, borrowers.address, borrowers.city, borrowers.zipcode, accountlines.description, accountlines.timestamp, FORMAT(SUM(accountlines.amountoutstanding),2) as due FROM borrowers LEFT JOIN accountlines USING (borrowernumber) WHERE borrowers.branchcode= &lt;&gt; AND accountlines.amountoutstanding=' ' AND accountlines.description LIKE 'lost item%' GROUP BY accountlines.description ORDER BY borrowers.surname ASC
 
 
 

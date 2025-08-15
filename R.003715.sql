@@ -4,7 +4,7 @@ R.003715
 ----------
 
 Name: Library contact information - updated
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -32,10 +32,10 @@ Expiry: 300
 SELECT 
   Concat( 
     Concat( 
-      Replace(branches.branchname, ' - ', '<br />'), 
-      '<p><ins>Mailing address:</ins><br />', 
+      Replace(branches.branchname, ' - ', ''), 
+      'Mailing address:', 
       Concat_Ws( 
-        '<br />', 
+        '', 
         branches.branchaddress1, 
         Concat( 
           branches.branchcity, 
@@ -45,12 +45,12 @@ SELECT
           branches.branchzip 
         ) 
       ), 
-      '</p>' 
+      '' 
     ), 
     Concat( 
-      '<ins>Street address:</ins><br />', 
+      'Street address:', 
       Concat_Ws( 
-        '<br />', 
+        '', 
         If( 
           branches.branchaddress2 = ' ', 
           branches.branchaddress1, 
@@ -60,54 +60,52 @@ SELECT
           branches.branchcity, 
           ', ', 
           branches.branchstate, 
-          '<br />' 
+          '' 
         ) 
       ) 
     ) 
   ) AS Library, 
   Concat_Ws( 
-    '<p>', 
-    Concat('<p>Phone: ', branches.branchphone, '</p>'), 
-    Concat('Fax: ', branches.branchfax, '</p>'), 
-    Concat('e-mail: ', branches.branchemail, '</p>'), 
+    '', 
+    Concat('Phone: ', branches.branchphone, ''), 
+    Concat('Fax: ', branches.branchfax, ''), 
+    Concat('e-mail: ', branches.branchemail, ''), 
     Concat( 
-      'Website: <a href="', 
-      branches.branchurl, 
-      '" target="_blank">Click here</a></p>' 
+      'Website: Click here' 
     ), 
     Concat( 
       'Courier route #: ', 
       branches.branchcountry, 
-      '</p>', 
-      Concat('<br /><p>Branch name: ', branches.branchname), 
-      '</p>', 
-      Concat('<p>Branch code: ', branches.branchcode), 
-      '</p>' 
+      '', 
+      Concat('Branch name: ', branches.branchname), 
+      '', 
+      Concat('Branch code: ', branches.branchcode), 
+      '' 
     ) 
   ) AS "Contact information", 
   Concat_Ws( 
-    '<br />', 
+    '', 
     Replace( 
       Replace( 
-        Replace(branches.branchaddress3, '|', '<br /><br />'), 
+        Replace(branches.branchaddress3, '|', ''), 
         'Director:', 
-        '<span style="background: yellow; text-decoration: underline; font-size: 120%;">Director:</span><br />' 
+        'Director:' 
       ), 
       'Accreditation:', 
-      '<span style="background: aqua; text-decoration: underline; font-size: 120%;">Type:</span><br />' 
+      'Type:' 
     ), 
     ' ', 
     Concat( 
-      '<span style="background: wheat; text-decoration: underline;">Registered borrowers:</span> ', 
+      'Registered borrowers: ', 
       total_borrowerss.TOTAL_REGISTERED 
     ), 
     ' ', 
     Concat( 
-      '<span style="background: wheat; text-decoration: underline;">Total titles:</span> ', 
+      'Total titles: ', 
       Coalesce(total_titles.Count_biblionumber, 0) 
     ), 
     Concat( 
-      '<span style="background: wheat; text-decoration: underline;">Total items:</span> ', 
+      'Total items: ', 
       Coalesce(total_items.Count_itemnumber, 0) 
     ), 
     ' ', 

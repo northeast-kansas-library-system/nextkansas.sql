@@ -4,7 +4,7 @@ R.003085
 ----------
 
 Name: GHW - Patron attributes Report (master)
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -30,7 +30,7 @@ Cannot be exported to csv (too large)
 
 
 SELECT
-  Concat("<a href='/cgi-bin/koha/circ/circulation.pl?borrowernumber=", borrowers.borrowernumber, "' target='_blank'>Patron</a>") AS LINK_TO_PATRON,
+  Concat("Patron") AS LINK_TO_PATRON,
   borrowers.cardnumber,
   Concat_Ws("", If(borrowers.surname = "", "-", borrowers.surname), " / ", If(borrowers.firstname = "", "-", borrowers.firstname), If(borrowers.othernames = "", " ", Concat(" - (", borrowers.othernames, ")"))) AS NAME,
   borrowers.address,
@@ -185,18 +185,18 @@ FROM
         borrower_attributes.attribute) newsletter_permission ON
     borrowers.borrowernumber = newsletter_permission.borrowernumber
 WHERE
-  borrowers.branchcode LIKE <<Choose your library|ZBRAN>>  AND
-  borrowers.categorycode LIKE <<Choose a borrower category|LBORROWERCAT>> AND
-  Coalesce(otherinfoone.attribute, "~") LIKE CONCAT("%", <<Enter part of 'Other identifier 1' or a % symbol>>, "%") AND
-  Coalesce(otherinfotwo.attribute, "~") LIKE CONCAT("%", <<Enter part of 'Other identifier 2' or a % symbol>>, "%") AND
-  Coalesce(registrationbranch.attribute, "~") LIKE CONCAT("%", <<Enter part of 'Registration branch' or a % symbol>>, "%") AND
-  Coalesce(collectionagency.attribute, "~") LIKE <<Select collection agency attribute|LCOLLAGEN>> AND
-  Coalesce(expired_account.attribute, "~") LIKE <<Select collection agency attribute|LEXPIRED>> AND
-  Coalesce(holdscontact.attribute, "~") LIKE <<Select holds contact attribute|LHOLDSCON>> AND
-  Coalesce(location.attribute, "~") LIKE <<Select special locations attribute|LSPECLOC>> AND 
-  Coalesce(internet_permission.attribute, "~") LIKE <<Select internet policy attribute|LINTPOLICY>> AND
-  Coalesce(movie_permissionx.attribute, "~") LIKE <<Select film permission attribute|LFILMPERM>> AND
-  Coalesce(newsletter_permission.attribute, "~") LIKE <<Select newsletter permission attribute|LNEWSPERM>>
+  borrowers.branchcode LIKE &lt;&gt;  AND
+  borrowers.categorycode LIKE &lt;&gt; AND
+  Coalesce(otherinfoone.attribute, "~") LIKE CONCAT("%", &lt;&gt;, "%") AND
+  Coalesce(otherinfotwo.attribute, "~") LIKE CONCAT("%", &lt;&gt;, "%") AND
+  Coalesce(registrationbranch.attribute, "~") LIKE CONCAT("%", &lt;&gt;, "%") AND
+  Coalesce(collectionagency.attribute, "~") LIKE &lt;&gt; AND
+  Coalesce(expired_account.attribute, "~") LIKE &lt;&gt; AND
+  Coalesce(holdscontact.attribute, "~") LIKE &lt;&gt; AND
+  Coalesce(location.attribute, "~") LIKE &lt;&gt; AND 
+  Coalesce(internet_permission.attribute, "~") LIKE &lt;&gt; AND
+  Coalesce(movie_permissionx.attribute, "~") LIKE &lt;&gt; AND
+  Coalesce(newsletter_permission.attribute, "~") LIKE &lt;&gt;
 GROUP BY
   borrowers.email,
   borrowers.dateofbirth,

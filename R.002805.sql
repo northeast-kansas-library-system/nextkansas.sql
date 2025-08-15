@@ -4,7 +4,7 @@ R.002805
 ----------
 
 Name: GHW - Requests cancelled after they were on the holds shelf
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Holds-Reserves
      Holds troubleshooting
 
 Created on: 2016-10-12 11:57:05
-Modified on: 2018-04-16 11:02:10
-Date last run: 2022-07-13 11:35:20
+Modified on: 2024-01-17 11:36:07
+Date last run: 2024-10-08 10:22:32
 
 ----------
 
@@ -22,16 +22,16 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>Looks for requests that were cancelled after they were already waiting on the holds shelf</p>
-<ul><li>Allows you to specify a "Start date" - will show you requests cancelled after that date</li>
-<li>Shows holds cancelled at a specified branch</li>
-<li>grouped and sorted by patron name, library card number, item home branch, item type, call number informaiton, author, and title</li>
-<li>includes links to the bibliographic records of the items cancelled</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2805&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Looks for requests that were cancelled after they were already waiting on the holds shelf
+Allows you to specify a "Start date" - will show you requests cancelled after that date
+Shows holds cancelled at a specified branch
+grouped and sorted by patron name, library card number, item home branch, item type, call number informaiton, author, and title
+includes links to the bibliographic records of the items cancelled
+
+Notes:
+Click here to run in a new window
+
 
 ----------
 */
@@ -44,10 +44,10 @@ SELECT
   items.barcode AS ITEM_BC,
   items.homebranch AS ITEM_HOMEBRANCH,
   items.itype,
-  CONCAT_WS('<br />',items.location, authorised_values.lib, items.itemcallnumber) AS CALL_NUMBER,
-  CONCAT_WS('<br />',biblio.author,(CONCAT_WS('<br />',biblio.title,ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'),ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')))) AS AUTHOR_TITLE,
+  CONCAT_WS('',items.location, authorised_values.lib, items.itemcallnumber) AS CALL_NUMBER,
+  CONCAT_WS('',biblio.author,(CONCAT_WS('',biblio.title,ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'),ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')))) AS AUTHOR_TITLE,
   old_reserves.cancellationdate AS DATE_CANCELLED,
-  CONCAT('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',biblio.biblionumber,'\" target="_blank">Go to biblio</a>') AS LINK
+  CONCAT('Go to biblio') AS LINK
 FROM
   old_reserves JOIN
   borrowers
@@ -61,10 +61,10 @@ FROM
   authorised_values
     ON items.ccode = authorised_values.authorised_value
 WHERE
-  old_reserves.branchcode = <<Pickup branch|branches>> AND
+  old_reserves.branchcode = &lt;&gt; AND
   old_reserves.cancellationdate IS NOT NULL AND
   old_reserves.waitingdate IS NOT NULL AND
-  old_reserves.timestamp > <<Display holds cancelled after this date|date>> AND
+  old_reserves.timestamp &gt; &lt;&gt; AND
   authorised_values.category = "CCODE"
 GROUP BY
   old_reserves.branchcode,

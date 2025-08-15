@@ -4,7 +4,7 @@ R.003170
 ----------
 
 Name: GHW - ADMINREPORT - Biblio/Item/Call number ITYPE confusion
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -33,10 +33,10 @@ SELECT
   Concat(
     "Bibliographic record / item record confusion - ",
     UPPER(biblio.title),
-    "<br /><br />Hello at ",
+    "Hello at ",
     items.homebranch,
-    ",<br /> <br />There is a problem with an item/biblio at your library.  The details are as follow:<br />",
-    Concat_Ws('<br />',
+    ", There is a problem with an item/biblio at your library.  The details are as follow:",
+    Concat_Ws('',
       Concat('Item homebranch: ', items.homebranch),
       Concat('Current branch: ', items.holdingbranch),
       Concat('Shelving location: ', items.location),
@@ -47,26 +47,26 @@ SELECT
       Concat(
         'Title: ',
         Concat_Ws(' ',
-          '<span style="text-transform: uppercase">',
+          '',
           biblio.title,
           ExtractValue(biblio_metadata.metadata,'//datafield[@tag="245"]/subfield[@code="b"]'),
           ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),
           ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]'),
-          '</span>'
+          ''
         )
       ),
       Concat('Barcode: ', items.barcode)
     ),
-    "<br /><br />The issue here is that<br /><br />",
-    "the item type on the bibliographic record is ", ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="h"]'), "<br /><br />",
-    "the collection code on the bibliographic record is ", ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="c"]'), "<br /><br />",
-    "the description on the bibliographic (300$a) record is ", ExtractValue(biblio_metadata.metadata, '//datafield[@tag="300"]/subfield[@code="a"]'), "<br /><br />",
+    "The issue here is that",
+    "the item type on the bibliographic record is ", ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="h"]'), "",
+    "the collection code on the bibliographic record is ", ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="c"]'), "",
+    "the description on the bibliographic (300$a) record is ", ExtractValue(biblio_metadata.metadata, '//datafield[@tag="300"]/subfield[@code="a"]'), "",
 
-    "the item type on your item is ", ccodes.lib, "<br /><br />",
-    "the collection code on your item is ", items.itype, "<br /><br />",
-    "the call number on this item is ", ccodes.lib, "<br /><br />",
-    " but <br /><br />",
-    " so the description for this title and item in the catalog is going to be confusing to patrons because of this discrepancy.<br /><br />Could you take a look at your item and see if this item belongs on a different bibliographic record or if the bibliographic record or the item record needs to be updated or if this item just belongs on a different bibliographic record altogether?<br /><br />Thanks,<br /><br />George"
+    "the item type on your item is ", ccodes.lib, "",
+    "the collection code on your item is ", items.itype, "",
+    "the call number on this item is ", ccodes.lib, "",
+    " but ",
+    " so the description for this title and item in the catalog is going to be confusing to patrons because of this discrepancy.Could you take a look at your item and see if this item belongs on a different bibliographic record or if the bibliographic record or the item record needs to be updated or if this item just belongs on a different bibliographic record altogether?Thanks,George"
   ) AS MESSAGE
 FROM
   items
@@ -86,7 +86,7 @@ FROM
       authorised_values.authorised_value,
       authorised_values.lib) ccodes ON items.ccode = ccodes.authorised_value
 WHERE
-  items.barcode LIKE Concat("%", <<barcode number>>, "%")
+  items.barcode LIKE Concat("%", &lt;&gt;, "%")
 GROUP BY
   items.itemnumber
 ORDER BY

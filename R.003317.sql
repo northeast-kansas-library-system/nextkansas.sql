@@ -4,7 +4,7 @@ R.003317
 ----------
 
 Name: GHW - Self-Registration Report
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -30,12 +30,12 @@ Expiry: 300
 
 
 SELECT
-  Concat('<a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=', borrowers.borrowernumber, '" target="_blank">Link</a>') AS DIRECT_LINK,
+  Concat('Link') AS DIRECT_LINK,
   borrowers.cardnumber,
   borrowers.branchcode,
   Concat(Coalesce(borrowers.surname, ''), ', ', Coalesce(borrowers.firstname, '')) AS NAME,
   borrowers.dateofbirth,
-  Concat_Ws("<br />",
+  Concat_Ws("",
     Coalesce(borrowers.address, ''),
     Coalesce(borrowers.address2, ''),
     Concat(Coalesce(borrowers.city, ''), ', ', Coalesce(borrowers.state, ''), ' ', Coalesce(borrowers.zipcode, ''))

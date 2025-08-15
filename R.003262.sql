@@ -4,7 +4,7 @@ R.003262
 ----------
 
 Name: GHW - Multiple requests table
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-09-10 11:38:23
 Modified on: 2019-09-11 16:10:30
-Date last run: 2023-05-23 14:04:28
+Date last run: 2025-03-08 20:48:59
 
 ----------
 
@@ -30,10 +30,10 @@ Expiry: 3600
 
 
 SELECT
-  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', reservess.biblionumber, '\" target="_blank">Link to title</a>') AS GO_TO_RECORD,
-  Concat_Ws("<br />", reservess.title, reservess.GMD) AS title,
+  Concat('Link to title') AS GO_TO_RECORD,
+  Concat_Ws("", reservess.title, reservess.GMD) AS title,
   reservess.Count_reserve_id AS REQUESTS_AT_THIS_LIBRARY,
-  Coalesce(localitems.Count_itemnumber, Concat("<span style='color: red;'>0</span>")) AS YOUR_LIBRARY_OWNS,
+  Coalesce(localitems.Count_itemnumber, Concat("0")) AS YOUR_LIBRARY_OWNS,
   totalitems.Count_itemnumber AS SYSTEM_WIDE_ITEM_COUNT,
   reservesx.Count_reserve_id AS SYSTEM_WIDE_REQUEST_COUNT
 FROM
@@ -88,7 +88,7 @@ FROM
       JOIN reserves
         ON reserves.biblionumber = items.biblionumber
     WHERE
-      items.homebranch = <<library1>>
+      items.homebranch = &lt;&gt;
     GROUP BY
       items.biblionumber
   ) localitems
@@ -108,10 +108,10 @@ FROM
   ) reservesx
     ON reservesx.biblionumber = reservess.biblionumber
 WHERE
-  branchess.branchcode = <<library2>> AND
-  ((reservess.Count_reserve_id > 1 AND
+  branchess.branchcode = &lt;&gt; AND
+  ((reservess.Count_reserve_id &gt; 1 AND
       Coalesce(localitems.Count_itemnumber, 0) = 0) OR
-    (reservess.Count_reserve_id / totalitems.Count_itemnumber > 3))
+    (reservess.Count_reserve_id / totalitems.Count_itemnumber &gt; 3))
 GROUP BY
   Concat_Ws(" ", reservess.title, reservess.GMD),
   reservess.Count_reserve_id,

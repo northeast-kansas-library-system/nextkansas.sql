@@ -4,7 +4,7 @@ R.003205
 ----------
 
 Name: McNaughton
-Created by: HCC DIRECTOR
+Created by: Cindy Davis
 
 ----------
 

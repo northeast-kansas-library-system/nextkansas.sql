@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2013-01-13 21:35:41
 Modified on: 2015-05-19 11:42:41
-Date last run: 2023-02-22 14:21:05
+Date last run: 2024-03-27 13:59:21
 
 ----------
 
@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-SELECT * FROM deletedbiblio WHERE biblionumber=<<bibnumber>>
+SELECT * FROM deletedbiblio WHERE biblionumber=&lt;&gt;
 
 
 

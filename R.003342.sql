@@ -4,7 +4,7 @@ R.003342
 ----------
 
 Name: GHW - Action logs - Item number lookup
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2020-08-13 14:10:41
 Modified on: 2021-04-19 14:30:08
-Date last run: 2023-01-17 21:13:55
+Date last run: 2025-07-03 10:16:14
 
 ----------
 
@@ -36,12 +36,12 @@ SELECT
   action_logs.module,
   action_logs.action,
   action_logs.object,
-  Replace(action_logs.info, ",", ",<br />") AS info,
+  Replace(action_logs.info, ",", ",") AS info,
   action_logs.interface
 FROM
   action_logs
 WHERE
-  action_logs.info LIKE Concat("%'itemnumber' => ", <<Enter item number>>, "%")
+  action_logs.info LIKE Concat("%'itemnumber' =&gt; ", &lt;&gt;, "%")
 
 
 

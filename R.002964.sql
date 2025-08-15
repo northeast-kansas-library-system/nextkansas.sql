@@ -4,7 +4,7 @@ R.002964
 ----------
 
 Name: GHW - Collection agency report 01 - Unique management
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group:  OTTAWA
      -
 
 Created on: 2017-06-27 16:32:34
-Modified on: 2021-08-16 13:44:01
-Date last run: 2023-05-19 09:36:36
+Modified on: 2024-01-17 11:51:37
+Date last run: 2025-08-14 10:42:52
 
 ----------
 
@@ -22,17 +22,17 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Generates a report of newly delinquent patrons for OTTAWA to send to Unique Management for collections.</p>
-<ul><li>Shows patrons who owe money to OTTAWA and were initially billed more than 60 days ago but less than 1 year ago.</li>
-<li>Shows patrons whose fees were created at OTTAWA (i.e. item with fees was checked out at OTTAWA or fee was created by an OTTAWA staff member) and have not yet been turned over to collections</li>
-<li>grouped by borrowernumber</li>
-<li>sorted by borrowers name, last name first</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2964&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Generates a report of newly delinquent patrons for OTTAWA to send to Unique Management for collections.
+Shows patrons who owe money to OTTAWA and were initially billed more than 60 days ago but less than 1 year ago.
+Shows patrons whose fees were created at OTTAWA (i.e. item with fees was checked out at OTTAWA or fee was created by an OTTAWA staff member) and have not yet been turned over to collections
+grouped by borrowernumber
+sorted by borrowers name, last name first
+
+Notes:
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -85,7 +85,7 @@ FROM
       accountlines JOIN
       borrowers ON borrowers.borrowernumber = accountlines.manager_id
     WHERE
-      accountlines.amountoutstanding > 0 AND
+      accountlines.amountoutstanding &gt; 0 AND
       accountlines.date BETWEEN (Date_Sub(CurDate(), INTERVAL 1 YEAR)) AND (Date_Sub(CurDate(), INTERVAL 60 DAY)) AND
       borrowers.branchcode = @brn := "OTTAWA" COLLATE utf8mb4_unicode_ci
     UNION
@@ -105,7 +105,7 @@ FROM
       old_issues ON old_issues.borrowernumber = accountlines.borrowernumber AND 
       old_issues.itemnumber = accountlines.itemnumber
     WHERE
-      accountlines.amountoutstanding > 0 AND
+      accountlines.amountoutstanding &gt; 0 AND
       accountlines.timestamp BETWEEN (Date_Sub(CurDate(), INTERVAL 1 YEAR)) AND (Date_Sub(CurDate(), INTERVAL 60 DAY)) AND old_issues.branchcode = @brn) outstanding_sixty JOIN
       borrowers ON borrowers.borrowernumber = outstanding_sixty.borrowernumber JOIN
       categories ON borrowers.categorycode = categories.categorycode LEFT JOIN
@@ -128,7 +128,7 @@ FROM
     FROM
       accountlines
     WHERE
-      accountlines.amountoutstanding > .01
+      accountlines.amountoutstanding &gt; .01
     GROUP BY
       accountlines.borrowernumber) outstanding_total ON
       outstanding_total.borrowernumber = outstanding_sixty.borrowernumber
@@ -137,7 +137,7 @@ WHERE
 GROUP BY
   borrowers.borrowernumber
 HAVING
-  AMOUNT_OUTSTANDING_SIXTY > 25
+  AMOUNT_OUTSTANDING_SIXTY &gt; 25
 ORDER BY
   borrowers.surname,
   borrowers.firstname

@@ -12,8 +12,8 @@ Group: Catalog Records and Items
      Weeding Criteria
 
 Created on: 2013-07-31 13:02:01
-Modified on: 2022-08-09 10:43:46
-Date last run: 2023-04-19 15:42:53
+Modified on: 2023-10-16 22:06:11
+Date last run: 2025-08-06 10:02:57
 
 ----------
 
@@ -22,19 +22,19 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Lists items that (A) have never checked out or that (B) have not been borrowed since before the date you specify</p>
-<ul><li>Shows items currently in the collection</li>
-<li>owned by the library you specify</li>
-<li>grouped by item number</li>
-<li>sorted by the standard Next Search Catalog classification scheme</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p></p>
-<p class= "notetags" style="display: none;">#weeding #datelastborrowed #dateaccessioned</p>
-<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div> 
+ 
+Lists items that (A) have never checked out or that (B) have not been borrowed since before the date you specify
+Shows items currently in the collection
+owned by the library you specify
+grouped by item number
+sorted by the standard Next Search Catalog classification scheme
+
+Notes:
+
+
+#weeding #datelastborrowed #dateaccessioned
+
+ 
 
 ----------
 */
@@ -135,13 +135,13 @@ FROM
     ) ccode 
     ON ccode.authorised_value = items.ccode
 WHERE
-  items.homebranch LIKE <<Choose your library|ZBRAN>> AND
+  items.homebranch LIKE &lt;&gt; AND
   (
     (
-      items.dateaccessioned < <<List items with 0 check-outs and renewals added before|date>> AND
+      items.dateaccessioned &lt; &lt;&gt; AND
       (Coalesce(items.issues, 0) + Coalesce(items.renewals, 0) = 0)
     ) OR
-    (items.datelastborrowed < <<Or items last borrowed before|date>>)
+    (items.datelastborrowed &lt; &lt;&gt;)
   )
 GROUP BY
   items.itemnumber

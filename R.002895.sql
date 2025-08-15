@@ -4,7 +4,7 @@ R.002895
 ----------
 
 Name: GHW - Lost statuses by check-out branch with last patron data
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Circulation
      Overdues
 
 Created on: 2017-02-01 15:28:38
-Modified on: 2022-10-13 11:55:15
-Date last run: 2023-05-22 10:40:43
+Modified on: 2024-01-17 11:48:54
+Date last run: 2025-08-11 11:10:26
 
 ----------
 
@@ -22,23 +22,23 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>Lists items with any "Lost" status that were checked out at your library</p>
-<ul><li>Shows items that currently have the "Lost" status you specify</li>
-<li>shows items that were checked out at your library - regardless of which library owns the item</li>
-<li>grouped by itemnumber</li>
-<li>sorted by the default Next sort order (home library, location, item type, collection code, call number, title, author, barcode number) + patron borrowernumber<br /><br />
-OR<br /><br />
-date marked lost, borrowers cardnumber, and then the normal sort order</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Monthly cleanup</p>
-<p></p>
-<p>Replaces report 888</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2895&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Lists items with any "Lost" status that were checked out at your library
+Shows items that currently have the "Lost" status you specify
+shows items that were checked out at your library - regardless of which library owns the item
+grouped by itemnumber
+sorted by the default Next sort order (home library, location, item type, collection code, call number, title, author, barcode number) + patron borrowernumber
+OR
+date marked lost, borrowers cardnumber, and then the normal sort order
+
+Notes:
+
+Monthly cleanup
+
+Replaces report 888
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -48,12 +48,7 @@ date marked lost, borrowers cardnumber, and then the normal sort order</li>
 SELECT
   holdingbranches.branchname AS CKO_BRANCH,
   Concat(
-    '<a class="btn btn-default noprint"', 
-    'href=\"/cgi-bin/koha/catalogue/moredetail.pl?itemnumber=', 
-    items.itemnumber, 
-    '&biblionumber=', 
-    items.biblionumber, 
-    '/" target="_blank">Link to item</a>'
+    'Link to item'
   ) AS ITEM,
   items.barcode AS ITEM_BARCODE,
   homebranches.branchname AS ITEM_HOME,
@@ -80,12 +75,9 @@ SELECT
   borrowers.email,
   items.replacementprice,
   Concat(
-    '<a class="btn btn-default noprint" ',
-    'href=\"/cgi-bin/koha/members/pay.pl?borrowernumber=', 
-    borrowers.borrowernumber, 
-    '/" target="_blank">Link to borrower</a>'
+    'Link to borrower'
   ) AS BORROWER,
-  @SortOrder := <<Sort by|XS_DATE>> AS SORTING 
+  @SortOrder := &lt;&gt; AS SORTING 
 FROM
   items 
   JOIN
@@ -159,7 +151,7 @@ FROM
   ON itemtypes.itemtype = items.itype
 WHERE
   Date_Format(old_issues.returndate, '%m/%d/%Y') = Date_Format(items.itemlost_on, '%m/%d/%Y') AND
-  items.holdingbranch LIKE <<Check-out branch|ZBRAN>> 
+  items.holdingbranch LIKE &lt;&gt; 
 GROUP BY
   holdingbranches.branchname,
   homebranches.branchname,
@@ -169,12 +161,12 @@ GROUP BY
   borrowers.surname,
   items.itemnumber
 HAVING
-  LOST_STATUS LIKE <<Choose lost status|ZLOST_ONLY>> 
+  LOST_STATUS LIKE &lt;&gt; 
 ORDER BY
   (CASE WHEN SORTING = 3 THEN old_issues.returndate END) ASC, 
   (CASE WHEN SORTING = 2 THEN old_issues.returndate END) DESC, 
   (CASE WHEN SORTING = 1 THEN CKO_BRANCH END) ASC, 
-  (CASE WHEN SORTING > 1 THEN borrowers.cardnumber END) ASC, 
+  (CASE WHEN SORTING &gt; 1 THEN borrowers.cardnumber END) ASC, 
   LOCATION,
   ITYPE,
   CCODE,

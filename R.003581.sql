@@ -4,7 +4,7 @@ R.003581
 ----------
 
 Name: LibraryIQ - Circulation rules (in use) (setup)
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: LibraryIQ
 
 Created on: 2021-10-11 14:07:34
 Modified on: 2021-10-13 11:11:17
-Date last run: 2021-11-17 16:23:55
+Date last run: 2023-10-23 17:53:16
 
 ----------
 
@@ -142,7 +142,7 @@ FROM
             FROM
               circulation_rules
             WHERE
-              circulation_rules.branchcode = <<Choose your library|branches>> AND
+              circulation_rules.branchcode = &lt;&gt; AND
               circulation_rules.rule_name = 'issuelength' AND
               circulation_rules.categorycode IS NULL AND
               circulation_rules.itemtype IS NOT NULL) all_specific_rules ON

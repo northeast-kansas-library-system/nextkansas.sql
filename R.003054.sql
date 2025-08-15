@@ -4,7 +4,7 @@ R.003054
 ----------
 
 Name: GHW - Videos without links
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2018-03-02 10:10:47
-Modified on: 2022-10-20 11:36:10
-Date last run: 2023-03-14 17:42:32
+Modified on: 2025-04-27 17:37:33
+Date last run: 2025-05-22 23:01:12
 
 ----------
 
@@ -24,7 +24,7 @@ Expiry: 300
 
 zbrq
 
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3054">Click here to download as a csv file</a></p>
+Click here to download as a csv file
 
 ----------
 */
@@ -33,9 +33,9 @@ zbrq
 
 SELECT
   biblio.biblionumber,
-  ExtractValue(biblio_metadata.metadata, '//leader') AS LEADER,
-  ExtractValue(biblio_metadata.metadata, '//controlfield[@tag=007]') AS ZERO_SEVEN,
-  ExtractValue(biblio_metadata.metadata, '//controlfield[@tag=008]') AS ZERO_EIGHT,
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=020]/subfield[@code="a"]') AS ISBN, 
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=022]/subfield[@code="a"]') AS ISSN,
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=024]/subfield[@code="a"]') AS UPC,
   biblio.datecreated,
   biblio.timestamp,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag=245]/subfield[@code="a"]') AS TITLE_A,
@@ -47,18 +47,27 @@ SELECT
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag=130]/subfield[@code="a"]') AS UNTITLE_OA,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag=730]/subfield[@code="a"]') AS UNTITLE_SA,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag=300]/subfield[@code="a"]') AS DESCRIP,
+  Group_Concat(DISTINCT items.permanent_location ORDER BY items.permanent_location ASC) AS Group_Concat_location,
   Group_Concat(DISTINCT items.ccode ORDER BY items.ccode ASC) AS Group_Concat_ccode,
   biblio.frameworkcode,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag=306]/subfield[@code="a"]') AS TIMESS,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag=942]/subfield[@code="e"]') AS BIB_LOC,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag=942]/subfield[@code="c"]') AS BIB_ITYPE,
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=942]/subfield[@code="h"]') AS BIB_CCODE
-FROM  biblio
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=942]/subfield[@code="h"]') AS BIB_CCODE,
+  Group_Concat(DISTINCT items.permanent_location ORDER BY items.permanent_location ASC) AS ITEM_LOCS,  
+  Group_Concat(DISTINCT items.itype ORDER BY items.itype ASC) AS ITEM_ITYPE,  
+  Group_Concat(DISTINCT items.ccode ORDER BY items.ccode ASC) AS ITEM_CCODE, 
+  ExtractValue(biblio_metadata.metadata, '//leader') AS 'LDR',  
+  ExtractValue(biblio_metadata.metadata, '//controlfield[@tag=006]') AS '006 - Fixed-Length Data Elements - Additional Material Characteristics',
+  ExtractValue(biblio_metadata.metadata, '//controlfield[@tag=007]') AS '007 - Physical Description Fixed Field',
+  ExtractValue(biblio_metadata.metadata, '//controlfield[@tag=008]') AS '008 - Fixed-Length Data Elements',
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=942]/subfield[@code="e"]') AS BIB_LOCS
+FROM
+  biblio
   JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
   JOIN items ON items.biblionumber = biblio.biblionumber
 WHERE
-  (items.itype LIKE 'NVID%' OR
-    items.itype = 'MEDIA')
+  (items.itype LIKE 'NVID%')
 GROUP BY
   biblio.biblionumber
 ORDER BY

@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2013-02-12 15:49:46
 Modified on: 2013-09-25 17:19:40
-Date last run: 2023-02-22 14:21:28
+Date last run: 2024-03-27 13:59:51
 
 ----------
 
@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-SELECT d.biblionumber,b.biblionumber, d.title, b.title, d.author, b.author, e.homebranch,e.barcode FROM deletedbiblio d LEFT JOIN deleteditems e USING(biblionumber) LEFT JOIN biblio b USING(biblionumber) WHERE e.barcode=<<enter/scan in barcode>>
+SELECT d.biblionumber,b.biblionumber, d.title, b.title, d.author, b.author, e.homebranch,e.barcode FROM deletedbiblio d LEFT JOIN deleteditems e USING(biblionumber) LEFT JOIN biblio b USING(biblionumber) WHERE e.barcode=&lt;&gt;
 
 
 

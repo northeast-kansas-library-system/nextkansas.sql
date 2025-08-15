@@ -4,7 +4,7 @@ R.003585
 ----------
 
 Name: GHW - All borrower messaging preferences
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -290,8 +290,8 @@ FROM
       borrower_message_preferences.borrower_message_preference_id) checkout_sms
     ON checkout_sms.borrowernumber = borrowers.borrowernumber
 WHERE
-  borrowers.branchcode LIKE <<Choose your library|branches:all>> AND
-  borrowers.categorycode LIKE <<Category|categorycode>>
+  borrowers.branchcode LIKE &lt;&gt; AND
+  borrowers.categorycode LIKE &lt;&gt;
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

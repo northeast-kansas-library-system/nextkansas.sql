@@ -4,7 +4,7 @@ R.003319
 ----------
 
 Name: GHW - COVID-19 Self-registered duplicate
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -58,8 +58,8 @@ SELECT
   ) AS CARDTWO
 FROM borrowers pat1,
      borrowers pat2
-WHERE pat1.cardnumber = <<Card one>>
-  AND pat2.cardnumber = <<Card two>>
+WHERE pat1.cardnumber = &lt;&gt;
+  AND pat2.cardnumber = &lt;&gt;
 
 
 

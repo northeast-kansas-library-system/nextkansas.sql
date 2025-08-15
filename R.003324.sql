@@ -4,7 +4,7 @@ R.003324
 ----------
 
 Name: GHW - 942 fix part 3
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -42,8 +42,8 @@ GROUP BY
   items.biblionumber
 HAVING
   Count(DISTINCT items.location) = 1 AND
-  LOCATIONS <> BIBLOCATION AND
-  Group_Concat(DISTINCT items.location) = <<Choose bib level shelving location|BIBLOC>>
+  LOCATIONS &lt;&gt; BIBLOCATION AND
+  Group_Concat(DISTINCT items.location) = &lt;&gt;
 
 
 

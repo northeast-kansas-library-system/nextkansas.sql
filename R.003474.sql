@@ -4,7 +4,7 @@ R.003474
 ----------
 
 Name: GHW - ADMINREPORT
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2021-03-04 18:30:04
 Modified on: 2021-03-04 19:23:30
-Date last run: 2021-03-04 22:58:11
+Date last run: 2024-04-11 14:39:30
 
 ----------
 
@@ -43,8 +43,8 @@ FROM
       biblioitems JOIN
       items ON items.biblioitemnumber = biblioitems.biblioitemnumber
     WHERE
-      items.homebranch LIKE <<Choose your library|LBRANCH>> AND
-      biblioitems.publicationyear < Year(Now()) AND
+      items.homebranch LIKE &lt;&gt; AND
+      biblioitems.publicationyear &lt; Year(Now()) AND
       biblioitems.publicationyear REGEXP '^[0-9]+$'
     GROUP BY
       items.homebranch,

@@ -4,7 +4,7 @@ R.003272
 ----------
 
 Name: GHW - Email template report for miss-labeled deliveries ADMINREPORT
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -33,33 +33,33 @@ SELECT
   Concat_Ws(
     "",
     'nexthelp@nekls.org',
-    '<br /><br />',
+    '',
     shippinginfo.frommail,
-    '<br /><br />',
+    '',
     'Items shipped with incorrect label',
-    '<br /><br />', 
+    '', 
     'According to the logs in the system, an item was shipped from ', 
-    '<span style="text-decoration: underline;">', 
+    '', 
     shippinginfo.fromname, 
-    '</span>', 
+    '', 
     ' to ', 
-    '<span style="text-decoration: underline;">', 
+    '', 
     shippinginfo.toname, 
-    '</span>', 
+    '', 
     ' on ', 
     shippinginfo.DATE, 
     ' at ', 
     shippinginfo.TIME, 
-    '<br /><br />', 
-    'The details are as follow:<br /><br />', 
-    Concat('BC: ', Upper(items.barcode), '<br />'), 
-    Concat('Home library: ', items.homebranch, '<br />'), 
-    Concat('Current library: ', items.holdingbranch, '<br />'), 
-    Concat('Location: ', loction.lib, '<br />'), 
-    Concat('Item type: ', itemtypes.description, '<br />'), 
-    Concat('Collection code: ', ccodes.lib, '<br />'), 
-    Concat('Call number: ', items.itemcallnumber, '<br />'), 
-    Concat('Author: ', biblio.author, '<br />'), 
+    '', 
+    'The details are as follow:', 
+    Concat('BC: ', Upper(items.barcode), ''), 
+    Concat('Home library: ', items.homebranch, ''), 
+    Concat('Current library: ', items.holdingbranch, ''), 
+    Concat('Location: ', loction.lib, ''), 
+    Concat('Item type: ', itemtypes.description, ''), 
+    Concat('Collection code: ', ccodes.lib, ''), 
+    Concat('Call number: ', items.itemcallnumber, ''), 
+    Concat('Author: ', biblio.author, ''), 
     Concat_Ws(
       ' ', 
       'Title: ', 
@@ -68,29 +68,29 @@ SELECT
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'), 
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')
     ), 
-    '<br /><br />', 
+    '', 
     'It appears that your staff used the incorrect shipping label because this item arrived recently in the delivery at ', 
-    '<span style="text-decoration: underline; font-weight: bold;">', 
+    '', 
     Concat(receivingbranch.branchnotes, " - ", receivingbranch.branchname), 
-    '</span>', 
+    '', 
     ' instead of its intended destination.', 
-    '<br /><br />', 
+    '', 
     'We are letting you know because we have had a significant problem with miss-labeled deliveries at ',
     receivingbranch.branchname,
     ' recently.', 
     '  We were hoping you could let your staff know about this so we can get the ', 
-    '<span style="text-decoration: underline; font-weight: bold;">', 
+    '', 
     Concat(shippinginfo.tonotes, " - ", shippinginfo.toname), 
-    '</span>', 
+    '', 
     ' items shipped directly to ', 
-    '<span style="text-decoration: underline; font-weight: bold;">', 
+    '', 
     Concat(shippinginfo.tonotes, " - ", shippinginfo.toname), 
-    '</span>', 
+    '', 
     ' instead of ', 
-    '<span style="text-decoration: underline; font-weight: bold;">', 
+    '', 
     Concat(receivingbranch.branchnotes, " - ", receivingbranch.branchname), 
-    '</span>', '.', '<br /><br />', 
-    'Thanks for your help - and if you have any questions (or if you are having a similar problem with miss-labeled deliveries), please let us know at nexthelp@nekls.org,<br /><br />George<br />nexthelp@nekls.org') AS LETTER
+    '', '.', '', 
+    'Thanks for your help - and if you have any questions (or if you are having a similar problem with miss-labeled deliveries), please let us know at nexthelp@nekls.org,Georgenexthelp@nekls.org') AS LETTER
 FROM
   items
   JOIN biblio
@@ -155,7 +155,7 @@ FROM
       ) branchto
         ON branchto.branchcode = branchtransfers.tobranch
     WHERE
-      branchtransfers.branchtransfer_id = <<Transfer ID>>
+      branchtransfers.branchtransfer_id = &lt;&gt;
     GROUP BY
       branchtransfers.branchtransfer_id,
       branchtransfers.itemnumber,
@@ -176,7 +176,7 @@ FROM
     FROM
       branches
     WHERE
-      branches.branchcode = <<Library receiving miss-labeled item|branches>>
+      branches.branchcode = &lt;&gt;
   ) receivingbranch
 GROUP BY
   items.itemnumber

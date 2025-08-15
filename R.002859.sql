@@ -4,7 +4,7 @@ R.002859
 ----------
 
 Name: GHW - All requests on an item by barcode number
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Administrative Reports
      Testing
 
 Created on: 2016-12-15 17:58:33
-Modified on: 2018-04-16 11:05:05
-Date last run: -
+Modified on: 2024-01-17 11:46:39
+Date last run: 2024-04-15 10:30:17
 
 ----------
 
@@ -22,18 +22,18 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>Shows all hold information for an item - current and past</p>
-<ul><li>shows current requests and request history</li>
-<li>from any item in NExpress</li>
-<li>grouped by request ID</li>
-<li>sorted by time of last activity on request</li>
-<li>links to the corresponding current requests on a biblio report</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2859&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Shows all hold information for an item - current and past
+shows current requests and request history
+from any item in NExpress
+grouped by request ID
+sorted by time of last activity on request
+links to the corresponding current requests on a biblio report
+
+Notes:
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -58,7 +58,7 @@ SELECT
   allreserves.found,
   allreserves.reservenotes,
   items.barcode,
-  CONCAT('<a href=\"/cgi-bin/koha/reports/guided_reports.pl?reports=2860&phase=Run+this+report&sql_params=',biblio.biblionumber, '\" target="_blank">', biblio.biblionumber, '</a>') AS REQUESTS_ON_BIB
+  CONCAT('', biblio.biblionumber, '') AS REQUESTS_ON_BIB
 FROM
   (SELECT
     *
@@ -76,7 +76,7 @@ FROM
   borrowers
     ON borrowers.borrowernumber = allreserves.borrowernumber
 WHERE
-  items.barcode LIKE <<Enter item barcode number>>
+  items.barcode LIKE &lt;&gt;
 GROUP BY
   allreserves.reserve_id, items.barcode
 ORDER BY

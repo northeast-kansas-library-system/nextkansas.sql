@@ -4,7 +4,7 @@ R.003607
 ----------
 
 Name: LibraryIQ - Item File (full) - BASEHOR
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -51,7 +51,7 @@ SELECT
     damageds.lib, 
     losts.lib, 
     withdrawns.lib, 
-    if(items.onloan > 0, "Checked out", "")
+    if(items.onloan &gt; 0, "Checked out", "")
   ) AS `Current Item Status`,
   items.datelastborrowed AS `Last Checkout Date`,
   items.datelastseen AS `Check In Date`,
@@ -123,7 +123,7 @@ FROM
     WHERE
       (statistics.type = 'issue' OR
         statistics.type = 'renew') AND
-      statistics.datetime > CurDate() - INTERVAL 1 YEAR
+      statistics.datetime &gt; CurDate() - INTERVAL 1 YEAR
     GROUP BY
       statistics.itemnumber) statisticss ON statisticss.itemnumber =
       items.itemnumber LEFT JOIN

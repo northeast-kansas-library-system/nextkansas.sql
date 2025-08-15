@@ -4,7 +4,7 @@ R.003007
 ----------
 
 Name: GHW - Single patron address label
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -34,9 +34,9 @@ SELECT
     borrowers.firstname,
     " ",
     borrowers.surname,
-    "<br />",
+    "",
     borrowers.address,
-    "<br />",
+    "",
     borrowers.city,
     ", ",
     borrowers.state,
@@ -45,7 +45,7 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.cardnumber LIKE Concat("%", <<Enter patron barcode number>>, "%")
+  borrowers.cardnumber LIKE Concat("%", &lt;&gt;, "%")
 
 
 

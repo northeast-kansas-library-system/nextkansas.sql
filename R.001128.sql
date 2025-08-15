@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2011-06-08 13:03:00
 Modified on: 2013-11-17 16:13:42
-Date last run: 2023-04-12 16:17:16
+Date last run: 2025-04-04 13:30:22
 
 ----------
 
@@ -29,7 +29,7 @@ From koha-comm reports library
 
 
 
-SELECT location, substring(itemcallnumber,1,1) AS 'Call Number range', count(*) AS count FROM statistics LEFT JOIN items USING (itemnumber) WHERE statistics.type IN ('issue', 'renew') AND YEAR(datetime) = <<Enter Year>> AND MONTH(datetime) = <<Enter Month>> AND statistics.branch = <<branch|branches>> AND items.itype = <<Item Type|itemtypes>> AND items.ccode = <<ccode|CCODE>> GROUP BY location, substring(itemcallnumber,1,1)
+SELECT location, substring(itemcallnumber,1,1) AS 'Call Number range', count(*) AS count FROM statistics LEFT JOIN items USING (itemnumber) WHERE statistics.type IN ('issue', 'renew') AND YEAR(datetime) = &lt;&gt; AND MONTH(datetime) = &lt;&gt; AND statistics.branch = &lt;&gt; AND items.itype = &lt;&gt; AND items.ccode = &lt;&gt; GROUP BY location, substring(itemcallnumber,1,1)
 
 
 

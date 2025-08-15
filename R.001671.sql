@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2012-12-06 13:24:49
 Modified on: 2013-06-23 12:35:53
-Date last run: 2021-11-07 12:12:02
+Date last run: 2024-06-14 08:36:38
 
 ----------
 
@@ -29,7 +29,7 @@ MC 12/6/12 #fines #patrons
 
 
 
-SELECT borrowers.cardnumber, borrowers.surname,borrowers.firstname, borrowers.address, borrowers.city, borrowers.zipcode, borrowers.email, borrowers.phone, borrowers.dateofbirth, borrowers.debarred, FORMAT(SUM(accountlines.amountoutstanding),2) AS Due FROM borrowers LEFT JOIN accountlines USING(borrowernumber) WHERE borrowers.categorycode = <<borrowers.categorycode|categorycode>> GROUP BY borrowers.borrowernumber HAVING SUM(accountlines.amountoutstanding) >= 10.00 ORDER BY borrowers.surname ASC
+SELECT borrowers.cardnumber, borrowers.surname,borrowers.firstname, borrowers.address, borrowers.city, borrowers.zipcode, borrowers.email, borrowers.phone, borrowers.dateofbirth, borrowers.debarred, FORMAT(SUM(accountlines.amountoutstanding),2) AS Due FROM borrowers LEFT JOIN accountlines USING(borrowernumber) WHERE borrowers.categorycode = &lt;&gt; GROUP BY borrowers.borrowernumber HAVING SUM(accountlines.amountoutstanding) &gt;= 10.00 ORDER BY borrowers.surname ASC
 
 
 

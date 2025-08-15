@@ -4,7 +4,7 @@ R.003709
 ----------
 
 Name: GHW - Notices and slips website - work in progress
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2023-02-17 17:21:17
 Modified on: 2023-02-19 17:16:13
-Date last run: 2023-03-08 16:41:43
+Date last run: 2023-12-27 10:02:25
 
 ----------
 
@@ -75,10 +75,10 @@ Select
       'Library: :ref:`', 
       If(
         letter.branchcode = '',
-        'All libraries (default)<Default notices for all libraries>',
+        'All libraries (default)',
         CONCAT(
           branches.branchname,
-          '<Notices for a specific library>'
+          ''
         )
       ),
       '`'
@@ -102,12 +102,12 @@ Select
     Char(10),
     Char(13),
     Char(10),
-    Concat('Language: :ref:`', letter.lang, '<', letter.lang, ' language>`'),
+    Concat('Language: :ref:`', letter.lang, '&lt;', letter.lang, ' language&gt;`'),
     Char(13),
     Char(10),
     Char(13),
     Char(10),
-    Concat('Transport: :ref:`', letter.message_transport_type, '<', letter.message_transport_type, ' transport type>`'),
+    Concat('Transport: :ref:`', letter.message_transport_type, '&lt;', letter.message_transport_type, ' transport type&gt;`'),
     Char(13),
     Char(10),
     Char(13),

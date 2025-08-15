@@ -4,7 +4,7 @@ R.003698
 ----------
 
 Name: GHW - Library card numbers with punctuation marks
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,7 +12,7 @@ Group: -
      -
 
 Created on: 2023-01-26 13:47:47
-Modified on: 2023-01-26 13:51:54
+Modified on: 2023-10-16 21:54:48
 Date last run: 2023-03-22 16:31:29
 
 ----------
@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-  <p>Library card numbers with punctuation marks</p>
-  <ul>
-    <li>Shows current borrower accounts</li>
-    <li>At the library you specify</li>
-    <li>grouped and sorted by library name and card number</li>
-  </ul><br />
-  <p><ins>Notes:</ins></p>
-  <p></p>
-  <p>Does not include SIP accounts, system accounts, inhouse accounts, or ILL accounts.</p>
-  <p></p>
-  <p class= "notetags" style="display: none;">#cardnumbers #troubleshooting</p>
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div>
+ 
+  Library card numbers with punctuation marks
+  
+    Shows current borrower accounts
+    At the library you specify
+    grouped and sorted by library name and card number
+  
+  Notes:
+  
+  Does not include SIP accounts, system accounts, inhouse accounts, or ILL accounts.
+  
+  #cardnumbers #troubleshooting
+  
+
 
 ----------
 */
@@ -79,19 +79,19 @@ Where
         borrowers.cardnumber Like "%\'%" Or
         borrowers.cardnumber Like "%\"%" Or
         borrowers.cardnumber Like "%,%" Or
-        borrowers.cardnumber Like "%<%" Or
+        borrowers.cardnumber Like "%&lt;%" Or
         borrowers.cardnumber Like "%.%" Or
-        borrowers.cardnumber Like "%>%" Or
+        borrowers.cardnumber Like "%&gt;%" Or
         borrowers.cardnumber Like "%/%" Or
         borrowers.cardnumber Like "%?%" Or
         borrowers.cardnumber Like "%|%" Or
         borrowers.cardnumber Like "%\\%") And
-    branches.branchcode Like <<Choose your library|ZBRAN>> And
-    categories.categorycode <> 'S_SIP' And
-    categories.categorycode <> 'STATISTIC' And
-    categories.categorycode <> 'ILL' And
-    categories.categorycode <> 'INHOUSE' And
-    categories.categorycode <> 'STAFF'
+    branches.branchcode Like &lt;&gt; And
+    categories.categorycode &lt;&gt; 'S_SIP' And
+    categories.categorycode &lt;&gt; 'STATISTIC' And
+    categories.categorycode &lt;&gt; 'ILL' And
+    categories.categorycode &lt;&gt; 'INHOUSE' And
+    categories.categorycode &lt;&gt; 'STAFF'
 Group By
     borrowers.borrowernumber,
     branches.branchname,

@@ -4,7 +4,7 @@ R.003611
 ----------
 
 Name: LibraryIQ - Bibliographic File (added yesterday) - BASEHOR
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

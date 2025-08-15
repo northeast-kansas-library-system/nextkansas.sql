@@ -4,7 +4,7 @@ R.003247
 ----------
 
 Name: GHW - value of items checked out in the previous calendar month
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-08-08 15:26:19
-Modified on: 2019-08-13 15:03:47
-Date last run: 2022-11-03 08:55:23
+Modified on: 2024-01-17 11:22:18
+Date last run: 2024-05-14 11:36:37
 
 ----------
 
@@ -22,24 +22,24 @@ Expiry: 300
 
 ----------
 
-<div id="reportinfo" class="noPrint">
-<p>Generates total value of all items checked out during the  previous calendar month at the library you specify</p>
-<ul><li>Shows value of items checkered out during the previous calendar month</li>
-<li>at the library you specify (no matter which library owned the item)</li>
-<li>grouped by replacement price, check-out branch, item type, item number, date and time of checkout, library name, and item type description.</li>
-<li>sorted by checkout library and item type description</li>
-<li>links</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<ul>
-<li>Summarizes the replacement cost of every item checked out, every time it was checked out at the specified library during the previous calendar month.  If, for example, a $10.00 MOVIE checks out 5 times at one library last month, those checkouts will contribute $50.00 to the total in the column for "MOVIE" at that library for last month.</li>
-<li>This report relies on the accuracy of the data in the 952$v field.  If, for example, the 952$v field has accidentally been sent to $999,999.99 for an item, each time that item checks out in a month, the total value for the VALUE_OF_ALL_ITEMS_CHECKED_OUT column will increase by slightly less than one million dollars.  Similarly, if the 952$v is left blank, no value will be recorded.</li>
-<li>This report only looks at check-outs - it does not record data for renewals.</li>
-</ul>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3247&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Generates total value of all items checked out during the  previous calendar month at the library you specify
+Shows value of items checkered out during the previous calendar month
+at the library you specify (no matter which library owned the item)
+grouped by replacement price, check-out branch, item type, item number, date and time of checkout, library name, and item type description.
+sorted by checkout library and item type description
+links
+
+Notes:
+
+
+Summarizes the replacement cost of every item checked out, every time it was checked out at the specified library during the previous calendar month.  If, for example, a $10.00 MOVIE checks out 5 times at one library last month, those checkouts will contribute $50.00 to the total in the column for "MOVIE" at that library for last month.
+This report relies on the accuracy of the data in the 952$v field.  If, for example, the 952$v field has accidentally been sent to $999,999.99 for an item, each time that item checks out in a month, the total value for the VALUE_OF_ALL_ITEMS_CHECKED_OUT column will increase by slightly less than one million dollars.  Similarly, if the 952$v is left blank, no value will be recorded.
+This report only looks at check-outs - it does not record data for renewals.
+
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -87,7 +87,7 @@ FROM
     ON statsitmes.branch = branchsitypes.branchcode AND
       statsitmes.itemtype = branchsitypes.itemtype
 WHERE
-  branchsitypes.branchcode LIKE <<Choose your library|ZBRAN>>
+  branchsitypes.branchcode LIKE &lt;&gt;
 GROUP BY
   branchsitypes.branchname,
   branchsitypes.description

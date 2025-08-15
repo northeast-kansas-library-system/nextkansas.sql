@@ -4,7 +4,7 @@ R.003151
 ----------
 
 Name: GHW - Mapping Helper
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2018-12-27 18:03:14
-Modified on: 2018-12-27 18:05:53
-Date last run: 2022-10-18 11:53:00
+Modified on: 2023-09-27 09:37:45
+Date last run: 2023-09-27 09:38:10
 
 ----------
 
@@ -36,15 +36,14 @@ SELECT
   borrowers.zipcode,
   borrowers.branchcode,
   borrowers.categorycode,
-  borrowers.sex AS GENDERS,
   ROUND((DateDiff(CurDate(), borrowers.dateofbirth) / 365.25)) AS AGES
 FROM
   borrowers
 WHERE
-  borrowers.branchcode LIKE <<Choose a library|LBRANCH>> AND
-  borrowers.city LIKE Concat(<<Enter a city name or a % symbol>>, "%") AND
-  borrowers.state LIKE Concat(<<Enter a state name or a % symbol>>, "%") AND
-  borrowers.zipcode LIKE Concat(<<Enter a zip code or a % symbol>>, "%")
+  borrowers.branchcode LIKE &lt;&gt; AND
+  borrowers.city LIKE Concat(&lt;&gt;, "%") AND
+  borrowers.state LIKE Concat(&lt;&gt;, "%") AND
+  borrowers.zipcode LIKE Concat(&lt;&gt;, "%")
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

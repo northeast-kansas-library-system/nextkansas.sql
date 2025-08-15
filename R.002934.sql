@@ -4,7 +4,7 @@ R.002934
 ----------
 
 Name: GHW -  SMS Counts
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

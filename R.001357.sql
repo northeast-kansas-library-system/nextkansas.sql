@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2012-04-23 14:44:49
 Modified on: 2016-08-22 16:31:23
-Date last run: 2023-05-19 16:44:56
+Date last run: 2025-03-11 07:13:30
 
 ----------
 
@@ -29,7 +29,7 @@ Limited by branch. Only by dates. #added
 
 
 
-select i.dateaccessioned, CONCAT('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',b.biblionumber,'\" target="_blank">',b.biblionumber,'</a>') as "Linked Record", CONCAT('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=',b.title,'&sort_by=title_az\" target="_blank">',b.title,'</a>') AS "Title Search", i.ccode, i.homebranch, t.pages, t.size, t.isbn from biblio b join items i using (biblionumber) join biblioitems t using (biblionumber) where i.homebranch=<<branch|branches>>  AND i.dateaccessioned >= <<Date you want to count (example: 2011-11-16)|date>> AND i.dateaccessioned <= <<Day after the Date you want to count (example: 2011-11-17)|date>> GROUP BY b.biblionumber order by b.title ASC
+select i.dateaccessioned, CONCAT('',b.biblionumber,'') as "Linked Record", CONCAT('',b.title,'') AS "Title Search", i.ccode, i.homebranch, t.pages, t.size, t.isbn from biblio b join items i using (biblionumber) join biblioitems t using (biblionumber) where i.homebranch=&lt;&gt;  AND i.dateaccessioned &gt;= &lt;&gt; AND i.dateaccessioned &lt;= &lt;&gt; GROUP BY b.biblionumber order by b.title ASC
 
 
 

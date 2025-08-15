@@ -4,7 +4,7 @@ R.003181
 ----------
 
 Name: GHW - Checkouts and renewals by title and item type
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-03-04 16:13:12
-Modified on: 2019-03-04 16:16:57
-Date last run: 2022-11-23 11:16:53
+Modified on: 2024-01-17 11:55:01
+Date last run: 2024-08-26 22:20:19
 
 ----------
 
@@ -22,16 +22,16 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Gives a circulation count by title and item type</p>
-<ul><li>Shows items checkedout in the previous calendar month</li>
-<li>at the library you specify</li>
-<li>grouped and sorted by library, year, month, itemtype and title</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3181&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Gives a circulation count by title and item type
+Shows items checkedout in the previous calendar month
+at the library you specify
+grouped and sorted by library, year, month, itemtype and title
+
+Notes:
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -53,8 +53,8 @@ FROM
   LEFT JOIN biblio biblio1 ON biblio1.biblionumber = deleteditems.biblionumber
   INNER JOIN itemtypes ON itemtypes.itemtype = statistics.itemtype
 WHERE
-  statistics.branch LIKE <<Select your library|ZBRAN>> AND
-  statistics.itemtype LIKE <<Select Item type|itemtypes>> AND
+  statistics.branch LIKE &lt;&gt; AND
+  statistics.itemtype LIKE &lt;&gt; AND
   Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
   Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
   (statistics.type = 'ISSUE' OR

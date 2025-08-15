@@ -4,7 +4,7 @@ R.002757
 ----------
 
 Name: GHW - 245h
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

@@ -4,7 +4,7 @@ R.003528
 ----------
 
 Name: GHW - Borrowers with unresolved credits, unresolved debits, and a 0.00 balance
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Fines/Fees
      -
 
 Created on: 2021-07-15 17:20:32
-Modified on: 2021-07-15 17:23:54
-Date last run: 2021-11-03 19:30:43
+Modified on: 2024-01-17 11:32:26
+Date last run: 2025-08-08 11:25:21
 
 ----------
 
@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Generates a list of borrowers with unresolved credits and debits that generate a $0.00 balance</p>
-<ul><li>Shows currently unresolved credits and debits</li>
-<li>at the library you specify</li>
-<li>grouped by borrower id number</li>
-<li>sorted by library and borrower barcode number</li>
-<li>links to the borrower's accounts tab</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p></p>
-<p class= "notetags" style="display: none;">#tested #updated  #gk</p>
-</div>
+ 
+Generates a list of borrowers with unresolved credits and debits that generate a $0.00 balance
+Shows currently unresolved credits and debits
+at the library you specify
+grouped by borrower id number
+sorted by library and borrower barcode number
+links to the borrower's accounts tab
+
+Notes:
+
+
+#tested #updated  #gk
+
 
 ----------
 */
@@ -48,9 +48,7 @@ SELECT
   Format(outstanding_debits.Sum_amountoutstanding, 2) AS TOTAL_UNRESOLVED_DEBITS,
   Format((outstanding_credits.Sum_amountoutstanding + outstanding_debits.Sum_amountoutstanding), 2) AS BALANCE,
   Concat(
-    '<a href=\"/cgi-bin/koha/members/pay.pl?borrowernumber=',
-    outstanding_debits.borrowernumber,
-    '\" target="_blank">patron fine records</a>'
+    'patron fine records'
   ) AS LINK
 FROM
   borrowers JOIN
@@ -60,7 +58,7 @@ FROM
     FROM
       accountlines
     WHERE
-      accountlines.amountoutstanding > 0
+      accountlines.amountoutstanding &gt; 0
     GROUP BY
       accountlines.borrowernumber) outstanding_debits ON
       outstanding_debits.borrowernumber = borrowers.borrowernumber INNER JOIN
@@ -75,12 +73,12 @@ FROM
     FROM
       accountlines
     WHERE
-      accountlines.amountoutstanding < 0
+      accountlines.amountoutstanding &lt; 0
     GROUP BY
       accountlines.borrowernumber) outstanding_credits ON
       outstanding_credits.borrowernumber = borrowers.borrowernumber
 WHERE
-  borrowers.branchcode LIKE <<Choose borrower home library|LBRANCH>> AND
+  borrowers.branchcode LIKE &lt;&gt; AND
   Format((outstanding_credits.Sum_amountoutstanding + outstanding_debits.Sum_amountoutstanding), 2) = 0
 GROUP BY
   borrowers.borrowernumber

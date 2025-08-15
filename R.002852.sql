@@ -4,7 +4,7 @@ R.002852
 ----------
 
 Name: GHW - LEAVENWRTH Reset patrsons - includes information that might block their deletion
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group:  LEAVENWRTH
      -
 
 Created on: 2016-12-12 16:53:41
-Modified on: 2021-08-16 20:33:33
-Date last run: 2022-07-07 14:53:32
+Modified on: 2024-01-17 11:46:48
+Date last run: 2025-02-05 12:44:23
 
 ----------
 
@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>Shows all "Reset" patrons with current checkout count (if any), current amount due (if any), guarantors (if any), and current guarantees (if any)</p>
-<ul><li>Shows patrons that still have a NExpress account</li>
-<li>Only shows patrons with the word "reset" in the barcode number</li>
-<li>grouped and sorted by card number, patron homebranch, expiration date, current checkout count, and amount owed</li>
-<li>links to the patron's account</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2852&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Shows all "Reset" patrons with current checkout count (if any), current amount due (if any), guarantors (if any), and current guarantees (if any)
+Shows patrons that still have a NExpress account
+Only shows patrons with the word "reset" in the barcode number
+grouped and sorted by card number, patron homebranch, expiration date, current checkout count, and amount owed
+links to the patron's account
+
+Notes:
+
+Click here to run in a new window
+
 
 ----------
 */

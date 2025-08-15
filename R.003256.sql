@@ -4,7 +4,7 @@ R.003256
 ----------
 
 Name: GHW - School attributes
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-08-22 13:32:13
 Modified on: 2021-08-15 22:20:53
-Date last run: 2023-04-26 11:50:29
+Date last run: 2024-08-20 23:29:49
 
 ----------
 
@@ -31,9 +31,7 @@ Expiry: 300
 
 SELECT
   Concat(
-    "<a href='/cgi-bin/koha/circ/circulation.pl?borrowernumber=", 
-    borrowers.borrowernumber, 
-    "' target='_blank'>Patron</a>"
+    "Patron"
   ) AS LINK_TO_PATRON,
   borrowers.cardnumber,
   Concat_Ws("", 
@@ -102,8 +100,8 @@ FROM
   ) teacher
     ON teacher.borrowernumber = borrowers.borrowernumber
 WHERE
-  borrowers.branchcode LIKE <<Choose your library|ZBRAN>> AND
-  borrowers.categorycode LIKE <<Choose a borrower category|LBORROWERCAT>> AND
+  borrowers.branchcode LIKE &lt;&gt; AND
+  borrowers.categorycode LIKE &lt;&gt; AND
   Coalesce(grade.attribute, "~") LIKE '%' AND
   Coalesce(teacher.attribute, "~") LIKE '%'
 GROUP BY

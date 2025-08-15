@@ -4,7 +4,7 @@ R.003278
 ----------
 
 Name: GHW - message push ADMINREPORT
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -31,7 +31,7 @@ Expiry: 300
 
 SELECT
   reserves.branchcode,
-  Concat('<a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=', reserves.borrowernumber, '#reserves " target="_blank">Open in new window</a>') AS LINK,
+  Concat('Open in new window') AS LINK,
   Count(reserves.reserve_id) AS Count_reserve_id,
   reserves.suspend_until,
   messagess.message
@@ -53,9 +53,9 @@ FROM
   ) messagess
     ON messagess.borrowernumber = reserves.borrowernumber
 WHERE
-  reserves.branchcode LIKE <<Choose pickup location|LBRANCH>> AND
+  reserves.branchcode LIKE &lt;&gt; AND
   reserves.found IS NULL AND
-  reserves.suspend_until = <<Choose suspend until date|date>>
+  reserves.suspend_until = &lt;&gt;
 GROUP BY
   reserves.branchcode,
   reserves.suspend_until,

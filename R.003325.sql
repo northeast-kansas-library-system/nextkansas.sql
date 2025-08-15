@@ -4,7 +4,7 @@ R.003325
 ----------
 
 Name: GHW - New requests report
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -31,13 +31,13 @@ Expiry: 300
 
 SELECT
   reserves.branchcode,
-  GROUP_CONCAT(items.barcode SEPARATOR "<br />") AS Group_Concat_barcode
+  GROUP_CONCAT(items.barcode SEPARATOR "") AS Group_Concat_barcode
 FROM
   reserves JOIN
   items ON reserves.itemnumber = items.itemnumber
 WHERE
   reserves.found = 'W' AND
-  reserves.borrowernumber = <<Enter borrowernumber>>
+  reserves.borrowernumber = &lt;&gt;
 GROUP BY
   reserves.branchcode
 

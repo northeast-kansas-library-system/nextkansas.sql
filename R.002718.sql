@@ -4,7 +4,7 @@ R.002718
 ----------
 
 Name: GHW - Reports Template A
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2016-08-03 17:09:19
-Modified on: 2017-12-19 09:33:17
-Date last run: 2022-11-07 09:34:47
+Modified on: 2023-10-16 22:05:24
+Date last run: 2024-02-05 13:36:15
 
 ----------
 
@@ -22,15 +22,15 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>This report shows all items added to NExpress at a specific library branch after a specified date</p>
-<ul><li>Shows items that are currently still in NExpress</li>
-<li>Allows user to specify the item's homebranch, shelving location, item type, collection code, and the item's date added</li>
-<li>grouped by homebranch, location, itype, collection code, and call number</li>
-<li>sorted by homebranch, location, itype, collection code, and call number</li>
-<li>contains links directly to the item's bibliographic record</li>
-</ul><br />
-</div>
+ 
+This report shows all items added to NExpress at a specific library branch after a specified date
+Shows items that are currently still in NExpress
+Allows user to specify the item's homebranch, shelving location, item type, collection code, and the item's date added
+grouped by homebranch, location, itype, collection code, and call number
+sorted by homebranch, location, itype, collection code, and call number
+contains links directly to the item's bibliographic record
+
+
 
 ----------
 */
@@ -38,7 +38,7 @@ Expiry: 0
 
 
 SELECT
-  CONCAT( '<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber,'\" target="_blank">', biblio.biblionumber, '</a>' ) AS LINK_TO_TITLE,
+  CONCAT( '', biblio.biblionumber, '' ) AS LINK_TO_TITLE,
   items.itemnumber,
   items.homebranch,
   items.barcode,
@@ -62,10 +62,10 @@ FROM
     ON biblio_metadata.biblionumber = biblio.biblionumber AND
     items.biblionumber = biblio_metadata.biblionumber
 WHERE
-  items.homebranch = <<Item home library|branches>> AND
-  items.location = <<Item shelving location|LOC>> AND
-  items.itype = <<Item type|itemtypes>> AND
-  items.ccode = <<Item collection code|CCODE>>
+  items.homebranch = &lt;&gt; AND
+  items.location = &lt;&gt; AND
+  items.itype = &lt;&gt; AND
+  items.ccode = &lt;&gt;
 GROUP BY
   items.homebranch,
   items.location,

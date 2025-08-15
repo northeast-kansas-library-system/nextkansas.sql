@@ -4,7 +4,7 @@ R.003137
 ----------
 
 Name: Indicators ADMINREPORT
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2018-11-28 10:05:20
 Modified on: 2018-11-28 17:17:25
-Date last run: 2018-11-28 17:17:27
+Date last run: 2025-06-24 08:19:43
 
 ----------
 
@@ -41,24 +41,24 @@ SELECT
 FROM
   biblio_metadata
 WHERE
-  (biblio_metadata.biblionumber > 959565 AND
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/@ind2') <> 2 AND
+  (biblio_metadata.biblionumber &gt; 959565 AND
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/@ind2') &lt;&gt; 2 AND
   REGEXP_REPLACE(Concat_Ws(" ", ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="a"]'),
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]'),
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'),
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]')), '[[:space:]]+', ' ')
   LIKE "A %") OR
-  (biblio_metadata.biblionumber > 959565 AND
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/@ind2') <> 3 AND
+  (biblio_metadata.biblionumber &gt; 959565 AND
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/@ind2') &lt;&gt; 3 AND
   REGEXP_REPLACE(Concat_Ws(" ", ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="a"]'),
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]'),
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'),
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]')), '[[:space:]]+', ' ')
   LIKE "An %") OR
-  (biblio_metadata.biblionumber > 959565 AND
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/@ind2') <> 4 AND
+  (biblio_metadata.biblionumber &gt; 959565 AND
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/@ind2') &lt;&gt; 4 AND
   REGEXP_REPLACE(Concat_Ws(" ", ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="a"]'),
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]'),
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),

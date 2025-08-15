@@ -4,7 +4,7 @@ R.003091
 ----------
 
 Name: GHW - Patron attributes - Account expired
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Borrowers
      Patron attributes
 
 Created on: 2018-06-29 08:57:11
-Modified on: 2021-07-29 09:14:12
-Date last run: 2023-05-23 11:34:53
+Modified on: 2025-07-30 09:35:28
+Date last run: 2025-07-30 09:13:02
 
 ----------
 
@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Generates a list of patrons with contact information based on their "Account expired" attributes</p>
-<ul><li>Shows current patrons</li>
-<li>with the home library and account expired attribute you specify</li>
-<li>grouped by borrower number and attribute</li>
-<li>sorted by patron last name/patron first name</li>
-<li>contains links to the patron's account</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>This report can be used to determine which patrons at your library have a account expired attribute set.</p>
-<p></p>
-<p class= "notetags" style="display: none;">#PP05 #patron_purge</p>
-</div>
+ 
+Generates a list of patrons with contact information based on their "Account expired" attributes
+Shows current patrons
+with the home library and account expired attribute you specify
+grouped by borrower number and attribute
+sorted by patron last name/patron first name
+contains links to the patron's account
+
+Notes:
+
+This report can be used to determine which patrons at your library have a account expired attribute set.
+
+#PP05 #patron_purge #expired #borrowers
+
 
 ----------
 */
@@ -44,9 +44,7 @@ Expiry: 300
 
 SELECT
   Concat(
-    "<a href='/cgi-bin/koha/circ/circulation.pl?borrowernumber=",
-    borrowers.borrowernumber, 
-    "' target='_blank'>Borrower</a>"
+    "Borrower"
   ) AS LINK_TO_BORROWER,
   borrowers.cardnumber,
   Concat_Ws("", 
@@ -87,9 +85,9 @@ FROM
      borrower_attributes.code) expired_account ON borrowers.borrowernumber =
       expired_account.borrowernumber
 WHERE
-  borrowers.branchcode LIKE '%' AND
+  borrowers.branchcode LIKE &lt;&gt; AND
   borrowers.categorycode LIKE '%' AND
-  Coalesce(expired_account.attribute, "~") REGEXP <<Select expiration attribute|LEXPIRED>>
+  expired_account.attribute LIKE &lt;&gt;
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

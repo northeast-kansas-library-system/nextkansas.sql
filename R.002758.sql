@@ -31,16 +31,12 @@ Backwards - start at page 55
 
 SELECT
   Concat(
-     '<a href=\"/cgi-bin/koha/reports/guided_reports.pl?reports=3166&phase=Run+this+report&m_name=searchterm&sql_params=',
-    Replace(Replace(Replace(Replace(biblio.author, ".", ""), ",", ""), "'", ""), " ","+"),
-    '" target="_blank">Run targeted search</a>'
+     'Run targeted search'
   ) AS ASEARCH,
   Concat(
-    '<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=au&q=',
+    '',
     Replace(Replace(Replace(biblio.author, ".", ""), ",", ""), "'", ""),
-    '&sort_by=title_az\" target="_blank">',
-    Replace(Replace(Replace(biblio.author, ".", ""), ",", ""), "'", ""),
-    '</a>'
+    ''
   ) AS "Author Search",
   Replace(Replace(Replace(biblio.author, ".", ""), ",", ""), "'", "") AS AUTHOR,
   Count(items.itemnumber)
@@ -52,7 +48,7 @@ WHERE
 GROUP BY
   Replace(Replace(Replace(biblio.author, ".", ""), ",", ""), "'", "")
 HAVING
-  Count(items.itemnumber) > 1
+  Count(items.itemnumber) &gt; 1
 ORDER BY
   Count(items.itemnumber) DESC
 

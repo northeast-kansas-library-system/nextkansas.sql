@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2014-09-26 15:08:37
 Modified on: 2021-06-17 16:00:42
-Date last run: 2022-08-12 15:15:35
+Date last run: 2025-05-31 09:52:28
 
 ----------
 
@@ -29,7 +29,7 @@ This report is old and probably isn't giving you the results you really want.  I
 
 
 
-SELECT biblio.title,count(statistics.datetime), items.itype,items.ccode,items.homebranch FROM biblio LEFT JOIN items USING (biblionumber) LEFT JOIN statistics USING(itemnumber) WHERE items.homebranch=<<Pick your branch|branches>> AND items.location=<<Pick your Shelving Location|LOC>> AND statistics.type IN ('issue','renew') AND YEAR(statistics.datetime)=<<enter yyyy year>> GROUP BY biblio.biblionumber ORDER BY biblio.title asc
+SELECT biblio.title,count(statistics.datetime), items.itype,items.ccode,items.homebranch FROM biblio LEFT JOIN items USING (biblionumber) LEFT JOIN statistics USING(itemnumber) WHERE items.homebranch=&lt;&gt; AND items.location=&lt;&gt; AND statistics.type IN ('issue','renew') AND YEAR(statistics.datetime)=&lt;&gt; GROUP BY biblio.biblionumber ORDER BY biblio.title asc
 
 
 

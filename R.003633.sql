@@ -4,7 +4,7 @@ R.003633
 ----------
 
 Name: GHW - Statistics - Daily overdue count for prevous calendar month
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -74,7 +74,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1)
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1)
         GROUP BY
           issues.branchcode
         UNION
@@ -84,8 +84,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1)
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1)
         GROUP BY
           old_issues.branchcode) aacounts
     GROUP BY
@@ -100,7 +100,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 1 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 1 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -110,8 +110,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 1 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 1 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 1 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 1 DAY
         GROUP BY
           old_issues.branchcode) abcounts
     GROUP BY
@@ -126,7 +126,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 2 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 2 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -136,8 +136,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 2 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 2 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 2 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 2 DAY
         GROUP BY
           old_issues.branchcode) accounts
     GROUP BY
@@ -152,7 +152,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 3 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 3 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -162,8 +162,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 3 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 3 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 3 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 3 DAY
         GROUP BY
           old_issues.branchcode) adcounts
     GROUP BY
@@ -178,7 +178,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 4 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 4 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -188,8 +188,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 4 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 4 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 4 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 4 DAY
         GROUP BY
           old_issues.branchcode) aecounts
     GROUP BY
@@ -204,7 +204,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 5 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 5 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -214,8 +214,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 5 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 5 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 5 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 5 DAY
         GROUP BY
           old_issues.branchcode) afcounts
     GROUP BY
@@ -230,7 +230,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 6 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 6 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -240,8 +240,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 6 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 6 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 6 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 6 DAY
         GROUP BY
           old_issues.branchcode) agcounts
     GROUP BY
@@ -256,7 +256,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 7 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 7 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -266,8 +266,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 7 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 7 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 7 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 7 DAY
         GROUP BY
           old_issues.branchcode) ahcounts
     GROUP BY
@@ -282,7 +282,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 8 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 8 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -292,8 +292,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 8 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 8 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 8 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 8 DAY
         GROUP BY
           old_issues.branchcode) aicounts
     GROUP BY
@@ -308,7 +308,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 9 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 9 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -318,8 +318,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 9 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 9 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 9 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 9 DAY
         GROUP BY
           old_issues.branchcode) ajcounts
     GROUP BY
@@ -334,7 +334,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 10 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 10 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -344,8 +344,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 10 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 10 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 10 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 10 DAY
         GROUP BY
           old_issues.branchcode) bacounts
     GROUP BY
@@ -360,7 +360,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 11 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 11 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -370,8 +370,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 11 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 11 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 11 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 11 DAY
         GROUP BY
           old_issues.branchcode) bbcounts
     GROUP BY
@@ -386,7 +386,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 12 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 12 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -396,8 +396,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 12 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 12 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 12 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 12 DAY
         GROUP BY
           old_issues.branchcode) bccounts
     GROUP BY
@@ -412,7 +412,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 13 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 13 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -422,8 +422,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 13 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 13 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 13 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 13 DAY
         GROUP BY
           old_issues.branchcode) bdcounts
     GROUP BY
@@ -438,7 +438,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 14 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 14 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -448,8 +448,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 14 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 14 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 14 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 14 DAY
         GROUP BY
           old_issues.branchcode) becounts
     GROUP BY
@@ -464,7 +464,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 15 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 15 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -474,8 +474,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 15 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 15 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 15 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 15 DAY
         GROUP BY
           old_issues.branchcode) bfcounts
     GROUP BY
@@ -490,7 +490,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 16 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 16 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -500,8 +500,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 16 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 16 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 16 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 16 DAY
         GROUP BY
           old_issues.branchcode) bgcounts
     GROUP BY
@@ -516,7 +516,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 17 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 17 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -526,8 +526,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 17 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 17 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 17 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 17 DAY
         GROUP BY
           old_issues.branchcode) bhcounts
     GROUP BY
@@ -542,7 +542,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 18 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 18 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -552,8 +552,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 18 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 18 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 18 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 18 DAY
         GROUP BY
           old_issues.branchcode) bicounts
     GROUP BY
@@ -568,7 +568,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 19 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 19 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -578,8 +578,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 19 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 19 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 19 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 19 DAY
         GROUP BY
           old_issues.branchcode) bjcounts
     GROUP BY
@@ -594,7 +594,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 20 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 20 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -604,8 +604,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 20 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 20 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 20 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 20 DAY
         GROUP BY
           old_issues.branchcode) cacounts
     GROUP BY
@@ -620,7 +620,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 21 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 21 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -630,8 +630,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 21 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 21 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 21 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 21 DAY
         GROUP BY
           old_issues.branchcode) cbcounts
     GROUP BY
@@ -646,7 +646,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 22 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 22 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -656,8 +656,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 22 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 22 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 22 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 22 DAY
         GROUP BY
           old_issues.branchcode) cccounts
     GROUP BY
@@ -672,7 +672,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 23 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 23 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -682,8 +682,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 23 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 23 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 23 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 23 DAY
         GROUP BY
           old_issues.branchcode) cdcounts
     GROUP BY
@@ -698,7 +698,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 24 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 24 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -708,8 +708,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 24 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 24 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 24 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 24 DAY
         GROUP BY
           old_issues.branchcode) cecounts
     GROUP BY
@@ -724,7 +724,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 25 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 25 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -734,8 +734,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 25 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 25 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 25 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 25 DAY
         GROUP BY
           old_issues.branchcode) cfcounts
     GROUP BY
@@ -750,7 +750,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 26 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 26 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -760,8 +760,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 26 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 26 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 26 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 26 DAY
         GROUP BY
           old_issues.branchcode) cgcounts
     GROUP BY
@@ -776,7 +776,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 27 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 27 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -786,8 +786,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 27 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 27 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 27 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 27 DAY
         GROUP BY
           old_issues.branchcode) chcounts
     GROUP BY
@@ -806,7 +806,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 28 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 28 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -816,8 +816,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 28 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 28 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 28 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 28 DAY
         GROUP BY
           old_issues.branchcode) cicounts
     GROUP BY
@@ -836,7 +836,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 29 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 29 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -846,8 +846,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 29 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 29 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 29 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 29 DAY
         GROUP BY
           old_issues.branchcode) cjcounts
     GROUP BY
@@ -866,7 +866,7 @@ FROM
         FROM
           issues
         WHERE
-          issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 30 DAY
+          issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 30 DAY
         GROUP BY
           issues.branchcode
         UNION
@@ -876,8 +876,8 @@ FROM
         FROM
           old_issues
         WHERE
-          old_issues.date_due <= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 30 DAY AND
-          old_issues.returndate > AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 30 DAY
+          old_issues.date_due &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 30 DAY AND
+          old_issues.returndate &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 Month)), 1) + INTERVAL 30 DAY
         GROUP BY
           old_issues.branchcode) dacounts
     GROUP BY

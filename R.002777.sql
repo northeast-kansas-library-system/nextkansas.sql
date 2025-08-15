@@ -4,7 +4,7 @@ R.002777
 ----------
 
 Name: GHW - News block dump
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

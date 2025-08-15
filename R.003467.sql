@@ -4,7 +4,7 @@ R.003467
 ----------
 
 Name: GHW - Update asc
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

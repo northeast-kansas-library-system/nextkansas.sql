@@ -4,7 +4,7 @@ R.003478
 ----------
 
 Name: ADMINREPORT - PLACEHOLDER for Median age by location
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

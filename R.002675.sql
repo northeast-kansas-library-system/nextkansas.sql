@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2016-03-07 10:42:35
 Modified on: 2016-03-07 10:42:35
-Date last run: 2022-08-23 14:17:07
+Date last run: 2025-07-17 16:31:47
 
 ----------
 
@@ -29,7 +29,7 @@ Expiry: 300
 
 
 
-SELECT b.biblionumber, i.dateaccessioned, b.title, b.author, i.ccode, i.location, i.itemcallnumber, i.itype, t.publicationyear, i.barcode, CONCAT('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=',b.biblionumber,'&itemnumber=',i.itemnumber,'#edititem\" target="_blank">'"edit item"'</a>') as "edit item" FROM items i LEFT JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE i.homebranch=<<Pick your branch|branches>> AND i.ccode=<<Pick your collection code|CCODE>> AND i.itype=<<item type|itemtypes>> ORDER BY i.itemcallnumber
+SELECT b.biblionumber, i.dateaccessioned, b.title, b.author, i.ccode, i.location, i.itemcallnumber, i.itype, t.publicationyear, i.barcode, CONCAT(''"edit item"'') as "edit item" FROM items i LEFT JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE i.homebranch=&lt;&gt; AND i.ccode=&lt;&gt; AND i.itype=&lt;&gt; ORDER BY i.itemcallnumber
 
 
 

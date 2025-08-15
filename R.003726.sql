@@ -4,7 +4,7 @@ R.003726
 ----------
 
 Name: Borrowers by messaging preference
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -116,13 +116,13 @@ FROM
       hold_reminder.borrowernumber = borrowers.borrowernumber LEFT JOIN
   branches ON borrowers.branchcode = branches.branchcode
 WHERE
-  borrowers.branchcode LIKE <<Select borrower home library|branches:all>> AND
-  If(due.borrower_message_preference_id IS NULL, '0', If(due.borrower_message_preference_id = '', '0', '1')) LIKE <<Is "Item due" enabled|YES_NO:all>> AND
-  If(predue.borrower_message_preference_id IS NULL, '0', If(predue.borrower_message_preference_id = '', '0', '1')) LIKE <<Is "Advance notice" enabled|YES_NO:all>> AND
-  If(hold.borrower_message_preference_id IS NULL, '0', If(hold.borrower_message_preference_id = '', '0', '1')) LIKE <<Is "Hold filled" enabled|YES_NO:all>> AND
-  If(checkin.borrower_message_preference_id IS NULL, '0', If(checkin.borrower_message_preference_id = '', '0', '1')) LIKE <<Is "Email check-in receipt " enabled|YES_NO:all>> AND
-  If(checkout.borrower_message_preference_id IS NULL, '0', If(checkout.borrower_message_preference_id = '', '0', '1')) LIKE <<Is "Email check-out/renewal receipt and renewa" enabled|YES_NO:all>> AND
-  If(hold_reminder.borrower_message_preference_id IS NULL, '0', If(hold_reminder.borrower_message_preference_id = '', '0', '1')) LIKE <<Is "Hold reminder" enabled|YES_NO:all>>
+  borrowers.branchcode LIKE &lt;&gt; AND
+  If(due.borrower_message_preference_id IS NULL, '0', If(due.borrower_message_preference_id = '', '0', '1')) LIKE &lt;&gt; AND
+  If(predue.borrower_message_preference_id IS NULL, '0', If(predue.borrower_message_preference_id = '', '0', '1')) LIKE &lt;&gt; AND
+  If(hold.borrower_message_preference_id IS NULL, '0', If(hold.borrower_message_preference_id = '', '0', '1')) LIKE &lt;&gt; AND
+  If(checkin.borrower_message_preference_id IS NULL, '0', If(checkin.borrower_message_preference_id = '', '0', '1')) LIKE &lt;&gt; AND
+  If(checkout.borrower_message_preference_id IS NULL, '0', If(checkout.borrower_message_preference_id = '', '0', '1')) LIKE &lt;&gt; AND
+  If(hold_reminder.borrower_message_preference_id IS NULL, '0', If(hold_reminder.borrower_message_preference_id = '', '0', '1')) LIKE &lt;&gt;
 GROUP BY
   borrowers.borrowernumber
 

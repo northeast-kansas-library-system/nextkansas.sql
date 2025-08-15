@@ -4,7 +4,7 @@ R.003693
 ----------
 
 Name: GHW - Create stub accounts for staff
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -503,7 +503,7 @@ FROM branches,
     WHERE 
       action_logs.module = 'CRONJOBS'
         AND 
-      Day(action_logs.timestamp) < 21
+      Day(action_logs.timestamp) &lt; 21
     GROUP BY 
       LPad(Day(action_logs.timestamp), 4, 0),
       Day(action_logs.timestamp),

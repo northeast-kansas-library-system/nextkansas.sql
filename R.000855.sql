@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2010-04-23 14:09:57
 Modified on: 2021-09-07 22:26:30
-Date last run: 2023-03-27 15:44:30
+Date last run: 2025-07-31 12:42:53
 
 ----------
 
@@ -41,8 +41,8 @@ FROM
   LEFT JOIN biblio ON items.biblionumber = biblio.biblionumber
   LEFT JOIN biblioitems ON biblio.biblionumber = biblioitems.biblionumber
 WHERE
-  items.homebranch LIKE <<branch|branches:all>> AND
-  items.itemcallnumber LIKE Concat(<<Enter Call Number prefix>>, "%")
+  items.homebranch LIKE &lt;&gt; AND
+  items.itemcallnumber LIKE Concat(&lt;&gt;, "%")
 ORDER BY
   items.dateaccessioned DESC
 

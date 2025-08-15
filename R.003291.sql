@@ -4,7 +4,7 @@ R.003291
 ----------
 
 Name: GHW - Authorised Values synchronization - borrower categories
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -30,12 +30,12 @@ Expiry: 300
 
 
 SELECT
-  Concat('<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=', LBORROWERCAT.category, '" target="_blank">Link to AV</a>') AS LINK,
-  If(LBORROWERCAT.category IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", LBORROWERCAT.category) AS category,
-  If(LBORROWERCAT.authorised_value IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", LBORROWERCAT.authorised_value) AS authorised_value,
-  If(LBORROWERCAT.lib IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", LBORROWERCAT.lib) AS lib,
-  If(PATCAT.categorycode IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", PATCAT.categorycode) AS categorycode,
-  If(PATCAT.description IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", PATCAT.description) AS description
+  Concat('Link to AV') AS LINK,
+  If(LBORROWERCAT.category IS NULL, "Possible error", LBORROWERCAT.category) AS category,
+  If(LBORROWERCAT.authorised_value IS NULL, "Possible error", LBORROWERCAT.authorised_value) AS authorised_value,
+  If(LBORROWERCAT.lib IS NULL, "Possible error", LBORROWERCAT.lib) AS lib,
+  If(PATCAT.categorycode IS NULL, "Possible error", PATCAT.categorycode) AS categorycode,
+  If(PATCAT.description IS NULL, "Possible error", PATCAT.description) AS description
 FROM
   (
     SELECT
@@ -60,12 +60,12 @@ FROM
     ON PATCAT.categorycode = LBORROWERCAT.authorised_value
 UNION
 SELECT
-  Concat('<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=', LBORROWERCAT.category, '" target="_blank">Link to AV</a>') AS LINK,
-  If(LBORROWERCAT.category IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", LBORROWERCAT.category) AS category,
-  If(LBORROWERCAT.authorised_value IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", LBORROWERCAT.authorised_value) AS authorised_value,
-  If(LBORROWERCAT.lib IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", LBORROWERCAT.lib) AS lib,
-  If(PATCAT.categorycode IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", PATCAT.categorycode) AS categorycode,
-  If(PATCAT.description IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", PATCAT.description) AS description
+  Concat('Link to AV') AS LINK,
+  If(LBORROWERCAT.category IS NULL, "Possible error", LBORROWERCAT.category) AS category,
+  If(LBORROWERCAT.authorised_value IS NULL, "Possible error", LBORROWERCAT.authorised_value) AS authorised_value,
+  If(LBORROWERCAT.lib IS NULL, "Possible error", LBORROWERCAT.lib) AS lib,
+  If(PATCAT.categorycode IS NULL, "Possible error", PATCAT.categorycode) AS categorycode,
+  If(PATCAT.description IS NULL, "Possible error", PATCAT.description) AS description
 FROM
   (
     SELECT

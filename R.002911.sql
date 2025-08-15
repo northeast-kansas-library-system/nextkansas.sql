@@ -4,7 +4,7 @@ R.002911
 ----------
 
 Name: GHW - Items Waiting Pickup
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Holds-Reserves
      -
 
 Created on: 2017-02-23 11:17:34
-Modified on: 2018-04-16 11:08:13
-Date last run: 2023-05-23 12:22:30
+Modified on: 2024-01-17 11:49:09
+Date last run: 2024-05-30 15:48:49
 
 ----------
 
@@ -22,16 +22,16 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>Generates a list of items awaiting pickup</p>
-<ul><li>Shows items currently on the hold shelf</li>
-<li>at the pick-up location you specify</li>
-<li>sorted by date the item was placed on your hold shelf</li>
-<li>contains links to the requesting patron's account</li>
-</ul><br />
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2911&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Generates a list of items awaiting pickup
+Shows items currently on the hold shelf
+at the pick-up location you specify
+sorted by date the item was placed on your hold shelf
+contains links to the requesting patron's account
+
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -41,10 +41,10 @@ Expiry: 0
 SELECT
   reserves.branchcode AS PICKUP_LOCATION,
   reserves.waitingdate AS WAITING_SINCE,
-  Concat_Ws("<br />", Concat("Title: ", biblio.title), Concat("Author: ", If(biblio.author = "", "-", biblio.author)), Concat_Ws(" | ", "Call#: ", items.location, items.itype, items.ccode, items.itemcallnumber, items.enumchron, items.copynumber), Concat("Barcode: ", UPPER(items.barcode))) AS
+  Concat_Ws("", Concat("Title: ", biblio.title), Concat("Author: ", If(biblio.author = "", "-", biblio.author)), Concat_Ws(" | ", "Call#: ", items.location, items.itype, items.ccode, items.itemcallnumber, items.enumchron, items.copynumber), Concat("Barcode: ", UPPER(items.barcode))) AS
   ITEM_DETAILS,
-  Concat_Ws("<br />", Concat(borrowers.surname, ", ", borrowers.firstname), borrowers.cardnumber, borrowers.phone, If(borrowers.email = "", "-", borrowers.email), Concat("<br />", If(contact.attribute IS NULL, "<span style='color:red; font-weight: bold;'>NO CONTACT METHOD SPECIFIED</span>", If(contact.attribute = "Phone", Concat("<span style='color:red; font-weight: bold;'>Please Phone</span>"), If(contact.attribute = "Email", Concat("<span style='color:green; font-weight: bold;'>Patron prefers e-mail</span>"), If(contact.attribute = "Text", Concat("<span style='color:red; font-weight: bold;'>Please Text</span>"), Concat("<span style='color:red; font-weight: bold;'>Prefered contact method: ", "</span>"))))))) AS PATRON_DETAILS,
-  Concat('<a href=\"/cgi-bin/koha/circ/circulation.pl?borrowernumber=', borrowers.borrowernumber, '\" target="_blank">Open patron account in new window</a>') AS LINK_TO_PATRON
+  Concat_Ws("", Concat(borrowers.surname, ", ", borrowers.firstname), borrowers.cardnumber, borrowers.phone, If(borrowers.email = "", "-", borrowers.email), Concat("", If(contact.attribute IS NULL, "NO CONTACT METHOD SPECIFIED", If(contact.attribute = "Phone", Concat("Please Phone"), If(contact.attribute = "Email", Concat("Patron prefers e-mail"), If(contact.attribute = "Text", Concat("Please Text"), Concat("Prefered contact method: ", ""))))))) AS PATRON_DETAILS,
+  Concat('Open patron account in new window') AS LINK_TO_PATRON
 FROM
   reserves JOIN
   items
@@ -63,7 +63,7 @@ FROM
     borrower_attributes.code = 'HOLD') contact
     ON borrowers.borrowernumber = contact.borrowernumber
 WHERE
-  reserves.branchcode LIKE <<Choose branch|LBRANCH>> AND
+  reserves.branchcode LIKE &lt;&gt; AND
   reserves.found = 'W'
 ORDER BY
   WAITING_SINCE DESC

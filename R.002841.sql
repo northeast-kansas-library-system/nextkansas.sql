@@ -4,7 +4,7 @@ R.002841
 ----------
 
 Name: GHW - Daily/hourly statistical tracker
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Statistics
      -
 
 Created on: 2016-11-28 15:42:16
-Modified on: 2021-04-30 14:52:05
-Date last run: 2023-05-02 14:01:18
+Modified on: 2024-01-17 11:46:54
+Date last run: 2025-08-04 16:38:40
 
 ----------
 
@@ -22,22 +22,22 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>Counts check-outs, renewals, and check-ins and borrower accounts used on an hourly basis</p>
-<ul><li>Shows activity during the previous calendar month</li>
-<li>shows activity at a branch you specify</li>
-<li>grouped by circulation branch, date, day of the week, hour of the day (in 24 hour format), and type of activity (CKO = Checkout; RENEW = Renewal; RETURN = check in)</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Replaces report 590</p>
-<p></p>
-<p>Updated to include count of borrowers for each type of transaction.</p>
-<p></p>
-<p>The hour shows in military format - i.e. 13=1:00 p.m., 18=6:00 p.m., etc.</p>
-<p>Koha counts renewals as happening at the location where the initial check-out happened - i.e. if an item was renewed by the patron via the OPAC, it counts as a renewal at the branch where the item was checked out (This is why you may see renewals on days your library is normally closed).</p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2841&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Counts check-outs, renewals, and check-ins and borrower accounts used on an hourly basis
+Shows activity during the previous calendar month
+shows activity at a branch you specify
+grouped by circulation branch, date, day of the week, hour of the day (in 24 hour format), and type of activity (CKO = Checkout; RENEW = Renewal; RETURN = check in)
+
+Notes:
+
+Replaces report 590
+
+Updated to include count of borrowers for each type of transaction.
+
+The hour shows in military format - i.e. 13=1:00 p.m., 18=6:00 p.m., etc.
+Koha counts renewals as happening at the location where the initial check-out happened - i.e. if an item was renewed by the patron via the OPAC, it counts as a renewal at the branch where the item was checked out (This is why you may see renewals on days your library is normally closed).
+Click here to run in a new window
+
 
 ----------
 */
@@ -203,7 +203,7 @@ FROM
       renewborrowers.DATE = ALL_STATS.DATE AND
       renewborrowers.HOUR_OF_DAY = ALL_STATS.HOUR_OF_DAY
 WHERE
-  branchess.branchcode LIKE <<Choose your library|branches>>
+  branchess.branchcode LIKE &lt;&gt;
 GROUP BY
   branchess.branchname,
   ALL_STATS.DATE,

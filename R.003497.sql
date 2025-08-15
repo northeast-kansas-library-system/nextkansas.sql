@@ -4,7 +4,7 @@ R.003497
 ----------
 
 Name: GHW - Borrowers expired for more than 730.5 days
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,7 +12,7 @@ Group: -
      -
 
 Created on: 2021-04-28 14:48:37
-Modified on: 2021-06-04 12:22:18
+Modified on: 2024-01-17 11:33:00
 Date last run: 2022-09-15 16:54:06
 
 ----------
@@ -22,22 +22,22 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Lists borrower accounts that have been expired for more than 730.5 days (2 years) and includes any account expiration flags</p>
-<ul><li>Shows accounts that are currently expired</li>
-<li>at the home library you specify</li>
-<li>grouped by borrowernumber</li>
-<li>sorted by expiration, borrower home library, and borrower number</li>
-<li>links to the borrower account</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Replaces report 2495</p>
-<p></p>
-<p>Does not include STAFF, Hoopla, or SIP accounts.</p>
-<p></p>
-<p class= "notetags" style="display: none;">#expired borrowers</p>
-</div>
+ 
+Lists borrower accounts that have been expired for more than 730.5 days (2 years) and includes any account expiration flags
+Shows accounts that are currently expired
+at the home library you specify
+grouped by borrowernumber
+sorted by expiration, borrower home library, and borrower number
+links to the borrower account
+
+Notes:
+
+Replaces report 2495
+
+Does not include STAFF, Hoopla, or SIP accounts.
+
+#expired borrowers
+
 
 ----------
 */
@@ -46,9 +46,7 @@ Expiry: 300
 
 SELECT
   Concat(
-    '<a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=',
-    borrowers.borrowernumber, 
-    '" target="_blank">Link to patron</a>'
+    'Link to patron'
   ) AS LINK_TO_PATRON,
   borrowers.borrowernumber,
   borrowers.cardnumber,
@@ -111,12 +109,12 @@ FROM
      borrower_relationships.guarantor_id) guaranteesx ON
       guaranteesx.guarantor_id = borrowers.borrowernumber
 WHERE
-  borrowers.dateexpiry < CurDate() - INTERVAL 730.5 DAY AND
-  borrowers.branchcode LIKE <<Choose your library|ZBRAN>> AND
+  borrowers.dateexpiry &lt; CurDate() - INTERVAL 730.5 DAY AND
+  borrowers.branchcode LIKE &lt;&gt; AND
   borrowers.othernames NOT LIKE "%SIP%" AND
-  borrowers.categorycode <> 'STAFF' AND
-  borrowers.categorycode <> 'ILL' AND
-  borrowers.categorycode <> 'HOOPLA'
+  borrowers.categorycode &lt;&gt; 'STAFF' AND
+  borrowers.categorycode &lt;&gt; 'ILL' AND
+  borrowers.categorycode &lt;&gt; 'HOOPLA'
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

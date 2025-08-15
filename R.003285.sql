@@ -4,7 +4,7 @@ R.003285
 ----------
 
 Name: 942 search
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -30,7 +30,7 @@ Expiry: 300
 
 
 SELECT
-  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">Link</a>') AS LINK_TO_TITLE,
+  Concat('Link') AS LINK_TO_TITLE,
   biblio.biblionumber,
   biblio.title,
   biblio.author,
@@ -41,7 +41,7 @@ FROM
   JOIN biblio_metadata
     ON biblio_metadata.biblionumber = biblio.biblionumber
 WHERE
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="c"]') LIKE Concat("%", <<Enter bibliographic record itype>> ,"%")
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="c"]') LIKE Concat("%", &lt;&gt; ,"%")
 GROUP BY
   biblio.biblionumber,
   biblio.datecreated

@@ -4,7 +4,7 @@ R.003350
 ----------
 
 Name: GHW - Special reopening holds queue report for LEAVENWRTH
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2020-08-27 16:12:40
 Modified on: 2020-08-27 16:23:23
-Date last run: 2021-11-09 00:52:18
+Date last run: 2024-02-12 14:36:30
 
 ----------
 
@@ -30,35 +30,35 @@ Run on Friday - Set items aside till Monday - check items in after 2:15 a.m. Mon
 
 
 Select
-    Concat_Ws('<br />',
+    Concat_Ws('',
       Concat('Current: ', items.holdingbranch), 
       Concat('Home: ', items.homebranch), 
       Concat('Last seen: ', items.datelastseen), 
-      Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">Go to biblio</a>')
+      Concat('Go to biblio')
     ) As INFO,
-    Concat_Ws('<br />', 
+    Concat_Ws('', 
       If(items.location = 'CART', 'Recently returned', items.location), 
       ccodes.lib,
       items.itemcallnumber, items.copynumber
     ) As CALL_NUMBER,
-    Concat_Ws('<br />', 
+    Concat_Ws('', 
       biblio.author, 
-      (Concat_Ws('<br />', 
+      (Concat_Ws('', 
         biblio.title, ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), 
         ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'), 
         ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]'))
       )
     ) As AUTHOR_TITLE,
-    Concat_Ws('<br />', 
-      (Concat('<img src="/cgi-bin/koha/svc/barcode?barcode=', '*', Upper(items.barcode), '*', '&type=Code39"></img>')), 
+    Concat_Ws('', 
+      (Concat('')), 
       items.barcode
     ) AS BARCODE,
-    CONCAT_WS('<br />',
-    If(reserves.suspend_until > 1, Concat('Suspended until ', Date_Format(reserves.suspend_until, "%m/%d/%Y")), If(reserves.suspend = '', 'Active', 'Suspended indefinitely')),
+    CONCAT_WS('',
+    If(reserves.suspend_until &gt; 1, Concat('Suspended until ', Date_Format(reserves.suspend_until, "%m/%d/%Y")), If(reserves.suspend = '', 'Active', 'Suspended indefinitely')),
     Concat_Ws('', 
-      If(items.damaged_on > 0, Concat('Damaged on ', items.damaged_on, '<br />'), ''), 
-      If(items.itemlost_on > 0, Concat('Lost on ', items.itemlost_on, '<br />'), ''), 
-      If(items.withdrawn_on > 0, Concat('Withdrawn on ', items.withdrawn_on, '<br />'), '')
+      If(items.damaged_on &gt; 0, Concat('Damaged on ', items.damaged_on, ''), ''), 
+      If(items.itemlost_on &gt; 0, Concat('Lost on ', items.itemlost_on, ''), ''), 
+      If(items.withdrawn_on &gt; 0, Concat('Withdrawn on ', items.withdrawn_on, ''), '')
     )
   ) As STATUS_ISSUES
 From
@@ -76,8 +76,8 @@ From
     biblio_metadata On biblio_metadata.biblionumber = biblio.biblionumber
 Where
     reserves.branchcode Like 'LEAVENWRTH' And
-    If(reserves.suspend > 0, 'Yes', 'No') Like '%' And
-    If(reserves.suspend_until > 1, Concat('Suspended until ', Date_Format(reserves.suspend_until, "%m/%d/%Y")),
+    If(reserves.suspend &gt; 0, 'Yes', 'No') Like '%' And
+    If(reserves.suspend_until &gt; 1, Concat('Suspended until ', Date_Format(reserves.suspend_until, "%m/%d/%Y")),
     If(reserves.suspend = '', 'Active', 'Suspended indefinitely')) = 'Suspended until 08/31/2020' And
     items.homebranch = 'LEAVENWRTH' And
     items.notforloan = 0 And

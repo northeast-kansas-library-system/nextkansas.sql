@@ -4,7 +4,7 @@ R.003026
 ----------
 
 Name: GHW - YE Special BONNERSPGS
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

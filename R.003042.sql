@@ -3,8 +3,8 @@ R.003042
 
 ----------
 
-Name: GHW - �
-Created by: George H Williams
+GHW - search for %efbfbd% characters
+Created by: George Williams
 
 ----------
 
@@ -31,7 +31,7 @@ Expiry: 300
 
 SELECT
   biblio_metadata.biblionumber,
-  CONCAT("<a href='/cgi-bin/koha/cataloguing/editor.pl#catalog/", biblio_metadata.biblionumber, "' target='_blank'>Go to record</a>") AS LINK
+  CONCAT("Go to record") AS LINK
 FROM
   biblio_metadata
 WHERE

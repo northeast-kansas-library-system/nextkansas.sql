@@ -3,17 +3,17 @@ R.003539
 
 ----------
 
-Name: E1 Borrower statistics - borrower count by borrower category
-Created by: George H Williams
+Name: 0100 - 2024_99_e_borrower_count_category monthly_statistics
+Created by: George Williams
 
 ----------
 
 Group: Statistics
-     2023 beginning of month statistics
+     2025 beginning of month statistics
 
 Created on: 2021-08-03 09:12:55
-Modified on: 2023-02-10 14:21:52
-Date last run: 2023-05-01 01:15:01
+Modified on: 2025-04-30 11:32:44
+Date last run: 2025-08-01 01:00:01
 
 ----------
 
@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint> 
-<p>Borrower statistics - borrower counts by category</p> 
-<ul><li>during the previous calendar month</li> 
-<li>at all system libraries</li> 
-<li>grouped and sorted by borrower home library and borrower category</li> 
-</ul><br /> 
-<p><ins>Notes:</ins></p> 
-<p></p> 
-<p class="updated">This report and these notes updated on 2022.03.10</p> 
-<p></p> 
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id= 3539">Click here to download as a csv file</a></p> 
-<p class= "notetags" style="display: none;">#monthly #statistics #borrower #statistics #category</p> 
-<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
-</div> 
+ 
+Borrower statistics - borrower counts by category 
+during the previous calendar month 
+at all system libraries 
+grouped and sorted by borrower home library and borrower category 
+ 
+Notes: 
+ 
+This report and these notes updated on 2022.03.10 
+ 
+Click here to download as a csv file 
+#monthly #statistics #borrower #statistics #category 
+ 
+ 
 
 ----------
 */
@@ -43,13 +43,22 @@ Expiry: 300
 
 
 SELECT 
+  'LIBRARY' AS 'LIBRARY',  
+  'BORROWER_CATEGORY' AS 'BORROWER_CATEGORY',  
+  'TOTAL BORROWERS' AS 'TOTAL BORROWERS',  
+  'BORROWERS RENEWED LAST MONTH' AS 'BORROWERS RENEWED LAST MONTH',  
+  'BORROWERS ADDED LAST MONTH' AS 'BORROWERS ADDED LAST MONTH',  
+  'BORROWERS DELETED LAST MONTH' AS 'BORROWERS DELETED LAST MONTH',  
+  'THIS LIBRARY CAN ACCESS THIS CATEGORY' AS 'THIS LIBRARY CAN ACCESS THIS CATEGORY'
+UNION 
+(SELECT 
   branches_categories.branchname AS LIBRARY, 
   branches_categories.description AS BORROWER_CATEGORY, 
   total.Count_borrowernumber AS "TOTAL BORROWERS", 
   renewed_lm.Count_borrowernumber AS "BORROWERS RENEWED LAST MONTH", 
   added_lm.Count_borrowernumber AS "BORROWERS ADDED LAST MONTH", 
   deleted_lm.Count_borrowernumber AS "BORROWERS DELETED LAST MONTH", 
-  If(limitationss.categorycode <> "", "Yes", "") AS "THIS LIBRARY CAN ACCESS THIS CATEGORY" 
+  If(limitationss.categorycode &lt;&gt; "", "Yes", "") AS "THIS LIBRARY CAN ACCESS THIS CATEGORY" 
 FROM 
     (SELECT 
       branches.branchcode, 
@@ -135,7 +144,7 @@ GROUP BY
 ORDER BY 
   branches_categories.branchname, 
   branches_categories.description 
-  
+) 
 
 
 

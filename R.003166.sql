@@ -4,7 +4,7 @@ R.003166
 ----------
 
 Name: GHW - Bullseye search
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -31,22 +31,12 @@ Expiry: 300
 
 SELECT
   IF(
-    Trim(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'),".",""),",",""),"'",""),"/",""),":",""),";",""),"[",""),"]",""),"(",""),")","")) <> "",
+    Trim(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'),".",""),",",""),"'",""),"/",""),":",""),";",""),"[",""),"]",""),"(",""),")","")) &lt;&gt; "",
     Concat(
-      '<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=au&q=',
-      Replace(Replace(Replace(biblio.author, ".", ""), ",", ""), "'", ""),
-      '&op=and&idx=ti&q=',
-      Trim(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(biblio.title,".",""),"?",""),",",""),"'",""),"/",""),":",""),";",""),"&","")," ","+")),
-      '&op=and&idx=kw&q=',
-      Trim(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'),".",""),",",""),"'",""),"/",""),":",""),";",""),"[",""),"]",""),"(",""),")","")),
-      '&sort_by=title_az\" target="_blank">Search the catalog</a>'
+      'Search the catalog'
     ),
     Concat(
-      '<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=au&q=',
-      Replace(Replace(Replace(biblio.author, ".", ""), ",", ""), "'", ""),
-      '&op=and&idx=ti&q=',
-      Trim(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(biblio.title,".",""),"?",""),",",""),"'",""),"/",""),":",""),";",""),"&","")," ","+")),
-      '&op=not&idx=kw%2Cphr&q=sound+recording&op=not&idx=kw%2Cphr&q=videorecording&sort_by=title_az\" target="_blank">Search the catalog</a>'
+      'Search the catalog'
     )
   ) AS BULLSEYE_SEARCH,
   Replace(Replace(Replace(biblio.author, ".", ""), ",", ""), "'", "") AS AUTHOR,
@@ -58,7 +48,7 @@ FROM
   biblio
   JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
 WHERE
-  Replace(Replace(Replace(biblio.author, ".", ""), ",", ""), "'", "") LIKE Concat(<<searchterm>>, "%")
+  Replace(Replace(Replace(biblio.author, ".", ""), ",", ""), "'", "") LIKE Concat(&lt;&gt;, "%")
 GROUP BY
   Replace(Replace(Replace(biblio.author, ".", ""), ",", ""), "'", ""),
   Trim(Replace(Replace(Replace(Replace(Replace(Replace(biblio.title, ".", ""), ",", ""), "'", ""), "/", ""), ":", ""),
@@ -66,7 +56,7 @@ GROUP BY
   Trim(Replace(Replace(Replace(Replace(Replace(Replace(ExtractValue(biblio_metadata.metadata,
   '//datafield[@tag="245"]/subfield[@code="h"]'), ".", ""), ",", ""), "'", ""), "/", ""), ":", ""), ";", ""))
 HAVING
-  Count(biblio.biblionumber) > 1 AND
+  Count(biblio.biblionumber) &gt; 1 AND
   GMD NOT LIKE "%Hoopla%"
 
 

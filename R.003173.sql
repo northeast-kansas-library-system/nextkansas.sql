@@ -4,7 +4,7 @@ R.003173
 ----------
 
 Name: GHW - Branch notes - ADMINREPORT
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

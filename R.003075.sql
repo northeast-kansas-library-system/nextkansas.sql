@@ -4,7 +4,7 @@ R.003075
 ----------
 
 Name: GHW - Re-categorize borrowers ADMINREPORT
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -42,7 +42,7 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.branchcode LIKE <<Choose your library|branches>>
+  borrowers.branchcode LIKE &lt;&gt;
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

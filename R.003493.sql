@@ -4,7 +4,7 @@ R.003493
 ----------
 
 Name: GHW - Export authorised_values table
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-04-13 15:14:34
-Modified on: 2021-04-13 15:41:33
-Date last run: 2023-03-08 14:57:34
+Modified on: 2024-01-17 11:33:07
+Date last run: 2025-07-03 15:01:00
 
 ----------
 
@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Outputs a backup of the authorised_values table to store on Github</p>
-<ul><li>Shows the authorised_values at the time the report is run</li>
-<li>Shows all authorised values system wide</li>
-<li>sorted by category and value</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Run monthly and output data to Next SQL wiki</p>
-<p></p>
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3493">Click here to download as a csv file</a></p>
-<p class= "notetags" style="display: none;">authorised_values backup github</p>
-</div>
+ 
+Outputs a backup of the authorised_values table to store on Github
+Shows the authorised_values at the time the report is run
+Shows all authorised values system wide
+sorted by category and value
+
+Notes:
+
+Run monthly and output data to Next SQL wiki
+
+Click here to download as a csv file
+authorised_values backup github
+
 
 ----------
 */

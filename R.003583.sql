@@ -4,7 +4,7 @@ R.003583
 ----------
 
 Name: LibraryIQ - Other tab (setup)
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

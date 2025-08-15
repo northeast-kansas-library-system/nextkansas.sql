@@ -4,7 +4,7 @@ R.003328
 ----------
 
 Name: GHW - School District Email Generator
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -36,7 +36,7 @@ SELECT
   If(borrowers.email = "", " // NO EMAIL ADDRESS ON RECORD FOR THIS BORROWER // ", "") AS nomail,
   borrowers.firstname,
   borrowers.surname,
-  GROUP_CONCAT(bibliossitemss.item_info SEPARATOR "<br />") AS CKOS,
+  GROUP_CONCAT(bibliossitemss.item_info SEPARATOR "") AS CKOS,
   Count(issues.issue_id) AS COUNT,
   If(Count(issues.issue_id) = 1, "item", "items") AS ITEMSSS,
   branchess.branchemail
@@ -68,7 +68,7 @@ FROM
       biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber JOIN
       items ON items.biblionumber = biblio.biblionumber) bibliossitemss ON bibliossitemss.itemnumber = issues.itemnumber
 WHERE
-  branchess.branchcode LIKE <<Choose your library|ZPHSD>>
+  branchess.branchcode LIKE &lt;&gt;
 GROUP BY
   borrowers.cardnumber,
   branchess.branchemail,

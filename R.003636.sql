@@ -4,7 +4,7 @@ R.003636
 ----------
 
 Name: GHW - Circ rules test pattern
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2022-01-04 23:10:19
 Modified on: 2022-01-07 21:54:29
-Date last run: 2023-05-08 14:50:15
+Date last run: 2023-06-08 16:15:31
 
 ----------
 
@@ -39,9 +39,9 @@ SELECT
 FROM
   circulation_rules
 WHERE
-  Coalesce(circulation_rules.branchcode, " All") LIKE <<branch|branches:all>> AND
-  Coalesce(circulation_rules.categorycode, " All") LIKE <<borrower category|categorycode:all>> AND
-  Coalesce(circulation_rules.itemtype, " All") LIKE <<item type|itemtypes:all>> AND
+  Coalesce(circulation_rules.branchcode, " All") LIKE &lt;&gt; AND
+  Coalesce(circulation_rules.categorycode, " All") LIKE &lt;&gt; AND
+  Coalesce(circulation_rules.itemtype, " All") LIKE &lt;&gt; AND
   circulation_rules.rule_name LIKE "%"
 GROUP BY
   circulation_rules.id,

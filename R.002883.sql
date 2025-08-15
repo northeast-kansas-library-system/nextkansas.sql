@@ -4,7 +4,7 @@ R.002883
 ----------
 
 Name: GHW - Deleted item information
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Catalog Records and Items
      -
 
 Created on: 2017-01-10 16:12:46
-Modified on: 2018-04-16 11:04:50
-Date last run: 2023-02-28 11:46:00
+Modified on: 2024-01-17 11:48:47
+Date last run: 2025-03-28 15:27:59
 
 ----------
 
@@ -22,15 +22,15 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>Lists information about deleted items</p>
-<ul><li>Shows information on items that have data in the deleteditems table</li>
-<li>Shows information for the single barcode number you specify</li>
-<li>grouped by item barcode</li>
-<li>If there is still an active bibliographic record for the title, a link will appear to that record</li>
-</ul><br />
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2883&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Lists information about deleted items
+Shows information on items that have data in the deleteditems table
+Shows information for the single barcode number you specify
+grouped by item barcode
+If there is still an active bibliographic record for the title, a link will appear to that record
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -38,7 +38,7 @@ Expiry: 0
 
 
 SELECT
-  If(Coalesce(biblio.biblionumber, 0) = deleteditems.biblionumber, Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank"><ins>Click for bibliographic record</ins></a>'), If(Coalesce(deletedbiblio.biblionumber, 0) > 0, '<span style="background-color: yellow; color: red;">Biblio has been deleted</span>', '--') ) AS BIBLIO_RECORD_STATUS,
+  If(Coalesce(biblio.biblionumber, 0) = deleteditems.biblionumber, Concat('Click for bibliographic record'), If(Coalesce(deletedbiblio.biblionumber, 0) &gt; 0, 'Biblio has been deleted', '--') ) AS BIBLIO_RECORD_STATUS,
   deleteditems.barcode,
   deleteditems.homebranch,
   deleteditems.location,
@@ -56,7 +56,7 @@ FROM
   deletedbiblio
     ON deleteditems.biblionumber = deletedbiblio.biblionumber
 WHERE
-  deleteditems.barcode LIKE Concat("%", <<Enter single barcode number>>, "%")
+  deleteditems.barcode LIKE Concat("%", &lt;&gt;, "%")
 GROUP BY
   deleteditems.biblionumber
 ORDER BY

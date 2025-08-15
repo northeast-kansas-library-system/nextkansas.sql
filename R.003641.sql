@@ -4,7 +4,7 @@ R.003641
 ----------
 
 Name: GHW - Basic counts for cleanup
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

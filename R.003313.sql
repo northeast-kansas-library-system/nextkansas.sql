@@ -4,7 +4,7 @@ R.003313
 ----------
 
 Name: GHW - COVID helper
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -57,8 +57,8 @@ FROM
     WHERE
       reserves.branchcode = 'NEKLS') reservess ON reservess.itemnumber = items.itemnumber
 WHERE
-  items.homebranch = <<Affected library|branches>> AND
-  items.holdingbranch <> <<Affected library|branches>> AND
+  items.homebranch = &lt;&gt; AND
+  items.holdingbranch &lt;&gt; &lt;&gt; AND
   (items.itemlost IS NULL OR
       items.itemlost = '' OR
       items.itemlost = 0)

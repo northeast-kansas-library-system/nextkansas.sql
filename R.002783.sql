@@ -4,7 +4,7 @@ R.002783
 ----------
 
 Name: GHW - Requests troubleshooting 002 - Item request history
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Holds-Reserves
      Holds troubleshooting
 
 Created on: 2016-09-29 09:54:40
-Modified on: 2018-04-16 11:02:28
-Date last run: 2023-03-06 15:38:00
+Modified on: 2024-01-17 11:36:27
+Date last run: 2025-05-28 09:41:53
 
 ----------
 
@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>Identifies old requests on a specific item</p>
-<ul><li>Shows all finished requests</li>
-<li>on an item you specify</li>
-<li>sorted by the last activity on the item request</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Report created to help troubleshoot problems with requested items (i.e. missing in transit, item on holds list not found, etc.).</p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2783&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Identifies old requests on a specific item
+Shows all finished requests
+on an item you specify
+sorted by the last activity on the item request
+
+Notes:
+
+Report created to help troubleshoot problems with requested items (i.e. missing in transit, item on holds list not found, etc.).
+Click here to run in a new window
+
 
 ----------
 */
@@ -65,7 +65,7 @@ FROM
   biblio
     ON old_reserves.biblionumber = biblio.biblionumber
 WHERE
-  items.barcode = <<Enter item barcode number>>
+  items.barcode = &lt;&gt;
 ORDER BY
   old_reserves.timestamp DESC
 

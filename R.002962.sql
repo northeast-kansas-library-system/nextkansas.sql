@@ -4,7 +4,7 @@ R.002962
 ----------
 
 Name: GHW - Returns by date range
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2017-06-26 17:37:39
 Modified on: 2017-06-26 17:37:39
-Date last run: 2020-08-17 09:18:55
+Date last run: 2025-04-21 18:31:11
 
 ----------
 
@@ -41,11 +41,11 @@ FROM
       statistics
     WHERE
       (statistics.type = 'return') AND
-      statistics.datetime BETWEEN <<Between the beginning of the day on|date>> AND <<the end of the day on|date>> + INTERVAL 1 DAY
+      statistics.datetime BETWEEN &lt;&gt; AND &lt;&gt; + INTERVAL 1 DAY
     GROUP BY
       statistics.branch) circulation ON branches.branchcode = circulation.branch
 WHERE
-  branches.branchcode LIKE <<Select checkout branch|LBRANCH>>
+  branches.branchcode LIKE &lt;&gt;
 GROUP BY
   branches.branchcode,
   Coalesce(circulation.RETURNS, 0)

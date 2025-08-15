@@ -4,7 +4,7 @@ R.003259
 ----------
 
 Name: GHW ADMINREPORT
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -130,7 +130,7 @@ FROM
     ON branch_names.branchcode = issuingrules.branchcode
 WHERE
   (If(issuingrules.branchcode = "*", " All libraries", branch_names.branchname) LIKE "%All lib%" OR
-    If(issuingrules.branchcode = "*", " All libraries", issuingrules.branchcode) LIKE <<Select your library|branches>>)
+    If(issuingrules.branchcode = "*", " All libraries", issuingrules.branchcode) LIKE &lt;&gt;)
 ORDER BY
   LIBRARY,
   If(borrower_categories.category_type = "A", "Adult", If(borrower_categories.category_type = "C", "Child", If(borrower_categories.category_type = "S", "Staff", If(borrower_categories.category_type = "I", "Organization", If(borrower_categories.category_type = "P", "Professional", If(borrower_categories.category_type = "S", "Statistical", "")))))),

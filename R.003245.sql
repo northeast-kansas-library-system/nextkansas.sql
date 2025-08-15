@@ -4,7 +4,7 @@ R.003245
 ----------
 
 Name: GHW Transactions with replacement price ADMINREPORT
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -81,9 +81,9 @@ FROM
   LEFT JOIN biblio
     ON items.biblionumber = biblio.biblionumber
 WHERE
-  statistics.branch LIKE <<Choose the circulating library|branches>> AND
-  statistics.datetime BETWEEN <<Start date|date>> AND <<end date|date>> + INTERVAL 1 DAY AND
-  If(statistics.type = "renew", "renew-issue", If(statistics.type = "issue", "issue-renew", statistics.type)) LIKE <<Choose a transaction type|LSTATTYPE>>
+  statistics.branch LIKE &lt;&gt; AND
+  statistics.datetime BETWEEN &lt;&gt; AND &lt;&gt; + INTERVAL 1 DAY AND
+  If(statistics.type = "renew", "renew-issue", If(statistics.type = "issue", "issue-renew", statistics.type)) LIKE &lt;&gt;
 GROUP BY
   statistics.branch,
   statistics.datetime,

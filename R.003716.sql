@@ -4,7 +4,7 @@ R.003716
 ----------
 
 Name: GHW - Library quick statistics
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2023-02-24 23:38:52
 Modified on: 2023-03-28 15:54:25
-Date last run: 2023-05-23 11:26:43
+Date last run: 2025-04-03 15:14:08
 
 ----------
 
@@ -37,7 +37,7 @@ FROM
   branches LEFT JOIN
   borrowers ON borrowers.branchcode = branches.branchcode
 WHERE
-  branches.branchcode LIKE <<Choose your library|ZBRAN>>
+  branches.branchcode LIKE &lt;&gt;
 GROUP BY
   branches.branchname
 UNION
@@ -49,7 +49,7 @@ FROM
   branches LEFT JOIN
   items ON items.homebranch = branches.branchcode
 WHERE
-  branches.branchcode LIKE <<Choose your library|ZBRAN>>
+  branches.branchcode LIKE &lt;&gt;
 GROUP BY
   branches.branchname
 UNION
@@ -61,7 +61,7 @@ FROM
   branches LEFT JOIN
   items ON items.homebranch = branches.branchcode
 WHERE
-  branches.branchcode LIKE <<Choose your library|ZBRAN>>
+  branches.branchcode LIKE &lt;&gt;
 GROUP BY
   branches.branchname
 UNION
@@ -73,7 +73,7 @@ FROM
   branches LEFT JOIN
   statistics ON statistics.branch = branches.branchcode
 WHERE
-  branches.branchcode LIKE <<Choose your library|ZBRAN>> AND
+  branches.branchcode LIKE &lt;&gt; AND
   (statistics.type = 'issue' OR
     statistics.type = 'renew') AND
   statistics.datetime BETWEEN CurDate() - INTERVAL 1 YEAR AND CurDate()
@@ -88,7 +88,7 @@ FROM
   branches LEFT JOIN
   statistics ON statistics.branch = branches.branchcode
 WHERE
-  branches.branchcode LIKE <<Choose your library|ZBRAN>> AND
+  branches.branchcode LIKE &lt;&gt; AND
   (statistics.type = 'issue' OR
     statistics.type = 'renew') AND
   statistics.datetime BETWEEN CurDate() - INTERVAL 1 YEAR AND CurDate()

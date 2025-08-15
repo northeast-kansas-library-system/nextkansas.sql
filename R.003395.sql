@@ -4,7 +4,7 @@ R.003395
 ----------
 
 Name: GHW - Item type update - ADMINREPORT
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -34,7 +34,7 @@ SELECT
   items.itype
 FROM
   items
-WHERE  items.itype = <<itype>>
+WHERE  items.itype = &lt;&gt;
 
 
 

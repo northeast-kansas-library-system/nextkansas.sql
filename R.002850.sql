@@ -4,7 +4,7 @@ R.002850
 ----------
 
 Name: GHW - Borrower Notes
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -35,7 +35,7 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.borrowernotes <> ' '
+  borrowers.borrowernotes &lt;&gt; ' '
 
 
 

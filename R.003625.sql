@@ -4,7 +4,7 @@ R.003625
 ----------
 
 Name: Report from Wiki
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -32,8 +32,8 @@ Expiry: 300
 SELECT  ' ' AS Checkbox, b.title, b.author, i.itemcallnumber, i.barcode
 FROM items i
 JOIN biblio b USING (biblionumber)
-WHERE i.homebranch=<<Choose your library|branches>> AND 
-      b.author LIKE CONCAT(<<Author: Last Name, First Name>>,'%')
+WHERE i.homebranch=&lt;&gt; AND 
+      b.author LIKE CONCAT(&lt;&gt;,'%')
 ORDER BY b.title
 
 

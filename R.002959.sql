@@ -4,7 +4,7 @@ R.002959
 ----------
 
 Name: GHW - Items about to be automatically deleted
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2017-06-21 17:08:16
-Modified on: 2018-08-31 12:45:10
-Date last run: 2023-05-16 14:51:18
+Modified on: 2024-01-17 11:49:47
+Date last run: 2025-08-14 14:51:57
 
 ----------
 
@@ -22,24 +22,24 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Generates a list of items that will be automatically deleted two months from today</p>
-<ul><li>Shows items that are about to be deleted</li>
-<li>at the branch you specify</li>
-<li>grouped by item number</li>
-<li>sorted by homebranch, location, item type, collection code, call number, author, and title</li>
-<li>contains links to the bibliographic records of the items about to be deleted</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p><span style="background-color:darkred; color:white;">Updated 2017.09.08 to correct for some errors/problems that have come up in the auto-deletion process.</span></p>
-<p></p>
-<p>This report goes along with the script that NExpress asked ByWater to write in 2015 that automatically deletes any items that have had a "Lost," "Lost (more than 45 days overdue)," "Missing," "Lost - Damaged/Replace," "Lost - Patron Claims Returned," "In Processing," "Discard," "Lost - Not Returnable," or  "Withdrawn" status for more than 13 months.  This report allows libraries to see what these items are 2 months before the items are scheduled to be deleted.</p>
-<p></p>
-<p>The report will show all deletions that are scheduled to happen 2 months in the future.  For example, if you run the report in January, you will see what is going to be deleted automatically through the end of March.  If you run it in July, you will see what is going to be deleted through the end of September.  If you run it in December, you will see what is going to be deleted through the end of February of the next year.</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2959&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Generates a list of items that will be automatically deleted two months from today
+Shows items that are about to be deleted
+at the branch you specify
+grouped by item number
+sorted by homebranch, location, item type, collection code, call number, author, and title
+contains links to the bibliographic records of the items about to be deleted
+
+Notes:
+
+Updated 2017.09.08 to correct for some errors/problems that have come up in the auto-deletion process.
+
+This report goes along with the script that NExpress asked ByWater to write in 2015 that automatically deletes any items that have had a "Lost," "Lost (more than 45 days overdue)," "Missing," "Lost - Damaged/Replace," "Lost - Patron Claims Returned," "In Processing," "Discard," "Lost - Not Returnable," or  "Withdrawn" status for more than 13 months.  This report allows libraries to see what these items are 2 months before the items are scheduled to be deleted.
+
+The report will show all deletions that are scheduled to happen 2 months in the future.  For example, if you run the report in January, you will see what is going to be deleted automatically through the end of March.  If you run it in July, you will see what is going to be deleted through the end of September.  If you run it in December, you will see what is going to be deleted through the end of February of the next year.
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -47,7 +47,7 @@ Expiry: 300
 
 
 SELECT
-  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">', biblio.biblionumber, '</a>') AS LINK_TO_TITLE,
+  Concat('', biblio.biblionumber, '') AS LINK_TO_TITLE,
   Concat("-", items.barcode, "-") AS BARCODE,
   items.homebranch,
   Concat(itemtypes.description, " (", items.itype, ")") AS ITYPE,
@@ -105,21 +105,21 @@ FROM
       WHERE
         authorised_values.category = 'withdrawn') wcodes ON items.withdrawn = wcodes.authorised_value
 WHERE
-  items.homebranch LIKE <<Choose item home branch|LBRANCH>> AND
-  ((items.itemlost > 0 AND
+  items.homebranch LIKE &lt;&gt; AND
+  ((items.itemlost &gt; 0 AND
   (Greatest(Coalesce(CAST(items.dateaccessioned AS DATE), 0),
     Coalesce(CAST(items.datelastborrowed AS DATE), 0),
     Coalesce(CAST(items.datelastseen AS DATE), 0),
     Coalesce(CAST(items.itemlost_on AS DATE), 0),
     Coalesce(CAST(items.withdrawn_on AS DATE), 0),
-    Coalesce(CAST(items.timestamp AS DATE), 0)) + INTERVAL 13 MONTH) < AddDate(Last_Day(SubDate(Now(), INTERVAL -2 MONTH)), 1)) OR
-  (items.withdrawn > 0 AND
+    Coalesce(CAST(items.timestamp AS DATE), 0)) + INTERVAL 13 MONTH) &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL -2 MONTH)), 1)) OR
+  (items.withdrawn &gt; 0 AND
   (Greatest(Coalesce(CAST(items.dateaccessioned AS DATE), 0),
     Coalesce(CAST(items.datelastborrowed AS DATE), 0),
     Coalesce(CAST(items.datelastseen AS DATE), 0),
     Coalesce(CAST(items.itemlost_on AS DATE), 0),
     Coalesce(CAST(items.withdrawn_on AS DATE), 0),
-    Coalesce(CAST(items.timestamp AS DATE), 0)) + INTERVAL 13 MONTH) < AddDate(Last_Day(SubDate(Now(), INTERVAL -2 MONTH)), 1)))
+    Coalesce(CAST(items.timestamp AS DATE), 0)) + INTERVAL 13 MONTH) &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL -2 MONTH)), 1)))
 GROUP BY
   biblio.biblionumber,
   items.itemnumber

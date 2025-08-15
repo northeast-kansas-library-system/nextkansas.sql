@@ -3,17 +3,17 @@ R.003701
 
 ----------
 
-Name: D1 Circulation by borrower details - Circulation by borrower category
-Created by: George H Williams
+Name: 0045 - 2024_99_d_circulation_borrower_category monthly_statistics
+Created by: George Williams
 
 ----------
 
 Group: Statistics
-     2023 beginning of month statistics
+     2025 beginning of month statistics
 
 Created on: 2023-02-10 09:36:34
-Modified on: 2023-02-10 14:04:28
-Date last run: 2023-05-01 00:55:01
+Modified on: 2025-04-30 10:53:14
+Date last run: 2025-08-01 00:45:01
 
 ----------
 
@@ -22,26 +22,26 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint> 
-<p>Circulation by borrower details - circulation by borrower category</p> 
-<ul>
-  <li>Shows circulation and renewal statistics grouped by borrower category</li> 
-  <li>during the previous calendar month</li> 
-  <li>At all Next Search Catalog libraries</li> 
-  <li>grouped and sorted by library and borrower category</li> 
-</ul>
-<br /> 
-<p><ins>Notes:</ins></p> 
-<p></p> 
-<p></p> 
-<p></p> 
-<p></p> 
-<p></p> 
-<p></p> 
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3701">Click here to download as a csv file</a></p> 
-<p class= "notetags" style="display: none;">#monthly #statistics #borrower #details #borrower_category #circulation_by_borrower_details</p> 
-<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
-</div> 
+ 
+Circulation by borrower details - circulation by borrower category 
+
+  Shows circulation and renewal statistics grouped by borrower category 
+  during the previous calendar month 
+  At all Next Search Catalog libraries 
+  grouped and sorted by library and borrower category 
+
+ 
+Notes: 
+ 
+ 
+ 
+ 
+ 
+ 
+Click here to download as a csv file 
+#monthly #statistics #borrower #details #borrower_category #circulation_by_borrower_details 
+ 
+ 
 
 ----------
 */
@@ -49,6 +49,15 @@ Expiry: 300
 
 
 SELECT 
+  'Library' AS 'Library',  
+  'Borrower category' AS 'Borrower category',  
+  'Total items checked out/renewed' AS 'Total items checked out/renewed',  
+  'Adult items checked out/renewed' AS 'Adult items checked out/renewed',  
+  'Young-adult items checked out/renewed' AS 'Young-adult items checked out/renewed',  
+  'Juvenile items checked out/renewed' AS 'Juvenile items checked out/renewed',  
+  'Other items checked out/renewed' AS 'Other items checked out/renewed'
+UNION 
+(SELECT 
   branchescategories.branchname AS 'Library', 
   branchescategories.description AS 'Borrower category', 
   CIR_RENEW_LM.count AS 'Total items checked out/renewed', 
@@ -258,7 +267,7 @@ GROUP BY
   OTHER.count 
 ORDER BY 
   branchescategories.branchname, 
-  branchescategories.description 
+  branchescategories.description )
 
 
 

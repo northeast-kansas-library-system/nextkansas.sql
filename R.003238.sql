@@ -4,7 +4,7 @@ R.003238
 ----------
 
 Name: aa
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -32,11 +32,7 @@ Expiry: 300
 SELECT
     CONCAT( p.firstname, ' ', p.surname, ' (', p.branchcode, ')' ) AS 'patron (homebranch)',
     CONCAT( 
-        '<img src="/cgi-bin/koha/svc/barcode?barcode=',
-         cardnumber, 
-        '&type=',
-        <<Barcode type>>,
-        '"></img>') AS cardnumber,
+        '') AS cardnumber,
     cardnumber AS 'cardnumber text' 
 FROM
     borrowers p

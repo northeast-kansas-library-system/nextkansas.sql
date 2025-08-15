@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2014-02-24 11:14:47
 Modified on: 2014-02-24 11:26:43
-Date last run: 2022-10-25 10:03:24
+Date last run: 2025-07-31 13:11:58
 
 ----------
 
@@ -29,7 +29,7 @@ List of all records that only your library has copies attached to in the NExpres
 
 
 
-SELECT CONCAT('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',biblio.biblionumber,'\" target="_blank">'"link to record"'</a>') as "link to record", biblio.title, biblio.author, items.ccode, items.itemcallnumber, count(items.itemnumber) FROM items JOIN biblio USING(biblionumber) WHERE items.homebranch=<<your branch|branches>> AND biblio.biblionumber NOT IN (SELECT biblionumber FROM items WHERE homebranch <> <<your branch|branches>>) GROUP BY biblio.biblionumber ORDER BY items.ccode, items.itemcallnumber
+SELECT CONCAT(''"link to record"'') as "link to record", biblio.title, biblio.author, items.ccode, items.itemcallnumber, count(items.itemnumber) FROM items JOIN biblio USING(biblionumber) WHERE items.homebranch=&lt;&gt; AND biblio.biblionumber NOT IN (SELECT biblionumber FROM items WHERE homebranch &lt;&gt; &lt;&gt;) GROUP BY biblio.biblionumber ORDER BY items.ccode, items.itemcallnumber
 
 
 

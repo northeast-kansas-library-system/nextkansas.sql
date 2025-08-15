@@ -13,7 +13,7 @@ Group: Popular Reports
 
 Created on: 2014-09-26 14:59:34
 Modified on: 2015-08-16 20:39:00
-Date last run: 2023-01-31 11:31:50
+Date last run: 2025-04-04 13:13:58
 
 ----------
 
@@ -29,8 +29,8 @@ Shows items with more than XX total circs for various shelving locations.  Enhan
 
 
 
-SELECT items.barcode, items.itemcallnumber, CONCAT( '<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',biblio.biblionumber,'\" target="_blank">',biblio.biblionumber,'</a>' ) as 'Link to Record', biblio.title, t.publicationyear as 'Copyright', items.dateaccessioned as 'Accessioned', items.itype, items.ccode, items.issues, items.renewals,(IFNULL(items.issues,0)+IFNULL(items.renewals,0)) as
-Total_Circ,items.datelastborrowed,items.itemlost,items.onloan,items.damaged,items.itemnotes FROM items LEFT JOIN biblio USING(biblionumber)  LEFT JOIN biblioitems t USING(biblionumber) WHERE items.homebranch=<<Pick Transacting Branch|branches>> AND items.issues > <<Minimum Number of Circs>> and items.location = <<location|LOC>> 
+SELECT items.barcode, items.itemcallnumber, CONCAT( '',biblio.biblionumber,'' ) as 'Link to Record', biblio.title, t.publicationyear as 'Copyright', items.dateaccessioned as 'Accessioned', items.itype, items.ccode, items.issues, items.renewals,(IFNULL(items.issues,0)+IFNULL(items.renewals,0)) as
+Total_Circ,items.datelastborrowed,items.itemlost,items.onloan,items.damaged,items.itemnotes FROM items LEFT JOIN biblio USING(biblionumber)  LEFT JOIN biblioitems t USING(biblionumber) WHERE items.homebranch=&lt;&gt; AND items.issues &gt; &lt;&gt; and items.location = &lt;&gt; 
 ORDER BY Total_Circ DESC
 
 

@@ -4,7 +4,7 @@ R.003501
 ----------
 
 Name: GHW - Monthly 615 Local checkouts and renewals last month by Collection code
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2021-05-03 01:23:47
 Modified on: 2021-12-03 17:36:41
-Date last run: 2023-02-10 14:28:23
+Date last run: 2024-12-10 16:36:33
 
 ----------
 
@@ -22,12 +22,12 @@ Expiry: 300
 
 ----------
 
-<p class="updated">SHELVING_LOCATION is based on the shelving location of the item at the time it was checked out *Unless the item had a "Recently returned" shelving location.*  This report falls back to the items' "Permanent shelving location" whenever the statistics data shows that the item's shelving location was "Recently returned."</p>
+SHELVING_LOCATION is based on the shelving location of the item at the time it was checked out *Unless the item had a "Recently returned" shelving location.*  This report falls back to the items' "Permanent shelving location" whenever the statistics data shows that the item's shelving location was "Recently returned."
 
-<p></p>
-<p class="updated">Updated on 2021.10.20 to include changes based on the "Recently returned" shelving location.</p>
-<p class="updated">Updated on 2021.12.03  to fix errors.</p>
-<p></p>
+
+Updated on 2021.10.20 to include changes based on the "Recently returned" shelving location.
+Updated on 2021.12.03  to fix errors.
+
 
 ----------
 */

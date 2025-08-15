@@ -4,7 +4,7 @@ R.003339
 ----------
 
 Name: GHW - Borrowers with unresolved credits on their accounts
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2020-07-10 15:06:56
-Modified on: 2020-07-10 16:39:04
-Date last run: 2021-03-04 22:32:11
+Modified on: 2024-01-17 12:04:36
+Date last run: 2025-08-05 19:59:07
 
 ----------
 
@@ -22,18 +22,20 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Shows a list of borrowers with unresolved credits on their accounts</p>
-<ul><li>Shows borrowers with currently unresolved credits</li>
-<li>shows patrons at the home library you specify</li>
-<li>grouped by borrowernumber</li>
-<li>sorted by formula that generates row numbers</li>
-<li>links to the borrower's fine payment tab</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3339&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Shows a list of borrowers with unresolved credits on their accounts
+Shows borrowers with currently unresolved credits
+shows patrons at the home library you specify
+grouped by borrowernumber
+sorted by formula that generates row numbers
+links to the borrower's fine payment tab
+
+Notes:  
+
+replaces report 831
+replaces report 3526
+Click here to run in a new window
+
 
 ----------
 */
@@ -42,8 +44,7 @@ Expiry: 300
 
 SELECT
   (@row_number:=@row_number + 1) AS num, 
-  Concat('<a href="/cgi-bin/koha/members/pay.pl?borrowernumber=',
-  accountlineslesszero.borrowernumber, '" target="blank">Link to patron</a>') AS
+  Concat('Link to patron') AS
   LINK,
   borrowers.branchcode,
   borrowers.cardnumber AS LIBRARYCARD,
@@ -57,11 +58,11 @@ FROM
     FROM
       accountlines
     WHERE
-      accountlines.amountoutstanding < 0) accountlineslesszero ON
+      accountlines.amountoutstanding &lt; 0) accountlineslesszero ON
       accountlineslesszero.borrowernumber = borrowers.borrowernumber,
     (SELECT @row_number:=0) AS t
 WHERE
-  borrowers.branchcode LIKE <<Choose borrower home library|ZBRAN>>
+  borrowers.branchcode LIKE &lt;&gt;
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

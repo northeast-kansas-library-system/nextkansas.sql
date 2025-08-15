@@ -4,7 +4,7 @@ R.002785
 ----------
 
 Name: GHW - Requests troubleshooting 004 - Item check-out history
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Holds-Reserves
      Holds troubleshooting
 
 Created on: 2016-09-29 10:35:34
-Modified on: 2018-04-16 11:02:24
-Date last run: 2023-04-05 16:05:29
+Modified on: 2024-02-07 16:15:59
+Date last run: 2025-07-22 14:58:13
 
 ----------
 
@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>Identifies circulation history on a specific item</p>
-<ul><li>Shows all circulation history that has been completed</li>
-<li>on an item you specify</li>
-<li>sorted by the last date the item was returned</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Report created to help troubleshoot problems with requested items (i.e. missing in transit, item on holds list not found, etc.).</p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2785&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Identifies circulation history on a specific item
+Shows all circulation history that has been completed
+on an item you specify
+sorted by the last date the item was returned
+
+Notes:
+
+Report created to help troubleshoot problems with requested items (i.e. missing in transit, item on holds list not found, etc.).
+Click here to run in a new window
+
 
 ----------
 */
@@ -53,7 +53,6 @@ SELECT
   old_issues.branchcode AS CHECK_OUT_BRANCH,
   old_issues.issuedate,
   old_issues.date_due,
-  old_issues.renewals,
   old_issues.lastreneweddate
 FROM
   old_issues JOIN
@@ -64,7 +63,7 @@ FROM
   borrowers
     ON old_issues.borrowernumber = borrowers.borrowernumber
 WHERE
-  items.barcode = <<Enter item barcode number>>
+  items.barcode = &lt;&gt;
 ORDER BY
   old_issues.returndate DESC
 

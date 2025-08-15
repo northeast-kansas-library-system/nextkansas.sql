@@ -4,7 +4,7 @@ R.003320
 ----------
 
 Name: ghw -Self-reg email
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

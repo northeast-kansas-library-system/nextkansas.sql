@@ -32,14 +32,12 @@ Full Report
 SELECT
   borrowers.cardnumber,
   Concat(
-    '<a class="btn btn-default" href="/cgi-bin/koha/members/readingrec.pl?borrowernumber=', 
-    borrowers.borrowernumber, 
-    '" target="_blank">Go to borrower\'s history</a>'
+    'Go to borrower\'s history'
   ) AS GO_TO_HISTORY
 FROM
   borrowers
 WHERE
-  borrowers.cardnumber = <<Enter library card number>>
+  borrowers.cardnumber = &lt;&gt;
 
 
 

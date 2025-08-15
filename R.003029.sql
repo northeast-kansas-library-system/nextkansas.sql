@@ -4,7 +4,7 @@ R.003029
 ----------
 
 Name: GHW - Circulation Stats - Checkin count by flexible dates
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,7 +12,7 @@ Group: Daily, Monthly, Yearly Stats
      -
 
 Created on: 2018-01-04 09:58:40
-Modified on: 2018-04-16 11:13:41
+Modified on: 2024-01-17 11:52:28
 Date last run: 2023-03-08 11:45:41
 
 ----------
@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Counts checkins based on flexible date settings</p>
-<ul><li>Counts checkins based on the date parameters you set</li>
-<li>at the library you choose</li>
-<li>grouped and sorted by checkin branch and date of checkin</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>This report replaces reports 2404, 2405, 2406, 2407, 2408, 2409, 2410</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3029&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Counts checkins based on flexible date settings
+Counts checkins based on the date parameters you set
+at the library you choose
+grouped and sorted by checkin branch and date of checkin
+
+Notes:
+
+This report replaces reports 2404, 2405, 2406, 2407, 2408, 2409, 2410
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -59,15 +59,15 @@ FROM
         statistics
       WHERE
         statistics.type = 'return' AND
-        Date_Format(statistics.datetime, "%Y") LIKE <<Choose checkin year|LYEAR>> AND
-        Date_Format(statistics.datetime, "%m") LIKE <<Choose checkin month|LMONTH>> AND
-        Date_Format(statistics.datetime, "%d") LIKE <<Choose checkin date|LDATE>> AND
-        Date_Format(statistics.datetime, "%W") LIKE <<Choose checkin day|LDAYOFWEEK>>
+        Date_Format(statistics.datetime, "%Y") LIKE &lt;&gt; AND
+        Date_Format(statistics.datetime, "%m") LIKE &lt;&gt; AND
+        Date_Format(statistics.datetime, "%d") LIKE &lt;&gt; AND
+        Date_Format(statistics.datetime, "%W") LIKE &lt;&gt;
       GROUP BY
         statistics.branch,
         Date_Format(statistics.datetime, "%Y-%m-%d")) checkins ON branches.branchcode = checkins.branch
 WHERE
-  branches.branchcode LIKE <<Choose checkin library|LBRANCH>>
+  branches.branchcode LIKE &lt;&gt;
 GROUP BY
   branches.branchcode,
   checkins.DATE

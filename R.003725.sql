@@ -4,7 +4,7 @@ R.003725
 ----------
 
 Name: Subfield matcher
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -49,7 +49,7 @@ SELECT
       y.liblibrarian = '',
       '-',
       If(y.liblibrarian IS NULL, '-', y.liblibrarian)
-    ) <> If(
+    ) &lt;&gt; If(
       d.liblibrarian = '',
       '-',
       If(d.liblibrarian IS NULL, '-', d.liblibrarian)
@@ -72,7 +72,7 @@ SELECT
       y.libopac = '',
       '-',
       If(y.libopac IS NULL, '-', y.libopac)
-    ) <> If(
+    ) &lt;&gt; If(
       d.libopac = '',
       '-',
       If(d.libopac IS NULL, '-', d.libopac)
@@ -95,7 +95,7 @@ SELECT
       y.repeatable = '',
       '-',
       If(y.repeatable IS NULL, '-', y.repeatable)
-    ) <> If(
+    ) &lt;&gt; If(
       d.repeatable = '',
       '-',
       If(d.repeatable IS NULL, '-', d.repeatable)
@@ -118,7 +118,7 @@ SELECT
       y.mandatory = '',
       '-',
       If(y.mandatory IS NULL, '-', y.mandatory)
-    ) <> If(
+    ) &lt;&gt; If(
       d.mandatory = '',
       '-',
       If(d.mandatory IS NULL, '-', d.mandatory)
@@ -141,7 +141,7 @@ SELECT
       y.important = '',
       '-',
       If(y.important IS NULL, '-', y.important)
-    ) <> If(
+    ) &lt;&gt; If(
       d.important = '',
       '-',
       If(d.important IS NULL, '-', d.important)
@@ -152,7 +152,7 @@ SELECT
   If(y.tab = '', '-', If(y.tab IS NULL, '-', y.tab)) AS `"Managed in tab_1"`,
   If(d.tab = '', '-', If(d.tab IS NULL, '-', d.tab)) AS `"Managed in tab_2"`,
   If(
-    If(y.tab = '', '-', If(y.tab IS NULL, '-', y.tab)) <> If(
+    If(y.tab = '', '-', If(y.tab IS NULL, '-', y.tab)) &lt;&gt; If(
       d.tab = '',
       '-',
       If(d.tab IS NULL, '-', d.tab)
@@ -175,7 +175,7 @@ SELECT
       y.defaultvalue = '',
       '-',
       If(y.defaultvalue IS NULL, '-', y.defaultvalue)
-    ) <> If(
+    ) &lt;&gt; If(
       d.defaultvalue = '',
       '-',
       If(d.defaultvalue IS NULL, '-', d.defaultvalue)
@@ -198,7 +198,7 @@ SELECT
       y.maxlength = '',
       '-',
       If(y.maxlength IS NULL, '-', y.maxlength)
-    ) <> If(
+    ) &lt;&gt; If(
       d.maxlength = '',
       '-',
       If(d.maxlength IS NULL, '-', d.maxlength)
@@ -221,7 +221,7 @@ SELECT
       y.hidden = '',
       '-',
       If(y.hidden IS NULL, '-', y.hidden)
-    ) <> If(
+    ) &lt;&gt; If(
       d.hidden = '',
       '-',
       If(d.hidden IS NULL, '-', d.hidden)
@@ -244,7 +244,7 @@ SELECT
       y.isurl = '',
       '-',
       If(y.isurl IS NULL, '-', y.isurl)
-    ) <> If(
+    ) &lt;&gt; If(
       d.isurl = '',
       '-',
       If(d.isurl IS NULL, '-', d.isurl)
@@ -267,7 +267,7 @@ SELECT
       y.link = '',
       '-',
       If(y.link IS NULL, '-', y.link)
-    ) <> If(
+    ) &lt;&gt; If(
       d.link = '',
       '-',
       If(d.link IS NULL, '-', d.link)
@@ -290,7 +290,7 @@ SELECT
       y.kohafield = '',
       '-',
       If(y.kohafield IS NULL, '-', y.kohafield)
-    ) <> If(
+    ) &lt;&gt; If(
       d.kohafield = '',
       '-',
       If(d.kohafield IS NULL, '-', d.kohafield)
@@ -325,7 +325,7 @@ SELECT
         '-',
         y.authorised_value
       )
-    ) <> If(
+    ) &lt;&gt; If(
       d.authorised_value = '',
       '-',
       If(
@@ -352,7 +352,7 @@ SELECT
       y.authtypecode = '',
       '-',
       If(y.authtypecode IS NULL, '-', y.authtypecode)
-    ) <> If(
+    ) &lt;&gt; If(
       d.authtypecode = '',
       '-',
       If(d.authtypecode IS NULL, '-', d.authtypecode)
@@ -375,7 +375,7 @@ SELECT
       y.value_builder = '',
       '-',
       If(y.value_builder IS NULL, '-', y.value_builder)
-    ) <> If(
+    ) &lt;&gt; If(
       d.value_builder = '',
       '-',
       If(d.value_builder IS NULL, '-', d.value_builder)
@@ -398,7 +398,7 @@ SELECT
       y.seealso = '',
       '-',
       If(y.seealso IS NULL, '-', y.seealso)
-    ) <> If(
+    ) &lt;&gt; If(
       d.seealso = '',
       '-',
       If(d.seealso IS NULL, '-', d.seealso)
@@ -421,7 +421,7 @@ SELECT
       y.display_order = '',
       '-',
       If(y.display_order IS NULL, '-', y.display_order)
-    ) <> If(
+    ) &lt;&gt; If(
       d.display_order = '',
       '-',
       If(d.display_order IS NULL, '-', d.display_order)
@@ -488,159 +488,159 @@ FROM (
     WHERE marc_subfield_structure.frameworkcode = ''
   ) d ON d.CTRLX = y.CTRLX
 WHERE 
-  y.tagsubfield Like <<Enter subfield>> AND
+  y.tagsubfield Like &lt;&gt; AND
   If(
     If(
       y.liblibrarian = '',
       '-',
       If(y.liblibrarian IS NULL, '-', y.liblibrarian)
-    ) <> If(
+    ) &lt;&gt; If(
       d.liblibrarian = '',
       '-',
       If(d.liblibrarian IS NULL, '-', d.liblibrarian)
     ),
     'No',
     'Yes'
-  ) LIKE <<"Text for librarian" match|ZYES_NO>>
+  ) LIKE &lt;&lt;"Text for librarian" match|ZYES_NO&gt;&gt;
   AND If(
     If(
       y.libopac = '',
       '-',
       If(y.libopac IS NULL, '-', y.libopac)
-    ) <> If(
+    ) &lt;&gt; If(
       d.libopac = '',
       '-',
       If(d.libopac IS NULL, '-', d.libopac)
     ),
     'No',
     'Yes'
-  ) LIKE <<"Text for OPAC" match|ZYES_NO>>
+  ) LIKE &lt;&lt;"Text for OPAC" match|ZYES_NO&gt;&gt;
   AND If(
     If(
       y.repeatable = '',
       '-',
       If(y.repeatable IS NULL, '-', y.repeatable)
-    ) <> If(
+    ) &lt;&gt; If(
       d.repeatable = '',
       '-',
       If(d.repeatable IS NULL, '-', d.repeatable)
     ),
     'No',
     'Yes'
-  ) LIKE <<"Repeatable" match|ZYES_NO>>
+  ) LIKE &lt;&lt;"Repeatable" match|ZYES_NO&gt;&gt;
   AND If(
     If(
       y.mandatory = '',
       '-',
       If(y.mandatory IS NULL, '-', y.mandatory)
-    ) <> If(
+    ) &lt;&gt; If(
       d.mandatory = '',
       '-',
       If(d.mandatory IS NULL, '-', d.mandatory)
     ),
     'No',
     'Yes'
-  ) LIKE <<"Mandatory" match|ZYES_NO>>
+  ) LIKE &lt;&lt;"Mandatory" match|ZYES_NO&gt;&gt;
   AND If(
     If(
       y.important = '',
       '-',
       If(y.important IS NULL, '-', y.important)
-    ) <> If(
+    ) &lt;&gt; If(
       d.important = '',
       '-',
       If(d.important IS NULL, '-', d.important)
     ),
     'No',
     'Yes'
-  ) LIKE <<"Important" match|ZYES_NO>>
+  ) LIKE &lt;&lt;"Important" match|ZYES_NO&gt;&gt;
   AND If(
-    If(y.tab = '', '-', If(y.tab IS NULL, '-', y.tab)) <> If(
+    If(y.tab = '', '-', If(y.tab IS NULL, '-', y.tab)) &lt;&gt; If(
       d.tab = '',
       '-',
       If(d.tab IS NULL, '-', d.tab)
     ),
     'No',
     'Yes'
-  ) LIKE <<"Managed in tab" match|ZYES_NO>>
+  ) LIKE &lt;&lt;"Managed in tab" match|ZYES_NO&gt;&gt;
   AND If(
     If(
       y.defaultvalue = '',
       '-',
       If(y.defaultvalue IS NULL, '-', y.defaultvalue)
-    ) <> If(
+    ) &lt;&gt; If(
       d.defaultvalue = '',
       '-',
       If(d.defaultvalue IS NULL, '-', d.defaultvalue)
     ),
     'No',
     'Yes'
-  ) LIKE <<"Default value" match|ZYES_NO>>
+  ) LIKE &lt;&lt;"Default value" match|ZYES_NO&gt;&gt;
   AND If(
     If(
       y.maxlength = '',
       '-',
       If(y.maxlength IS NULL, '-', y.maxlength)
-    ) <> If(
+    ) &lt;&gt; If(
       d.maxlength = '',
       '-',
       If(d.maxlength IS NULL, '-', d.maxlength)
     ),
     'No',
     'Yes'
-  ) LIKE <<"Max length" match|ZYES_NO>>
+  ) LIKE &lt;&lt;"Max length" match|ZYES_NO&gt;&gt;
   AND If(
     If(
       y.hidden = '',
       '-',
       If(y.hidden IS NULL, '-', y.hidden)
-    ) <> If(
+    ) &lt;&gt; If(
       d.hidden = '',
       '-',
       If(d.hidden IS NULL, '-', d.hidden)
     ),
     'No',
     'Yes'
-  ) LIKE <<"Visibility" match|ZYES_NO>>
+  ) LIKE &lt;&lt;"Visibility" match|ZYES_NO&gt;&gt;
   AND If(
     If(
       y.isurl = '',
       '-',
       If(y.isurl IS NULL, '-', y.isurl)
-    ) <> If(
+    ) &lt;&gt; If(
       d.isurl = '',
       '-',
       If(d.isurl IS NULL, '-', d.isurl)
     ),
     'No',
     'Yes'
-  ) LIKE <<"Is a URL" match|ZYES_NO>>
+  ) LIKE &lt;&lt;"Is a URL" match|ZYES_NO&gt;&gt;
   AND If(
     If(
       y.link = '',
       '-',
       If(y.link IS NULL, '-', y.link)
-    ) <> If(
+    ) &lt;&gt; If(
       d.link = '',
       '-',
       If(d.link IS NULL, '-', d.link)
     ),
     'No',
     'Yes'
-  ) LIKE <<"Link" match|ZYES_NO>>
+  ) LIKE &lt;&lt;"Link" match|ZYES_NO&gt;&gt;
   AND If(
     If(
       y.kohafield = '',
       '-',
       If(y.kohafield IS NULL, '-', y.kohafield)
-    ) <> If(
+    ) &lt;&gt; If(
       d.kohafield = '',
       '-',
       If(d.kohafield IS NULL, '-', d.kohafield)
     ),
     'No',
     'Yes'
-  ) LIKE <<"Koha link" match|ZYES_NO>>
+  ) LIKE &lt;&lt;"Koha link" match|ZYES_NO&gt;&gt;
   AND If(
     If(
       y.authorised_value = '',
@@ -650,7 +650,7 @@ WHERE
         '-',
         y.authorised_value
       )
-    ) <> If(
+    ) &lt;&gt; If(
       d.authorised_value = '',
       '-',
       If(
@@ -661,59 +661,59 @@ WHERE
     ),
     'No',
     'Yes'
-  ) LIKE <<"Authorized value" match|ZYES_NO>>
+  ) LIKE &lt;&lt;"Authorized value" match|ZYES_NO&gt;&gt;
   AND If(
     If(
       y.authtypecode = '',
       '-',
       If(y.authtypecode IS NULL, '-', y.authtypecode)
-    ) <> If(
+    ) &lt;&gt; If(
       d.authtypecode = '',
       '-',
       If(d.authtypecode IS NULL, '-', d.authtypecode)
     ),
     'No',
     'Yes'
-  ) LIKE <<"Thesaurus" match|ZYES_NO>>
+  ) LIKE &lt;&lt;"Thesaurus" match|ZYES_NO&gt;&gt;
   AND If(
     If(
       y.value_builder = '',
       '-',
       If(y.value_builder IS NULL, '-', y.value_builder)
-    ) <> If(
+    ) &lt;&gt; If(
       d.value_builder = '',
       '-',
       If(d.value_builder IS NULL, '-', d.value_builder)
     ),
     'No',
     'Yes'
-  ) LIKE <<"Plugin" match|ZYES_NO>>
+  ) LIKE &lt;&lt;"Plugin" match|ZYES_NO&gt;&gt;
   AND If(
     If(
       y.seealso = '',
       '-',
       If(y.seealso IS NULL, '-', y.seealso)
-    ) <> If(
+    ) &lt;&gt; If(
       d.seealso = '',
       '-',
       If(d.seealso IS NULL, '-', d.seealso)
     ),
     'No',
     'Yes'
-  ) LIKE <<"See also" match|ZYES_NO>>
+  ) LIKE &lt;&lt;"See also" match|ZYES_NO&gt;&gt;
   AND If(
     If(
       y.display_order = '',
       '-',
       If(y.display_order IS NULL, '-', y.display_order)
-    ) <> If(
+    ) &lt;&gt; If(
       d.display_order = '',
       '-',
       If(d.display_order IS NULL, '-', d.display_order)
     ),
     'No',
     'Yes'
-  ) LIKE <<"Display order" match|ZYES_NO>>
+  ) LIKE &lt;&lt;"Display order" match|ZYES_NO&gt;&gt;
 ORDER BY y.CTRLX
 
 

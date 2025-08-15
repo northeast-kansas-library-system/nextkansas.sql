@@ -4,7 +4,7 @@ R.003125
 ----------
 
 Name: GHW - Circulation desk transactions on a specified date
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2018-09-26 11:42:19
-Modified on: 2021-10-26 12:23:30
-Date last run: 2022-07-25 11:49:32
+Modified on: 2024-01-17 11:56:17
+Date last run: 2025-06-20 10:34:20
 
 ----------
 
@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>List of transactions at the circulation desk at the library you specify</p>
-<ul><li>Shows transactions on the date you specify</li>
-<li>shows transactions that occurred at the library you specify</li>
-<li>grouped and sorted by library, time the transaction occurred, and the item number</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>This report cannot be used to show any transactions more than 25 months old.</p>
-<p>Shelving location information was not stored in the transaction logs until we upgraded to Koha 17.11 on 2018.07.28.</p>
-<p></p>
-<p class="updated">Report changed to show item permanent location in addition to current location at time of circulation.</p>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3125&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+List of transactions at the circulation desk at the library you specify
+Shows transactions on the date you specify
+shows transactions that occurred at the library you specify
+grouped and sorted by library, time the transaction occurred, and the item number
+
+Notes:
+
+This report cannot be used to show any transactions more than 25 months old.
+Shelving location information was not stored in the transaction logs until we upgraded to Koha 17.11 on 2018.07.28.
+
+Report changed to show item permanent location in addition to current location at time of circulation.
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -105,8 +105,8 @@ FROM
     WHERE
       authorised_values.category = 'loc') permlocs ON permlocs.authorised_value = items.permanent_location
 WHERE
-  statistics.branch like <<Choose the circulating library|branches>> AND
-  statistics.datetime LIKE Concat(<<Choose a date|date>>, "%") AND
+  statistics.branch like &lt;&gt; AND
+  statistics.datetime LIKE Concat(&lt;&gt;, "%") AND
   If(
     statistics.type = "renew",
     "renew-issue",
@@ -114,7 +114,7 @@ WHERE
       statistics.type = "issue",
       "issue-renew", statistics.type
     )
-  ) LIKE <<Choose a transaction type|LSTATTYPE>>
+  ) LIKE &lt;&gt;
 GROUP BY
   statistics.branch,
   statistics.datetime,

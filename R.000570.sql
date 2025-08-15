@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2009-06-01 16:56:47
-Modified on: 2023-03-27 12:24:27
-Date last run: 2023-05-11 12:30:21
+Modified on: 2025-03-26 01:12:08
+Date last run: 2025-08-06 11:24:45
 
 ----------
 
@@ -25,6 +25,8 @@ Expiry: 0
 Shows count of new items added to a collection in last month by item type and shelving location.
 
 Major update on February 2, 2022 - adds link to Report 2731 among other things - The link to 2731 will show you everything added to the specified collection between the first of the month you run the report for and the present -- i.e. it won't be limited to the same month that you run this report for.
+
+Updated in March of 2025 to link to 3879 instead of 2731.
 
 ----------
 */
@@ -38,66 +40,75 @@ SELECT
   descriptions.ccode AS COLLECTION_CODE,
   new.Count_itemnumber,
   Concat( 
-    '<a class="btn btn-default" href=\"', 
-    '/cgi-bin/koha/reports/guided_reports.pl?reports=2731&', 
-    'phase=Run+this+report&', 
-    'param_name=Item+home+library%7CZBRAN&', 
-    'sql_params=', 
-    <<Choose your library|branches>>, 
-    '&', 
-    'param_name=Item+permanent+shelving+location%7CLLOC&', 
-    'sql_params=', 
-    descriptions.permanent_location_code, 
-    '&', 
-    'param_name=Item+type%7CLITYPES&', 
-    'sql_params=', 
-    descriptions.itemtype, 
-    '&', 
-    'param_name=Item+collection+code%7CLCCODE&', 
-    'sql_params=', 
-    descriptions.ccode_code, 
-    '&', 
-    'param_name=Enter+first+part+of+call+number+or+a+%25+symbol&', 
-    'sql_params=%25&', 
-    'param_name=Not+for+loan+status%7CLNOT_LOAN&', 
-    'sql_params=%25&', 
-    'param_name=Item+added+between+date1%7Cdate&', 
-    'sql_params=', 
-    <<Choose month|MONTH>>, 
-    '%2F01%2F', 
-    <<Choose year|YEAR>>, 
-    '&', 
-    'param_name=and-date2%7Cdate&', 
-    'sql_params=', 
-    STR_TO_DATE(
-      concat(
-        <<Choose month|MONTH>>, 
-        '/01/', 
-        <<Choose year|YEAR>>
-      ), 
-      '%m/%d/%Y'
-    ) + interval 1 month,
-    '&', 
-    'param_name=Item+last+borrowed+between+date1%7Cdate&', 
-    'sql_params=01%2F01%2F1900&', 
-    'param_name=and--date2%7Cdate&', 
-    'sql_params=12%2F31%2F2050&', 
-    'param_name=Item+last+seen+between+date1%7Cdate&', 
-    'sql_params=01%2F01%2F1900&', 
-    'param_name=and---date2%7Cdate&', 
-    'sql_params=12%2F31%2F2050&', 
-    'param_name=With+X+or+fewer+checkouts%7CZNUMBERS&', 
-    'sql_params=999999999999&', 
-    'param_name=Display+checked+out+items%7CZYES_NO&', 
-    'sql_params=%25&', 
-    'param_name=Display+lost%2C+missing%2C+and+withdrawn+items%7CZYES_NO&', 
-    'sql_params=%25&', 
-    'param_name=With+X+or+more+copies+at+this+library%7CYNUMBER&', 
-    'sql_params=0&', 
-    'param_name=With+X+or+more+copies+at+throughout+the+catalog%7CYNUMBER&', 
-    'sql_params=0" ', 
-    'target="_blank">Go to title</a>' 
-  ) AS LINK_TO_2731
+    '&gt;,
+
+    '-',
+
+    &lt;&gt;,
+
+    '-01',
+
+    '&param_name=and-date2%7Cdate&sql_params=',
+
+      STR_TO_DATE(
+      Concat(&lt;&gt;,
+
+      '-',
+
+      &lt;&gt;,
+
+      '-01') , '%Y-%m-%d') + interval 1 month,
+
+    '&param_name=Item+last+borrowed+between+date1%7Cdate&sql_params=',
+
+    '2000-01-01',
+
+    '&param_name=and--date2%7Cdate&sql_params=',
+
+    '2199-12-31',
+
+    '&param_name=Item+last+seen+between+date1%7Cdate&sql_params=',
+
+    '2000-01-01',
+
+    '&param_name=and---date2%7Cdate&sql_params=',
+
+    '2199-12-31',
+
+    '&param_name=Display+lost%2C+missing%2C+and+withdrawn+items%7CZYES_NO&sql_params=',
+
+    '%25',
+
+    '&param_name=Damaged+status%7CDAMAGED%3Aall&sql_params=',
+
+    '%25',
+
+    '&param_name=Lost+status%7CLLOST&sql_params=',
+
+    '%25',
+
+    '&param_name=Withdrawn+status%7CWITHDRAWN%3Aall&sql_params=',
+
+    '%25',
+
+    '&param_name=With+X+or+fewer+checkouts%7CZNUMBERS&sql_params=',
+
+    '999999999999',
+
+    '&param_name=Display+checked+out+items%7CZYES_NO&sql_params=',
+
+    '%25',
+
+    '&param_name=With+X+or+more+copies+at+this+library%7CYNUMBER&sql_params=',
+
+    '0',
+
+    '&param_name=With+X+or+more+copies+at+throughout+the+catalog%7CYNUMBER&sql_params=',
+
+    '0&op=run"',
+
+    ' target="_blank"&gt;Go to shelf list' 
+  ) AS LINK_TO_SHELFLIST
 FROM
   (SELECT
       branches.branchname,
@@ -138,8 +149,8 @@ FROM
     FROM
       items
     WHERE
-      Year(items.dateaccessioned) = <<Choose year|YEAR>> AND
-      Month(items.dateaccessioned) = <<Choose month|MONTH>>
+      Year(items.dateaccessioned) = &lt;&gt; AND
+      Month(items.dateaccessioned) = &lt;&gt;
     GROUP BY
       items.homebranch,
       items.permanent_location,
@@ -149,7 +160,7 @@ FROM
       new.permanent_location = descriptions.permanent_location_code AND
       new.ccode = descriptions.ccode_code
 WHERE
-  descriptions.branchcode LIKE <<Choose your library|branches>>
+  descriptions.branchcode LIKE &lt;&gt;
 ORDER BY
   descriptions.branchname,
   PERM_LOCATION,

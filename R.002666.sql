@@ -29,15 +29,15 @@ Expiry: 300
 
 
 
-SELECT CONCAT('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',biblionumber,'\" target="_blank">',biblionumber,'</a>') AS bibnumber, 
+SELECT CONCAT('',biblionumber,'') AS bibnumber, 
 GROUP_CONCAT(DISTINCT ccode),
 COUNT(DISTINCT ccode)
 FROM items 
 GROUP BY biblionumber 
 HAVING 
-count(itemnumber) > '1' AND
-COUNT(DISTINCT ccode) > 1 AND
-GROUP_CONCAT(DISTINCT ccode) LIKE Concat("%", <<Enter collection code|LCCODE>>, "%")
+count(itemnumber) &gt; '1' AND
+COUNT(DISTINCT ccode) &gt; 1 AND
+GROUP_CONCAT(DISTINCT ccode) LIKE Concat("%", &lt;&gt;, "%")
 
 
 

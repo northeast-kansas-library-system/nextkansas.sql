@@ -4,7 +4,7 @@ R.002773
 ----------
 
 Name: GHW - Card prefix report part 2
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2016-09-14 09:19:42
-Modified on: 2018-04-16 11:02:40
-Date last run: 2022-07-22 18:49:31
+Modified on: 2024-01-17 11:36:36
+Date last run: 2025-06-11 13:47:35
 
 ----------
 
@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>Attempts to discern which libraries are using a specified card prefix</p>
-<ul><li>reports on current cards in NExpress</li>
-<li>shows a count of how many cards with the specified prefix exist at all NExpress libraries</li>
-<li>grouped and sorted by patron home library</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p>Report 2771 is the companion to this report</p>
-<p>Report created at the request of Robin Hastings.</p>
-<p>Report created by George Williams.</p>
-</div>
+ 
+Attempts to discern which libraries are using a specified card prefix
+reports on current cards in NExpress
+shows a count of how many cards with the specified prefix exist at all NExpress libraries
+grouped and sorted by patron home library
+
+Notes:
+Report 2771 is the companion to this report
+Report created at the request of Robin Hastings.
+Report created by George Williams.
+
 
 ----------
 */
@@ -45,7 +45,7 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.cardnumber LIKE CONCAT((<<Card prefix>>),'%')
+  borrowers.cardnumber LIKE CONCAT((&lt;&gt;),'%')
 GROUP BY
   borrowers.branchcode
   WITH ROLLUP

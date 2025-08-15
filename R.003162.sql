@@ -4,7 +4,7 @@ R.003162
 ----------
 
 Name: GHW - Paypal report - date range
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-01-28 12:16:43
-Modified on: 2019-12-26 11:47:05
-Date last run: 2023-04-06 15:05:35
+Modified on: 2024-01-17 11:55:32
+Date last run: 2023-06-12 16:43:21
 
 ----------
 
@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Generates a report of payments made to libraries via Paypal in a date range</p>
-<ul><li>Shows payments made in the date range you specify</li>
-<li>At all libraries</li>
-<li>grouped by account offsets ID</li>
-<li>sorted by library owed the fee, payment date, and fee reference ID</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Due to changes in the database during the upgrade in July of 2018, this report will not work for any fees collected before July 8, 2018</p>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3162&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Generates a report of payments made to libraries via Paypal in a date range
+Shows payments made in the date range you specify
+At all libraries
+grouped by account offsets ID
+sorted by library owed the fee, payment date, and fee reference ID
 
-<p><span style="color: yellow; background-color: red; font-size: 200%;">References accountlines.accounttype.  Needs to be updated after January 4, 2020</span></p>
+Notes:
+
+Due to changes in the database during the upgrade in July of 2018, this report will not work for any fees collected before July 8, 2018
+
+Click here to run in a new window
+
+
+References accountlines.accounttype.  Needs to be updated after January 4, 2020
 
 ----------
 */
@@ -85,7 +85,7 @@ FROM
   LEFT JOIN borrowers manualinvoiceinfo ON manualinvoiceinfo.borrowernumber = debits.manager_id
 WHERE
   (credits.note LIKE "%Paypal%" AND
-  credits.date BETWEEN <<The start of the day on|date>> AND (<<the end of the day on|date>> + interval 1 day)) AND
+  credits.date BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day)) AND
   If(
     debits.accounttype = 'F',
     Coalesce(old_issues.branchcode, borrowerinfo.branchcode),
@@ -98,7 +98,7 @@ WHERE
         borrowerinfo.branchcode
       )
     )
-  ) LIKE <<Choose your library|LBRANCH>>
+  ) LIKE &lt;&gt;
 GROUP BY
   account_offsets.id
 ORDER BY

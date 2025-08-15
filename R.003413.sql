@@ -4,7 +4,7 @@ R.003413
 ----------
 
 Name: GHW - SENECA Lost item processing fee report
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,7 +12,7 @@ Group:  SENECA
      -
 
 Created on: 2021-01-26 17:01:42
-Modified on: 2021-08-16 13:41:12
+Modified on: 2024-01-17 12:02:56
 Date last run: 2021-03-31 18:01:11
 
 ----------
@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Identifies borrowers who need to be assessed a $20.00 lost item processing fee at SENECA</p>
-<ul><li>Shows borrowers who borrowed items from SENECA and the item was marked as "Lost (more than 45 days overdue)" within the last XX days</li>
-<li>Shows items checked out at SENECA regardless of the item's home library</li>
-<li>grouped by the issue_id of the checkout</li>
-<li>sorted by the date the item was lost</li>
-<li>contains links to the item and links to the borrower</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Notes go here.</p>
-<p></p>
-<p>Should not be exported to a csv file.  This is customized to be run from the screen.</p>
-<p class= "notetags" style="display: none;">#seneca, processing fee, </p>
-</div>
+ 
+Identifies borrowers who need to be assessed a $20.00 lost item processing fee at SENECA
+Shows borrowers who borrowed items from SENECA and the item was marked as "Lost (more than 45 days overdue)" within the last XX days
+Shows items checked out at SENECA regardless of the item's home library
+grouped by the issue_id of the checkout
+sorted by the date the item was lost
+contains links to the item and links to the borrower
+
+Notes:
+
+Notes go here.
+
+Should not be exported to a csv file.  This is customized to be run from the screen.
+#seneca, processing fee, 
+
 
 ----------
 */
@@ -45,18 +45,14 @@ Expiry: 300
 
 SELECT
   Concat(
-    '<a class= "clicked" href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
+    '', 
     item_info.biblionumber, 
-    '\" target="_blank">', 
-    item_info.biblionumber, 
-    '</a>'
+    ''
   ) AS LINK_TO_ITEM,
   item_info.LOST_ON_DATE,
-  Concat_Ws('<br />', 
+  Concat_Ws('', 
     Concat(
-      '<a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=',
-      borrowers.borrowernumber, 
-      '" target="_blank">Go to patron account</a>'
+      'Go to patron account'
     ),
     borrowers.cardnumber, 
     If(
@@ -165,7 +161,7 @@ FROM
       item_info.LOST_ON_DATE = old_checkouts.LOST_DATE JOIN
   borrowers ON borrowers.borrowernumber = old_checkouts.borrowernumber
 WHERE
-  item_info.LOST_ON_DATE > (Now() - INTERVAL <<Only display items lost in the previous XX days|YNUMBER>> DAY)
+  item_info.LOST_ON_DATE &gt; (Now() - INTERVAL &lt;&gt; DAY)
 GROUP BY
   old_checkouts.itemnumber
 ORDER BY

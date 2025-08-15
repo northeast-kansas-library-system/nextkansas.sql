@@ -4,7 +4,7 @@ R.003603
 ----------
 
 Name: LibraryIQ - Bibliographic File (full) - BONNERSPGS
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

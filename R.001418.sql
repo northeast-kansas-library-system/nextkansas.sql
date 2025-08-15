@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2012-05-14 23:35:28
 Modified on: 2015-08-16 19:38:04
-Date last run: 2023-05-23 11:51:53
+Date last run: 2025-07-02 12:53:40
 
 ----------
 
@@ -29,7 +29,7 @@ Enhanced -- Choose Library. (On Reports Webpages, 5/14/12)  #special
 
 
 
-SELECT items.datelastseen, authorised_values.lib, biblio.title, biblio.author, biblioitems.publicationyear, items.location, items.ccode,items.itype, items.itemcallnumber, items.barcode, CONCAT('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=',biblio.biblionumber,'&itemnumber=',items.itemnumber,'#edititem\" target="_blank">'"edit item"'</a>') as "edit item" FROM items LEFT JOIN biblioitems USING(biblionumber) LEFT JOIN biblio USING (biblionumber) LEFT JOIN authorised_values ON (items.withdrawn=authorised_values.authorised_value) WHERE items.homebranch=<<Pick your branch|branches>> AND items.withdrawn != 0 AND authorised_values.category='WITHDRAWN' ORDER BY authorised_values.lib, items.itemcallnumber
+SELECT items.datelastseen, authorised_values.lib, biblio.title, biblio.author, biblioitems.publicationyear, items.location, items.ccode,items.itype, items.itemcallnumber, items.barcode, CONCAT(''"edit item"'') as "edit item" FROM items LEFT JOIN biblioitems USING(biblionumber) LEFT JOIN biblio USING (biblionumber) LEFT JOIN authorised_values ON (items.withdrawn=authorised_values.authorised_value) WHERE items.homebranch=&lt;&gt; AND items.withdrawn != 0 AND authorised_values.category='WITHDRAWN' ORDER BY authorised_values.lib, items.itemcallnumber
 
 
 

@@ -13,7 +13,7 @@ Group: Borrowers
 
 Created on: 2013-09-06 10:25:45
 Modified on: 2013-11-17 12:00:01
-Date last run: 2022-11-09 16:11:53
+Date last run: 2025-03-26 16:48:38
 
 ----------
 
@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-SELECT firstname, surname, cardnumber, length(cardnumber), branchcode, categorycode, dateenrolled, dateexpiry FROM borrowers WHERE length(cardnumber) < '13' AND branchcode NOT LIKE 'PH%' ORDER BY length(cardnumber) ASC LIMIT 5000
+SELECT firstname, surname, cardnumber, length(cardnumber), branchcode, categorycode, dateenrolled, dateexpiry FROM borrowers WHERE length(cardnumber) &lt; '13' AND branchcode NOT LIKE 'PH%' ORDER BY length(cardnumber) ASC LIMIT 5000
 
 
 

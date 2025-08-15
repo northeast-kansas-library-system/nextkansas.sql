@@ -4,7 +4,7 @@ R.003343
 ----------
 
 Name: GHW - Get itemnumber by Array
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -34,7 +34,7 @@ SELECT
 FROM
   items
 WHERE
-  items.barcode IN (<<Enter item barcode numbers in quotes and separated by commas>>)
+  items.barcode IN (&lt;&gt;)
 
 
 

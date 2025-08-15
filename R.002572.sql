@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2015-07-28 17:39:50
 Modified on: 2015-09-10 15:10:13
-Date last run: 2022-05-31 13:39:19
+Date last run: 2025-05-13 09:33:15
 
 ----------
 
@@ -134,7 +134,7 @@ WHEN i.itemcallnumber REGEXP '^.*99[0-9]\..*$' OR i.itemcallnumber REGEXP '^.*99
 		ELSE 'all others'
 	END dewey_number, location, COUNT(s.datetime) as total_circ, COUNT(DISTINCT s.itemnumber) as unique_circed
 FROM items i LEFT OUTER JOIN statistics s USING(itemnumber)
-WHERE month(s.datetime)=<<Choose Month|Month>> AND year(s.datetime)=<<Choose Year|Year>> AND s.type IN ('issue','renew') AND s.branch=<<choose your library|branches>>
+WHERE month(s.datetime)=&lt;&gt; AND year(s.datetime)=&lt;&gt; AND s.type IN ('issue','renew') AND s.branch=&lt;&gt;
 GROUP BY dewey_number, location
 
 

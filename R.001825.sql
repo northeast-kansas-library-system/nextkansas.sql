@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2013-05-03 13:05:44
 Modified on: 2013-06-19 12:54:14
-Date last run: 2023-02-22 14:22:12
+Date last run: 2024-04-27 10:51:30
 
 ----------
 
@@ -29,7 +29,7 @@ Gives a timestamp and itemnumber and biblionumber from the deleteditems table fo
 
 
 
-SELECT timestamp, itemnumber, bibilonumber FROM deleteditems WHERE barcode=<<enter barcode>>
+SELECT timestamp, itemnumber, bibilonumber FROM deleteditems WHERE barcode=&lt;&gt;
 
 
 

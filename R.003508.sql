@@ -4,7 +4,7 @@ R.003508
 ----------
 
 Name: GHW - Request cancellation turnaround time
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,7 +12,7 @@ Group: Statistics
      -
 
 Created on: 2021-05-20 15:59:21
-Modified on: 2021-05-20 18:29:47
+Modified on: 2024-01-17 11:32:42
 Date last run: 2023-02-10 14:27:37
 
 ----------
@@ -22,17 +22,17 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Counts delay in days between a request's waiting date and the date the request is cancelled</p>
-<ul><li>Only shows requests that were cancelled in the previous calendar month</li>
-<li>at the library you specify</li>
-<li>grouped and sorted by the library name and the number of days</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>This report will only requests that were waiting for pickup - if the request is cancelled before the item makes it to the hold shelf, it will not be counted.</p>
-<p></p>
-</div>
+ 
+Counts delay in days between a request's waiting date and the date the request is cancelled
+Only shows requests that were cancelled in the previous calendar month
+at the library you specify
+grouped and sorted by the library name and the number of days
+
+Notes:
+
+This report will only requests that were waiting for pickup - if the request is cancelled before the item makes it to the hold shelf, it will not be counted.
+
+
 
 ----------
 */
@@ -69,7 +69,7 @@ FROM
   cnx_turnaround 
   ON cnx_turnaround.branchcode = branches.branchcode 
 WHERE 
-  branches.branchcode LIKE <<Choose your library|LBRANCH>> 
+  branches.branchcode LIKE &lt;&gt; 
 GROUP BY 
   branches.branchcode, 
   cnx_turnaround.CNX_DELAY_DAYS

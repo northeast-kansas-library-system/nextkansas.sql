@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2014-06-26 11:31:52
 Modified on: 2014-06-26 11:34:03
-Date last run: 2021-02-24 17:39:06
+Date last run: 2025-04-21 08:34:11
 
 ----------
 
@@ -35,14 +35,14 @@ SELECT borrowernumber, CONCAT (borrowers.firstname, ' ', borrowers.surname) as "
 biblio.title, ") ") AS "booklist still out"
 FROM (SELECT borrowernumber
 FROM statistics
-WHERE date(statistics.datetime) >= ( CURDATE() - INTERVAL 3 DAY ) 
-      AND statistics.type='return' AND statistics.branch=<<branch|branches>>
+WHERE date(statistics.datetime) &gt;= ( CURDATE() - INTERVAL 3 DAY ) 
+      AND statistics.type='return' AND statistics.branch=&lt;&gt;
 GROUP BY borrowernumber) whoreturned
 LEFT JOIN borrowers USING(borrowernumber)
 LEFT JOIN issues USING (borrowernumber)
 LEFT JOIN items USING (itemnumber)
 LEFT JOIN biblio USING (biblionumber)
-WHERE (date(issues.date_due) >= ( CURDATE() - INTERVAL 3 DAY ) OR date(issues.date_due) <=  ( CURDATE() + INTERVAL 3 DAY )) AND issues.branchcode=<<branch|branches>>
+WHERE (date(issues.date_due) &gt;= ( CURDATE() - INTERVAL 3 DAY ) OR date(issues.date_due) &lt;=  ( CURDATE() + INTERVAL 3 DAY )) AND issues.branchcode=&lt;&gt;
 GROUP BY borrowernumber
 ORDER BY issues.branchcode
 

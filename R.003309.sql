@@ -4,7 +4,7 @@ R.003309
 ----------
 
 Name: GHW - LEAVENWRTH - patrons with YES newsletter permission - new and renewed yesterday
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2020-01-30 12:21:42
 Modified on: 2020-01-30 12:21:59
-Date last run: 2023-05-23 03:00:03
+Date last run: 2025-08-15 08:39:35
 
 ----------
 

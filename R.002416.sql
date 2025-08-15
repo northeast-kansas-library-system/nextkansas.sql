@@ -13,7 +13,7 @@ Group: Daily, Monthly, Yearly Stats
 
 Created on: 2014-11-17 15:29:59
 Modified on: 2014-11-17 15:42:44
-Date last run: 2023-01-12 17:58:52
+Date last run: 2025-07-07 15:21:41
 
 ----------
 
@@ -29,7 +29,7 @@ This report returns circulation statistics (checkins, checkouts, renewals) for a
 
 
 
-SELECT month(datetime), day(datetime), hour(datetime), type, count(*) FROM statistics WHERE branch=<<choose library|branches>> AND datetime LIKE <<enter date you want to look at circ, yyyy-mm-dd% format, ex. 2014-11-14%'>> GROUP BY day(datetime), hour(datetime), type
+SELECT month(datetime), day(datetime), hour(datetime), type, count(*) FROM statistics WHERE branch=&lt;&gt; AND datetime LIKE &lt;&gt; GROUP BY day(datetime), hour(datetime), type
 
 
 

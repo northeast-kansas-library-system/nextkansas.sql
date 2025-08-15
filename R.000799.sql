@@ -13,7 +13,7 @@ Group: Acquisitions
 
 Created on: 2010-01-26 14:52:22
 Modified on: 2018-07-02 09:44:36
-Date last run: 2023-05-11 15:23:10
+Date last run: 2025-02-14 10:21:52
 
 ----------
 
@@ -24,11 +24,11 @@ Expiry: 0
 
 Enhanced - Pick your Branch, run and get a list of items checked out at your branch that belonged to another library.  Useful for Collection DEVELOPMENT.   
 
-<p><span style="background-color: green; color: white">Has potential</p>
+Has potential
 
-<p><span style="background-color: darkred; color: white">virtually line by line identical to report 684 - merge two to make one report</p>
+virtually line by line identical to report 684 - merge two to make one report
 
-<p>group/sort/organize by classification order / link to deleteditsms/biblios</p>
+group/sort/organize by classification order / link to deleteditsms/biblios
 
 ----------
 */
@@ -52,9 +52,9 @@ FROM
 WHERE
   statistics.branch != items.homebranch AND
   statistics.type IN ('issue', 'renew') AND
-  Month(statistics.datetime) = <<Month>> AND
-  Year(statistics.datetime) = <<Year>> AND
-  statistics.branch = <<Pick your branch|branches>>
+  Month(statistics.datetime) = &lt;&gt; AND
+  Year(statistics.datetime) = &lt;&gt; AND
+  statistics.branch = &lt;&gt;
 ORDER BY
   Library,
   biblio.title

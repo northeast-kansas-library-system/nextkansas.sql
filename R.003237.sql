@@ -4,7 +4,7 @@ R.003237
 ----------
 
 Name: GHW - ADMINREPORT - Frosty
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

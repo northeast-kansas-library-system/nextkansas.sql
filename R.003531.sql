@@ -4,7 +4,7 @@ R.003531
 ----------
 
 Name: GHW - Item count by item type -and- collection code
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-07-26 12:32:27
-Modified on: 2021-07-26 14:42:50
-Date last run: 2021-07-26 14:34:22
+Modified on: 2024-01-17 11:28:01
+Date last run: 2023-10-11 08:39:48
 
 ----------
 
@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Count items by home library, item type, and collection code.</p>
-<ul><li>Counts items at the time that the report is run</li>
-<li>at the library you specify</li>
-<li>grouped and sorted by item home library, item type, and collection code</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Gives an extreme amount of information on the collection at the library you specify.</p>
-<p></p>
-<p class= "notetags" style="display: none;">#countitems, item count, item type, collection code, itype, ccode, homebranch</p>
-</div>
+ 
+Count items by home library, item type, and collection code.
+Counts items at the time that the report is run
+at the library you specify
+grouped and sorted by item home library, item type, and collection code
+
+Notes:
+
+Gives an extreme amount of information on the collection at the library you specify.
+
+#countitems, item count, item type, collection code, itype, ccode, homebranch
+
 
 
 ----------
@@ -298,9 +298,9 @@ FROM
       ya_deleted.homebranch = branchestypescodes.branchcode AND
       ya_deleted.ccode = branchestypescodes.authorised_value
 WHERE
-  branchestypescodes.branchcode LIKE <<Choose your library|branches>> AND
-  branchestypescodes.itemtype LIKE <<Choose a specific item type|itemtypes:all>> AND
-  branchestypescodes.authorised_value LIKE <<OR - choose a specific collection code|CCODE:all>>
+  branchestypescodes.branchcode LIKE &lt;&gt; AND
+  branchestypescodes.itemtype LIKE &lt;&gt; AND
+  branchestypescodes.authorised_value LIKE &lt;&gt;
 GROUP BY
   branchestypescodes.branchname,
   branchestypescodes.description,

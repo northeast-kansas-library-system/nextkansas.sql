@@ -4,7 +4,7 @@ R.003265
 ----------
 
 Name: GHW -MAFIA 
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-09-12 00:38:59
 Modified on: 2019-09-12 01:02:48
-Date last run: 2023-03-29 10:19:00
+Date last run: 2025-02-07 12:00:59
 
 ----------
 
@@ -37,7 +37,7 @@ Available soon (on order) - Ordered more than 3 months ago
 
 
 SELECT
-  Concat_Ws("", '<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">Link to title</a>') AS LINK,
+  Concat_Ws("", 'Link to title') AS LINK,
   Concat("-", items.barcode, "-") AS BC,
   items.homebranch AS OWNING_LIB,
   items.holdingbranch AS CURRENT_LIB,
@@ -88,16 +88,16 @@ FROM
 WHERE
   items.datelastseen BETWEEN (AddDate(Last_Day(SubDate(Now(), INTERVAL 3 MONTH)), 1)) AND (Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) + 6 DAY)) AND
   branchtransfers.datearrived IS NULL AND
-  ((items.homebranch = <<Choose your library|branches>>) OR
-    (branchtransfers.frombranch = <<Choose your library|branches>>) OR
-    (branchtransfers.tobranch = <<Choose your library|branches>>))
+  ((items.homebranch = &lt;&gt;) OR
+    (branchtransfers.frombranch = &lt;&gt;) OR
+    (branchtransfers.tobranch = &lt;&gt;))
 GROUP BY
   locs.lib,
   ccodes.lib,
   items.barcode
 UNION
 SELECT
-  Concat_Ws("", '<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">Link to title</a>') AS LINK,
+  Concat_Ws("", 'Link to title') AS LINK,
   Concat("-", items.barcode, "-") AS BC,
   items.homebranch AS OWNING_LIB,
   items.holdingbranch AS CURRENT_LIB,
@@ -192,7 +192,7 @@ FROM
     ON locs.authorised_value = items.location
 WHERE
   items.onloan IS NULL AND
-  items.homebranch = <<Choose your library|branches>> AND
+  items.homebranch = &lt;&gt; AND
   (items.itemlost = 9 OR
     items.itemlost = 3) AND
   items.itemlost_on BETWEEN (AddDate(Last_Day(SubDate(Now(), INTERVAL 3 MONTH)), 1)) AND (Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) + 6 DAY))
@@ -204,7 +204,7 @@ GROUP BY
   items.damaged_on
 UNION
 SELECT
-  Concat_Ws("", '<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">Link to title</a>') AS LINK,
+  Concat_Ws("", 'Link to title') AS LINK,
   Concat("-", items.barcode, "-") AS BC,
   items.homebranch AS OWNING_LIB,
   items.holdingbranch AS CURRENT_LIB,
@@ -299,9 +299,9 @@ FROM
     ON locs.authorised_value = items.location
 WHERE
   items.onloan IS NULL AND
-  items.homebranch = <<Choose your library|branches>> AND
-  items.itemlost <> 9 AND
-  items.itemlost <> 3 AND
+  items.homebranch = &lt;&gt; AND
+  items.itemlost &lt;&gt; 9 AND
+  items.itemlost &lt;&gt; 3 AND
   items.itemlost_on BETWEEN (AddDate(Last_Day(SubDate(Now(), INTERVAL 3 MONTH)), 1)) AND (Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) + 6 DAY))
 GROUP BY
   items.itemlost_on,
@@ -311,7 +311,7 @@ GROUP BY
   items.damaged_on
 UNION
 SELECT
-  Concat_Ws("", '<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">Link to title</a>') AS LINK,
+  Concat_Ws("", 'Link to title') AS LINK,
   Concat("-", items.barcode, "-") AS BC,
   items.homebranch AS OWNING_LIB,
   items.holdingbranch AS CURRENT_LIB,
@@ -406,7 +406,7 @@ FROM
     ON locs.authorised_value = items.location
 WHERE
   items.onloan IS NULL AND
-  items.homebranch = <<Choose your library|branches>> AND
+  items.homebranch = &lt;&gt; AND
   (items.location = 'PROC' OR
     items.location = 'CATALOGING' OR
     items.location = 'CART' OR
@@ -417,7 +417,7 @@ GROUP BY
   items.itemnumber
 UNION
 SELECT
-  Concat_Ws("", '<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">Link to title</a>') AS LINK,
+  Concat_Ws("", 'Link to title') AS LINK,
   Concat("-", items.barcode, "-") AS BC,
   items.homebranch AS OWNING_LIB,
   items.holdingbranch AS CURRENT_LIB,
@@ -511,8 +511,8 @@ FROM
   ) locs
     ON locs.authorised_value = items.location
 WHERE
-  items.homebranch = <<Choose your library|branches>> AND
-  items.dateaccessioned <= AddDate(Last_Day(SubDate(Now(), INTERVAL 4 MONTH)), 1) AND
+  items.homebranch = &lt;&gt; AND
+  items.dateaccessioned &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 4 MONTH)), 1) AND
   items.notforloan = -1
 GROUP BY
   biblio.biblionumber,

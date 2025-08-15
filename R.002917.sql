@@ -4,7 +4,7 @@ R.002917
 ----------
 
 Name: GHW - Current Overdues
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

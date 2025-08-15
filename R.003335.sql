@@ -4,7 +4,7 @@ R.003335
 ----------
 
 Name: GHW - CLUB Membership roster for club use
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,7 +12,7 @@ Group: Clubs
      -
 
 Created on: 2020-06-15 17:41:11
-Modified on: 2021-02-03 16:35:38
+Modified on: 2024-01-17 12:04:49
 Date last run: 2022-12-01 12:40:41
 
 ----------
@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Lists the members of a club in a format that can be shared with other members of the same club</p>
-<ul><li>Shows current members of the club that you specify</li>
-<li>grouped by club id number and borrowernumber</li>
-<li>sorted by club enrollment number (order in which the members joined)</li>
-<li>links</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3335&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-<p class= "notetags" style="display: none;">clubs</p>
-</div>
+ 
+Lists the members of a club in a format that can be shared with other members of the same club
+Shows current members of the club that you specify
+grouped by club id number and borrowernumber
+sorted by club enrollment number (order in which the members joined)
+links
+
+Notes:
+
+Click here to run in a new window
+clubs
+
 
 ----------
 */
@@ -43,7 +43,7 @@ Expiry: 300
 SELECT
   clubs.name AS CLUB_NAME,
   Concat_Ws(
-   '<br />', 
+   '', 
     If(
       name.value = 1, 
       Concat(
@@ -56,17 +56,17 @@ SELECT
           Concat(' (', borrowers.othernames, ')')
         )
       ), 
-      '<u>Patron does not want their name shared with other members</u><br />'
+      'Patron does not want their name shared with other members'
     ),
     If(
       email.value = 1, 
       borrowers.email, 
-      '<u>Patron does not want their e-mail shared with other members</u><br />'
+      'Patron does not want their e-mail shared with other members'
     ),
     If(
       phone.value = 1, 
       borrowers.phone, 
-      '<u>Patron does not want their phone number shared with other members</u><br />'
+      'Patron does not want their phone number shared with other members'
     ), 
     Concat(
       'Joined on: ', 
@@ -124,7 +124,7 @@ FROM
       phone.club_enrollment_id = club_enrollments.id JOIN
   borrowers ON club_enrollments.borrowernumber = borrowers.borrowernumber
 WHERE
-  clubs.id = <<Enter club ID number>>
+  clubs.id = &lt;&gt;
 GROUP BY
   clubs.id,
   borrowers.borrowernumber

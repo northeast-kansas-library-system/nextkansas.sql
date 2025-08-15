@@ -4,7 +4,7 @@ R.003507
 ----------
 
 Name: GHW - Request turnaround time
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,7 +12,7 @@ Group: Statistics
      -
 
 Created on: 2021-05-20 15:40:51
-Modified on: 2022-11-30 21:09:20
+Modified on: 2024-01-17 11:32:44
 Date last run: 2023-02-10 14:15:45
 
 ----------
@@ -22,17 +22,17 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Counts delay in days between a request's waiting date and the date it's checked out</p>
-<ul><li>Only shows requests that were picked up in the previous calendar month</li>
-<li>at the library you specify</li>
-<li>grouped and sorted by the library name and the number of days</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>This report will only work if the system preference "HoldsLog" is set to "Log."</p>
-<p></p>
-</div>
+ 
+Counts delay in days between a request's waiting date and the date it's checked out
+Only shows requests that were picked up in the previous calendar month
+at the library you specify
+grouped and sorted by the library name and the number of days
+
+Notes:
+
+This report will only work if the system preference "HoldsLog" is set to "Log."
+
+
 
 ----------
 */
@@ -84,7 +84,7 @@ FROM
   ) ckoturnaround ON 
       ckoturnaround.branchcode = branches.branchcode 
 WHERE 
-  branches.branchcode LIKE <<Choose your library|branches:all>> 
+  branches.branchcode LIKE &lt;&gt; 
 GROUP BY 
   branches.branchcode, 
   ckoturnaround.PICKUP_DELAY_DAYS, 

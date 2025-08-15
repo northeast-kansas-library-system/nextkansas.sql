@@ -4,7 +4,7 @@ R.003064
 ----------
 
 Name: GHW - Request action logs by borrower number/user ID and date range
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -36,15 +36,15 @@ SELECT
   action_logs.module,
   action_logs.action,
   action_logs.object,
-  Replace(action_logs.info, ",", ",<br />") AS DESCRIPTION,
+  Replace(action_logs.info, ",", ",") AS DESCRIPTION,
   action_logs.interface,
-  Concat("<a href='/cgi-bin/koha/circ/circulation.pl?borrowernumber=", action_logs.user, "' target='_blank'>See who created/modified/cancelled the request</a>") AS LINK
+  Concat("See who created/modified/cancelled the request") AS LINK
 FROM
   action_logs
 WHERE
   action_logs.module = 'HOLDS' AND
-  action_logs.user = <<Enter borrower number / user ID>> AND
-  action_logs.timestamp BETWEEN <<Between this date|date>> AND (<<this date|date>> + interval 1 day)
+  action_logs.user = &lt;&gt; AND
+  action_logs.timestamp BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day)
 GROUP BY
   action_logs.action_id
 HAVING

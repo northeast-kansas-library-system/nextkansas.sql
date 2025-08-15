@@ -12,8 +12,8 @@ Group: Administrative Reports
      System-admin
 
 Created on: 2009-09-30 13:17:06
-Modified on: 2013-06-16 14:48:51
-Date last run: 2023-04-25 15:56:09
+Modified on: 2024-08-07 22:39:36
+Date last run: 2025-02-26 12:24:53
 
 ----------
 
@@ -22,14 +22,14 @@ Expiry: 0
 
 ----------
 
-Admin - lists item types
+Replaced by report 3828
 
 ----------
 */
 
 
 
-select * from itemtypes
+SELECT 'Use report 3828 instead' AS NEWER_VERSION
 
 
 

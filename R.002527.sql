@@ -12,8 +12,8 @@ Group: Borrowers
      -
 
 Created on: 2015-06-24 17:10:01
-Modified on: 2022-02-07 21:31:27
-Date last run: 2022-02-07 22:24:01
+Modified on: 2023-10-16 22:05:56
+Date last run: 2023-10-25 13:52:36
 
 ----------
 
@@ -22,19 +22,19 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Shows borrower history from the statistics table (goes back 25 months)</p>
-<ul><li>Shows history for the previous 25 months</li>
-<li>for the borrower you specify</li>
-<li>grouped by itemnumber</li>
-<li>sorted by statistics date</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Updated in February of 2022</p>
-<p></p>
-<p class= "notetags" style="display: none;">#borrowers #circulation_history</p>
-</div>
+ 
+Shows borrower history from the statistics table (goes back 25 months)
+Shows history for the previous 25 months
+for the borrower you specify
+grouped by itemnumber
+sorted by statistics date
+
+Notes:
+
+Updated in February of 2022
+
+#borrowers #circulation_history
+
 
 ----------
 */
@@ -48,7 +48,7 @@ SELECT
   If( 
     borrowers.privacy = 2, 
     'anonymous', 
-    Concat_Ws('<br />', 
+    Concat_Ws('', 
       branches.branchname, 
       locs.lib, 
       itemtypes.description, 
@@ -92,7 +92,7 @@ FROM
 WHERE 
   (statistics.type = 'issue' OR 
       statistics.type = 'renew') AND 
-  borrowers.cardnumber = <<Enter card number>> 
+  borrowers.cardnumber = &lt;&gt; 
 GROUP BY 
   borrowers.cardnumber, 
   If(borrowers.privacy = 2, 'History', cko_branch.branchname), 
@@ -100,7 +100,7 @@ GROUP BY
   If( 
     borrowers.privacy = 2, 
     'anonymous', 
-    Concat_Ws('<br />', 
+    Concat_Ws('', 
       branches.branchname, 
       locs.lib, 
       itemtypes.description, 

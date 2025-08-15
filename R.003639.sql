@@ -4,7 +4,7 @@ R.003639
 ----------
 
 Name: GHW - Items potentially shelved at the wrong library
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -129,10 +129,10 @@ FROM
     WHERE
       reserves.found = 'W') onhold ON onhold.itemnumber = items.itemnumber
 WHERE
-  items.holdingbranch = <<Choose your library|branches>> AND
-  items.homebranch <> items.holdingbranch AND
-  items.itemlost < 1 AND
-  items.withdrawn < 1 AND
+  items.holdingbranch = &lt;&gt; AND
+  items.homebranch &lt;&gt; items.holdingbranch AND
+  items.itemlost &lt; 1 AND
+  items.withdrawn &lt; 1 AND
   transfers.branchtransfer_id IS NULL AND
   items.onloan IS NULL AND
   onhold.reserve_id IS NULL
@@ -239,10 +239,10 @@ FROM
     WHERE
       reserves.found = 'W') onhold ON onhold.itemnumber = items.itemnumber
 WHERE
-  items.homebranch = <<Choose your library|branches>> AND
-  items.homebranch <> items.holdingbranch AND
-  items.itemlost < 1 AND
-  items.withdrawn < 1 AND
+  items.homebranch = &lt;&gt; AND
+  items.homebranch &lt;&gt; items.holdingbranch AND
+  items.itemlost &lt; 1 AND
+  items.withdrawn &lt; 1 AND
   transfers.branchtransfer_id IS NULL AND
   items.onloan IS NULL AND
   onhold.reserve_id IS NULL

@@ -4,7 +4,7 @@ R.003551
 ----------
 
 Name: GHW - Output letter templates as .md files
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

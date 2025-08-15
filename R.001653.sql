@@ -13,7 +13,7 @@ Group: Daily, Monthly, Yearly Stats
 
 Created on: 2012-11-29 01:46:31
 Modified on: 2014-01-08 16:46:15
-Date last run: 2023-05-17 16:07:56
+Date last run: 2025-06-30 13:39:15
 
 ----------
 
@@ -29,7 +29,7 @@ Shows count of new items added to a collection in last month by ccode and shelvi
 
 
 
-SELECT count(itemnumber) as added, ccode, location from items WHERE homebranch=<<branch|branches>> AND month(dateaccessioned) =<<enter two digit month, ex. 02>> AND year (dateaccessioned) = <<enter four digit year>> GROUP BY ccode,location ORDER BY ccode,location asc
+SELECT count(itemnumber) as added, ccode, location from items WHERE homebranch=&lt;&gt; AND month(dateaccessioned) =&lt;&gt; AND year (dateaccessioned) = &lt;&gt; GROUP BY ccode,location ORDER BY ccode,location asc
 
 
 

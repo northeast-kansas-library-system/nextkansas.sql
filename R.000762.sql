@@ -13,7 +13,7 @@ Group: Administrative Reports
 
 Created on: 2009-12-31 11:19:28
 Modified on: 2014-01-05 22:58:12
-Date last run: 2023-04-25 15:58:26
+Date last run: 2025-06-30 15:12:59
 
 ----------
 
@@ -29,7 +29,7 @@ Enter Year for Count of patrons added in a certain year. Year End Report
 
 
 
-SELECT branchcode,COUNT(*) FROM borrowers WHERE YEAR(dateenrolled)= <<Year>> GROUP BY branchcode ORDER BY branchcode
+SELECT branchcode,COUNT(*) FROM borrowers WHERE YEAR(dateenrolled)= &lt;&gt; GROUP BY branchcode ORDER BY branchcode
 
 
 

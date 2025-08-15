@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2012-09-19 14:26:14
 Modified on: 2015-05-19 11:42:48
-Date last run: 2023-04-05 15:29:35
+Date last run: 2025-07-15 17:08:23
 
 ----------
 
@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-SELECT MONTH(timestamp), YEAR(timestamp), count(*) as count FROM deleteditems WHERE deleteditems.homebranch = <<Pick your Branch|branches>> GROUP BY MONTH(timestamp), YEAR(timestamp) ORDER BY YEAR(timestamp) DESC, MONTH(timestamp) DESC
+SELECT MONTH(timestamp), YEAR(timestamp), count(*) as count FROM deleteditems WHERE deleteditems.homebranch = &lt;&gt; GROUP BY MONTH(timestamp), YEAR(timestamp) ORDER BY YEAR(timestamp) DESC, MONTH(timestamp) DESC
 
 
 

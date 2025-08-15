@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2009-10-29 15:00:05
 Modified on: 2015-07-01 18:21:04
-Date last run: 2023-04-12 16:15:50
+Date last run: 2025-08-12 09:52:44
 
 ----------
 
@@ -29,8 +29,8 @@ Enhanced. Choose branch and enter call number prefix + % to search on.
 
 
 
-SELECT items.dateaccessioned,items.datelastseen,items.itype,items.ccode,items.location,items.itemcallnumber,items.barcode,biblio.title,biblio.author,t.publicationyear, CONCAT('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=',biblio.biblionumber,'&itemnumber=',items.itemnumber,'#edititem\" target="_blank">'"edit item"'</a>') as "edit item" 
-  FROM items LEFT JOIN biblio USING(biblionumber)  LEFT JOIN biblioitems t USING(biblionumber)  WHERE items.homebranch=<<Home branch|branches>> AND items.itemcallnumber LIKE <<Call number LIKE (USE % FOR wildcard)>> ORDER BY items.itemcallnumber ASC
+SELECT items.dateaccessioned,items.datelastseen,items.itype,items.ccode,items.location,items.itemcallnumber,items.barcode,biblio.title,biblio.author,t.publicationyear, CONCAT(''"edit item"'') as "edit item" 
+  FROM items LEFT JOIN biblio USING(biblionumber)  LEFT JOIN biblioitems t USING(biblionumber)  WHERE items.homebranch=&lt;&gt; AND items.itemcallnumber LIKE &lt;&gt; ORDER BY items.itemcallnumber ASC
 
 
 

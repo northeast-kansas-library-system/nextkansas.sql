@@ -4,7 +4,7 @@ R.003206
 ----------
 
 Name: GHW -X
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -35,7 +35,7 @@ FROM
   items
 WHERE
   items.permanent_location = 'ADULT' AND
-  items.homebranch LIKE <<Library|ZBRAN>>
+  items.homebranch LIKE &lt;&gt;
 
 
 

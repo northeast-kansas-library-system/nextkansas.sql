@@ -4,7 +4,7 @@ R.003127
 ----------
 
 Name: GHW - Audiobooks without links
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2018-10-04 22:35:11
-Modified on: 2022-05-16 08:19:55
-Date last run: 2023-03-14 16:43:40
+Modified on: 2024-04-28 22:13:09
+Date last run: 2024-04-28 22:11:03
 
 ----------
 
@@ -24,7 +24,7 @@ Expiry: 300
 
 zbrq
 
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3127">Click here to download as a csv file</a></p>
+Click here to download as a csv file
 
 ----------
 */
@@ -44,12 +44,16 @@ SELECT
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag=130]/subfield[@code="a"]') AS UNTITLE_OA,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag=730]/subfield[@code="a"]') AS UNTITLE_SA,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag=300]/subfield[@code="a"]') AS DESCRIP,
+  Group_Concat(DISTINCT items.permanent_location ORDER BY items.permanent_location ASC) AS Group_Concat_location,
   Group_Concat(DISTINCT items.ccode ORDER BY items.ccode ASC) AS Group_Concat_ccode,
   biblio.frameworkcode,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag=306]/subfield[@code="a"]') AS TIMESS,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag=942]/subfield[@code="e"]') AS BIB_LOC,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag=942]/subfield[@code="c"]') AS BIB_ITYPE,
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=942]/subfield[@code="h"]') AS BIB_CCODE
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag=942]/subfield[@code="h"]') AS BIB_CCODE,
+  ExtractValue(biblio_metadata.metadata, '//leader') AS 'LDR',  ExtractValue(biblio_metadata.metadata, '//controlfield[@tag=006]') AS '006 - Fixed-Length Data Elements - Additional Material Characteristics',
+  ExtractValue(biblio_metadata.metadata, '//controlfield[@tag=007]') AS '007 - Physical Description Fixed Field',
+  ExtractValue(biblio_metadata.metadata, '//controlfield[@tag=008]') AS '008 - Fixed-Length Data Elements'
 FROM
   biblio
   JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber

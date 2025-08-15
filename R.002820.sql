@@ -4,7 +4,7 @@ R.002820
 ----------
 
 Name: GHW - Flexible Inventory List
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2016-11-08 15:24:15
 Modified on: 2022-03-29 12:13:14
-Date last run: 2022-03-29 12:13:23
+Date last run: 2025-02-24 12:18:24
 
 ----------
 
@@ -100,17 +100,17 @@ FROM
   biblio_metadata
     ON biblio_metadata.biblionumber = biblio.biblionumber
 WHERE
-  items.homebranch LIKE <<Select home branch|ZBRAN>> AND
-  Coalesce(items.location, '') LIKE <<Shelving location|LLOC>> AND
-  Coalesce(items.itype, '') LIKE <<Item type|LITYPES>> AND
-  Coalesce(items.ccode, '') LIKE <<Collection code|LCCODE>>
+  items.homebranch LIKE &lt;&gt; AND
+  Coalesce(items.location, '') LIKE &lt;&gt; AND
+  Coalesce(items.itype, '') LIKE &lt;&gt; AND
+  Coalesce(items.ccode, '') LIKE &lt;&gt;
 GROUP BY
   items.barcode
 HAVING
-  CHECKED_OUT LIKE <<Display items that are checked out|YES_NO>> AND
-  STATUS_PROBLEM LIKE <<Display items with status problems|YES_NO>> AND
-  IN_TRANSIT LIKE <<Display items that are in transit|YES_NO>> AND
-  ON_HOLD LIKE <<Display items on hold|YES_NO>> 
+  CHECKED_OUT LIKE &lt;&gt; AND
+  STATUS_PROBLEM LIKE &lt;&gt; AND
+  IN_TRANSIT LIKE &lt;&gt; AND
+  ON_HOLD LIKE &lt;&gt; 
 ORDER BY
   items.homebranch,
   LOCATION,

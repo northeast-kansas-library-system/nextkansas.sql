@@ -4,7 +4,7 @@ R.003484
 ----------
 
 Name: GHW- Turnover by location and collection code
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-03-17 22:51:30
-Modified on: 2021-03-25 01:36:09
-Date last run: 2022-04-01 12:53:29
+Modified on: 2024-01-17 12:00:28
+Date last run: 2024-01-23 12:49:07
 
 ----------
 
@@ -22,24 +22,24 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Shows turnover rate by location and collection code</p>
-<ul><li>in the previous 12 months</li>
-<li>at the library you specify</li>
-<li>grouped by library, location, and collection code</li>
-<li>sorted by library, location, and collection code with an "All locations" and "All collection codes" grouping at the top of the results</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Developed for "Collection development 2.0" workshop</p>
-<p></p>
-<p>Please note that these calculations include all items checked out at your library regardless of which library owned the item.  If, for example, your library doesn't own any items with a "VG-Nintendo 3DS" collection code but one from another library was checked out at your library to fill a request, that item will be counted in these calculations.</p>
-<p></p>
-<p>"CURRENT_ITEM_COUNT" is based on an item's collection code at the time the report was run.  "CKO_RENEW_COUNT" is based on an item's collection code at the time it was checked out.  It an item's collection code changes between the time it was checked out and the time this report is run, the results will be skewed.  This can be particularly true with temporary items such as ILL items.</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3484&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-<p class= "notetags" style="display: none;">statistics, turnover, previous 12 months</p>
-</div>
+ 
+Shows turnover rate by location and collection code
+in the previous 12 months
+at the library you specify
+grouped by library, location, and collection code
+sorted by library, location, and collection code with an "All locations" and "All collection codes" grouping at the top of the results
+
+Notes:
+
+Developed for "Collection development 2.0" workshop
+
+Please note that these calculations include all items checked out at your library regardless of which library owned the item.  If, for example, your library doesn't own any items with a "VG-Nintendo 3DS" collection code but one from another library was checked out at your library to fill a request, that item will be counted in these calculations.
+
+"CURRENT_ITEM_COUNT" is based on an item's collection code at the time the report was run.  "CKO_RENEW_COUNT" is based on an item's collection code at the time it was checked out.  It an item's collection code changes between the time it was checked out and the time this report is run, the results will be skewed.  This can be particularly true with temporary items such as ILL items.
+
+Click here to run in a new window
+statistics, turnover, previous 12 months
+
 
 ----------
 */
@@ -100,7 +100,7 @@ FROM
      If(statistics.branch IS NULL, "NEKLS", statistics.branch)) statcounts ON
       statcounts.branch = branchess.branchcode
 WHERE
-  branchess.branchcode LIKE <<Choose your library|ZBRAN>>
+  branchess.branchcode LIKE &lt;&gt;
 GROUP BY
   branchess.branchcode,
   icounts.Count_itemnumber,
@@ -136,7 +136,7 @@ FROM
         authorised_values
       WHERE
         authorised_values.category = 'bibloc' AND
-        authorised_values.authorised_value <> "YOUNGADULT") biblocs) branchess
+        authorised_values.authorised_value &lt;&gt; "YOUNGADULT") biblocs) branchess
   LEFT JOIN
   (SELECT
      items.homebranch,
@@ -231,7 +231,7 @@ FROM
       statcounts.branch = branchess.branchcode AND
       statcounts.LOCATION = branchess.authorised_value
 WHERE
-  branchess.branchcode LIKE <<Choose your library|ZBRAN>>
+  branchess.branchcode LIKE &lt;&gt;
 GROUP BY
   branchess.branchcode,
   branchess.lib,
@@ -271,7 +271,7 @@ FROM
         authorised_values
       WHERE
         authorised_values.category = 'bibloc' AND
-        authorised_values.authorised_value <> "YOUNGADULT") biblocs,
+        authorised_values.authorised_value &lt;&gt; "YOUNGADULT") biblocs,
      (SELECT
         authorised_values.category,
         authorised_values.authorised_value,
@@ -377,7 +377,7 @@ FROM
       statcounts.LOCATION = branchesitypes.authorised_value AND
       statcounts.ccode = branchesitypes.authorised_value1
 WHERE
-  branchesitypes.branchcode LIKE <<Choose your library|ZBRAN>>
+  branchesitypes.branchcode LIKE &lt;&gt;
 GROUP BY
   branchesitypes.branchcode,
   branchesitypes.lib,
@@ -462,7 +462,7 @@ WHERE
     If(branchess.branchcode LIKE 'PH%', 'PH_COMBINED', 
       branchess.branchcode
     )
-  ) LIKE <<Choose your library|ZBRAN>>
+  ) LIKE &lt;&gt;
 GROUP BY
   If(branchess.branchcode LIKE 'DONI%', 'DONIPHAN_COMBINED',
     If(branchess.branchcode LIKE 'PH%', 'PH_COMBINED', 
@@ -510,7 +510,7 @@ FROM
        authorised_values
      WHERE
        authorised_values.category = 'bibloc' AND
-       authorised_values.authorised_value <> "YOUNGADULT"
+       authorised_values.authorised_value &lt;&gt; "YOUNGADULT"
      ) biblocs
   ) branchess LEFT JOIN
   (SELECT
@@ -622,7 +622,7 @@ WHERE
     If(branchess.branchcode LIKE 'PH%', 'PH_COMBINED', 
       branchess.branchcode
     )
-  ) LIKE <<Choose your library|ZBRAN>>
+  ) LIKE &lt;&gt;
 GROUP BY
   If(branchess.branchcode LIKE 'DONI%', 'DONIPHAN_COMBINED',
     If(branchess.branchcode LIKE 'PH%', 'PH_COMBINED', 
@@ -668,7 +668,7 @@ FROM
           authorised_values
         WHERE
           authorised_values.category = 'bibloc' AND
-          authorised_values.authorised_value <> "YOUNGADULT") biblocs,
+          authorised_values.authorised_value &lt;&gt; "YOUNGADULT") biblocs,
       (SELECT
           authorised_values.category,
           authorised_values.authorised_value,
@@ -784,7 +784,7 @@ FROM
       statcounts.LOCATION = branchesitypes.authorised_value AND
       statcounts.ccode = branchesitypes.authorised_value1
 WHERE
-  branchesitypes.branchcode LIKE <<Choose your library|ZBRAN>>
+  branchesitypes.branchcode LIKE &lt;&gt;
 GROUP BY
   branchesitypes.branchcode,
   branchesitypes.lib,

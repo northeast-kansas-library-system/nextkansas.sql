@@ -4,7 +4,7 @@ R.003623
 ----------
 
 Name: GHW -Unseen report-a-problem notes by borrower branchcode
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2021-11-09 01:09:14
 Modified on: 2021-11-09 01:40:13
-Date last run: 2023-05-23 14:04:51
+Date last run: 2024-11-25 12:40:14
 
 ----------
 
@@ -31,36 +31,32 @@ Expiry: 300
 
 SELECT
   Concat(
-      '<a href=\"/cgi-bin/koha/circ/checkout-notes.pl" target="_blank">Link to problem notes table</a>'
+      'Link to problem notes table'
     ) AS LINK,
-  Concat_Ws("<br />", 
-    Concat("Borrower BC: ", borrowers.cardnumber, "<br />"), 
+  Concat_Ws("", 
+    Concat("Borrower BC: ", borrowers.cardnumber, ""), 
     Concat(
-      '<a href=\"/cgi-bin/koha/circ/circulation.pl?borrowernumber=', 
-      allissues.borrowernumber, 
-      '\" target="_blank">Link to patron record</a>'
+      'Link to patron record'
     )
   ) AS PATRON,
-  Concat_Ws("<br />", 
+  Concat_Ws("", 
     Concat("Item home: ", items.homebranch), Concat("Location: ", items.location), 
     Concat("Item type: ", items.itype), Concat("Collection: ", items.ccode), 
     Concat("Call number: ", items.itemcallnumber), Concat("Author: ", biblio.author),
     Concat("Title: ", biblio.title), 
-    Concat("Item BC: ", allissues.ITEM_BC, "<br />"), 
+    Concat("Item BC: ", allissues.ITEM_BC, ""), 
     Concat(
-      '<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
-      items.biblionumber, 
-      '\" target="_blank">Link to title</a>'
+      'Link to title'
     )
   ) AS ITEM_INFO,
-  Concat_Ws("<br />", 
-    Concat("Checked out at: ", allissues.branchcode, "<br />"), 
-    Concat("Checked out on: ", allissues.issuedate, "<br />"), 
+  Concat_Ws("", 
+    Concat("Checked out at: ", allissues.branchcode, ""), 
+    Concat("Checked out on: ", allissues.issuedate, ""), 
     Concat("Due date: ", allissues.IN_OR_OUT)
   ) AS CHECKOUT_INFO,
-  Concat_Ws("<br />", 
-    Concat("Note date: ", allissues.notedate, "<br />"),
-    Concat("<ins>Note text:</ins><br /><br />", allissues.note)
+  Concat_Ws("", 
+    Concat("Note date: ", allissues.notedate, ""),
+    Concat("Note text:", allissues.note)
   ) AS NOTE_INFO
 FROM
   (SELECT
@@ -68,8 +64,8 @@ FROM
      issues.borrowernumber,
      issues.notedate,
      items.barcode AS ITEM_BC,
-     If(issues.itemnumber <> 0, issues.date_due,
-     "<span style='color: red;'><ins>Item has already been returned</ins></span>") AS IN_OR_OUT,
+     If(issues.itemnumber &lt;&gt; 0, issues.date_due,
+     "Item has already been returned") AS IN_OR_OUT,
      issues.branchcode,
      issues.issuedate,
      issues.itemnumber,
@@ -84,7 +80,7 @@ FROM
   items ON allissues.itemnumber = items.itemnumber JOIN
   biblio ON items.biblionumber = biblio.biblionumber
 WHERE
-  allissues.branchcode LIKE <<Enter branchcode>>
+  allissues.branchcode LIKE &lt;&gt;
 GROUP BY
   allissues.borrowernumber,
   items.itemnumber,

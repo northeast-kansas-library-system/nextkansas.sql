@@ -4,7 +4,7 @@ R.003307
 ----------
 
 Name: GHW - Authorised Values Synchronization - Item types
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2020-01-28 13:36:58
-Modified on: 2020-01-28 14:07:19
-Date last run: 2022-04-13 08:52:33
+Modified on: 2023-11-15 17:17:43
+Date last run: 2024-04-11 15:11:35
 
 ----------
 
@@ -30,10 +30,11 @@ Expiry: 300
 
 
 Select
-  Concat('<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=', ltypes.category, '" target="_blank">Link to AV</a>') As LINK,
-  If(itypes.itemtype Is Null, "<span style='background-color: red; color: yellow'>Possible errror</span>", itypes.itemtype) As ITYPE,
-  If(ltypes.authorised_value Is Null, "<span style='background-color: red; color: yellow'>Errror</span>", ltypes.authorised_value) As authorised_value,
-  If(itypes.description Is Null, "<span style='background-color: red; color: yellow'>Possible errror</span>", itypes.description) As description,
+  Concat('Link to AV') As LINK,
+  If(itypes.itemtype Is Null, "Possible errror", itypes.itemtype) As ITYPE,
+  If(ltypes.authorised_value Is Null, "Errror", ltypes.authorised_value) As authorised_value,
+  If(itypes.description Is Null, "Possible errror", itypes.description) As description,
+  If(itypes.description &lt;&gt; authorised_values.lib, 'Error', '') AS DESC_MATCH,
   ltypes.lib
 From
   (Select
@@ -55,10 +56,10 @@ From
      authorised_values.lib) ltypes On ltypes.authorised_value = itypes.itemtype
 Union
 Select
-  Concat('<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=', ltypes.category, '" target="_blank">Link to AV</a>') As LINK,
-  If(itypes.itemtype Is Null, "<span style='background-color: red; color: yellow'>Possible errror</span>", itypes.itemtype) As ITYPE,
-  If(ltypes.authorised_value Is Null, "<span style='background-color: red; color: yellow'>Errror</span>", ltypes.authorised_value) As authorised_value,
-  If(itypes.description Is Null, "<span style='background-color: red; color: yellow'>Possible errror</span>", itypes.description) As description,
+  Concat('Link to AV') As LINK,
+  If(itypes.itemtype Is Null, "Possible errror", itypes.itemtype) As ITYPE,
+  If(ltypes.authorised_value Is Null, "Errror", ltypes.authorised_value) As authorised_value,
+  If(itypes.description Is Null, "Possible errror", itypes.description) As description,
   ltypes.lib
 From
   (Select

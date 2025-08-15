@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2010-06-07 15:09:44
 Modified on: 2015-08-16 17:00:38
-Date last run: 2023-05-02 13:52:03
+Date last run: 2025-08-02 16:33:55
 
 ----------
 
@@ -29,7 +29,7 @@ Enhanced - Run, Pick Your Branch and Shelving Location to get a list of material
 
 
 
-SELECT b.biblionumber, i.dateaccessioned, b.title, b.author, i.ccode, i.location, i.itemcallnumber, i.itype, t.publicationyear, i.barcode, CONCAT('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=',b.biblionumber,'&itemnumber=',i.itemnumber,'#edititem\" target="_blank">'"edit item"'</a>') as "edit item" FROM items i LEFT JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE i.homebranch=<<branch|branches>> AND i.location = <<location|LOC>> ORDER BY i.itemcallnumber asc
+SELECT b.biblionumber, i.dateaccessioned, b.title, b.author, i.ccode, i.location, i.itemcallnumber, i.itype, t.publicationyear, i.barcode, CONCAT(''"edit item"'') as "edit item" FROM items i LEFT JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE i.homebranch=&lt;&gt; AND i.location = &lt;&gt; ORDER BY i.itemcallnumber asc
 
 
 

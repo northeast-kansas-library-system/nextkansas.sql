@@ -4,7 +4,7 @@ R.003327
 ----------
 
 Name: GHW - 942e - Phase 5
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -43,9 +43,9 @@ FROM
   items JOIN
   biblio_metadata ON biblio_metadata.biblionumber = items.biblionumber
 WHERE
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="e"]') <> "ADULT" AND
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="e"]') <> "CHILDRENS" AND
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="e"]') <> "YOUNGADULT"
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="e"]') &lt;&gt; "ADULT" AND
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="e"]') &lt;&gt; "CHILDRENS" AND
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="e"]') &lt;&gt; "YOUNGADULT"
 GROUP BY
   items.biblionumber
 

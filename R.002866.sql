@@ -4,7 +4,7 @@ R.002866
 ----------
 
 Name: GHW - YE 2.2a
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

@@ -4,7 +4,7 @@ R.002867
 ----------
 
 Name: GHW - YE - 9.1a
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: Daily, Monthly, Yearly Stats
 
 Created on: 2017-01-01 22:39:19
 Modified on: 2021-12-30 22:38:38
-Date last run: 2022-01-01 01:32:02
+Date last run: 2024-01-11 12:30:38
 
 ----------
 
@@ -41,7 +41,7 @@ FROM
     FROM
       items
     WHERE
-      items.dateaccessioned < MakeDate(Year(Now()), 1) - INTERVAL 1 YEAR AND
+      items.dateaccessioned &lt; MakeDate(Year(Now()), 1) - INTERVAL 1 YEAR AND
       ((items.itype = 'BOOK' OR
         items.itype = 'PBBKNEW' OR
         items.itype = 'PBBKCLUB' OR
@@ -122,7 +122,7 @@ FROM
   FROM
     deleteditems
   WHERE
-    deleteditems.dateaccessioned < MakeDate(Year(Now()), 1) - INTERVAL 1 YEAR
+    deleteditems.dateaccessioned &lt; MakeDate(Year(Now()), 1) - INTERVAL 1 YEAR
     AND
     ((deleteditems.itype = 'BOOK' OR
       deleteditems.itype = 'PBBKNEW' OR

@@ -4,7 +4,7 @@ R.003490
 ----------
 
 Name: GHW - List of shelving location values
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

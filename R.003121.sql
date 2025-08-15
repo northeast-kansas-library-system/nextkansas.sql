@@ -4,7 +4,7 @@ R.003121
 ----------
 
 Name: GHW - ADMINREPORT
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -30,7 +30,7 @@ Expiry: 300
 
 
 SELECT
-  CONCAT_WS("<br />", Concat("The following item has been missing in transit for more than 7 days:<br />"),
+  CONCAT_WS("", Concat("The following item has been missing in transit for more than 7 days:"),
   Concat("Home Lib: ", items.homebranch),
   Concat("Location: ", items.location),
   Concat("Itemtype: ",  items.itype),
@@ -43,8 +43,8 @@ SELECT
   Concat("Shipped from: ", branchtransfers.frombranch),
   Concat("Shipped to: ", branchtransfers.tobranch),
   Concat("Shipped on:  ", branchtransfers.datesent),
-  Concat("Last seen: ", items.datelastseen, "<br />"),
-  Concat("Could you please check the shelves at your library for this item?<br /><br />.page.")) AS LETTER_CONTENT
+  Concat("Last seen: ", items.datelastseen, ""),
+  Concat("Could you please check the shelves at your library for this item?.page.")) AS LETTER_CONTENT
 FROM
   (items
   JOIN branchtransfers ON items.itemnumber = branchtransfers.itemnumber)
@@ -53,7 +53,7 @@ FROM
 WHERE
   authorised_values.category = "ccode" AND
   branchtransfers.datearrived IS NULL AND
-  ((items.homebranch = @brn := <<Choose your library|branches>> COLLATE utf8mb4_unicode_ci) OR
+  ((items.homebranch = @brn := &lt;&gt; COLLATE utf8mb4_unicode_ci) OR
   (branchtransfers.frombranch = @brn) OR
   (branchtransfers.tobranch = @brn))
 GROUP BY

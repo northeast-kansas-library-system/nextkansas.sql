@@ -4,7 +4,7 @@ R.003513
 ----------
 
 Name: 942e - YA
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-05-27 22:12:05
-Modified on: 2022-12-05 16:05:53
-Date last run: 2023-05-23 09:56:44
+Modified on: 2025-06-16 11:54:08
+Date last run: 2025-08-14 08:22:09
 
 ----------
 
@@ -43,12 +43,10 @@ SELECT
   biblio.datecreated, 
   biblio.biblionumber, 
   Concat( 
-    '<a class= "clicked" href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
-    biblio.biblionumber, 
-    '\" target="_blank">Go to title</a>' 
+    'Go to title' 
   ) AS LINK_TO_TITLE, 
   bib_locations.Group_Concat_permanent_location, 
-  biblioitems.agerestriction, 
+  biblioitems.agerestriction BIB_LOCATION, 
   bib_locations.Count_permanent_location 
 FROM 
   biblio JOIN 
@@ -140,7 +138,7 @@ FROM
       ) = 1 
   ) bib_locations ON bib_locations.biblionumber = biblio.biblionumber 
 WHERE 
-  biblioitems.agerestriction <> 'L_YA' AND 
+  biblioitems.agerestriction &lt;&gt; 'L_YA' AND 
   bib_locations.Group_Concat_permanent_location = 'L_YA' 
 GROUP BY 
   biblio.biblionumber 

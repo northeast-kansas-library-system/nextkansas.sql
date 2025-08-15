@@ -4,7 +4,7 @@ R.003013
 ----------
 
 Name: GHW - Unneeded restrictions II
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -30,7 +30,7 @@ Expiry: 300
 
 
 SELECT
-  Concat('<a href=\"/cgi-bin/koha/members/boraccount.pl?borrowernumber=', borrowers.borrowernumber,'\" target="_blank">Link to patron</a>') AS LINK_TO_PATRON,
+  Concat('Link to patron') AS LINK_TO_PATRON,
   borrowers.cardnumber,
   borrowers.branchcode,
   borrower_debarments.created,
@@ -43,7 +43,7 @@ FROM
   LEFT JOIN issues ON issues.borrowernumber = borrowers.borrowernumber
   INNER JOIN borrower_debarments ON borrower_debarments.borrowernumber = borrowers.borrowernumber
 WHERE
-  borrowers.branchcode LIKE <<Choose library|LBRANCH>>
+  borrowers.branchcode LIKE &lt;&gt;
 GROUP BY
   borrowers.borrowernumber,
   borrower_debarments.borrower_debarment_id,

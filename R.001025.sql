@@ -13,7 +13,7 @@ Group: Notices
 
 Created on: 2011-01-12 09:49:18
 Modified on: 2013-06-21 13:49:26
-Date last run: 2021-07-27 10:02:12
+Date last run: 2024-01-31 11:32:14
 
 ----------
 
@@ -29,7 +29,7 @@ Shows Borrowernumber, subject, and time queued for email notices where the statu
 
 
 
-select borrowernumber, borrowers.surname, borrowers.firstname, subject, time_queued from message_queue JOIN borrowers USING (borrowernumber) where borrowers.branchcode=<<branch|branches>> AND status = 'pending' and message_transport_type = 'email'
+select borrowernumber, borrowers.surname, borrowers.firstname, subject, time_queued from message_queue JOIN borrowers USING (borrowernumber) where borrowers.branchcode=&lt;&gt; AND status = 'pending' and message_transport_type = 'email'
 
 
 

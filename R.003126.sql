@@ -4,7 +4,7 @@ R.003126
 ----------
 
 Name: GHW - ADMINREPORT
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -35,10 +35,10 @@ SELECT
     If(items.itype = "XXX", "Unclassified itype / ", ""),
     If(items.ccode IS NULL, "Blank collection code / ", ""),
     If(items.ccode = "XXX", "Unclassified collection code / ", ""),
-    If(items.barcode LIKE "WAC%", "", If(LENGTH(items.barcode) < 13, "Short barcode / ", "")),
+    If(items.barcode LIKE "WAC%", "", If(LENGTH(items.barcode) &lt; 13, "Short barcode / ", "")),
     If(items.barcode IS NULL, "Blank barcode /", "")
   ) AS PROBLEM,
-  Concat('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=',  biblio.biblionumber,  '&itemnumber=',  items.itemnumber, '" target="_blank">Edit this item</a>') AS EDIT_ITEM,
+  Concat('Edit this item') AS EDIT_ITEM,
   biblio.biblionumber,
   items.itemnumber,
   items.barcode,
@@ -82,18 +82,18 @@ FROM
       WHERE
         authorised_values.category = 'LOC') locations ON items.location = locations.authorised_value
 WHERE
-  items.itype <> 'ILL' AND
-  items.dateaccessioned < (<<Choose all items added before|date>> + interval 1 day) AND
+  items.itype &lt;&gt; 'ILL' AND
+  items.dateaccessioned &lt; (&lt;&gt; + interval 1 day) AND
   items.notforloan = 0 AND
-  items.homebranch LIKE <<Choose your library|ZBRAN>> AND
+  items.homebranch LIKE &lt;&gt; AND
   Concat(
     If(items.location IS NULL, "BLLOC / ", ""),
     If(items.itype = "XXX", "XTYPE / ", ""),
     If(items.ccode IS NULL, "BLCCODE / ", ""),
     If(items.ccode = "XXX", "XCCODE / ", ""),
-    If(items.barcode LIKE "WAC%", "", If(LENGTH(items.barcode) < 13, "SBC / ", "")),
+    If(items.barcode LIKE "WAC%", "", If(LENGTH(items.barcode) &lt; 13, "SBC / ", "")),
     If(items.barcode IS NULL, "BLBC / ", "")
-  ) LIKE <<Enter type of problem|LPMONTH>>
+  ) LIKE &lt;&gt;
 GROUP BY
   biblio.biblionumber,
   items.itemnumber,

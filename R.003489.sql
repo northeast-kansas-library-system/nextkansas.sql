@@ -4,7 +4,7 @@ R.003489
 ----------
 
 Name: ADMINREPORT - From g
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -44,9 +44,7 @@ SELECT
   biblio.biblionumber AS BIBLIO_NUMBER,
   biblioitems.isbn AS ISBN,
   Concat(
-    '<a class= "clicked" href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
-    biblio.biblionumber, 
-    '\" target="_blank">Go to title</a>'
+    'Go to title'
   ) AS LINK_TO_TITLE,
   Group_Concat(icounts.Group_Concat_itemcallnumber) AS CNS,
   GROUP_CONCAT(

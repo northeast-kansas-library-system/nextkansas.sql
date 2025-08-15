@@ -33,7 +33,7 @@ SELECT concat(b.surname,', ',b.firstname) AS name, count(s.borrowernumber) AS ch
 FROM statistics s
 LEFT JOIN borrowers b
 USING (borrowernumber)
-WHERE b.branchcode=<<chopse branch|branches>> AND s.datetime BETWEEN <<Top checkouts BETWEEN (yyyy-mm-dd)|date>> AND <<and (yyyy-mm-dd)|date>>
+WHERE b.branchcode=&lt;&gt; AND s.datetime BETWEEN &lt;&gt; AND &lt;&gt;
 GROUP BY s.borrowernumber
 ORDER BY count(s.borrowernumber) DESC
 LIMIT 2000

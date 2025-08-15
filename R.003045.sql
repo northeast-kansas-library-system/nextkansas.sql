@@ -4,7 +4,7 @@ R.003045
 ----------
 
 Name: GHW - Deleted reports - last 60 days
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

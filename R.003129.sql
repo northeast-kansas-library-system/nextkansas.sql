@@ -4,7 +4,7 @@ R.003129
 ----------
 
 Name: Days out-ADMINREPORT
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

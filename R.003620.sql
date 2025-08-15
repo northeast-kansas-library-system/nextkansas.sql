@@ -4,7 +4,7 @@ R.003620
 ----------
 
 Name: GHW - Pending suggestion alerts
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-11-09 00:16:43
-Modified on: 2021-11-09 00:42:00
-Date last run: 2023-05-23 14:05:07
+Modified on: 2025-03-18 15:05:51
+Date last run: 2025-08-15 13:47:17
 
 ----------
 
@@ -29,15 +29,33 @@ Expiry: 30
 
 
 
-SELECT
-  "hidden" AS class
-FROM
-  suggestions
-WHERE
-  suggestions.branchcode LIKE <<Enter branchcode>> AND
-  suggestions.STATUS = 'asked'
-GROUP BY
-  suggestions.branchcode
+Select
+  IF(branchcode_asked.branchcode = 'NEKLS',
+    'hidden',
+    If(Count(suggestionss.suggestionid) &gt; 0, 'next_hidden', '-')
+  ) As class
+From
+  (
+    Select
+      branches.branchcode,
+      'asked' As asked
+    From
+      branches
+  ) branchcode_asked 
+  Left Join
+  (
+    Select
+      *
+    From
+      suggestions
+  ) suggestionss 
+  On 
+    suggestionss.branchcode = branchcode_asked.branchcode And
+    suggestionss.STATUS = branchcode_asked.asked
+Where
+  branchcode_asked.branchcode LIKE Concat(&lt;&gt;, '%')
+Group By
+  branchcode_asked.asked
 
 
 

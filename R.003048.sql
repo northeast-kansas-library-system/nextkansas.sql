@@ -4,7 +4,7 @@ R.003048
 ----------
 
 Name: GHW - Flexible items added list
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -30,7 +30,7 @@ Allows you to select home library, location, item type, collection code, left an
 
 
 SELECT
-  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', items.biblionumber, '\" target="_blank">', items.biblionumber, '</a>') AS LINK_TO_TITLE,
+  Concat('', items.biblionumber, '') AS LINK_TO_TITLE,
   items.biblionumber,
   items.itemnumber,
   Concat("-", Coalesce(items.barcode, "-"), "-") AS BARCODE,
@@ -56,25 +56,25 @@ SELECT
   If(Sum(Coalesce(items.damaged, 0) + Coalesce(items.itemlost, 0) + Coalesce(items.withdrawn, 0)) = 0, 'No', 'Yes') AS STATUS_PROBLEMS,
   items.itemnotes,
   items.itemnotes_nonpublic,
-  CONCAT('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=',items.biblionumber,'&itemnumber=',items.itemnumber,'#edititem\" target="_blank">Edit item</a>') AS EDIT_ITEM
+  CONCAT('Edit item') AS EDIT_ITEM
 FROM
   items
   JOIN biblio ON items.biblionumber = biblio.biblionumber
   JOIN biblio_metadata ON items.biblionumber = biblio_metadata.biblionumber
   JOIN biblioitems ON items.biblioitemnumber = biblioitems.biblioitemnumber
 WHERE
-  items.homebranch LIKE <<Item home library|ZBRAN>> AND
-  Coalesce(items.location, "-") LIKE <<Item shelving location|LLOC>> AND
-  Coalesce(items.itype, "-") LIKE <<Item type|LITYPES>> AND
-  Coalesce(items.ccode, "-") LIKE <<Item collection code|LCCODE>> AND
-  Coalesce(items.itemcallnumber, "-") LIKE CONCAT(<<Enter first part of call number or a % symbol>>, "%") AND
-  items.dateaccessioned BETWEEN <<Item was added between|date>> AND <<and|date>> + INTERVAL 1 DAY
+  items.homebranch LIKE &lt;&gt; AND
+  Coalesce(items.location, "-") LIKE &lt;&gt; AND
+  Coalesce(items.itype, "-") LIKE &lt;&gt; AND
+  Coalesce(items.ccode, "-") LIKE &lt;&gt; AND
+  Coalesce(items.itemcallnumber, "-") LIKE CONCAT(&lt;&gt;, "%") AND
+  items.dateaccessioned BETWEEN &lt;&gt; AND &lt;&gt; + INTERVAL 1 DAY
 GROUP BY
   items.itemnumber
 HAVING 
-  CHECKOUTS_PLUS_RENEWALS <= <<With X or fewer checkouts|ZNUMBERS>> AND
-  CHECKED_OUT LIKE <<Display checked out items|ZYES_NO>> AND
-  STATUS_PROBLEMS LIKE <<Display lost, missing, and withdrawn items|ZYES_NO>>
+  CHECKOUTS_PLUS_RENEWALS &lt;= &lt;&gt; AND
+  CHECKED_OUT LIKE &lt;&gt; AND
+  STATUS_PROBLEMS LIKE &lt;&gt;
 ORDER BY
   items.homebranch,
   items.location,

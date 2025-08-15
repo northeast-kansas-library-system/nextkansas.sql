@@ -3,17 +3,17 @@ R.003548
 
 ----------
 
-Name: E2 Borrower statistics - borrower count by zip code
-Created by: George H Williams
+Name: 0105 - 2024_99_e_borrower_count_zipcode monthly_statistics
+Created by: George Williams
 
 ----------
 
 Group: Statistics
-     2023 beginning of month statistics
+     2025 beginning of month statistics
 
 Created on: 2021-08-04 16:23:25
-Modified on: 2023-02-10 14:10:37
-Date last run: 2023-05-01 01:20:01
+Modified on: 2025-04-30 11:34:51
+Date last run: 2025-08-01 01:05:03
 
 ----------
 
@@ -22,35 +22,36 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint> 
-<p>Borrower statistics - borrower count by zip code</p> 
-<ul><li>during the previous calendar month</li> 
-<li>at all system libraries</li> 
-<li>grouped and sorted by checkout-library and borrower zipcode</li> 
-</ul><br /> 
-<p><ins>Notes:</ins></p> 
-<p></p> 
-<ul> 
-  <li>ZIPCODE = borrower's zip code trimmed to 5 digits</li> 
-  <li>BORROWER_COUNT = count of all borrowers with this home library and this zip code</li> 
-  <li>RENEWED_LM= count of borrowers with this home library that were renewed last month</li> 
-  <li>ADDED_LM = count of borrowers with this home library that were added last month</li> 
-  <li>DELETED_LM = count of borrowers with this home library that were deleted last month</li> 
-</ul> 
-<p></p> 
-<ul> 
-  <li>Zip codes on borrower records are only as accurate as the staff members who entered those zip codes into the borrower records.  There are hundreds of incorrect and non-standard zip codes in the borrower data.</li> 
-  <li>All zip codes are trimmed to 5 digits</li> 
-  <li>If BORROWER_ZIPCODE = "-" that means there are less than 10 borrowers with that zip code system-wide<br />in order to protect borrower privacy, if there are fewer than 10 borrowers in a zip code, that zip code will be hidden.</li> 
-  <li>If BORROWER_ZIPCODE = "0" that means that the zipdcode that has been left blank, that zipcode contains nothing but spaces, or that zipcode is set to zero</li> 
-</ul> 
-<p></p> 
-<p class="updated">This report and these notes updated on 2022.03.10</p> 
-<p></p> 
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3548">Click here to download as a csv file</a></p> 
-<p class= "notetags" style="display: none;">#monthly #statistics #borrower #count #zipcode</p> 
-<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
-</div> 
+ 
+Borrower statistics - borrower count by zip code 
+during the previous calendar month 
+at all system libraries 
+grouped and sorted by checkout-library and borrower zipcode 
+ 
+Notes: 
+ 
+ 
+  ZIPCODE = borrower's zip code trimmed to 5 digits 
+  BORROWER_COUNT = count of all borrowers with this home library and this zip code 
+  RENEWED_LM= count of borrowers with this home library that were renewed last month 
+  ADDED_LM = count of borrowers with this home library that were added last month 
+  DELETED_LM = count of borrowers with this home library that were deleted last month 
+ 
+ 
+ 
+  Zip codes on borrower records are only as accurate as the staff members who entered those zip codes into the borrower records.  There are hundreds of incorrect and non-standard zip codes in the borrower data. 
+  All zip codes are trimmed to 5 digits 
+  If BORROWER_ZIPCODE = "-" that means there are less than 25 borrowers with that zip code system-widein order to protect borrower privacy, if there are fewer than 10 borrowers in a zip code, that zip code will be hidden. 
+  If BORROWER_ZIPCODE = "0" that means that the zipdcode that has been left blank, that zipcode contains nothing but spaces, or that zipcode is set to zero 
+ 
+ 
+This report and these notes updated on 2022.03.10 
+This report and these notes updated on 2024.02.09 
+ 
+Click here to download as a csv file 
+#monthly #statistics #borrower #count #zipcode 
+ 
+ 
 
 ----------
 */
@@ -58,9 +59,17 @@ Expiry: 300
 
 
 SELECT 
+  'branchname' AS 'branchname',  
+  'ZIP_CODE' AS 'ZIP_CODE',  
+  'BORROWER_COUNT' AS 'BORROWER_COUNT',  
+  'RENEWED_LM' AS 'RENEWED_LM',  
+  'ADDED_LM' AS 'ADDED_LM',  
+  'DELETED_LM' AS 'DELETED_LM'
+UNION 
+(SELECT 
   branches.branchname, 
   If( 
-    zipcounts.Count_borrowernumber < 10, 
+    zipcounts.Count_borrowernumber &lt; 25, 
     '-', 
     If( 
       branchcodeszipss.ZIPCODE = '', 
@@ -172,7 +181,7 @@ FROM
 GROUP BY 
   branches.branchname, 
   If( 
-    zipcounts.Count_borrowernumber < 10, 
+    zipcounts.Count_borrowernumber &lt; 25, 
     '-', 
     If( 
       branchcodeszipss.ZIPCODE = '', 
@@ -180,6 +189,18 @@ GROUP BY
       branchcodeszipss.ZIPCODE 
     ) 
   ) 
+ORDER BY 
+  branches.branchname, 
+  If( 
+    zipcounts.Count_borrowernumber &lt; 25, 
+    ' -', 
+    If( 
+      branchcodeszipss.ZIPCODE = '', 
+      ' 0', 
+      branchcodeszipss.ZIPCODE 
+    ) 
+  ) 
+) 
 
 
 

@@ -4,7 +4,7 @@ R.003724
 ----------
 
 Name: Compare framework tags
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -96,7 +96,7 @@ FROM (
       marc_tag_structure.ind2_defaultvalue
     FROM marc_tag_structure
     WHERE 
-      IF(marc_tag_structure.frameworkcode = '', '-', marc_tag_structure.frameworkcode) LIKE <<Enter code for framework 1>>
+      IF(marc_tag_structure.frameworkcode = '', '-', marc_tag_structure.frameworkcode) LIKE &lt;&gt;
   ) y
   LEFT JOIN (
     SELECT 
@@ -111,14 +111,14 @@ FROM (
       marc_tag_structure.ind1_defaultvalue,
       marc_tag_structure.ind2_defaultvalue
     FROM marc_tag_structure
-    WHERE IF(marc_tag_structure.frameworkcode = '', '-', marc_tag_structure.frameworkcode) LIKE <<Enter code for framework 2>>
+    WHERE IF(marc_tag_structure.frameworkcode = '', '-', marc_tag_structure.frameworkcode) LIKE &lt;&gt;
   ) d ON d.tagfield = y.tagfield
 WHERE
-  If(y.liblibrarian = d.liblibrarian, 'Yes', 'No') LIKE <<STAFF_LABEL_MATCH|ZYES_NO>> AND
-  If(y.libopac = d.libopac, 'Yes', 'No') LIKE <<OPAC_LABEL_MATCH|ZYES_NO>> AND
-  If(y.repeatable = d.repeatable, 'Yes', 'No') LIKE <<REPEATABLE_MATCH|ZYES_NO>> AND
-  If(y.mandatory = d.mandatory, 'Yes', 'No') LIKE <<MANDATORY_MATCH|ZYES_NO>> AND
-  If(y.important = d.important, 'Yes', 'No') LIKE <<IMPORTANT_MATCH|ZYES_NO>> AND
+  If(y.liblibrarian = d.liblibrarian, 'Yes', 'No') LIKE &lt;&gt; AND
+  If(y.libopac = d.libopac, 'Yes', 'No') LIKE &lt;&gt; AND
+  If(y.repeatable = d.repeatable, 'Yes', 'No') LIKE &lt;&gt; AND
+  If(y.mandatory = d.mandatory, 'Yes', 'No') LIKE &lt;&gt; AND
+  If(y.important = d.important, 'Yes', 'No') LIKE &lt;&gt; AND
   If(
     
     IF(y.authorised_value is null, '-', IF(y.authorised_value = '', '-', y.authorised_value))
@@ -127,9 +127,9 @@ WHERE
     
     IF(d.authorised_value is null, '-', IF(d.authorised_value = '', '-', d.authorised_value)),
     
-    'Yes', 'No') LIKE <<AUTHORIZED_VALUE_MATCH|ZYES_NO>> AND
-  If(y.ind1_defaultvalue = d.ind1_defaultvalue, 'Yes', 'No') LIKE <<IND1_DEFAULT_MATCH|ZYES_NO>> AND
-  If(y.ind2_defaultvalue = d.ind2_defaultvalue, 'Yes', 'No') LIKE <<IND2_DEFAULT_MATCH|ZYES_NO>>
+    'Yes', 'No') LIKE &lt;&gt; AND
+  If(y.ind1_defaultvalue = d.ind1_defaultvalue, 'Yes', 'No') LIKE &lt;&gt; AND
+  If(y.ind2_defaultvalue = d.ind2_defaultvalue, 'Yes', 'No') LIKE &lt;&gt;
 ORDER BY 
   CODE_1
 

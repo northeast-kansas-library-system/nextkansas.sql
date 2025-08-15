@@ -4,7 +4,7 @@ R.003646
 ----------
 
 Name: GHW - Circulation and renewal count by library, location, item type, and collection code.
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2022-02-06 01:06:29
-Modified on: 2022-12-02 09:56:31
-Date last run: 2023-05-08 16:03:55
+Modified on: 2024-01-17 11:29:21
+Date last run: 2025-08-10 18:50:02
 
 ----------
 
@@ -22,23 +22,23 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Circulation and renewal count by library, location, item type, and collection code.</p>
-<ul><li>Shows circulation in the month you specify (limited to the previous 25 months)</li>
-<li>at the library you specify</li>
-<li>grouped by circulating library, location, item type, and collection code</li>
-<li>sorted by circulating library, item type, and collection code</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Replaces reports:</p>
-<ul>
-<li>1930</li>
-<li>3165</li>
-</ul>
-<p></p>
-<p class= "notetags" style="display: none;">#circ_count_by_library #circ_count_by_itype #circ_count_by_ccode #circ_count_by_location</p>
-</div>
+ 
+Circulation and renewal count by library, location, item type, and collection code.
+Shows circulation in the month you specify (limited to the previous 25 months)
+at the library you specify
+grouped by circulating library, location, item type, and collection code
+sorted by circulating library, item type, and collection code
+
+Notes:
+
+Replaces reports:
+
+1930
+3165
+
+
+#circ_count_by_library #circ_count_by_itype #circ_count_by_ccode #circ_count_by_location
+
 
 ----------
 */
@@ -68,10 +68,10 @@ FROM
    FROM
      statistics
    WHERE
-     statistics.branch LIKE <<branch|ZBRAN>> AND
+     statistics.branch LIKE &lt;&gt; AND
      statistics.type IN ('issue', 'renew') AND
-     Year(statistics.datetime) = <<Choose year|Year>> AND
-     Month(statistics.datetime)= <<Choose month|Month>> 
+     Year(statistics.datetime) = &lt;&gt; AND
+     Month(statistics.datetime)= &lt;&gt; 
    GROUP BY
      statistics.branch,
      statistics.itemtype,
@@ -91,10 +91,10 @@ FROM
      items ON items.itemnumber = statistics.itemnumber LEFT JOIN
      deleteditems ON deleteditems.itemnumber = statistics.itemnumber
    WHERE
-     statistics.branch LIKE <<branch|ZBRAN>> AND
+     statistics.branch LIKE &lt;&gt; AND
      statistics.type IN ('issue', 'renew') AND
-     Month(statistics.datetime)= <<Choose month|Month>> AND
-     Year(statistics.datetime) = <<Choose year|Year>> AND
+     Month(statistics.datetime)= &lt;&gt; AND
+     Year(statistics.datetime) = &lt;&gt; AND
      If(statistics.location = "CART", 
        Coalesce(items.permanent_location, deleteditems.permanent_location), 
        statistics.location
@@ -123,10 +123,10 @@ FROM
      items ON items.itemnumber = statistics.itemnumber LEFT JOIN
      deleteditems ON deleteditems.itemnumber = statistics.itemnumber
    WHERE
-     statistics.branch LIKE <<branch|ZBRAN>> AND
+     statistics.branch LIKE &lt;&gt; AND
      statistics.type IN ('issue', 'renew') AND
-     Month(statistics.datetime)= <<Choose month|Month>> AND
-     Year(statistics.datetime) = <<Choose year|Year>> AND
+     Month(statistics.datetime)= &lt;&gt; AND
+     Year(statistics.datetime) = &lt;&gt; AND
      If(statistics.location = "CART", 
        Coalesce(items.permanent_location, deleteditems.permanent_location), 
        statistics.location
@@ -155,10 +155,10 @@ FROM
      items ON items.itemnumber = statistics.itemnumber LEFT JOIN
      deleteditems ON deleteditems.itemnumber = statistics.itemnumber
    WHERE
-     statistics.branch LIKE <<branch|ZBRAN>> AND
+     statistics.branch LIKE &lt;&gt; AND
      statistics.type IN ('issue', 'renew') AND
-     Month(statistics.datetime)= <<Choose month|Month>> AND
-     Year(statistics.datetime) = <<Choose year|Year>> AND
+     Month(statistics.datetime)= &lt;&gt; AND
+     Year(statistics.datetime) = &lt;&gt; AND
      If(statistics.location = "CART", 
        Coalesce(items.permanent_location, deleteditems.permanent_location), 
        statistics.location

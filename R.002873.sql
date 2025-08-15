@@ -4,7 +4,7 @@ R.002873
 ----------
 
 Name: GHW - Payments, Credits, and Writeoffs - Last Month
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Fines/Fees
      -
 
 Created on: 2017-01-04 11:48:38
-Modified on: 2021-05-07 09:30:14
-Date last run: 2022-11-07 19:45:12
+Modified on: 2024-01-17 11:46:33
+Date last run: 2025-08-05 16:41:50
 
 ----------
 
@@ -22,20 +22,20 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>Reports on fee payment/credit/writeoff activity at a library</p>
-<ul><li>Shows activity in the previous calendar month</li>
-<li>Shows all fees collected/processed at a specified library</li>
-<li>grouped by accountlines_id</li>
-<li>sorted by payment locttion, payment type, payment timestamp</li>
-<li>links to the payment accountline details page</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Updated may 5, 2021.</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2873&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Reports on fee payment/credit/writeoff activity at a library
+Shows activity in the previous calendar month
+Shows all fees collected/processed at a specified library
+grouped by accountlines_id
+sorted by payment locttion, payment type, payment timestamp
+links to the payment accountline details page
+
+Notes:
+
+Updated may 5, 2021.
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -56,16 +56,14 @@ SELECT
     Concat(accountlines.credit_type_code, ' / ', accountlines.status)
   ) AS PAYMENT_TYPE,
   CONCAT(
-    '<a href="https://staff.nextkansas.org/cgi-bin/koha/members/accountline-details.pl?accountlines_id=', 
-    accountlines.accountlines_id, 
-    '" target="_blank">Go to transaction</a>'
+    'Go to transaction'
   ) AS LINK_TO_PAYMENT
 FROM
   accountlines LEFT JOIN
   borrowers staff ON staff.borrowernumber = accountlines.manager_id LEFT JOIN
   borrowers patrons ON accountlines.borrowernumber = patrons.borrowernumber
 WHERE
-  staff.branchcode LIKE <<Choose your library|LBRANCH>> AND
+  staff.branchcode LIKE &lt;&gt; AND
   staff.categorycode = 'STAFF' AND
   accountlines.credit_type_code IS NOT NULL AND
   Year(accountlines.timestamp) = Year(Now() - INTERVAL 1 MONTH) AND

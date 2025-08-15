@@ -4,7 +4,7 @@ R.003547
 ----------
 
 Name: GHW - Circulation statistics by biblio number and item home library
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -42,8 +42,8 @@ WHERE
     statistics.type = 'renew') AND
   Year(statistics.datetime) = 2021 AND
   Month(statistics.datetime) = 6 AND
-  biblio.biblionumber LIKE <<Enter a biblio number>> AND
-  items.homebranch Like <<Choose the items' home library|LBRANCH>>
+  biblio.biblionumber LIKE &lt;&gt; AND
+  items.homebranch Like &lt;&gt;
 GROUP BY
   biblio.biblionumber,
   biblio.title

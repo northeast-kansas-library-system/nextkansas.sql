@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2013-09-03 10:39:16
 Modified on: 2015-08-16 20:24:53
-Date last run: 2023-05-08 17:32:59
+Date last run: 2025-07-10 12:12:55
 
 ----------
 
@@ -29,8 +29,8 @@ Items marked long overdue/assumed lost. Enhanced. Choose branch, run.
 
 
 
-SELECT i.datelastseen, b.title, b.author,t.publicationyear, i.location, i.ccode,i.itype,i.itemcallnumber, i.barcode, i.holdingbranch, CONCAT('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=',b.biblionumber,'&itemnumber=',i.itemnumber,'#edititem\" target="_blank">'"edit item"'</a>') as "edit item" FROM items i LEFT JOIN biblio b USING (biblionumber)  LEFT JOIN biblioitems t USING(biblionumber) 
-WHERE i.homebranch=<<Pick your branch|branches>> AND i.itemlost = '2'
+SELECT i.datelastseen, b.title, b.author,t.publicationyear, i.location, i.ccode,i.itype,i.itemcallnumber, i.barcode, i.holdingbranch, CONCAT(''"edit item"'') as "edit item" FROM items i LEFT JOIN biblio b USING (biblionumber)  LEFT JOIN biblioitems t USING(biblionumber) 
+WHERE i.homebranch=&lt;&gt; AND i.itemlost = '2'
 ORDER BY  i.itemcallnumber
 
 

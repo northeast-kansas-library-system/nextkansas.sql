@@ -4,7 +4,7 @@ R.003299
 ----------
 
 Name: GHW - Non-LEAVENWRTH patrons with LEAVENWRTH Kanopy access
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group:  LEAVENWRTH
      -
 
 Created on: 2020-01-09 15:15:12
-Modified on: 2021-08-16 20:34:52
-Date last run: 2023-05-09 16:59:09
+Modified on: 2025-04-04 15:55:41
+Date last run: 2025-07-03 12:38:41
 
 ----------
 
@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Shows patrons with a "Kanopy (LEAVENWRTH): Allowed . . ." patron attribute but without a LEAVENWRTH homebranch</p>
-<ul><li>Shows borrwoers that currently have this attribute</li>
-<li>grouped by categorycode and borrowernumber</li>
-<li>sorted by library card number</li>
-<li>links to the borrower account</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Should be run monthly at LEAVENWRTH so the attribute can be removed from those accounts</p>
-<p><a href="https://northeast-kansas-library-system.github.io/next/branches/LEAVENWRTH/kanopy.html#running-reports-to-manually-update-kanopy-permission" target="_blank">Go to the training information for the Kanopy (LEAVENWRTH) extended borrower attribute.</a></p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3299&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-<p class= "notetags" style="display: none;">kanopy; patron-extended-attributes;</p>
-</div>
+ 
+Shows patrons with a "Kanopy (LEAVENWRTH): Allowed . . ." patron attribute but without a LEAVENWRTH homebranch
+Shows borrwoers that currently have this attribute
+grouped by categorycode and borrowernumber
+sorted by library card number
+links to the borrower account
+
+Notes:
+
+Should be run monthly at LEAVENWRTH so the attribute can be removed from those accounts
+Go to the training information for the Kanopy (LEAVENWRTH) extended borrower attribute.
+
+Click here to run in a new window
+kanopy; patron-extended-attributes;
+
 
 ----------
 */
@@ -44,8 +44,10 @@ Expiry: 300
 
 
 SELECT
-  Concat('<a href="/cgi-bin/koha/members/memberentry.pl?op=modify&borrowernumber=', borrowers.borrowernumber, '&step=4" target="_blank">Go to patron account</a>') AS LINK,
-  borrowers.cardnumber
+  Concat(
+    'Go to patron account'
+  ) AS LINK,
+  borrowers.cardnumber AS CARD_NUMBER
 FROM
   borrowers
   LEFT JOIN (
@@ -60,9 +62,9 @@ FROM
   ) kanopy
     ON kanopy.borrowernumber = borrowers.borrowernumber
 WHERE
-  borrowers.branchcode <> 'LEAVENWRTH' AND
+  borrowers.branchcode &lt;&gt; 'LEAVENWRTH' AND
   kanopy.attribute = 'LEAVENWRTH' AND
-  borrowers.othernames <> 'SIP2 test account'
+  borrowers.othernames &lt;&gt; 'SIP2 test account'
 GROUP BY
   borrowers.categorycode,
   borrowers.borrowernumber

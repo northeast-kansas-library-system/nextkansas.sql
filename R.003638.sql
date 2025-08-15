@@ -4,7 +4,7 @@ R.003638
 ----------
 
 Name: 2022 cleanup - biblio type
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

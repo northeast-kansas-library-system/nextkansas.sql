@@ -4,7 +4,7 @@ R.003399
 ----------
 
 Name: GHW - Borrower count by age and borrower category
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Borrowers
      Patron Statistics
 
 Created on: 2021-01-11 17:05:34
-Modified on: 2021-05-21 16:57:42
-Date last run: 2023-04-17 14:05:43
+Modified on: 2024-01-17 12:02:46
+Date last run: 2024-11-18 15:18:17
 
 ----------
 
@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Counts borrowers at a library by age (in years)</p>
-<ul><li>Counts current borrowers</li>
-<li>where the borrowers home library matches the library you specify and the borrower category matches the category you select</li>
-<li>grouped and sorted by borrowers home branch, borrowers category, and age</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Counts in the "BLANK_OR_BAD_CODE" column represent borrowers where the gender radio button on their account is either not set, or is set to a data code that is no longer in use.</p>
-<p></p>
-<p></p>
-<p>Replaces report 1081 and 2443</p>
-<p class= "notetags" style="display: none;">borrower count age</p>
-</div>
+ 
+Counts borrowers at a library by age (in years)
+Counts current borrowers
+where the borrowers home library matches the library you specify and the borrower category matches the category you select
+grouped and sorted by borrowers home branch, borrowers category, and age
+
+Notes:
+
+Counts in the "BLANK_OR_BAD_CODE" column represent borrowers where the gender radio button on their account is either not set, or is set to a data code that is no longer in use.
+
+
+Replaces report 1081 and 2443
+borrower count age
+
 
 ----------
 */
@@ -135,9 +135,9 @@ FROM
       borrowers
     WHERE
       (borrowers.sex IS NULL) OR
-      (borrowers.sex <> 'N' AND
-          borrowers.sex <> 'F' AND
-          borrowers.sex <> 'M')
+      (borrowers.sex &lt;&gt; 'N' AND
+          borrowers.sex &lt;&gt; 'F' AND
+          borrowers.sex &lt;&gt; 'M')
     GROUP BY
       borrowers.branchcode,
       Coalesce(floor(DateDiff(CurDate(), borrowers.dateofbirth) / 365.25), '-'),
@@ -146,8 +146,8 @@ FROM
       BLANK_OR_UNKNOWN.categorycode = branchescategories.categorycode AND
       BLANK_OR_UNKNOWN.BORROWER_AGE = ages.BORROWER_AGE
 WHERE
-  branchescategories.branchcode LIKE <<Choose your library|ZBRAN>> AND
-  branchescategories.categorycode LIKE <<Choose a borrower category|LBORROWERCAT>>
+  branchescategories.branchcode LIKE &lt;&gt; AND
+  branchescategories.categorycode LIKE &lt;&gt;
 GROUP BY
   branchescategories.branchname,
   branchescategories.description,

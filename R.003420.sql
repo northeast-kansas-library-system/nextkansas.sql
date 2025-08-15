@@ -3,17 +3,17 @@ R.003420
 
 ----------
 
-Name: A3 Monthly overview - Borrowers
-Created by: George H Williams
+Name: 0015 - 2024_99_a_cy monthly_statistics
+Created by: George Williams
 
 ----------
 
 Group: Statistics
-     2023 beginning of month statistics
+     2025 beginning of month statistics
 
 Created on: 2021-02-04 17:10:37
-Modified on: 2023-02-10 14:08:50
-Date last run: 2023-05-01 16:37:16
+Modified on: 2025-04-30 10:08:11
+Date last run: 2025-08-01 00:15:03
 
 ----------
 
@@ -22,31 +22,31 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint> 
-<p>Monthly overview - borrower statistics</p> 
-<ul><li>Shows borrower counts for the previous calendar month</li> 
-<li>At all Next Search Catalog libraries</li> 
-<li>grouped and sorted by branch name</li> 
-</ul><br /> 
-<p><ins>Notes:</ins></p> 
-<p></p> 
-<p>Generates data for:</p> 
-<ul> 
-  <li>BORROWER_ACCT_USED_LM = number of borrower accounts used to check out materials last month</li> 
-  <li>TOTAL_BORROWERS = number of total borrowers with this home library</li> 
-  <li>B_ADDED_LM = number of borrowers with this home library added last month</li> 
-  <li>B_RENEWED_LM = number of borrowers with this home library renewed last month</li> 
-  <li>B_DELETED_LM = number of borrowers with this home library deleted last month</li> 
-</ul> 
-<p></p> 
-<p>These counts are current at the time the report is run (which for Next Search Catalog is usually between 12:01 a.m. and 4:00 a.m. on the first day of the month).</p> 
-<p></p> 
-<p class="updated">This report and these notes updated on 2022.03.10</p> 
-<p></p> 
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3420">Click here to download as a csv file</a></p> 
-<p class= "notetags" style="display: none;">#monthly #statistics #overview #monthly_overview</p> 
-<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
-</div> 
+ 
+Monthly overview - borrower statistics 
+Shows borrower counts for the previous calendar month 
+At all Next Search Catalog libraries 
+grouped and sorted by branch name 
+ 
+Notes: 
+ 
+Generates data for: 
+ 
+  BORROWER_ACCT_USED_LM = number of borrower accounts used to check out materials last month 
+  TOTAL_BORROWERS = number of total borrowers with this home library 
+  B_ADDED_LM = number of borrowers with this home library added last month 
+  B_RENEWED_LM = number of borrowers with this home library renewed last month 
+  B_DELETED_LM = number of borrowers with this home library deleted last month 
+ 
+ 
+These counts are current at the time the report is run (which for Next Search Catalog is usually between 12:01 a.m. and 4:00 a.m. on the first day of the month). 
+ 
+This report and these notes updated on 2022.03.10 
+ 
+Click here to download as a csv file 
+#monthly #statistics #overview #monthly_overview 
+ 
+ 
 
 ----------
 */
@@ -54,6 +54,14 @@ Expiry: 300
 
 
 SELECT 
+  'branchname' AS branchname,
+  'BORROWER_ACCT_USED_LM' AS BORROWER_ACCT_USED_LM,
+  'TOTAL_BORROWERS' AS TOTAL_BORROWERS,
+  'B_ADDED_LM' AS B_ADDED_LM,
+  'B_RENEWED_LM' AS B_RENEWED_LM,
+  'B_DELETED_LM' AS B_DELETED_LM
+UNION 
+(SELECT 
   branches.branchname, 
   Coalesce(ACCT_USED.count, 0) AS BORROWER_ACCT_USED_LM, 
   Coalesce(BORROWERS1.COUNT, 0) AS TOTAL_BORROWERS, 
@@ -68,7 +76,7 @@ FROM
     FROM 
       borrowers 
     WHERE 
-      borrowers.dateenrolled < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
+      borrowers.dateenrolled &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
     GROUP BY 
       borrowers.branchcode 
     ) BORROWERS1 
@@ -130,7 +138,7 @@ FROM
 GROUP BY 
   branches.branchname 
 ORDER BY 
-  branches.branchname 
+  branches.branchname)
 
 
 

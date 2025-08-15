@@ -4,7 +4,7 @@ R.003466
 ----------
 
 Name: GHW - Update bib locations desc
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

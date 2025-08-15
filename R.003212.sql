@@ -4,7 +4,7 @@ R.003212
 ----------
 
 Name: GHW - Rotating collections - Report 4 ADMINREPORT
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -36,7 +36,7 @@ FROM
   JOIN items
     ON items.itemnumber = collections_tracking.itemnumber
 WHERE
-  collections_tracking.colId = <<Enter collection ID number>>
+  collections_tracking.colId = &lt;&gt;
 
 
 

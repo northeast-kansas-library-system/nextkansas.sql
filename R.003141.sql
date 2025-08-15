@@ -4,7 +4,7 @@ R.003141
 ----------
 
 Name: GHW - Circulation last month by collection code - ADMINREPORT
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -46,7 +46,7 @@ FROM
       authorised_values
     WHERE
       authorised_values.category = 'CCODE' AND
-      branches.branchcode = <<Choose your library branch|branches>>) branchcodes
+      branches.branchcode = &lt;&gt;) branchcodes
   LEFT JOIN (SELECT
       statistics.branch,
       statistics.ccode,

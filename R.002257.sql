@@ -13,7 +13,7 @@ Group: Holds-Reserves
 
 Created on: 2014-05-12 13:27:07
 Modified on: 2014-12-01 13:58:11
-Date last run: 2023-04-26 11:41:23
+Date last run: 2025-03-25 14:35:54
 
 ----------
 
@@ -29,7 +29,7 @@ Shows patrons at your library with their total CURRENT holds. Only displays card
 
 
 
-SELECT b.cardnumber, count(r.reserve_id) as count FROM reserves r JOIN borrowers b USING(borrowernumber) WHERE b.branchcode = <<choose your branch|branches>> GROUP BY b.borrowernumber ORDER BY count DESC
+SELECT b.cardnumber, count(r.reserve_id) as count FROM reserves r JOIN borrowers b USING(borrowernumber) WHERE b.branchcode = &lt;&gt; GROUP BY b.borrowernumber ORDER BY count DESC
 
 
 

@@ -4,7 +4,7 @@ R.003147
 ----------
 
 Name: GHW - Monthly action log count - ADMINREPORT
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

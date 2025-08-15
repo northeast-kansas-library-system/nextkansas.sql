@@ -4,7 +4,7 @@ R.003492
 ----------
 
 Name: GHW - Titles on a list with publication date and date added to the list
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -83,7 +83,7 @@ FROM
   virtualshelves ON virtualshelfcontents.shelfnumber =
       virtualshelves.shelfnumber
 WHERE
-  virtualshelfcontents.shelfnumber = <<Enter list ID number>>
+  virtualshelfcontents.shelfnumber = &lt;&gt;
 
 
 

@@ -4,7 +4,7 @@ R.002860
 ----------
 
 Name: GHW - All requests on a bibliographic record
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -47,7 +47,7 @@ SELECT
   allreserves.found,
   allreserves.reservenotes,
   items.barcode,
-  CONCAT('<a href=\"/cgi-bin/koha/reports/guided_reports.pl?reports=2859&phase=Run+this+report&sql_params=',items.barcode, '\" target="_blank">', items.barcode, '</a>') AS REQUESTS_ON_BIB
+  CONCAT('', items.barcode, '') AS REQUESTS_ON_BIB
 FROM
   (SELECT
     *
@@ -65,7 +65,7 @@ FROM
   borrowers
     ON borrowers.borrowernumber = allreserves.borrowernumber
 WHERE
-  biblio.biblionumber LIKE <<Enter biblio number>>
+  biblio.biblionumber LIKE &lt;&gt;
 GROUP BY
   allreserves.reserve_id, items.barcode
 ORDER BY

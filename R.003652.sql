@@ -4,7 +4,7 @@ R.003652
 ----------
 
 Name: GHW - Suppressed bibliographic records 
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2022-02-28 17:45:23
 Modified on: 2022-10-20 15:24:49
-Date last run: 2023-03-10 14:03:30
+Date last run: 2025-07-18 14:01:42
 
 ----------
 
@@ -31,10 +31,7 @@ Expiry: 300
 
 SELECT
   Concat(
-    '<a class="btn btn-default btn-xs noprint"', 
-    'href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
-    items.biblionumber, 
-    '\" target="_blank">Go to title</a>'
+    'Go to title'
   ) AS LINK_TO_TITLE,
   biblio.biblionumber,
   homebranch.branchname AS HOME,
@@ -97,7 +94,7 @@ FROM
       items.ccode
 WHERE
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="n"]') = 1 AND
-  items.homebranch LIKE <<Choose your library|ZBRAN>>
+  items.homebranch LIKE &lt;&gt;
 GROUP BY
   biblio.biblionumber,
   items.itemnumber

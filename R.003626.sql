@@ -4,7 +4,7 @@ R.003626
 ----------
 
 Name: GHW - All items with a Damaged, Lost, or Withdrawn status at a library
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-12-01 11:00:54
-Modified on: 2022-10-20 15:34:46
-Date last run: 2023-02-07 08:02:41
+Modified on: 2025-07-09 11:34:50
+Date last run: 2025-07-10 13:47:18
 
 ----------
 
@@ -22,25 +22,23 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Lists all Damaged, Lost, or Withdrawn items at a library</p>
-<ul><li>shows items that have those statuses at the time the report is run</li>
-<li>at the library you specify</li>
-<li>biblionumber and item number</li>
-<li>Library, shelving location, item type, collection code, call number, author, and title.</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Notes go here.</p>
-<p></p>
-<p>When presented with the options:</p>
-<ul>
-<li>List only damaged items</li>
-<li>List only lost items</li>
-<li>List only withdrawn items</li>
-</ul>
-<p>you should only select 1 and leave the others at their defaults.  If you choose "List only damaged items: Yes" and "List only lost items: Yes" you will only see items that are both damaged and lost.</p>
-</div>
+ 
+Lists all Damaged, Lost, or Withdrawn items at a library
+shows items that have those statuses at the time the report is run
+at the library you specify
+biblionumber and item number
+Library, shelving location, item type, collection code, call number, author, and title.
+
+Notes:
+
+When presented with the options:
+
+List only damaged items
+List only lost items
+List only withdrawn items
+
+you should only select 1 and leave the others at their defaults.  If you choose "List only damaged items: Yes" and "List only lost items: Yes" you will only see items that are both damaged and lost.
+
 
 ----------
 */
@@ -49,10 +47,7 @@ Expiry: 300
 
 SELECT
   Concat(
-    '<a class="btn btn-default btn-xs noprint" ', 
-    'href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
-    items.biblionumber, 
-    '\" target="_blank">Go to title</a>'
+    'Go to title'
   ) AS LINK_TO_TITLE,
   items.itemnumber,
   Concat("-", items.barcode, "-") AS BARCODE,
@@ -73,12 +68,7 @@ SELECT
   If(items.withdrawn_on IS NULL, withdrawns.lib, Concat_Ws("", withdrawns.lib, " on ", items.withdrawn_on)) AS WITHDRAWN,
   items.onloan,
   Concat(
-    '<a class="btn btn-default btn-xs noprint" ',
-    'href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=', 
-    items.biblionumber, 
-    '&itemnumber=', 
-    items.itemnumber, 
-    '#edititem\" target="_blank">Edit item</a>'
+    'Edit item'
   ) AS EDIT_ITEM
 FROM
   items JOIN
@@ -160,10 +150,10 @@ FROM
       authorised_values.category = 'WITHDRAWN') withdrawns ON
       withdrawns.authorised_value = items.withdrawn
 WHERE
-  items.homebranch LIKE <<Choose your library|LBRANCH>> AND
-  If(items.damaged + 0 = 0, "No", "Yes") LIKE <<List only damaged items|ZYES_NO>> AND
-  If(items.itemlost + 0 = 0, "No", "Yes") LIKE <<List only lost items|ZYES_NO>> AND
-  If(items.withdrawn + 0 = 0, "No", "Yes") LIKE <<List only withdrawn items|ZYES_NO>> 
+  items.homebranch LIKE &lt;&gt; AND
+  If(items.damaged + 0 = 0, "No", "Yes") LIKE &lt;&gt; AND
+  If(items.itemlost + 0 = 0, "No", "Yes") LIKE &lt;&gt; AND
+  If(items.withdrawn + 0 = 0, "No", "Yes") LIKE &lt;&gt; 
 GROUP BY
   items.biblionumber,
   items.itemnumber

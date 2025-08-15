@@ -4,7 +4,7 @@ R.003657
 ----------
 
 Name: GHW - Shelving Locations
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

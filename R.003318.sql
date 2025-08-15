@@ -4,7 +4,7 @@ R.003318
 ----------
 
 Name: Branchcodes
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

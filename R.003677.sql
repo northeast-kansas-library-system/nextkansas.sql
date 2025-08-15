@@ -4,7 +4,7 @@ R.003677
 ----------
 
 Name: Sandbox - withdrawn items
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -38,12 +38,12 @@ SELECT
     Concat('Author: ', biblio.author),
     Concat('Title: ',
       Concat_Ws(' ',
-        '<span style="text-transform: uppercase">',
+        '',
         biblio.title,
         ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'),
         ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),
         ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]'),
-        '</span>')
+        '')
       ),
     Concat('Barcode: ', Upper(items.barcode)),
     Concat('Replacement price: ', items.replacementprice)
@@ -103,7 +103,7 @@ FROM
   items_last_borrower ON items_last_borrower.itemnumber = items.itemnumber JOIN
   borrowers ON items_last_borrower.borrowernumber = borrowers.borrowernumber
 WHERE
-  items.withdrawn > 0 AND
+  items.withdrawn &gt; 0 AND
   items.homebranch = 'OTTAWA'
 GROUP BY
   items.itemnumber

@@ -4,7 +4,7 @@ R.002958
 ----------
 
 Name: GHW - Deleted items list by date range
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Catalog Records and Items
      Weeded Already
 
 Created on: 2017-06-15 10:26:44
-Modified on: 2018-04-16 11:11:10
-Date last run: 2023-03-23 10:26:56
+Modified on: 2024-01-17 11:49:44
+Date last run: 2025-07-01 08:38:49
 
 ----------
 
@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Generates a list of items that have already been deleted from the catalog - includes all price information as well as the timestamp from when the item was deleted</p>
-<ul><li>Lists items that were deleted between the dates you specify</li>
-<li>at the library you specify</li>
-<li>grouped by itemnumber</li>
-<li>sorted by homebranch, location, item type, collection code, author, title, and call number</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>This gets the item information from the deleteditems table and the biblio information from the biblios table or the deletedbiblios table depending on whether or not the bibliographic record has been deleted.</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2958&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Generates a list of items that have already been deleted from the catalog - includes all price information as well as the timestamp from when the item was deleted
+Lists items that were deleted between the dates you specify
+at the library you specify
+grouped by itemnumber
+sorted by homebranch, location, item type, collection code, author, title, and call number
+
+Notes:
+
+This gets the item information from the deleteditems table and the biblio information from the biblios table or the deletedbiblios table depending on whether or not the bibliographic record has been deleted.
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -84,11 +84,11 @@ FROM
       authorised_values.authorised_value,
       authorised_values.lib) location ON deleteditems.location = location.authorised_value
 WHERE
-  deleteditems.homebranch LIKE <<Choose item home library|LBRANCH>> AND
-  Coalesce(deleteditems.location, "-") LIKE <<Choose location|LLOC>> AND
-  Coalesce(deleteditems.itype, "-") LIKE <<Choose item type|LITYPES>> AND
-  Coalesce(deleteditems.ccode, "-") LIKE <<Choose collection code|LCCODE>> AND
-  deleteditems.timestamp BETWEEN <<Between the beginning of the day on|date>> AND (<<and the end of the day on|date>> + INTERVAL 1 DAY) 
+  deleteditems.homebranch LIKE &lt;&gt; AND
+  Coalesce(deleteditems.location, "-") LIKE &lt;&gt; AND
+  Coalesce(deleteditems.itype, "-") LIKE &lt;&gt; AND
+  Coalesce(deleteditems.ccode, "-") LIKE &lt;&gt; AND
+  deleteditems.timestamp BETWEEN &lt;&gt; AND (&lt;&gt; + INTERVAL 1 DAY) 
 GROUP BY
   deleteditems.itemnumber
 ORDER BY

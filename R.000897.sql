@@ -13,7 +13,7 @@ Group: School Libraries
 
 Created on: 2010-08-02 13:04:35
 Modified on: 2015-04-29 17:31:09
-Date last run: 2022-06-27 17:23:45
+Date last run: 2025-07-03 09:35:55
 
 ----------
 
@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-SELECT cardnumber, surname, firstname,debarred, dateexpiry FROM borrowers WHERE branchcode=<<branch|branches>> ORDER BY surname
+SELECT cardnumber, surname, firstname,debarred, dateexpiry FROM borrowers WHERE branchcode=&lt;&gt; ORDER BY surname
 
 
 

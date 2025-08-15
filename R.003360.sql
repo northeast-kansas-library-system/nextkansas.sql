@@ -4,7 +4,7 @@ R.003360
 ----------
 
 Name: GHW - Borrowers who may owe money on lost items checked out at your library
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2020-10-28 17:01:35
-Modified on: 2020-10-28 17:10:07
-Date last run: 2022-08-24 17:37:03
+Modified on: 2024-01-17 12:03:57
+Date last run: 2025-05-24 09:41:26
 
 ----------
 
@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Generates a list of borrowers who may owe money on lost items that were checked out at your library</p>
-<ul><li>Shows borrowers who may owe money now</li>
-<li>on lost items that were checked out at the library you select</li>
-<li>grouped by borrowernumber and item number</li>
-<li>sorted by borrower name and normal Next classification scheme</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3360&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-<p class= "notetags" style="display: none;">#lost #fees #borrowers</p>
-</div>
+ 
+Generates a list of borrowers who may owe money on lost items that were checked out at your library
+Shows borrowers who may owe money now
+on lost items that were checked out at the library you select
+grouped by borrowernumber and item number
+sorted by borrower name and normal Next classification scheme
+
+Notes:
+
+Click here to run in a new window
+#lost #fees #borrowers
+
 
 ----------
 */
@@ -44,7 +44,7 @@ SELECT
   items.holdingbranch AS CKO_BRANCH,
   borrowers.cardnumber,
   CONCAT(
-    If(borrowers.firstname <> '', Concat_Ws(', ', borrowers.surname, borrowers.firstname), borrowers.surname), 
+    If(borrowers.firstname &lt;&gt; '', Concat_Ws(', ', borrowers.surname, borrowers.firstname), borrowers.surname), 
     If(borrowers.othernames = '', '', Concat(', (', borrowers.othernames, ')'))
   ) AS NAME,
   CONCAT_WS(' | ', 
@@ -110,7 +110,7 @@ FROM
     GROUP BY
       accountlines.borrowernumber
     HAVING
-      Sum(accountlines.amountoutstanding) <> 0) borroweraccountlines ON
+      Sum(accountlines.amountoutstanding) &lt;&gt; 0) borroweraccountlines ON
       borroweraccountlines.borrowernumber = borrowers.borrowernumber LEFT JOIN
   (SELECT
       authorised_values.category,
@@ -130,7 +130,7 @@ FROM
     FROM
       accountlines
     WHERE
-      accountlines.amountoutstanding <> 0
+      accountlines.amountoutstanding &lt;&gt; 0
     GROUP BY
       accountlines.borrowernumber,
       accountlines.itemnumber,
@@ -140,12 +140,12 @@ FROM
       borrowers.borrowernumber AND
       itemaccountlines.itemnumber = items.itemnumber
 WHERE
-  items.holdingbranch LIKE <<Check-out branch|ZBRAN>>
+  items.holdingbranch LIKE &lt;&gt;
 GROUP BY
   borrowers.borrowernumber,
   items.itemnumber
 HAVING
-  LOST_STATUS LIKE <<Choose lost status|ZLOST_ONLY>>
+  LOST_STATUS LIKE &lt;&gt;
 ORDER BY
   borrowers.surname DESC,
   borrowers.firstname,

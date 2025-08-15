@@ -30,7 +30,7 @@ Expiry: 0
 
 
 SELECT
-  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">Link</a>') AS LINK_TO_TITLE,
+  Concat('Link') AS LINK_TO_TITLE,
   biblio.title,
   biblio.author,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="300"]/subfield[@code="a"]') AS EXTENT,
@@ -39,14 +39,14 @@ SELECT
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="300"]/subfield[@code="e"]') AS ACCOMPANYING,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="300"]/subfield[@code="f"]') AS TYPE,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="300"]/subfield[@code="g"]') AS SIZE,
-  Concat('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=', Replace(Replace(Replace(Replace(biblio.title, " ", "+"), ":", ""), ";", ""), "/", ""), '&sort_by=title_az\" target="_blank">', biblio.title, '</a>') AS SEARCH_THIS_TITLE,
+  Concat('', biblio.title, '') AS SEARCH_THIS_TITLE,
   biblio.datecreated
 FROM
   biblio
   JOIN biblio_metadata
     ON biblio_metadata.biblionumber = biblio.biblionumber
 WHERE
-  biblio.datecreated BETWEEN <<Created between start date|date>> AND <<end date|date>>
+  biblio.datecreated BETWEEN &lt;&gt; AND &lt;&gt;
 GROUP BY
   biblio.biblionumber,
   biblio.datecreated

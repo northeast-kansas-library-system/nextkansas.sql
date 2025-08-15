@@ -4,7 +4,7 @@ R.003473
 ----------
 
 Name: GHW- Median collection age ADMINREPORT
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -36,8 +36,8 @@ FROM
   biblioitems JOIN
   items ON items.biblioitemnumber = biblioitems.biblioitemnumber
 WHERE
-  items.homebranch = <<Choose your library|branches>> AND
-  biblioitems.publicationyear < Year(Now()) AND
+  items.homebranch = &lt;&gt; AND
+  biblioitems.publicationyear &lt; Year(Now()) AND
   biblioitems.publicationyear REGEXP '^[0-9]+$'
 GROUP BY
   items.homebranch,

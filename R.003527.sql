@@ -4,7 +4,7 @@ R.003527
 ----------
 
 Name: GHW - Borrowers with unresolved debits
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,7 +12,7 @@ Group: -
      -
 
 Created on: 2021-07-15 17:13:25
-Modified on: 2021-07-15 17:13:25
+Modified on: 2024-01-17 11:32:28
 Date last run: 2021-07-15 17:13:31
 
 ----------
@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Generates a list of unresolved debits</p>
-<ul><li>Shows currently unresolved debits</li>
-<li>at the library you specify</li>
-<li>grouped by borrower id number</li>
-<li>sorted by library and borrower barcode number</li>
-<li>links to the borrower's accounts tab</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p></p>
-<p class= "notetags" style="display: none;">#tested #updated  #gk</p>
-</div>
+ 
+Generates a list of unresolved debits
+Shows currently unresolved debits
+at the library you specify
+grouped by borrower id number
+sorted by library and borrower barcode number
+links to the borrower's accounts tab
+
+Notes:
+
+
+#tested #updated  #gk
+
 
 ----------
 */
@@ -46,9 +46,7 @@ SELECT
   borrowers.cardnumber,
   Format(outstanding_debits.Sum_amountoutstanding, 2) AS TOTAL_UNRESOLVED_DEBITS,
   Concat(
-    '<a href=\"/cgi-bin/koha/members/pay.pl?borrowernumber=',
-    outstanding_debits.borrowernumber,
-    '\" target="_blank">patron fine records</a>'
+    'patron fine records'
   ) AS LINK
 FROM
   borrowers JOIN
@@ -58,7 +56,7 @@ FROM
     FROM
       accountlines
     WHERE
-      accountlines.amountoutstanding > 0
+      accountlines.amountoutstanding &gt; 0
     GROUP BY
       accountlines.borrowernumber) outstanding_debits ON
       outstanding_debits.borrowernumber = borrowers.borrowernumber INNER JOIN
@@ -68,7 +66,7 @@ FROM
     FROM
       branches) branchess ON branchess.branchcode = borrowers.branchcode
 WHERE
-  borrowers.branchcode LIKE <<Choose borrower home library|LBRANCH>>
+  borrowers.branchcode LIKE &lt;&gt;
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

@@ -13,7 +13,7 @@ Group: Borrowers
 
 Created on: 2011-03-24 21:18:00
 Modified on: 2018-10-24 12:59:41
-Date last run: 2023-03-15 14:36:24
+Date last run: 2025-05-22 11:12:54
 
 ----------
 
@@ -33,8 +33,8 @@ SELECT YEAR(issuedate), MONTH(issuedate), categorycode, COUNT(DISTINCT
 borrowernumber)
 FROM old_issues
  LEFT JOIN borrowers USING (borrowernumber)
-where issuedate between <<Between (yyyy-mm-dd>> and <<and (yyyy-mm-dd>> and
-old_issues.branchcode=<<Enter patrons library|branches>>
+where issuedate between &lt;&gt; and &lt;&gt; and
+old_issues.branchcode=&lt;&gt;
 GROUP BY YEAR(issuedate), MONTH(issuedate), categorycode
 
 

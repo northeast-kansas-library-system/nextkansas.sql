@@ -4,7 +4,7 @@ R.003570
 ----------
 
 Name: GHW - BPE ADMINREPORT
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-10-05 18:00:59
-Modified on: 2021-10-06 12:24:30
-Date last run: 2021-10-11 22:22:14
+Modified on: 2024-01-17 11:28:47
+Date last run: 2024-04-30 08:25:30
 
 ----------
 
@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Outputs borrower address in a way that can be easily imported back into Koha via the patron import tool</p>
-<ul><li>Shows current borrowers</li>
-<li>at the library you specify</li>
-<li>designed to be flexible</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Notes go here.</p>
-<p></p>
-<p class= "notetags" style="display: none;">hidden flexible openrefine</p>
-</div>
+ 
+Outputs borrower address in a way that can be easily imported back into Koha via the patron import tool
+Shows current borrowers
+at the library you specify
+designed to be flexible
+
+Notes:
+
+Notes go here.
+
+hidden flexible openrefine
+
 
 ----------
 */
@@ -55,12 +55,12 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.branchcode LIKE <<Choose a library|branches:all>> AND
-  borrowers.address LIKE Concat(<<Address>> ,"%") AND
-  borrowers.city LIKE Concat(<<City>>, "%") AND
-  borrowers.state LIKE Concat(<<State>>, "%") AND
-  borrowers.zipcode LIKE Concat(<<Zipcode>>, "%") AND 
-  borrowers.zipcode <> Concat(<<Not this zipcode>>)
+  borrowers.branchcode LIKE &lt;&gt; AND
+  borrowers.address LIKE Concat(&lt;&gt; ,"%") AND
+  borrowers.city LIKE Concat(&lt;&gt;, "%") AND
+  borrowers.state LIKE Concat(&lt;&gt;, "%") AND
+  borrowers.zipcode LIKE Concat(&lt;&gt;, "%") AND 
+  borrowers.zipcode &lt;&gt; Concat(&lt;&gt;)
 ORDER BY
   borrowers.zipcode
 

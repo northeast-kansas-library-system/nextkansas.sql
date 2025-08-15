@@ -4,7 +4,7 @@ R.003169
 ----------
 
 Name: GHW - ADMINREPORT - ISBN / UPC followup
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -33,10 +33,10 @@ SELECT
   Concat(
     "Information needed for ",
     UPPER(biblio.title),
-    "<br /><br />Hello at ",
+    "Hello at ",
     items.homebranch,
-    ",<br /> <br />There is a problem with an item/biblio at your library.  The details are as follow:<br />",
-    Concat_Ws('<br />',
+    ", There is a problem with an item/biblio at your library.  The details are as follow:",
+    Concat_Ws('',
       Concat('Item homebranch: ', items.homebranch),
       Concat('Current branch: ', items.holdingbranch),
       Concat('Shelving location: ', items.location),
@@ -47,17 +47,17 @@ SELECT
       Concat(
         'Title: ',
         Concat_Ws(' ',
-          '<span style="text-transform: uppercase">',
+          '',
           biblio.title,
           ExtractValue(biblio_metadata.metadata,'//datafield[@tag="245"]/subfield[@code="b"]'),
           ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),
           ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]'),
-          '</span>'
+          ''
         )
       ),
       Concat('Barcode: ', items.barcode)
     ),
-    "<br /><br />Could you send me the ISBN from your copy of this item?<br /><br />Could you send me the UPC number from your copy of this item?<br /><br />Could you send me more information about your copy of this item?<br /><br />George"
+    "Could you send me the ISBN from your copy of this item?Could you send me the UPC number from your copy of this item?Could you send me more information about your copy of this item?George"
   ) AS MESSAGE
 FROM
   items
@@ -77,7 +77,7 @@ FROM
       authorised_values.authorised_value,
       authorised_values.lib) ccodes ON items.ccode = ccodes.authorised_value
 WHERE
-  items.barcode LIKE Concat("%", <<Enter item barcode>>, "%")
+  items.barcode LIKE Concat("%", &lt;&gt;, "%")
 GROUP BY
   items.itemnumber
 ORDER BY

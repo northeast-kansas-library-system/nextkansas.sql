@@ -4,7 +4,7 @@ R.003627
 ----------
 
 Name: GHW - Checkouts and renewals by date range at a library
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -42,8 +42,8 @@ FROM
      statistics,
      branches
    WHERE
-     branches.branchcode LIKE <<Choose a library|ZBRAN>> AND
-     statistics.datetime BETWEEN <<Between the beginning of the day on date 1 (no more than 2 years ago)|date>> AND (<<the end of the day on date 2|date>> + interval 1 day)
+     branches.branchcode LIKE &lt;&gt; AND
+     statistics.datetime BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day)
    GROUP BY
      branches.branchcode,
      branches.branchname,
@@ -106,7 +106,7 @@ FROM
               )
             )
           )
-        ) LIKE <<Choose a shelving location|LLOC>>
+        ) LIKE &lt;&gt;
       UNION
       SELECT
         deleteditems.itemnumber,
@@ -182,7 +182,7 @@ FROM
               )
             )
           )
-        ) LIKE <<Choose a shelving location|LLOC>>
+        ) LIKE &lt;&gt;
       ) itemss ON itemss.itemnumber = statistics.itemnumber
    WHERE
      (statistics.type = 'issue' OR
@@ -191,11 +191,11 @@ FROM
        statistics.location = "CART", 
        Coalesce(itemss.permanent_location, "OTHER"), 
        Coalesce(statistics.location, "OTHER")
-     ) LIKE <<Choose a shelving location|LLOC>> AND
-     Coalesce(statistics.itemtype, "PUNC") LIKE <<Choose an item type|LITYPES>> AND
-     Coalesce(statistics.ccode, "XXX") LIKE <<Choose a collection code|LCCODE>> AND
-     Coalesce(statistics.branch, "NEKLS") LIKE <<Choose a library|ZBRAN>> AND
-     statistics.datetime BETWEEN <<Between the beginning of the day on date 1 (no more than 2 years ago)|date>> AND (<<the end of the day on date 2|date>> + interval 1 day)
+     ) LIKE &lt;&gt; AND
+     Coalesce(statistics.itemtype, "PUNC") LIKE &lt;&gt; AND
+     Coalesce(statistics.ccode, "XXX") LIKE &lt;&gt; AND
+     Coalesce(statistics.branch, "NEKLS") LIKE &lt;&gt; AND
+     statistics.datetime BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day)
    GROUP BY
      Coalesce(statistics.branch, "NEKLS"),
      Date_Format(statistics.datetime, "%Y.%m.%d")) stats ON

@@ -4,7 +4,7 @@ R.003405
 ----------
 
 Name: GHW - VIDEO items with a non-videodisc item type
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,7 +12,7 @@ Group: -
      -
 
 Created on: 2021-01-14 16:51:37
-Modified on: 2021-01-28 14:02:16
+Modified on: 2024-01-17 12:02:49
 Date last run: 2022-11-03 14:59:09
 
 ----------
@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Shows list of items with a Video item type and a collection code other than DVD, Blu-ray, Combo, or TV Series</p>
-<ul><li>Shows items currently in the system</li>
-<li>at the library you specify</li>
-<li>grouped by item number, location, collection code, and bibliographic number</li>
-<li>sorted by the normal Next classification order</li>
-<li>links to the bibliographic record and the edit item page</li>
-</ul><br />
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3405&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-<p class= "notetags" style="display: none;">collection code cleanup</p>
-</div>
+ 
+Shows list of items with a Video item type and a collection code other than DVD, Blu-ray, Combo, or TV Series
+Shows items currently in the system
+at the library you specify
+grouped by item number, location, collection code, and bibliographic number
+sorted by the normal Next classification order
+links to the bibliographic record and the edit item page
+
+
+Click here to run in a new window
+collection code cleanup
+
 
 ----------
 */
@@ -42,17 +42,13 @@ Expiry: 300
 
 SELECT
   Concat(
-    '<a class= "clicked" href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
+    '', 
     item_info.biblionumber, 
-    '\" target="_blank">', 
-    item_info.biblionumber, 
-    '</a>'
+    ''
   ) AS LINK_TO_ITEM,
-  Concat_Ws('<br />', 
+  Concat_Ws('', 
     Concat(
-      '<a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=',
-      borrowers.borrowernumber, 
-      '" target="_blank">Go to patron account</a>'
+      'Go to patron account'
     ),
     borrowers.cardnumber, 
     If(

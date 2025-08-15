@@ -4,7 +4,7 @@ R.003416
 ----------
 
 Name: GHW - Multiple items on a bibliographic record
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -31,11 +31,9 @@ Expiry: 300
 
 SELECT
   Concat(
-    '<a class= "clicked" href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
+    '', 
     items.biblionumber, 
-    '\" target="_blank">', 
-    items.biblionumber, 
-    '</a>'
+    ''
   ) AS LINK_TO_TITLE,
   biblio.biblionumber,
   items.itemnumber,
@@ -71,7 +69,7 @@ FROM
       items.biblionumber,
       items.homebranch
     HAVING
-      Count(items.itemnumber) > 1) itemcountss ON itemcountss.biblionumber =
+      Count(items.itemnumber) &gt; 1) itemcountss ON itemcountss.biblionumber =
       items.biblionumber AND
       itemcountss.homebranch = items.homebranch LEFT JOIN
   (SELECT
@@ -107,10 +105,10 @@ FROM
       authorised_values.category = 'CCODE') ccodes ON ccodes.authorised_value =
       items.ccode
 WHERE
-  items.homebranch LIKE <<Item home library|ZBRAN>> AND
-  items.permanent_location LIKE <<Item permanent location|LLOC>> AND
-  items.itype LIKE <<Item type|LITYPES>> AND
-  items.ccode LIKE <<Item collection code|LCCODE>>
+  items.homebranch LIKE &lt;&gt; AND
+  items.permanent_location LIKE &lt;&gt; AND
+  items.itype LIKE &lt;&gt; AND
+  items.ccode LIKE &lt;&gt;
 GROUP BY
   biblio.biblionumber,
   items.itemnumber

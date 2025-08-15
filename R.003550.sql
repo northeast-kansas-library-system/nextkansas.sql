@@ -4,7 +4,7 @@ R.003550
 ----------
 
 Name: GHW - Biblio reconciliation Last months adds
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

@@ -4,7 +4,7 @@ R.002786
 ----------
 
 Name: GHW - Flexible New Items Report
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2016-10-05 14:39:48
-Modified on: 2020-11-19 18:26:05
-Date last run: 2023-05-18 15:57:06
+Modified on: 2024-01-17 11:36:21
+Date last run: 2025-08-14 15:12:12
 
 ----------
 
@@ -22,15 +22,15 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>This report shows all items added to Next Search Catalog at a specific library branch during a date range</p>
-<ul><li>Shows items that are currently still in Next Search Catalog</li>
-<li>Allows user to specify the item's homebranch, shelving location, item type, collection code, and the item's date added</li>
-<li>grouped by biblionumber and itemnumber</li>
-<li>sorted by homebranch, location, itype, collection code, call number, author, title</li>
-<li>contains links directly to the item's bibliographic record in the OPAC</li>
-</ul><br />
-</div>
+ 
+This report shows all items added to Next Search Catalog at a specific library branch during a date range
+Shows items that are currently still in Next Search Catalog
+Allows user to specify the item's homebranch, shelving location, item type, collection code, and the item's date added
+grouped by biblionumber and itemnumber
+sorted by homebranch, location, itype, collection code, call number, author, title
+contains links directly to the item's bibliographic record in the OPAC
+
+
 
 ----------
 */
@@ -39,9 +39,7 @@ Expiry: 0
 
 SELECT
   Concat(
-    '<a class="btn btn-default" href="https://nextkansas.org/cgi-bin/koha/opac-detail.pl?biblionumber=', 
-    biblio.biblionumber, 
-    '\" target="_blank">Go to OPAC</a>'
+    'Go to OPAC'
   ) AS LINK_TO_OPAC,
   items.biblionumber,
   items.itemnumber,
@@ -100,11 +98,11 @@ FROM
     WHERE
       authorised_values.category = 'CCODE') CCODES ON CCODES.authorised_value = items.ccode
 WHERE
-  items.homebranch LIKE <<Item home library|LBRANCH>> AND
-  items.location LIKE <<Item shelving location|LLOC>> AND
-  items.itype LIKE <<Item type|LITYPES>> AND
-  items.ccode LIKE <<Item collection code|LCCODE>> AND
-  items.dateaccessioned BETWEEN <<Start date|date>> AND <<end date|date>>
+  items.homebranch LIKE &lt;&gt; AND
+  items.location LIKE &lt;&gt; AND
+  items.itype LIKE &lt;&gt; AND
+  items.ccode LIKE &lt;&gt; AND
+  items.dateaccessioned BETWEEN &lt;&gt; AND &lt;&gt;
 GROUP BY
   items.biblionumber,
   items.itemnumber

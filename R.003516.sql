@@ -4,7 +4,7 @@ R.003516
 ----------
 
 Name: GHW - Holds queue report for receipt printer
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -31,26 +31,19 @@ Expiry: 300
 
 SELECT 
   Concat_Ws( 
-    '<br />----------------------<br />', 
+    '----------------------', 
     Concat( 
-      '<style type="text/css">', 
-      '  .receipt {', 
-      '    width: 45mm; ', 
-      '    min-height: ', 
-      '    297mm; padding: ', 
-      '    2mm; color: black; ', 
-      '}', 
-      '</style>', 
-      '<span class="receipt">' 
+      '', 
+      '' 
     ), 
     Concat_Ws( 
-      '<br />', 
+      '', 
       Concat('Current: ', hold_fill_targets.source_branchcode), 
       Concat('Owned by: ', items.homebranch), 
       Concat('Last seen: ', items.datelastseen) 
     ), 
     Concat_Ws( 
-      '<br />', 
+      '', 
       If( 
         LOCATIONS.lib = PERM_LOCATIONS.lib, 
         LOCATIONS.lib, 
@@ -63,7 +56,7 @@ SELECT
       items.copynumber 
     ), 
     Concat_Ws( 
-      '<br />', 
+      '', 
       biblio.author, 
       ( 
         Concat_Ws( 
@@ -76,7 +69,7 @@ SELECT
             ) = '', 
             '', 
             Concat( 
-              '<br />', 
+              '', 
               ExtractValue( 
                 biblio_metadata.metadata, 
                 '//datafield[@tag="245"]/subfield[@code="h"]' 
@@ -90,7 +83,7 @@ SELECT
             ) = '', 
             '', 
             Concat( 
-              '<br />', 
+              '', 
               ExtractValue( 
                 biblio_metadata.metadata, 
                 '//datafield[@tag="245"]/subfield[@code="b"]' 
@@ -104,7 +97,7 @@ SELECT
             ) = '', 
             '', 
             Concat( 
-              '<br />', 
+              '', 
               ExtractValue( 
                 biblio_metadata.metadata, 
                 '//datafield[@tag="245"]/subfield[@code="p"]' 
@@ -118,7 +111,7 @@ SELECT
             ) = '', 
             '', 
             Concat( 
-              '<br />', 
+              '', 
               ExtractValue( 
                 biblio_metadata.metadata, 
                 '//datafield[@tag="245"]/subfield[@code="n"]' 
@@ -129,19 +122,15 @@ SELECT
       ) 
     ), 
     Concat_Ws( 
-      '<br />', 
+      '', 
       ( 
         Concat( 
-          '<img ', 
-          'style="width: 75px; height: 75px;" ', 
-          'src="/cgi-bin/koha/svc/barcode?barcode=', 
-          Upper(items.barcode), 
-          '&type=QRcode">', 
-          '</img>' 
+          '', 
+          '' 
         ) 
       ), 
       items.barcode, 
-      '<br />==============================</span>' 
+      '==============================' 
     ) 
   ) AS HOLDS_QUEUE 
 FROM biblio 
@@ -184,7 +173,7 @@ FROM biblio
     FROM itemtypes 
   ) ITEMTYPESS ON ITEMTYPESS.itemtype = items.itype 
 WHERE 
-  hold_fill_targets.source_branchcode LIKE <<Choose your library|branches:all>> 
+  hold_fill_targets.source_branchcode LIKE &lt;&gt; 
 GROUP BY 
   hold_fill_targets.itemnumber 
 ORDER BY 

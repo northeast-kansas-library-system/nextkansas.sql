@@ -4,7 +4,7 @@ R.002763
 ----------
 
 Name: GHW - Items more than XX days overdue
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Circulation
      Overdues
 
 Created on: 2016-09-06 10:02:52
-Modified on: 2018-04-16 10:48:35
-Date last run: 2019-01-25 10:24:52
+Modified on: 2024-01-17 11:36:48
+Date last run: 2025-05-17 14:18:15
 
 ----------
 
@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>Generates a list of items checked out at a specified branch that are owned by a specified branch and are now overdue for more than a specified number of days</p>
-<ul><li>Shows current data</li>
-<li>Shows items checked out at the library you specify, owned by the location you specify, and overdue for more than the number of days you specify</li>
-<li>grouped by check-out library, owning library, item classification, author, title, and due date</li>
-<li>contains links to the item's bibliographic record</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p>Report created at the request of LANSING.</p>
-<p>Report created by George Williams.</p>
-</div>
+ 
+Generates a list of items checked out at a specified branch that are owned by a specified branch and are now overdue for more than a specified number of days
+Shows current data
+Shows items checked out at the library you specify, owned by the location you specify, and overdue for more than the number of days you specify
+grouped by check-out library, owning library, item classification, author, title, and due date
+contains links to the item's bibliographic record
+
+Notes:
+Report created at the request of LANSING.
+Report created by George Williams.
+
 
 
 ----------
@@ -41,10 +41,10 @@ Expiry: 0
 
 
 SELECT
-  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',  biblio.biblionumber, '\" target="_blank">', biblio.biblionumber,  '</a>') AS LINK_TO_TITLE,
+  Concat('', biblio.biblionumber,  '') AS LINK_TO_TITLE,
   issues.branchcode AS CHECK_OUT_BRANCH,
   items.barcode,
-  CONCAT_WS('<br />',items.location,items.ccode,items.itype,items.itemcallnumber) AS CLASSIFICATION,
+  CONCAT_WS('',items.location,items.ccode,items.itype,items.itemcallnumber) AS CLASSIFICATION,
   biblio.author,
   Concat_Ws(' ', biblio.title, ExtractValue(biblio_metadata.metadata,  '//datafield[@tag="245"]/subfield[@code="b"]'),  ExtractValue(biblio_metadata.metadata,  '//datafield[@tag="245"]/subfield[@code="p"]'),  ExtractValue(biblio_metadata.metadata,  '//datafield[@tag="245"]/subfield[@code="n"]')) AS FULL_TITLE,
   items.dateaccessioned AS DATE_ADDED,
@@ -65,9 +65,9 @@ FROM
   issues
     ON issues.itemnumber = items.itemnumber
 WHERE
-  issues.branchcode  LIKE <<Pick the item's check-out branch|LBRANCH>>AND
-  items.homebranch  LIKE <<Pick the item's home branch|LBRANCH>> AND
-  items.onloan <= (NOW() - INTERVAL <<Select the number of days overdue>> DAY)
+  issues.branchcode  LIKE &lt;&gt;AND
+  items.homebranch  LIKE &lt;&gt; AND
+  items.onloan &lt;= (NOW() - INTERVAL &lt;&gt; DAY)
 GROUP BY
   issues.branchcode,
   items.homebranch,

@@ -4,7 +4,7 @@ R.002915
 ----------
 
 Name: GHW - Flexible Item Status Report
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2017-03-01 09:17:47
-Modified on: 2021-04-13 17:10:35
-Date last run: 2023-02-13 10:33:14
+Modified on: 2024-01-17 11:49:12
+Date last run: 2025-08-06 12:02:50
 
 ----------
 
@@ -22,23 +22,23 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>Generates a list of items based on their status</p>
-<ul><li>Shows items currently in the system</li>
-<li>At the library you specify</li>
-<li>grouped and sorted by the normal Next Search Catalog classification scheme</li>
-<li>contains links to the item's bibliographic record</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Replaces the following reports:</p>
-<ul>
-<li>1420 - Items with a Lost Status</li>
-</ul>
-</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2915&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Generates a list of items based on their status
+Shows items currently in the system
+At the library you specify
+grouped and sorted by the normal Next Search Catalog classification scheme
+contains links to the item's bibliographic record
+
+Notes:
+
+Replaces the following reports:
+
+1420 - Items with a Lost Status
+
+
+
+Click here to run in a new window
+
 
 
 ----------
@@ -48,11 +48,9 @@ Expiry: 0
 
 SELECT
   Concat(
-    '<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',
-    biblio.biblionumber, 
-    '\" target="_blank">', 
+    '', 
     biblio.biblionumber,
-    '</a>'
+    ''
   ) AS LINK_TO_TITLE,
   items.itemnumber AS itemnumber,
   Concat("-", items.barcode, "-") AS BARCODE,
@@ -175,11 +173,11 @@ FROM
       authorised_values.category = 'CCODE') CCODES ON CCODES.authorised_value =
       items.ccode
 WHERE
-  items.homebranch LIKE <<Select library|ZBRAN>> AND 
-  Coalesce(lost.lib, "-") LIKE <<Lost status|ZLOST>> AND 
-  items.damaged LIKE <<Damaged status|ZDAMAGED>> AND 
-  items.withdrawn LIKE <<Withdrawn status|ZWITHDRAWN>> AND 
-  Coalesce(not_for_loan.lib_opac, "-") LIKE <<Not-for-loan status|LNOT_LOAN>> 
+  items.homebranch LIKE &lt;&gt; AND 
+  Coalesce(lost.lib, "-") LIKE &lt;&gt; AND 
+  items.damaged LIKE &lt;&gt; AND 
+  items.withdrawn LIKE &lt;&gt; AND 
+  Coalesce(not_for_loan.lib_opac, "-") LIKE &lt;&gt; 
 GROUP BY
   items.itemnumber,
   CCODES.lib,

@@ -4,7 +4,7 @@ R.003329
 ----------
 
 Name: GHW - ADMINREPORT items in transit to HIAWATHA
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -30,7 +30,7 @@ Expiry: 300
 
 
 SELECT
-  Concat('<a href="/cgi-bin/koha/reserve/request.pl?biblionumber=', reserves.biblionumber,'" target="_blank">LINK</a>') AS LINK,
+  Concat('LINK') AS LINK,
   borrowers.cardnumber,
   borrowers.surname,
   reserves.reservedate,

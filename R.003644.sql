@@ -4,7 +4,7 @@ R.003644
 ----------
 
 Name: ADMINREPORT - Can a variable be used in a SELECT statement
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -30,13 +30,13 @@ Expiry: 300
 
 
 SELECT
-  <<Enter barcode number>> AS BARCODE,
+  &lt;&gt; AS BARCODE,
   items.itemnumber,
   items.barcode
 FROM
   items
 WHERE
-  items.barcode = <<Enter barcode number>>
+  items.barcode = &lt;&gt;
 
 
 

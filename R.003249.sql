@@ -4,7 +4,7 @@ R.003249
 ----------
 
 Name: GHW - SQL date expressions
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-08-12 23:18:20
 Modified on: 2019-09-10 18:45:57
-Date last run: 2021-03-16 19:31:32
+Date last run: 2024-10-18 13:22:39
 
 ----------
 
@@ -22,7 +22,7 @@ Expiry: 300
 
 ----------
 
-<a href="/cgi-bin/koha/reports/guided_reports.pl?phase=Run+this+report&reports=3249&limit=10000"  target="_blank">Click here to run in a new window</a></p>
+Click here to run in a new window
 
 ----------
 */

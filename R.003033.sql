@@ -4,7 +4,7 @@ R.003033
 ----------
 
 Name: GHW - Fixing 856u
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -30,7 +30,7 @@ Expiry: 300
 
 
 SELECT
-  CONCAT("<a href='https://staff.nexpresslibrary.org/cgi-bin/koha/cataloguing/addbiblio.pl?biblionumber=", biblio_metadata.biblionumber,  " ' target='_blank'>Edit in new window</a>") AS LINK,
+  CONCAT("Edit in new window") AS LINK,
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="856"]//subfield[@code="u"]') AS URI
 FROM
   biblio_metadata

@@ -31,10 +31,8 @@ Expiry: 0
 
 SELECT
  CONCAT(
-   '<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=ti&q=',
-   TRIM(Replace(Replace(Replace(Replace(Replace(Replace(b.title, "/", ""), ":", "" ), ";", ""), ",", ""), '"', ''), '#', '') ),
-   '&sort_by=title_az\" target="_blank">',
-   TRIM(Replace(Replace(Replace(Replace(Replace(Replace(b.title, "/", ""), ":", "" ), ";", ""), ",", ""), '"', ''), '#', '') ),'</a>'
+   '',
+   TRIM(Replace(Replace(Replace(Replace(Replace(Replace(b.title, "/", ""), ":", "" ), ";", ""), ",", ""), '"', ''), '#', '') ),''
  ) AS "Title Search",
  TRIM(Replace(Replace(Replace(Replace(Replace(Replace(b.title, "/", ""), ":", "" ), ";", ""), ",", ""), '"', ''), '#', '') ) AS TITLE, 
  GROUP_CONCAT(DISTINCT b.biblionumber SEPARATOR ', ') AS BIBLIONUMBER,
@@ -44,7 +42,7 @@ FROM biblio b
 JOIN items i USING(biblionumber)
 WHERE i.ccode NOT IN ('ERESOURCE')
 GROUP BY TRIM(Replace(Replace(Replace(Replace(Replace(Replace(b.title, "/", ""), ":", "" ), ";", ""), ",", ""), '"', ''), '#', '') )
-HAVING count(DISTINCT b.biblionumber) > 1
+HAVING count(DISTINCT b.biblionumber) &gt; 1
 
 
 

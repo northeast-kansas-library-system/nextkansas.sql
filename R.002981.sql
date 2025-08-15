@@ -4,7 +4,7 @@ R.002981
 ----------
 
 Name: GHW - Holding branch is LIBRARY A, but Home branch is LIBRARY B
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -31,8 +31,8 @@ DRAFT - This report runs but is still in progress.
 
 
 SELECT
-  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">',
-  biblio.biblionumber, '</a>') AS LINK_TO_TITLE,
+  Concat('',
+  biblio.biblionumber, '') AS LINK_TO_TITLE,
   items.itemnumber,
   items.homebranch,
   items.holdingbranch,
@@ -103,7 +103,7 @@ WHERE
   items.onloan IS NULL AND
   transferst.datesent IS NULL AND
   reservest.found IS NULL AND
-  (items.holdingbranch NOT LIKE @brn := <<Choose your library|ZBRAN>> COLLATE utf8mb4_unicode_ci) AND
+  (items.holdingbranch NOT LIKE @brn := &lt;&gt; COLLATE utf8mb4_unicode_ci) AND
   items.homebranch LIKE @brn
 GROUP BY
   items.itemnumber

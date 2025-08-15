@@ -13,7 +13,7 @@ Group: Daily, Monthly, Yearly Stats
 
 Created on: 2012-11-29 01:48:34
 Modified on: 2014-01-08 16:45:58
-Date last run: 2023-04-06 01:49:21
+Date last run: 2025-08-10 18:30:59
 
 ----------
 
@@ -29,7 +29,7 @@ Shows count of new items added to a collection in last month by item type and sh
 
 
 
-SELECT count(itemnumber) as added, itype, location FROM items WHERE homebranch=<<branch|branches>> AND month(dateaccessioned) = <<enter two-digit month, ex. 02>> AND year(dateaccessioned) = <<enter four-digit year>> GROUP BY itype,location ORDER BY itype,location ASC
+SELECT count(itemnumber) as added, itype, location FROM items WHERE homebranch=&lt;&gt; AND month(dateaccessioned) = &lt;&gt; AND year(dateaccessioned) = &lt;&gt; GROUP BY itype,location ORDER BY itype,location ASC
 
 
 

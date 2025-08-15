@@ -4,7 +4,7 @@ R.003281
 ----------
 
 Name: GHW - ADMINREPORT - is this large print?
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -29,11 +29,11 @@ Expiry: 300
 
 
 
-SELECT Concat_Ws("<br />",
-  "nexthelp@nekls.org<br />",
+SELECT Concat_Ws("",
+  "nexthelp@nekls.org",
   branches.branchemail,
-  Concat("<br />Large print item record/bibliogrphic record problem - ", items.biblionumber, "<br /><br />Hello at ", items.homebranch, ",<br />"),
-  "There is an item owned by your library and the bibliogrpahic record and item record are problematic.  The details are as follow:<br />",
+  Concat("Large print item record/bibliogrphic record problem - ", items.biblionumber, "Hello at ", items.homebranch, ","),
+  "There is an item owned by your library and the bibliogrpahic record and item record are problematic.  The details are as follow:",
   Concat("Barcode: ", items.barcode),
   Concat("Homebranch: ", items.homebranch),
   Concat("Location: ", Coalesce(locs.lib, "-")),
@@ -49,37 +49,37 @@ SELECT Concat_Ws("<br />",
     ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'),
     ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="c"]'))
   ),
-  "<br /><br />The specific things of note are:<br />", "<ul>",
+  "The specific things of note are:", "",
                               
   Concat(
-    "<li>The collection code (",
+    "The collection code (",
     ccodes.lib,
     ") on your item doesn't match the edition statement for this item listed in the 250 field of the bibliographic record:",
     Concat(
-      "<br />250$a: ",
+      "250$a: ",
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="250"]/subfield[@code="a"]')
     ),
-    "</li><br />"
+    ""
   ),
                               
   Concat(
-    "<li>The collection code (",
+    "The collection code (",
     ccodes.lib,
     ") and item type (",
     itemtypes.description,
     ") on your item doesn't match the description of the item in the 300 field of the bibliographic record:",
     Concat(
-      "<br />300$a: ",
+      "300$a: ",
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="300"]/subfield[@code="a"]'),
-      "<br />300$b: ",
+      "300$b: ",
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="300"]/subfield[@code="b"]'),
-      "<br />300$c: ",
+      "300$c: ",
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="300"]/subfield[@code="c"]')
     ),
-    "</li><br />"
+    ""
   ),
-  "</ul>", 
-  Concat("<br />Could you take a look at this item and confirm that it is, in fact, a large print copy.  If this item belongs on a different bibliographic record, could you move it to a different record?  If there isn't already a regular print record, then could you import a better bibliographic record and attach this item to that record?  If you need any help with this issue, please respond with the item barcode number from this item, the UPC code from the the item, plus the full title of the item as it appears in the work itself.<br /><br />Thanks,")
+  "", 
+  Concat("Could you take a look at this item and confirm that it is, in fact, a large print copy.  If this item belongs on a different bibliographic record, could you move it to a different record?  If there isn't already a regular print record, then could you import a better bibliographic record and attach this item to that record?  If you need any help with this issue, please respond with the item barcode number from this item, the UPC code from the the item, plus the full title of the item as it appears in the work itself.Thanks,")
 ) AS INFO
 FROM biblio
 JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
@@ -127,7 +127,7 @@ LEFT JOIN
    FROM authorised_values
    WHERE authorised_values.category = 'LOC' ) locs ON locs.authorised_value = items.location
 INNER JOIN branches ON branches.branchcode = items.homebranch
-WHERE items.barcode = <<Enter item barcode>>
+WHERE items.barcode = &lt;&gt;
 GROUP BY
   biblio.biblionumber,
   items.itemnumber,

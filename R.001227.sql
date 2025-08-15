@@ -13,7 +13,7 @@ Group: Borrowers
 
 Created on: 2011-11-01 16:10:52
 Modified on: 2020-05-08 11:16:19
-Date last run: 2023-05-22 14:32:50
+Date last run: 2025-08-12 20:11:27
 
 ----------
 
@@ -40,9 +40,9 @@ SELECT
   borrowers.city, 
   borrowers.phone 
 FROM borrowers 
-WHERE month(dateenrolled) = << numericmonth >> AND 
-  year(dateenrolled) = << numericyear >> AND 
-  borrowers.branchcode = <<Pick your branch|branches>> 
+WHERE month(dateenrolled) = &lt;&lt; numericmonth &gt;&gt; AND 
+  year(dateenrolled) = &lt;&lt; numericyear &gt;&gt; AND 
+  borrowers.branchcode = &lt;&gt; 
 ORDER BY borrowers.categorycode ASC
 
 

@@ -4,7 +4,7 @@ R.003227
 ----------
 
 Name: GHW - List / virtualshelf report 004 - Display list titles with call numbers at a specific library
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Lists Module
      -
 
 Created on: 2019-07-17 09:10:07
-Modified on: 2019-11-05 10:52:50
-Date last run: 2022-03-29 14:05:28
+Modified on: 2024-01-17 12:08:00
+Date last run: 2024-04-26 12:32:30
 
 ----------
 
@@ -22,30 +22,30 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class='noprint'>
-<p>Generates a printable shelf list with call numbers at a specific branch based on a list</p>
-<ul><li>Displays titles currently on the list you specify</li>
-<li>at the library you specify</li>
-<li>grouped by title and list id number</li>
-<li>sorted by standard Next Search Catalog classification, author, and title</li>
-<li>links to the actual list</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>To determine the list id number, look at the URL for the list and take the number off of the end of the URL. For example, the list at<br />
-https://staff.nextkansas.org/cgi-bin/koha/virtualshelves/shelves.pl?op=view&shelfnumber=6003<br />
-would be list number 6003.</p>
-<p></p>
-<p>Can be accessed by running reports 3224 or 3225 and clicking on the link in the "CALL_NUMBER_REPORT" column</p>
-<p></p>
-<p>Replaces the following reports:</p>
-<ul>
-<li>1746 - Shelf List from a Private List</li>
-<li>2049 - Printed list of books from a list</li>
-</ul>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3227&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Generates a printable shelf list with call numbers at a specific branch based on a list
+Displays titles currently on the list you specify
+at the library you specify
+grouped by title and list id number
+sorted by standard Next Search Catalog classification, author, and title
+links to the actual list
+
+Notes:
+
+To determine the list id number, look at the URL for the list and take the number off of the end of the URL. For example, the list at
+https://staff.nextkansas.org/cgi-bin/koha/virtualshelves/shelves.pl?op=view&shelfnumber=6003
+would be list number 6003.
+
+Can be accessed by running reports 3224 or 3225 and clicking on the link in the "CALL_NUMBER_REPORT" column
+
+Replaces the following reports:
+
+1746 - Shelf List from a Private List
+2049 - Printed list of books from a list
+
+
+Click here to run in a new window
+
 
 
 
@@ -59,15 +59,13 @@ SELECT
     virtualshelves.category = 1,
     "Private list",
     Concat(
-      '<a href=\"/cgi-bin/koha/virtualshelves/shelves.pl?op=view&shelfnumber=',
-      virtualshelves.shelfnumber,
-      ' \" target="_blank">Link</a>'
+      'Link'
     )
   ) AS LINK,
   Concat(
     "Name: ",
     virtualshelves.shelfname,
-    "<br /><br />Number: ",
+    "Number: ",
     virtualshelves.shelfnumber
   ) AS LIST_NAME_NUMBER,
   Coalesce(
@@ -75,33 +73,33 @@ SELECT
       Concat_Ws(
         "",
         IF(
-          Length(biblio.title) > 40,
+          Length(biblio.title) &gt; 40,
           Concat(Left(biblio.title, 40), ". . . "),
           biblio.title
         ),
-        "<br />",
+        "",
         If(
           ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]') = "",
           "",
-          Concat(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]'), "<br />")
+          Concat(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]'), "")
         ),
         If(
           ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]') = "",
           "",
-          Concat(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'), "<br />")
+          Concat(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'), "")
         ),
         If(
           ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]') = "",
           "",
-          Concat(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'), "<br />")
+          Concat(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'), "")
         ),
         If(
           ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]') = "",
           "",
           If(
-            LENGTH(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]')) > 40,
-            Concat(LEFT(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), 40), " . . .<br />"),
-            Concat(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), "<br />")
+            LENGTH(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]')) &gt; 40,
+            Concat(LEFT(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), 40), " . . ."),
+            Concat(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), "")
           )
         ),
         biblio.author
@@ -123,7 +121,7 @@ SELECT
         itemss.itype,
         itemss.ccode,
         itemss.itemcallnumber
-      SEPARATOR "<br />"
+      SEPARATOR ""
     ) AS CLASSIFICATION
 FROM
   virtualshelves
@@ -166,11 +164,11 @@ FROM
       ) locs
         ON locs.authorised_value = items.location
     WHERE
-      items.homebranch LIKE <<Choose your branch|LBRANCH>>
+      items.homebranch LIKE &lt;&gt;
   ) itemss
     ON itemss.biblionumber = biblio.biblionumber
 WHERE
-  virtualshelves.shelfnumber = <<Enter a list ID number>>
+  virtualshelves.shelfnumber = &lt;&gt;
 GROUP BY
   TITLE_INFO,
   virtualshelves.shelfnumber

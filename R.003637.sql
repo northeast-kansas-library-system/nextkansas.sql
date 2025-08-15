@@ -4,7 +4,7 @@ R.003637
 ----------
 
 Name: 2022-cleanup
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -35,7 +35,7 @@ SELECT
 FROM
   items
 WHERE
-  items.itype = <<Choose item type|itemtypes>>
+  items.itype = &lt;&gt;
 
 
 

@@ -4,7 +4,7 @@ R.003257
 ----------
 
 Name: GHW - Patron output for input ADMINREPORT
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -46,8 +46,8 @@ FROM
 WHERE
   borrowers.branchcode NOT LIKE "HIGH_CC" AND
   borrowers.branchcode NOT LIKE "PH%" AND
-  borrowers.branchcode LIKE <<Choose your library|branches>> AND
-  borrowers.categorycode <> "STAFF" AND
+  borrowers.branchcode LIKE &lt;&gt; AND
+  borrowers.categorycode &lt;&gt; "STAFF" AND
   borrowers.cardnumber NOT LIKE "0%" AND
   borrowers.cardnumber IS NOT NULL AND
   borrowers.cardnumber NOT LIKE ""

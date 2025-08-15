@@ -4,7 +4,7 @@ R.003719
 ----------
 
 Name: GHW - Bib IDs for MARCIVE
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

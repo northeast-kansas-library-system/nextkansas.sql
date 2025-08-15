@@ -3,17 +3,17 @@ R.003537
 
 ----------
 
-Name: F1 Items and holdings statistics - item count by collection code
-Created by: George H Williams
+Name: 0110 - 2024_99_f_item_count_collection_code monthly_statistics
+Created by: George Williams
 
 ----------
 
 Group: Statistics
-     2023 beginning of month statistics
+     2025 beginning of month statistics
 
 Created on: 2021-07-29 16:35:30
-Modified on: 2023-02-10 14:10:49
-Date last run: 2023-05-01 01:25:02
+Modified on: 2025-04-30 11:36:58
+Date last run: 2025-08-01 01:10:04
 
 ----------
 
@@ -22,28 +22,44 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Gives a count of how many items are at the selected library based on collection code and Adult/Juvenile/YA permanent shelving locations.</p>
-<ul><li>Shows count at the time the report is run</li>
-<li>for all items system-wide</li>
-<li>grouped and sorted by item home library and collection code</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Non-standard shelving locations are counted as "Adult" locations.</p>
-<p>Items with blank collection codes are counted as "(Unclassified)."</p>
-<p></p>
-<p>This report cannot track changes made to existing records over time.  Therefore, if staff change the home library, location, or collection code of an item, those changes will not be reflected in the additions or deletions columns.  This means that the numbers may look inconsistent from month to month if changes are made to item records.</p>
-</div>
+ 
+Gives a count of how many items are at the selected library based on collection code and Adult/Juvenile/YA permanent shelving locations.
+Shows count at the time the report is run
+for all items system-wide
+grouped and sorted by item home library and collection code
+
+Notes:
+
+Non-standard shelving locations are counted as "Adult" locations.
+Items with blank collection codes are counted as "(Unclassified)."
+
+This report cannot track changes made to existing records over time.  Therefore, if staff change the home library, location, or collection code of an item, those changes will not be reflected in the additions or deletions columns.  This means that the numbers may look inconsistent from month to month if changes are made to item records.
+
 
 ----------
 */
 
 
 
-Select 
+SELECT 
+  'branchname' AS 'branchname',  
+  'COLLECTION CODE' AS 'COLLECTION CODE',  
+  'TOTAL ITEMS' AS 'TOTAL ITEMS',  
+  'ADULT ITEMS' AS 'ADULT ITEMS',  
+  'YOUNG ADULT ITEMS' AS 'YOUNG ADULT ITEMS',  
+  'JUVENILE ITEMS' AS 'JUVENILE ITEMS',  
+  'TOTAL ADDED LM' AS 'TOTAL ADDED LM',  
+  'ADULT ADDED LM' AS 'ADULT ADDED LM',  
+  'YOUNG ADULT ADDED LM' AS 'YOUNG ADULT ADDED LM',  
+  'JUVENILE ADDED LM' AS 'JUVENILE ADDED LM',  
+  'TOTAL DELETED LM' AS 'TOTAL DELETED LM',  
+  'ADULT DELETED LM' AS 'ADULT DELETED LM',  
+  'YOUNG ADULT DELETED LM' AS 'YOUNG ADULT DELETED LM',  
+  'JUVENILE DELETED LM' AS 'JUVENILE DELETED LM'
+UNION 
+(Select 
   branchtypes.branchname,
-  branchtypes.lib As `"COLLECTION CODE"`,
+  branchtypes.lib As "COLLECTION CODE",
   Sum(itemss.Count_itemnumber) As "TOTAL ITEMS",
   Sum(adultitems.Count_itemnumber) As "ADULT ITEMS",
   Sum(yaitems.Count_itemnumber) As "YOUNG ADULT ITEMS",
@@ -300,7 +316,9 @@ Group By
   branchtypes.branchname,
   branchtypes.lib
 Order By 
-  branchtypes.branchname
+  branchtypes.branchname,
+  branchtypes.lib 
+) 
 
 
 

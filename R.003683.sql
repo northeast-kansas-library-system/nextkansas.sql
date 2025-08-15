@@ -4,7 +4,7 @@ R.003683
 ----------
 
 Name: GHW - Quick count - Count of items with potential problems at a library
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,7 +12,7 @@ Group: -
      -
 
 Created on: 2022-11-30 10:34:39
-Modified on: 2022-12-14 16:08:49
+Modified on: 2024-01-17 11:29:52
 Date last run: 2023-02-10 16:20:49
 
 ----------
@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-  <p>Counts items with potential problems on their records</p>
-  <ul>
-    <li>Displays items with problems right now</li>
-    <li>at the library you specify</li>
-    <li>grouped and sorted by item homebranch and problem</li>
-    <li>links to report 214</li>
-  </ul><br />
-  <p></p>
-  <p class= "notetags" style="display: none;">#quick_count</p>
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div>
+ 
+  Counts items with potential problems on their records
+  
+    Displays items with problems right now
+    at the library you specify
+    grouped and sorted by item homebranch and problem
+    links to report 214
+  
+  
+  #quick_count
+  
+
 
 ----------
 */
@@ -93,62 +93,7 @@ SELECT
   ) AS PROBLEM,
   Count(DISTINCT items.itemnumber) AS Count_itemnumber,
   Concat(
-    '<a ',
-    'class="btn btn-success noprint" ',
-    'style="color: white;" ',
-    'href=/cgi-bin/koha/reports/guided_reports.pl?reports=214&phase=Run+this+report&param_name=Item+home+library|ZBRAN&sql_params=', 
-    items.homebranch, 
-    '&param_name=Empty+or+problematic+field+in+item+record|XS_NULLS&sql_params=', 
-    If(
-      items.barcode IS NULL, 
-      "BE", 
-      If(
-        plocs.lib IS NULL, 
-        "LE3", 
-        If(
-          plocs.lib LIKE "%Cataloging%", 
-          "LG3", 
-          If(
-            plocs.lib LIKE "%Processing%", 
-            "LG3", 
-            If(
-              plocs.lib LIKE "%Recently%", 
-              "LG3", 
-              If(
-                ccodes.lib IS NULL, 
-                "CE3", 
-                If(
-                  ccodes.lib LIKE "%(UN%", 
-                  "CG3", 
-                  If(
-                    itypes.description IS NULL, 
-                    "IE3", 
-                    If(
-                      itypes.description LIKE "%(UN%", 
-                      "IG3", 
-                      If(
-                        items.itemcallnumber IS NULL, 
-                        "NE", 
-                        If(
-                          items.replacementprice IS NULL, 
-                          "PE", 
-                          If(
-                            items.replacementprice = 0, 
-                            "PE", 
-                            ""
-                          )
-                        )
-                      )
-                    )
-                  )
-                )
-              )
-            )
-          )
-        )
-      )
-    ),
-    ' target="_blank">List of items</a>'
+    'List of items'
   ) AS LINK
 FROM
   items JOIN
@@ -197,7 +142,7 @@ FROM
   ) itypes ON 
     itypes.itemtype = items.itype
 WHERE
-  items.homebranch LIKE <<Choose your library|LBRANCH>> AND
+  items.homebranch LIKE &lt;&gt; AND
   ( 
     (items.barcode IS NULL) OR
     (plocs.lib IS NULL) OR

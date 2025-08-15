@@ -4,7 +4,7 @@ R.003055
 ----------
 
 Name: GHW - count of items
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -30,8 +30,8 @@ Expiry: 300
 
 
 SELECT
-  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', items.biblionumber, '\" target="_blank">',
-  items.biblionumber, '</a>') AS LINK_TO_TITLE,
+  Concat('',
+  items.biblionumber, '') AS LINK_TO_TITLE,
   items.biblionumber,
   items.itemnumber,
   Concat("-", Coalesce(items.barcode, "-"), "-") AS BARCODE,
@@ -48,8 +48,7 @@ SELECT
   biblioitems.publicationyear,
   items.itemnotes,
   items.itemnotes_nonpublic,
-  Concat('<a href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=', items.biblionumber, '&itemnumber=',
-  items.itemnumber, '#edititem\" target="_blank">Edit item</a>') AS EDIT_ITEM,
+  Concat('Edit item') AS EDIT_ITEM,
   copies_in_system.Count_itemnumber AS TOTAL_COPIES_IN_SYSTEM
 FROM
   items
@@ -67,7 +66,7 @@ WHERE
   Coalesce(items.location, "-") LIKE '%' AND
   Coalesce(items.itype, "-") LIKE '%' AND
   Coalesce(items.ccode, "-") LIKE '%' AND
-  copies_in_system.Count_itemnumber >= 5
+  copies_in_system.Count_itemnumber &gt;= 5
 GROUP BY
   items.itemnumber
 ORDER BY

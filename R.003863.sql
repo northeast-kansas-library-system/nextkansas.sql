@@ -1,0 +1,335 @@
+/*
+R.003863
+
+----------
+
+Name: GHW - Get all 10 and 13 digit ISBNs
+Created by: George Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2024-10-17 11:10:34
+Modified on: 2024-10-19 10:47:11
+Date last run: 2024-10-19 10:47:15
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+ 
+ 
+   
+ 
+    Outputs a list of all 10 and 13 digit ISBNs 
+ 
+     
+      Shows current ISBNs in biblioitems table 
+      at all Next Search Catalog libraries 
+      grouped by ISBN 
+     
+ 
+   
+ 
+   
+ 
+     
+ 
+     
+ 
+     
+     Used for Novelist updates
+     
+ 
+   
+ 
+   
+ 
+     
+       
+        Click here to download as a csv file 
+       
+     
+ 
+   
+ 
+   
+ 
+     
+      #isbn #novelist
+     
+ 
+   
+ 
+   
+ 
+ 
+
+----------
+*/
+
+
+
+SELECT 
+  IF( 
+    Length(Trim(SubString_Index(biblioitems.isbn, '|', 1))) = 13, 
+    Trim(SubString_Index(biblioitems.isbn, '|', 1)), 
+    IF( 
+      Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 2), '|', -1))) = 10, 
+      Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 2), '|', -1)), 
+      IF( 
+        Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 3), '|', -1))) = 10, 
+        Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 3), '|', -1)), 
+        IF( 
+          Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 4), '|', -1))) = 10, 
+          Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 4), '|', -1)), 
+          IF( 
+            Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 5), '|', -1))) = 10, 
+            Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 5), '|', -1)), 
+            IF( 
+              Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 6), '|', -1))) = 10, 
+              Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 6), '|', -1)), 
+              IF( 
+                Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 7), '|', -1))) = 10, 
+                Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 7), '|', -1)), 
+                IF( 
+                  Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 8), '|', -1))) = 10, 
+                  Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 8), '|', -1)), 
+                  IF( 
+                    Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 9), '|', -1))) = 10, 
+                    Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 9), '|', -1)), 
+                    IF( 
+                      Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 10), '|', -1))) = 10, 
+                      Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 10), '|', -1)), 
+                      IF( 
+                        Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 10), '|', -1))) = 10, 
+                        Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 11), '|', -1)), 
+                        IF( 
+                          Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 10), '|', -1))) = 10, 
+                          Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 12), '|', -1)), 
+                          IF( 
+                            Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 10), '|', -1))) = 10, 
+                            Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 13), '|', -1)), 
+                            IF( 
+                              Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 10), '|', -1))) = 10, 
+                              Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 14), '|', -1)), 
+                              IF( 
+                                Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 10), '|', -1))) = 10, 
+                                Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 15), '|', -1)), 
+                                IF( 
+                                  Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 10), '|', -1))) = 10, 
+                                  Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 16), '|', -1)), 
+                                  IF( 
+                                    Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 10), '|', -1))) = 10, 
+                                    Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 17), '|', -1)), 
+                                    IF( 
+                                      Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 10), '|', -1))) = 10, 
+                                      Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 18), '|', -1)), 
+                                      IF( 
+                                        Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 10), '|', -1))) = 10, 
+                                        Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 19), '|', -1)), 
+                                        IF( 
+                                          Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 10), '|', -1))) = 10, 
+                                          Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 20), '|', -1)), 
+                                          'X' 
+                                        ) 
+                                      ) 
+                                    ) 
+                                  ) 
+                                ) 
+                              ) 
+                            ) 
+                          ) 
+                        ) 
+                      ) 
+                    ) 
+                  ) 
+                ) 
+              ) 
+            ) 
+          ) 
+        ) 
+      ) 
+    ) 
+  ) AS isbns 
+FROM 
+  biblioitems 
+GROUP BY 
+  isbns 
+HAVING 
+  isbns &lt;&gt; 'X' AND 
+  isbns Not like '%:%' AND 
+  isbns Not like '%-%' AND 
+  isbns Not like '%"%' AND 
+  isbns Not like '%a%' AND 
+  isbns Not like '%b%' AND 
+  isbns Not like '%c%' AND 
+  isbns Not like '%d%' AND 
+  isbns Not like '%e%' AND 
+  isbns Not like '%f%' AND 
+  isbns Not like '%g%' AND 
+  isbns Not like '%h%' AND 
+  isbns Not like '%i%' AND 
+  isbns Not like '%j%' AND 
+  isbns Not like '%k%' AND 
+  isbns Not like '%l%' AND 
+  isbns Not like '%m%' AND 
+  isbns Not like '%n%' AND 
+  isbns Not like '%o%' AND 
+  isbns Not like '%p%' AND 
+  isbns Not like '%q%' AND 
+  isbns Not like '%r%' AND 
+  isbns Not like '%s%' AND 
+  isbns Not like '%t%' AND 
+  isbns Not like '%u%' AND 
+  isbns Not like '%v%' AND 
+  isbns Not like '%w%' AND 
+  isbns Not like '%y%' AND 
+  isbns Not like '%z%' 
+UNION 
+SELECT 
+  IF( 
+    Length(Trim(SubString_Index(biblioitems.isbn, '|', 1))) = 13, 
+    Trim(SubString_Index(biblioitems.isbn, '|', 1)), 
+    IF( 
+      Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 2), '|', -1))) = 13, 
+      Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 2), '|', -1)), 
+      IF( 
+        Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 3), '|', -1))) = 13, 
+        Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 3), '|', -1)), 
+        IF( 
+          Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 4), '|', -1))) = 13, 
+          Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 4), '|', -1)), 
+          IF( 
+            Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 5), '|', -1))) = 13, 
+            Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 5), '|', -1)), 
+            IF( 
+              Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 6), '|', -1))) = 13, 
+              Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 6), '|', -1)), 
+              IF( 
+                Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 7), '|', -1))) = 13, 
+                Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 7), '|', -1)), 
+                IF( 
+                  Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 8), '|', -1))) = 13, 
+                  Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 8), '|', -1)), 
+                  IF( 
+                    Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 9), '|', -1))) = 13, 
+                    Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 9), '|', -1)), 
+                    IF( 
+                      Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 10), '|', -1))) = 13, 
+                      Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 10), '|', -1)), 
+                      IF( 
+                        Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 10), '|', -1))) = 13, 
+                        Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 11), '|', -1)), 
+                        IF( 
+                          Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 10), '|', -1))) = 13, 
+                          Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 12), '|', -1)), 
+                          IF( 
+                            Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 10), '|', -1))) = 13, 
+                            Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 13), '|', -1)), 
+                            IF( 
+                              Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 10), '|', -1))) = 13, 
+                              Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 14), '|', -1)), 
+                              IF( 
+                                Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 10), '|', -1))) = 13, 
+                                Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 15), '|', -1)), 
+                                IF( 
+                                  Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 10), '|', -1))) = 13, 
+                                  Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 16), '|', -1)), 
+                                  IF( 
+                                    Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 10), '|', -1))) = 13, 
+                                    Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 17), '|', -1)), 
+                                    IF( 
+                                      Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 10), '|', -1))) = 13, 
+                                      Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 18), '|', -1)), 
+                                      IF( 
+                                        Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 10), '|', -1))) = 13, 
+                                        Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 19), '|', -1)), 
+                                        IF( 
+                                          Length(Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 10), '|', -1))) = 13, 
+                                          Trim(SubString_Index(SubString_Index(biblioitems.isbn, '|', 20), '|', -1)), 
+                                          'X' 
+                                        ) 
+                                      ) 
+                                    ) 
+                                  ) 
+                                ) 
+                              ) 
+                            ) 
+                          ) 
+                        ) 
+                      ) 
+                    ) 
+                  ) 
+                ) 
+              ) 
+            ) 
+          ) 
+        ) 
+      ) 
+    ) 
+  ) AS isbns 
+FROM 
+  biblioitems 
+GROUP BY 
+  isbns 
+HAVING 
+  isbns &lt;&gt; 'X' AND 
+  isbns Not like '%:%' AND 
+  isbns Not like '%-%' AND 
+  isbns Not like '%"%' AND 
+  isbns Not like '%a%' AND 
+  isbns Not like '%b%' AND 
+  isbns Not like '%c%' AND 
+  isbns Not like '%d%' AND 
+  isbns Not like '%e%' AND 
+  isbns Not like '%f%' AND 
+  isbns Not like '%g%' AND 
+  isbns Not like '%h%' AND 
+  isbns Not like '%i%' AND 
+  isbns Not like '%j%' AND 
+  isbns Not like '%k%' AND 
+  isbns Not like '%l%' AND 
+  isbns Not like '%m%' AND 
+  isbns Not like '%n%' AND 
+  isbns Not like '%o%' AND 
+  isbns Not like '%p%' AND 
+  isbns Not like '%q%' AND 
+  isbns Not like '%r%' AND 
+  isbns Not like '%s%' AND 
+  isbns Not like '%t%' AND 
+  isbns Not like '%u%' AND 
+  isbns Not like '%v%' AND 
+  isbns Not like '%w%' AND 
+  isbns Not like '%y%' AND 
+  isbns Not like '%z%' 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

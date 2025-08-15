@@ -4,7 +4,7 @@ R.003210
 ----------
 
 Name: GHW - Rotating collections - Report 2
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,7 +12,7 @@ Group: -
      -
 
 Created on: 2019-06-10 14:10:55
-Modified on: 2019-06-10 15:03:08
+Modified on: 2024-01-17 11:54:00
 Date last run: 2019-07-31 22:34:09
 
 ----------
@@ -22,17 +22,17 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Generates a list of all items in a specified "Rotating collection" in a printable format</p>
-<ul><li>Shows all items currently in the collection you select</li>
-<li>grouped by collection id, biblionumber, and item number</li>
-<li>sorted by the standard Next classification pattern</li>
-<li>links</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3210&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Generates a list of all items in a specified "Rotating collection" in a printable format
+Shows all items currently in the collection you select
+grouped by collection id, biblionumber, and item number
+sorted by the standard Next classification pattern
+links
+
+Notes:
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -41,9 +41,9 @@ Expiry: 300
 
 SELECT
   CONCAT_WS(
-    "<br />",
+    "",
     CONCAT_WS(
-      "<br />",
+      "",
       items.homebranch,
       Concat(itemtypes.description, " (", items.itype, ")"),
       ccodes.lib,
@@ -60,14 +60,14 @@ SELECT
     ),
     CONCAT_WS(
       " ",
-      IF(Coalesce(nfl.lib, " ") = " ", "", "<br /><big><b>Not for loan</b></big>"),
-      IF(Coalesce(damageds.lib, " ") = " ", "", "<br /><big><b>Damaged</b></big>"),
-      IF(Coalesce(losts.lib, " ") = " ", "", "<br /><big><b>Lost or missing</b></big>"),
-      IF(Coalesce(withdrawns.lib, " ") = " ", "", "<br /><big><b>Withdrawn</b></big>"),
-      IF(Coalesce(items.onloan, "") <> "", "<br /><big><b>CHECKED OUT</b></big>", "")
+      IF(Coalesce(nfl.lib, " ") = " ", "", "Not for loan"),
+      IF(Coalesce(damageds.lib, " ") = " ", "", "Damaged"),
+      IF(Coalesce(losts.lib, " ") = " ", "", "Lost or missing"),
+      IF(Coalesce(withdrawns.lib, " ") = " ", "", "Withdrawn"),
+      IF(Coalesce(items.onloan, "") &lt;&gt; "", "CHECKED OUT", "")
     ),
-    "<br />",
-    Concat_Ws('<br />', (Concat('<img src="/cgi-bin/koha/svc/barcode?barcode=', '*', Upper(items.barcode), '*', '&type=Code39"></img>')), items.barcode)
+    "",
+    Concat_Ws('', (Concat('')), items.barcode)
   ) AS ITEMS_IN_COLLECTION
 FROM
   biblio
@@ -144,7 +144,7 @@ FROM
   JOIN collections
     ON collections.colId = collections_tracking.colId
 WHERE
-  collections.colId = <<Enter collection ID number>>
+  collections.colId = &lt;&gt;
 GROUP BY
   collections.colId,
   biblio.biblionumber,

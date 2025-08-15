@@ -4,7 +4,7 @@ R.003609
 ----------
 
 Name: LibraryIQ - Holds File (full) - BASEHOR
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

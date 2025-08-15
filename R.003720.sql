@@ -4,7 +4,7 @@ R.003720
 ----------
 
 Name: GHW - RST test
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -41,7 +41,7 @@ SELECT
             Concat(Char(10), '    ') 
           ) 
         ) 
-      ) > 32766, 
+      ) &gt; 32766, 
       "X_", 
       "report_" 
     ), 
@@ -168,7 +168,7 @@ SELECT
       ) 
     ), 
     if( 
-      saved_sql.public <> 1, 
+      saved_sql.public &lt;&gt; 1, 
       "", 
       concat( 
         "Public: ", 
@@ -213,7 +213,7 @@ SELECT
         Char(10), 
         Char(13), 
         Char(10), 
-        '  <div style="border: 1px solid black; padding: 25px;">', 
+        '  ', 
         Char(13), 
         Char(10), 
         Char(13), 
@@ -230,7 +230,7 @@ SELECT
         Char(10), 
         Char(13), 
         Char(10), 
-        '  </div>' 
+        '  ' 
       ) 
     ), 
     Char(13), 
@@ -281,7 +281,7 @@ SELECT
           ) 
         ) 
       ) 
-    ) > 30000, 
+    ) &gt; 30000, 
     "||AAAAA||", 
     "" 
   ) AS SEP_ONE, 
@@ -308,7 +308,7 @@ SELECT
           ) 
         ) 
       ) 
-    ) > 60000, 
+    ) &gt; 60000, 
     "||AAAAA||", 
     "" 
   ) AS SEP_TWO, 
@@ -335,7 +335,7 @@ SELECT
           ) 
         ) 
       ) 
-    ) > 90000, 
+    ) &gt; 90000, 
     "||AAAAA||", 
     "" 
   ) AS SEP_THREE, 
@@ -362,7 +362,7 @@ SELECT
           ) 
         ) 
       ) 
-    ) > 120000, 
+    ) &gt; 120000, 
     "||AAAAA||", 
     "" 
   ) AS SEP_FOUR, 

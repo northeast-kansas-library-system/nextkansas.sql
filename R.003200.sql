@@ -3,17 +3,17 @@ R.003200
 
 ----------
 
-Name: GHW - G3 Sharing statistics - Ours/not ours
-Created by: George H Williams
+Name: 0130 - 2024_99_g_sharing monthly_statistics
+Created by: George Williams
 
 ----------
 
 Group: Statistics
-     2023 beginning of month statistics
+     2025 beginning of month statistics
 
 Created on: 2019-05-07 14:47:46
-Modified on: 2023-03-15 12:13:25
-Date last run: 2023-05-01 01:45:02
+Modified on: 2025-04-30 11:51:59
+Date last run: 2025-08-01 01:30:02
 
 ----------
 
@@ -22,28 +22,34 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Counts checkouts and renewals at a library during the previous calendar month based on whether the items circulated were owned by the check-out library or owned by a different library</p>
-<ul><li>Counts circulation and renewals in the previous calendar month</li>
-<li>at all libraries</li>
-<li>grouped and sorted by checkout branchcode</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Items that appear in the statistics table without a checkout branch are counted as NEKLS checkouts.</p>
-<p>Items where the owning library cannot be determined will be counted as being owned by NEKLS.</p>
-<p>All items owned by Doniphan County Library District are considered Doniphan County Library District items at all of their libraries - i.e. a DONITROY item checked out at DONIELWD counts as a DONIELWD item.</p>
-<p>All items owned by Prairie Hills School District are considered Prairie Hills School District items at all of their libraries - i.e. a PHWAC item checked out at PHSHS counts as a PHSHS item.</p>
-<p></p>
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3200">Click here to download as a csv file</a></p>
-</div>
+ 
+Counts checkouts and renewals at a library during the previous calendar month based on whether the items circulated were owned by the check-out library or owned by a different library
+Counts circulation and renewals in the previous calendar month
+at all libraries
+grouped and sorted by checkout branchcode
+
+Notes:
+
+Items that appear in the statistics table without a checkout branch are counted as NEKLS checkouts.
+Items where the owning library cannot be determined will be counted as being owned by NEKLS.
+All items owned by Doniphan County Library District are considered Doniphan County Library District items at all of their libraries - i.e. a DONITROY item checked out at DONIELWD counts as a DONIELWD item.
+All items owned by Prairie Hills School District are considered Prairie Hills School District items at all of their libraries - i.e. a PHWAC item checked out at PHSHS counts as a PHSHS item.
+
+Click here to download as a csv file
+
 
 ----------
 */
 
 
 
-SELECT
+SELECT 
+  'Library' AS 'Library',
+  'Items owned by this library checked out at this library this month' AS 'Items owned by this library checked out at this library this month',
+  'Items owned by other libraries checked out at this library this month' AS 'Items owned by other libraries checked out at this library this month',
+  'Total circulation this month' AS 'Total circulation this month'
+UNION 
+(SELECT
   branch.branchname AS Library,
   ours_at_ours.CKO_RENEW AS 'Items owned by this library checked out at this library this month',
   notours_at_ours.CKO_RENEW AS 'Items owned by other libraries checked out at this library this month',
@@ -127,7 +133,7 @@ FROM
             Coalesce(items.homebranch, deleteditems.homebranch)
           )
         )
-      ) <> If(
+      ) &lt;&gt; If(
         statistics.branch IS NULL,
         "NEKLS",
         If(
@@ -163,6 +169,7 @@ GROUP BY
   branch.branchname
 ORDER BY
   branch.branchname
+) 
 
 
 

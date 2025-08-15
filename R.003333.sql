@@ -4,7 +4,7 @@ R.003333
 ----------
 
 Name: GHW - CLUBS - List of all clubs
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Clubs
      -
 
 Created on: 2020-06-15 16:10:09
-Modified on: 2022-12-01 12:39:44
-Date last run: 2023-03-21 11:50:07
+Modified on: 2024-01-17 12:04:57
+Date last run: 2025-06-25 15:26:33
 
 ----------
 
@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-<p>Generates a list of all clubs</p>
-<ul><li>List shows clubs that are current at the time you run the report</li>
-<li>at the library you specify</li>
-<li>grouped by club id number</li>
-<li>sorted by club home library, club name, and club id number</li>
-<li>contains links to report 3335 - which generates a list of club members that can be shared with other club members</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Updated on 2020.02.03</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3333&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-<p class= "notetags" style="display: none;">clubs</p>
-</div>
+ 
+Generates a list of all clubs
+List shows clubs that are current at the time you run the report
+at the library you specify
+grouped by club id number
+sorted by club home library, club name, and club id number
+contains links to report 3335 - which generates a list of club members that can be shared with other club members
+
+Notes:
+
+Updated on 2020.02.03
+
+Click here to run in a new window
+clubs
+
 
 ----------
 */
@@ -44,13 +44,13 @@ Expiry: 300
 
 
 SELECT
-  Concat_Ws("<br />&#160;&#160;&#160;&#160;&#160;", 
+  Concat_Ws("&#160;&#160;&#160;&#160;&#160;", 
     clubs.name,
     branches.branchname, 
     club_templates.name,
     Concat('Club ID number: ', clubs.id)
   ) AS CLUB_NAME,
-  Concat_WS("<br />",
+  Concat_WS("",
     liaisons.LIAISON,
     leaders.LEADER,
     frequencys.FREQUENCY,
@@ -61,9 +61,7 @@ SELECT
     )
   ) AS CLUB_INFO,
   CONCAT(
-    '<a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3335&phase=Run+this+report&param_name=Enter+club+ID+number&sql_params=', 
-    clubs.id, 
-    '" target="_blank">Link to club roster for club members</a>'
+    'Link to club roster for club members'
   ) AS LINK_TO_ROSTER
 FROM
   clubs JOIN
@@ -149,7 +147,7 @@ FROM
       club_enrollments.club_id
   ) counts ON counts.club_id = clubs.id
 WHERE
-  clubs.branchcode LIKE <<Choose your library|ZBRAN>>
+  clubs.branchcode LIKE &lt;&gt;
 GROUP BY
   liaisons.LIAISON,
   leaders.LEADER,

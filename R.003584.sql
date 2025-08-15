@@ -4,7 +4,7 @@ R.003584
 ----------
 
 Name: LibraryIQ - Location codes tab (setup)
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

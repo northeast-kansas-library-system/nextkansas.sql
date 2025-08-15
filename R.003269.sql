@@ -4,7 +4,7 @@ R.003269
 ----------
 
 Name: GHW - ADMINREPORT - REGBRANCH cleanup 2
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

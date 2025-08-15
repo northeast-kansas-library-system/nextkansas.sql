@@ -4,7 +4,7 @@ R.003217
 ----------
 
 Name: GHW - Duplicate card helper
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-07-12 00:20:17
 Modified on: 2019-07-22 11:39:15
-Date last run: 2023-05-08 18:14:48
+Date last run: 2024-08-29 14:45:33
 
 ----------
 
@@ -36,8 +36,8 @@ FROM
   borrowers pat1,
   borrowers pat2
 WHERE
-  pat1.cardnumber = <<Card one>> AND
-  pat2.cardnumber = <<Card two>>
+  pat1.cardnumber = &lt;&gt; AND
+  pat2.cardnumber = &lt;&gt;
 
 
 

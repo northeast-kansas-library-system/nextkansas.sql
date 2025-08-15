@@ -1,4 +1,4 @@
-id,category,authorised_value,lib,imageurl,lib_opac
+﻿id,category,authorised_value,lib,imageurl,lib_opac
 1885,ALLOWED,0,"Not allowed",,"Not allowed"
 1886,ALLOWED,1,Allowed,,Allowed
 2454,AR_CANCELLATION,DAMAGED,"Item was found to be too damaged to fill article request",,
@@ -8,12 +8,12 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2363,bibitype,COMPUTER,"Computers and internet : Public computer",,"Computers and internet : Public computer"
 2367,bibitype,DIGITAL,"E-content : Digital content",,"E-content : Digital content"
 2383,bibitype,EQUIPMENT,"Things : Equipment",,"Things : Equipment"
-2388,bibitype,GAME,"Video game",,"Video game"
 2360,bibitype,ILL,"Borrowed from another library",,"Borrowed from another library"
+2388,bibitype,ITNVIDGAM,"Video game",,"Video game"
+2379,bibitype,ITRTOY,"Things : Board games, dolls, puzzles, and toys",,"Things : Board games, dolls, puzzles, and toys"
 2370,bibitype,KITS,"Kit or multi-part set",,"Kit or multi-part set"
 2362,bibitype,LAUNCHPAD,"Computers and internet : Launchpad tablet",,"Computers and internet : Launchpad tablet"
 2376,bibitype,LOCALHOLD,"Special collections",,"Special collections"
-2371,bibitype,MAGAZINE,Magazine,,Magazine
 2372,bibitype,MUSIC,Music,,Music
 2356,bibitype,N_AB,Audiobook,,Audiobook
 2357,bibitype,N_AB_M,"Audiobook (media player)",,"Audiobook (media player)"
@@ -26,11 +26,11 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2380,bibitype,NREL_CLOTH,"Things : Clothing, costumes, and masks",,"Things : Clothing, costumes, and masks"
 2381,bibitype,NREL_COOK,"Things : Cooking equipment",,"Things : Cooking equipment"
 2385,bibitype,NREL_TOOL,"Things : Tools",,"Things : Tools"
-2379,bibitype,NREL_TOY,"Things : Board games, dolls, puzzles, and toys",,"Things : Board games, dolls, puzzles, and toys"
 2375,bibitype,NROOM,Room,,Room
 2364,bibitype,NSOFT,"Computers and internet : Software",,"Computers and internet : Software"
 2386,bibitype,NVIDEO,Video,,Video
 2387,bibitype,NVIDTV,"Video (Television)",,"Video (Television)"
+2371,bibitype,P_MAG,Magazine,,Magazine
 2374,bibitype,P_REF,"Reference material",,"Reference material"
 2359,bibitype,PBBKCLUB,"Book club set",,"Book club set"
 2373,bibitype,PPHAM,Pamphlet,,Pamphlet
@@ -38,12 +38,14 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2377,bibitype,R_ART,"Things : Artwork",,"Things : Artwork"
 2361,bibitype,R_CMP_LAP,"Computers and internet : Laptop computer",,"Computers and internet : Laptop computer"
 2446,bibitype,R_PAS_PARK,"Things : Kansas Parks Pass ",,"Things : Kansas Parks Pass "
+2498,bibitype,R_REC,"Things : Recreation and sports ",,"Things : Recreation and sports "
 2366,bibitype,R_WIFI,"Computers and internet : Wireless internet hotspot",,"Computers and internet : Wireless internet hotspot"
 1999,bibloc,L_AD,Adult,,Adult
 2000,bibloc,L_JU,Childrens,,Childrens
 2137,bibloc,L_YA,"Young adult",,"Young adult"
 205,BOR_NOTES,CheckID,"Need to check patron's ID",,
-1759,BOR_NOTES,MID,"<br />UPDATE PATRON'S NAME<br />Please update the account with a middle name or middle initial.<br />",,
+1759,BOR_NOTES,MID,"UPDATE PATRON'S NAMEPlease update the account with a middle name or middle initial.",,
+2495,BOR_NOTES,sample,"This is just an example message for testing",,
 2224,CCODE,ARCHIVE,"Archival materials",bridge/archive.png,"Archival materials"
 1643,CCODE,ATLAS,Atlas,https://nextkansas.org/images/c170de4aeae2c02357e8b746e89ddd22_p_atlas.png,Atlas
 509,CCODE,BAKEWARE,Bakeware,crystal-clear/kcoloredit.png,Bakeware
@@ -52,7 +54,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 1650,CCODE,BINDER,Binder,liblime-kids/faculty-course-manual.png,Binder
 155,CCODE,BIOGRAPHY,Biography,vokal/Book-32px.png,
 146,CCODE,BOARDBK,"Board Book",vokal/Book-32px.png,
-2428,CCODE,BOB,"Battle of the books",https://nextkansas.org/images/91a71c1ec462834c5e9e3d98c699e352_bob.svg,"Battle of the books"
+2428,CCODE,BOB,"Battle of the books",https://nextkansas.org/images/802ba86fc65bb7722fffe4d7e3174d32_bob.svg,"Battle of the books"
 157,CCODE,BOOKONCASS,"Audiobook (cassette)",vokal/Book-On-Tape-32px.png,"Audiobook (cassette)"
 156,CCODE,BOOKONCD,"Audiobook (CD)",vokal/Book-On-CD-32px.png,"Audiobook (CD)"
 143,CCODE,BOOKONMP,"Audiobook (media player)",vokal/PlayAway-32px.png,"Audiobook (media player)"
@@ -95,13 +97,14 @@ id,category,authorised_value,lib,imageurl,lib_opac
 1644,CCODE,MCNA_FIC,"McNaughton Fiction",vokal/Book-32px.png,"McNaughton Fiction"
 1645,CCODE,MCNA_NON,"McNaughton Non-fiction",vokal/NFIC-32px.png,"McNaughton Non-fiction"
 217,CCODE,MISC,Miscellaneous,vokal/Hardware-32px.png,
-152,CCODE,MUSIC,"Music CD",vokal/Music-32px.png,
+152,CCODE,MUSIC,"Music : compact disc",https://nextkansas.org/images/889c53e3fe4dbb00fdc68eb4e5aaf965_music_cd.svg,"Music : compact disc"
+2497,CCODE,MUSIC_LP,"Music : record",https://nextkansas.org/images/11a724982c3eca857cea2cf97308f97b_music_record.svg,"Music : record"
 1647,CCODE,MYST_COZY,Mystery-Cozy,vokal/Book-32px.png,"Cozy Mystery"
 154,CCODE,MYSTERY,Mystery,vokal/Book-32px.png,
 372,CCODE,NINTENDODS,"VG-Nintendo DS",https://nextkansas.org/images/f48a67faf32b85a1bf40918ac70b1f8e_n_vg_ds.jpg,
 402,CCODE,NINTNDO3DS,"VG-Nintendo 3DS",https://nextkansas.org/images/2d6f0c5f7a7dae8f27eea6e01c255b73_n_vg_3ds.png,"VG-Nintendo 3DS"
 150,CCODE,NONFICTION,Non-Fiction,vokal/NFIC-32px.png,
-2429,CCODE,NOTABLE,"Kansas notable books",https://nextkansas.org/images/58382c4ad23877a15565b2477258d96f_knotable.svg,"Kansas notable books"
+2429,CCODE,NOTABLE,"Kansas notable books",https://nextkansas.org/images/2058e1b377b4e1737062af92efa66c02_notable.svg,"Kansas notable books"
 177,CCODE,OVERSIZE,Oversize,vokal/Book-32px.png,
 153,CCODE,PAPERBACK,Paperback,vokal/Book-32px.png,
 163,CCODE,PARENTING,Parenting,vokal/Book-32px.png,
@@ -113,6 +116,14 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2051,CCODE,PS5,"VG-PlayStation 5 (PS5)",crystal-clear/joystick.png,"VG-PlayStation 5 (PS5)"
 380,CCODE,PSP,"VG-PlayStation Portable (PSP)",crystal-clear/joystick.png,
 312,CCODE,PUZZLESBDG,"Puzzles & Board Games",vokal/ACT-32px.png,
+2677,CCODE,R_AV,"Audiovisual equipment",,"Audiovisual equipment"
+2573,CCODE,R_BLU,"Blu-ray player",https://staff.nekls.bywatersolutions.com/images/0b820bc01afce0616dd01e3f3594f0af_r_blu.svg,"Blu-ray player"
+2674,CCODE,R_INST_B,"Musical instrument : brass instruments",,"Musical instrument : brass instruments"
+2675,CCODE,R_INST_M,"Musical instrument : misceleaneous",,"Musical instrument : misceleaneous"
+2671,CCODE,R_INST_P,"Musical instrument : drums and percussion",,"Musical instrument : drums and percussion"
+2672,CCODE,R_INST_S,"Musical instrument : stringed instruments",,"Musical instrument : stringed instruments"
+2673,CCODE,R_INST_W,"Musical instrument : woodwind instruments",,"Musical instrument : woodwind instruments"
+2676,CCODE,R_REC,"Record player",,"Record player"
 2451,CCODE,R_REC_A,"Recreation : softball / baseball equipment",,"Recreation : softball / baseball equipment"
 2450,CCODE,R_REC_B,"Recreation : basketball equipment",,"Recreation : basketball equipment"
 2452,CCODE,R_REC_C,"Recreation : football equipment",,"Recreation : football equipment"
@@ -143,13 +154,59 @@ id,category,authorised_value,lib,imageurl,lib_opac
 189,CCODE,VIDEOGAME,VG--Videogame,crystal-clear/joystick.png,
 2059,CCODE,VIDHOLIDAY,"Holiday video",colors/99cc33.png,"Video - holiday collection"
 149,CCODE,WESTERN,Western,vokal/Book-32px.png,
-374,CCODE,WII,"VG-Nintendo Wii",https://nextkansas.org/images/bc83712763dda1d5a60de13b274a6496_n_vg_wii.jpg,
+374,CCODE,WII,"VG-Nintendo Wii",https://staff.nekls.bywatersolutions.com/images/bc83712763dda1d5a60de13b274a6496_n_vg_wii.jpg,
 376,CCODE,WIIU,"VG-Nintendo Wii U",https://nextkansas.org/images/588dc4af3bdb37f7885b020de555b4c9_n_vg_wiiu.png,
 381,CCODE,XBOX,VG-XBox,crystal-clear/joystick.png,
 382,CCODE,XBOX360,"VG-XBox 360",crystal-clear/joystick.png,
 375,CCODE,XBOXONE,"VG-XBox One",crystal-clear/joystick.png,
-2052,CCODE,XBOXX,"VG-XBox X",https://nextkansas.org/images/d9fb583a0900e65c63b8a5d4b7b34fc9_n_vg_xb_x.png,"VG-XBox X"
+2052,CCODE,XBOXX,"VG-XBox X",https://staff.nekls.bywatersolutions.com/images/d9fb583a0900e65c63b8a5d4b7b34fc9_n_vg_xb_x.png,"VG-XBox X"
 183,CCODE,XXX,(Unclassified),crystal-clear/books-closed-32.png,
+2594,CNTY_SUB,-," County sub-division data not set",," County sub-division data not set"
+2642,CNTY_SUB,JO_AUB_TW,"Johnson : Aubry Township - Township",,"Johnson : Aubry Township - Township"
+2643,CNTY_SUB,JO_BON_CT,"Johnson : Bonner Springs (city) - City",,"Johnson : Bonner Springs (city) - City"
+2644,CNTY_SUB,"JO_DE _CT","Johnson : De Soto (city) - City",,"Johnson : De Soto (city) - City"
+2645,CNTY_SUB,JO_EDG_CT,"Johnson : Edgerton (city) - City",,"Johnson : Edgerton (city) - City"
+2646,CNTY_SUB,JO_FAI_CT,"Johnson : Fairway (city) - City",,"Johnson : Fairway (city) - City"
+2647,CNTY_SUB,JO_GAR_CT,"Johnson : Gardner (city) - City",,"Johnson : Gardner (city) - City"
+2648,CNTY_SUB,JO_GAR_TW,"Johnson : Gardner Township - Township",,"Johnson : Gardner Township - Township"
+2649,CNTY_SUB,JO_LAK_CT,"Johnson : Lake Quivira (city) - City",,"Johnson : Lake Quivira (city) - City"
+2650,CNTY_SUB,JO_LEA_CT,"Johnson : Leawood (city) - City",,"Johnson : Leawood (city) - City"
+2651,CNTY_SUB,JO_LEN_CT,"Johnson : Lenexa (city) - City",,"Johnson : Lenexa (city) - City"
+2652,CNTY_SUB,JO_LEX_TW,"Johnson : Lexington Township - Township",,"Johnson : Lexington Township - Township"
+2653,CNTY_SUB,JO_MCC_TW,"Johnson : McCamish Township - Township",,"Johnson : McCamish Township - Township"
+2654,CNTY_SUB,JO_MER_CT,"Johnson : Merriam (city) - City",,"Johnson : Merriam (city) - City"
+2655,CNTY_SUB,JO_MIS_CT,"Johnson : Mission (city) - City",,"Johnson : Mission (city) - City"
+2657,CNTY_SUB,JO_MISH_CT,"Johnson : Mission Hills (city) - City",,"Johnson : Mission Hills (city) - City"
+2658,CNTY_SUB,JO_MISW_CT,"Johnson : Mission Woods (city) - City",,"Johnson : Mission Woods (city) - City"
+2659,CNTY_SUB,JO_OLA_CT,"Johnson : Olathe (city) - City",,"Johnson : Olathe (city) - City"
+2660,CNTY_SUB,JO_OLA_TW,"Johnson : Olathe Township - Township",,"Johnson : Olathe Township - Township"
+2661,CNTY_SUB,JO_OVE_CT,"Johnson : Overland Park (city) - City",,"Johnson : Overland Park (city) - City"
+2662,CNTY_SUB,JO_OXF_TW,"Johnson : Oxford Township - Township",,"Johnson : Oxford Township - Township"
+2663,CNTY_SUB,JO_PRA_CT,"Johnson : Prairie Village (city) - City",,"Johnson : Prairie Village (city) - City"
+2664,CNTY_SUB,JO_ROE_CT,"Johnson : Roeland Park (city) - City",,"Johnson : Roeland Park (city) - City"
+2665,CNTY_SUB,JO_SHA_CT,"Johnson : Shawnee (city) - City",,"Johnson : Shawnee (city) - City"
+2666,CNTY_SUB,JO_SPR_CT,"Johnson : Spring Hill (city) - City",,"Johnson : Spring Hill (city) - City"
+2667,CNTY_SUB,JO_SPR_TW,"Johnson : Spring Hill Township - Township",,"Johnson : Spring Hill Township - Township"
+2668,CNTY_SUB,JO_WES_CT,"Johnson : Westwood (city) - City",,"Johnson : Westwood (city) - City"
+2669,CNTY_SUB,JO_WESH_CT,"Johnson : Westwood Hills (city) - City",,"Johnson : Westwood Hills (city) - City"
+2629,CNTY_SUB,LV_ALE_TW,"Leavenworth : Alexandria - Township",,"Leavenworth : Alexandria - Township"
+2630,CNTY_SUB,LV_BON_CT,"Leavenworth : Bonner Springs - City",,"Leavenworth : Bonner Springs - City"
+2631,CNTY_SUB,LV_DEL_TW,"Leavenworth : Delaware - Township",,"Leavenworth : Delaware - Township"
+2632,CNTY_SUB,LV_EAS_TW,"Leavenworth : Easton - Township",,"Leavenworth : Easton - Township"
+2633,CNTY_SUB,LV_FAI_TW,"Leavenworth : Fairmount - Township",,"Leavenworth : Fairmount - Township"
+2634,CNTY_SUB,LV_HIG_TW,"Leavenworth : High Prairie - Township",,"Leavenworth : High Prairie - Township"
+2635,CNTY_SUB,LV_KIC_TW,"Leavenworth : Kickapoo - Township",,"Leavenworth : Kickapoo - Township"
+2636,CNTY_SUB,LV_LAN_CT,"Leavenworth : Lansing - City",,"Leavenworth : Lansing - City"
+2637,CNTY_SUB,LV_LEA_CT,"Leavenworth : Leavenworth - City",,"Leavenworth : Leavenworth - City"
+2638,CNTY_SUB,LV_REN_TW,"Leavenworth : Reno - Township",,"Leavenworth : Reno - Township"
+2639,CNTY_SUB,LV_SHE_TW,"Leavenworth : Sherman - Township",,"Leavenworth : Sherman - Township"
+2640,CNTY_SUB,LV_STR_TW,"Leavenworth : Stranger - Township",,"Leavenworth : Stranger - Township"
+2641,CNTY_SUB,LV_TON_TW,"Leavenworth : Tonganoxie - Township",,"Leavenworth : Tonganoxie - Township"
+2583,CNTY_SUB,WY_BON_CT,"Wyandotte : Bonner Springs - City",,"Wyandotte : Bonner Springs - City"
+2585,CNTY_SUB,WY_DEL_TW,"Wyandotte : Delaware - Township",,"Wyandotte : Delaware - Township"
+2584,CNTY_SUB,WY_EDW_CT,"Wyandotte : Edwardsville - City",,"Wyandotte : Edwardsville - City"
+2586,CNTY_SUB,WY_KAN_CT,"Wyandotte : Kansas City - City",,"Wyandotte : Kansas City - City"
+2587,CNTY_SUB,WY_LAK_CT,"Wyandotte : Lake Quivira - City",,"Wyandotte : Lake Quivira - City"
 1180,COLLAGEN,OTTAWA1,"Sent to collections - OTTAWA",,"Sent to collections - OTTAWA"
 1181,COLLAGEN,OTTAWA2,"Sent to collections - OTTAWA - B",,"Sent to collections - OTTAWA - B"
 7,DAMAGED,0,,,
@@ -281,22 +338,119 @@ id,category,authorised_value,lib,imageurl,lib_opac
 502,EmailNews,NotApp,"Not Used at Library",,
 488,EmailNews,NotAsked,"Not Asked",,
 483,EmailNews,Yes,Yes,,
-1197,EXPIRED,1,"Account expired for more than 2 years -  scheduled for deletion when expired for 3 years",,"Account expired for more than 2 years -  scheduled for deletion when expired for 3 years"
-1875,EXPIRED,10,"Account expired for more than 3 years - scheduled to be auto-deleted on 06.15",,"Account expired for more than 3 years - scheduled to be auto-deleted on 06.15"
-1876,EXPIRED,11,"Account expired for more than 3 years - scheduled to be auto-deleted on 07.15",,"Account expired for more than 3 years - scheduled to be auto-deleted on 07.15"
-1877,EXPIRED,12,"Account expired for more than 3 years - scheduled to be auto-deleted on 08.15",,"Account expired for more than 3 years - scheduled to be auto-deleted on 08.15"
-1878,EXPIRED,13,"Account expired for more than 3 years - scheduled to be auto-deleted on 09.15",,"Account expired for more than 3 years - scheduled to be auto-deleted on 09.15"
-1879,EXPIRED,14,"Account expired for more than 3 years - scheduled to be auto-deleted on 10.15",,"Account expired for more than 3 years - scheduled to be auto-deleted on 10.15"
-1880,EXPIRED,15,"Account expired for more than 3 years - scheduled to be auto-deleted on 11.15",,"Account expired for more than 3 years - scheduled to be auto-deleted on 11.15"
-1881,EXPIRED,16,"Account expired for more than 3 years - scheduled to be auto-deleted on 12.15",,"Account expired for more than 3 years - scheduled to be auto-deleted on 12.15"
-1198,EXPIRED,2,"Account expired for more than 2 years - cannot be deleted due to fines/fees/ouverdues/etc.",,"Account expired for more than 2 years - cannot be deleted due to fines/fees/ouverdues/etc."
-1199,EXPIRED,3,"Account expired for more than 3 years",,"Account expired for more than 3 years"
-1200,EXPIRED,4,"Account expired for more than 3 years - can't be auto-deleted due to problems with the account",,"Account expired for more than 3 years - can't be auto-deleted due to problems with the account"
-1648,EXPIRED,5,"Account expired for more than 3 years - scheduled to be auto-deleted on 01.15",,"Account expired for more than 3 years - scheduled to be auto-deleted on 01.15"
-1649,EXPIRED,6,"Account expired for more than 3 years - scheduled to be auto-deleted on 02.15",,"Account expired for more than 3 years - scheduled to be auto-deleted on 02.15"
-1872,EXPIRED,7,"Account expired for more than 3 years - scheduled to be auto-deleted on 03.15",,"Account expired for more than 3 years - scheduled to be auto-deleted on 03.15"
-1873,EXPIRED,8,"Account expired for more than 3 years - scheduled to be auto-deleted on 04.15",,"Account expired for more than 3 years - scheduled to be auto-deleted on 04.15"
-1874,EXPIRED,9,"Account expired for more than 3 years - scheduled to be auto-deleted on 05.15",,"Account expired for more than 3 years - scheduled to be auto-deleted on 05.15"
+2509,ERM_AGREEMENT_CLOSURE_REASON,cancelled,Cancelled,,
+2508,ERM_AGREEMENT_CLOSURE_REASON,expired,Expired,,
+2526,ERM_AGREEMENT_LICENSE_LOCATION,cupboard,Cupboard,,
+2525,ERM_AGREEMENT_LICENSE_LOCATION,filing_cabinet,"Filing cabinet",,
+2522,ERM_AGREEMENT_LICENSE_STATUS,controlling,Controlling,,
+2523,ERM_AGREEMENT_LICENSE_STATUS,future,Future,,
+2524,ERM_AGREEMENT_LICENSE_STATUS,history,Historic,,
+2512,ERM_AGREEMENT_RENEWAL_PRIORITY,cancel,Cancel,,
+2510,ERM_AGREEMENT_RENEWAL_PRIORITY,for_review,"For review",,
+2511,ERM_AGREEMENT_RENEWAL_PRIORITY,renew,Renew,,
+2505,ERM_AGREEMENT_STATUS,active,Active,,
+2507,ERM_AGREEMENT_STATUS,closed,Closed,,
+2506,ERM_AGREEMENT_STATUS,in_negotiation,"In negotiation",,
+2788,ERM_DATABASE_REPORTS_METRICS,Limit_Exceeded,"Limit exceeded",,
+2789,ERM_DATABASE_REPORTS_METRICS,No_License,"No license",,
+2779,ERM_DATABASE_REPORTS_METRICS,Searches_Automated,"Searches automated",,
+2780,ERM_DATABASE_REPORTS_METRICS,Searches_Federated,"Searches federated",,
+2781,ERM_DATABASE_REPORTS_METRICS,Searches_Regular,"Searches regular",,
+2782,ERM_DATABASE_REPORTS_METRICS,Total_Item_Investigations,"Total item investigations",,
+2783,ERM_DATABASE_REPORTS_METRICS,Total_Item_Requests,"Total item requests",,
+2784,ERM_DATABASE_REPORTS_METRICS,Unique_Item_Investigations,"Unique item investigations",,
+2785,ERM_DATABASE_REPORTS_METRICS,Unique_Item_Requests,"Unique item requests",,
+2786,ERM_DATABASE_REPORTS_METRICS,Unique_Title_Investigations,"Unique title investigations",,
+2787,ERM_DATABASE_REPORTS_METRICS,Unique_Title_Requests,"Unique title requests",,
+2802,ERM_ITEM_REPORTS_METRICS,Limit_Exceeded,"Limit exceeded",,
+2803,ERM_ITEM_REPORTS_METRICS,No_License,"No license",,
+2798,ERM_ITEM_REPORTS_METRICS,Total_Item_Investigations,"Total item investigations",,
+2799,ERM_ITEM_REPORTS_METRICS,Total_Item_Requests,"Total item requests",,
+2800,ERM_ITEM_REPORTS_METRICS,Unique_Item_Investigations,"Unique item investigations",,
+2801,ERM_ITEM_REPORTS_METRICS,Unique_Item_Requests,"Unique item requests",,
+2519,ERM_LICENSE_STATUS,active,Active,,
+2521,ERM_LICENSE_STATUS,expired,Expired,,
+2517,ERM_LICENSE_STATUS,in_negotiation,"In negotiation",,
+2518,ERM_LICENSE_STATUS,not_yet_active,"Not yet active",,
+2520,ERM_LICENSE_STATUS,rejected,Rejected,,
+2516,ERM_LICENSE_TYPE,alliance,Alliance,,
+2514,ERM_LICENSE_TYPE,consortial,Consortial,,
+2513,ERM_LICENSE_TYPE,local,Local,,
+2515,ERM_LICENSE_TYPE,national,National,,
+2532,ERM_PACKAGE_CONTENT_TYPE,AbstractAndIndex,"Abstract and index",,
+2531,ERM_PACKAGE_CONTENT_TYPE,AggregatedFullText,"Aggregated full",,
+2533,ERM_PACKAGE_CONTENT_TYPE,EBook,E-book,,
+2535,ERM_PACKAGE_CONTENT_TYPE,EJournal,E-journal,,
+2534,ERM_PACKAGE_CONTENT_TYPE,MixedContent,"Mixed content",,
+2536,ERM_PACKAGE_CONTENT_TYPE,OnlineReference,"Online reference",,
+2537,ERM_PACKAGE_CONTENT_TYPE,Print,Print,,
+2538,ERM_PACKAGE_CONTENT_TYPE,StreamingMedia,"Streaming media",,
+2539,ERM_PACKAGE_CONTENT_TYPE,Unknown,Unknown,,
+2530,ERM_PACKAGE_TYPE,complete,Complete,,
+2529,ERM_PACKAGE_TYPE,local,Local,,
+2772,ERM_PLATFORM_REPORTS_METRICS,Searches_Platform,"Searches platform",,
+2773,ERM_PLATFORM_REPORTS_METRICS,Total_Item_Investigations,"Total item investigations",,
+2774,ERM_PLATFORM_REPORTS_METRICS,Total_Item_Requests,"Total item requests",,
+2775,ERM_PLATFORM_REPORTS_METRICS,Unique_Item_Investigations,"Unique item investigations",,
+2776,ERM_PLATFORM_REPORTS_METRICS,Unique_Item_Requests,"Unique item requests",,
+2777,ERM_PLATFORM_REPORTS_METRICS,Unique_Title_Investigations,"Unique title investigations",,
+2778,ERM_PLATFORM_REPORTS_METRICS,Unique_Title_Requests,"Unique title requests",,
+2758,ERM_REPORT_TYPES,DR,"DR - Database master report",,
+2759,ERM_REPORT_TYPES,DR_D1,"DR_D1 - Database search and item usage",,
+2760,ERM_REPORT_TYPES,DR_D2,"DR_D2 - Database access denied",,
+2769,ERM_REPORT_TYPES,IR,"IR - Item master report",,
+2770,ERM_REPORT_TYPES,IR_A1,"IR_A1 - Journal article requests",,
+2771,ERM_REPORT_TYPES,IR_M1,"IR_M1 - Multimedia item requests",,
+2756,ERM_REPORT_TYPES,PR,"PR - Platform master report",,
+2757,ERM_REPORT_TYPES,PR_P1,"PR_P1 - Platform usage",,
+2761,ERM_REPORT_TYPES,TR,"TR - Title master report",,
+2762,ERM_REPORT_TYPES,TR_B1,"TR_B1 - Book requests (excluding OA_Gold)",,
+2763,ERM_REPORT_TYPES,TR_B2,"TR_B2 - Book access denied",,
+2764,ERM_REPORT_TYPES,TR_B3,"TR_B3 - Book usage by access type",,
+2765,ERM_REPORT_TYPES,TR_J1,"TR_J1 - Journal requests (excluding OA_Gold)",,
+2766,ERM_REPORT_TYPES,TR_J2,"TR_J2 - Journal access denied",,
+2767,ERM_REPORT_TYPES,TR_J3,"TR_J3 - Journal usage by access type",,
+2768,ERM_REPORT_TYPES,TR_J4,"TR_J4 - Journal requests by YOP(excluding OA_Gold)",,
+2554,ERM_TITLE_PUBLICATION_TYPE,audiobook,AudioBook,,
+2547,ERM_TITLE_PUBLICATION_TYPE,book,Book,,
+2549,ERM_TITLE_PUBLICATION_TYPE,bookseries,Bookseries,,
+2550,ERM_TITLE_PUBLICATION_TYPE,database,Database,,
+2548,ERM_TITLE_PUBLICATION_TYPE,ebook,E-book,,
+2540,ERM_TITLE_PUBLICATION_TYPE,journal,Journal,,
+2541,ERM_TITLE_PUBLICATION_TYPE,newsletter,Newsletter,,
+2545,ERM_TITLE_PUBLICATION_TYPE,newspaper,Newspaper,,
+2543,ERM_TITLE_PUBLICATION_TYPE,proceedings,Proceedings,,
+2542,ERM_TITLE_PUBLICATION_TYPE,report,Report,,
+2552,ERM_TITLE_PUBLICATION_TYPE,streamingaudio,"Streaming audio",,
+2553,ERM_TITLE_PUBLICATION_TYPE,streamingvideo,"Streaming video",,
+2551,ERM_TITLE_PUBLICATION_TYPE,thesisdissertation,Thesis/Dissertation,,
+2546,ERM_TITLE_PUBLICATION_TYPE,unspecified,Unspecified,,
+2544,ERM_TITLE_PUBLICATION_TYPE,website,Website,,
+2796,ERM_TITLE_REPORTS_METRICS,Limit_Exceeded,"Limit exceeded",,
+2797,ERM_TITLE_REPORTS_METRICS,No_License,"No license",,
+2790,ERM_TITLE_REPORTS_METRICS,Total_Item_Investigations,"Total item investigations",,
+2791,ERM_TITLE_REPORTS_METRICS,Total_Item_Requests,"Total item requests",,
+2792,ERM_TITLE_REPORTS_METRICS,Unique_Item_Investigations,"Unique item investigations",,
+2793,ERM_TITLE_REPORTS_METRICS,Unique_Item_Requests,"Unique item requests",,
+2794,ERM_TITLE_REPORTS_METRICS,Unique_Title_Investigations,"Unique title investigations",,
+2795,ERM_TITLE_REPORTS_METRICS,Unique_Title_Requests,"Unique title requests",,
+2527,ERM_USER_ROLES,librarian,"ERM librarian",,
+2528,ERM_USER_ROLES,subject_specialist,"Subject specialist",,
+1197,EXPIRED,1,"Account expired for 2+ years -  will be deleted at 3+ years",,"Account expired for 2+ years -  will be deleted at 3+ years"
+1875,EXPIRED,10,"Account expired for 3+ years - will be auto-deleted on 06.15",,"Account expired for 3+ years - will be auto-deleted on 06.15"
+1876,EXPIRED,11,"Account expired for 3+ years - will be auto-deleted on 07.15",,"Account expired for 3+ years - will be auto-deleted on 07.15"
+1877,EXPIRED,12,"Account expired for 3+ years - will be auto-deleted on 08.15",,"Account expired for 3+ years - will be auto-deleted on 08.15"
+1878,EXPIRED,13,"Account expired for 3+ years - will be auto-deleted on 09.15",,"Account expired for 3+ years - will be auto-deleted on 09.15"
+1879,EXPIRED,14,"Account expired for 3+ years - will be auto-deleted on 10.15",,"Account expired for 3+ years - will be auto-deleted on 10.15"
+1880,EXPIRED,15,"Account expired for 3+ years - will be auto-deleted on 11.15",,"Account expired for 3+ years - will be auto-deleted on 11.15"
+1881,EXPIRED,16,"Account expired for 3+ years - will be auto-deleted on 12.15",,"Account expired for 3+ years - will be auto-deleted on 12.15"
+1198,EXPIRED,2,"Account expired for 2+ years - cannot be deleted due to fines/fees/ouverdues/etc.",,"Account expired for 2+ years - cannot be deleted due to fines/fees/ouverdues/etc."
+1200,EXPIRED,4,"Account expired for 3+ years - can't be auto-deleted due to problems with the account",,"Account expired for 3+ years - can't be auto-deleted due to problems with the account"
+1648,EXPIRED,5,"Account expired for 3+ years - will be auto-deleted on 01.15",,"Account expired for 3+ years - will be auto-deleted on 01.15"
+1649,EXPIRED,6,"Account expired for 3+ years - will be auto-deleted on 02.15",,"Account expired for 3+ years - will be auto-deleted on 02.15"
+1872,EXPIRED,7,"Account expired for 3+ years - will be auto-deleted on 03.15",,"Account expired for 3+ years - will be auto-deleted on 03.15"
+1873,EXPIRED,8,"Account expired for 3+ years - will be auto-deleted on 04.15",,"Account expired for 3+ years - will be auto-deleted on 04.15"
+1874,EXPIRED,9,"Account expired for 3+ years - will be auto-deleted on 05.15",,"Account expired for 3+ years - will be auto-deleted on 05.15"
 2439,facode,ILL,"Interlibrary Loan",,"Interlibrary Loan"
 2440,facode,XXX,(Unclassified),,(Unclassified)
 2430,faloc,L_AD,Adult,,Adult
@@ -308,6 +462,8 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2436,fatype,I_ILL_21,"Inter-library loan -- Inter-library loan - 21 day loan",,"Inter-library loan -- Inter-library loan - 21 day loan"
 2437,fatype,I_ILL_28,"Inter-library loan -- Inter-library loan - 28 day loan",,"Inter-library loan -- Inter-library loan - 28 day loan"
 2438,fatype,PUNC,(Unclassified),,(Unclassified)
+2844,FRAME_FA_CCODE,ILL,"Interlibrary Loan",,"Interlibrary Loan"
+2843,FRAME_FA_TYPE,I_ILL,"Inter-library loan",,"Inter-library loan"
 1977,frame_hoop_9528,DLAUDIO,"Downloadable Audiobook",,"Downloadable Audiobook"
 1978,frame_hoop_9528,DLBOOK,"Downloadable Book",,"Downloadable Book"
 1979,frame_hoop_9528,DLGRAPHIC,"Downloadable Graphic Novel",,"Downloadable Graphic Novel"
@@ -326,6 +482,20 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2395,frame_relia,NREL_TOOL,"Things : Tools",,"Things : Tools"
 2390,frame_relia,NREL_TOY,"Things : Board games, dolls, puzzles, and toys",,"Things : Board games, dolls, puzzles, and toys"
 2389,frame_relia,R_ART,"Things : Artwork",,"Things : Artwork"
+2689,"Framework - Digital branches",DIGITAL,"Next Digital Library",,"Next Digital Library"
+2695,"Framework - Digital ccode",DLAUDIO,"Audiobook (downloadable)",,"Audiobook (downloadable)"
+2696,"Framework - Digital ccode",DLBOOK,"Downloadable Book",,"Downloadable Book"
+2697,"Framework - Digital ccode",DLGRAPHIC,"Downloadable Graphic Novel",,"Downloadable Graphic Novel"
+2698,"Framework - Digital ccode",DLMAG,"Downloadable Magazine",,"Downloadable Magazine"
+2699,"Framework - Digital ccode",DLMUSIC,"Downloadable Music",,"Downloadable Music"
+2700,"Framework - Digital ccode",DLTV,"Downloadable TV Show",,"Downloadable TV Show"
+2701,"Framework - Digital ccode",DLVIDEO,"Downloadable Movie",,"Downloadable Movie"
+2703,"Framework - Digital ccode",ERESOURCE,"Online Resource",,"Online Resource"
+2690,"Framework - Digital item types",DIGITAL,"E-content : Digital content",,"E-content : Digital content"
+2692,"Framework - Digital locations",L_AD,Adult,,Adult
+2693,"Framework - Digital locations",L_JU,Childrens,,Childrens
+2694,"Framework - Digital locations",L_YA,"Young adult",,"Young adult"
+2702,"Framework - Digital not_loan",5,"Download or Online Access",,"Download or Online Access"
 2484,Framework_ALWAYS_SUPPRESSED,1,"Suppressed in OPAC",,"This record is hidden from view"
 2483,Framework_NST_CCCODE,PROFCOLL,"Professional Collection",,"Professional Collection"
 2482,Framework_NST_ITYPE,R_K_STW,"Story walk",,"Story walk"
@@ -481,6 +651,10 @@ id,category,authorised_value,lib,imageurl,lib_opac
 29,HINGS_UT,a,"Basic bibliographic unit",,
 30,HINGS_UT,c,"Secondary bibliographic unit: supplements, special issues, accompanying material",,
 31,HINGS_UT,d,Indexes,,
+2718,HOLD_CANCELLATION,ST_BOOT,"Staff cancellation - bootleg edition",,"Staff cancellation - bootleg edition"
+2683,HOLD_CANCELLATION,ST_BOR_REQ,"Staff cancellation - borrower requested cancellation",," "
+2685,HOLD_CANCELLATION,ST_CKI,"Staff cancellation - cancelled on check-in page - no reason given",," "
+2684,HOLD_CANCELLATION,ST_EXP,"Staff cancellation - request held more than 7 days",," "
 505,HoldsContact,BookClub,"Book Club",,"Book Club"
 490,HoldsContact,Email,Email,,Email
 504,HoldsContact,HomeDel,"Home Delivery",,"Home Delivery"
@@ -629,13 +803,13 @@ id,category,authorised_value,lib,imageurl,lib_opac
 1684,LBRNAME,Doniphan%Highland,"Doniphan County Library - Highland",,"Doniphan County Library - Highland"
 1687,LBRNAME,Effingham,"Effingham Community Library",,"Effingham Community Library"
 1683,LBRNAME,Elwood,"Doniphan County Library - Elwood",,"Doniphan County Library - Elwood"
-1688,LBRNAME,Eudora,"Eudora Public Library",,"Eudora Public Library"
+1688,LBRNAME,Eudora,"Eudora Community Library",,"Eudora Community Library"
 1691,LBRNAME,Highland_Community,"Highland Community College",,"Highland Community College"
 1693,LBRNAME,Horton,"Horton Public Library",,"Horton Public Library"
 1694,LBRNAME,Lansing,"Lansing Community Library",,"Lansing Community Library"
 1695,LBRNAME,Leavenworth,"Leavenworth Public Library",,"Leavenworth Public Library"
 1696,LBRNAME,Linwood,"Linwood Community Library",,"Linwood Community Library"
-1697,LBRNAME,Louisburg,"Louisburg (Hoopla Digital Only)",,"Louisburg (Hoopla Digital Only)"
+1697,LBRNAME,Louisburg,"Louisburg Library",,"Louisburg Library"
 1698,LBRNAME,Lyndon,"Lyndon Carnegie Library",,"Lyndon Carnegie Library"
 1719,LBRNAME,Mary%Cotton,"Sabetha, Mary Cotton Library",,"Sabetha, Mary Cotton Library"
 1699,LBRNAME,McLouth,"McLouth Public Library",,"McLouth Public Library"
@@ -664,7 +838,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 1685,LBRNAME,Troy,"Doniphan County Library - Troy",,"Doniphan County Library - Troy"
 1686,LBRNAME,Wathena,"Doniphan County Library - Wathena",,"Doniphan County Library - Wathena"
 1724,LBRNAME,Wellsville,"Wellsville City Library",,"Wellsville City Library"
-1715,LBRNAME,Wetmore%Academic,"Prairie Hills Schools - Wetmore Academic Center",,"Prairie Hills Schools - Wetmore Academic Center"
+1715,LBRNAME,Wetmore%Academic,"Prairie Hills Schools - Wetmore Academic Center (Permanently closed)",,"Prairie Hills Schools - Wetmore Academic Center (Permanently closed)"
 1725,LBRNAME,Wetmore%Public,"Wetmore Public Library",,"Wetmore Public Library"
 1726,LBRNAME,Williamsburg,"Williamsburg Community Library",,"Williamsburg Community Library"
 1727,LBRNAME,Winchester,"Winchester Public Library",,"Winchester Public Library"
@@ -713,6 +887,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 634,LCCODE,LARGEPRINT,"Large Print",,
 960,LCCODE,LARGEPRNF,"Large Print Non-Fiction",,
 2209,LCCODE,LGBTQ,LGBTQ+,,LGBTQ+
+2572,LCCODE,LIT_A,"Adult literacy",,"Adult literacy"
 2049,LCCODE,LYNDA,"Lynda.com course",,"Lynda.com course"
 2147,LCCODE,M_AFRICAN,"African American history and literature",,"African American history and literature"
 635,LCCODE,MAGAZINE,Magazine,,
@@ -722,6 +897,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2412,LCCODE,MCNA%,"McNaughton - All",,"McNaughton - All"
 637,LCCODE,MISC,Miscellaneous,,
 638,LCCODE,MUSIC,"Music CD",,
+2571,LCCODE,MUSIC_LP,"Music : record",,"Music : record"
 1747,LCCODE,MYST_COZY,Mystery-Cozy,,Mystery-Cozy
 639,LCCODE,MYSTERY,Mystery,,
 640,LCCODE,NINTENDODS,"VG-Nintendo DS",,
@@ -739,6 +915,12 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2148,LCCODE,PS5,"VG-PlayStation 5 (PS5)",,"VG-PlayStation 5 (PS5)"
 650,LCCODE,PSP,"VG-PlayStation Portable (PSP)",,
 651,LCCODE,PUZZLESBDG,"Puzzles & Board Games",,
+2570,LCCODE,R_REC_A,"Recreation : softball / baseball equipment",,"Recreation : softball / baseball equipment"
+2569,LCCODE,R_REC_B,"Recreation : basketball equipment",,"Recreation : basketball equipment"
+2568,LCCODE,R_REC_C,"Recreation : football equipment",,"Recreation : football equipment"
+2567,LCCODE,R_REC_F,"Recreation : fishing equipment",,"Recreation : fishing equipment"
+2566,LCCODE,R_REC_S,"Recreation : athletic / sports equipment",,"Recreation : athletic / sports equipment"
+2565,LCCODE,R_REC_T,"Recreation : tennis equipment",,"Recreation : tennis equipment"
 652,LCCODE,READER,"Easy Reader",,
 1748,LCCODE,REFERENCE,Reference,,Reference
 1971,LCCODE,RL_EASY,"Read and listen - easy reader",,"Read and listen - easy reader"
@@ -941,39 +1123,44 @@ id,category,authorised_value,lib,imageurl,lib_opac
 1548,LINTPOLICY,Yes-Signed,"Yes, Signed",,"Yes, Signed"
 667,LITYPES,%," All Item Types",,
 669,LITYPES,BOOK,BOOK,,
-670,LITYPES,COMPUTER,"PUBLIC USE COMPUTER",,
-671,LITYPES,DIGITAL,"DIGITAL CONTENT",,
-672,LITYPES,EQUIPMENT,EQUIPMENT,,
-674,LITYPES,GAME,VIDEOGAME,,
-1984,LITYPES,HCC_RES,"Highland CC Reserves",,"Highland CC Reserves"
-675,LITYPES,ILL,"BORROWED FROM ANOTHER LIBRARY",,
+670,LITYPES,COMPUTER,"Computers and internet : Public computer",,
+671,LITYPES,DIGITAL,"E-content : Digital content",,
+672,LITYPES,EQUIPMENT,"Things : Equipment",,"Things : Equipment"
+674,LITYPES,GAME,"Video game",,"Video game"
+1984,LITYPES,HCC_RES,"Reserve desk : Highland Community College",,"Reserve desk : Highland Community College"
+2560,LITYPES,I_ILL,"Inter-library loan",,"Inter-library loan"
+2561,LITYPES,I_ILL_07,"Inter-library loan -- Inter-library loan - 07 day loan",,"Inter-library loan -- Inter-library loan - 07 day loan"
+2562,LITYPES,I_ILL_14,"Inter-library loan -- Inter-library loan - 14 day loan",,"Inter-library loan -- Inter-library loan - 14 day loan"
+2563,LITYPES,I_ILL_21,"Inter-library loan -- Inter-library loan - 21 day loan",,"Inter-library loan -- Inter-library loan - 21 day loan"
+2564,LITYPES,I_ILL_28,"Inter-library loan -- Inter-library loan - 28 day loan",,"Inter-library loan -- Inter-library loan - 28 day loan"
+675,LITYPES,ILL,"INTER-LIBRARY LOAN",,"INTER-LIBRARY LOAN"
 676,LITYPES,KITS,"KIT OR MULTI-PART SET",,
-677,LITYPES,LAUNCHPAD,"LAUNCHPAD TABLET",,
-678,LITYPES,LOCALHOLD,"LOCAL HOLD ONLY",,
-680,LITYPES,LOCALHOLD2,"LOCAL HOLD BOOK",,
-684,LITYPES,MUSIC,"MUSIC CD",,
+677,LITYPES,LAUNCHPAD,"Computers and internet : Launchpad tablet",,"Computers and internet : Launchpad tablet"
+678,LITYPES,LOCALHOLD,"Special collections (local requests only)",,
+680,LITYPES,LOCALHOLD2,"Book (local requests only)",,
+684,LITYPES,MUSIC,Music,,
 2424,LITYPES,N_AB,Audiobook,,Audiobook
 2425,LITYPES,N_AB_M,"Audiobook (media player)",,"Audiobook (media player)"
 2426,LITYPES,N_AB_NEW,"Audiobook (new)",,"Audiobook (new)"
 2427,LITYPES,N_AB%,"A udiobook  - All audiobook item types ",,"Audiobook  - All audiobook item types "
-2050,LITYPES,NELECOURSE,"E-LEARNING COURSE",,"E-LEARNING COURSE"
-2183,LITYPES,NELECT,"Tablets, e-readers, and personal computing devices",,
-1986,LITYPES,NEQKEY,KEY,,KEY
-1987,LITYPES,NEQUDIE,"Die cut equipment",,"Die cut equipment"
-1988,LITYPES,NPASS,PASS,,PASS
-2185,LITYPES,NREL_BIKE,"Bicycles (and bicycle accessories)",,
-2186,LITYPES,NREL_CLOTH,"Clothing, costumes, and masks",,
-2187,LITYPES,NREL_COOK,"Cooking equipment",,
-2188,LITYPES,NREL_TOOL,Tools,,
-2189,LITYPES,NREL_TOY,"Board games, dolls, puzzles, and toys",,
+2050,LITYPES,NELECOURSE,"E-content : E-learning course",,"E-content : E-learning course"
+2183,LITYPES,NELECT,"Computers and internet : Tablets, e-readers, and personal computing devices",,"Computers and internet : Tablets, e-readers, and personal computing devices"
+1986,LITYPES,NEQKEY,Key,,Key
+1987,LITYPES,NEQUDIE,"Things : Die cut equipment",,"Things : Die cut equipment"
+1988,LITYPES,NPASS,"Things : Museum pass / event pass",,"Things : Museum pass / event pass"
+2185,LITYPES,NREL_BIKE,"Things : Bicycles (and bicycle accessories)",,"Things : Bicycles (and bicycle accessories)"
+2186,LITYPES,NREL_CLOTH,"Things : Clothing, costumes, and masks",,"Things : Clothing, costumes, and masks"
+2187,LITYPES,NREL_COOK,"Things : Cooking equipment",,"Things : Cooking equipment"
+2188,LITYPES,NREL_TOOL,"Things : Tools",,"Things : Tools"
+2189,LITYPES,NREL_TOY,"Things : Board games, dolls, puzzles, and toys",,"Things : Board games, dolls, puzzles, and toys"
 2190,LITYPES,NROOM,Room,,
-2191,LITYPES,NSOFT,Software,,
+2191,LITYPES,NSOFT,"Computers and internet : Software",,"Computers and internet : Software"
 1998,LITYPES,NVID%,"VIDEO - (All 5 VIDEO item types)",,
 682,LITYPES,NVIDEO,"VIDEO ( just VIDEO )",,
 679,LITYPES,NVIDLH,"VIDEO (Local requests only)",,
-688,LITYPES,NVIDNEW,"VIDEO (New)",,
+688,LITYPES,NVIDNEW,"Video (New)",,"Video (New)"
 2048,LITYPES,NVIDTV,"Video (Television)",,"Video (Television)"
-691,LITYPES,NVIDWALK,"VIDEO (No requests allowed)",,
+691,LITYPES,NVIDWALK,"Video (No requests allowed)",,"Video (No requests allowed)"
 2421,LITYPES,P_MAG,Magazine,,Magazine
 2422,LITYPES,P_MAG_N,"Magazine (new)",,"Magazine (new)"
 2423,LITYPES,P_REF,"Reference material",,"Reference material"
@@ -985,6 +1172,11 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2057,LITYPES,PUNC,(UNCLASSIFIED),,(UNCLASSIFIED)
 2418,LITYPES,R_ART,"Things : Artwork",,"Things : Artwork"
 2419,LITYPES,R_CMP_LAP,"Computers and internet : Laptop computer",,"Computers and internet : Laptop computer"
+2559,LITYPES,R_EQ_AV,"Things : Audio-visual equipment",,"Things : Audio-visual equipment"
+2558,LITYPES,R_INST,"Things : Musical insturments and accessories",,"Things : Musical insturments and accessories"
+2557,LITYPES,R_K_STW,"Story walk",,"Story walk"
+2556,LITYPES,R_PAS_PARK,"Things : Kansas Parks Pass",,"Things : Kansas Parks Pass"
+2555,LITYPES,R_REC,"Things : Recreation and sports",,"Things : Recreation and sports"
 2420,LITYPES,R_WIFI,"Computers and internet : Wireless internet hotspot",,"Computers and internet : Wireless internet hotspot"
 694,LLOC,%,"  All shelving locations",,"  All shelving locations"
 2011,LLOC,%BALD%,"~Display - BALDWIN -  All",,"~Display - BALDWIN -  All"
@@ -993,7 +1185,11 @@ id,category,authorised_value,lib,imageurl,lib_opac
 699,LLOC,CART," Recently returned",," Recently returned"
 698,LLOC,CATALOGING," Cataloging",," Cataloging"
 2475,LLOC,D_AD_BALD,"~Display - BALDWIN - Adult",,"~Display - BALDWIN - Adult"
+2574,LLOC,D_AD_LEAV,"~Display - LEAVENWRTH - Adult",,"~Display - LEAVENWRTH - Adult"
+2576,LLOC,D_AD_PAOL,"~Display - PAOLA - Adult",,"~Display - PAOLA - Adult"
 2476,LLOC,D_JU_BALD,"~Display - BALDWIN - Childrens",,"~Display - BALDWIN - Childrens"
+2575,LLOC,D_JU_LEAV,"~Display - LEAVENWRTH - Children's",,"~Display - LEAVENWRTH - Children's"
+2577,LLOC,D_JU_PAOL,"~Display - PAOLA - Children's",,"~Display - PAOLA - Children's"
 2143,LLOC,D_YA_BALD,"~Display - BALDWIN - Young adult",,"~Display - BALDWIN - Young adult"
 2144,LLOC,D_YA_LEAV,"~Display - LEAVWNWRTH - Young adult",,"~Display - LEAVWNWRTH - Young adult"
 2145,LLOC,D_YA_PAOL,"~Display - PAOLA - Young adult",,"~Display - PAOLA - Young adult"
@@ -1001,21 +1197,22 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2479,LLOC,L_JU,Childrens,,Childrens
 2142,LLOC,L_YA," Young adult",," Young adult"
 700,LLOC,PROC," Processing Center",," Processing Center"
-964,LLOST,%," Show all statusses",," Show all statusses"
-963,LLOST,1,(Lost),,(Lost)
-2032,LLOST,10,"In processing",,"In processing"
-2033,LLOST,11,"Temporary storage (Carbondale)",,"Temporary storage (Carbondale)"
-2034,LLOST,12,"Temporary storage (TONGANOXIE)",,"Temporary storage (TONGANOXIE)"
-2035,LLOST,13,Incomplete,,Incomplete
-2036,LLOST,14,"Temporary storage (HIAWATHA)",,"Temporary storage (HIAWATHA)"
-965,LLOST,2,"Lost (more than 45 days overdue)",,"Lost (more than 45 days overdue)"
-966,LLOST,3,"Missing (unable to location on shelf)",,"Missing (unable to location on shelf)"
-967,LLOST,4,"Lost (Damaged/Replace)",,"Lost (Damaged/Replace)"
-968,LLOST,5,"Lost (Patron Claims Returned)",,"Lost (Patron Claims Returned)"
-2028,LLOST,6,"Claims returned",,"Claims returned"
-2029,LLOST,7,"Lost (more than 45 days overdue)",,"Lost (more than 45 days overdue.)"
-2030,LLOST,8,"Tornado Damage",,"Tornado Damage"
-2031,LLOST,9,"Missing (inventory)",,"Missing (inventory)"
+964,LLOST,%," All  items",," All  items"
+2823,LLOST,INC%," All ""Incomplete"" items",,INC%
+2818,LLOST,INC13,Incomplete,,INC13
+2820,LLOST,INC15,"Incomplete (item is missing from bundle)",,INC15
+2824,LLOST,LST%," All ""Lost"" items",,LST%
+2807,LLOST,LST01,Lost,,LST01
+2808,LLOST,LST02,"Lost (more than 45 days overdue)",,LST02
+2810,LLOST,LST04,"Lost (Damaged/Replace)",,LST04
+2811,LLOST,LST05,"Lost (Patron Claims Returned)",,LST05
+2812,LLOST,LST06,"Lost (claims returned)",,LST06
+2813,LLOST,LST07,"Lost (more than 45 days overdue).",,LST07
+2825,LLOST,MIS%," All ""Missing"" items",,MIS%
+2809,LLOST,MIS03,"Missing (unable to locate on shelf)",,MIS03
+2814,LLOST,MIS09,"Missing (inventory)",,MIS09
+2826,LLOST,SPC%," All ""Special"" items",,SPC%
+2817,LLOST,SPC12,"Special circumstance (Topeka warehouse fire)",,SPC12
 1261,LMONTH,%," Any and all months",," Any and all months"
 1262,LMONTH,01,01-January,,01-January
 1263,LMONTH,02,02-February,,02-February
@@ -1035,55 +1232,45 @@ id,category,authorised_value,lib,imageurl,lib_opac
 1563,LNEWSPERM,NotApp,"Not Used at Library",,"Not Used at Library"
 1562,LNEWSPERM,NotAsked,"Not Asked",,"Not Asked"
 1560,LNEWSPERM,Yes,Yes,,Yes
-1635,LNOT_LOAN,-," All items that can be loaned",," All items that can be loaned"
-1627,LNOT_LOAN,%," All items",," All items"
-1636,LNOT_LOAN,%.," All items with a not for loan status",," All items with a not for loan status"
-1632,LNOT_LOAN,"Download or Online Access%","Download or Online Access",,"Download or Online Access."
-1634,LNOT_LOAN,"In Processing%","In Processing",,"In Processing"
-1631,LNOT_LOAN,Migration%,Migration,,Migration
-1629,LNOT_LOAN,"Not For Loan%","Not For Loan",,"Not For Loan"
-1633,LNOT_LOAN,"Online Access%","Online Access",,"Online Access"
-1628,LNOT_LOAN,Ordered%,Ordered,,Ordered
-1870,LNOT_LOAN,"Paola processing","Paola processing",,"Paola processing"
-1871,LNOT_LOAN,"Paola repair/mending","Paola repair/mending",,"Paola repair/mending"
-1869,LNOT_LOAN,Paola%,"Paola all statuses",,"Paola all statuses"
-1630,LNOT_LOAN,"Staff Collection%","Staff Collection",,"Staff Collection"
-170,LOC,ADULT," ADULT",," ADULT"
-2008,LOC,BALDADULT,"~Display - BALDWIN - Adult",,"ZZ Adult Display (Baldwin City Library)"
-2009,LOC,BALDCHILD,"~Display - BALDWIN - Childrens",,"ZZ Children's Display (Baldwin City Library)"
-209,LOC,CART,"Recently returned",,"ZZ Recently returned"
-173,LOC,CATALOGING,Cataloging,,"ZZ Cataloging"
-171,LOC,CHILDRENS," CHILDRENS",,"ZZ CHILDRENS"
-2353,LOC,D_AD_BALD,"~Display - BALDWIN - Adult",,"ZZ Adult display (Baldwin City Library)"
-2354,LOC,D_AD_LEAV,"~Display - LEAVENWRTH - Adult",,"ZZ Adult display (Leavenworth Public Library)"
-2355,LOC,D_AD_PAOL,"~Display - PAOLA - Adult",,"ZZ Adult Display (Paola Free Library)"
-2349,LOC,D_JU_BALD,"~Display - BALDWIN - Childrens",,"ZZ Children's display (Baldwin City Library)"
-2350,LOC,D_JU_LEAV,"~Display - LEAVENWRTH - Children's",,"ZZ Children's display (Leavenworth Public Library)"
-2351,LOC,D_JU_PAOL,"~Display - PAOLA - Children's",,"ZZ Children's display (Paola Free Library)"
-2141,LOC,D_YA_BALD,"~Display - BALDWIN - Young Adult",,"ZZ Young adult display (Baldwin City Library)"
-2139,LOC,D_YA_LEAV,"~Display - LEAVENWRTH - Young Adult",,"ZZ Young adult display (Leavenworth Public Library)"
-2140,LOC,D_YA_PAOL,"~Display - PAOLA - Young Adult",,"ZZ Young adult display (Paola Free Library)"
+1636,LNOT_LOAN,^-?[0-9]," All items with a not for loan status",," All items with a not for loan status"
+2834,LNOT_LOAN,-1,Ordered,,Ordered
+2833,LNOT_LOAN,-8,"Paola repair-mending",,"Paola repair-mending"
+2832,LNOT_LOAN,-9,"Paola processing",,"Paola processing"
+1627,LNOT_LOAN,(.*?)," All items regardless of not-for-loan status",," All items regardless of not-for-loan status"
+2835,LNOT_LOAN,1,"Not For Loan",,"Not For Loan"
+2831,LNOT_LOAN,11,"Added to bundle",,"Added to bundle"
+2836,LNOT_LOAN,2,"Staff collection",,"Staff collection"
+2827,LNOT_LOAN,3,Migration,,Migration
+2828,LNOT_LOAN,5,"Download or Online Access",,"Download or Online Access"
+2829,LNOT_LOAN,6,"Online Access",,"Online Access"
+2830,LNOT_LOAN,7,"In Processing",,"In Processing"
+1635,LNOT_LOAN,X," All items without a not-for-loan status",," All items without a not-for-loan status"
+209,LOC,CART,"Recently returned",,"Recently returned"
+173,LOC,CATALOGING,Cataloging,,Cataloging
+2353,LOC,D_AD_BALD,"Adult display (Baldwin City Library)",,"Adult display (Baldwin City Library)"
+2354,LOC,D_AD_LEAV,"Adult display (Leavenworth Public Library)",,"Adult display (Leavenworth Public Library)"
+2355,LOC,D_AD_PAOL,"Adult Display (Paola Free Library)",,"Adult Display (Paola Free Library)"
+2349,LOC,D_JU_BALD,"Children's display (Baldwin City Library)",,"Children's display (Baldwin City Library)"
+2350,LOC,D_JU_LEAV,"Children's display (Leavenworth Public Library)",,"Children's display (Leavenworth Public Library)"
+2351,LOC,D_JU_PAOL,"Children's display (Paola Free Library)",,"Children's display (Paola Free Library)"
+2141,LOC,D_YA_BALD,"Young adult display (Baldwin City Library)",,"Young adult display (Baldwin City Library)"
+2139,LOC,D_YA_LEAV,"Young adult display (Leavenworth Public Library)",,"Young adult display (Leavenworth Public Library)"
+2140,LOC,D_YA_PAOL,"Young adult display (Paola Free Library)",,"Young adult display (Paola Free Library)"
 2352,LOC,L_AD," Adult",," Adult"
-2196,LOC,L_JU," Childrens",," Children's"
+2196,LOC,L_JU," Children's",," Children's"
 2138,LOC,L_YA," Young adult",," Young adult"
-738,LOC,LVPLADULT,"~Display - LEAVENWRTH - Adult",,"ZZ Adult Display (Leavenworth Public Library)"
-739,LOC,LVPLCHILD,"~Display - LEAVENWRTH - Children's",,"ZZ Children's Display (Leavenworth Public Library)"
-1754,LOC,PAOLAADULT,"~Display - PAOLA - Adult",,"ZZ Adult Display (Paola Free Library)"
-1753,LOC,PAOLACHILD,"~Display - PAOLA - Children's",,"ZZ Children's display (Baldwin City Library)"
-210,LOC,PROC,"Processing Center",,"ZZ Processing center"
-3,LOST,1,Lost,,"Lost ~ !"
-1903,LOST,10,"In processing",,"In processing & !"
-1974,LOST,11,"Temporary storage (Carbondale)",,"Temporary storage (Carbondale) & !"
-2492,LOST,12,"Topeka warehouse fire",,"Topeka warehouse fire"
-1993,LOST,13,Incomplete,,"Incomplete & !"
-1997,LOST,14,"Temporary storage (HIAWATHA)",,"Temporary storage (HIAWATHA) & !"
-962,LOST,2,"Lost (more than 45 days overdue)",,"Lost (more than 45 days overdue) ~ !"
-6,LOST,3,"Missing (unable to locate on shelf)",,"Missing (unable to locate on shelf) - !"
-221,LOST,4,"Lost (Damaged/Replace)",,"Lost (Damaged/Replace) ~ !"
-204,LOST,5,"Lost (Patron Claims Returned)",,"Lost (Patron Claims Returned) ~ # !"
-2021,LOST,6,"Claims returned",,"Claims returned & # !"
-1089,LOST,7,"Lost (more than  45 days overdue)",,"Lost (more than  45 days overdue.) ~ !"
-1782,LOST,9,"Missing (inventory)",,"Missing (inventory) - !"
+210,LOC,PROC,"Processing Center",,"Processing center"
+3,LOST,1,Lost,,LST01
+2492,LOST,12,"Special circumstance (Topeka warehouse fire)",,SPC12
+1993,LOST,13,Incomplete,,INC13
+2503,LOST,15,"Incomplete (item is missing from bundle)",,INC15
+962,LOST,2,"Lost (more than 45 days overdue)",,LST02
+6,LOST,3,"Missing (unable to locate on shelf)",,MIS03
+221,LOST,4,"Lost (Damaged/Replace)",,LST04
+204,LOST,5,"Lost (Patron Claims Returned)",,LST05
+2021,LOST,6,"Lost (claims returned)",,LST06
+1089,LOST,7,"Lost (more than 45 days overdue).",,LST07
+1782,LOST,9,"Missing (inventory)",,MIS09
 755,LPAY,%," All types",,
 756,LPAY,c,Credit,,
 757,LPAY,pay,Payment,,
@@ -1302,16 +1489,17 @@ id,category,authorised_value,lib,imageurl,lib_opac
 1590,MRITYPE,WALKIN1,"WALKIN MOVIE",,"WALKIN MOVIE"
 1591,MRITYPE,WALKIN2,"WALKIN BOOK",,"WALKIN BOOK"
 1592,MRITYPE,XXX,(UNCLASSIFIED),,(UNCLASSIFIED)
-22,NOT_LOAN,-1,Ordered,,Ordered.
-1866,NOT_LOAN,-8,"Paola repair/mending",,"Paola repair/mending."
-1867,NOT_LOAN,-9,"Paola processing",,"Paola processing."
-24,NOT_LOAN,1,"Not For Loan",,"Not For Loan."
-2397,NOT_LOAN,10,"Storage (Sabetha Elementary School)",,"Storage (Sabetha Elementary School)"
-25,NOT_LOAN,2,"Staff Collection",,"Staff Collection."
-191,NOT_LOAN,3,Migration,,Migration.
-207,NOT_LOAN,5,"Download or Online Access",,"Download or Online Access."
-214,NOT_LOAN,6,"Online Access",,"Online Access."
-990,NOT_LOAN,7,"In Processing",,"In Processing."
+2753,NOT_LOAN,,,,
+22,NOT_LOAN,-1,Ordered,,Ordered
+1866,NOT_LOAN,-8,"Paola repair/mending",,"Paola repair/mending"
+1867,NOT_LOAN,-9,"Paola processing",,"Paola processing"
+24,NOT_LOAN,1,"Not For Loan",,"Not For Loan"
+2504,NOT_LOAN,11,"Added to bundle",,"Added to bundle"
+25,NOT_LOAN,2,"Staff Collection",,"Staff Collection"
+191,NOT_LOAN,3,Migration,,Migration
+207,NOT_LOAN,5,"Download or Online Access",,"Download or Online Access"
+214,NOT_LOAN,6,"Online Access",,"Online Access"
+990,NOT_LOAN,7,"In Processing",,"In Processing"
 403,ORDER_CANCELLATION_REASON,0,"No reason provided",,
 404,ORDER_CANCELLATION_REASON,1,"Out of stock",,
 405,ORDER_CANCELLATION_REASON,2,Restocking,,
@@ -1322,6 +1510,30 @@ id,category,authorised_value,lib,imageurl,lib_opac
 495,PA_CLASS,Permissions,Permissions,,
 1640,PA_CLASS,PREF,Preferences,,Preferences
 496,PA_CLASS,School,School,,
+2709,PA_CLASS,STAFF,"Staff type attributes",,"Staff type attributes"
+2582,PA_CLASS,STATS,"Statistical groups",,"Statistical groups"
+2743,PA_P_ASPEN,10010,"01 - Superlibrarian",,"01 - Superlibrarian"
+2744,PA_P_ASPEN,10020,"02 - Aspen Discovery administrator",,"02 - Aspen Discovery administrator"
+2745,PA_P_ASPEN,10030,"03 - Technical services",,"03 - Technical services"
+2746,PA_P_ASPEN,10040,"04 - Circulation",,"04 - Circulation"
+2747,PA_P_ASPEN,10050,"05 - Aide - Volunteer",,"05 - Aide - Volunteer"
+2748,PA_P_ASPEN,10060,"06 - Outreach",,"06 - Outreach"
+2749,PA_P_ASPEN,20070,"07 - Self check-out",,"07 - Self check-out"
+2750,PA_P_ASPEN,20080,"08 - Self check-in",,"08 - Self check-in"
+2751,PA_P_ASPEN,90010,"09 - Testing",,"09 - Testing"
+2752,PA_P_ASPEN,99999,"99 - Dormant",,"99 - Dormant"
+2733,PA_P_KOHA,10010,"01 - Superlibrarian",,"01 - Superlibrarian"
+2734,PA_P_KOHA,10020,"02 - Director - Assistant director",,"02 - Director - Assistant director"
+2804,PA_P_KOHA,10025,"02L - Director (limited) - Assistant director (limited)",,"02L - Director (limited) - Assistant director (limited)"
+2735,PA_P_KOHA,10030,"03 - Technical services",,"03 - Technical services"
+2805,PA_P_KOHA,10035,"03L - Technical services (limited)",,"03L - Technical services (limited)"
+2736,PA_P_KOHA,10040,"04 - Circulation",,"04 - Circulation"
+2737,PA_P_KOHA,10050,"05 - Aide - Volunteer",,"05 - Aide - Volunteer"
+2738,PA_P_KOHA,10060,"06 - Outreach",,"06 - Outreach"
+2739,PA_P_KOHA,20070,"07 - Self check-out",,"07 - Self check-out"
+2740,PA_P_KOHA,20080,"08 - Self check-in",,"08 - Self check-in"
+2741,PA_P_KOHA,90010,"09 - Testing",,"09 - Testing"
+2742,PA_P_KOHA,99999,"99 - Dormant",,"99 - Dormant"
 1623,PAYMENT_TYPE,CASH,Cash,,Cash
 1625,PAYMENT_TYPE,CCARD,"Credit card",,"Credit card"
 1624,PAYMENT_TYPE,CHECK,Check,,Check
@@ -1353,6 +1565,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2401,R_YEAR,2021,2021,,2021
 2400,R_YEAR,2022,2022,,2022
 2493,R_YEAR,2023,2023,,2023
+2687,R_YEAR,2024,2024,,2024
 1638,RECEIPT_PRINT,PRRE_EMAIL,"Email receipt",,"Email receipt"
 1639,RECEIPT_PRINT,PRRE_NO,"Never print a receipt",,"Never print a receipt"
 1637,RECEIPT_PRINT,PRRE_YES,"Always print a receipt",,"Always print a receipt"
@@ -1420,6 +1633,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 259,REPORT_GROUP,REGULAR,"Daily, Monthly, Yearly Stats",,
 261,REPORT_GROUP,SCHOOL,"School Libraries",,
 262,REPORT_GROUP,STATS,Statistics,,
+2841,REPORT_GROUP,TEST,"Test group",,"Test group"
 308,REPORT_SUBGROUP,ALLTIME,"All Time",,REGULAR
 896,REPORT_SUBGROUP,CAT_READ,"Reading Program Reports",,CAT
 356,REPORT_SUBGROUP,Checkedout,"Checked Out",,CIRC
@@ -1462,7 +1676,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 296,REPORT_SUBGROUP,SCHOOLAD,"School Libraries-admin",,ADMIN
 367,REPORT_SUBGROUP,SCHOverdues,"Overdues (schools)",,SCHOOL
 255,REPORT_SUBGROUP,SHELFLIST,"Shelf Lists",,CAT
-2398,REPORT_SUBGROUP,STAT_22,"2023 beginning of month statistics",,STATS
+2398,REPORT_SUBGROUP,STAT_22,"2025 beginning of month statistics",,STATS
 1751,REPORT_SUBGROUP,STAT_EOM,"End of month statistics",,STATS
 2273,REPORT_SUBGROUP,STAT_LM,"Last month's statistics - Next-wide",,STATS
 1176,REPORT_SUBGROUP,STAT_M,"Last calendar month",,STATS
@@ -1470,6 +1684,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 252,REPORT_SUBGROUP,STATUS,"Status reports-lost, damaged",,CAT
 365,REPORT_SUBGROUP,Students,Students,,SCHOOL
 302,REPORT_SUBGROUP,SYSTEMAD,System-admin,,ADMIN
+2842,REPORT_SUBGROUP,TEST_SUB,"Test sub-group",,TEST
 2274,REPORT_SUBGROUP,TT,"Template Toolkit",,ADMIN
 406,REPORT_SUBGROUP,Weeded,"Weeded Already",,CAT
 256,REPORT_SUBGROUP,WEEDING,"Weeding Criteria",,CAT
@@ -1513,46 +1728,55 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2486,SUGGEST_FORMAT,N_AB,Audiobook,,Audiobook
 2487,SUGGEST_FORMAT,NVIDEO,Video,,Video
 2489,SUGGEST_FORMAT,OTHER,"Other (please specify in the notes field)",,"Other (please specify in the notes field)"
-197,SUPPRESS,1,"Suppressed in OPAC",,"This record is hidden from view"
+197,SUPPRESS,1,"Not visible in Aspen Discovery",,"This record is hidden from view"
 1221,UPLOAD,IMG,Images,,Images
-2277,USD113_T,BRUNA,Bruna,,Bruna
-2278,USD113_T,DREW,Drew,,Drew
+2670,USD,-," School district data not set",," School district data not set"
+2620,USD,JO_USD_229,"Johnson : Blue Valley School District - USD 229",,"Johnson : Blue Valley School District - USD 229"
+2625,USD,JO_USD_230,"Johnson : Spring Hill School District - USD 230",,"Johnson : Spring Hill School District - USD 230"
+2622,USD,JO_USD_231,"Johnson : Gardner Edgerton School District - USD 231",,"Johnson : Gardner Edgerton School District - USD 231"
+2621,USD,JO_USD_232,"Johnson : De Soto School District - USD 232",,"Johnson : De Soto School District - USD 232"
+2623,USD,JO_USD_233,"Johnson : Olathe School District - USD 233",,"Johnson : Olathe School District - USD 233"
+2624,USD,JO_USD_512,"Johnson : Shawnee Mission Public Schools School District - USD 512",,"Johnson : Shawnee Mission Public Schools School District - USD 512"
+2616,USD,LV_USD_207,"Leavenworth : Fort Leavenworth School District - USD 207",,"Leavenworth : Fort Leavenworth School District - USD 207"
+2615,USD,LV_USD_449,"Leavenworth : Easton School District - USD 449",,"Leavenworth : Easton School District - USD 449"
+2618,USD,LV_USD_453,"Leavenworth : Leavenworth School District - USD 453",,"Leavenworth : Leavenworth School District - USD 453"
+2614,USD,LV_USD_458,"Leavenworth : Basehor-Linwood School District - USD 458",,"Leavenworth : Basehor-Linwood School District - USD 458"
+2619,USD,LV_USD_464,"Leavenworth : Tonganoxie School District - USD 464",,"Leavenworth : Tonganoxie School District - USD 464"
+2617,USD,LV_USD_469,"Leavenworth : Lansing School District - USD 469",,"Leavenworth : Lansing School District - USD 469"
+2589,USD,WY_USD_202,"Wyandotte : Turner-Kansas City School District - USD 202",,"Wyandotte : Turner-Kansas City School District - USD 202"
+2592,USD,WY_USD_203,"Wyandotte : Piper-Kansas City School District - USD 203",,"Wyandotte : Piper-Kansas City School District - USD 203"
+2591,USD,WY_USD_204,"Wyandotte : Bonner Springs School District - USD 204",,"Wyandotte : Bonner Springs School District - USD 204"
+2590,USD,WY_USD_500,"Wyandotte : Kansas City School District - USD 500",,"Wyandotte : Kansas City School District - USD 500"
+2499,USD113_T,BURGER,Burger,,Burger
 2279,USD113_T,EDELMAN,Edelman,,Edelman
-2280,USD113_T,ELLIOTT,Elliott,,Elliott
-2281,USD113_T,FISCHER,Fischer,,Fischer
-2307,USD113_T,GILBERT,Gilbert,,Gilbert
-2306,USD113_T,HANN,Hann,,Hann
+2306,USD113_T,HAHN,Hahn,,Hahn
 2305,USD113_T,HUGHES,Hughes,,Hughes
 2304,USD113_T,JOHNSON,Johnson,,Johnson
 2303,USD113_T,KEIM,Keim,,Keim
-2302,USD113_T,LIERZ,Lierz,,Lierz
+2717,USD113_T,LIERZ,Lierz,,Lierz
 2301,USD113_T,MANN,Mann,,Mann
-2300,USD113_T,MATHEWSON,Mathewson,,Mathewson
-2299,USD113_T,MEYER,Meyer,,Meyer
-2298,USD113_T,MOORE,Moore,,Moore
+2500,USD113_T,MEADE,Meade,,Meade
 2297,USD113_T,OEHM,Oehm,,Oehm
-2296,USD113_T,PARENT,"Parents As Teachers",,"Parents As Teachers"
-2295,USD113_T,PLATTNER,Plattner,,Plattner
 2294,USD113_T,PLOEGER,Ploeger,,Ploeger
 2293,USD113_T,PYLE,Pyle,,Pyle
 2292,USD113_T,RICHARDSON,Richardson,,Richardson
-2291,USD113_T,SANDMANN,Sandmann,,Sandmann
-2290,USD113_T,SCHAFFER,Schaffer,,Schaffer
+2501,USD113_T,SCHRAAD,Schraad,,Schraad
 2289,USD113_T,SCHUETTE,Schuette,,Schuette
 2288,USD113_T,STALLBAUMER,Stallbaumer,,Stallbaumer
 2287,USD113_T,STOVER,Stover,,Stover
+2502,USD113_T,STRAHM,Strahm,,Strahm
 2286,USD113_T,STREETT,Streett,,Streett
-2285,USD113_T,UPHAUS,Uphaus,,Uphaus
 2284,USD113_T,WERNER,Werner,,Werner
 2283,USD113_T,WERTENBERGER,Wertenberger,,Wertenberger
 2282,USD113_T,WILTZ,Wiltz,,Wiltz
-2308,USD113_T,X,"Holdover from previous year",,"Holdover from previous year"
+2678,VENDOR_INTERFACE_TYPE,ADMIN,Admin,,
+2679,VENDOR_INTERFACE_TYPE,ORDERS,Orders,,
+2680,VENDOR_INTERFACE_TYPE,REPORTS,Reports,,
+2754,VENDOR_ISSUE_TYPE,MAINTENANCE,Maintenance,,
+2755,VENDOR_ISSUE_TYPE,OUTAGE,Outage,,
 20,WITHDRAWN,0,,,
 21,WITHDRAWN,1,Withdrawn,,
 179,WITHDRAWN,2,Discard,,
-215,WITHDRAWN,3,"Lost - Not Returnable",,"Lost - Not Returnable"
-2491,WITHDRAWN,4,"WIthdrawn during cataloging freeze",,"WIthdrawn during cataloging freeze"
-2494,WITHDRAWN,5,"Withdrawn - Wetmore Academic Center",,"Withdrawn - Wetmore Academic Center"
 2456,XS_BORROWER,1,"Sort by borrower's home library",,"Sort by borrower's home library"
 2466,XS_BORROWER,10,"Sort by borrower's last name (Z-A)",,"Sort by borrower's last name (Z-A)"
 2467,XS_BORROWER,11,"Sort by account creation date (newest to oldest)",,"Sort by account creation date (newest to oldest)"
@@ -1582,6 +1806,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2320,XS_NULLS,CU,"Collection code is (Unclassified)",,"Collection code is (Unclassified)"
 2324,XS_NULLS,E," Combined search: all items with  blank fields",," Combined search: all items with  blank fields"
 2316,XS_NULLS,E3," Combined search: items with blank location, item type, or collection code fields",," Combined search: items with blank location, item type, or collection code fields"
+2837,XS_NULLS,FD,"Item added date is in the future",,"Item added date is in the future"
 2325,XS_NULLS,G," Combined search: all items with problematic fields",," Combined search: all items with problematic fields"
 2323,XS_NULLS,G3," Combined search: items with problematic location, item type, or collection code fields",," Combined search: items with problematic location, item type, or collection code fields"
 2313,XS_NULLS,I,"Item type - any blank or Unclassified items",,"Item type - any blank or Unclassified items"
@@ -1609,6 +1834,8 @@ id,category,authorised_value,lib,imageurl,lib_opac
 2136,Year,2021,2021,,2021
 2396,Year,2022,2022,,2022
 2480,Year,2023,2023,,2023
+2686,Year,2024,2024,,2024
+2806,Year,2025,2025,,2025
 1125,YEMAILNEWS,%," All newsletter permissions",," All newsletter permissions"
 1126,YEMAILNEWS,No,No,,No
 1128,YEMAILNEWS,NotApp,"Not Used at Library",,"Not Used at Library"
@@ -1707,6 +1934,7 @@ id,category,authorised_value,lib,imageurl,lib_opac
 859,YNUMBER,95,095,,
 2134,YNUMBER,950,950,,
 2135,YNUMBER,999,999,,
+2688,"Z Framework libraries",DIGITAL,"Digital Content",,"Digital Content"
 1105,Z_AGE_LEST,0," 0 (Less than 1 year old)",," 0 (Less than 1 year old)"
 1106,Z_AGE_LEST,1," 1",," 1"
 1115,Z_AGE_LEST,10,10,,10
@@ -2015,13 +2243,6 @@ id,category,authorised_value,lib,imageurl,lib_opac
 1161,ZREQTYPE,Inactive%,"Inactive (all)",,"Inactive (all)"
 1222,ZSORTBRANCH,branches.branchcode,branchcode,,branchcode
 1223,ZSORTBRANCH,branches.branchname,branchname,,branchname
-1207,ZSTAFF,%," All staff account types",," All staff account types"
-1210,ZSTAFF,AIDE,AIDE,,AIDE
-1208,ZSTAFF,CIRC,CIRC,,CIRC
-1209,ZSTAFF,DIRECTOR,DIRECTOR,,DIRECTOR
-1213,ZSTAFF,SELF,SELF-CHECK,,SELF-CHECK
-1212,ZSTAFF,SIP,SIP,,SIP
-1211,ZSTAFF,TECH,TECH,,TECH
 1070,ZTRANSPORT,%,"All message types",,"All message types"
 1071,ZTRANSPORT,email,"E-mail notices",,"E-mail notices"
 1072,ZTRANSPORT,print,"Print notices",,"Print notices"
@@ -2030,6 +2251,6 @@ id,category,authorised_value,lib,imageurl,lib_opac
 1148,ZWITHDRAWN,1,Withdrawn,,Withdrawn
 1146,ZWITHDRAWN,2,Discard,,Discard
 1147,ZWITHDRAWN,3,"Lost - not returnable",,"Lost - not returnable"
-1097,ZYES_NO,%," Show all",," Show all"
+1097,ZYES_NO,%," Show all items",," Show all items"
 1098,ZYES_NO,No,No,,No
 1099,ZYES_NO,Yes,Yes,,Yes

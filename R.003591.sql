@@ -4,7 +4,7 @@ R.003591
 ----------
 
 Name: LibraryIQ - Item File (deleted yesterday) - BONNERSPGS
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -54,7 +54,7 @@ SELECT
     damageds.lib, 
     losts.lib, 
     withdrawns.lib,
-    if(deleteditems.onloan > 0, "Checked out", "")
+    if(deleteditems.onloan &gt; 0, "Checked out", "")
   ) AS `Current Item Statusdeleteditems.onloan`,
   deleteditems.datelastseen AS `Check In Date`,
   deleteditems.onloan AS `Due Date`,
@@ -127,7 +127,7 @@ FROM
     WHERE
       (statistics.type = 'issue' OR
         statistics.type = 'renew') AND
-      statistics.datetime > CurDate() - INTERVAL 1 YEAR
+      statistics.datetime &gt; CurDate() - INTERVAL 1 YEAR
     GROUP BY
       statistics.itemnumber) statisticss ON statisticss.itemnumber =
       deleteditems.itemnumber LEFT JOIN

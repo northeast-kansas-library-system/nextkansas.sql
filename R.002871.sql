@@ -4,7 +4,7 @@ R.002871
 ----------
 
 Name: GHW - YE 11.2
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

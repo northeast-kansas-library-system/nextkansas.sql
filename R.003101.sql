@@ -4,7 +4,7 @@ R.003101
 ----------
 
 Name: GHW - Report Names
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -32,7 +32,7 @@ Expiry: 300
 SELECT
   rg.lib AS GGROUP,
   rsg.lib AS SUB_GROUP,
-  Concat("---<br />### Number: ", saved_sql.id, "<br />## Name: ", saved_sql.report_name, '<br /><br />', Replace(saved_sql.notes, '\r\n', CONCAT(Char(13),Char(10)))) AS INFO
+  Concat("---### Number: ", saved_sql.id, "## Name: ", saved_sql.report_name, '', Replace(saved_sql.notes, '\r\n', CONCAT(Char(13),Char(10)))) AS INFO
 FROM
   saved_sql
   LEFT JOIN (SELECT

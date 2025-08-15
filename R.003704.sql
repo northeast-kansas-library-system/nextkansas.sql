@@ -4,7 +4,7 @@ R.003704
 ----------
 
 Name: GHW - Borrower count by borrower category
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2023-02-10 17:06:53
-Modified on: 2023-02-10 17:06:53
-Date last run: 2023-05-15 11:23:22
+Modified on: 2024-04-09 14:00:45
+Date last run: 2025-05-19 09:47:11
 
 ----------
 
@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint> 
-<p>Borrower statistics - borrower counts by category</p> 
-<ul><li>during the previous calendar month</li> 
-<li>at the library you specify</li> 
-<li>grouped and sorted by borrower home library and borrower category</li> 
-</ul><br /> 
-<p><ins>Notes:</ins></p> 
-<p></p> 
-<p>If 'New borrowers allowed' = 'Yes,' then staff at the library specified can create new borrowers with that category.</p> 
-<p></p> 
-<p class="updated">This report and these notes updated on 2023.02.10</p> 
-<p></p> 
-<p class= "notetags" style="display: none;">#monthly #statistics #borrower #statistics #category</p> 
-<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
-</div> 
+
+Borrower statistics - borrower counts by category 
+during the previous calendar month 
+at the library you specify 
+grouped and sorted by borrower home library and borrower category 
+ 
+Notes: 
+ 
+If 'New borrowers allowed' = 'Yes,' then staff at the library specified can create new borrowers with that category. 
+ 
+This report and these notes updated on 2023.02.10 
+ 
+#monthly #statistics #borrower #statistics #category 
+ 
+ 
 
 ----------
 */
@@ -46,11 +46,11 @@ Expiry: 300
 SELECT 
   branches_categories.branchname AS 'Borrower home library', 
   branches_categories.description AS 'Borrower category', 
-  total.Count_borrowernumber AS 'Total borrowers', 
+  Coalesce(total.Count_borrowernumber, 0) AS 'Total borrowers', 
   renewed_lm.Count_borrowernumber AS 'Borrowers renewed last month', 
   added_lm.Count_borrowernumber AS 'Borrowers added last month', 
   deleted_lm.Count_borrowernumber AS 'Borrowers deleted last month', 
-  If(limitationss.categorycode <> '', 'Yes', '') AS 'New borrowers allowed' 
+  If(limitationss.categorycode &lt;&gt; '', 'Yes', '') AS 'New borrowers allowed' 
 FROM 
     (SELECT 
       branches.branchcode, 
@@ -61,7 +61,7 @@ FROM
       branches, 
       categories
     WHERE 
-      branches.branchcode LIKE <<Choose your library|ZBRAN>>
+      branches.branchcode LIKE &lt;&gt;
     ) branches_categories 
   LEFT JOIN 
     (SELECT 

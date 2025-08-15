@@ -4,7 +4,7 @@ R.003286
 ----------
 
 Name: GHW - HCC Video problem
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -44,7 +44,7 @@ WHERE
 GROUP BY
   biblio.biblionumber
 HAVING
-  Count(items.itemnumber) > 1
+  Count(items.itemnumber) &gt; 1
 ORDER BY
   Count(items.itemnumber) DESC
 

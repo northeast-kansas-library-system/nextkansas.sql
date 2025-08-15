@@ -4,7 +4,7 @@ R.003251
 ----------
 
 Name: GHW - Holds Queue
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-08-16 14:59:53
-Modified on: 2021-02-08 14:35:58
-Date last run: 2023-05-23 13:58:50
+Modified on: 2024-01-17 12:08:52
+Date last run: 2025-08-15 10:15:13
 
 ----------
 
@@ -22,14 +22,14 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class="noPrint">
-<p>Print holds queue report</p>
-<ul><li>Shows items in the current holds queue</li>
-<li>at the location you specify</li>
-<li>grouped by specified location, items home branch, call number, author, and title</li>
-<li>contains links to the bibliographic records</li>
-</ul><br />
-</div>
+ 
+Print holds queue report
+Shows items in the current holds queue
+at the location you specify
+grouped by specified location, items home branch, call number, author, and title
+contains links to the bibliographic records
+
+
 
 ----------
 */
@@ -37,22 +37,22 @@ Expiry: 300
 
 
 SELECT
-  Concat_Ws('<br />', 
+  Concat_Ws('', 
     Concat('Current: ', hold_fill_targets.source_branchcode),
     Concat('Owned by: ', items.homebranch), 
     Concat('Last seen: ', items.datelastseen),
-    (Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">Go to biblio</a>'))
+    (Concat('Go to biblio'))
   ) AS INFO,
-  Concat_Ws('<br />', 
+  Concat_Ws('', 
     If(LOCATIONS.lib = PERM_LOCATIONS.lib, LOCATIONS.lib, Concat(PERM_LOCATIONS.lib, " (", LOCATIONS.lib, ")")), 
     ITEMTYPESS.description,
     CCODES.lib, 
     items.itemcallnumber, 
     items.copynumber
   ) AS CALL_NUMBER,
-  Concat_Ws('<br />', 
+  Concat_Ws('', 
     biblio.author, 
-    (Concat_Ws('<br />', 
+    (Concat_Ws('', 
       biblio.title, 
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'),
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'),
@@ -100,7 +100,7 @@ FROM
     FROM
       itemtypes) ITEMTYPESS ON ITEMTYPESS.itemtype = items.itype
 WHERE
-  hold_fill_targets.source_branchcode LIKE <<Select your branch|LBRANCH>>
+  hold_fill_targets.source_branchcode LIKE &lt;&gt;
 GROUP BY
   hold_fill_targets.itemnumber
 ORDER BY

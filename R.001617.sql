@@ -13,7 +13,7 @@ Group: Interlibrary Loan
 
 Created on: 2012-10-31 11:14:59
 Modified on: 2018-04-06 20:45:17
-Date last run: 2021-01-11 13:00:42
+Date last run: 2023-06-27 13:15:24
 
 ----------
 
@@ -22,7 +22,7 @@ Expiry: 0
 
 ----------
 
-<p><span style="background-color: darkred; color: white">Report upgrade needed.</p>
+Report upgrade needed.
 
 ----------
 */

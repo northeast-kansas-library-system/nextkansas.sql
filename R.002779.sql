@@ -4,7 +4,7 @@ R.002779
 ----------
 
 Name: GHW - Count of current un-expired borrowers at a branch
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Borrowers
      -
 
 Created on: 2016-09-27 10:16:31
-Modified on: 2018-04-16 11:02:34
-Date last run: 2022-08-31 12:04:59
+Modified on: 2024-01-17 11:36:31
+Date last run: 2024-07-23 15:34:05
 
 ----------
 
@@ -22,13 +22,13 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>Counts un-expired borrowers with a specified homebranch</p>
-<ul><li>Counts borrowers currently in NExpress</li>
-<li>with a specified homebranch</li>
-<li>grouped and sorted by borrower's home library</li>
-</ul><br />
-</div>
+ 
+Counts un-expired borrowers with a specified homebranch
+Counts borrowers currently in NExpress
+with a specified homebranch
+grouped and sorted by borrower's home library
+
+
 
 ----------
 */
@@ -41,8 +41,8 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.dateexpiry > Now() AND
-  borrowers.branchcode LIKE <<Patron home library|LBRANCH>>
+  borrowers.dateexpiry &gt; Now() AND
+  borrowers.branchcode LIKE &lt;&gt;
 GROUP BY
   borrowers.branchcode WITH ROLLUP
 

@@ -4,7 +4,7 @@ R.003579
 ----------
 
 Name: LibraryIQ - Circulation File (yesterday) - BONNERSPGS
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

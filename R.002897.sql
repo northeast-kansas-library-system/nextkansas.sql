@@ -4,7 +4,7 @@ R.002897
 ----------
 
 Name: GHW - Overdue items by check-out branch
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Circulation
      Overdues
 
 Created on: 2017-02-01 16:54:32
-Modified on: 2021-08-12 11:41:34
-Date last run: 2021-12-30 12:41:20
+Modified on: 2024-01-17 11:49:00
+Date last run: 2023-08-02 10:08:01
 
 ----------
 
@@ -22,16 +22,16 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>Generates a list of items checked out at a branch that were due before a certain date</p>
-<ul><li>Shows currently overdue items due before the date you specify</li>
-<li>shows items checked out at the library you specify regardless of who owns the item</li>
-<li>grouped by item barcode number</li>
-<li>sorted by NExpress standard classification scheme</li>
-</ul><br />
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2897&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Generates a list of items checked out at a branch that were due before a certain date
+Shows currently overdue items due before the date you specify
+shows items checked out at the library you specify regardless of who owns the item
+grouped by item barcode number
+sorted by NExpress standard classification scheme
+
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -74,8 +74,8 @@ FROM
   borrowers
     ON issues.borrowernumber = borrowers.borrowernumber
 WHERE
-  items.holdingbranch LIKE <<Check out branch|ZBRAN>> AND
-  items.onloan <= <<Items due on or before|date>>
+  items.holdingbranch LIKE &lt;&gt; AND
+  items.onloan &lt;= &lt;&gt;
 GROUP BY
   items.barcode
 ORDER BY

@@ -4,7 +4,7 @@ R.003271
 ----------
 
 Name: ADMINREPORT - Media 942c
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

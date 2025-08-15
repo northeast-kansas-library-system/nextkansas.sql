@@ -4,7 +4,7 @@ R.003015
 ----------
 
 Name: GHW - Hold Contact Method
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,7 +12,7 @@ Group: Borrowers
      -
 
 Created on: 2017-12-08 18:58:23
-Modified on: 2018-04-16 11:11:01
+Modified on: 2024-01-17 11:52:09
 Date last run: 2020-04-30 14:34:26
 
 ----------
@@ -22,17 +22,17 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Generates a list of patrons based on their holds contact method</p>
-<ul><li>Shows current data only</li>
-<li>for patrons at the library you specify</li>
-<li>grouped by card number</li>
-<li>sorted by homebranch and name</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3015&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Generates a list of patrons based on their holds contact method
+Shows current data only
+for patrons at the library you specify
+grouped by card number
+sorted by homebranch and name
+
+Notes:
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -44,7 +44,7 @@ SELECT
   borrowers.cardnumber,
   Concat(borrowers.surname, ", ", borrowers.firstname) AS BORROWER_NAME,
   Coalesce(Concat(hold.code, ", ", hold.lib), "-") AS METHOD,
-  IF(Coalesce(Concat(hold.code, ", ", hold.lib), "-") LIKE "%Book%", "Book club", IF(Coalesce(Concat(hold.code, ", ", hold.lib), "-") LIKE "%Email%", IF(borrowers.email = "", "<span style='background-color: red'>---</span>", borrowers.email), IF(Coalesce(Concat(hold.code, ", ", hold.lib), "-") LIKE "%Home%", "Home delivery", IF(Coalesce(Concat(hold.code, ", ", hold.lib), "-") LIKE "%Post%", "Postcard", IF(Coalesce(Concat(hold.code, ", ", hold.lib), "-") LIKE "%Phone%", IF(borrowers.phone = "", "<span style='background-color: red'>---</span>", borrowers.phone), IF(Coalesce(Concat(hold.code, ", ", hold.lib), "-") LIKE "%Text%", IF(borrowers.smsalertnumber < 1, "<span style='background-color: red'>---</span>", IF(borrowers.smsalertnumber IS NULL, "<span style='background-color: red'>---</span>", borrowers.smsalertnumber)), "-")))))) AS CONTACT_AT
+  IF(Coalesce(Concat(hold.code, ", ", hold.lib), "-") LIKE "%Book%", "Book club", IF(Coalesce(Concat(hold.code, ", ", hold.lib), "-") LIKE "%Email%", IF(borrowers.email = "", "---", borrowers.email), IF(Coalesce(Concat(hold.code, ", ", hold.lib), "-") LIKE "%Home%", "Home delivery", IF(Coalesce(Concat(hold.code, ", ", hold.lib), "-") LIKE "%Post%", "Postcard", IF(Coalesce(Concat(hold.code, ", ", hold.lib), "-") LIKE "%Phone%", IF(borrowers.phone = "", "---", borrowers.phone), IF(Coalesce(Concat(hold.code, ", ", hold.lib), "-") LIKE "%Text%", IF(borrowers.smsalertnumber &lt; 1, "---", IF(borrowers.smsalertnumber IS NULL, "---", borrowers.smsalertnumber)), "-")))))) AS CONTACT_AT
 FROM
   borrowers
   LEFT JOIN (SELECT
@@ -60,8 +60,8 @@ FROM
       WHERE
         borrower_attributes.code = 'HOLD') hold ON borrowers.borrowernumber = hold.borrowernumber
 WHERE
-  borrowers.branchcode LIKE <<Choose patron home branch|ZBRAN>> AND
-  Coalesce(hold.authorised_value, '-') LIKE <<Hold contact method|YHOLDCON>>
+  borrowers.branchcode LIKE &lt;&gt; AND
+  Coalesce(hold.authorised_value, '-') LIKE &lt;&gt;
 GROUP BY
   borrowers.cardnumber
 ORDER BY

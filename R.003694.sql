@@ -4,7 +4,7 @@ R.003694
 ----------
 
 Name: GHW - Holds queue count by library with links
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -33,12 +33,7 @@ SELECT
   hold_fill_targets.source_branchcode, 
   Count(DISTINCT hold_fill_targets.itemnumber) AS Count_itemnumber, 
   Concat_Ws('', 
-    '<a ', 
-    'class="btn btn-success noprint" ', 
-    'style="color: white;" ', 
-    'href=/cgi-bin/koha/reports/guided_reports.pl?phase=Run+this+report&reports=3084&sql_params=', 
-    hold_fill_targets.source_branchcode, 
-    '&param_name=Choose+your+library|ZBRAN&limit=500" target="_blank">List of items</a>' 
+    'List of items' 
   ) AS QUEUE 
 FROM 
   hold_fill_targets 

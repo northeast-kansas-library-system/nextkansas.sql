@@ -13,7 +13,7 @@ Group: Borrowers
 
 Created on: 2012-09-05 10:56:12
 Modified on: 2022-12-21 10:23:01
-Date last run: 2023-01-16 20:59:53
+Date last run: 2023-11-21 15:10:38
 
 ----------
 
@@ -40,9 +40,9 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.branchcode LIKE <<Select your Library|branches:all>> AND
-  borrowers.city LIKE Concat('%', <<Enter city name (optional)>>, '%')  AND
-  borrowers.zipcode LIKE Concat('%', <<Enter zip code>>, '%') 
+  borrowers.branchcode LIKE &lt;&gt; AND
+  borrowers.city LIKE Concat('%', &lt;&gt;, '%')  AND
+  borrowers.zipcode LIKE Concat('%', &lt;&gt;, '%') 
 ORDER BY 
   borrowers.city,
   borrowers.zipcode

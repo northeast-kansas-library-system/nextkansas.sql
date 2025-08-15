@@ -4,7 +4,7 @@ R.003656
 ----------
 
 Name: GHW - Internet permission killer
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -22,7 +22,7 @@ Expiry: 300
 
 ----------
 
-<p>help</p>
+help
 
 ----------
 */
@@ -42,7 +42,7 @@ FROM
 WHERE
   borrower_attributes.code = 'INTERNET' AND
   authorised_values.category = 'InternetPolicy' AND
-  borrowers.branchcode Like <<Choose your library|ZBRAN>>
+  borrowers.branchcode Like &lt;&gt;
 GROUP BY
   borrower_attributes.borrowernumber,
   borrowers.branchcode,

@@ -4,7 +4,7 @@ R.003305
 ----------
 
 Name: GHW - items deleted last month by itype
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

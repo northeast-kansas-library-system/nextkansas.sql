@@ -4,7 +4,7 @@ R.002778
 ----------
 
 Name: GHW - Holds Queue with scannable barcodes
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Holds-Reserves
      -
 
 Created on: 2016-09-25 22:37:09
-Modified on: 2022-12-02 14:38:57
-Date last run: 2023-05-23 12:32:49
+Modified on: 2024-01-17 11:36:34
+Date last run: 2025-08-14 14:41:38
 
 ----------
 
@@ -22,14 +22,14 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo class="noprint">
-<p>Print holds queue report with scannable barcodes</p>
-<ul><li>Shows items in the current holds queue</li>
-<li>at the location you specify</li>
-<li>grouped by specified location, items home branch, call number, author, and title</li>
-<li>contains links to the bibliographic records</li>
-</ul><br />
-</div>
+ 
+Print holds queue report with scannable barcodes
+Shows items in the current holds queue
+at the location you specify
+grouped by specified location, items home branch, call number, author, and title
+contains links to the bibliographic records
+
+
 
 
 
@@ -39,22 +39,22 @@ Expiry: 0
 
 
 SELECT
-  Concat_Ws('<br />', 
+  Concat_Ws('', 
     Concat('Current: ', hold_fill_targets.source_branchcode),
     Concat('Owned by: ', items.homebranch), 
     Concat('Last seen: ', items.datelastseen),
-    (Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">Go to biblio</a>'))
+    (Concat('Go to biblio'))
   ) AS INFO,
-  Concat_Ws('<br />', 
+  Concat_Ws('', 
     If(LOCATIONS.lib = PERM_LOCATIONS.lib, LOCATIONS.lib, Concat(PERM_LOCATIONS.lib, " (", LOCATIONS.lib, ")")), 
     ITEMTYPESS.description,
     CCODES.lib, 
     items.itemcallnumber, 
     items.copynumber
   ) AS CALL_NUMBER,
-  Concat_Ws('<br />', 
+  Concat_Ws('', 
     biblio.author, 
-    (Concat_Ws('<br />', 
+    (Concat_Ws('', 
       biblio.title, 
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'),
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'),
@@ -62,8 +62,8 @@ SELECT
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]'))
     )
   ) AS AUTHOR_TITLE,
-  Concat_Ws('<br />', 
-    (Concat('<img src="/cgi-bin/koha/svc/barcode?barcode=', '*', Upper(items.barcode), '*', '&type=Code39"></img>')), 
+  Concat_Ws('', 
+    (Concat('')), 
     items.barcode
   ) AS BARCODE
 FROM
@@ -105,7 +105,7 @@ FROM
     FROM
       itemtypes) ITEMTYPESS ON ITEMTYPESS.itemtype = items.itype
 WHERE
-  hold_fill_targets.source_branchcode LIKE <<Select your library|LBRANCH>>
+  hold_fill_targets.source_branchcode LIKE &lt;&gt;
 GROUP BY
   hold_fill_targets.itemnumber
 ORDER BY

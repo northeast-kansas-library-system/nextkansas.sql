@@ -4,7 +4,7 @@ R.003006
 ----------
 
 Name: GHW - Prioritized Holds Queue
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -30,21 +30,21 @@ Expiry: 300
 
 
 SELECT
-  Concat_Ws('<br />',
+  Concat_Ws('',
     hold_fill_targets.source_branchcode,
     items.homebranch,
-    (Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">Go to biblio</a>')),
-    If(localonly.Count_itemnumber > 0, "<span style='background-color: yellow;'>TOP PRIORITY<br />ONLY COPY AVAILABLE</span>",
-    If(availablecount.Count_itemnumber < 3, "<span style='background-color: orange;'>Priority<br />All other copies checked out</span>", "-"))) AS CURRENT_OWNING,
-  Concat_Ws('<br />', items.location, authorised_values.lib, items.itemcallnumber) AS CALL_NUMBER,
-  Concat_Ws('<br />',
+    (Concat('Go to biblio')),
+    If(localonly.Count_itemnumber &gt; 0, "TOP PRIORITYONLY COPY AVAILABLE",
+    If(availablecount.Count_itemnumber &lt; 3, "PriorityAll other copies checked out", "-"))) AS CURRENT_OWNING,
+  Concat_Ws('', items.location, authorised_values.lib, items.itemcallnumber) AS CALL_NUMBER,
+  Concat_Ws('',
     biblio.author,
-    (Concat_Ws('<br />',
+    (Concat_Ws('',
       biblio.title,
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'),
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')))) AS AUTHOR_TITLE,
-  Concat_Ws('<br />', (Concat('<img src="/cgi-bin/koha/svc/barcode?barcode=', '*', Upper(items.barcode), '*', '&type=Code39"></img>')),
+  Concat_Ws('', (Concat('')),
     items.barcode) AS BARCODE
 FROM
   biblio
@@ -99,20 +99,20 @@ FROM
         hold_fill_targets.biblionumber
       HAVING
         Count(DISTINCT items.itemnumber) = 1 AND
-        Group_Concat(DISTINCT items.holdingbranch) LIKE <<Choose your branch|branches>>) localonly ON
+        Group_Concat(DISTINCT items.holdingbranch) LIKE &lt;&gt;) localonly ON
     hold_fill_targets.biblionumber = localonly.biblionumber
   LEFT JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber AND items.biblioitemnumber =
     biblio_metadata.biblionumber
 WHERE
   authorised_values.category = "ccode" AND
-  hold_fill_targets.source_branchcode LIKE <<Choose your branch again|branches>>
+  hold_fill_targets.source_branchcode LIKE &lt;&gt;
 GROUP BY
-  Concat_Ws('<br />', items.location, authorised_values.lib, items.itemcallnumber), Concat_Ws('<br />', biblio.author, (Concat_Ws('<br />', biblio.title, ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')))), If(localonly.Count_itemnumber > 0, "TOP PRIORITY", If(availablecount.Count_itemnumber < 3, "Priority", "-")),
+  Concat_Ws('', items.location, authorised_values.lib, items.itemcallnumber), Concat_Ws('', biblio.author, (Concat_Ws('', biblio.title, ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')))), If(localonly.Count_itemnumber &gt; 0, "TOP PRIORITY", If(availablecount.Count_itemnumber &lt; 3, "Priority", "-")),
   items.holdingbranch,
   biblio.author,
   biblio.title
 ORDER BY
-  If(localonly.Count_itemnumber > 0, "TOP PRIORITY", If(availablecount.Count_itemnumber < 3, "Priority", "-")) DESC,
+  If(localonly.Count_itemnumber &gt; 0, "TOP PRIORITY", If(availablecount.Count_itemnumber &lt; 3, "Priority", "-")) DESC,
   CALL_NUMBER,
   AUTHOR_TITLE
 

@@ -13,7 +13,7 @@ Group: Borrowers
 
 Created on: 2009-06-12 15:39:47
 Modified on: 2023-03-29 10:40:46
-Date last run: 2023-03-29 10:40:52
+Date last run: 2025-06-25 15:27:57
 
 ----------
 
@@ -40,7 +40,7 @@ SELECT
 FROM 
   borrowers
 WHERE 
-  borrowers.branchcode = <<Choose your library|branches>>
+  borrowers.branchcode = &lt;&gt;
   AND borrowers.debarred IS NOT NULL
 
 

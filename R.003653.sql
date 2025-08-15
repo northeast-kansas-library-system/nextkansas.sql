@@ -4,7 +4,7 @@ R.003653
 ----------
 
 Name: GHW - Single page
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -30,16 +30,16 @@ Expiry: 300
 
 
 SELECT
-  Concat_WS('<br />',
-    Concat('Home library: ', homebranch.branchname, IF(holdingbranch.branchname = homebranch.branchname, '',  Concat('<br /><span style="background-color: #FFFF00">Current library: ', holdingbranch.branchname, '</span>'))),
-    Concat('Permanent location: ', IF(perm_locs.lib = locs.lib, perm_locs.lib, CONCAT(perm_locs.lib, '<br /><span style="background-color: #FFFF00">Current location: ', locs.lib, '</span>'))),
+  Concat_WS('',
+    Concat('Home library: ', homebranch.branchname, IF(holdingbranch.branchname = homebranch.branchname, '',  Concat('Current library: ', holdingbranch.branchname, ''))),
+    Concat('Permanent location: ', IF(perm_locs.lib = locs.lib, perm_locs.lib, CONCAT(perm_locs.lib, 'Current location: ', locs.lib, ''))),
     Concat('Item type: ', itemtypes.description),
     Concat('Collection code: ', ccodes.lib),
     Concat('Call number: ', Concat_Ws('', items.itemcallnumber, Concat(' / Copy #: ', items.copynumber)))
     ) AS INFO,
-    Concat_WS('<br />',
+    Concat_WS('',
       biblio.author,
-    Concat_Ws('<br />', 
+    Concat_Ws('', 
       biblio.title, 
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'),
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'),
@@ -47,10 +47,7 @@ SELECT
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]')
     ),
     Concat(
-      '<a class="btn btn-default btn-xs noprint"', 
-      'href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
-      items.biblionumber, 
-      '\" target="_blank">Go to title</a><br />'
+      'Go to title'
     )
   ) AS AUTHOR_TITLE
 FROM
@@ -94,7 +91,7 @@ FROM
       items.ccode
 WHERE
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="n"]') = 1 AND
-  items.homebranch LIKE <<Choose your library|ZBRAN>>
+  items.homebranch LIKE &lt;&gt;
 GROUP BY
   biblio.biblionumber,
   items.itemnumber

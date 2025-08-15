@@ -4,7 +4,7 @@ R.003293
 ----------
 
 Name: GHW - Spreadsheet builder - Branches and collection codes
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-12-31 14:13:24
 Modified on: 2023-02-01 16:17:40
-Date last run: 2023-02-01 16:26:40
+Date last run: 2024-06-06 16:15:47
 
 ----------
 
@@ -32,7 +32,7 @@ Expiry: 300
 Select
   rnums.row_number,
   ccodess.code_number,
-  CONCAT(If(rnums.row_number % 2 <> 0, "Odd", "Even"), If(Right(ccodess.code_number, 1) % 2 <> 0, "Odd", "Even")) As EO,
+  CONCAT(If(rnums.row_number % 2 &lt;&gt; 0, "Odd", "Even"), If(Right(ccodess.code_number, 1) % 2 &lt;&gt; 0, "Odd", "Even")) As EO,
   rnums.branchname As `Library Name`,
   authorised_values.lib As `Collection Code`,
   Concat("") As `CKO + Renewal`,

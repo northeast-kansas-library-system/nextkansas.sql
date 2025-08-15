@@ -4,7 +4,7 @@ R.003707
 ----------
 
 Name: Test report for training
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -31,12 +31,7 @@ Expiry: 300
 
 SELECT
   Concat_Ws('', 
-    '<a ', 
-    'class="btn btn-success noprint" ', 
-    'style="color: white;" ', 
-    'href="/cgi-bin/koha/catalogue/moredetail.pl?itemnumber=', 
-    items.itemnumber, 
-    '" target="_blank">Item link</a>' 
+    'Item link' 
   ) AS ITEM, 
   items.itemnumber,
   items.biblionumber,

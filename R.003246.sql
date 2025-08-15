@@ -4,7 +4,7 @@ R.003246
 ----------
 
 Name: GHW ADMINREPORT
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

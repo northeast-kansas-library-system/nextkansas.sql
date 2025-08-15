@@ -4,7 +4,7 @@ R.003039
 ----------
 
 Name: GHW - Flexible requests history report
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Holds-Reserves
      -
 
 Created on: 2018-01-16 15:28:12
-Modified on: 2018-04-16 11:13:46
-Date last run: 2023-04-05 15:07:05
+Modified on: 2025-03-04 13:52:23
+Date last run: 2025-08-12 15:00:35
 
 ----------
 
@@ -22,23 +22,23 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Generates a screen readable report of current and past request information based on very flexible parameters</p>
-<ul><li>Shows the history of any active, filled, and cancelled requests in NExpress</li>
-<li>at all pickup libraries or at the pickup library you specify</li>
-<li>with the request status and progress that you specify</li>
-<li>with the hold suspension status you specify</li>
-<li>and with the library card, biblionumber, or item barcode number you specify</li>
-<li>grouped by reserve ID number</li>
-<li>sorted by the last time the request was updated</li>
-<li>contains links to the action logs, the patron record, the bibliographic record, and the item's in transit history</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Contains active links to reports 2784 and 3040</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3039&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Generates a screen readable report of current and past request information based on very flexible parameters
+Shows the history of any active, filled, and cancelled requests in NExpress
+at all pickup libraries or at the pickup library you specify
+with the request status and progress that you specify
+with the hold suspension status you specify
+and with the library card, biblionumber, or item barcode number you specify
+grouped by reserve ID number
+sorted by the last time the request was updated
+contains links to the action logs, the patron record, the bibliographic record, and the item's in transit history
+
+Notes:
+
+Contains active links to reports 2784 and 3040
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -47,15 +47,15 @@ Expiry: 300
 
 SELECT
   requests.reserve_id,
-  Concat("Status: ", requests.statuss, "<br /> Progress: ", If(requests.cancellationdate IS NOT NULL, "Cancelled", If(requests.found = "T", "In transit", If(requests.found = "F", "Filled / finished", If(requests.found = "W", "Waiting for pickup", "Still active"))))) AS STATUS,
-  Concat("Patron BC: ", borrowers.cardnumber, "<br />", "Pickup at: ", requests.branchcode) AS PATRON_INFO,
-  Concat_Ws("<br />",
+  Concat("Status: ", requests.statuss, " Progress: ", If(requests.cancellationdate IS NOT NULL, "Cancelled", If(requests.found = "T", "In transit", If(requests.found = "F", "Filled / finished", If(requests.found = "W", "Waiting for pickup", "Still active"))))) AS STATUS,
+  Concat("Patron BC: ", borrowers.cardnumber, "", "Pickup at: ", requests.branchcode) AS PATRON_INFO,
+  Concat_Ws("",
     Concat("Requested on: ", requests.reservedate), Concat("Waiting since: ", requests.waitingdate),
     Concat("Expires on: ", requests.expirationdate), Concat("Cancelled on: ", requests.cancellationdate),
     Concat("Updated on: ", requests.timestamp)) AS DATES,
-  Concat_Ws("<br />", If(requests.suspend <> 0, "Suspended", "-"), If(requests.suspend = 0, "-", If(requests.suspend_until IS NOT NULL, Concat("until ", Date_Format(requests.suspend_until, "%Y.%m.%d")), "indefinitely"))) AS SUSPENDED,
+  Concat_Ws("", If(requests.suspend &lt;&gt; 0, "Suspended", "-"), If(requests.suspend = 0, "-", If(requests.suspend_until IS NOT NULL, Concat("until ", Date_Format(requests.suspend_until, "%Y.%m.%d")), "indefinitely"))) AS SUSPENDED,
   requests.biblionumber AS BIBLIO_NUMBER,
-  Concat_Ws("<br />",
+  Concat_Ws("",
     Concat("BC: ", Coalesce(Coalesce(items.barcode, "-"), Coalesce(deleteditems.barcode, "-"))),
     Concat("Home: ", Coalesce(Coalesce(items.homebranch, "-"), Coalesce(deleteditems.homebranch, "-"))),
     Concat("Location: ", Coalesce(Coalesce(items.location, "-"), Coalesce(deleteditems.location, "-"))),
@@ -64,12 +64,32 @@ SELECT
     Concat("Call#: ", Coalesce(Coalesce(items.itemcallnumber, "-"), Coalesce(deleteditems.itemcallnumber, "-"))),
     Concat("Author: ", Coalesce(Coalesce(biblio.author, "-"), Coalesce(deletedbiblio.author, "-"))),
     Concat("Title: ", Coalesce(Coalesce(biblio.title, "-"), Coalesce(deletedbiblio.title, "-")))) AS ITEM_INFO,
-  CONCAT_WS("<br />",
-    Concat("Action logs: ", Concat("<a href='/cgi-bin/koha/reports/guided_reports.pl?reports=3040&phase=Run+this+report&sql_params=", requests.reserve_id,"' target='_blank'>see last 60 days of activity</a>")),
-    Concat("Link to patron: ", Concat("<a href='/cgi-bin/koha/circ/circulation.pl?borrowernumber=", requests.borrowernumber,"' target='_blank'>go to the borrower's record</a>")),
-    Concat("Link to title: ", Concat("<a href='/cgi-bin/koha/catalogue/detail.pl?biblionumber=", requests.biblionumber,"' target='_blank'>go to the bibliographic record</a>")),
-    Concat("Link to item: ", Concat("<a href='/cgi-bin/koha/catalogue/moredetail.pl?itemnumber=", items.itemnumber, "&biblionumber=", biblio.biblionumber, "' target='_blank'>go to the item record</a>")),
-    Concat("Item in transit history: ", Concat("<a href='/cgi-bin/koha/reports/guided_reports.pl?reports=2784&phase=Run+this+report&sql_params=", items.barcode,"' target='_blank'>see item transit history</a>"))
+  CONCAT_WS("",
+    Concat(
+      "Action logs: ", 
+      Concat("see last 60 days of activity"
+      )
+    ),
+    Concat(
+      "Link to patron: ", 
+      Concat("go to the borrower's record"
+      )
+    ),
+    Concat(
+      "Link to title: ", 
+      Concat("go to the bibliographic record"
+      )
+    ),
+    Concat(
+      "Link to item: ", 
+      Concat("go to the item record"
+      )
+    ),
+    Concat(
+      "Item in transit history: ", 
+      Concat("see item transit history"
+      )
+    )
 ) AS LINKS
 FROM
   borrowers
@@ -125,13 +145,13 @@ FROM
   LEFT JOIN biblio ON requests.biblionumber = biblio.biblionumber
   LEFT JOIN deletedbiblio ON requests.biblionumber = deletedbiblio.biblionumber
 WHERE
-  requests.branchcode LIKE <<Choose pickup library|LBRANCH>> AND
-  requests.statuss LIKE <<Choose request status|LHOLDACT>> AND
-  If(requests.cancellationdate IS NOT NULL, "Cancelled", If(requests.found = "T", "In transit", If(requests.found = "F", "Filled", If(requests.found = "W", "Waiting for pickup", "Still active")))) LIKE <<Choose request progress|LHOLDPROG>> AND
-  If(requests.suspend <> 0, "Suspended", "-") LIKE <<Choose suspended status|LHOLDSUS>> AND
-  borrowers.cardnumber LIKE Concat("%", <<Enter library card number or a % symbol>>, "%") AND
-  requests.biblionumber LIKE Concat("%", <<Enter title biblio number or a % symbol>>, "%") AND
-  Coalesce(Coalesce(items.barcode, "-"), Coalesce(deleteditems.barcode, "-")) LIKE Concat("%", <<Enter item barcode number or a % symbol>>, "%")
+  requests.branchcode LIKE &lt;&gt; AND
+  requests.statuss LIKE &lt;&gt; AND
+  If(requests.cancellationdate IS NOT NULL, "Cancelled", If(requests.found = "T", "In transit", If(requests.found = "F", "Filled", If(requests.found = "W", "Waiting for pickup", "Still active")))) LIKE &lt;&gt; AND
+  If(requests.suspend &lt;&gt; 0, "Suspended", "-") LIKE &lt;&gt; AND
+  borrowers.cardnumber LIKE Concat("%", &lt;&gt;, "%") AND
+  requests.biblionumber LIKE Concat("%", &lt;&gt;, "%") AND
+  Coalesce(Coalesce(items.barcode, "-"), Coalesce(deleteditems.barcode, "-")) LIKE Concat("%", &lt;&gt;, "%")
 GROUP BY
   requests.reserve_id
 ORDER BY

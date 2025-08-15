@@ -4,7 +4,7 @@ R.003047
 ----------
 
 Name: GHW - GitHub SQL report 001
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2018-02-01 02:37:30
 Modified on: 2021-10-20 09:49:31
-Date last run: 2023-05-23 14:05:10
+Date last run: 2025-08-15 13:47:18
 
 ----------
 
@@ -31,7 +31,7 @@ Report for uploading SQL to GitHub - part 1
 
 SELECT
   Concat(
-    If(Length(saved_sql.savedsql) > 32766, "X.", "R."), LPad(saved_sql.id, 6, 0)
+    If(Length(saved_sql.savedsql) &gt; 32766, "X.", "R."), LPad(saved_sql.id, 6, 0)
   ) AS FILE_NAME,
   Concat(
     Concat("/*", Char(13), Char(10), "R.", LPad(saved_sql.id, 6, 0)), 
@@ -75,13 +75,13 @@ SELECT
     Char(13), Char(10), Char(13), Char(10)
   ) AS CONTENTS,
   SubString(saved_sql.savedsql FROM 1 FOR 30000 ) AS PART_ONE,
-  If(Length(saved_sql.savedsql) > 30000, "||AAAAA||", "") AS SEP_ONE,
+  If(Length(saved_sql.savedsql) &gt; 30000, "||AAAAA||", "") AS SEP_ONE,
   SubString(saved_sql.savedsql FROM 30001 FOR 30000 ) AS PART_TWO,
-  If(Length(saved_sql.savedsql) > 60000, "||AAAAA||", "") AS SEP_TWO,
+  If(Length(saved_sql.savedsql) &gt; 60000, "||AAAAA||", "") AS SEP_TWO,
   SubString(saved_sql.savedsql FROM 60001 FOR 30000 ) AS PART_THREE,
-  If(Length(saved_sql.savedsql) > 90000, "||AAAAA||", "") AS SEP_THREE,
+  If(Length(saved_sql.savedsql) &gt; 90000, "||AAAAA||", "") AS SEP_THREE,
   SubString(saved_sql.savedsql FROM 90001 FOR 30000 ) AS PART_FOUR,
-  If(Length(saved_sql.savedsql) > 120000, "||AAAAA||", "") AS SEP_FOUR,
+  If(Length(saved_sql.savedsql) &gt; 120000, "||AAAAA||", "") AS SEP_FOUR,
   SubString(saved_sql.savedsql FROM 120001 FOR 30000 ) AS PART_FIVE
 FROM
   saved_sql

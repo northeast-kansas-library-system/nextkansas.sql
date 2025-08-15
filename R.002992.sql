@@ -4,7 +4,7 @@ R.002992
 ----------
 
 Name: GHW - Call numbers with inappropriate space problems
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2017-09-01 14:01:00
 Modified on: 2019-11-06 00:39:17
-Date last run: 2023-01-06 10:07:58
+Date last run: 2025-04-24 13:20:57
 
 ----------
 
@@ -26,8 +26,6 @@ Expiry: 300
 
 ----------
 */
-
-
 
 SELECT
   Concat(
@@ -65,28 +63,4 @@ GROUP BY
   items.biblionumber
 ORDER BY
   items.itemcallnumber
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  

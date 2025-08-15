@@ -4,7 +4,7 @@ R.003587
 ----------
 
 Name: LibraryIQ - Circulation File (based on statistics table - last 2 years) (setup)
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: LibraryIQ
 
 Created on: 2021-10-12 22:21:50
 Modified on: 2021-10-13 11:13:52
-Date last run: 2021-11-12 16:48:39
+Date last run: 2023-12-20 15:33:22
 
 ----------
 
@@ -42,10 +42,10 @@ FROM
   items ON items.itemnumber = statistics.itemnumber LEFT JOIN
   deleteditems ON deleteditems.itemnumber = statistics.itemnumber
 WHERE
-  statistics.branch = <<Choose your library|branches>> AND
+  statistics.branch = &lt;&gt; AND
   (statistics.type = 'issue' OR
       statistics.type = 'renew') AND
-  statistics.datetime > CurDate() - INTERVAL 2 YEAR
+  statistics.datetime &gt; CurDate() - INTERVAL 2 YEAR
 
 
 

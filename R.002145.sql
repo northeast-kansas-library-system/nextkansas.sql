@@ -13,7 +13,7 @@ Group: Daily, Monthly, Yearly Stats
 
 Created on: 2014-01-08 16:03:15
 Modified on: 2016-02-23 15:01:06
-Date last run: 2023-05-04 21:15:53
+Date last run: 2025-03-11 07:15:33
 
 ----------
 
@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-SELECT count(i.itemnumber) as added, i.ccode, i.location from items i WHERE i.homebranch=<<branch|branches>> AND year(i.dateaccessioned) = <<year|Year>> GROUP BY i.ccode,i.location ORDER BY i.ccode,i.location asc
+SELECT count(i.itemnumber) as added, i.ccode, i.location from items i WHERE i.homebranch=&lt;&gt; AND year(i.dateaccessioned) = &lt;&gt; GROUP BY i.ccode,i.location ORDER BY i.ccode,i.location asc
 
 
 

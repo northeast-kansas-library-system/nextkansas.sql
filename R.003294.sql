@@ -4,7 +4,7 @@ R.003294
 ----------
 
 Name: GHW - Spreadsheet builder - Item type
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-12-31 15:05:33
 Modified on: 2023-02-01 14:45:20
-Date last run: 2023-02-01 14:45:47
+Date last run: 2025-07-25 11:41:51
 
 ----------
 
@@ -32,7 +32,7 @@ Expiry: 300
 SELECT
   rnums.row_number,
   itypecnt.code_number,
-  CONCAT(If(rnums.row_number % 2 <> 0, "Odd", "Even"), If(Right(itypecnt.code_number, 1) % 2 <> 0, "Odd", "Even")) As EO,
+  CONCAT(If(rnums.row_number % 2 &lt;&gt; 0, "Odd", "Even"), If(Right(itypecnt.code_number, 1) % 2 &lt;&gt; 0, "Odd", "Even")) As EO,
   rnums.branchname AS `Library Name`,
   itemtypes.description AS `Item Type`,
   Concat("") AS `CKO + Renewal`,

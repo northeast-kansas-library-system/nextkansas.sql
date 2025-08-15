@@ -4,7 +4,7 @@ R.003700
 ----------
 
 Name: GHW - Statistics - Local use by library and collection code
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Statistics
      -
 
 Created on: 2023-02-01 12:28:31
-Modified on: 2023-02-01 12:37:05
-Date last run: 2023-02-02 12:24:48
+Modified on: 2024-03-01 16:34:25
+Date last run: 2024-12-05 10:01:53
 
 ----------
 
@@ -22,23 +22,40 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo class=noprint>
-  <p>Counts local use by collection code</p>
-  <ul>
-    <li>during the previous calendar month</li>
-    <li>at the library you specify</li>
-    <li>grouped and sorted by library and collection code</li>
-  </ul><br />
-  <p><ins>Notes:</ins></p>
-  <p></p>
-  <p>Notes go here.</p>
-  <p></p>
-  <p>Collecting local use data requires the use of a "Staff - statistical purposes" library card.</p>
-  <p></p>
-  <p>Local use does not collect an item's shelving location.</p>
-  <p class= "notetags" style="display: none;">#local use; #statistics #ccode</p>
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div>
+
+ 
+   
+ 
+    Counts "localuse" checkouts by item type 
+ 
+     
+      during the previous calendar month 
+      at the library you specify 
+      grouped and sorted by library and item type 
+     
+ 
+   
+ 
+   
+
+    
+    Collecting local use data requires the use of a "Staff - statistical purposes" library card.
+    
+ 
+   
+ 
+   
+ 
+     
+      #localuse
+      #statistics
+      #ccode
+      #previous_month 
+     
+ 
+   
+
+  
 
 ----------
 */
@@ -60,7 +77,7 @@ From
           authorised_values
       Where
           authorised_values.category = 'CCODE' And
-          branches.branchcode Like <<Choose your library|ZBRAN>>
+          branches.branchcode Like &lt;&gt;
       Order By
           branches.branchcode,
           authorised_values.lib) branchccodes Left Join

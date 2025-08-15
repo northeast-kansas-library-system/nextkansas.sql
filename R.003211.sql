@@ -4,7 +4,7 @@ R.003211
 ----------
 
 Name: GHW - Rotating collections - Report 3
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,7 +12,7 @@ Group: -
      -
 
 Created on: 2019-06-10 14:24:32
-Modified on: 2019-06-10 15:05:06
+Modified on: 2024-01-17 12:07:47
 Date last run: 2019-06-10 15:06:37
 
 ----------
@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Items in a specific "Rotating collections" group for editing</p>
-<ul><li>Shows all items in the group you specify</li>
-<li>grouped by collection id, biblionumber, and item number</li>
-<li>sorted by the standard Next classification pattern</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Once you no longer need a group, all items must be removed from the group before it can be deleted.  If you accidentally delete a group before removing the items from the group, contact Nexthelp@nekls.org for assistance.</p>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3211&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Items in a specific "Rotating collections" group for editing
+Shows all items in the group you specify
+grouped by collection id, biblionumber, and item number
+sorted by the standard Next classification pattern
+
+Notes:
+
+Once you no longer need a group, all items must be removed from the group before it can be deleted.  If you accidentally delete a group before removing the items from the group, contact Nexthelp@nekls.org for assistance.
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -41,11 +41,11 @@ Expiry: 300
 
 
 SELECT
-  CONCAT("Collection: ", collections.colTitle, "<br />ID: ", collections.colId) AS COLLECTION,
+  CONCAT("Collection: ", collections.colTitle, "ID: ", collections.colId) AS COLLECTION,
   CONCAT_WS(
-    "<br />", 
+    "", 
     CONCAT_WS(
-      "<br />",
+      "",
       items.homebranch,
       Concat(itemtypes.description, " (", items.itype, ")"),
       ccodes.lib,
@@ -62,14 +62,14 @@ SELECT
     ),
     CONCAT_WS(
       " ",
-      IF(Coalesce(nfl.lib, " ") = " ", "", "<br /><big><b>Not for loan</b></big>"),
-      IF(Coalesce(damageds.lib, " ") = " ", "", "<br /><big><b>Damaged</b></big>"),
-      IF(Coalesce(losts.lib, " ") = " ", "", "<br /><big><b>Lost or missing</b></big>"),
-      IF(Coalesce(withdrawns.lib, " ") = " ", "", "<br /><big><b>Withdrawn</b></big>"),
-      IF(Coalesce(items.onloan, "") <> "", "<br /><big><b>CHECKED OUT</b></big>", "")
+      IF(Coalesce(nfl.lib, " ") = " ", "", "Not for loan"),
+      IF(Coalesce(damageds.lib, " ") = " ", "", "Damaged"),
+      IF(Coalesce(losts.lib, " ") = " ", "", "Lost or missing"),
+      IF(Coalesce(withdrawns.lib, " ") = " ", "", "Withdrawn"),
+      IF(Coalesce(items.onloan, "") &lt;&gt; "", "CHECKED OUT", "")
     ),
-    "<br />",
-    Concat_Ws('<br />', (Concat('<img src="/cgi-bin/koha/svc/barcode?barcode=', '*', Upper(items.barcode), '*', '&type=Code39"></img>')), items.barcode)
+    "",
+    Concat_Ws('', (Concat('')), items.barcode)
   ) AS ITEMS_IN_COLLECTION,
   items.itemnumber
 FROM
@@ -147,7 +147,7 @@ FROM
   JOIN collections
     ON collections.colId = collections_tracking.colId
 WHERE
-  collections.colId = <<Enter collection ID number>>
+  collections.colId = &lt;&gt;
 GROUP BY
   collections.colId,
   biblio.biblionumber,

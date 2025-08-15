@@ -4,7 +4,7 @@ R.003193
 ----------
 
 Name: GHW - Bibliographic records scheduled for auto-deletion
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,7 +12,7 @@ Group: -
      -
 
 Created on: 2019-04-08 23:53:17
-Modified on: 2019-04-10 09:01:50
+Modified on: 2024-01-17 11:54:39
 Date last run: 2020-11-10 15:57:41
 
 ----------
@@ -22,23 +22,23 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>List of bibliographic records that will be deleted on Sunday morning.</p>
-<ul><li>Shows bibliographic records that currently meet the criteria for deletion</li>
-<li>at all locations</li>
-<li>grouped by biblionumber</li>
-<li>sorted by author and title</li>
-<li>contains links to the bibliographic records</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p><a href="https://will1410.github.io/next.training/cronjobs/cronjobs.html#empty-bibliographic-record-deletion"  target="_blank">Click here</a> for more information</p>
-<p></p>
-<p>Replaces reports 1061 and 2356</p>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?phase=Run+this+report&reports=3193&limit=500"  target="_blank">Click here to run in a new window</a></p>
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3193">Click here to download as a csv file</a></p>
-</div>
+ 
+List of bibliographic records that will be deleted on Sunday morning.
+Shows bibliographic records that currently meet the criteria for deletion
+at all locations
+grouped by biblionumber
+sorted by author and title
+contains links to the bibliographic records
+
+Notes:
+
+Click here for more information
+
+Replaces reports 1061 and 2356
+
+Click here to run in a new window
+Click here to download as a csv file
+
 
 ----------
 */
@@ -47,7 +47,7 @@ Expiry: 300
 
 SELECT
   Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) - 1 DAY) + INTERVAL 1 WEEK AS SCHEDULED_DELETION,
-  Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', biblio.biblionumber, '\" target="_blank">LINK</a>') AS LINK,
+  Concat('LINK') AS LINK,
   biblio.biblionumber,
   biblio.author,
   biblio.title,
@@ -78,7 +78,7 @@ FROM
 WHERE
   items.itemnumber IS NULL AND
   biblioitems.url IS NULL AND
-  biblio.datecreated < Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) + 6 DAY) AND
+  biblio.datecreated &lt; Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) + 6 DAY) AND
   action_logs.action LIKE 'del%'
 GROUP BY
   biblio.biblionumber

@@ -4,7 +4,7 @@ R.003044
 ----------
 
 Name: action logs dump
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 

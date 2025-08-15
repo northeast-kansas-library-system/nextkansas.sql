@@ -4,7 +4,7 @@ R.003621
 ----------
 
 Name: GHW - Pending borrower updates
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-11-09 00:22:51
-Modified on: 2021-11-09 00:32:45
-Date last run: 2023-05-23 14:05:07
+Modified on: 2025-03-18 15:06:36
+Date last run: 2025-08-15 13:47:17
 
 ----------
 
@@ -29,15 +29,29 @@ Expiry: 30
 
 
 
-SELECT
-  "hidden" AS class
-FROM
-  borrower_modifications JOIN
-  borrowers ON borrowers.borrowernumber = borrower_modifications.borrowernumber
-WHERE
-  borrowers.branchcode LIKE <<Enter branchcode>>
-GROUP BY
-  borrowers.branchcode
+Select
+  If(branches.branchcode = 'NEKLS',
+    'next_hidden',
+    IF(Coalesce(counts.Count_borrowernumber, 0) &gt; 0, 'next_hidden', '-')
+  ) As class
+From
+  branches Left Join
+  (
+    Select
+      borrowers.branchcode,
+      Count(borrower_modifications.borrowernumber) As Count_borrowernumber
+    From
+      borrower_modifications Join
+      borrowers On borrowers.borrowernumber = borrower_modifications.borrowernumber
+    Group By
+      borrowers.branchcode
+  ) counts 
+  On 
+    counts.branchcode = branches.branchcode
+Where
+  branches.branchcode Like Concat(&lt;&gt;, '%')
+Group By
+  branches.branchcode
 
 
 

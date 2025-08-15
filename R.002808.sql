@@ -4,7 +4,7 @@ R.002808
 ----------
 
 Name: GHW - Flexible shelflist sorted by branch, location, itype, ccode
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2016-10-14 10:30:29
-Modified on: 2023-03-07 13:32:33
-Date last run: 2023-03-07 14:02:20
+Modified on: 2024-01-17 11:47:07
+Date last run: 2025-08-07 13:08:38
 
 ----------
 
@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>Shows all items at a specified branch with a specified shelving location, a specified item type, and a specified collection code</p>
-<ul><li>Shows current items</li>
-<li>at a location you specify</li>
-<li>grouped and sorted by item home branch, shelving location, item type, collection code, call number, author, and title</li>
-</ul><br />
-<p></p>
-<p>Notes:</p>
-<p></p>
-<p>Update for new links on 2023.03.07</p>
-</div>
+ 
+Shows all items at a specified branch with a specified shelving location, a specified item type, and a specified collection code
+Shows current items
+at a location you specify
+grouped and sorted by item home branch, shelving location, item type, collection code, call number, author, and title
+
+
+Notes:
+
+Update for new links on 2023.03.07
+
 
 ----------
 */
@@ -44,7 +44,7 @@ SELECT
   items.itemnumber,
   Concat('- ', items.barcode, ' -') AS 'Item barcode',
   If(
-    items.homebranch <> items.holdingbranch,
+    items.homebranch &lt;&gt; items.holdingbranch,
     Concat(
       home_library.branchname,
       ' (',
@@ -54,7 +54,7 @@ SELECT
     home_library.branchname
   ) AS 'Home library',
   If(
-    items.permanent_location <> items.location,
+    items.permanent_location &lt;&gt; items.location,
     Concat(perm_locs.lib, ' (', locs.lib, ')'),
     perm_locs.lib
   ) AS 'Shelving location',
@@ -152,10 +152,10 @@ FROM items
   LEFT JOIN 
     itemtypes ON itemtypes.itemtype = items.itype
 WHERE 
-  items.homebranch LIKE <<Choose your library|branches:all>>
-  AND items.itype LIKE <<Choose an item type|itemtypes:all>>
-  AND items.permanent_location LIKE <<Choose a shelving location|LOC:all>>
-  AND items.ccode LIKE <<Choose a collection code|CCODE:all>>
+  items.homebranch LIKE &lt;&gt;
+  AND items.itype LIKE &lt;&gt;
+  AND items.permanent_location LIKE &lt;&gt;
+  AND items.ccode LIKE &lt;&gt;
 GROUP BY 
   biblio.biblionumber,
   items.itemnumber

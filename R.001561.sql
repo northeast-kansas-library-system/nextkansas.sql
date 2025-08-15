@@ -13,7 +13,7 @@ Group: Acquisitions
 
 Created on: 2012-09-27 11:50:07
 Modified on: 2018-07-02 09:32:01
-Date last run: 2023-05-03 12:28:59
+Date last run: 2025-03-26 16:46:54
 
 ----------
 
@@ -30,9 +30,9 @@ Limited by Branch. Edit requests directly from this report by clicking on the An
 
 
 SELECT
-  Concat('<a href=\"/cgi-bin/koha/suggestion/suggestion.pl#ASKED\" target="_blank">All Pending Suggestions</a>') AS "All Pending Suggestions",
-  Concat('<a href=\"/cgi-bin/koha/suggestion/suggestion.pl?suggestionid=', suggestions.suggestionid, '&op=edit\" target="_blank">Answer Request</a>') AS Request,
-  Concat('<a href=\"/cgi-bin/koha/members/moremember.pl?borrowernumber=', borrowers.borrowernumber, '\" target="_blank">', borrowers.surname, ', ', borrowers.firstname, '</a>') AS patron,
+  Concat('All Pending Suggestions') AS "All Pending Suggestions",
+  Concat('Answer Request') AS Request,
+  Concat('', borrowers.surname, ', ', borrowers.firstname, '') AS patron,
   suggestions.suggesteddate,
   suggestions.STATUS,
   suggestions.title,
@@ -46,7 +46,7 @@ FROM
   suggestions
 WHERE
   borrowers.borrowernumber = suggestions.suggestedby AND
-  suggestions.branchcode LIKE <<branch|LBRANCH>> AND
+  suggestions.branchcode LIKE &lt;&gt; AND
   suggestions.STATUS = 'ASKED'
 ORDER BY
   suggestions.suggesteddate DESC

@@ -4,7 +4,7 @@ R.003273
 ----------
 
 Name: GHW - Miss labeled discovery ADMINREPORT
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -39,7 +39,7 @@ SELECT
   branchtransfers.tobranch,
   branchtransfers.datearrived,
   branchtransfers.comments,
-  Concat('<a href=\"/cgi-bin/koha/reports/guided_reports.pl?reports=3272&phase=Run+this+report&param_name=Transfer+ID&sql_params=', branchtransfers.branchtransfer_id, '&param_name=Library+receiving+miss-labeled+item%7Cbranches&sql_params=', reportingbranch.branchcode, ' " target="_blank">Report 3272</a>') AS REPORT
+  Concat('Report 3272') AS REPORT
 FROM
   items
   JOIN branchtransfers
@@ -51,10 +51,10 @@ FROM
     FROM
       branches
     WHERE
-      branches.branchcode LIKE <<Choose your library|branches>>
+      branches.branchcode LIKE &lt;&gt;
   ) reportingbranch
 WHERE
-  items.barcode LIKE Concat("%", <<item barcode>>, "%")
+  items.barcode LIKE Concat("%", &lt;&gt;, "%")
 GROUP BY
   branchtransfers.branchtransfer_id,
   reportingbranch.branchcode

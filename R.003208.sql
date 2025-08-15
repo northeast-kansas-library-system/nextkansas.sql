@@ -4,7 +4,7 @@ R.003208
 ----------
 
 Name: GHW - Policy map report
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-05-29 16:21:54
-Modified on: 2019-09-24 14:21:50
-Date last run: 2023-02-01 13:51:27
+Modified on: 2024-01-17 11:54:13
+Date last run: 2024-08-19 10:59:26
 
 ----------
 
@@ -22,26 +22,26 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Creates borrower address report for use in Policy Map</p>
-<ul><li>Shows current patron addresses</li>
-<li>at the library you select</li>
-<li>grouped by borrowernumber</li>
-<li>sorted by address</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<ul>
-  <li>Patrons with an un-mappable address (PO Box, no address, no city, no state) will not appear in the results</li>
-  <li>Patron data may not map correctly if parts of the address are spelled incorrectly</li>
-  <li>YEAR_LASTSEEN is the year from the last_updated field in the borrowers table - this data has only been available since June of 2019, so it will not start being reliable or valuable until June of 2020</li>
-  <li>YEAR_LASTSEEN is updated whenever the patron account is used for checking out materials, renewing materials,  or logging into a SIP enabled system (such as Hoopla, PC Reservation, Libki, or Cybrarian - to name a few)</li>
-  <li>STATUS = Active means that the patron has checked out or renewed materials within the previous 12 months</li>
-  <li>STATUS = Inactive means that the patron has not checked out or renewed any materials in the previous 12 months</li>
-</ul>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3208&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Creates borrower address report for use in Policy Map
+Shows current patron addresses
+at the library you select
+grouped by borrowernumber
+sorted by address
+
+Notes:
+
+
+  Patrons with an un-mappable address (PO Box, no address, no city, no state) will not appear in the results
+  Patron data may not map correctly if parts of the address are spelled incorrectly
+  YEAR_LASTSEEN is the year from the last_updated field in the borrowers table - this data has only been available since June of 2019, so it will not start being reliable or valuable until June of 2020
+  YEAR_LASTSEEN is updated whenever the patron account is used for checking out materials, renewing materials,  or logging into a SIP enabled system (such as Hoopla, PC Reservation, Libki, or Cybrarian - to name a few)
+  STATUS = Active means that the patron has checked out or renewed materials within the previous 12 months
+  STATUS = Inactive means that the patron has not checked out or renewed any materials in the previous 12 months
+
+
+Click here to run in a new window
+
 
 ----------
 */
@@ -49,6 +49,7 @@ Expiry: 300
 
 
 SELECT
+  borrowers.borrowernumber,
   Trim(If(Coalesce(borrowers.address, borrowers.address2) LIKE "PO%", borrowers.address2, borrowers.address)) AS address,
   Trim(If(Coalesce(borrowers.address) LIKE "PO%", borrowers.address, borrowers.address2)) AS address2,
   borrowers.city,
@@ -57,12 +58,11 @@ SELECT
   Year(borrowers.dateenrolled) AS YEAR_ENROLLED,
   Year(borrowers.dateexpiry) AS YEAR_EXPIRED,
   If(Year(borrowers.lastseen) = 0, "", Year(borrowers.lastseen)) AS YEAR_LASTSEEN,
-  borrowers.sex,
   borrowers.categorycode,
   Floor((DateDiff(CurDate(), borrowers.dateofbirth) / 365.25)) AS AGE,
   borrowers.branchcode AS HOMEBRANCH,
-  If(Floor((DateDiff(CurDate(), borrowers.dateofbirth) / 365.25)) > 17, "Adult", "Minor") AS AGE_GROUP,
-  If(usecount.Count_datetime > 0, "Active", "Inactive") AS STATUS
+  If(Floor((DateDiff(CurDate(), borrowers.dateofbirth) / 365.25)) &gt; 17, "Adult", "Minor") AS AGE_GROUP,
+  If(usecount.Count_datetime &gt; 0, "Active", "Inactive") AS STATUS
 FROM
   borrowers
   LEFT JOIN (
@@ -80,14 +80,14 @@ FROM
   ) usecount
     ON usecount.borrowernumber = borrowers.borrowernumber
 WHERE
-  borrowers.categorycode <> 'ILL' AND
-  borrowers.categorycode <> 'STAFF' AND
-  borrowers.categorycode <> 'INHOUSE' AND
-  borrowers.branchcode LIKE <<Choose your library|ZBRAN>> AND
+  borrowers.categorycode &lt;&gt; 'ILL' AND
+  borrowers.categorycode &lt;&gt; 'STAFF' AND
+  borrowers.categorycode &lt;&gt; 'INHOUSE' AND
+  borrowers.branchcode LIKE &lt;&gt; AND
   If(Trim(If(Coalesce(borrowers.address, borrowers.address2) LIKE "PO%", borrowers.address2, borrowers.address)) = "", "X", (If(borrowers.city = "", "Y", (If(borrowers.state = "", "Z", "A"))))) = 'A'
 GROUP BY
-  If(Floor((DateDiff(CurDate(), borrowers.dateofbirth) / 365.25)) > 17, "Adult", "Minor"),
-  If(usecount.Count_datetime > 0, "Active", "Inactive"),
+  If(Floor((DateDiff(CurDate(), borrowers.dateofbirth) / 365.25)) &gt; 17, "Adult", "Minor"),
+  If(usecount.Count_datetime &gt; 0, "Active", "Inactive"),
   borrowers.borrowernumber
 ORDER BY
   If(Trim(If(Coalesce(borrowers.address, borrowers.address2) LIKE "PO%", borrowers.address2, borrowers.address)) = "", "X", (If(borrowers.city = "", "Y", (If(borrowers.state = "", "Z", "A"))))),

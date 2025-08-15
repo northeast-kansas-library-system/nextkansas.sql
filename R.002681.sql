@@ -13,7 +13,7 @@ Group: Daily, Monthly, Yearly Stats
 
 Created on: 2016-04-01 15:57:52
 Modified on: 2022-01-05 17:43:47
-Date last run: 2023-01-20 16:31:57
+Date last run: 2025-07-21 12:58:55
 
 ----------
 
@@ -29,7 +29,7 @@ Choose your branch three times. Gives the circulation of your materials at your 
 
 
 
-SELECT "Broken - use <a href='https://drive.google.com/uc?id=15CU4wsuzgq5YWLT4imeBFdNEzXKpb6hx&export=download' target='_blank'>https://drive.google.com/uc?id=15CU4wsuzgq5YWLT4imeBFdNEzXKpb6hx&export=download</a> instead"
+SELECT "Broken - use https://drive.google.com/uc?id=15CU4wsuzgq5YWLT4imeBFdNEzXKpb6hx&export=download instead"
 
 
 

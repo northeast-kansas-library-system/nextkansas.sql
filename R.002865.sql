@@ -4,7 +4,7 @@ R.002865
 ----------
 
 Name: GHW - Overdue Notice Template
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: Administrative Reports
      Testing
 
 Created on: 2016-12-31 19:25:57
-Modified on: 2022-03-22 15:34:49
-Date last run: 2022-07-27 10:21:16
+Modified on: 2024-01-17 11:46:35
+Date last run: 2025-06-10 12:15:15
 
 ----------
 
@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
-<div id=reportinfo>
-<p>Shows overdue notice template automatically sent by Koha</p>
-<ul><li>shows notices template for the library you specify</li>
-<li>allows you to specify which template you want to look at</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>This report was created to work with the new notices NExpress will start using on January 1, 2016.</p>
-<p>You should run the report and then download the results into Excel or another spreadsheet program.  The results will be very hard to read on the screen in Koha.</p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2865&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Shows overdue notice template automatically sent by Koha
+shows notices template for the library you specify
+allows you to specify which template you want to look at
+
+Notes:
+
+This report was created to work with the new notices NExpress will start using on January 1, 2016.
+You should run the report and then download the results into Excel or another spreadsheet program.  The results will be very hard to read on the screen in Koha.
+Click here to run in a new window
+
 
 ----------
 */
@@ -109,8 +109,8 @@ FROM
       letter.code) codes_blanks ON codes_blanks.code = branchess.code AND
       codes_blanks.message_transport_type = branchess.message_transport_type
 WHERE
-  branchess.branchcode LIKE <<Choose a branch|ZBRAN>> AND
-  branchess.code LIKE <<Choose an overdue notice|ZODUE>>
+  branchess.branchcode LIKE &lt;&gt; AND
+  branchess.code LIKE &lt;&gt;
 GROUP BY
   branchess.branchname,
   Coalesce(codes_branches.message_transport_type,

@@ -4,7 +4,7 @@ R.003650
 ----------
 
 Name: GHW - Holds policy report
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2022-02-23 17:51:00
 Modified on: 2022-02-23 17:51:00
-Date last run: 2022-02-24 11:45:59
+Date last run: 2025-04-30 22:01:38
 
 ----------
 
@@ -53,7 +53,7 @@ FROM
       circulation_rules
     WHERE
       circulation_rules.rule_name = 'holdallowed' AND
-      circulation_rules.itemtype LIKE <<Enter item type code>>
+      circulation_rules.itemtype LIKE &lt;&gt;
     GROUP BY
       Coalesce(circulation_rules.branchcode, "All branches"),
       circulation_rules.categorycode,
@@ -71,7 +71,7 @@ FROM
       circulation_rules
     WHERE
       circulation_rules.rule_name = 'hold_fulfillment_policy' AND
-      circulation_rules.itemtype LIKE <<Enter item type code>>
+      circulation_rules.itemtype LIKE &lt;&gt;
     GROUP BY
       Coalesce(circulation_rules.branchcode, "All branches"),
       circulation_rules.categorycode,
@@ -89,7 +89,7 @@ FROM
       circulation_rules
     WHERE
       circulation_rules.rule_name = 'returnbranch' AND
-      circulation_rules.itemtype LIKE <<Enter item type code>>
+      circulation_rules.itemtype LIKE &lt;&gt;
     GROUP BY
       Coalesce(circulation_rules.branchcode, "All branches"),
       circulation_rules.categorycode,

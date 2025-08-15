@@ -4,7 +4,7 @@ R.002793
 ----------
 
 Name: GHW - Stats Sample 003
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -36,7 +36,7 @@ SELECT
 FROM statistics
 WHERE statistics.type = "issue" AND
   (statistics.datetime BETWEEN "2016-09-01" AND "2016-09-08") AND
-  statistics.branch = <<Enter branch code|branches>>
+  statistics.branch = &lt;&gt;
 GROUP BY statistics.branch, statistics.itemtype
 WITH ROLLUP
 

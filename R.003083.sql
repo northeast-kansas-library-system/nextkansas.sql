@@ -4,7 +4,7 @@ R.003083
 ----------
 
 Name: GHW - Hoopla Monthly Maintenence
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -43,7 +43,7 @@ FROM
   INNER JOIN biblio_metadata ON items.biblionumber = biblio_metadata.biblionumber
 WHERE
   items.itemcallnumber = 'Hoopla' AND
-  items.itemnumber > '2153653'
+  items.itemnumber &gt; '2153653'
 GROUP BY
   items.itemnumber
 

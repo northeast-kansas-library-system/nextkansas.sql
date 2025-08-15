@@ -13,7 +13,7 @@ Group: Borrowers
 
 Created on: 2014-04-07 22:36:00
 Modified on: 2022-05-18 12:13:45
-Date last run: 2023-05-01 13:53:28
+Date last run: 2025-08-01 12:09:12
 
 ----------
 
@@ -32,7 +32,7 @@ This report cannot consider any patron activity more than 25 months old.
 
 
 SELECT count(distinct borrowers.borrowernumber) FROM statistics, borrowers WHERE statistics.borrowernumber=borrowers.borrowernumber AND 
-borrowers.branchcode=<<branch|branches>> AND statistics.branch=<<branch|branches>> AND statistics.datetime BETWEEN <<starting date, ex. 2013-01-01>> AND <<ending date, ex. 2013-12-31>>
+borrowers.branchcode=&lt;&gt; AND statistics.branch=&lt;&gt; AND statistics.datetime BETWEEN &lt;&gt; AND &lt;&gt;
 
 
 

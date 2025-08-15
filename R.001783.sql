@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-SELECT CONCAT('<a href=\"/cgi-bin/koha/catalogue/search.pl?idx=au&q=',author,'&sort_by=title_az\" target="_blank">',author,'</a>') AS "Author Search" , count(biblionumber) FROM biblio WHERE seriestitle LIKE <<enter series title>> GROUP BY author
+SELECT CONCAT('',author,'') AS "Author Search" , count(biblionumber) FROM biblio WHERE seriestitle LIKE &lt;&gt; GROUP BY author
 
 
 

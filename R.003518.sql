@@ -3,8 +3,8 @@ R.003518
 
 ----------
 
-Name: GHW - CIrculation rules - Checkout and hold policy
-Created by: George H Williams
+Name: GHW - Circulation rules - Checkout and hold policy
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-06-10 14:33:05
-Modified on: 2022-10-11 09:08:39
-Date last run: 2023-02-15 11:02:47
+Modified on: 2024-05-28 15:08:14
+Date last run: 2025-05-29 13:51:10
 
 ----------
 
@@ -30,11 +30,11 @@ Expiry: 300
 
 
 SELECT
-  branches_categoriess.branchname AS BRANCH,
-  branches_categoriess.description AS CATEGORY,
-  patron_maxissueqty.rule_value AS MAX_CKO,
-  patron_maxonsiteissueqty.rule_value AS MAX_ONSITE,
-  max_holds.rule_value AS MAX_REQUESTS,
+  branches_categoriess.branchname AS "Borrowers checking out items at",
+  branches_categoriess.description AS "With this borrower category",
+  Coalesce(patron_maxissueqty.rule_value, 'no limit') AS "Can check out a maximum of (maxissueqty)",
+  patron_maxonsiteissueqty.rule_value AS "Not used (MAX_ONSITE)",
+  Coalesce(max_holds.rule_value, 'no limit') AS "Can request a maximum of _ items",
   If(
     categories_branches.branchcode IS NOT NULL, 
     'Yes', 
@@ -75,9 +75,9 @@ FROM
           categories
       ) categoriess
     WHERE
-      (branchess.branchcode LIKE <<Choose your library|LBRANCH>> OR
+      (branchess.branchcode LIKE &lt;&gt; OR
       branchess.branchcode LIKE '*') AND
-      (categoriess.categorycode LIKE <<Choose borrower category|LBORROWERCAT>> OR
+      (categoriess.categorycode LIKE &lt;&gt; OR
       categoriess.categorycode LIKE '*')
   ) branches_categoriess LEFT JOIN
   (
@@ -134,8 +134,8 @@ GROUP BY
   branches_categoriess.branchname,
   branches_categoriess.description
 ORDER BY
-  BRANCH,
-  CATEGORY
+  branches_categoriess.branchname DESC,
+  branches_categoriess.description DESC
 
 
 

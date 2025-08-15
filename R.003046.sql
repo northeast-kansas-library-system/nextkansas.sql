@@ -4,7 +4,7 @@ R.003046
 ----------
 
 Name: GHW - 245h project
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2018-01-23 19:42:44
 Modified on: 2018-01-23 19:42:44
-Date last run: 2018-01-23 19:43:25
+Date last run: 2024-03-07 09:28:58
 
 ----------
 
@@ -59,7 +59,7 @@ FROM
         authorised_values.authorised_value,
         authorised_values.lib) ccodes ON items.ccode = ccodes.authorised_value
 WHERE
-  (biblio.biblionumber <> 0) AND
+  (biblio.biblionumber &lt;&gt; 0) AND
   (items.itype LIKE "%MEDIA%" OR
   items.itype LIKE "%1")
 GROUP BY

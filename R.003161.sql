@@ -4,7 +4,7 @@ R.003161
 ----------
 
 Name: GHW - Patrons added in the previous calendar month
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-01-27 23:01:25
-Modified on: 2023-03-28 16:28:29
-Date last run: 2023-05-22 14:30:18
+Modified on: 2025-05-17 00:05:11
+Date last run: 2025-08-12 14:38:16
 
 ----------
 
@@ -22,20 +22,19 @@ Expiry: 300
 
 ----------
 
-<div id=reportinfo>
-<p>Generates a list of new patrons to review for input errors</p>
-<ul><li>Shows patrons added in the previous calendar month</li>
-<li>at the library you specify</li>
-<li>grouped by borrowernumber</li>
-<li>sorted by the patron's last name and first name</li>
-<li>contains links to the edit patron screen for each patron</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Partially replaces report 555</p>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3161&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+ 
+Generates a list of new patrons to review for input errors
+Shows patrons added in the previous calendar month
+at the library you specify
+grouped by borrowernumber
+sorted by the patron's last name and first name
+contains links to the edit patron screen for each patron
+
+Notes:
+
+Partially replaces report 555
+
+
 
 ----------
 */
@@ -44,9 +43,7 @@ Expiry: 300
 
 SELECT
   Concat(
-    '<a class="btn btn-default" href="/cgi-bin/koha/members/memberentry.pl?op=modify&borrowernumber=', 
-    borrowers.borrowernumber, 
-    '\" target="_blank">Edit borrower account</a>'
+    'Edit account'
   ) AS EDIT,
   Concat_Ws(' ', 
     borrowers.surname, 
@@ -57,10 +54,10 @@ SELECT
       '', 
       Concat('(', borrowers.othernames, ')')
     ),
-    IF(borrowers.dateofbirth IS NULL, '', Concat('<br /><span style="text-decoration: underline;">Birthdate:</span> ', borrowers.dateofbirth))
+    IF(borrowers.dateofbirth IS NULL, '', Concat('Birthdate: ', borrowers.dateofbirth))
   ) AS IDENTITY,
-  Concat_Ws('<br />', 
-    Concat(borrowers.address, If(borrowers.address2 = '', '', Concat('<br />', borrowers.address2))), 
+  Concat_Ws('', 
+    Concat(borrowers.address, If(borrowers.address2 = '', '', Concat('', borrowers.address2))), 
     Concat(
       If(borrowers.city = '', '', Concat(borrowers.city, ', ')), 
       If(borrowers.state = '', '', Concat(borrowers.state, ' ')), 
@@ -68,29 +65,29 @@ SELECT
     )
   ) AS MAIN_ADDRESS,
   Concat_Ws('', 
-    If(borrowers.phone = '', '', Concat('<i class="fa fa-phone-square fa-lg" aria-hidden="true" style="color: green;"></i> ', borrowers.phone, '<br />')), 
-    If(borrowers.phonepro = '', '', Concat('<i class="fa fa-phone-square" aria-hidden="true" style="color: green;"></i> ', borrowers.phonepro, '<br />')),
-    IF(borrowers.email = '', '', CONCAT('<i class="fa fa-envelope fa-lg" aria-hidden="true" style="color: blue;"></i> ', borrowers.email, '<br />')),
-    IF(borrowers.emailpro = '', '', CONCAT('<i class="fa fa-envelope" aria-hidden="true" style="color: blue;"></i> ', borrowers.emailpro, '<br />'))
+    If(borrowers.phone = '', '', Concat(' ', borrowers.phone, '')), 
+    If(borrowers.phonepro = '', '', Concat(' ', borrowers.phonepro, '')),
+    IF(borrowers.email = '', '', CONCAT(' ', borrowers.email, '')),
+    IF(borrowers.emailpro = '', '', CONCAT(' ', borrowers.emailpro, ''))
   ) AS CONTACT_INFO,
-  CONCAT_WS('<br />',
+  CONCAT_WS('',
     Concat('Card number: ', borrowers.cardnumber), 
     Concat('Library: ', branches.branchname),
     Concat('Category: ', categories.description)
   ) AS LIBRARY_MANAGEMENT,
-  CONCAT_WS('<br />',
+  CONCAT_WS('',
     Concat('Registration date: ', borrowers.dateenrolled), 
     Concat('Expiration date: ', borrowers.dateexpiry)
   ) AS LIBRARY_SETUP,
-  If(borrowers.smsalertnumber = '', '', Concat('Provider: ', sms_providers.name, '<br />SMS number: ', borrowers.smsalertnumber)) AS SMS,
-  @SortOrder := <<Sort by|XS_BORROWER>> AS SORTING
+  If(borrowers.smsalertnumber = '', '', Concat('Provider: ', sms_providers.name, 'SMS number: ', borrowers.smsalertnumber)) AS SMS,
+  @SortOrder := &lt;&gt; AS SORTING
 FROM
   borrowers LEFT JOIN
   sms_providers ON borrowers.sms_provider_id = sms_providers.id LEFT JOIN
   branches ON borrowers.branchcode = branches.branchcode LEFT JOIN
   categories ON borrowers.categorycode = categories.categorycode
 WHERE
-  borrowers.branchcode LIKE <<Choose your library|LBRANCH>> AND
+  borrowers.branchcode LIKE &lt;&gt; AND
   Year(borrowers.dateenrolled) = Year(Now() - INTERVAL 1 MONTH) AND
   Month(borrowers.dateenrolled) = Month(Now() - INTERVAL 1 MONTH)
 GROUP BY

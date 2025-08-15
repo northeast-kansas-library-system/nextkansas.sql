@@ -4,7 +4,7 @@ R.003060
 ----------
 
 Name: GHW - "Report-a-problem" notes by item barcode
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -30,11 +30,11 @@ Expiry: 300
 
 
 SELECT
-  Concat_Ws("<br />",
-    Concat("Borrower BC: ", borrowers.cardnumber, "<br />"),
-    Concat('<a href=\"/cgi-bin/koha/circ/circulation.pl?borrowernumber=', allissues.borrowernumber, '\" target="_blank">Link to patron record</a>')
+  Concat_Ws("",
+    Concat("Borrower BC: ", borrowers.cardnumber, ""),
+    Concat('Link to patron record')
   ) AS PATRON,
-  Concat_Ws("<br />",
+  Concat_Ws("",
     Concat("Item home: ", items.homebranch),
     Concat("Location: ", items.location),
     Concat("Item type: ", items.itype),
@@ -42,17 +42,17 @@ SELECT
     Concat("Call number: ", items.itemcallnumber),
     Concat("Author: ", biblio.author),
     Concat("Title: ", biblio.title),
-    Concat("Item BC: ", allissues.ITEM_BC, "<br />"),
-    Concat('<a href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', items.biblionumber, '\" target="_blank">Link to title</a>')
+    Concat("Item BC: ", allissues.ITEM_BC, ""),
+    Concat('Link to title')
   ) AS ITEM_INFO,
-  Concat_Ws("<br />",
-    Concat("Checked out at: ", allissues.branchcode, "<br />"),
-    Concat("Checked out on: ", allissues.issuedate, "<br />"),
+  Concat_Ws("",
+    Concat("Checked out at: ", allissues.branchcode, ""),
+    Concat("Checked out on: ", allissues.issuedate, ""),
     Concat("Due date: ", allissues.IN_OR_OUT)
   ) AS CHECKOUT_INFO,
-  Concat_Ws("<br />",
-    Concat("Note date: ", allissues.notedate, "<br />"),
-    Concat("<ins>Note text:</ins><br /><br />", allissues.note)
+  Concat_Ws("",
+    Concat("Note date: ", allissues.notedate, ""),
+    Concat("Note text:", allissues.note)
   ) AS NOTE_INFO
 FROM
     (SELECT
@@ -60,8 +60,8 @@ FROM
         issues.borrowernumber,
         issues.notedate,
         items.barcode AS ITEM_BC,
-        If(issues.itemnumber <> 0, issues.date_due,
-        "<span style='color: red;'><ins>Item has already been returned</ins></span>") AS IN_OR_OUT,
+        If(issues.itemnumber &lt;&gt; 0, issues.date_due,
+        "Item has already been returned") AS IN_OR_OUT,
         issues.branchcode,
         issues.issuedate,
         issues.itemnumber
@@ -76,7 +76,7 @@ FROM
         old_issues.borrowernumber,
         old_issues.notedate,
         items.barcode AS ITEM_BC,
-        If(old_issues.itemnumber <> 0, "<span style='color: red;'><ins>Item has already been returned</ins></span>",
+        If(old_issues.itemnumber &lt;&gt; 0, "Item has already been returned",
         "Still checked out") AS IN_OR_OUT,
         old_issues.branchcode,
         old_issues.issuedate,
@@ -90,7 +90,7 @@ FROM
   LEFT JOIN items ON allissues.itemnumber = items.itemnumber
   INNER JOIN biblio ON items.biblionumber = biblio.biblionumber
 WHERE
-  items.barcode LIKE <<Enter item barcode number>>
+  items.barcode LIKE &lt;&gt;
 GROUP BY
   allissues.borrowernumber,
   items.itemnumber

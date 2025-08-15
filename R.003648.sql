@@ -4,7 +4,7 @@ R.003648
 ----------
 
 Name: Call numbers with unneeded spaces
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -126,13 +126,13 @@ FROM
     FROM
       items
     WHERE
-      items.homebranch Like <<Choose your library|branches:all>> AND
-      (Length(Replace(items.itemcallnumber, ' ', '-')) - Length(Replace(items.itemcallnumber, ' ', '')) + 1) > <<Greater than X lines on the spine label|YNUMBER>>
+      items.homebranch Like &lt;&gt; AND
+      (Length(Replace(items.itemcallnumber, ' ', '-')) - Length(Replace(items.itemcallnumber, ' ', '')) + 1) &gt; &lt;&gt;
     ) cnlines 
     ON cnlines.itemnumber = items.itemnumber AND
       cnlines.homebranch = items.homebranch
 WHERE
-  items.homebranch Like <<Choose your library|branches:all>>
+  items.homebranch Like &lt;&gt;
 GROUP BY
   items.itemnumber,
   cnlines.length,

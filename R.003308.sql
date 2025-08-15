@@ -4,7 +4,7 @@ R.003308
 ----------
 
 Name: GHW - Authorised Values Synchronization - Collection Codes
-Created by: George H Williams
+Created by: George Williams
 
 ----------
 
@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2020-01-28 14:21:20
 Modified on: 2021-07-08 15:15:42
-Date last run: 2023-01-31 13:37:06
+Date last run: 2025-03-19 10:53:06
 
 ----------
 
@@ -31,25 +31,21 @@ Expiry: 300
 
 SELECT
   Concat(
-    '<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=',
-    ccodes.category, 
-    '" target="_blank">Link to CCODE</a>'
+    'Link to CCODE'
   ) AS LINK_TO_CCODE,
   If(
     ccodes.category IS NULL,
-    "<span style='background-color: red; color: yellow'>Possible errror</span>",
+    "Possible errror",
     ccodes.category
   ) AS CATEGORY,
   ccodes.authorised_value AS CCODE,
   If(
     lccodes.category IS NULL,
-    "<span style='background-color: red; color: yellow'>Possible errror</span>",
+    "Possible errror",
     lccodes.category
   ) AS ALT_CATEGORY,
   Concat(
-    '<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=',
-    lccodes.category, 
-    '" target="_blank">Link to LCCODE</a>'
+    'Link to LCCODE'
   ) AS LINK_TO_LCCODE,
   lccodes.authorised_value AS LCCODE,
   ccodes.lib AS LIB,
@@ -79,25 +75,21 @@ FROM
 UNION
 SELECT
   Concat(
-    '<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=',
-    ccodesx.category, 
-    '" target="_blank">Link to CCODE</a>'
+    'Link to CCODE'
   ) AS LINK,
   If(
     ccodesx.category IS NULL,
-    "<span style='background-color: red; color: yellow'>Possible errror</span>",
+    "Possible errror",
     ccodesx.category
   ) AS category,
   ccodesx.authorised_value,
   If(
     lccodesx.category IS NULL,
-    "<span style='background-color: red; color: yellow'>Possible errror</span>",
+    "Possible errror",
     lccodesx.category
   ) AS category1,
   Concat(
-    '<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=',
-    lccodesx.category, 
-    '" target="_blank">Link to LCCODE</a>'
+    'Link to LCCODE'
   ) AS LINK1,
   lccodesx.authorised_value AS authorised_value1,
   ccodesx.lib,
