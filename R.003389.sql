@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2020-11-30 16:48:41
-Modified on: 2024-01-17 12:03:21
-Date last run: 2025-07-30 08:26:24
+Modified on: 2025-08-18 13:31:49
+Date last run: 2025-08-18 13:32:04
 
 ----------
 
@@ -52,7 +52,8 @@ SELECT
   borrowers.zipcode,
   borrowers.country,
   borrowers.branchcode,
-  borrowers.categorycode
+  borrowers.categorycode,
+  borrowers.dateenrolled
 FROM
   borrowers
 WHERE

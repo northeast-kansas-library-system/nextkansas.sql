@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2023-02-10 16:39:32
-Modified on: 2023-10-16 21:54:35
-Date last run: 2025-08-11 17:35:41
+Modified on: 2025-09-11 18:33:29
+Date last run: 2025-10-06 14:52:39
 
 ----------
 
@@ -22,59 +22,59 @@ Expiry: 300
 
 ----------
 
- 
-Circulation by item details spreadsheet report - circulation by collection code 
-Shows counts of check-outs and renewals in the previous calendar month 
-At all the library you specify 
-grouped and sorted by library name and collection code 
- 
-Notes: 
- 
-An item's "shelving location" is based on the shelving location of the item at the time it was checked out *Unless the item had a "Recently returned" shelving location.*  This report falls back to the items' "Permanent shelving location" whenever the statistics data shows that the item's shelving location was "Recently returned."  If the shelving location is completely ambiguous, the circulation is counted in the 'Other items' column. 
- 
- 
-  'Adult items' includes items with these shelving locations: 
-   
-    Adult 
-    ~Display - BALDWIN - Adult 
-    ~Display - LEAVENWRTH - Adult 
-    ~Display - PAOLA - Adult 
-    Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Adult" locations 
-   
-   
-  'YA items' includes items with these shelving locations: 
-   
-    Young adult 
-    ~Display - BALDWIN - Young Adult 
-    ~Display - LEAVENWRTH - Young adult 
-    ~Display - PAOLA - Young adult 
-    Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Young adult" locations 
-   
-   
-  'Juvenile items' includes items with these shelving locations: 
-   
-    Childrens 
-    ~Display - BALDWIN - Childrens 
-    ~Display - LEAVENWRTH - Children's 
-    ~Display - PAOLA - Children's 
-    Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Childrens" locations 
-   
-   
-  'Other items' includes items with these shelving locations: 
-   
-    Cataloging 
-    Processing Center 
-    Any other situation where the recorded shelving location is "Recently returned" but the item's permanent location is ambiguous 
-    Any items where the recorded shelving location is blank or unknown 
-   
- 
-   
- 
-This report and these notes updated on 2023.02.10 
- 
-#monthly #statistics #item #details #ccode #circulation_by_item_details 
- 
- 
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Circulation by item details spreadsheet report - circulation by collection code&lt;/p&gt; 
+&lt;ul&gt;&lt;li&gt;Shows counts of check-outs and renewals in the previous calendar month&lt;/li&gt; 
+&lt;li&gt;At all the library you specify&lt;/li&gt; 
+&lt;li&gt;grouped and sorted by library name and collection code&lt;/li&gt; 
+&lt;/ul&gt;&lt;br /&gt; 
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;An item's "shelving location" is based on the shelving location of the item at the time it was checked out *Unless the item had a "Recently returned" shelving location.*  This report falls back to the items' "Permanent shelving location" whenever the statistics data shows that the item's shelving location was "Recently returned."  If the shelving location is completely ambiguous, the circulation is counted in the 'Other items' column.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+  &lt;li&gt;'Adult items' includes items with these shelving locations:&lt;/li&gt; 
+  &lt;ul&gt; 
+    &lt;li&gt;Adult&lt;/li&gt; 
+    &lt;li&gt;~Display - BALDWIN - Adult&lt;/li&gt; 
+    &lt;li&gt;~Display - LEAVENWRTH - Adult&lt;/li&gt; 
+    &lt;li&gt;~Display - PAOLA - Adult&lt;/li&gt; 
+    &lt;li&gt;Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Adult" locations&lt;/li&gt; 
+  &lt;/ul&gt; 
+  &lt;br /&gt; 
+  &lt;li&gt;'YA items' includes items with these shelving locations:&lt;/li&gt; 
+  &lt;ul&gt; 
+    &lt;li&gt;Young adult&lt;/li&gt; 
+    &lt;li&gt;~Display - BALDWIN - Young Adult&lt;/li&gt; 
+    &lt;li&gt;~Display - LEAVENWRTH - Young adult&lt;/li&gt; 
+    &lt;li&gt;~Display - PAOLA - Young adult&lt;/li&gt; 
+    &lt;li&gt;Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Young adult" locations&lt;/li&gt; 
+  &lt;/ul&gt; 
+  &lt;br /&gt; 
+  &lt;li&gt;'Juvenile items' includes items with these shelving locations:&lt;/li&gt; 
+  &lt;ul&gt; 
+    &lt;li&gt;Childrens&lt;/li&gt; 
+    &lt;li&gt;~Display - BALDWIN - Childrens&lt;/li&gt; 
+    &lt;li&gt;~Display - LEAVENWRTH - Children's&lt;/li&gt; 
+    &lt;li&gt;~Display - PAOLA - Children's&lt;/li&gt; 
+    &lt;li&gt;Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Childrens" locations&lt;/li&gt; 
+  &lt;/ul&gt; 
+  &lt;br /&gt; 
+  &lt;li&gt;'Other items' includes items with these shelving locations:&lt;/li&gt; 
+  &lt;ul&gt; 
+    &lt;li&gt;Cataloging&lt;/li&gt; 
+    &lt;li&gt;Processing Center&lt;/li&gt; 
+    &lt;li&gt;Any other situation where the recorded shelving location is "Recently returned" but the item's permanent location is ambiguous&lt;/li&gt; 
+    &lt;li&gt;Any items where the recorded shelving location is blank or unknown&lt;/li&gt; 
+  &lt;/ul&gt; 
+&lt;/ul&gt; 
+  &lt;br /&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p class="updated"&gt;This report and these notes updated on 2023.02.10&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p class= "notetags" style="display: none;"&gt;#monthly #statistics #item #details #ccode #circulation_by_item_details&lt;/p&gt; 
+&lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt; 
+&lt;/div&gt; 
 
 ----------
 */

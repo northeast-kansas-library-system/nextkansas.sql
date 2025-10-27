@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2017-09-01 14:01:00
 Modified on: 2019-11-06 00:39:17
-Date last run: 2025-04-24 13:20:57
+Date last run: 2025-08-25 14:54:52
 
 ----------
 
@@ -63,4 +63,3 @@ GROUP BY
   items.biblionumber
 ORDER BY
   items.itemcallnumber
-  

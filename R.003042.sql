@@ -3,7 +3,7 @@ R.003042
 
 ----------
 
-GHW - search for %efbfbd% characters
+Name: GHW - search for %efbfbd% characters
 Created by: George Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2018-01-17 15:41:49
-Modified on: 2018-01-19 08:34:14
-Date last run: 2018-11-29 17:04:26
+Modified on: 2025-08-15 13:52:51
+Date last run: 2025-08-15 13:52:51
 
 ----------
 

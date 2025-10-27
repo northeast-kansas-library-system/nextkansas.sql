@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-09-13 20:55:02
-Modified on: 2024-01-17 11:22:25
-Date last run: 2024-05-21 18:16:48
+Modified on: 2025-08-21 17:28:43
+Date last run: 2025-08-21 17:28:43
 
 ----------
 
@@ -635,16 +635,6 @@ SELECT
   Date_Format(Max(borrower_modifications.timestamp), '%Y - %m - %d') AS NEWEST_DATE
 FROM
   borrower_modifications
-UNION
-SELECT
-  Concat('') AS _GROUP_,
-  Concat('borrower_password_recovery') AS TABLE_NAME,
-  Concat('valid_until') AS FIELD_NAME,
-  Coalesce(Concat(''), '-') AS TYPE_OF_EVENT,
-  Date_Format(Min(borrower_password_recovery.valid_until), '%Y - %m - %d') AS OLDEST_DATE,
-  Date_Format(Max(borrower_password_recovery.valid_until), '%Y - %m - %d') AS NEWEST_DATE
-FROM
-  borrower_password_recovery
 UNION
 SELECT
   Concat('') AS _GROUP_,

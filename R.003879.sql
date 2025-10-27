@@ -266,11 +266,22 @@ Expiry: 300
 
 Select 
 Concat(
-    'Go to title',
-    '&nbsp;',
-    'Edit item',
-    '&nbsp;',
-    'View title inAspen Discovery'
+    '<a class="btn btn-default noprint" ',
+    'href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',
+    item_information.biblionumber,
+    '\" target="_blank">Go to title</a>',
+    '<br>&nbsp;<br>',
+    '<a class="btn btn-default noprint" ',
+    'href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=',
+    item_information.biblionumber,
+    '&itemnumber=',
+    item_information.itemnumber,
+    '#edititem\" target="_blank">Edit item</a>',
+    '<br>&nbsp;<br>',
+    '<a class="btn btn-default noprint" ',
+    'href=\"https://nextkansas.org/Record/',
+    item_information.biblionumber,
+    '\" target="_blank">View title in<br>Aspen Discovery</a>'
   ) As LINK_ONE,
   item_information.biblionumber As BIBLIO_NUMBER,
   item_information.itemnumber As ITEM_NUMBER,
@@ -313,7 +324,7 @@ Concat(
         Coalesce(item_information.damaged_on, 'Date not known')
       )
     ),
-    If(item_information.status_score &gt; 18, ' / ', ''),
+    If(item_information.status_score > 18, ' / ', ''),
     If(
       Coalesce(losts.lib, 'x') = 'x',
       '',
@@ -350,9 +361,17 @@ Concat(
   local_count.Count_itemnumber As LOCAL_COPIES,
   system_count.Count_itemnumber As SYSTEM_COPIES,
   Concat(
-    'Go to title',
-    '',
-    'Edit item'
+    '<a class="btn btn-default noprint" ',
+    'href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=',
+    item_information.biblionumber,
+    '\" target="_blank">Go to title</a>',
+    '<br>',
+    '<a class="btn btn-default noprint" ',
+    'href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=',
+    item_information.biblionumber,
+    '&itemnumber=',
+    item_information.itemnumber,
+    '#edititem\" target="_blank">Edit item</a>'
   ) As LINK_TWO
 From (
     Select items.biblionumber,
@@ -414,10 +433,10 @@ From (
       items.dateaccessioned
       ,
       If(
-        Coalesce(items.dateaccessioned, '2000-01-02') &lt; '2000-01-01', 
+        Coalesce(items.dateaccessioned, '2000-01-02') < '2000-01-01', 
         '2000-01-02', 
         If(
-          items.dateaccessioned &gt; Now(), 
+          items.dateaccessioned > Now(), 
           '2000-01-03', 
           items.dateaccessioned
         )
@@ -461,36 +480,36 @@ From (
       Inner Join biblio_metadata On biblio_metadata.biblionumber = biblio.biblionumber
       Inner Join biblioitems On biblioitems.biblionumber = biblio.biblionumber
     Where 
-      Coalesce(items.homebranch, 'NEKLS') LIKE &lt;&gt; AND
-      Coalesce(items.permanent_location, "-") LIKE &lt;&gt; AND 
-      Coalesce(items.itype, 'PUNC') LIKE &lt;&gt; AND
-      Coalesce(items.ccode, 'XXX') LIKE &lt;&gt; AND 
-      Coalesce(items.itemcallnumber, '-') LIKE Concat(&lt;&gt;, "%") AND 
-      IF(Coalesce(items.notforloan, 0) = 0, 'X', items.notforloan) REGEXP &lt;&gt; AND 
+      Coalesce(items.homebranch, 'NEKLS') LIKE <<Item home library|ZBRAN>> AND
+      Coalesce(items.permanent_location, "-") LIKE <<Item permanent shelving location|LLOC>> AND 
+      Coalesce(items.itype, 'PUNC') LIKE <<Item type|LITYPES>> AND
+      Coalesce(items.ccode, 'XXX') LIKE <<Item collection code|LCCODE>> AND 
+      Coalesce(items.itemcallnumber, '-') LIKE Concat(<<Enter first part of call number or a % symbol>>, "%") AND 
+      IF(Coalesce(items.notforloan, 0) = 0, 'X', items.notforloan) REGEXP <<Not for loan status|LNOT_LOAN>> AND 
       (
         If(
-          Coalesce(items.dateaccessioned, '2000-01-02') &lt; '2000-01-01', 
+          Coalesce(items.dateaccessioned, '2000-01-02') < '2000-01-01', 
           '2000-01-02', 
           If(
-            items.dateaccessioned &gt; Now(), 
+            items.dateaccessioned > Now(), 
             Cast(now() As Date), 
             items.dateaccessioned
           )
-        ) BETWEEN &lt;&gt; AND &lt;&gt;
+        ) BETWEEN <<Item added between date1|date>> AND <<and-date2|date>>
       ) AND 
       (
         If( 
-          Coalesce(Year(Coalesce(items.datelastborrowed)), '1999') &lt; '2000', 
+          Coalesce(Year(Coalesce(items.datelastborrowed)), '1999') < '2000', 
           '2000-01-02', 
           items.datelastborrowed 
-        ) BETWEEN &lt;&gt; AND &lt;&gt;
+        ) BETWEEN <<Item last borrowed between date1|date>> AND <<and--date2|date>>
       ) AND 
       (
         If( 
-          Coalesce(Year(Coalesce(items.datelastseen)), '1999') &lt; '2000', 
+          Coalesce(Year(Coalesce(items.datelastseen)), '1999') < '2000', 
           CAST('2000-01-02' AS DATE), 
           Date(items.datelastseen) 
-        ) BETWEEN &lt;&gt; AND &lt;&gt; 
+        ) BETWEEN <<Item last seen between date1|date>> AND <<and---date2|date>> 
       )
     Group By items.itemnumber
   ) item_information
@@ -531,7 +550,7 @@ From (
     Select statistics.itemnumber,
       Count(*) As count
     From statistics
-    Where statistics.datetime &lt; CurDate() - Interval 1 Year
+    Where statistics.datetime < CurDate() - Interval 1 Year
       And (
         statistics.type = 'issue'
         Or statistics.type = 'renew'
@@ -581,7 +600,7 @@ From (
       items.homebranch
     From items
     Where 
-      Coalesce(items.homebranch, 'NEKLS') LIKE &lt;&gt;
+      Coalesce(items.homebranch, 'NEKLS') LIKE <<Item home library|ZBRAN>>
     Group By items.biblionumber
   ) local_count 
     On local_count.biblionumber = item_information.biblionumber
@@ -593,14 +612,14 @@ From (
   ) system_count 
     On system_count.biblionumber = item_information.biblionumber
 WHERE
-  Coalesce(item_information.STATUS_PROBLEMS, 'No') LIKE &lt;&gt; AND
-  Coalesce(item_information.damaged, 0) LIKE &lt;&gt; AND
-  Coalesce(losts.lib_opac, '-') LIKE &lt;&gt; AND 
-  Coalesce(item_information.withdrawn, 0) LIKE &lt;&gt; AND 
-  Coalesce(item_information.CKO_PLUS_RENEW, 0) &lt;= &lt;&gt; AND 
-  Coalesce(item_information.CHECKED_OUT_NOW, 'No') LIKE &lt;&gt; AND 
-  Coalesce(local_count.Count_itemnumber, 0) &gt;= &lt;&gt; AND 
-  Coalesce(system_count.Count_itemnumber, 0) &gt;= &lt;&gt;
+  Coalesce(item_information.STATUS_PROBLEMS, 'No') LIKE <<Display lost, missing, and withdrawn items|ZYES_NO>> AND
+  Coalesce(item_information.damaged, 0) LIKE <<Damaged status|DAMAGED:all>> AND
+  Coalesce(losts.lib_opac, '-') LIKE <<Lost status|LLOST>> AND 
+  Coalesce(item_information.withdrawn, 0) LIKE <<Withdrawn status|WITHDRAWN:all>> AND 
+  Coalesce(item_information.CKO_PLUS_RENEW, 0) <= <<With X or fewer checkouts|ZNUMBERS>> AND 
+  Coalesce(item_information.CHECKED_OUT_NOW, 'No') LIKE <<Display checked out items|ZYES_NO>> AND 
+  Coalesce(local_count.Count_itemnumber, 0) >= <<With X or more copies at this library|YNUMBER>> AND 
+  Coalesce(system_count.Count_itemnumber, 0) >= <<With X or more copies at throughout the catalog|YNUMBER>>
 Order By 
   HOME_LIBRARY,
   ITEM_PERMANENT_LOCATION,
@@ -610,28 +629,3 @@ Order By
   AUTHOR,
   item_information.FULL_TITLE,
   ITEM_NUMBER DESC
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
