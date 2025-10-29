@@ -22,29 +22,29 @@ Expiry: 300
 
 ----------
 
- 
-Item count by collection code
-Counts items currently in the collection
-At the library you specify - or with the collection code you specify
-grouped and sorted by library name and collection code
-links to report 2731 to generate a shelflist for the items being counted
-
-Notes:
-
-Non-standard shelving locations are counted as "Adult" locations.
-Items with blank collection codes are counted as "(Unclassified)."
-
-Replaces all other item count by collection code reports.
-
-  716 - Count of Yearly New items added by CCode
-  808 - Collection size by Collection Code & Location (per branch)
-  1666 - Collection size by Collection Code
-  2970 - GHW - Collection Statistics - Items at a library
-  3172 - GHW - Collection code count by Library
-  3180 - GHW - CCODE count by library
-
-#ultimate #itemcount #ccode item count collection code ccode
-
+<div class="reportinfo noprint"> 
+<p>Item count by collection code</p>
+<ul><li>Counts items currently in the collection</li>
+<li>At the library you specify - or with the collection code you specify</li>
+<li>grouped and sorted by library name and collection code</li>
+<li>links to report 2731 to generate a shelflist for the items being counted</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Non-standard shelving locations are counted as "Adult" locations.</p>
+<p>Items with blank collection codes are counted as "(Unclassified)."</p>
+<p></p>
+<p><strong>Replaces all other item count by collection code reports.</strong></p>
+<ul>
+  <li>716 - Count of Yearly New items added by CCode</li>
+  <li>808 - Collection size by Collection Code & Location (per branch)</li>
+  <li>1666 - Collection size by Collection Code</li>
+  <li>2970 - GHW - Collection Statistics - Items at a library</li>
+  <li>3172 - GHW - Collection code count by Library</li>
+  <li>3180 - GHW - CCODE count by library</li>
+</ul>
+<p class= "notetags" style="display: none;">#ultimate #itemcount #ccode item count collection code ccode</p>
+</div>
 
 ----------
 */

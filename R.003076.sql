@@ -22,22 +22,43 @@ Expiry: 300
 
 ----------
 
+<script>
 
+  $(window).on("load", function() {
 
- 
-Creates a digital receipt that can be copied and pasted into a form for easy mailing to a patron's e-mail address
-WHEN
-Whose Stuff
-grouped by
-sorted by
-links
+    $("#rep_guided_reports_start #yui-main table").attr("id","receipttable");
 
-Notes:
+    $("#rep_guided_reports_start td .hideme").hide();
 
+      $("#digireciept").click(function () {
+        var el = document.getElementById("receipttable");
+        var range = document.createRange();
+        range.selectNodeContents(el);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        document.execCommand('copy');
+        window.open("http://news.nexpresslibrary.org/one-time-digital-receipt/", "_blank"); 
+      });
 
+});
 
-Click here to run in a new window
+</script>
 
+<div class="reportinfo noprint hideme"> 
+<p>Creates a digital receipt that can be copied and pasted into a form for easy mailing to a patron's e-mail address</p>
+<ul><li>WHEN</li>
+<li>Whose Stuff</li>
+<li>grouped by</li>
+<li>sorted by</li>
+<li>links</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><input type="button" id="digireciept" style="margin: 20px; padding: 5px;" value="One time e-mail receipt step 2"></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3076&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

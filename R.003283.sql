@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
- 
-Find a patron's card number based on a portion of their SMS text messaging number
-Shows all patrons that currently have that portion of an SMS text number
-at all libraries
-grouped by borrowernumber
-grouped by text messaging phone number
-links to the patron's account
-
-Notes:
-
-Text message numbers are ten digits long and  only contain numerals - no spaces, letters, or punctuation.
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Find a patron's card number based on a portion of their SMS text messaging number</p>
+<ul><li>Shows all patrons that currently have that portion of an SMS text number</li>
+<li>at all libraries</li>
+<li>grouped by borrowernumber</li>
+<li>grouped by text messaging phone number</li>
+<li>links to the patron's account</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Text message numbers are ten digits long and  only contain numerals - no spaces, letters, or punctuation.</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3283&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

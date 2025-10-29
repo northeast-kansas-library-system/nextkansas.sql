@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
- 
-Generates a list of new patrons to review for input errors
-Shows patrons added in the previous calendar month
-at the library you specify
-grouped by borrowernumber
-sorted by the patron's last name and first name
-contains links to the edit patron screen for each patron
-
-Notes:
-
-Partially replaces report 555
-
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of new patrons to review for input errors</p>
+<ul><li>Shows patrons added in the previous calendar month</li>
+<li>at the library you specify</li>
+<li>grouped by borrowernumber</li>
+<li>sorted by the patron's last name and first name</li>
+<li>contains links to the edit patron screen for each patron</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Partially replaces report 555</p>
+<p></p>
+</div>
 
 ----------
 */

@@ -22,23 +22,23 @@ Expiry: 300
 
 ----------
 
- 
-List of bibliographic records that will be deleted on Sunday morning.
-Shows bibliographic records that currently meet the criteria for deletion
-at all locations
-grouped by biblionumber
-sorted by author and title
-contains links to the bibliographic records
-
-Notes:
-
-Click here for more information
-
-Replaces reports 1061 and 2356
-
-Click here to run in a new window
-Click here to download as a csv file
-
+<div class="reportinfo noprint"> 
+<p>List of bibliographic records that will be deleted on Sunday morning.</p>
+<ul><li>Shows bibliographic records that currently meet the criteria for deletion</li>
+<li>at all locations</li>
+<li>grouped by biblionumber</li>
+<li>sorted by author and title</li>
+<li>contains links to the bibliographic records</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="https://will1410.github.io/next.training/cronjobs/cronjobs.html#empty-bibliographic-record-deletion"  target="_blank">Click here</a> for more information</p>
+<p></p>
+<p>Replaces reports 1061 and 2356</p>
+<p></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?phase=Run+this+report&reports=3193&limit=500"  target="_blank">Click here to run in a new window</a></p>
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3193">Click here to download as a csv file</a></p>
+</div>
 
 ----------
 */

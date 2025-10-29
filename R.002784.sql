@@ -22,20 +22,20 @@ Expiry: 0
 
 ----------
 
- 
-Identifies "In transit" history of a specific item
-Shows all "In transit" data
-on an item you specify
-grouped by transfer ID
-sorted by the date the item was shipped to its destination
-
-Notes:
-
-Report created to help troubleshoot problems with requested items (i.e. missing in transit, item on holds list not found, etc.).
-Report 3039 actively links to this report
-Updated on 2022.03.29
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Identifies "In transit" history of a specific item</p>
+<ul><li>Shows all "In transit" data</li>
+<li>on an item you specify</li>
+<li>grouped by transfer ID</li>
+<li>sorted by the date the item was shipped to its destination</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Report created to help troubleshoot problems with requested items (i.e. missing in transit, item on holds list not found, etc.).</p>
+<p>Report 3039 actively links to this report</p>
+<p>Updated on 2022.03.29</p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2784&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

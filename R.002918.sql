@@ -22,18 +22,18 @@ Expiry: 0
 
 ----------
 
- 
-Counts the number of overdue items that were returned during the previous calendar month grouped by the number of days the item was overdue.
-Shows overdue items returned in the previous calendar month.
-shows overdue items based on the check-out library you specify.
-grouped and sorted by the check-out library and the number of days the item was late when it was checked in
-
-Notes:
-
-Starting in January of 2017, all NExpress items that were overdue more than 45 days began to be moved from being checked-out to being checked in with a "Lost (overdue more than 45 days)" status unless the items were checked out to patrons in certain categories (i.e. student/teacher/inhouse, etc).  Please take this into consideration when looking at the number of overdue items that are checked in when they are 46 days overdue.  These items will almost always be items that were automatically changed from overdue to "Lost."
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Counts the number of overdue items that were returned during the previous calendar month grouped by the number of days the item was overdue.</p>
+<ul><li>Shows overdue items returned in the previous calendar month.</li>
+<li>shows overdue items based on the check-out library you specify.</li>
+<li>grouped and sorted by the check-out library and the number of days the item was late when it was checked in</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Starting in January of 2017, all NExpress items that were overdue more than 45 days began to be moved from being checked-out to being checked in with a "Lost (overdue more than 45 days)" status unless the items were checked out to patrons in certain categories (i.e. student/teacher/inhouse, etc).  Please take this into consideration when looking at the number of overdue items that are checked in when they are 46 days overdue.  These items will almost always be items that were automatically changed from overdue to "Lost."</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2918&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

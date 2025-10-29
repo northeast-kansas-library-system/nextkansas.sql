@@ -23,7 +23,7 @@ Expiry: 0
 ----------
 
 Gives total of payments in Koha each month (listed as negative amount in the accountlines table); branch is based on staff accounts listed in manager_id recorded when fines are paid. 
-References accountlines.accounttype.  Needs to be updated after January 4, 2020
+<p><span style="color: yellow; background-color: red; font-size: 200%;">References accountlines.accounttype.  Needs to be updated after January 4, 2020</span></p>
 
 ----------
 */

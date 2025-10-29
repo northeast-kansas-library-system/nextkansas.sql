@@ -22,30 +22,30 @@ Expiry: 300
 
 ----------
 
- 
-Generates a printable shelf list with call numbers at a specific branch based on a list
-Displays titles currently on the list you specify
-at the library you specify
-grouped by title and list id number
-sorted by standard Next Search Catalog classification, author, and title
-links to the actual list
-
-Notes:
-
-To determine the list id number, look at the URL for the list and take the number off of the end of the URL. For example, the list at
-https://staff.nextkansas.org/cgi-bin/koha/virtualshelves/shelves.pl?op=view&shelfnumber=6003
-would be list number 6003.
-
-Can be accessed by running reports 3224 or 3225 and clicking on the link in the "CALL_NUMBER_REPORT" column
-
-Replaces the following reports:
-
-1746 - Shelf List from a Private List
-2049 - Printed list of books from a list
-
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a printable shelf list with call numbers at a specific branch based on a list</p>
+<ul><li>Displays titles currently on the list you specify</li>
+<li>at the library you specify</li>
+<li>grouped by title and list id number</li>
+<li>sorted by standard Next Search Catalog classification, author, and title</li>
+<li>links to the actual list</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>To determine the list id number, look at the URL for the list and take the number off of the end of the URL. For example, the list at<br />
+https://staff.nextkansas.org/cgi-bin/koha/virtualshelves/shelves.pl?op=view&shelfnumber=6003<br />
+would be list number 6003.</p>
+<p></p>
+<p>Can be accessed by running reports 3224 or 3225 and clicking on the link in the "CALL_NUMBER_REPORT" column</p>
+<p></p>
+<p>Replaces the following reports:</p>
+<ul>
+<li>1746 - Shelf List from a Private List</li>
+<li>2049 - Printed list of books from a list</li>
+</ul>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3227&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 
 

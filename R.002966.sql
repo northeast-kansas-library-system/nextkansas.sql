@@ -22,17 +22,17 @@ Expiry: 300
 
 ----------
 
- 
-Shows patrons that OTTAWA has turned over to their collection agency
-Shows patrons who currently have collection agency flags on their account.
-regardless of the patron's home library
-grouped by borrowernumber and sort1
-sorted by borrowers name, last name first
-
-Notes:
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Shows patrons that OTTAWA has turned over to their collection agency</p>
+<ul><li>Shows patrons who currently have collection agency flags on their account.</li>
+<li>regardless of the patron's home library</li>
+<li>grouped by borrowernumber and sort1</li>
+<li>sorted by borrowers name, last name first</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2966&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

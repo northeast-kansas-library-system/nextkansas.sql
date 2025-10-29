@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
- 
-Generates a list of unresolved debits
-Shows currently unresolved debits
-at the library you specify
-grouped by borrower id number
-sorted by library and borrower barcode number
-links to the borrower's accounts tab
-
-Notes:
-
-
-#tested #updated  #gk
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of unresolved debits</p>
+<ul><li>Shows currently unresolved debits</li>
+<li>at the library you specify</li>
+<li>grouped by borrower id number</li>
+<li>sorted by library and borrower barcode number</li>
+<li>links to the borrower's accounts tab</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p></p>
+<p class= "notetags" style="display: none;">#tested #updated  #gk</p>
+</div>
 
 ----------
 */

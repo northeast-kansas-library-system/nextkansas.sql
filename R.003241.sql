@@ -22,11 +22,11 @@ Expiry: 300
 
 ----------
 
- 
-Part 1 of the patron purge process - part 1 - change extended attribute to 1 (" Account expired for more than 2 years - scheduled for deletion when expired for 3 years") on all results
-
-#PP01 #patron_purge
-
+<div class="reportinfo noprint"> 
+<p>Part 1 of the patron purge process - part 1 - change extended attribute to 1 (" Account expired for more than 2 years - scheduled for deletion when expired for 3 years") on all results</p>
+<p></p>
+<p class= "notetags" style="display: none;">#PP01 #patron_purge</p>
+</div>
 
 ----------
 */

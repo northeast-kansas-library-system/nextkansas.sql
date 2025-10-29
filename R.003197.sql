@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
-A work-in-progress
+A work-in-progress<br />
 
-ODUE1 - goes to most patrons XX days after an item is overdue - XX is set on a library-by-library basis
-ODUE2 - goes to most patron 35 days after an item is due - warns patrons that they will be billed for the cost of the item in 10 days
-ODUE3 - goes to most patrons 45 days after an item is due - warns them that they are being billed for the cost of the item
+ODUE1 - goes to most patrons XX days after an item is overdue - XX is set on a library-by-library basis<br />
+ODUE2 - goes to most patron 35 days after an item is due - warns patrons that they will be billed for the cost of the item in 10 days<br />
+ODUE3 - goes to most patrons 45 days after an item is due - warns them that they are being billed for the cost of the item<br />
 
-ODUE1_ILL - goes to ILL partners XX days after an item is overdue - XX is set on a library-by-library basis
-ODUE2_ILL - goes to ILL partners 35 days after an item is overdue
-ODUE3_ILL - goes to ILL partners 45 days after an item is overdue
+ODUE1_ILL - goes to ILL partners XX days after an item is overdue - XX is set on a library-by-library basis<br />
+ODUE2_ILL - goes to ILL partners 35 days after an item is overdue<br />
+ODUE3_ILL - goes to ILL partners 45 days after an item is overdue<br />
 
-ODUE1_SPEC - goes to non-billed patrons XX days after an item is overdue - XX is set on a library-by-library basis
-ODUE2_SPEC - goes to non-billed patrons 35 days after an item is overdue
-ODUE3_SPEC - goes to non-billed patrons 45 days after an item is overdue
+ODUE1_SPEC - goes to non-billed patrons XX days after an item is overdue - XX is set on a library-by-library basis<br />
+ODUE2_SPEC - goes to non-billed patrons 35 days after an item is overdue<br />
+ODUE3_SPEC - goes to non-billed patrons 45 days after an item is overdue<br />
 
 ----------
 */

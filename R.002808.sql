@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
- 
-Shows all items at a specified branch with a specified shelving location, a specified item type, and a specified collection code
-Shows current items
-at a location you specify
-grouped and sorted by item home branch, shelving location, item type, collection code, call number, author, and title
-
-
-Notes:
-
-Update for new links on 2023.03.07
-
+<div class="reportinfo noprint"> 
+<p>Shows all items at a specified branch with a specified shelving location, a specified item type, and a specified collection code</p>
+<ul><li>Shows current items</li>
+<li>at a location you specify</li>
+<li>grouped and sorted by item home branch, shelving location, item type, collection code, call number, author, and title</li>
+</ul><br />
+<p></p>
+<p>Notes:</p>
+<p></p>
+<p>Update for new links on 2023.03.07</p>
+</div>
 
 ----------
 */

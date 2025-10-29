@@ -22,27 +22,27 @@ Expiry: 300
 
 ----------
 
- 
-Circulation by borrower details - Unique borrowers in the previous calendar month 
-
-  Shows borrower counts on each day of the month for the previous month 
-  includes a unique borrower account per month in the final column 
-  At all Next Search Catalog libraries 
-  grouped and sorted by the library where the borrower checked out or renewed items 
-
- 
-Notes: 
- 
-A borrower is counted as 1 borrower if they check out or renew materials on the day specified.  If a borrower checks out 10 items at 10:00 a.m. and then checks out additional items at 4:00 p.m., that borrower is only counted once for the purposes of this report. 
- 
-The final column is a monthly count of unique borrowers.  So if a borrower checks out 1 book on the first of the month and then checks out 1 book on the 15th of the month, that borrower is only counted as 1 unique borrower in the final column of this report. 
- 
-This report and these notes updated on 2022.03.10 
- 
-Click here to download as a csv file 
-#monthly #statistics #borrower #details #unique #circulation_by_borrower_details 
- 
- 
+<div class="reportinfo noprint"> 
+<p>Circulation by borrower details - Unique borrowers in the previous calendar month</p> 
+<ul>
+  <li>Shows borrower counts on each day of the month for the previous month</li> 
+  <li>includes a unique borrower account per month in the final column</li> 
+  <li>At all Next Search Catalog libraries</li> 
+  <li>grouped and sorted by the library where the borrower checked out or renewed items</li> 
+</ul>
+<br /> 
+<p><ins>Notes:</ins></p> 
+<p></p> 
+<p>A borrower is counted as 1 borrower if they check out or renew materials on the day specified.  If a borrower checks out 10 items at 10:00 a.m. and then checks out additional items at 4:00 p.m., that borrower is only counted once for the purposes of this report.</p> 
+<p></p> 
+<p>The final column is a monthly count of unique borrowers.  So if a borrower checks out 1 book on the first of the month and then checks out 1 book on the 15th of the month, that borrower is only counted as 1 unique borrower in the final column of this report.</p> 
+<p></p> 
+<p class="updated">This report and these notes updated on 2022.03.10</p> 
+<p></p> 
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=3355">Click here to download as a csv file</a></p> 
+<p class= "notetags" style="display: none;">#monthly #statistics #borrower #details #unique #circulation_by_borrower_details</p> 
+<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
+</div> 
 
 ----------
 */

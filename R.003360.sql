@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
- 
-Generates a list of borrowers who may owe money on lost items that were checked out at your library
-Shows borrowers who may owe money now
-on lost items that were checked out at the library you select
-grouped by borrowernumber and item number
-sorted by borrower name and normal Next classification scheme
-
-Notes:
-
-Click here to run in a new window
-#lost #fees #borrowers
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of borrowers who may owe money on lost items that were checked out at your library</p>
+<ul><li>Shows borrowers who may owe money now</li>
+<li>on lost items that were checked out at the library you select</li>
+<li>grouped by borrowernumber and item number</li>
+<li>sorted by borrower name and normal Next classification scheme</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3360&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p class= "notetags" style="display: none;">#lost #fees #borrowers</p>
+</div>
 
 ----------
 */

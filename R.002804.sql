@@ -22,16 +22,16 @@ Expiry: 0
 
 ----------
 
- 
-Accelerated reader report
-Shows items currently in the catalog with "Accelerated Reader" information in the 526a field
-at a specified branch
-grouped by item home branch, call number information, author, and title
-sorted by interest level, grade level, and AR points
-contains links to the title's bibliographic record
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Accelerated reader report</p>
+<ul><li>Shows items currently in the catalog with "Accelerated Reader" information in the 526a field</li>
+<li>at a specified branch</li>
+<li>grouped by item home branch, call number information, author, and title</li>
+<li>sorted by interest level, grade level, and AR points</li>
+<li>contains links to the title's bibliographic record</li>
+</ul><br />
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2804&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

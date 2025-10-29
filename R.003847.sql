@@ -22,27 +22,27 @@ Expiry: 300
 
 ----------
 
- 
+<div class="reportInfo noprint"> 
 
-   
+  <div id="reportInfoLinks"> 
 
-     
-       
+    <p id="sql_quick_down"> 
+      <a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3847"> 
         Click here to download as a csv file 
-       
-     
+      </a> 
+    </p> 
 
-  
+  </div>
 
-   
+  <div id="reportInfoTags"> 
  
-     
+    <p style="display: none;"> 
       #tags_go_here 
-     
+    </p> 
  
-   
+  </div> 
 
-
+</div>
 
 ----------
 */

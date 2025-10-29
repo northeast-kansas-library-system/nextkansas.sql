@@ -22,22 +22,22 @@ Expiry: 300
 
 ----------
 
- 
-Generates a list of patrons with contact information based on their "Newsletter permission" attributes
-Shows current patrons
-with the home library and newsletter permission you specify
-grouped by borrower number and attribute
-sorted by patron last name/patron first name
-contains links to the patron's account
-
-Notes:
-
-Replaces report 2887 (GHW - Patrons with Newsletter permission flag).
-
-This report can be used to determine which patrons at your library have agreed to let you use their e-mail address from the catalog for the purposes of sending them an e-mail newsletter.
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of patrons with contact information based on their "Newsletter permission" attributes</p>
+<ul><li>Shows current patrons</li>
+<li>with the home library and newsletter permission you specify</li>
+<li>grouped by borrower number and attribute</li>
+<li>sorted by patron last name/patron first name</li>
+<li>contains links to the patron's account</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Replaces report 2887 (GHW - Patrons with Newsletter permission flag).</p>
+<p></p>
+<p>This report can be used to determine which patrons at your library have agreed to let you use their e-mail address from the catalog for the purposes of sending them an e-mail newsletter.</p>
+<p></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3086&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

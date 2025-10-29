@@ -22,22 +22,22 @@ Expiry: 0
 
 ----------
 
- 
-Report for Bonner Springs to generate list of materials for auditing
-Shows items currently in the catalog which were added in the date range you specify (items that were added during that time-frame but have already been deleted will not appear in this list)
-Includes the 952$g and 952$v price informaiton
-Allows the user to specify shelving location, collection code, item type, and source of acquisition
-sorted by standard NExpress classification scheme
-links to the "Edit item" page for each item
-
-Notes:
-
-The sources of acquisition in the database appear to be “AMAZON,” “AUTHOR,” “CENTER POINT,” “CHILDREN'S PLUS,” “Donation,” “GALE,” “INGRAM,” “INGRAMS,” “MIDWEST TAPE,” “MIDWEST TAPES,” “NEW READERS PRESS,” “OMNIGRAPHICS,” "PUBLISHER DIRECT," "RECATALOG," “RECORDED BOOKS,” and “TURN THE PAGE KC.”  If staff want to limit to one source, they can enter the exact name of the source in the "Source of acquisition" field in this report, or, since Ingram appears to be spelled two different ways, staff can type "Ing%" to get all items from Ingram - even if "Ingram" is misspelled in the item record.
-
-For a full list of items, put a "%" in the "Enter the name, or part of the name, of the acquisition source" input field.
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Report for Bonner Springs to generate list of materials for auditing</p>
+<ul><li>Shows items currently in the catalog which were added in the date range you specify (items that were added during that time-frame but have already been deleted will not appear in this list)</li>
+<li>Includes the 952$g and 952$v price informaiton</li>
+<li>Allows the user to specify shelving location, collection code, item type, and source of acquisition</li>
+<li>sorted by standard NExpress classification scheme</li>
+<li>links to the "Edit item" page for each item</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>The sources of acquisition in the database appear to be “AMAZON,” “AUTHOR,” “CENTER POINT,” “CHILDREN'S PLUS,” “Donation,” “GALE,” “INGRAM,” “INGRAMS,” “MIDWEST TAPE,” “MIDWEST TAPES,” “NEW READERS PRESS,” “OMNIGRAPHICS,” "PUBLISHER DIRECT," "RECATALOG," “RECORDED BOOKS,” and “TURN THE PAGE KC.”  If staff want to limit to one source, they can enter the exact name of the source in the "Source of acquisition" field in this report, or, since Ingram appears to be spelled two different ways, staff can type "Ing%" to get all items from Ingram - even if "Ingram" is misspelled in the item record.</p>
+<p></p>
+<p>For a full list of items, put a "%" in the "Enter the name, or part of the name, of the acquisition source" input field.</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2939=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

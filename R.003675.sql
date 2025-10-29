@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
- 
-  Displays accounts with "Staff" permissions
-  
-    Shows current accounts
-    at the library you choose
-    grouped by borrower number
-    sorted by Superlibrarian status followed by branchcode, userid, and borrower category
-  
-  Notes:
-  
-  Replaces reports 2743, 2459, and 2213.
-  
-  #permissions
-  
-
+<div class="reportinfo noprint"> 
+  <p>Displays accounts with "Staff" permissions</p>
+  <ul>
+    <li>Shows current accounts</li>
+    <li>at the library you choose</li>
+    <li>grouped by borrower number</li>
+    <li>sorted by Superlibrarian status followed by branchcode, userid, and borrower category</li>
+  </ul><br>
+  <p><ins>Notes:</ins></p>
+  <p></p>
+  <p>Replaces reports 2743, 2459, and 2213.</p>
+  <p></p>
+  <p class= "notetags" style="display: none;">#permissions</p>
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div>
 
 ----------
 */

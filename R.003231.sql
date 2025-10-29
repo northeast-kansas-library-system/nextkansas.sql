@@ -22,17 +22,17 @@ Expiry: 300
 
 ----------
 
- 
-Shows messages on a specific patron's account
-Shows current messages
-For the patron you specify
-grouped by message ID
-sorted by patron home library, patron last name, patron card number, and branchcode of the library that created the message
-links to the patron check-out page and includes a delete link for each individual message
-
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Shows messages on a specific patron's account</p>
+<ul><li>Shows current messages</li>
+<li>For the patron you specify</li>
+<li>grouped by message ID</li>
+<li>sorted by patron home library, patron last name, patron card number, and branchcode of the library that created the message</li>
+<li>links to the patron check-out page and includes a delete link for each individual message</li>
+</ul><br />
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3231&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

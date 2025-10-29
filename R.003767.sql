@@ -22,30 +22,30 @@ Expiry: 300
 
 ----------
 
- 
-  Generates a list of the bibliographic records created during the previous calendar month
-  
-    Lists all bibliographic records created in the previous calendar month
-    at the library you specify
-    With the bibliographic shelving location, bibliographic item type, and bibliographic collection code you specify
-    grouped by item barcode number
-    sorted by:
-      
-        the library that created the record
-        bibliographic shelving location (942$c)
-        bibliographic item type (942$e)
-        bibliographic collection code (942$h)
-      
-    
-    links to the bibliographic record
-  
-  Notes:
-  
-  Notes go here.
-  
-  #statistics tab; #bibliographic records
-  
-
+<div class="reportinfo noprint"> 
+  <p>Generates a list of the bibliographic records created during the previous calendar month</p>
+  <ul>
+    <li>Lists all bibliographic records created in the previous calendar month</li>
+    <li>at the library you specify</li>
+    <li>With the bibliographic shelving location, bibliographic item type, and bibliographic collection code you specify</li>
+    <li>grouped by item barcode number</li>
+    <li>sorted by:
+      <ul>
+        <li>the library that created the record</li>
+        <li>bibliographic shelving location (942$c)</li>
+        <li>bibliographic item type (942$e)</li>
+        <li>bibliographic collection code (942$h)</li>
+      </ul>
+    </li>
+    <li>links to the bibliographic record</li>
+  </ul><br />
+  <p><ins>Notes:</ins></p>
+  <p></p>
+  <p>Notes go here.</p>
+  <p></p>
+  <p class= "notetags" style="display: none;">#statistics tab; #bibliographic records</p>
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div>
 
 ----------
 */

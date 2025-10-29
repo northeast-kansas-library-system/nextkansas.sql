@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
- 
-Generates a list of items that have already been deleted from the catalog - includes all price information as well as the timestamp from when the item was deleted
-Lists items that were deleted between the dates you specify
-at the library you specify
-grouped by itemnumber
-sorted by homebranch, location, item type, collection code, author, title, and call number
-
-Notes:
-
-This gets the item information from the deleteditems table and the biblio information from the biblios table or the deletedbiblios table depending on whether or not the bibliographic record has been deleted.
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of items that have already been deleted from the catalog - includes all price information as well as the timestamp from when the item was deleted</p>
+<ul><li>Lists items that were deleted between the dates you specify</li>
+<li>at the library you specify</li>
+<li>grouped by itemnumber</li>
+<li>sorted by homebranch, location, item type, collection code, author, title, and call number</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>This gets the item information from the deleteditems table and the biblio information from the biblios table or the deletedbiblios table depending on whether or not the bibliographic record has been deleted.</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2958&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

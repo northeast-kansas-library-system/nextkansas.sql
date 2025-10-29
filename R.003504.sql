@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
- 
-Counts borrowers by zip code
-Shows current data
-with the home library you specify
-grouped and sorted by borrower home library and zip code
-
-Notes:
-
-
-Click here to run in a new window
-tag goes here
-
+<div class="reportinfo noprint"> 
+<p>Counts borrowers by zip code</p>
+<ul><li>Shows current data</li>
+<li>with the home library you specify</li>
+<li>grouped and sorted by borrower home library and zip code</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3504&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p class= "notetags" style="display: none;">tag goes here</p>
+</div>
 
 ----------
 */

@@ -22,15 +22,15 @@ Expiry: 0
 
 ----------
 
- 
-Shows all of the NExpress test accounts
-Shows current accounts
-at all NExpress libraries
-links directly to the details page of the account (links open in a new window)
-
-Notes:
-This report lists all of the information from the patron's account except the userid, password, and flags fields so that the report can be downloaded, the "borrowernumber" links column can be deleted, changes can be made to the account information, and then the data can be imported back into Koha without accidentally changing the userid, password, or flags fields (which can screw up the accounts - yes - learned this one the hard way - again).
-
+<div class="reportinfo noprint"> 
+<p>Shows all of the NExpress test accounts</p>
+<ul><li>Shows current accounts</li>
+<li>at all NExpress libraries</li>
+<li>links directly to the details page of the account (links open in a new window)</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p>This report lists all of the information from the patron's account except the userid, password, and flags fields so that the report can be downloaded, the "borrowernumber" links column can be deleted, changes can be made to the account information, and then the data can be imported back into Koha without accidentally changing the userid, password, or flags fields (which can screw up the accounts - yes - learned this one the hard way - again).</p>
+</div>
 
 ----------
 */

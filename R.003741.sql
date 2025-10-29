@@ -22,11 +22,11 @@ Expiry: 300
 
 ----------
 
- 
+<div class="reportinfo noprint"> 
 
 ADMINREPORT
 
-
+</div>
 
 ----------
 */

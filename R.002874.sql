@@ -22,20 +22,20 @@ Expiry: 0
 
 ----------
 
- 
-Reports on fee payment/credit/writeoff activity at a library
-Shows activity during a specified date range (between the beginning of the day on the specified "START DATE" to the end of the day on the specified "END DATE")
-Shows all fees collected/processed at a specified library
-grouped by accountlines_id
-sorted by payment locttion, payment type, payment timestamp
-links to the payment accountline details page
-
-Notes:
-
-Updated may 5, 2021.
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Reports on fee payment/credit/writeoff activity at a library</p>
+<ul><li>Shows activity during a specified date range (between the beginning of the day on the specified "START DATE" to the end of the day on the specified "END DATE")</li>
+<li>Shows all fees collected/processed at a specified library</li>
+<li>grouped by accountlines_id</li>
+<li>sorted by payment locttion, payment type, payment timestamp</li>
+<li>links to the payment accountline details page</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Updated may 5, 2021.</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2874&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

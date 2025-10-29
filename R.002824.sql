@@ -22,15 +22,15 @@ Expiry: 0
 
 ----------
 
- 
-Shows upcoming closures at a specified branch
-Shows repeating closures for the next 12 months and all future closures on individually specified dates
-Shows closures at the branch you specify
-sorted by branch and date of holiday (repeating weekly holidays appear first on the list)
-
-Notes:
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Shows upcoming closures at a specified branch</p>
+<ul><li>Shows repeating closures for the next 12 months and all future closures on individually specified dates</li>
+<li>Shows closures at the branch you specify</li>
+<li>sorted by branch and date of holiday (repeating weekly holidays appear first on the list)</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2824&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

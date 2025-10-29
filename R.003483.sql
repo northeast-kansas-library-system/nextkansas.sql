@@ -22,34 +22,34 @@ Expiry: 300
 
 ----------
 
- 
-Shows turnover rate by location and item type
-in the previous 12 months
-at the library you specify
-grouped by library, location, and item type
-sorted by library, location, and item type with an "All locations" and "All item types" grouping at the top of the results
-
-Notes:
-
-Developed for "Collection development 2.0" workshop
-
-Please note that these calculations include all items checked out at your library regardless of which library owned the item.  If, for example, your library doesn't own any items with a "Pamphlet" item type but one from another library was checked out at your library to fill a request, that item will be counted in these calculations.
-
-"CURRENT_ITEM_COUNT" is based on an item's item type at the time the report was run.  "CKO_RENEW_COUNT" is based on an item's item type at the time it was checked out.  It an item's item type changes between the time it was checked out and the time this report is run, the results will be skewed.  This will be particularly true of items with the following temporary item types:
-
-Audiobook (new)
-Book (new)
-Book (no requests allowed)
-BORROWED FROM ANOTHER LIBRARY
-Magazine (new)
-Video (Local requests only)
-Video (New)
-Video (No holds allowed)
-
-
-Click here to run in a new window
-statistics, turnover, previous 12 months
-
+<div class="reportinfo noprint"> 
+<p>Shows turnover rate by location and item type</p>
+<ul><li>in the previous 12 months</li>
+<li>at the library you specify</li>
+<li>grouped by library, location, and item type</li>
+<li>sorted by library, location, and item type with an "All locations" and "All item types" grouping at the top of the results</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Developed for "Collection development 2.0" workshop</p>
+<p></p>
+<p>Please note that these calculations include all items checked out at your library regardless of which library owned the item.  If, for example, your library doesn't own any items with a "Pamphlet" item type but one from another library was checked out at your library to fill a request, that item will be counted in these calculations.</p>
+<p></p>
+<p>"CURRENT_ITEM_COUNT" is based on an item's item type at the time the report was run.  "CKO_RENEW_COUNT" is based on an item's item type at the time it was checked out.  It an item's item type changes between the time it was checked out and the time this report is run, the results will be skewed.  This will be particularly true of items with the following temporary item types:</p>
+<ul>
+<li>Audiobook (new)</li>
+<li>Book (new)</li>
+<li>Book (no requests allowed)</li>
+<li>BORROWED FROM ANOTHER LIBRARY</li>
+<li>Magazine (new)</li>
+<li>Video (Local requests only)</li>
+<li>Video (New)</li>
+<li>Video (No holds allowed)</li>
+</ul>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3483&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p class= "notetags" style="display: none;">statistics, turnover, previous 12 months</p>
+</div>
 
 ----------
 */

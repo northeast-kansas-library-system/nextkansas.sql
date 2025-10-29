@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
- 
-Shows list of items with a Video item type and a collection code other than DVD, Blu-ray, Combo, or TV Series
-Shows items currently in the system
-at the library you specify
-grouped by item number, location, collection code, and bibliographic number
-sorted by the normal Next classification order
-links to the bibliographic record and the edit item page
-
-
-Click here to run in a new window
-collection code cleanup
-
+<div class="reportinfo noprint"> 
+<p>Shows list of items with a Video item type and a collection code other than DVD, Blu-ray, Combo, or TV Series</p>
+<ul><li>Shows items currently in the system</li>
+<li>at the library you specify</li>
+<li>grouped by item number, location, collection code, and bibliographic number</li>
+<li>sorted by the normal Next classification order</li>
+<li>links to the bibliographic record and the edit item page</li>
+</ul><br />
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3405&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p class= "notetags" style="display: none;">collection code cleanup</p>
+</div>
 
 ----------
 */

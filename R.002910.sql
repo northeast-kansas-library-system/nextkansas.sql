@@ -22,21 +22,21 @@ Expiry: 0
 
 ----------
 
- 
-Generates a list of patrons based on their e-mail address and produces a "Bounced Email" message that can be quickly cut and pasted into a message on the patron's account.
-Shows all borrowers that are using the specified e-mail address
-Shows borrowers at all NExpress branches with that e-mail address
-grouped by barcode number
-includes links to the patron record
-
-Notes:
-
-If more than one patron is using the e-mail address you enter on their account, you will receive one result in this report for each patron with that e-mail address.
-
-For bounced text messages, use report 3062.
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of patrons based on their e-mail address and produces a "Bounced Email" message that can be quickly cut and pasted into a message on the patron's account.</p>
+<ul><li>Shows all borrowers that are using the specified e-mail address</li>
+<li>Shows borrowers at all NExpress branches with that e-mail address</li>
+<li>grouped by barcode number</li>
+<li>includes links to the patron record</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>If more than one patron is using the e-mail address you enter on their account, you will receive one result in this report for each patron with that e-mail address.</p>
+<p></p>
+<p>For bounced text messages, use report 3062.</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2910&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

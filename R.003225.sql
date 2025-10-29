@@ -22,35 +22,35 @@ Expiry: 300
 
 ----------
 
- 
-Generates a report of all lists owned by the borrower you specify and allows you to run further reports on those lists
-Displays lists currently in the system - public or private
-displays lists created by the borrower you specify
-grouped by date created, list name, and list id number
-sorted by list name
-links to the Staff client and OPAC pages for the list; links to reports:
-
-3228 (Display list titles with links to bibliographic records)
-3227 (Display list titles with call numbers at a specific library)
-3226 (Display author/title information for a list - for printing)
-3279 (Export list to spreadsheet()
-
-
-
-Notes:
-
-This report is the master report for private lists.
-
-Allows staff to run reports on private lists provided they have the patron's library card number.
-
-Replaces the following reports:
-
-2810 - GHW - Public lists with items
-3020 - GHW - List of lists
-
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a report of all lists owned by the borrower you specify and allows you to run further reports on those lists</p>
+<ul><li>Displays lists currently in the system - public or private</li>
+<li>displays lists created by the borrower you specify</li>
+<li>grouped by date created, list name, and list id number</li>
+<li>sorted by list name</li>
+<li>links to the Staff client and OPAC pages for the list; links to reports:
+<ul>
+<li>3228 (Display list titles with links to bibliographic records)</li>
+<li>3227 (Display list titles with call numbers at a specific library)</li>
+<li>3226 (Display author/title information for a list - for printing)</li>
+<li>3279 (Export list to spreadsheet()</li>
+</ul>
+</li><br />
+</ul>
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>This report is the master report for private lists.</p>
+<p></p>
+<p>Allows staff to run reports on private lists provided they have the patron's library card number.</p>
+<p></p>
+<p>Replaces the following reports:</p>
+<ul>
+<li>2810 - GHW - Public lists with items</li>
+<li>3020 - GHW - List of lists</li>
+</ul>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3225&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

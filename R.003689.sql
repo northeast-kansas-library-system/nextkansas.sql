@@ -22,17 +22,17 @@ Expiry: 300
 
 ----------
 
- 
-  Gives a count for the requests queue at all Next Search Catalog libraries
-  
-    Shows counts for current holds queue
-    at all Next libraries
-    grouped and sorted by library with a total at the top of the column
-  
-  
-  #quick_count
-  
-
+<div class="reportinfo noprint"> 
+  <p>Gives a count for the requests queue at all Next Search Catalog libraries</p>
+  <ul>
+    <li>Shows counts for current holds queue</li>
+    <li>at all Next libraries</li>
+    <li>grouped and sorted by library with a total at the top of the column</li>
+  </ul><br />
+  <p></p>
+  <p class= "notetags" style="display: none;">#quick_count</p>
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div>
 
 ----------
 */

@@ -22,20 +22,20 @@ Expiry: 0
 
 ----------
 
- 
-Report for Bonner Springs to help add discounted costs of items to records
-Shows items added in the date range you specify
-Shows items owned by Bonner Springs with a value in the 952g field of less than $0.01
-Allows the user to specify shelving location, collection code, item type, and source of acquisition
-sorted by standard NExpress classification scheme
-links to the "Edit item" page for each item
-
-Notes:
-
-The sources of acquisition in the database appear to be “AMAZON,” “AUTHOR,” “CENTER POINT,” “CHILDREN'S PLUS,” “Donation,” “GALE,” “INGRAM,” “INGRAMS,” “MIDWEST TAPE,” “MIDWEST TAPES,” “NEW READERS PRESS,” “OMNIGRAPHICS,” "PUBLISHER DIRECT," "RECATALOG," “RECORDED BOOKS,” and “TURN THE PAGE KC.”  If staff want to limit to one source, they can enter the exact name of the source in the "Source of acquisition" field in this report, or, since Ingram appears to be spelled two different ways, staff can type "Ing%" to get all items from Ingram - even if "Ingram" is misspelled in the item record.
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Report for Bonner Springs to help add discounted costs of items to records</p>
+<ul><li>Shows items added in the date range you specify</li>
+<li>Shows items owned by Bonner Springs with a value in the 952g field of less than $0.01</li>
+<li>Allows the user to specify shelving location, collection code, item type, and source of acquisition</li>
+<li>sorted by standard NExpress classification scheme</li>
+<li>links to the "Edit item" page for each item</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>The sources of acquisition in the database appear to be “AMAZON,” “AUTHOR,” “CENTER POINT,” “CHILDREN'S PLUS,” “Donation,” “GALE,” “INGRAM,” “INGRAMS,” “MIDWEST TAPE,” “MIDWEST TAPES,” “NEW READERS PRESS,” “OMNIGRAPHICS,” "PUBLISHER DIRECT," "RECATALOG," “RECORDED BOOKS,” and “TURN THE PAGE KC.”  If staff want to limit to one source, they can enter the exact name of the source in the "Source of acquisition" field in this report, or, since Ingram appears to be spelled two different ways, staff can type "Ing%" to get all items from Ingram - even if "Ingram" is misspelled in the item record.</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2924=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
- 
-This report counts items that were checked out at a library that did not have a homebranch of that same library.
-Counts items that were checked out during the previous calendar month (between 12:00 a.m. on the first of the month and 11:59 p.m. on the final day of the month)
-Counts all items checked out or renewed at a specified branch that were not owned by that branch
-grouped by check-out-branch, shelving-location, and collection-code
-sorted by check-out-branch, shelving-location, and collection-code
-includes rollup totals for each grouping sub-set
-
-Notes:
-This report is similar to report 2708 which does the same thing but allows you to select a date range
-
+<div class="reportinfo noprint"> 
+<p>This report counts items that were checked out at a library that did not have a homebranch of that same library.</p>
+<ul><li>Counts items that were checked out during the previous calendar month (between 12:00 a.m. on the first of the month and 11:59 p.m. on the final day of the month)</li>
+<li>Counts all items checked out or renewed at a specified branch that were not owned by that branch</li>
+<li>grouped by check-out-branch, shelving-location, and collection-code</li>
+<li>sorted by check-out-branch, shelving-location, and collection-code</li>
+<li>includes rollup totals for each grouping sub-set</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p>This report is similar to report 2708 which does the same thing but allows you to select a date range</p>
+</div>
 
 ----------
 */

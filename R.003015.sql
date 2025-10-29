@@ -22,17 +22,17 @@ Expiry: 300
 
 ----------
 
- 
-Generates a list of patrons based on their holds contact method
-Shows current data only
-for patrons at the library you specify
-grouped by card number
-sorted by homebranch and name
-
-Notes:
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of patrons based on their holds contact method</p>
+<ul><li>Shows current data only</li>
+<li>for patrons at the library you specify</li>
+<li>grouped by card number</li>
+<li>sorted by homebranch and name</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3015&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

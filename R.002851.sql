@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
- 
-Shows patrons at LEAVENWRTH with "messages" on their accounts
-Shows patrons currently in Koha
-Only shows patrons whose messages were added at LEAVENWRTH
-grouped by borrower's cardnumber and message date
-contains links to the patron account
-
-Notes:
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Shows patrons at LEAVENWRTH with "messages" on their accounts</p>
+<ul><li>Shows patrons currently in Koha</li>
+<li>Only shows patrons whose messages were added at LEAVENWRTH</li>
+<li>grouped by borrower's cardnumber and message date</li>
+<li>contains links to the patron account</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2851&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 
 ----------

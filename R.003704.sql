@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
-
-Borrower statistics - borrower counts by category 
-during the previous calendar month 
-at the library you specify 
-grouped and sorted by borrower home library and borrower category 
- 
-Notes: 
- 
-If 'New borrowers allowed' = 'Yes,' then staff at the library specified can create new borrowers with that category. 
- 
-This report and these notes updated on 2023.02.10 
- 
-#monthly #statistics #borrower #statistics #category 
- 
- 
+<div class="reportinfo noprint">
+<p>Borrower statistics - borrower counts by category</p> 
+<ul><li>during the previous calendar month</li> 
+<li>at the library you specify</li> 
+<li>grouped and sorted by borrower home library and borrower category</li> 
+</ul><br /> 
+<p><ins>Notes:</ins></p> 
+<p></p> 
+<p>If 'New borrowers allowed' = 'Yes,' then staff at the library specified can create new borrowers with that category.</p> 
+<p></p> 
+<p class="updated">This report and these notes updated on 2023.02.10</p> 
+<p></p> 
+<p class= "notetags" style="display: none;">#monthly #statistics #borrower #statistics #category</p> 
+<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
+</div> 
 
 ----------
 */

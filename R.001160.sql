@@ -22,9 +22,9 @@ Expiry: 0
 
 ----------
 
-Overdue &gt;30 days report for materials loaned to other libraries through non-NExpress ILL services. MC/8/11 #overdues
+Overdue >30 days report for materials loaned to other libraries through non-NExpress ILL services. MC/8/11 #overdues
 
-Report upgrade needed.
+<p><span style="background-color: darkred; color: white">Report upgrade needed.</p>
 
 ----------
 */

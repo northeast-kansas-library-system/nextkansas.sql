@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
- 
-Reports on patrons who have had a restriction added to their account due to an overdue item but the item has been returned and their fees are less than $10.00
-Shows patrons who currently have restrictions created by the overdues process, no overdues, and less than $10.00 in fees
-at all Next libraries
-grouped by borrowernumber
-sorted by borrower home branch, borrowers last name, borrowers first name
-links directly to the restriction page of the borrower
-
-Notes:
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Reports on patrons who have had a restriction added to their account due to an overdue item but the item has been returned and their fees are less than $10.00</p>
+<ul><li>Shows patrons who currently have restrictions created by the overdues process, no overdues, and less than $10.00 in fees</li>
+<li>at all Next libraries</li>
+<li>grouped by borrowernumber</li>
+<li>sorted by borrower home branch, borrowers last name, borrowers first name</li>
+<li>links directly to the restriction page of the borrower</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3071&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

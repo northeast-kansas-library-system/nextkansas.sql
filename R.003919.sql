@@ -22,69 +22,69 @@ Expiry: 300
 
 ----------
 
-&lt;div class="next_report_info next_noprint"&gt;
+<div class="next_report_info next_noprint">
 
-  &lt;p class="next_embiggen3"&gt;1234567890&lt;/p&gt;
+  <p class="next_embiggen3">1234567890</p>
 
-  &lt;p class="next_embiggen3"&gt;0987654321&lt;/p&gt;
+  <p class="next_embiggen3">0987654321</p>
 
-  &lt;p class="next_embiggen1"&gt;0987654321&lt;/p&gt;
+  <p class="next_embiggen1">0987654321</p>
 
-  &lt;div id="next_report_accordion-1234567890" class="accordion accordion-flush"&gt;
+  <div id="next_report_accordion-1234567890" class="accordion accordion-flush">
 
-    &lt;div id="next_report_training" class="accordion-item "&gt;
+    <div id="next_report_training" class="accordion-item ">
 
-      &lt;h2 class="accordion-header" id="headingSix"&gt;
-        &lt;button class="accordion-button collapsed next_report_training" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix"&gt;Report training:&lt;/button&gt;
-      &lt;/h2&gt;
+      <h2 class="accordion-header" id="headingSix">
+        <button class="accordion-button collapsed next_report_training" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">Report training:</button>
+      </h2>
 
-      &lt;div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#next_report_accordion-1234567890"&gt;
-        &lt;div class="accordion-body"&gt;
+      <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#next_report_accordion-1234567890">
+        <div class="accordion-body">
 
-          &lt;div class="next_report_section"&gt;
+          <div class="next_report_section">
 
-            &lt;div id="next_training_link" class="next_training_link"&gt;
-              &lt;h3&gt;Go to a training page:&lt;/h3&gt;
-              &lt;a class="next_btn next_red next_embiggen1" href="1234567890" target="blank"&gt;1234567890 &lt;i class="bi bi-box-arrow-up-right"&gt;&lt;/i&gt;&lt;/a&gt;
+            <div id="next_training_link" class="next_training_link">
+              <h3>Go to a training page:</h3>
+              <a class="next_btn next_red next_embiggen1" href="1234567890" target="blank">1234567890 <i class="bi bi-box-arrow-up-right"></i></a>
 
-              &lt;p&gt;1234567890&lt;/p&gt;
+              <p>1234567890</p>
 
-            &lt;/div&gt;
+            </div>
 
-          &lt;/div&gt;
+          </div>
 
-          &lt;div class="next_report_section"&gt;
+          <div class="next_report_section">
 
-            &lt;div id="next_training_link" class="next_training_link"&gt;
-              &lt;h3&gt;Print a training page:&lt;/h3&gt;
-              &lt;a class="next_btn next_red next_embiggen1" href="1234567890" target="blank"&gt;1234567890 &lt;i class="bi bi-printer-fill"&gt;&lt;/i&gt;&lt;/a&gt;
+            <div id="next_training_link" class="next_training_link">
+              <h3>Print a training page:</h3>
+              <a class="next_btn next_red next_embiggen1" href="1234567890" target="blank">1234567890 <i class="bi bi-printer-fill"></i></a>
 
-              &lt;p&gt;1234567890&lt;/p&gt;
+              <p>1234567890</p>
 
-            &lt;/div&gt;
+            </div>
 
-          &lt;/div&gt;
+          </div>
 
-          &lt;div class="next_report_section"&gt;
+          <div class="next_report_section">
 
-            &lt;div id="next_training_link" class="next_training_link"&gt;
-              &lt;h3&gt;View a training video:&lt;/h3&gt;
-              &lt;a class="next_btn next_red next_embiggen1" href="1234567890" target="blank"&gt;1234567890 &lt;i class="bi bi-play-btn-fill"&gt;&lt;/i&gt;&lt;/a&gt;
+            <div id="next_training_link" class="next_training_link">
+              <h3>View a training video:</h3>
+              <a class="next_btn next_red next_embiggen1" href="1234567890" target="blank">1234567890 <i class="bi bi-play-btn-fill"></i></a>
 
-              &lt;p&gt;1234567890&lt;/p&gt;
+              <p>1234567890</p>
 
-            &lt;/div&gt;
+            </div>
 
-          &lt;/div&gt;
+          </div>
 
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
+        </div>
+      </div>
+    </div>
 
-  &lt;/div&gt;
+  </div>
 
-  &lt;div id="next_report_tags" style="display: none;"&gt;
-    &lt;p&gt;
+  <div id="next_report_tags" style="display: none;">
+    <p>
       #1234567890 : 
       #1234567890 : 
       #1234567890 : 
@@ -95,16 +95,16 @@ Expiry: 300
       #1234567890 : 
       #1234567890 : 
       #1234567890
-    &lt;/p&gt;
-  &lt;/div&gt;
+    </p>
+  </div>
 
-  &lt;div class="next_report_note_collapse next_hiddens"&gt;
+  <div class="next_report_note_collapse next_hiddens">
 
-    &lt;button type="button" class="next_btn next_indigo next_report_notes_close"&gt;Collapse report notes&lt;/button&gt;
+    <button type="button" class="next_btn next_indigo next_report_notes_close">Collapse report notes</button>
 
-  &lt;/div&gt;
+  </div>
 
-&lt;/div&gt;
+</div>
 
 ----------
 */

@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
- 
-Shows borrowers sorted by their "Last borrowed" date but only if the last borrowed date was less than 25 months in the past.
-With the home library you specify
-grouped by borrowernumber
-sorted by LAST_BORROWED date
-links to the borrower record
-
-Notes:
-
-This report gets the "LAST_BORROWED" dates from the statistics table in Koha.  As a matter of data security, Next Search Catalog only keeps data in the statistics table for the previous 25 months, therefore, the "LAST_BORROWED" date will never be more than 25 months in the past.
-
-#last borrowed
-
- 
+<div class="reportinfo noprint"> 
+<p>Shows borrowers sorted by their "Last borrowed" date but only if the last borrowed date was less than 25 months in the past.</p>
+<ul><li>With the home library you specify</li>
+<li>grouped by borrowernumber</li>
+<li>sorted by LAST_BORROWED date</li>
+<li>links to the borrower record</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>This report gets the "LAST_BORROWED" dates from the statistics table in Koha.  As a matter of data security, Next Search Catalog only keeps data in the statistics table for the previous 25 months, therefore, the "LAST_BORROWED" date will never be more than 25 months in the past.</p>
+<p></p>
+<p class= "notetags" style="display: none;">#last borrowed</p>
+<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div> 
 
 ----------
 */

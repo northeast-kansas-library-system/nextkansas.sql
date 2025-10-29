@@ -22,14 +22,14 @@ Expiry: 300
 
 ----------
 
- 
-Generates end of month data for spreadsheet report
-Reports end of month data for Next-wide spreadsheet - Cells G58, H58, and I58
-
-
-Click here to download as a csv file
-Monthly
-
+<div class="reportinfo noprint"> 
+<p>Generates end of month data for spreadsheet report</p>
+<ul><li>Reports end of month data for Next-wide spreadsheet - Cells G58, H58, and I58</li>
+</ul><br />
+<p></p>
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=2969">Click here to download as a csv file</a></p>
+<p class= "notetags" style="display: none;">Monthly</p>
+</div>
 
 
 

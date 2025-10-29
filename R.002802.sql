@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
- 
-Identifies current requests on a specific item (item specific requests)
-Shows current requests for a specified patron
-on a patron you specify
-sorted by the last activity on the request
-
-Notes:
-
-Report created to help troubleshoot problems with requested items (i.e. missing in transit, item on holds list not found, patron received e-mail but we can't find the request, etc.).
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Identifies current requests on a specific item (item specific requests)</p>
+<ul><li>Shows current requests for a specified patron</li>
+<li>on a patron you specify</li>
+<li>sorted by the last activity on the request</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Report created to help troubleshoot problems with requested items (i.e. missing in transit, item on holds list not found, patron received e-mail but we can't find the request, etc.).</p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2802&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

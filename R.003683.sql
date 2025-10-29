@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
- 
-  Counts items with potential problems on their records
-  
-    Displays items with problems right now
-    at the library you specify
-    grouped and sorted by item homebranch and problem
-    links to report 214
-  
-  
-  #quick_count
-  
-
+<div class="reportinfo noprint"> 
+  <p>Counts items with potential problems on their records</p>
+  <ul>
+    <li>Displays items with problems right now</li>
+    <li>at the library you specify</li>
+    <li>grouped and sorted by item homebranch and problem</li>
+    <li>links to report 214</li>
+  </ul><br />
+  <p></p>
+  <p class= "notetags" style="display: none;">#quick_count</p>
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div>
 
 ----------
 */

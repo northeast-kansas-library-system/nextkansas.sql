@@ -22,18 +22,18 @@ Expiry: 0
 
 ----------
 
- 
-Counts all circulation data in a month at a specified library
-Counts checkouts by month and year
-at the library you specify
-grouped and sorted by year and month
-
-
-Statistical data is only saved for the last 25 months, so this report cannot count checkouts that happened more than 25 months ago.
-Report created by Heather Braum.  Explanatory notes added and query updated by on 2018.01.08.
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Counts all circulation data in a month at a specified library</p>
+<ul><li>Counts checkouts by month and year</li>
+<li>at the library you specify</li>
+<li>grouped and sorted by year and month</li>
+</ul><br />
+<p></p>
+<p>Statistical data is only saved for the last 25 months, so this report cannot count checkouts that happened more than 25 months ago.</p>
+<p>Report created by Heather Braum.  Explanatory notes added and query updated by on 2018.01.08.</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1830&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

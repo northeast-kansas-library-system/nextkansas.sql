@@ -22,41 +22,41 @@ Expiry: 300
 
 ----------
 
+<div id="reportinfo" class="reportInfo noprint">
+ 
+  <div class="reportInfoContent"> 
+ 
+    <p>Counts "localuse" checkouts by item type</p> 
+ 
+    <ul> 
+      <li>during the previous calendar month</li> 
+      <li>at the library you specify</li> 
+      <li>grouped and sorted by library and item type</li> 
+    </ul> 
+ 
+  </div> 
+ 
+  <div class="reportInfoNotes"> 
 
+    <p></p>
+    <p>Collecting local use data requires the use of a "Staff - statistical purposes" library card.</p>
+    <p></p>
  
-   
- 
-    Counts "localuse" checkouts by item type 
- 
-     
-      during the previous calendar month 
-      at the library you specify 
-      grouped and sorted by library and item type 
-     
- 
-   
- 
-   
-
-    
-    Collecting local use data requires the use of a "Staff - statistical purposes" library card.
-    
- 
-   
+  </div> 
  
 
-   
+  <div id="reportInfoTags"> 
  
-     
+    <p style="display: none;"> 
       #localuse
       #statistics
       #itype
       #previous_month 
-     
+    </p> 
  
-   
+  </div> 
 
-  
+  <!-- html notes rendered on guided_reports.pl by jquery see https://wiki.koha-community.org/wiki/Query_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
 
 ----------
 */

@@ -22,31 +22,31 @@ Expiry: 300
 
 ----------
 
- 
-Monthly overview - borrower statistics 
-Shows borrower counts for the previous calendar month 
-At all Next Search Catalog libraries 
-grouped and sorted by branch name 
- 
-Notes: 
- 
-Generates data for: 
- 
-  BORROWER_ACCT_USED_LM = number of borrower accounts used to check out materials last month 
-  TOTAL_BORROWERS = number of total borrowers with this home library 
-  B_ADDED_LM = number of borrowers with this home library added last month 
-  B_RENEWED_LM = number of borrowers with this home library renewed last month 
-  B_DELETED_LM = number of borrowers with this home library deleted last month 
- 
- 
-These counts are current at the time the report is run (which for Next Search Catalog is usually between 12:01 a.m. and 4:00 a.m. on the first day of the month). 
- 
-This report and these notes updated on 2022.03.10 
- 
-Click here to download as a csv file 
-#monthly #statistics #overview #monthly_overview 
- 
- 
+<div class="reportinfo noprint"> 
+<p>Monthly overview - borrower statistics</p> 
+<ul><li>Shows borrower counts for the previous calendar month</li> 
+<li>At all Next Search Catalog libraries</li> 
+<li>grouped and sorted by branch name</li> 
+</ul><br /> 
+<p><ins>Notes:</ins></p> 
+<p></p> 
+<p>Generates data for:</p> 
+<ul> 
+  <li>BORROWER_ACCT_USED_LM = number of borrower accounts used to check out materials last month</li> 
+  <li>TOTAL_BORROWERS = number of total borrowers with this home library</li> 
+  <li>B_ADDED_LM = number of borrowers with this home library added last month</li> 
+  <li>B_RENEWED_LM = number of borrowers with this home library renewed last month</li> 
+  <li>B_DELETED_LM = number of borrowers with this home library deleted last month</li> 
+</ul> 
+<p></p> 
+<p>These counts are current at the time the report is run (which for Next Search Catalog is usually between 12:01 a.m. and 4:00 a.m. on the first day of the month).</p> 
+<p></p> 
+<p class="updated">This report and these notes updated on 2022.03.10</p> 
+<p></p> 
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3420">Click here to download as a csv file</a></p> 
+<p class= "notetags" style="display: none;">#monthly #statistics #overview #monthly_overview</p> 
+<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
+</div> 
 
 ----------
 */

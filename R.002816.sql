@@ -22,19 +22,19 @@ Expiry: 0
 
 ----------
 
- 
-What it does generates a list of all titles by an author by brief title
-Shows items currently in the catalog
-shows items at a specified library by a specified author
-grouped by classification, call number, author, and title information
-sorted by title
-
-Notes:
-
-Report created at the request of Baldwin Public Library.
-The author's name must be entered as SURNAME, FIRSTNAME or the report will not work
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>What it does generates a list of all titles by an author by brief title</p>
+<ul><li>Shows items currently in the catalog</li>
+<li>shows items at a specified library by a specified author</li>
+<li>grouped by classification, call number, author, and title information</li>
+<li>sorted by title</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Report created at the request of Baldwin Public Library.</p>
+<p>The author's name must be entered as SURNAME, FIRSTNAME or the report will not work</p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2816&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

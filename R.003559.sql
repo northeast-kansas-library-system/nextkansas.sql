@@ -22,32 +22,32 @@ Expiry: 300
 
 ----------
 
- 
-Lists every date and timestamp field in every table in Koha and shows the oldest and newest dates.
-Some dates are further grouped by other field values - specifically type of change that occurred on that date/time.
-Used at the koha-US 2021 conference
-
-  _GROUP_ = the kind of group that the table/field belongs to - i.e. I manually grouped all of the borrower fees tables/fields togehter; I manually grouped all of the acquisitions tables/fields together; etc. 
-  
-    TABLE_NAME = the name of the table the date/datetime field exists in
-  
-    FIELD_NAME = the name of the date/datetime field
-  
+<div class="reportinfo noprint"> 
+<p>Lists every date and timestamp field in every table in Koha and shows the oldest and newest dates.</p>
+<p>Some dates are further grouped by other field values - specifically type of change that occurred on that date/time.</p>
+<p>Used at the koha-US 2021 conference</p>
+<ul>
+  <li>_GROUP_ = the kind of group that the table/field belongs to - i.e. I manually grouped all of the borrower fees tables/fields togehter; I manually grouped all of the acquisitions tables/fields together; etc. </li>
+  <li>
+    TABLE_NAME = the name of the table the date/datetime field exists in</li>
+  <li>
+    FIELD_NAME = the name of the date/datetime field</li>
+  <li>
     TYPE_OF_EVENT = if the table data includes a descriptive field that explains the type of event that happened to the data at the specified time, then that description is included here
-    
-      
+    <ul>
+      <li>
         A "-" or a " " in this column indicates that the TYPE_OF_EVENT was recorded as a null value or a blank space in the database
-      
-    
-  
-  
+      </li>
+    </ul>
+  </li>
+  <li>
     OLDEST_DATE = the minimum date available that meets the first 4 criteria
-  
-  
+  </li>
+  <li>
     NEWEST_DATE = the maximum date available that meets the first 4 criteria
-  
-
-
+  </li>
+</ul>
+</div>
 
 ----------
 */

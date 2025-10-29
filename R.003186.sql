@@ -22,17 +22,17 @@ Expiry: 1
 
 ----------
 
- 
-Returns 1 patron name based based on the specified borrowernumber
-Shows a current patron name
-based on the borrowernumber you enter
-grouped and sorted by the borrower's name
-
-Notes:
-
-The purpose of this report is to provide JSON output in order to put the patron's name on the "Hold filled" checkin message pop-up.
-
-
+<div class="reportinfo noprint"> 
+<p>Returns 1 patron name based based on the specified borrowernumber</p>
+<ul><li>Shows a current patron name</li>
+<li>based on the borrowernumber you enter</li>
+<li>grouped and sorted by the borrower's name</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>The purpose of this report is to provide JSON output in order to put the patron's name on the "Hold filled" checkin message pop-up.</p>
+<p></p>
+</div>
 
 ----------
 */

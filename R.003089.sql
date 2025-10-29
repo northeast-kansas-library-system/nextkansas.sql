@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
- 
-Generates a list of patrons with contact information based on their "Special location" attributes
-Shows current patrons
-with the home library and special location you specify
-grouped by borrower number and attribute
-sorted by patron last name/patron first name
-contains links to the patron's account
-
-Notes:
-
-This report can be used to determine which patrons at your library have a special location attribute set on their account.
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of patrons with contact information based on their "Special location" attributes</p>
+<ul><li>Shows current patrons</li>
+<li>with the home library and special location you specify</li>
+<li>grouped by borrower number and attribute</li>
+<li>sorted by patron last name/patron first name</li>
+<li>contains links to the patron's account</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>This report can be used to determine which patrons at your library have a special location attribute set on their account.</p>
+<p></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3089&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

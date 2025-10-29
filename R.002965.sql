@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
- 
-Generates a report of newly delinquent patrons for OTTAWA to send to Unique Management for collections.
-Shows patrons who owe money to OTTAWA and were initially billed more than 60 days ago but less than 1 year ago.
-Shows whose accounts were just turned over to collections and now need their accounts flagged and need the collection fee added to their accounts
-grouped by borrowernumber
-sorted by borrowers name, last name first
-links
-
-Notes:
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a report of newly delinquent patrons for OTTAWA to send to Unique Management for collections.</p>
+<ul><li>Shows patrons who owe money to OTTAWA and were initially billed more than 60 days ago but less than 1 year ago.</li>
+<li>Shows whose accounts were just turned over to collections and now need their accounts flagged and need the collection fee added to their accounts</li>
+<li>grouped by borrowernumber</li>
+<li>sorted by borrowers name, last name first</li>
+<li>links</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2965&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

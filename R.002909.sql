@@ -22,20 +22,20 @@ Expiry: 0
 
 ----------
 
- 
-Report of possible duplicate borrowers at a library
-Shows patrons currently in the database
-with at least one library account at the library you specify
-grouped and sorted by last name/first name
-
-Notes:
-
-Updated on 2019.07.22 to filter out middle names - now matches on last name and first name when those two names are spelled exactly.  Ignores everything after the first space between name/initial strings in the borrowers.firstname field.
-
-Report created by George Williams.
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Report of possible duplicate borrowers at a library</p>
+<ul><li>Shows patrons currently in the database</li>
+<li>with at least one library account at the library you specify</li>
+<li>grouped and sorted by last name/first name</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Updated on 2019.07.22 to filter out middle names - now matches on last name and first name when those two names are spelled exactly.  Ignores everything after the first space between name/initial strings in the borrowers.firstname field.</p>
+<p></p>
+<p>Report created by George Williams.</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2909&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 
 ----------

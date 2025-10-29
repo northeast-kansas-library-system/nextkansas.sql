@@ -22,13 +22,13 @@ Expiry: 0
 
 ----------
 
- 
+<div class="reportinfo noprint"> 
 
-  This report is being replaced by report 2731.
+  <p>This report is being replaced by report 2731.</p>
 
-  For instructions on running report 2731 as a replacement for this report, please see Report 2731 - items added during a date range
+  <p>For instructions on running report 2731 as a replacement for this report, please see <a class="btn btn-sm btn-warning" href="https://northeast-kansas-library-system.github.io/nextsteps/reports_training/report_002731_training.html#report-2731-items-added-during-a-date-range" target="_blank">Report 2731 - items added during a date range</a></p>
 
-
+</div>
 
 ----------
 */

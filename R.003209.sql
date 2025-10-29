@@ -22,16 +22,16 @@ Expiry: 300
 
 ----------
 
- 
-Identifies all "Rotating collection" groups
-Shows all current groups
-grouped and sorted by collection ID
-links to the print and edit reports for "Rotating collections"
-
-Notes:
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Identifies all "Rotating collection" groups</p>
+<ul><li>Shows all current groups</li>
+<li>grouped and sorted by collection ID</li>
+<li>links to the print and edit reports for "Rotating collections"</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3209&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

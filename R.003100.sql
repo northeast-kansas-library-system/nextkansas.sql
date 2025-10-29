@@ -22,17 +22,17 @@ Expiry: 300
 
 ----------
 
- 
-Shows id numbers from rows in items_last_borrower table that should be deleted.
-Shows items_last_borrowed id numbers where the item is not lost/damaged/withdrawn and the item was returned more than 13 months ago.
-on items at all libraries
-grouped by id number
-sorted by id number
-
-Notes:
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Shows id numbers from rows in items_last_borrower table that should be deleted.</p>
+<ul><li>Shows items_last_borrowed id numbers where the item is not lost/damaged/withdrawn and the item was returned more than 13 months ago.</li>
+<li>on items at all libraries</li>
+<li>grouped by id number</li>
+<li>sorted by id number</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3100&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

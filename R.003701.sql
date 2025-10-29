@@ -22,26 +22,26 @@ Expiry: 300
 
 ----------
 
- 
-Circulation by borrower details - circulation by borrower category 
-
-  Shows circulation and renewal statistics grouped by borrower category 
-  during the previous calendar month 
-  At all Next Search Catalog libraries 
-  grouped and sorted by library and borrower category 
-
- 
-Notes: 
- 
- 
- 
- 
- 
- 
-Click here to download as a csv file 
-#monthly #statistics #borrower #details #borrower_category #circulation_by_borrower_details 
- 
- 
+<div class="reportinfo noprint"> 
+<p>Circulation by borrower details - circulation by borrower category</p> 
+<ul>
+  <li>Shows circulation and renewal statistics grouped by borrower category</li> 
+  <li>during the previous calendar month</li> 
+  <li>At all Next Search Catalog libraries</li> 
+  <li>grouped and sorted by library and borrower category</li> 
+</ul>
+<br /> 
+<p><ins>Notes:</ins></p> 
+<p></p> 
+<p></p> 
+<p></p> 
+<p></p> 
+<p></p> 
+<p></p> 
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3701">Click here to download as a csv file</a></p> 
+<p class= "notetags" style="display: none;">#monthly #statistics #borrower #details #borrower_category #circulation_by_borrower_details</p> 
+<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
+</div> 
 
 ----------
 */

@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
- 
-Generates a spreadsheet style report of current and past request information based on very flexible parameters
-Shows the history of any active, filled, and cancelled requests in NExpress
-at all pickup libraries or at the pickup library you specify
-with the request status and progress that you specify
-with the hold suspension status you specify
-and with the library card, biblionumber, or item barcode number you specify
-grouped by reserve ID number
-sorted by the last time the request was updated
-
-Notes:
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a spreadsheet style report of current and past request information based on very flexible parameters</p>
+<ul><li>Shows the history of any active, filled, and cancelled requests in NExpress</li>
+<li>at all pickup libraries or at the pickup library you specify</li>
+<li>with the request status and progress that you specify</li>
+<li>with the hold suspension status you specify</li>
+<li>and with the library card, biblionumber, or item barcode number you specify</li>
+<li>grouped by reserve ID number</li>
+<li>sorted by the last time the request was updated</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3041&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

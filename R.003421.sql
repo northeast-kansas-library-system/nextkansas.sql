@@ -22,28 +22,28 @@ Expiry: 300
 
 ----------
 
- 
-Monthly overview - items loaned to and borrowed from other libraries in Next Search Catalog 
-Shows item transfer counts for the previous calendar month 
-At all Next Search Catalog libraries 
-grouped and sorted by branch name 
- 
-Notes: 
- 
-Generates data for: 
- 
-  NX_ILL_LOANED_LM = count of items your library loaned to another Next Search Catalog library last month 
-  NX_ILL_BORROWED_LM = count of items your library borrowed from another Next Search Catalog library last month 
- 
- 
-These counts are are based on whether you shipped or received an item via the Kansas Library Express courier.  Whether or not the item was actually checked out to a borrower is irrelevant in this count because, whether or not loaned to a borrower, the item was loaned to another library or borrowed from your library. 
- 
-This report and these notes updated on 2022.03.10 
- 
-Click here to download as a csv file 
-#monthly #statistics #overview #monthly_overview 
- 
- 
+<div class="reportinfo noprint"> 
+<p>Monthly overview - items loaned to and borrowed from other libraries in Next Search Catalog</p> 
+<ul><li>Shows item transfer counts for the previous calendar month</li> 
+<li>At all Next Search Catalog libraries</li> 
+<li>grouped and sorted by branch name</li> 
+</ul><br /> 
+<p><ins>Notes:</ins></p> 
+<p></p> 
+<p>Generates data for:</p> 
+<ul> 
+  <li>NX_ILL_LOANED_LM = count of items your library loaned to another Next Search Catalog library last month</li> 
+  <li>NX_ILL_BORROWED_LM = count of items your library borrowed from another Next Search Catalog library last month</li> 
+</ul> 
+<p></p> 
+<p>These counts are are based on whether you shipped or received an item via the Kansas Library Express courier.  Whether or not the item was actually checked out to a borrower is irrelevant in this count because, whether or not loaned to a borrower, the item was loaned to another library or borrowed from your library.</p> 
+<p></p> 
+<p class="updated">This report and these notes updated on 2022.03.10</p> 
+<p></p> 
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3421">Click here to download as a csv file</a></p> 
+<p class= "notetags" style="display: none;">#monthly #statistics #overview #monthly_overview</p> 
+<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
+</div> 
 
 ----------
 */

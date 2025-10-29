@@ -22,32 +22,32 @@ Expiry: 300
 
 ----------
 
- 
-Circulation by library details spreadsheet report - hourly circulation 
-Shows counts of check-outs, renewals, and returns in the previous calendar month 
-At all Next Search Catalog libraries 
-grouped and sorted by library name, date, and hour 
- 
-Notes: 
- 
- 
-  CKO =  number of items newly checked out 
-  RENEW = number of items renewed 
-  RETURNS = number of items checked in 
-  TOTAL_CKO_RENEW_RETURN = sum of the previous 3 columns 
-  CKO_BORROWERS = number of unique accounts used to check out the items in the CKO column 
-  RENEW_BORROWERS = number of unique accounts used to renew the items in the RENEW column 
-  CKO_AND_RENEW_BORROWERS = number of unique accounts used to check out and renew items 
- 
- 
-OPAC renewals are counted as occurring at the library where the item was originally checked out.  This is why you may see data for days and times that your library is closed. 
- 
-This report and these notes updated on 2025.02.08 
- 
-Click here to download as a csv file 
-#monthly #statistics #library #details #hourly #cirulation_by_library_details 
- 
- 
+<div class="reportinfo noprint"> 
+<p>Circulation by library details spreadsheet report - hourly circulation</p> 
+<ul><li>Shows counts of check-outs, renewals, and returns in the previous calendar month</li> 
+<li>At all Next Search Catalog libraries</li> 
+<li>grouped and sorted by library name, date, and hour</li> 
+</ul><br /> 
+<p><ins>Notes:</ins></p> 
+<p></p> 
+<ul> 
+  <li>CKO =  number of items newly checked out</li> 
+  <li>RENEW = number of items renewed</li> 
+  <li>RETURNS = number of items checked in</li> 
+  <li>TOTAL_CKO_RENEW_RETURN = sum of the previous 3 columns</li> 
+  <li>CKO_BORROWERS = number of unique accounts used to check out the items in the CKO column</li> 
+  <li>RENEW_BORROWERS = number of unique accounts used to renew the items in the RENEW column</li> 
+  <li>CKO_AND_RENEW_BORROWERS = number of unique accounts used to check out and renew items</li> 
+</ul> 
+<p></p> 
+<p>OPAC renewals are counted as occurring at the library where the item was originally checked out.  This is why you may see data for days and times that your library is closed.</p> 
+<p></p> 
+<p class="updated">This report and these notes updated on 2025.02.08</p> 
+<p></p> 
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id= 3499">Click here to download as a csv file</a></p> 
+<p class= "notetags" style="display: none;">#monthly #statistics #library #details #hourly #cirulation_by_library_details</p> 
+<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
+</div> 
 
 ----------
 */

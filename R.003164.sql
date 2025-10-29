@@ -22,15 +22,15 @@ Expiry: 300
 
 ----------
 
- 
-Generates an easily scheduled media post for a new title
-Shows a title or titles based on the barcode number you specify
-At all Next libraries
-
-Notes:
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates an easily scheduled media post for a new title</p>
+<ul><li>Shows a title or titles based on the barcode number you specify</li>
+<li>At all Next libraries</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3164&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
- 
-Generates a report of payments made to libraries via Paypal in a date range
-Shows payments made in the date range you specify
-At all libraries
-grouped by account offsets ID
-sorted by library owed the fee, payment date, and fee reference ID
+<div class="reportinfo noprint"> 
+<p>Generates a report of payments made to libraries via Paypal in a date range</p>
+<ul><li>Shows payments made in the date range you specify</li>
+<li>At all libraries</li>
+<li>grouped by account offsets ID</li>
+<li>sorted by library owed the fee, payment date, and fee reference ID</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Due to changes in the database during the upgrade in July of 2018, this report will not work for any fees collected before July 8, 2018</p>
+<p></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3162&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
-Notes:
-
-Due to changes in the database during the upgrade in July of 2018, this report will not work for any fees collected before July 8, 2018
-
-Click here to run in a new window
-
-
-References accountlines.accounttype.  Needs to be updated after January 4, 2020
+<p><span style="color: yellow; background-color: red; font-size: 200%;">References accountlines.accounttype.  Needs to be updated after January 4, 2020</span></p>
 
 ----------
 */

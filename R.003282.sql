@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
- 
-Retrieves data and associated reports information based on an item barcode number
-Shows current data
-for the item barcode number you specify
-grouped and sorted by item number
-links to the item record, the item's bibliographic record, report 2785, report 3342, report 2784, and report 3039 -- unless the item has already been deleted
-if the item has already been deleted, there are links to report 3009
-
-Notes:
-
-Replaces report 3113
-
-dashboard
-
+<div class="reportinfo noprint"> 
+<p>Retrieves data and associated reports information based on an item barcode number</p>
+<ul><li>Shows current data</li>
+<li>for the item barcode number you specify</li>
+<li>grouped and sorted by item number</li>
+<li>links to the item record, the item's bibliographic record, report 2785, report 3342, report 2784, and report 3039 -- unless the item has already been deleted</li>
+<li>if the item has already been deleted, there are links to report 3009</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Replaces report 3113</p>
+<p></p>
+<p class= "notetags" style="display: none;">dashboard</p>
+</div>
 
 ----------
 */

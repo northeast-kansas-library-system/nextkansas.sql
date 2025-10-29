@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
- 
-Count items by home library, item type, and collection code.
-Counts items at the time that the report is run
-at the library you specify
-grouped and sorted by item home library, item type, and collection code
-
-Notes:
-
-Gives an extreme amount of information on the collection at the library you specify.
-
-#countitems, item count, item type, collection code, itype, ccode, homebranch
-
+<div class="reportinfo noprint"> 
+<p>Count items by home library, item type, and collection code.</p>
+<ul><li>Counts items at the time that the report is run</li>
+<li>at the library you specify</li>
+<li>grouped and sorted by item home library, item type, and collection code</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Gives an extreme amount of information on the collection at the library you specify.</p>
+<p></p>
+<p class= "notetags" style="display: none;">#countitems, item count, item type, collection code, itype, ccode, homebranch</p>
+</div>
 
 
 ----------

@@ -22,23 +22,23 @@ Expiry: 300
 
 ----------
 
- 
-Circulation and renewal count by library, location, item type, and collection code.
-Shows circulation in the month you specify (limited to the previous 25 months)
-at the library you specify
-grouped by circulating library, location, item type, and collection code
-sorted by circulating library, item type, and collection code
-
-Notes:
-
-Replaces reports:
-
-1930
-3165
-
-
-#circ_count_by_library #circ_count_by_itype #circ_count_by_ccode #circ_count_by_location
-
+<div class="reportinfo noprint"> 
+<p>Circulation and renewal count by library, location, item type, and collection code.</p>
+<ul><li>Shows circulation in the month you specify (limited to the previous 25 months)</li>
+<li>at the library you specify</li>
+<li>grouped by circulating library, location, item type, and collection code</li>
+<li>sorted by circulating library, item type, and collection code</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Replaces reports:</p>
+<ul>
+<li>1930</li>
+<li>3165</li>
+</ul>
+<p></p>
+<p class= "notetags" style="display: none;">#circ_count_by_library #circ_count_by_itype #circ_count_by_ccode #circ_count_by_location</p>
+</div>
 
 ----------
 */

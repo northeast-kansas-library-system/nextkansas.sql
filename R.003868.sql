@@ -22,199 +22,199 @@ Expiry: 300
 
 ----------
 
+<div class="next_report_info next_noprint">
 
+  <div id="next_report_introduction-3868" class="">
+    <p class="">Shows items cancelled from hold shelf in the last 7 days</p>
+    <p class=""><strong>Report created by: </strong>GHW</p>
+  </div>
 
-  
-    Shows items cancelled from hold shelf in the last 7 days
-    Report created by: GHW
-  
+  <div id="next_report_accordion-3868" class="accordion accordion-flush">
 
-  
-
-    
-      
-        
+    <div id="next_report_function" class="accordion-item ">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button next_report_function" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne-3868" aria-expanded="true" aria-controls="collapseOne">
             Report function:
-        
-      
+        </button>
+      </h2>
 
-      
-        
-          
-            Shows the items waiting on the hold shelf for pickup where the hold was cancelled in the last 7 days
-            on the hold shelf at the library you specify
-            grouped by reserve_id number
-            sorted by library where the item was held and the card number of the borrower the item was held for
-            links to the bibliogrpahic record of the item
-          
+      <div id="collapseOne-3868" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#next_report_accordion-3868">
+        <div class="accordion-body">
+          <ul>
+            <li>Shows the items waiting on the hold shelf for pickup where the hold was cancelled in the last 7 days</li>
+            <li>on the hold shelf at the library you specify</li>
+            <li>grouped by reserve_id number</li>
+            <li>sorted by library where the item was held and the card number of the borrower the item was held for</li>
+            <li>links to the bibliogrpahic record of the item</li>
+          </ul>
 
-        
-      
-    
+        </div>
+      </div>
+    </div>
 
-    
-      
-        
+    <div id="next_report_notes" class="accordion-item ">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed next_report_notes" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo-3868" aria-expanded="false" aria-controls="collapseTwo">
           Report notes:
-        
-      
-      
-        
+        </button>
+      </h2>
+      <div id="collapseTwo-3868" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#next_report_accordion-3868">
+        <div class="accordion-body">
 
-          
-            HELD_FOR_CARD_NUMBER
-            The report only shows the first 3 letters of the borrower's lat name and the last 6 digits of the borrower's card number in order to protect the borrower's privacy.
-          
+          <div id="next_report_notes-1" class="next_report_section ">
+            <h3>HELD_FOR_CARD_NUMBER</h3>
+            <p>The report only shows the first 3 letters of the borrower's lat name and the last 6 digits of the borrower's card number in order to protect the borrower's privacy.</p>
+          </div>
 
-          
-            CANCELLED_BY
-            The report shows the home library and borrower category of the user that cancelled the request
-          
+          <div id="next_report_notes-2" class="next_report_section ">
+            <h3>CANCELLED_BY</h3>
+            <p>The report shows the home library and borrower category of the user that cancelled the request</p>
+          </div>
 
-          
-            CANCELLED_USING_THE
-              API = probably cancelled using Aspen Discovery or Aspen Lida  Cron job = cancelled automatically by Koha  Koha staff client = A library staff member cancelled this request  OPAC = Cancelled via the Koha OPAC
-          
+          <div id="next_report_notes-3" class="next_report_section ">
+            <h3>CANCELLED_USING_THE</h3>
+            <p><ul>  <li>API = probably cancelled using Aspen Discovery or Aspen Lida</li>  <li>Cron job = cancelled automatically by Koha</li>  <li>Koha staff client = A library staff member cancelled this request</li>  <li>OPAC = Cancelled via the Koha OPAC</li></ul></p>
+          </div>
 
-          
-            ~Notes heading 4~
-            ~Notes sample 4~
-          
+          <div id="next_report_notes-4" class="next_report_section next_hidden">
+            <h3>~Notes heading 4~</h3>
+            <p>~Notes sample 4~</p>
+          </div>
 
-          
-            ~Notes heading 5~
-            ~Notes sample 5~
-          
+          <div id="next_report_notes-5" class="next_report_section next_hidden">
+            <h3>~Notes heading 5~</h3>
+            <p>~Notes sample 5~</p>
+          </div>
 
-        
-      
-    
+        </div>
+      </div>
+    </div>
 
-    
-      
-        
+    <div id="next_report_instruction" class="accordion-item next_hidden">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed next_report_instruction" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree-3868" aria-expanded="false" aria-controls="collapseThree">
           Report instructions:
-        
-      
-      
-        
+        </button>
+      </h2>
+      <div id="collapseThree-3868" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#next_report_accordion-3868">
+        <div class="accordion-body">
 
-          
-            ~heading 1~
-            
+          <div class="next_report_section next_hidden">
+            <h3>~heading 1~</h3>
+            <p id="next_report_instruction-1">
               Instructions go here
-            
-          
+            </p>
+          </div>
 
-          
-            ~heading 2~
-            
+          <div class="next_report_section next_hidden">
+            <h3>~heading 2~</h3>
+            <p id="next_report_instruction-2">
               Instructions go here
-            
-          
+            </p>
+          </div>
 
-          
-            ~heading 3~
-            
+          <div class="next_report_section next_hidden">
+            <h3>~heading 3~</h3>
+            <p id="next_report_instruction-3">
               Instructions go here
-            
-          
+            </p>
+          </div>
 
-          
-            ~heading 4~
-            
+          <div class="next_report_section next_hidden">
+            <h3>~heading 4~</h3>
+            <p id="next_report_instruction-4">
               Instructions go here
-            
-          
+            </p>
+          </div>
 
-          
-            ~heading 5~
-            
+          <div class="next_report_section ">
+            <h3>~heading 5~</h3>
+            <p id="next_report_instruction-5">
               Instructions go here
-            
-          
+            </p>
+          </div>
 
-        
-      
-    
+        </div>
+      </div>
+    </div>
 
-    
-      
-        
+    <div id="next_report_resources" class="accordion-item next_hidden">
+      <h2 class="accordion-header" id="headingFour">
+        <button class="accordion-button collapsed next_report_resources" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour-3868" aria-expanded="false" aria-controls="collapseFour">
           Report external resources:
-        
-      
+        </button>
+      </h2>
 
-      
-        
+      <div id="collapseFour-3868" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#next_report_accordion-3868">
+        <div class="accordion-body">
 
-          
+          <ul style="list-style-type: none;">
 
-            
-              ~Link 1 description~
-              ~Link 1~
-            
+            <li class="next_hidden"></li>
+              ~Link 1 description~<br>
+              <a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen2">~Link 1~</a><br>
+            </li>
 
-            
-              ~Link 2 description~
-              ~Link 2~
-            
+            <li class="next_hidden"></li>
+              ~Link 2 description~<br>
+              <a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen2">~Link 2~</a><br>
+            </li>
 
-            
-              ~Link 3 description~
-              ~Link 3~
-            
+            <li class="next_hidden"></li>
+              ~Link 3 description~<br>
+              <a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen2">~Link 3~</a><br>
+            </li>
 
-            
-              ~Link 4 description~
-              ~Link 4~
-            
+            <li class="next_hidden"></li>
+              ~Link 4 description~<br>
+              <a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen2">~Link 4~</a><br>
+            </li>
 
-            
-              ~Link 5 description~
-              ~Link 5~
-            
+            <li class="next_hidden"></li>
+              ~Link 5 description~<br>
+              <a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen2">~Link 5~</a><br>
+            </li>
 
-          
+          </ul>
 
-        
-      
-    
+        </div>
+      </div>
+    </div>
 
-  
+  </div>
 
-  
-    
+  <div id="next_report_tags" class="next_hidden">
+    <p>
       #requests: 
       #holds: 
       #hold shelf: 
       #cancellations: 
 
-    
-  
+    </p>
+  </div>
 
-  
-    
-    Training page for report 3868 
-    
-    Printable instructions for report 3868 
-    
-    Training video for report 3868 
-  
+  <div id="next_report_training" class="next_report_training next_hidden">
+    <br><br>
+    <a class="next_btn next_indigo next_embiggen2" href="/cgi-bin/koha/mainpage.pl" target="_blank">Training page for report 3868 <i class="bi bi-arrow-up-right-square"></i></a>
+    <br>
+    <a class="next_btn next_indigo next_embiggen2" href="/cgi-bin/koha/mainpage.pl" target="_blank">Printable instructions for report 3868 <i class="bi bi-download"></i></a>
+    <br>
+    <a class="next_btn next_indigo next_embiggen2" href="/cgi-bin/koha/mainpage.pl" target="_blank">Training video for report 3868 <i class="bi bi-play-btn-fill"></i></a>
+  </div>
 
-  
-    
-    Download this report as a csv file 
-    
-  
+  <div id="next_direct_download" class="next_direct_download next_hidden">
+    <br><br>
+    <a class="next_btn next_indigo next_embiggen2" href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=3868" target="_blank">Download this report as a csv file <i class="bi bi-download"></i></a>
+    <br>
+  </div>
 
-  
-    
-    Collapse report notes
-    
-  
+  <div class="next_report_note_collapse next_hidden">
+    <br><br>
+    <button type="button" id="next_report_notes_hide" class="next_btn next_indigo next_report_notes_close">Collapse report notes</button>
+    <br>
+  </div>
 
-
+</div>
 
 
 ----------

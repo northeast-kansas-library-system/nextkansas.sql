@@ -22,35 +22,35 @@ Expiry: 3600
 
 ----------
 
- 
-  Report to create a list of ISBNs for the Wordpress bookshelves plugin for Leavenworth Public Library
-  
-    Shows the 25 most recently added 10 digit ISBNs for items owned by LEAVENWRTH
-    only titles owned by LEAVENWRTH with a shelving location of  "Childrens" and a collection code of "Picture book"
-    grouped and sorted by biblionumber (descending sort)
-  
-
-
-  
-    For use with the Bookshelves wordpress plugin
-    Variables in this template include
-      
-          home library = LEAVENWRTH
-          permanent shelving location = L_YA
-          item type = Any
-          collection code = FICTION
-          NOT_LOAN status = Any
-      
-    
-    The bookshelves plulgin requires a 10 digit ISBN
-    Because non-book items do not have an ISBN, this plugin will only work with books
-    The final report needs to be set as a "Public" report in order for the plugin to work
-  
-
-
-  #wordpress #bookshelves #leavenwrth
-  
-
+<div class="reportinfo noprint"> 
+  <p>Report to create a list of ISBNs for the Wordpress bookshelves plugin for Leavenworth Public Library</p>
+  <ul>
+    <li>Shows the 25 most recently added 10 digit ISBNs for items owned by LEAVENWRTH</li>
+    <li>only titles owned by LEAVENWRTH with a shelving location of  "Childrens" and a collection code of "Picture book"</li>
+    <li>grouped and sorted by biblionumber (descending sort)</li>
+  </ul><br />
+<p></p>
+<p>
+  <ul>
+    <li>For use with the Bookshelves wordpress plugin</li>
+    <li>Variables in this template include
+      <ul>
+          <li>home library = LEAVENWRTH</li>
+          <li>permanent shelving location = L_YA</li>
+          <li>item type = Any</li>
+          <li>collection code = FICTION</li>
+          <li>NOT_LOAN status = Any</li>
+      </ul>
+    </li>
+    <li>The bookshelves plulgin requires a 10 digit ISBN</li>
+    <li>Because non-book items do not have an ISBN, this plugin will only work with books</li>
+    <li>The final report needs to be set as a "Public" report in order for the plugin to work</li>
+  </ul>
+</p>
+<p></p>
+  <p class= "notetags" style="display: none;">#wordpress #bookshelves #leavenwrth</p>
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div>
 
 ----------
 */

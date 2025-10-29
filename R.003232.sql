@@ -31,7 +31,7 @@ for X cards
 
 Add 
 
-patX.cardnumber = &lt;&gt;
+patX.cardnumber = <<Card X>>
 
 for X cards
 

@@ -22,18 +22,18 @@ Expiry: 0
 
 ----------
 
- 
-Identifies past requests made by a specific patron
-Shows request history
-on a patron you specify
-sorted by the last activity on the request
-
-Notes:
-
-This report will not include data for titles that have been deleted from the catalog.
-
-Report created to help troubleshoot problems with requested items (i.e. missing in transit, item on holds list not found, patron received e-mail but we can't find the request, etc.).
-
+<div class="reportinfo noprint"> 
+<p>Identifies past requests made by a specific patron</p>
+<ul><li>Shows request history</li>
+<li>on a patron you specify</li>
+<li>sorted by the last activity on the request</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>This report will not include data for titles that have been deleted from the catalog.</p>
+<p></p>
+<p>Report created to help troubleshoot problems with requested items (i.e. missing in transit, item on holds list not found, patron received e-mail but we can't find the request, etc.).</p>
+</div>
 
 ----------
 */

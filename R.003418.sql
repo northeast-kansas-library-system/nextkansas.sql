@@ -22,146 +22,146 @@ Expiry: 300
 
 ----------
 
+<div class="next_report_info next_noprint">
+  <div id="report-3418" class="accordion accordion-flush">
 
-  
+    <div class="accordion-item">
 
-    
-
-      
-        
+      <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+        <button class="accordion-button next_report_function" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
 
           Report function:
 
-        
-      
-      
-        
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+        <div class="accordion-body">
 
-          Monthly overview - collection statistics
+          <p>Monthly overview - collection statistics</p>
 
-          
-            
+          <ul>
+            <li>
               Shows item and holding counts for the previous calendar month
-            
-            
+            </li>
+            <li>
               At all Next Search Catalog libraries
-            
-            
+            </li>
+            <li>
               grouped and sorted by branch name
-            
-          
+            </li>
+          </ul>
 
-        
-      
-    
+        </div>
+      </div>
+    </div>
 
-    
-      
-        
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+        <button class="accordion-button collapsed next_report_notes" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
 
           Report notes:
 
-        
-      
-      
-        
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+        <div class="accordion-body">
 
-          
+          <div class="next_report_section">
 
-            Generates data for:
+            <p>Generates data for:</p>
 
-            
-              START_I = number of items owned on the first of the month
-              END_I = number of items owned on the last day of the month
-              ITEMS_ADD_L_M = items added last month
-              ITEMS_DEL_L_M = items deleted last month
-              TOTAL_HOLDINGS = number of bibliographic records where at least 1 item was held at this library on the first of the month
-            
+            <ul>
+              <li>START_I = number of items owned on the first of the month</li>
+              <li>END_I = number of items owned on the last day of the month</li>
+              <li>ITEMS_ADD_L_M = items added last month</li>
+              <li>ITEMS_DEL_L_M = items deleted last month</li>
+              <li>TOTAL_HOLDINGS = number of bibliographic records where at least 1 item was held at this library on the first of the month</li>
+            </ul>
 
-          
+          </div>
 
-        
-      
-    
+        </div>
+      </div>
+    </div>
 
-    
-      
-        
+    <div class="accordion-item next_hidden">
+      <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+        <button class="accordion-button collapsed next_report_instructions" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
 
           Report instructions:
 
-        
-      
-      
-        
+        </button>
+      </h2>
+      <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+        <div class="accordion-body">
 
-          
+          <div class="next_report_section">
 
-            
+            <p>
               Instructions go here
-            
+            </p>
 
-          
+          </div>
 
-          
+          <div class="next_report_section">
 
-            
+            <p>
               More instructions go here
-            
+            </p>
 
-          
+          </div>
 
-        
-      
-    
+        </div>
+      </div>
+    </div>
 
-    
+    <div class="accordion-item next_hidden">
 
-      
-        
+      <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+        <button class="accordion-button collapsed next_report_resources" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
 
           Report external resources:
 
-        
-      
+        </button>
+      </h2>
 
-      
-        
+      <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
+        <div class="accordion-body">
 
-          
-            
-
-
-              Explanation of resource if necessary
-
-              External resource 1
-
-            
-            
+          <ul style="list-style-type: none;">
+            <li>
 
 
-              Explanation of resource if necessary
+              Explanation of resource if necessary<br>
 
-              External resource 2
+              <a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen1">External resource 1</a>
 
-            
-          
+            </li>
+            <li>
 
-        
-      
-    
 
-  
+              Explanation of resource if necessary<br>
 
-  
+              <a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen1">External resource 2</a>
 
-    Download this report as a csv file 
+            </li>
+          </ul>
 
-  
+        </div>
+      </div>
+    </div>
 
-  
+  </div>
 
-    
+  <div class="next_direct_download next_hidden">
+
+    <a class="next_btn next_indigo next_embiggen1" href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=INSERT_REPORT_NUMBER_HERE">Download this report as a csv file <i class="bi bi-download"></i></a>
+
+  </div>
+
+  <div class="next_hidden">
+
+    <p>
 
       #monthly 
       #statistics 
@@ -169,10 +169,10 @@ Expiry: 300
       #overview 
       #monthly_overview
 
-    
+    </p>
 
-  
-
+  </div>
+</div>
 
 ----------
 */

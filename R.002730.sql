@@ -22,23 +22,23 @@ Expiry: 0
 
 ----------
 
- 
-Generates a list of items that have been on your holds shelf for more than 7 days
-Shows items that have been on a library's hold shelf for more than 7 days and have not been picked up
-Shows items waiting at the library you specify
-grouped by item request id and borrowernumber
-sorted by patron's last name and card number
-contains links to the patron's record
-
-Notes:
-
-Requests have many dates associated with them.  One of these dates is labeled as 'reserves.expirationdate' in the database.
-This 'expirationdate' date is an internal date that the Koha software uses to determine if a request has been waiting for longer than 7 days.  During the upgrade on December 9, 2017, 'expirationdate' dates on all waiting requests were reset by this bug to 2017-12-09 from their original dates.  This causes the "Holds awaiting pickup report" at https://staff.nexpresslibrary.org/cgi-bin/koha/circ/waitingreserves.pl to fail to show any requests that have been waiting more than 7 days on the "Holds waiting over 7 days" tab.
-
-This report shows the actual expiration dates of any requests that were waiting prior to December 9, 2017.
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of items that have been on your holds shelf for more than 7 days</p>
+<ul><li>Shows items that have been on a library's hold shelf for more than 7 days and have not been picked up</li>
+<li>Shows items waiting at the library you specify</li>
+<li>grouped by item request id and borrowernumber</li>
+<li>sorted by patron's last name and card number</li>
+<li>contains links to the patron's record</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Requests have many dates associated with them.  One of these dates is labeled as 'reserves.expirationdate' in the database.</p>
+<p>This 'expirationdate' date is an internal date that the Koha software uses to determine if a request has been waiting for longer than 7 days.  During the upgrade on December 9, 2017, 'expirationdate' dates on all waiting requests were reset by this bug to 2017-12-09 from their original dates.  This causes the "Holds awaiting pickup report" at https://staff.nexpresslibrary.org/cgi-bin/koha/circ/waitingreserves.pl to fail to show any requests that have been waiting more than 7 days on the "Holds waiting over 7 days" tab.</p>
+<p></p>
+<p>This report shows the actual expiration dates of any requests that were waiting prior to December 9, 2017.</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2730&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

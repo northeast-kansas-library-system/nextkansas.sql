@@ -22,7 +22,7 @@ Expiry: 300
 
 ----------
 
-Click here to run in a new window
+<a href="/cgi-bin/koha/reports/guided_reports.pl?phase=Run+this+report&reports=3249&limit=10000"  target="_blank">Click here to run in a new window</a></p>
 
 ----------
 */

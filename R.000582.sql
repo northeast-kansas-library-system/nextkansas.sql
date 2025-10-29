@@ -22,37 +22,37 @@ Expiry: 0
 
 ----------
 
+<div class="next_report_info next_noprint">
 
+  <div id="next_report_introduction-1234" class="">
+    <p class="">Generates a list of all patrons with fees on their account</p>
+    <p class="next_hidden"><strong>Report created by: </strong>~Author variable~</p>
+  </div>
 
-  
-    Generates a list of all patrons with fees on their account
-    Report created by: ~Author variable~
-  
+  <div id="next_report_accordion-1234" class="accordion accordion-flush">
 
-  
-
-    
-      
-        
+    <div id="next_report_function" class="accordion-item ">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button next_report_function" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne-1234" aria-expanded="true" aria-controls="collapseOne">
             Report function:
-        
-      
+        </button>
+      </h2>
 
-      
-        
-          
-            Lists patrons that currently have an account balance due greater than $0.01
-            ists patrons whose home library is the branchcode you specify - regardless of where the fees were generated.
-            grouped by the borrower's card number
-            sorted by the borrowers last name
-            ~links to~
-          
+      <div id="collapseOne-1234" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#next_report_accordion-1234">
+        <div class="accordion-body">
+          <ul>
+            <li>Lists patrons that currently have an account balance due greater than $0.01</li>
+            <li>ists patrons whose home library is the branchcode you specify - regardless of where the fees were generated.</li>
+            <li>grouped by the borrower's card number</li>
+            <li>sorted by the borrowers last name</li>
+            <li>~links to~</li>
+          </ul>
 
-          ~Function notes~
+          <p>~Function notes~</p>
 
-        
-      
-    
+        </div>
+      </div>
+    </div>
 
 
 
@@ -185,8 +185,8 @@ Expiry: 0
 
 
 
-  
-    
+  <div id="next_report_tags" class="next_hidden">
+    <p>
       #fines: 
       #fees: 
 
@@ -197,8 +197,8 @@ Expiry: 0
 
 
 
-    
-  
+    </p>
+  </div>
 
 
 
@@ -215,13 +215,13 @@ Expiry: 0
 
 
 
-  
-    
-    Collapse report notes
-    
-  
+  <div class="next_report_note_collapse next_hidden">
+    <br><br>
+    <button type="button" id="next_report_notes_hide" class="next_btn next_indigo next_report_notes_close">Collapse report notes</button>
+    <br>
+  </div>
 
-
+</div>
 
 
 ----------

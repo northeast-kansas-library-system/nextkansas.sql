@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
-
-Gives a count of how many items are at the selected library based on collection code and Adult/Juvenile/YA permanent shelving locations.
-Shows count at the time the report is run
-for libraries with the home library you specify
-grouped and sorted by item home library and collection code
-
-Notes:
-
-Non-standard shelving locations are counted as "Adult" locations.
-Items with blank collection codes are counted as "(Unclassified)."
-
-This report cannot track changes made to existing records over time.  Therefore, if staff change the home library, location, or collection code of an item, those changes will not be reflected in the additions or deletions columns.  This means that the numbers may look inconsistent from month to month if changes are made to existing item records.
-
+<div class="reportinfo noprint">
+<p>Gives a count of how many items are at the selected library based on collection code and Adult/Juvenile/YA permanent shelving locations.</p>
+<ul><li>Shows count at the time the report is run</li>
+<li>for libraries with the home library you specify</li>
+<li>grouped and sorted by item home library and collection code</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Non-standard shelving locations are counted as "Adult" locations.</p>
+<p>Items with blank collection codes are counted as "(Unclassified)."</p>
+<p></p>
+<p>This report cannot track changes made to existing records over time.  Therefore, if staff change the home library, location, or collection code of an item, those changes will not be reflected in the additions or deletions columns.  This means that the numbers may look inconsistent from month to month if changes are made to existing item records.</p>
+</div>
 
 ----------
 */

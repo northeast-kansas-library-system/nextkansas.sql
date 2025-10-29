@@ -22,17 +22,17 @@ Expiry: 300
 
 ----------
 
- 
-Counts delay in days between a request's waiting date and the date it's checked out
-Only shows requests that were picked up in the previous calendar month
-at the library you specify
-grouped and sorted by the library name and the number of days
-
-Notes:
-
-This report will only work if the system preference "HoldsLog" is set to "Log."
-
-
+<div class="reportinfo noprint"> 
+<p>Counts delay in days between a request's waiting date and the date it's checked out</p>
+<ul><li>Only shows requests that were picked up in the previous calendar month</li>
+<li>at the library you specify</li>
+<li>grouped and sorted by the library name and the number of days</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>This report will only work if the system preference "HoldsLog" is set to "Log."</p>
+<p></p>
+</div>
 
 ----------
 */

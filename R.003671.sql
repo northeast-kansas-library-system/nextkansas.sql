@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
- 
-  Counts the items that are still in transit and orders them by the week they were shipped
-  
-    Shows data for items that are currently in transit
-    at all Next libraries
-    grouped and sorted by the week shipped
-    links to report 3672
-  
-  Notes:
-  
-  Created to isolate possible courier issues.
-  
-  #transit #courier
-  
-
+<div class="reportinfo noprint"> 
+  <p>Counts the items that are still in transit and orders them by the week they were shipped</p>
+  <ul>
+    <li>Shows data for items that are currently in transit</li>
+    <li>at all Next libraries</li>
+    <li>grouped and sorted by the week shipped</li>
+    <li>links to report 3672</li>
+  </ul><br />
+  <p><ins>Notes:</ins></p>
+  <p></p>
+  <p>Created to isolate possible courier issues.</p>
+  <p></p>
+  <p class= "notetags" style="display: none;">#transit #courier</p>
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div>
 
 ----------
 */

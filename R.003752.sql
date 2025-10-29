@@ -22,35 +22,35 @@ Expiry: 300
 
 ----------
 
+<div class="reportinfo noprint"> 
  
+  <div class="reportInfoContent"> 
  
-   
+    <p>Counts borrowers based on the sex listed in their account</p> 
  
-    Counts borrowers based on the sex listed in their account 
+    <ul> 
+      <li>Shows current data in Next Search Catalog</li> 
+      <li>at the library you specify</li> 
+      <li>grouped and sorted by library and sex</li> 
+    </ul> 
  
-     
-      Shows current data in Next Search Catalog 
-      at the library you specify 
-      grouped and sorted by library and sex 
-     
- 
-  
+  </div>
 
-  
+  <div class="reportInfoNotes">
  
-     
+    <p> 
  
-     
+    </p> 
 
-     
+    <p> 
       Sex data will be deleted from Next Search Catalog on September 15, 2023.
-     
+    </p> 
  
-     
+    <p> 
  
-     
+    </p> 
    
-   
+  </div> 
 
 ----------
 */

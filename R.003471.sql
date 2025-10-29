@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
- 
-Shows replacement cost of collection
-Results are based on materials currently in the catalog
-at the library, shelving location, and collection code you specify
-grouped and sorted by library, shelving location, and collection code
+<div class="reportinfo noprint"> 
+<p>Shows replacement cost of collection</p>
+<ul><li>Results are based on materials currently in the catalog</li>
+<li>at the library, shelving location, and collection code you specify</li>
+<li>grouped and sorted by library, shelving location, and collection code</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p>Updated in March of 2025 to link to 3879 instead of 2731.</p>
+<p>This report will only return values based on the "Cost, replacement price" field in the item record (Marc subfield 952$v).  If no value is entered in this field, the value for that item will be $0.00.  If that field has been incorrectly entered, that incorrect value will be a part of the total.</p><br />
+<p>Report 3362 can show you items at your library with a blank or 0 value "Cost, replacement price" field: <a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3362&phase=Run%20this%20report">click here to run report 3362</a></p>
 
-Notes:
-Updated in March of 2025 to link to 3879 instead of 2731.
-This report will only return values based on the "Cost, replacement price" field in the item record (Marc subfield 952$v).  If no value is entered in this field, the value for that item will be $0.00.  If that field has been incorrectly entered, that incorrect value will be a part of the total.
-Report 3362 can show you items at your library with a blank or 0 value "Cost, replacement price" field: click here to run report 3362
-
-
-Click here to run in a new window
-tag goes here
-
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3471&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p class= "notetags" style="display: none;">tag goes here</p>
+</div>
 
 ----------
 */

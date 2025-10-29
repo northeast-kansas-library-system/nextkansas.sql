@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2018-06-18 11:15:38
 Modified on: 2025-04-17 09:30:37
-Date last run: 2025-10-27 14:07:09
+Date last run: 2025-10-28 19:54:25
 
 ----------
 
@@ -22,22 +22,22 @@ Expiry: 300
 
 ----------
 
- 
-Print holds queue report with scannable barcodes and divided into priorities.
-Shows items in the current holds queue
-at the location you specify
-grouped by specified location, items home branch, call number, author, and title
-sorted by request priority and standard NEXT classification.
-contains links to the bibliographic records
+<div class="reportinfo noprint"> 
+<p>Print holds queue report with scannable barcodes and divided into priorities.</p>
+<ul><li>Shows items in the current holds queue</li>
+<li>at the location you specify</li>
+<li>grouped by specified location, items home branch, call number, author, and title</li>
+<li>sorted by request priority and standard NEXT classification.</li>
+<li>contains links to the bibliographic records</li>
+</ul><br />
+<p></p>
+<p>Notes:</p>
+<p></p>
+<p><span style="text-decoration: underline;">Highest priority</span> = request is for pickup at this library || or || this is an item level request.</p>
+<p><span style="text-decoration: underline;">High priority</span> = the copy requested is the only copy owned by any Next Search Catalog library</p>
+<p></p>
 
-
-Notes:
-
-Highest priority = request is for pickup at this library || or || this is an item level request.
-High priority = the copy requested is the only copy owned by any Next Search Catalog library
-
-
-
+</div>
 
 ----------
 */

@@ -22,18 +22,18 @@ Expiry: 0
 
 ----------
 
- 
-Generates a list of all items where 1 patron has more than 1 hold on 1 bibliographic record
-Shows current multiple holds
-at all NExpress libraries
-grouped by biblionumber, patron barcode, and borrowernumber
-sorted by biblionumber, patron barcode, and borrowernumber
-contains links to the request record and the patron record
-
-Notes:
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of all items where 1 patron has more than 1 hold on 1 bibliographic record</p>
+<ul><li>Shows current multiple holds</li>
+<li>at all NExpress libraries</li>
+<li>grouped by biblionumber, patron barcode, and borrowernumber</li>
+<li>sorted by biblionumber, patron barcode, and borrowernumber</li>
+<li>contains links to the request record and the patron record</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2882&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

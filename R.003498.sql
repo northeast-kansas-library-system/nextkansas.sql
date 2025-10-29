@@ -22,35 +22,35 @@ Expiry: 300
 
 ----------
 
- 
-  Report template to create a list of new book ISBNs for the Wordpress bookshelves plugin for any library we choose
-  
-    Shows the 25 most recently added 10 digit ISBNs for items owned by libraries in Next
-    only titles owned by the library defined in the code
-    grouped and sorted by biblionumber (descending sort)
-  
-
-
-  
-    For use with the Bookshelves wordpress plugin
-    Variables in this template include
-      
-          home library
-          permanent shelving location
-          item type
-          collection code
-      
-    
-    The bookshelves plulgin requires a 10 digit ISBN
-    Because non-book items do not have an ISBN, this plugin will only work with books
-    The final report needs to be set as a "Public" report in order for the plugin to work
-    Publication year parameters can be added - see TONGANOXIE report for a working example
-  
-
-
-  #wordpress #bookshelves #template
-  
-
+<div class="reportinfo noprint"> 
+  <p>Report template to create a list of new book ISBNs for the Wordpress bookshelves plugin for any library we choose</p>
+  <ul>
+    <li>Shows the 25 most recently added 10 digit ISBNs for items owned by libraries in Next</li>
+    <li>only titles owned by the library defined in the code</li>
+    <li>grouped and sorted by biblionumber (descending sort)</li>
+  </ul><br />
+<p></p>
+<p>
+  <ul>
+    <li>For use with the Bookshelves wordpress plugin</li>
+    <li>Variables in this template include
+      <ul>
+          <li>home library</li>
+          <li>permanent shelving location</li>
+          <li>item type</li>
+          <li>collection code</li>
+      </ul>
+    </li>
+    <li>The bookshelves plulgin requires a 10 digit ISBN</li>
+    <li>Because non-book items do not have an ISBN, this plugin will only work with books</li>
+    <li>The final report needs to be set as a "Public" report in order for the plugin to work</li>
+    <li>Publication year parameters can be added - see TONGANOXIE report for a working example</li>
+  </ul>
+</p>
+<p></p>
+  <p class= "notetags" style="display: none;">#wordpress #bookshelves #template</p>
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div>
 
 ----------
 */

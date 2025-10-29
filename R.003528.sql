@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
- 
-Generates a list of borrowers with unresolved credits and debits that generate a $0.00 balance
-Shows currently unresolved credits and debits
-at the library you specify
-grouped by borrower id number
-sorted by library and borrower barcode number
-links to the borrower's accounts tab
-
-Notes:
-
-
-#tested #updated  #gk
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of borrowers with unresolved credits and debits that generate a $0.00 balance</p>
+<ul><li>Shows currently unresolved credits and debits</li>
+<li>at the library you specify</li>
+<li>grouped by borrower id number</li>
+<li>sorted by library and borrower barcode number</li>
+<li>links to the borrower's accounts tab</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p></p>
+<p class= "notetags" style="display: none;">#tested #updated  #gk</p>
+</div>
 
 ----------
 */

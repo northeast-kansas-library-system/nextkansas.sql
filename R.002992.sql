@@ -12,8 +12,8 @@ Group: Catalog Records and Items
      Fix Items
 
 Created on: 2017-09-01 14:01:00
-Modified on: 2019-11-06 00:39:17
-Date last run: 2025-08-25 14:54:52
+Modified on: 2025-10-27 23:23:48
+Date last run: 2025-10-27 23:23:53
 
 ----------
 
@@ -27,23 +27,19 @@ Expiry: 300
 ----------
 */
 
+
+
 SELECT
   Concat(
-    '<a target="_blank" href=\"/cgi-bin/koha/cataloguing/additem.pl?op=edititem&biblionumber=', 
-    biblio.biblionumber, 
-    '&itemnumber=', 
-    items.itemnumber, 
-    '\">', 
+    '', 
     'Edit item', 
-    '</a>'
+    ''
   ) AS Edit,
-  Replace(items.itemcallnumber, ' ', '⋆') AS callnumber,
+  Replace(items.itemcallnumber, ' ', '-') AS callnumber,
   Concat(
-    '<a target="_blank" href=\"/cgi-bin/koha/catalogue/detail.pl?biblionumber=', 
-    biblio.biblionumber, 
-    '\">', 
+    '', 
     biblio.title, 
-    '</a>'
+    ''
   ) AS Title,
   biblio.author,
   items.location AS location1,
@@ -55,11 +51,36 @@ FROM
   items
   LEFT JOIN biblio ON items.biblionumber = biblio.biblionumber
 WHERE
-  items.homebranch LIKE <<Choose item homebranch|LBRANCH>> AND
-  ((items.itemcallnumber LIKE ' %'))
+  items.homebranch LIKE &lt;&gt; AND
+  (items.itemcallnumber LIKE ' %')
 GROUP BY
   items.location,
   items.ccode,
   items.biblionumber
 ORDER BY
   items.itemcallnumber
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

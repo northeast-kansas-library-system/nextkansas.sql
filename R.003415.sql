@@ -22,22 +22,22 @@ Expiry: 300
 
 ----------
 
- 
-Generates a list of items on in the catalog by list of item barcode numbers
-Shows data regarding the supplied barcode numbers at the time the report was run
-based on the home library of the item barcode numbers provided
-grouped by item number, item type description, and collection code description
-sorted by the normal Next Search Catalog classification scheme
-links to the bibliographic record for each biblionumber and the edit item page for each item number
-
-Notes:
-
-To run, ask nexthelp@nekls.org to set up the report for you -- you will need to supply a text file containing the barcode numbers of all of the items you wish to appear in the results
-Currently set up for Kelly at PAOLA based on a list of 250 barcode numbers submitted on February 1, 2021.
-
-Click here to run in a new window
-tag goes here
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of items on in the catalog by list of item barcode numbers</p>
+<ul><li>Shows data regarding the supplied barcode numbers at the time the report was run</li>
+<li>based on the home library of the item barcode numbers provided</li>
+<li>grouped by item number, item type description, and collection code description</li>
+<li>sorted by the normal Next Search Catalog classification scheme</li>
+<li>links to the bibliographic record for each biblionumber and the edit item page for each item number</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>To run, ask nexthelp@nekls.org to set up the report for you -- you will need to supply a text file containing the barcode numbers of all of the items you wish to appear in the results</p>
+<p>Currently set up for Kelly at PAOLA based on a list of 250 barcode numbers submitted on February 1, 2021.</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3415&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p class= "notetags" style="display: none;">tag goes here</p>
+</div>
 
 ----------
 */

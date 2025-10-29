@@ -22,60 +22,60 @@ Expiry: 300
 
 ----------
 
- 
-Circulation by item details spreadsheet report - circulation by collection code 
-Shows counts of check-outs and renewals in the previous calendar month 
-At all Next Search Catalog libraries 
-grouped and sorted by library name 
- 
-Notes: 
- 
-SHELVING_LOCATION is based on the shelving location of the item at the time it was checked out *Unless the item had a "Recently returned" shelving location.*  This report falls back to the items' "Permanent shelving location" whenever the statistics data shows that the item's shelving location was "Recently returned."  If the shelving location is completely ambiguous, the circulation is counted in the CKO_RENEW_OTHER column. 
- 
- 
-  CKO_RENEW_ADULT includes items with these shelving locations: 
-   
-    Adult 
-    ~Display - BALDWIN - Adult 
-    ~Display - LEAVENWRTH - Adult 
-    ~Display - PAOLA - Adult 
-    Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Adult" locations 
-   
-   
-  CKO_RENEW_YA includes items with these shelving locations: 
-   
-    Young adult 
-    ~Display - BALDWIN - Young Adult 
-    ~Display - LEAVENWRTH - Young adult 
-    ~Display - PAOLA - Young adult 
-    Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Young adult" locations 
-   
-   
-  CKO_RENEW_CHILDRENS includes items with these shelving locations: 
-   
-    Childrens 
-    ~Display - BALDWIN - Childrens 
-    ~Display - LEAVENWRTH - Children's 
-    ~Display - PAOLA - Children's 
-    Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Childrens" locations 
-   
-   
-  CKO_RENEW_OTHER includes items with these shelving locations: 
-   
-    Cataloging 
-    Processing Center 
-    Any other situation where the recorded shelving location is "Recently returned" but the item's permanent location is ambiguous 
-    Any items where the recorded shelving location is blank or unknown 
-   
- 
-   
- 
-This report and these notes updated on 2022.03.10 
- 
-Click here to download as a csv file 
-#monthly #statistics #item #details #ccode #circulation_by_item_details 
- 
- 
+<div class="reportinfo noprint"> 
+<p>Circulation by item details spreadsheet report - circulation by collection code</p> 
+<ul><li>Shows counts of check-outs and renewals in the previous calendar month</li> 
+<li>At all Next Search Catalog libraries</li> 
+<li>grouped and sorted by library name</li> 
+</ul><br /> 
+<p><ins>Notes:</ins></p> 
+<p></p> 
+<p>SHELVING_LOCATION is based on the shelving location of the item at the time it was checked out *Unless the item had a "Recently returned" shelving location.*  This report falls back to the items' "Permanent shelving location" whenever the statistics data shows that the item's shelving location was "Recently returned."  If the shelving location is completely ambiguous, the circulation is counted in the CKO_RENEW_OTHER column.</p> 
+<p></p> 
+<ul> 
+  <li>CKO_RENEW_ADULT includes items with these shelving locations:</li> 
+  <ul> 
+    <li>Adult</li> 
+    <li>~Display - BALDWIN - Adult</li> 
+    <li>~Display - LEAVENWRTH - Adult</li> 
+    <li>~Display - PAOLA - Adult</li> 
+    <li>Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Adult" locations</li> 
+  </ul> 
+  <br /> 
+  <li>CKO_RENEW_YA includes items with these shelving locations:</li> 
+  <ul> 
+    <li>Young adult</li> 
+    <li>~Display - BALDWIN - Young Adult</li> 
+    <li>~Display - LEAVENWRTH - Young adult</li> 
+    <li>~Display - PAOLA - Young adult</li> 
+    <li>Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Young adult" locations</li> 
+  </ul> 
+  <br /> 
+  <li>CKO_RENEW_CHILDRENS includes items with these shelving locations:</li> 
+  <ul> 
+    <li>Childrens</li> 
+    <li>~Display - BALDWIN - Childrens</li> 
+    <li>~Display - LEAVENWRTH - Children's</li> 
+    <li>~Display - PAOLA - Children's</li> 
+    <li>Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Childrens" locations</li> 
+  </ul> 
+  <br /> 
+  <li>CKO_RENEW_OTHER includes items with these shelving locations:</li> 
+  <ul> 
+    <li>Cataloging</li> 
+    <li>Processing Center</li> 
+    <li>Any other situation where the recorded shelving location is "Recently returned" but the item's permanent location is ambiguous</li> 
+    <li>Any items where the recorded shelving location is blank or unknown</li> 
+  </ul> 
+</ul> 
+  <br /> 
+<p></p> 
+<p class="updated">This report and these notes updated on 2022.03.10</p> 
+<p></p> 
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id= 3394">Click here to download as a csv file</a></p> 
+<p class= "notetags" style="display: none;">#monthly #statistics #item #details #ccode #circulation_by_item_details</p> 
+<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
+</div> 
 
 ----------
 */

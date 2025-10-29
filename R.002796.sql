@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
- 
-Searches for duplicate patron holds on a bibliographic record
-Searches for current requests
-on a specified biblionumber (text input accepts wildcards)
-grouped by biblionumber and borrowernumber
-sorted by biblionumber and borrowernumber
-
-Notes:
-Helpful for identifying duplicate requests caused by merging records.
-Click here to run this report in a new window.
-
+<div class="reportinfo noprint"> 
+<p>Searches for duplicate patron holds on a bibliographic record</p>
+<ul><li>Searches for current requests</li>
+<li>on a specified biblionumber (text input accepts wildcards)</li>
+<li>grouped by biblionumber and borrowernumber</li>
+<li>sorted by biblionumber and borrowernumber</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p>Helpful for identifying duplicate requests caused by merging records.</p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2796&phase=Run%20this%20report"  target="_blank">Click here to run this report in a new window.</a></p>
+</div>
 
 
 ----------

@@ -22,33 +22,33 @@ Expiry: 0
 
 ----------
 
- 
-Lists all patrons with outstanding fees based on the library that "owns" the fee (see the notes below for the definition of which library owns the fee)
-Shows patrons with outstanding balances due
-shows patrons with fees that are owned by the library you specify, with a fee type you specify, and/or by the patron's home library
-also allows you to limit the results to show all patrons, only patrons with items checked out, or only patrons with no items currently checked out
-grouped by patron card number and accountlines ID
-sorted by the patron's last name, first name, and card number
-contains links to the account tab on the patron's account
+<div class="reportinfo noprint"> 
+<p>Lists all patrons with outstanding fees based on the library that "owns" the fee (see the notes below for the definition of which library owns the fee)</p>
+<ul><li>Shows patrons with outstanding balances due</li>
+<li>shows patrons with fees that are owned by the library you specify, with a fee type you specify, and/or by the patron's home library</li>
+<li>also allows you to limit the results to show all patrons, only patrons with items checked out, or only patrons with no items currently checked out</li>
+<li>grouped by patron card number and accountlines ID</li>
+<li>sorted by the patron's last name, first name, and card number</li>
+<li>contains links to the account tab on the patron's account</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Determining which library a fee belongs to can be very complicated in Koha.  This report makes that determination as follows:
+  <ul>
+    <li>If the accountlines table indicates the staff login (i.e. NEKLSCIRC, OTTATECH, HORTDIRECTOR) who created a fee, the staff login's home library is the library that owns the fee</li>
+    <li>If the accountlines table does not indicate a staff login and the item was checked out less than 13 months ago, the checkout is linked to the library where the item was checked out by connecting accountlines to the to the old_issues table (we purge data more than 13 months old from the old_issues table)</li>
+    <li>If the accountlines table does not indicate a staff login and the item was checked out more than 13 months ago, it's assumed that the patron's home library owns the fee</li>
+    <li>If the accountlines table does not indicate a staff login and the item is currently checked out to the patron, the checkout is linked to the library where the item was checked out by connecting accountlines to the issues table</li>
+  </ul>
+</p>
+<p></p>
+<p>Updated on 2019.03.15 by GHW</p>
+<p></p>
+<p>Report created by George Williams.</p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2930&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
-Notes:
-
-Determining which library a fee belongs to can be very complicated in Koha.  This report makes that determination as follows:
-  
-    If the accountlines table indicates the staff login (i.e. NEKLSCIRC, OTTATECH, HORTDIRECTOR) who created a fee, the staff login's home library is the library that owns the fee
-    If the accountlines table does not indicate a staff login and the item was checked out less than 13 months ago, the checkout is linked to the library where the item was checked out by connecting accountlines to the to the old_issues table (we purge data more than 13 months old from the old_issues table)
-    If the accountlines table does not indicate a staff login and the item was checked out more than 13 months ago, it's assumed that the patron's home library owns the fee
-    If the accountlines table does not indicate a staff login and the item is currently checked out to the patron, the checkout is linked to the library where the item was checked out by connecting accountlines to the issues table
-  
-
-
-Updated on 2019.03.15 by GHW
-
-Report created by George Williams.
-Click here to run in a new window
-
-
-References accountlines.accounttype.  Needs to be updated after January 4, 2020
+<p><span style="color: yellow; background-color: red; font-size: 200%;">References accountlines.accounttype.  Needs to be updated after January 4, 2020</span></p>
 
 ----------
 */

@@ -22,16 +22,16 @@ Expiry: 0
 
 ----------
 
- 
-Generates a list of items awaiting pickup
-Shows items currently on the hold shelf
-at the pick-up location you specify
-sorted by date the item was placed on your hold shelf
-contains links to the requesting patron's account
-
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of items awaiting pickup</p>
+<ul><li>Shows items currently on the hold shelf</li>
+<li>at the pick-up location you specify</li>
+<li>sorted by date the item was placed on your hold shelf</li>
+<li>contains links to the requesting patron's account</li>
+</ul><br />
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2911&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

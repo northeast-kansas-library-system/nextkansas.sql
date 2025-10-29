@@ -22,22 +22,22 @@ Expiry: 300
 
 ----------
 
- 
-Generates a list of items that were marked as "Withdrawn" in the previous calendar month at OTTAWA and shows the last patron to have had the item billed to their account
-Only shows items marked as "Withdrawn" in the previous calendar month
-where OTTAWA is the item home branch
-grouped by item number and biblionumber
-sorted by home library, shelf location, item type, collection code, call number, author, and title
-contains raw HTML links to the bibliographic record and to the borrower's account page
-
-Notes:
-
-Scheduled to automatically e-mail to OTTAWA staff on the first of each month.
-
-Click here to run in a new window
-Click here to download as a csv file
-#ottawa, #withdrawn, #scheduled
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of items that were marked as "Withdrawn" in the previous calendar month at OTTAWA and shows the last patron to have had the item billed to their account</p>
+<ul><li>Only shows items marked as "Withdrawn" in the previous calendar month</li>
+<li>where OTTAWA is the item home branch</li>
+<li>grouped by item number and biblionumber</li>
+<li>sorted by home library, shelf location, item type, collection code, call number, author, and title</li>
+<li>contains raw HTML links to the bibliographic record and to the borrower's account page</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Scheduled to automatically e-mail to OTTAWA staff on the first of each month.</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3354&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3354">Click here to download as a csv file</a></p>
+<p class= "notetags" style="display: none;">#ottawa, #withdrawn, #scheduled</p>
+</div>
 
 ----------
 */

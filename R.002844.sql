@@ -22,19 +22,19 @@ Expiry: 0
 
 ----------
 
- 
-Count of patrons deleted during the specified date range(between the beginning of the day on the specified "START DATE" to the end of the day on the specified "END DATE")
-Looks at patrons who were manually deleted - does not include patrons that were deleted in batch processes
-Allows you to specify a patron home branch and patron category if you wish
-grouped by patron home branch and patron category - includes total count by home branch and a total for the entire table
-sorted by patron home branch and patron category
-
-Notes:
-
-Report created at the request of Paola Free Library.
-This report can only look back to the previous 60 days because we are purging data from the action logs that is more than 60 days old.
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Count of patrons deleted during the specified date range<br />(between the beginning of the day on the specified "START DATE" to the end of the day on the specified "END DATE")</p>
+<ul><li>Looks at patrons who were manually deleted - does not include patrons that were deleted in batch processes</li>
+<li>Allows you to specify a patron home branch and patron category if you wish</li>
+<li>grouped by patron home branch and patron category - includes total count by home branch and a total for the entire table</li>
+<li>sorted by patron home branch and patron category</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Report created at the request of Paola Free Library.</p>
+<p>This report can only look back to the previous 60 days because we are purging data from the action logs that is more than 60 days old.</p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2844&phase=Run this report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

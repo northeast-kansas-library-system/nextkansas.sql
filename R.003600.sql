@@ -3,7 +3,7 @@ R.003600
 
 ----------
 
-Name: GHW - 260 &gt; 264 needed
+Name: GHW - 260 > 264 needed
 Created by: George Williams
 
 ----------
@@ -22,9 +22,9 @@ Expiry: 300
 
 ----------
 
- 
-Click here to download as a csv file
-
+<div class="reportinfo noprint"> 
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=3600">Click here to download as a csv file</a></p>
+</div>
 
 
 

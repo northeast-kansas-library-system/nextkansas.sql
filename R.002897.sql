@@ -22,16 +22,16 @@ Expiry: 0
 
 ----------
 
- 
-Generates a list of items checked out at a branch that were due before a certain date
-Shows currently overdue items due before the date you specify
-shows items checked out at the library you specify regardless of who owns the item
-grouped by item barcode number
-sorted by NExpress standard classification scheme
-
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of items checked out at a branch that were due before a certain date</p>
+<ul><li>Shows currently overdue items due before the date you specify</li>
+<li>shows items checked out at the library you specify regardless of who owns the item</li>
+<li>grouped by item barcode number</li>
+<li>sorted by NExpress standard classification scheme</li>
+</ul><br />
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2897&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

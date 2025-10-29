@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
- 
-Counts checkouts and renewals at a library during the previous calendar month based on whether the items circulated were owned by the check-out library or owned by a different library
-Counts circulation and renewals in the previous calendar month
-at all libraries
-grouped and sorted by checkout branchcode
-
-Notes:
-
-Items that appear in the statistics table without a checkout branch are counted as NEKLS checkouts.
-Items where the owning library cannot be determined will be counted as being owned by NEKLS.
-All items owned by Doniphan County Library District are considered Doniphan County Library District items at all of their libraries - i.e. a DONITROY item checked out at DONIELWD counts as a DONIELWD item.
-All items owned by Prairie Hills School District are considered Prairie Hills School District items at all of their libraries - i.e. a PHWAC item checked out at PHSHS counts as a PHSHS item.
-
-Click here to download as a csv file
-
+<div class="reportinfo noprint"> 
+<p>Counts checkouts and renewals at a library during the previous calendar month based on whether the items circulated were owned by the check-out library or owned by a different library</p>
+<ul><li>Counts circulation and renewals in the previous calendar month</li>
+<li>at all libraries</li>
+<li>grouped and sorted by checkout branchcode</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Items that appear in the statistics table without a checkout branch are counted as NEKLS checkouts.</p>
+<p>Items where the owning library cannot be determined will be counted as being owned by NEKLS.</p>
+<p>All items owned by Doniphan County Library District are considered Doniphan County Library District items at all of their libraries - i.e. a DONITROY item checked out at DONIELWD counts as a DONIELWD item.</p>
+<p>All items owned by Prairie Hills School District are considered Prairie Hills School District items at all of their libraries - i.e. a PHWAC item checked out at PHSHS counts as a PHSHS item.</p>
+<p></p>
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3200">Click here to download as a csv file</a></p>
+</div>
 
 ----------
 */

@@ -22,7 +22,7 @@ Expiry: 0
 
 ----------
 
-References accountlines.accounttype.  Needs to be updated after January 4, 2020
+<p><span style="color: yellow; background-color: red; font-size: 200%;">References accountlines.accounttype.  Needs to be updated after January 4, 2020</span></p>
 
 ----------
 */

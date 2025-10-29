@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
- 
-Counts circulation (checkouts and renewals) based on flexible date settings
-Counts circulation based on the date parameters you set
-at the library you choose
-grouped and sorted by checkout branch and date of checkout
-
-Notes:
-
-Please note that items renewed via the OPAC are counted as renewals at the library where the item was checked out.  Therefore, if you see a circulation count at a library on a day that the library is normally closed, it is almost certainly due to a renewal initiated by the patron via the OPAC.
-
-This report replaces reports 2396, 2397, 2398, 2399, 2400, 2401, and 2402
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Counts circulation (checkouts and renewals) based on flexible date settings</p>
+<ul><li>Counts circulation based on the date parameters you set</li>
+<li>at the library you choose</li>
+<li>grouped and sorted by checkout branch and date of checkout</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Please note that items renewed via the OPAC are counted as renewals at the library where the item was checked out.  Therefore, if you see a circulation count at a library on a day that the library is normally closed, it is almost certainly due to a renewal initiated by the patron via the OPAC.</p>
+<p></p>
+<p>This report replaces reports 2396, 2397, 2398, 2399, 2400, 2401, and 2402</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3028&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

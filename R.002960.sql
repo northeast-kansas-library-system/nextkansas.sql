@@ -22,17 +22,17 @@ Expiry: 300
 
 ----------
 
- 
-Generates a report for converting notices and slips into text files for storage on GITHUB.
-Shows current notice and slip data
-at all NExpress locations
-sorted by branchcode and lettercode
-
-Notes:
-
-Run this report and open the file in EXCEL.  Then run the macro to output the rows from this file into separate text files.
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a report for converting notices and slips into text files for storage on GITHUB.</p>
+<ul><li>Shows current notice and slip data</li>
+<li>at all NExpress locations</li>
+<li>sorted by branchcode and lettercode</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Run this report and open the file in EXCEL.  Then run the macro to output the rows from this file into separate text files.</p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2960&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

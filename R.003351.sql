@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
- 
-Item counts by patron where the patron has more than 1 item checked out - includes counts by checkout library
-Shows items currently checked out
-At the library you specified
-grouped by patron barcode number
-sorted by highest total checkout count to lowest checkout count
-links
-
-Notes:
-
-Does not include INHOUSE or ILL patron categories
-
-Click here to run in a new window
-tag goes here
-
+<div class="reportinfo noprint"> 
+<p>Item counts by patron where the patron has more than 1 item checked out - includes counts by checkout library</p>
+<ul><li>Shows items currently checked out</li>
+<li>At the library you specified</li>
+<li>grouped by patron barcode number</li>
+<li>sorted by highest total checkout count to lowest checkout count</li>
+<li>links</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Does not include INHOUSE or ILL patron categories</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3351&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p class= "notetags" style="display: none;">tag goes here</p>
+</div>
 
 ----------
 */

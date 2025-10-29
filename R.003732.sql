@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
- 
-  Counts items by the first six digits of item barcode number.
-  
-    counts items currently in the catalog
-    at all libraries
-    grouped by first six digits of item barcode number and library
-    sorted by first six digits of item barcode number
-  
-  
-  Click here to download as a csv file
-  #barcode #items #prefix
-  
-
+<div class="reportinfo noprint"> 
+  <p>Counts items by the first six digits of item barcode number.</p>
+  <ul>
+    <li>counts items currently in the catalog</li>
+    <li>at all libraries</li>
+    <li>grouped by first six digits of item barcode number and library</li>
+    <li>sorted by first six digits of item barcode number</li>
+  </ul><br />
+  <p></p>
+  <p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3732">Click here to download as a csv file</a></p>
+  <p class= "notetags" style="display: none;">#barcode #items #prefix</p>
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div>
 
 ----------
 */

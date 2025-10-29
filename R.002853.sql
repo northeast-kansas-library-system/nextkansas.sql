@@ -22,16 +22,16 @@ Expiry: 0
 
 ----------
 
- 
-Outputs any changes to system preferences in the last 10 days to a csv file
-Notes:
-
-Best to run via the link in this window.
-
-Run monthly and store offsite
-
-Click here to download as a csv file
-
+<div class="reportinfo noprint"> 
+<p>Outputs any changes to system preferences in the last 10 days to a csv file</p>
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Best to run via the link in this window.</p>
+<p></p>
+<p>Run monthly and store offsite</p>
+<p></p>
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=2853">Click here to download as a csv file</a></p>
+</div>
 
 ----------
 */

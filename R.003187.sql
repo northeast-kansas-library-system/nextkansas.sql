@@ -22,16 +22,16 @@ Expiry: 1
 
 ----------
 
- 
-Returns the phrase "loginblock" when a patron ID is entered that has been unsuccessfully logged in more than the 'FailedLoginAttempts' system preference allows
-Shows current blocks
-for the patron is number you enter
-
-Notes:
-
-Designed to output a class that can be added to a page via JSON
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Returns the phrase "loginblock" when a patron ID is entered that has been unsuccessfully logged in more than the 'FailedLoginAttempts' system preference allows</p>
+<ul><li>Shows current blocks</li>
+<li>for the patron is number you enter</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Designed to output a class that can be added to a page via JSON</p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3187&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

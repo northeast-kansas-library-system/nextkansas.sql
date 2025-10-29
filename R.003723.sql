@@ -22,54 +22,54 @@ Expiry: 300
 
 ----------
 
-  
+<div class="reportinfo noprint">  
  
-   
+  <div class="reportInfoContent"> 
  
-    Generates a list of e-mail addresses for borrowers with a BASEHOR home library based on borrowers date enrolled. 
+    <p>Generates a list of e-mail addresses for borrowers with a BASEHOR home library based on borrowers date enrolled.</p> 
  
-     
-      Shows borrower emails with an enrollment date during the date range you specify. 
-      at BASEHOR 
-      grouped and sorted by email address 
-     
+    <ul> 
+      <li>Shows borrower emails with an enrollment date during the date range you specify.</li> 
+      <li>at BASEHOR</li> 
+      <li>grouped and sorted by email address</li> 
+    </ul> 
  
-  
+  </div>
 
-  
+  <div class="reportInfoNotes">
 
-     
+    <p> 
 
-     
+    </p> 
  
-     
+    <p> 
       BASEHOR was previously using report 555 to accomplish this function.
-      
+     </p> 
 
-     
+    <p> 
  
-     
+    </p> 
    
-   
+  </div> 
  
-   
+  <div id="reportInfoLinks"> 
  
-    
+    <input id="report_data_copy_btn" type="button" style="display: none;" value="Copy table data to clipboard">
  
-  
+  </div>
 
-  
+  <div id="reportInfoTags">
 
-    
+    <p style="display: none;">
       #basehor 
       #email 
-    
+    </p>
 
-  
+  </div>
  
-   
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
 
- 
+</div> 
 
 ----------
 */

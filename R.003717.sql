@@ -22,16 +22,16 @@ Expiry: 3600
 
 ----------
 
-
-  Creates a list of new adult book ISBNs for the Wordpress bookshelves plugin for BALDWIN
-  
-    Shows the 25 most recently added 10 digit ISBNs for items owned by BALDWIN
-    only titles owned by BALDWIN
-    grouped and sorted by biblionumber (descending sort)
-  
-  #wordpress #bookshelves
-  
-
+<div class="reportinfo noprint">
+  <p>Creates a list of new adult book ISBNs for the Wordpress bookshelves plugin for BALDWIN</p>
+  <ul>
+    <li>Shows the 25 most recently added 10 digit ISBNs for items owned by BALDWIN</li>
+    <li>only titles owned by BALDWIN</li>
+    <li>grouped and sorted by biblionumber (descending sort)</li>
+  </ul><br />
+  <p class= "notetags" style="display: none;">#wordpress #bookshelves</p>
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div>
 
 ----------
 */

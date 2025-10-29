@@ -22,22 +22,22 @@ Expiry: 300
 
 ----------
 
- 
-This report helps calculate the average age of a library's entire collection based on the publication year listed in the biblioitems.publicationyear field for that item's bibliographic record
-It helps make the calculation on items currently in the collection
-at the library you specify
-grouped and sorted by library, total item count, count of items with biblioitems.publicationyear data
-contains links to report 3476 which calculates the same collection's median age
-
-Notes:
-
-The statistical average age is calculated by calculating the sum of the biblioitems.publicationyear and dividing that number by the count of items with data in biblioitems.publicationyear and rounding that number down to 0 decimal places.
-
-Bibliographic records which contain incorrect, incomplete, or incompatible data in the biblioitems.publicationyear field are not counted when calculating this data.
-
-Click here to run in a new window
-collection statistics, median age, weeding
-
+<div class="reportinfo noprint"> 
+<p>This report helps calculate the average age of a library's entire collection based on the publication year listed in the biblioitems.publicationyear field for that item's bibliographic record</p>
+<ul><li>It helps make the calculation on items currently in the collection</li>
+<li>at the library you specify</li>
+<li>grouped and sorted by library, total item count, count of items with biblioitems.publicationyear data</li>
+<li>contains links to report 3476 which calculates the same collection's median age</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>The statistical average age is calculated by calculating the sum of the biblioitems.publicationyear and dividing that number by the count of items with data in biblioitems.publicationyear and rounding that number down to 0 decimal places.</p>
+<p></p>
+<p>Bibliographic records which contain incorrect, incomplete, or incompatible data in the biblioitems.publicationyear field are not counted when calculating this data.</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3475&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p class= "notetags" style="display: none;">collection statistics, median age, weeding</p>
+</div>
 
 ----------
 */

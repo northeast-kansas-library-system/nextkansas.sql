@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
- 
-Lists items owned by a branch that have been marked as "Paid for" in Koha.
-Shows items currently in Koha
-at the location (or locations) you specify
-grouped and sorted by homebranch, shelving location, item type, collection code, call number, author, and title.
-
-Notes:
-
-Report created at the request of Eudora Public Library.
-Click here to run in a new window.
-
+<div class="reportinfo noprint"> 
+<p>Lists items owned by a branch that have been marked as "Paid for" in Koha.</p>
+<ul><li>Shows items currently in Koha</li>
+<li>at the location (or locations) you specify</li>
+<li>grouped and sorted by homebranch, shelving location, item type, collection code, call number, author, and title.</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Report created at the request of Eudora Public Library.</p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2799&phase=Run%20this%20report"  target="_blank">Click here to run in a new window.</a></p>
+</div>
 
 ----------
 */

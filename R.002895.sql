@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2017-02-01 15:28:38
 Modified on: 2024-01-17 11:48:54
-Date last run: 2025-10-27 12:45:33
+Date last run: 2025-10-28 13:32:49
 
 ----------
 
@@ -22,23 +22,23 @@ Expiry: 0
 
 ----------
 
- 
-Lists items with any "Lost" status that were checked out at your library
-Shows items that currently have the "Lost" status you specify
-shows items that were checked out at your library - regardless of which library owns the item
-grouped by itemnumber
-sorted by the default Next sort order (home library, location, item type, collection code, call number, title, author, barcode number) + patron borrowernumber
-OR
-date marked lost, borrowers cardnumber, and then the normal sort order
-
-Notes:
-
-Monthly cleanup
-
-Replaces report 888
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Lists items with any "Lost" status that were checked out at your library</p>
+<ul><li>Shows items that currently have the "Lost" status you specify</li>
+<li>shows items that were checked out at your library - regardless of which library owns the item</li>
+<li>grouped by itemnumber</li>
+<li>sorted by the default Next sort order (home library, location, item type, collection code, call number, title, author, barcode number) + patron borrowernumber<br /><br />
+OR<br /><br />
+date marked lost, borrowers cardnumber, and then the normal sort order</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Monthly cleanup</p>
+<p></p>
+<p>Replaces report 888</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2895&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

@@ -22,40 +22,40 @@ Expiry: 300
 
 ----------
 
-  
+<div class="reportinfo noprint">  
  
-   
+  <div class="reportInfoContent"> 
  
-    Lists all titles checked out at the library you specify that are not owned by the library you specify 
+    <p>Lists all titles checked out at the library you specify that are not owned by the library you specify</p> 
  
-     
-      during the previous calendar month 
-      checked out at the library you specify 
-      sorted by the normal Next Search Catalog classification order 
-     
+    <ul> 
+      <li>during the previous calendar month</li> 
+      <li>checked out at the library you specify</li> 
+      <li>sorted by the normal Next Search Catalog classification order</li> 
+    </ul> 
  
-  
+  </div>
 
-  
+  <div class="reportInfoNotes">
  
-     
-     
+    <p> 
+    </p> 
 
-     
+    <p> 
       Data for items that have been deleted since they circulated is not present in this report.
-     
+    </p> 
 
-     
+    <p> 
       Owning library, permanent shelving location, call number, author, title, enumeration and chronology, and copy number are based on data generated at the time the report was run.  In other words, if any of these fields changed between the time the item circulated and the time the report was run, those changes are reflected in this report. 
-     
+    </p> 
  
-     
+    <p> 
       Item type and collection code are based on the data for the item that was circulated at the time the item was checked out or renewed.  In other words, if these fields have changed since the item circulated, those changes are not reflected in these results.
-     
+    </p> 
    
-   
+  </div> 
 
-
+</div>
 
 ----------
 */

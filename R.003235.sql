@@ -22,33 +22,33 @@ Expiry: 300
 
 ----------
 
- 
-Lists all patrons at your library with the extended attribute category and attribute you specify
-Lists current patrons with the attribute information you specify
-at the library you specify
-grouped and sorted by patron home library, patron attribute category, and patron attribute
-links to the patron's account
-
-Notes:
-
-Designed to work in conjunction with report 3234.
-
-Patrons can have multiple extended attributes on their accounts.  Similarly, patrons may not have any extended attributes on their accounts.  If this report is configured to report on multiple attributes at one time, it is possible that some patrons will show up on this list multiple times.
-
-For more detailed information than this report provides use the following reports:
-
-3086 - GHW - Patron attributes - Newsletter permissions 
-3087 - GHW - Patron attributes - Movie permissions 
-3088 - GHW - Patron attributes - Internet permissions
-3089 - GHW - Patron attributes - Special locations 
-3090 - GHW - Patron attributes - Holds contact
-3091 - GHW - Patron attributes - Account expired
-3092 - GHW - Patron attributes - Collection agency
-3093 - GHW - Patron attributes - Other attributes 1 / Other attributes 2 / Registration library
-
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Lists all patrons at your library with the extended attribute category and attribute you specify</p>
+<ul><li>Lists current patrons with the attribute information you specify</li>
+<li>at the library you specify</li>
+<li>grouped and sorted by patron home library, patron attribute category, and patron attribute</li>
+<li>links to the patron's account</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Designed to work in conjunction with report 3234.</p>
+<p></p>
+<p>Patrons can have multiple extended attributes on their accounts.  Similarly, patrons may not have any extended attributes on their accounts.  If this report is configured to report on multiple attributes at one time, it is possible that some patrons will show up on this list multiple times.</p>
+<p></p>
+<p>For more detailed information than this report provides use the following reports:</p>
+<ul>
+<li>3086 - GHW - Patron attributes - Newsletter permissions </li>
+<li>3087 - GHW - Patron attributes - Movie permissions </li>
+<li>3088 - GHW - Patron attributes - Internet permissions</li>
+<li>3089 - GHW - Patron attributes - Special locations </li>
+<li>3090 - GHW - Patron attributes - Holds contact</li>
+<li>3091 - GHW - Patron attributes - Account expired</li>
+<li>3092 - GHW - Patron attributes - Collection agency</li>
+<li>3093 - GHW - Patron attributes - Other attributes 1 / Other attributes 2 / Registration library</li>
+</ul>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3235&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

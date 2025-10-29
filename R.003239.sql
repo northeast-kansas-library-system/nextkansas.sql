@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
- 
-Generates a list of automatically created lost item fees and late fees that have been written off automatically
-Shows fees added or modified during the date range you specify
-at the library you specify
-grouped by issue id number and account offset id number
-sorted by item lost date, item barcode number, account offset type
-contains links to the patron's fee history
-
-
-Replaces report 888
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of automatically created lost item fees and late fees that have been written off automatically</p>
+<ul><li>Shows fees added or modified during the date range you specify</li>
+<li>at the library you specify</li>
+<li>grouped by issue id number and account offset id number</li>
+<li>sorted by item lost date, item barcode number, account offset type</li>
+<li>contains links to the patron's fee history</li>
+</ul><br />
+<p></p>
+<p>Replaces report 888</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3239&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

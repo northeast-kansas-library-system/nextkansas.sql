@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
- 
-Identifies borrowers who need to be assessed a $20.00 lost item processing fee at SENECA
-Shows borrowers who borrowed items from SENECA and the item was marked as "Lost (more than 45 days overdue)" within the last XX days
-Shows items checked out at SENECA regardless of the item's home library
-grouped by the issue_id of the checkout
-sorted by the date the item was lost
-contains links to the item and links to the borrower
-
-Notes:
-
-Notes go here.
-
-Should not be exported to a csv file.  This is customized to be run from the screen.
-#seneca, processing fee, 
-
+<div class="reportinfo noprint"> 
+<p>Identifies borrowers who need to be assessed a $20.00 lost item processing fee at SENECA</p>
+<ul><li>Shows borrowers who borrowed items from SENECA and the item was marked as "Lost (more than 45 days overdue)" within the last XX days</li>
+<li>Shows items checked out at SENECA regardless of the item's home library</li>
+<li>grouped by the issue_id of the checkout</li>
+<li>sorted by the date the item was lost</li>
+<li>contains links to the item and links to the borrower</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Notes go here.</p>
+<p></p>
+<p>Should not be exported to a csv file.  This is customized to be run from the screen.</p>
+<p class= "notetags" style="display: none;">#seneca, processing fee, </p>
+</div>
 
 ----------
 */

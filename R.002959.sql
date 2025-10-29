@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2017-06-21 17:08:16
 Modified on: 2024-01-17 11:49:47
-Date last run: 2025-10-14 14:18:53
+Date last run: 2025-10-28 13:56:15
 
 ----------
 
@@ -22,24 +22,24 @@ Expiry: 300
 
 ----------
 
- 
-Generates a list of items that will be automatically deleted two months from today
-Shows items that are about to be deleted
-at the branch you specify
-grouped by item number
-sorted by homebranch, location, item type, collection code, call number, author, and title
-contains links to the bibliographic records of the items about to be deleted
-
-Notes:
-
-Updated 2017.09.08 to correct for some errors/problems that have come up in the auto-deletion process.
-
-This report goes along with the script that NExpress asked ByWater to write in 2015 that automatically deletes any items that have had a "Lost," "Lost (more than 45 days overdue)," "Missing," "Lost - Damaged/Replace," "Lost - Patron Claims Returned," "In Processing," "Discard," "Lost - Not Returnable," or  "Withdrawn" status for more than 13 months.  This report allows libraries to see what these items are 2 months before the items are scheduled to be deleted.
-
-The report will show all deletions that are scheduled to happen 2 months in the future.  For example, if you run the report in January, you will see what is going to be deleted automatically through the end of March.  If you run it in July, you will see what is going to be deleted through the end of September.  If you run it in December, you will see what is going to be deleted through the end of February of the next year.
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of items that will be automatically deleted two months from today</p>
+<ul><li>Shows items that are about to be deleted</li>
+<li>at the branch you specify</li>
+<li>grouped by item number</li>
+<li>sorted by homebranch, location, item type, collection code, call number, author, and title</li>
+<li>contains links to the bibliographic records of the items about to be deleted</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><span style="background-color:darkred; color:white;">Updated 2017.09.08 to correct for some errors/problems that have come up in the auto-deletion process.</span></p>
+<p></p>
+<p>This report goes along with the script that NExpress asked ByWater to write in 2015 that automatically deletes any items that have had a "Lost," "Lost (more than 45 days overdue)," "Missing," "Lost - Damaged/Replace," "Lost - Patron Claims Returned," "In Processing," "Discard," "Lost - Not Returnable," or  "Withdrawn" status for more than 13 months.  This report allows libraries to see what these items are 2 months before the items are scheduled to be deleted.</p>
+<p></p>
+<p>The report will show all deletions that are scheduled to happen 2 months in the future.  For example, if you run the report in January, you will see what is going to be deleted automatically through the end of March.  If you run it in July, you will see what is going to be deleted through the end of September.  If you run it in December, you will see what is going to be deleted through the end of February of the next year.</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2959&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

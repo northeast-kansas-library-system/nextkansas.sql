@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
- 
-Generates a list of patrons with basic contact information
-Lists all un-deleted patrons - active and expired
-at the library you specify
-grouped by borrowernumber
-sorted by surname, first name, and date of birth
-contains links to the patron record
-
-Notes:
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of patrons with basic contact information</p>
+<ul><li>Lists all un-deleted patrons - active and expired</li>
+<li>at the library you specify</li>
+<li>grouped by borrowernumber</li>
+<li>sorted by surname, first name, and date of birth</li>
+<li>contains links to the patron record</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3078&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

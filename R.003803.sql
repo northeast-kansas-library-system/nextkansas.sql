@@ -22,32 +22,32 @@ Expiry: 300
 
 ----------
 
+<div class="reportInfo noprint"> 
  
+  <div class="reportInfoContent"> 
  
-   
+    <p>Generates a USPS mailing list for borrowers with the "Email Newsletter Permission" flag set to "Yes"</p> 
  
-    Generates a USPS mailing list for borrowers with the "Email Newsletter Permission" flag set to "Yes" 
+    <ul> 
+      <li>Shows borrowers that currently have the flag set</li> 
+      <li>at the library you specify</li> 
+      <li>grouped by borrowernumber</li> 
+      <li>sorted by surname, first name, middle name</li> 
+    </ul> 
  
-     
-      Shows borrowers that currently have the flag set 
-      at the library you specify 
-      grouped by borrowernumber 
-      sorted by surname, first name, middle name 
-     
+  </div> 
  
-   
+  <div class="reportInfoNotes"> 
  
-   
+  </div> 
  
-   
+  <div id="reportInfoTags"> 
  
-   
- 
-     
+    <p style="display: none;"> 
       #newsletter #borrower attribute 
-     
+    </p> 
  
-  
+  </div>
 
 ----------
 */

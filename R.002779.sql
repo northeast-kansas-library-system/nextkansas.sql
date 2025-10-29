@@ -22,13 +22,13 @@ Expiry: 0
 
 ----------
 
- 
-Counts un-expired borrowers with a specified homebranch
-Counts borrowers currently in NExpress
-with a specified homebranch
-grouped and sorted by borrower's home library
-
-
+<div class="reportinfo noprint"> 
+<p>Counts un-expired borrowers with a specified homebranch</p>
+<ul><li>Counts borrowers currently in NExpress</li>
+<li>with a specified homebranch</li>
+<li>grouped and sorted by borrower's home library</li>
+</ul><br />
+</div>
 
 ----------
 */

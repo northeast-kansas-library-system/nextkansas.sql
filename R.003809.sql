@@ -22,30 +22,30 @@ Expiry: 300
 
 ----------
 
- 
+<div class="reportinfo noprint"> 
 
-Valid data =
+<p>Valid data =</p>
 
-    
-      a - Language material 
-      c - Notated music 
-      d - Manuscript notated music 
-      e - Cartographic material 
-      f - Manuscript cartographic material 
-      g - Projected medium 
-      i - Nonmusical sound recording 
-      j - Musical sound recording 
-      k - Two-dimensional nonprojectable graphic 
-      m - Computer file 
-      o - Kit 
-      p - Mixed materials 
-      r - Three-dimensional artifact or naturally occurring object 
-      t - Manuscript language material 
-    
-
-
+    <ul>
+      <li>a - Language material</li> 
+      <li>c - Notated music</li> 
+      <li>d - Manuscript notated music</li> 
+      <li>e - Cartographic material</li> 
+      <li>f - Manuscript cartographic material</li> 
+      <li>g - Projected medium</li> 
+      <li>i - Nonmusical sound recording</li> 
+      <li>j - Musical sound recording</li> 
+      <li>k - Two-dimensional nonprojectable graphic</li> 
+      <li>m - Computer file</li> 
+      <li>o - Kit</li> 
+      <li>p - Mixed materials</li> 
+      <li>r - Three-dimensional artifact or naturally occurring object</li> 
+      <li>t - Manuscript language material</li> 
+    </ul>
 
 
+
+</div>
 
 ----------
 */

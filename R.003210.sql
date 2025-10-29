@@ -22,17 +22,17 @@ Expiry: 300
 
 ----------
 
- 
-Generates a list of all items in a specified "Rotating collection" in a printable format
-Shows all items currently in the collection you select
-grouped by collection id, biblionumber, and item number
-sorted by the standard Next classification pattern
-links
-
-Notes:
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of all items in a specified "Rotating collection" in a printable format</p>
+<ul><li>Shows all items currently in the collection you select</li>
+<li>grouped by collection id, biblionumber, and item number</li>
+<li>sorted by the standard Next classification pattern</li>
+<li>links</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3210&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

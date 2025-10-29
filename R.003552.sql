@@ -22,15 +22,15 @@ Expiry: 300
 
 ----------
 
- 
-Generates a list of libraries that still charge late fees
-Generates a current list including the item types that are subject to late fees
-grouped and sorted by whether the library charges fees on all items or if they charge a late fee on just a few item types
-
-
-Click here to download as a csv file
-#late fees; #fines
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of libraries that still charge late fees</p>
+<ul><li>Generates a current list including the item types that are subject to late fees</li>
+<li>grouped and sorted by whether the library charges fees on all items or if they charge a late fee on just a few item types</li>
+</ul><br />
+<p></p>
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3552">Click here to download as a csv file</a></p>
+<p class= "notetags" style="display: none;">#late fees; #fines</p>
+</div>
 
 ----------
 */

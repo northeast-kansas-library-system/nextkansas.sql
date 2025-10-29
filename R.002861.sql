@@ -22,25 +22,25 @@ Expiry: 0
 
 ----------
 
- 
-Shows the check-out count for the top 200 most circulated items
-Shows check-outs during the specified date range(between the beginning of the day on the specified "START DATE" to the end of the day on the specified "END DATE")
-Can be limited to items checked out at a specified library, with a specified home branch, shelving location, item type, and collection code
-grouped by author and title
-sorted by most check-outs to least check-outs
-limited to 200 rows
-
-Notes:
-
-This report was updated and fixed on January 5, 2022
-
-Please note that, because this report gathers data from the issues and oldissues tables in Koha, you cannot see accurate data from more than 13 months old.
-
-Also note that this report cannot count the circulation of items that have been deleted.  If an item circulates 50 times on Tuesday, but is deleted on Wednesday, it will not be counted by this report if the report is run on Thursday.
-
-The report will almost certainly fail if you use extremely broad parameters.  If you try to run this report with "All libraries" as the checkout branch, "All libraries" as the item home branch, and no limits on shelving locations, item types, or collection codes and a date range longer than just a few weeks, the report will almost certainly fail and may slow down Koha while it runs.
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Shows the check-out count for the top 200 most circulated items</p>
+<ul><li>Shows check-outs during the specified date range<br />(between the beginning of the day on the specified "START DATE" to the end of the day on the specified "END DATE")</li>
+<li>Can be limited to items checked out at a specified library, with a specified home branch, shelving location, item type, and collection code</li>
+<li>grouped by author and title</li>
+<li>sorted by most check-outs to least check-outs</li>
+<li>limited to 200 rows</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>This report was updated and fixed on January 5, 2022</p>
+<p></p>
+<p>Please note that, because this report gathers data from the issues and oldissues tables in Koha, you cannot see accurate data from more than 13 months old.</p>
+<p></p>
+<p>Also note that this report cannot count the circulation of items that have been deleted.  If an item circulates 50 times on Tuesday, but is deleted on Wednesday, it will not be counted by this report if the report is run on Thursday.</p>
+<p></p>
+<p><ins>The report will almost certainly fail if you use extremely broad parameters.  If you try to run this report with "All libraries" as the checkout branch, "All libraries" as the item home branch, and no limits on shelving locations, item types, or collection codes and a date range longer than just a few weeks, the report will almost certainly fail and may slow down Koha while it runs.</ins></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2861&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

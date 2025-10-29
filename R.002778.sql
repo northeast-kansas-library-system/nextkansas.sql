@@ -22,14 +22,14 @@ Expiry: 0
 
 ----------
 
- 
-Print holds queue report with scannable barcodes
-Shows items in the current holds queue
-at the location you specify
-grouped by specified location, items home branch, call number, author, and title
-contains links to the bibliographic records
-
-
+<div class="reportinfo noprint"> 
+<p>Print holds queue report with scannable barcodes</p>
+<ul><li>Shows items in the current holds queue</li>
+<li>at the location you specify</li>
+<li>grouped by specified location, items home branch, call number, author, and title</li>
+<li>contains links to the bibliographic records</li>
+</ul><br />
+</div>
 
 
 

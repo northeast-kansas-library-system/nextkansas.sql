@@ -24,9 +24,9 @@ Expiry: 0
 
 Replaced by reports 3471 and 3472
 
-Click here to run report 3471 in a new window
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3471&phase=Run%20this%20report"  target="_blank">Click here to run report 3471 in a new window</a></p>
 
-Click here to run report 3472 in a new window
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3472&phase=Run%20this%20report"  target="_blank">Click here to run report 3472 in a new window</a></p>
 
 ----------
 */

@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2016-10-05 14:39:48
 Modified on: 2024-01-17 11:36:21
-Date last run: 2025-10-23 15:53:08
+Date last run: 2025-10-28 15:47:16
 
 ----------
 
@@ -22,15 +22,15 @@ Expiry: 0
 
 ----------
 
- 
-This report shows all items added to Next Search Catalog at a specific library branch during a date range
-Shows items that are currently still in Next Search Catalog
-Allows user to specify the item's homebranch, shelving location, item type, collection code, and the item's date added
-grouped by biblionumber and itemnumber
-sorted by homebranch, location, itype, collection code, call number, author, title
-contains links directly to the item's bibliographic record in the OPAC
-
-
+<div class="reportinfo noprint"> 
+<p>This report shows all items added to Next Search Catalog at a specific library branch during a date range</p>
+<ul><li>Shows items that are currently still in Next Search Catalog</li>
+<li>Allows user to specify the item's homebranch, shelving location, item type, collection code, and the item's date added</li>
+<li>grouped by biblionumber and itemnumber</li>
+<li>sorted by homebranch, location, itype, collection code, call number, author, title</li>
+<li>contains links directly to the item's bibliographic record in the OPAC</li>
+</ul><br />
+</div>
 
 ----------
 */

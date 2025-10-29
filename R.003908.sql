@@ -22,9 +22,9 @@ Expiry: 300
 
 ----------
 
-  biblioitems.agerestriction IN &lt;&gt; AND 
-  biblioitems.itemtype IN &lt;&gt; AND 
-  biblioitems.cn_class IN &lt;&gt;
+  biblioitems.agerestriction IN <<Choose a bib-level shelving location|bibloc:in>> AND 
+  biblioitems.itemtype IN <<Choose a bib-level item type|bibitype:in>> AND 
+  biblioitems.cn_class IN <<Choose a bib-level collection code|CCODE:in>>
 
 ----------
 */

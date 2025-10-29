@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
- 
-Look up payment and writeoff details by Next Search Catalog receipt number.
-Shows payments and writeoffs still logged in the database
-grouped by borrowernumber and receipt number
-contains a link to the corresponding details page in the patron's fines/fees record
-
-Notes:
-
-Details on payments and writeoffs made prior to the addition of the accounts offsets table in 2018 will not include details about which outstanding fees were reconciled by a specific payment.
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Look up payment and writeoff details by Next Search Catalog receipt number.</p>
+<ul><li>Shows payments and writeoffs still logged in the database</li>
+<li>grouped by borrowernumber and receipt number</li>
+<li>contains a link to the corresponding details page in the patron's fines/fees record</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Details on payments and writeoffs made prior to the addition of the accounts offsets table in 2018 will not include details about which outstanding fees were reconciled by a specific payment.</p>
+<p></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3199&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

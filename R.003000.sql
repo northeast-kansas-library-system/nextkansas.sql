@@ -22,15 +22,15 @@ Expiry: 300
 
 ----------
 
- 
-Lists patrons based on Account Expiration attributes.
-Shows patrons who currently have an Account Expiration attribute set
-at the library you specify
-grouped by borrower number
-sorted by branchcode, patron name, and borrower number
-contains links to borrower accounts
-
-
+<div class="reportinfo noprint"> 
+<p>Lists patrons based on Account Expiration attributes.</p>
+<ul><li>Shows patrons who currently have an Account Expiration attribute set</li>
+<li>at the library you specify</li>
+<li>grouped by borrower number</li>
+<li>sorted by branchcode, patron name, and borrower number</li>
+<li>contains links to borrower accounts</li>
+</ul><br />
+</div>
 
 ----------
 */

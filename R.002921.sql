@@ -22,16 +22,16 @@ Expiry: 0
 
 ----------
 
- 
-Counts the number of items returned at a specified branch during a specified date range (and can be limited to specified days of the week)
-Counts returns during the date range you specify (the statistics table only covers the previous 25 months)
-Counts returns at the library you specify
-grouped and sorted by the branch where the items were checked in and the date the items were returned
-
-Notes:
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Counts the number of items returned at a specified branch during a specified date range (and can be limited to specified days of the week)</p>
+<ul><li>Counts returns during the date range you specify (the statistics table only covers the previous 25 months)</li>
+<li>Counts returns at the library you specify</li>
+<li>grouped and sorted by the branch where the items were checked in and the date the items were returned</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2921&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

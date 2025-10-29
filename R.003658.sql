@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2022-03-25 18:26:18
 Modified on: 2025-07-09 11:33:52
-Date last run: 2025-10-27 14:07:56
+Date last run: 2025-10-28 17:10:54
 
 ----------
 
@@ -22,89 +22,89 @@ Expiry: 300
 
 ----------
 
- 
+<div class="next_report_info next_noprint next_core_report"> 
 
-  Items that have been in transit for more than 7 days 
+  <p class="next_embiggen2">Items that have been in transit for more than 7 days</p> 
 
-   
+  <div class="accordion accordion-flush"> 
 
-     
+    <div class="accordion-item"> 
 
-       
-         
+      <h2 class="accordion-header" id="panelsStayOpen-headingOne"> 
+        <button class="accordion-button next_report_function" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne"> 
 
             Report function:
 
-         
-       
-       
-         
+        </button> 
+      </h2> 
+      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne"> 
+        <div class="accordion-body"> 
 
-          This report shows items that: 
-           
-            are owned by your library 
-            or are in transit from your library to another library 
-            or are in transit to your library 
-           
+          <p>This report shows items that:</p> 
+          <ul> 
+            <li>are owned by your library</li> 
+            <li>or are in transit from your library to another library</li> 
+            <li>or are in transit to your library</li> 
+          </ul> 
 
-         
-       
-     
+        </div> 
+      </div> 
+    </div> 
 
-     
+    <div class="accordion-item"> 
 
-       
-         
+      <h2 class="accordion-header" id="panelsStayOpen-headingThree"> 
+        <button class="accordion-button next_report_instructions" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree"> 
 
           Report instructions:
 
-         
-       
-       
-         
+        </button> 
+      </h2> 
+      <div id="panelsStayOpen-collapseThree" class="accordion-collapse show" aria-labelledby="panelsStayOpen-headingThree"> 
+        <div class="accordion-body"> 
 
-           
+          <div class="next_report_section"> 
 
-            Please search for these items at your library once a week and then: 
-             
-              check in any items you find 
-              e-mail the other libraries involved in missing in transit transfers and ask them to also search for the missing items 
-              change the status of any items owned by your library that no one can find to "Missing (unable to locate on shelf)" within a reasonable amount of time 
-             
+            <p>Please search for these items at your library once a week and then:</p> 
+            <ul> 
+              <li>check in any items you find</li> 
+              <li>e-mail the other libraries involved in missing in transit transfers and ask them to also search for the missing items</li> 
+              <li>change the status of any items owned by your library that no one can find to "Missing (unable to locate on shelf)" within a reasonable amount of time</li> 
+            </ul> 
 
-            If you have a default e-mail program configured on your computer, clicking the "Send e-mail" button in the far right column will automatically generate an e-mail to all libraries concerned with a specific transfer. 
+            <p>If you have a default e-mail program configured on your computer, clicking the "Send e-mail" button in the far right column will automatically generate an e-mail to all libraries concerned with a specific transfer.</p> 
 
-           
+          </div> 
 
-         
-       
-     
+        </div> 
+      </div> 
+    </div> 
 
-   
+  </div> 
 
-   
+  <div class="next_hidden"> 
 
-     
+    <p> 
 
       #core 
       #weekly 
       #missing in transit 
       #mit 
 
-     
+    </p> 
 
-   
+  </div> 
 
-  
-    
-    Training page for report 3658
-    
+  <div id="next_report_training" class="next_report_training ">
+    <br><br>
+    <a class="next_btn next_indigo next_embiggen2" href="https://northeast-kansas-library-system.github.io/nextsteps/reports_training/report_003658_training.html" target="_blank">Training page for report 3658<i class="bi bi-arrow-up-right-square"></i></a>
+    <br>
 
-    
+    <br>
 
-  
+  </div>
 
-
+</div>
 
 ----------
 */

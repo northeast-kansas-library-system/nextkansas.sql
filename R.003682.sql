@@ -22,21 +22,21 @@ Expiry: 5
 
 ----------
 
- 
-  Produces a list of upcoming closures at a library
-  
-    Shows data current for the date and time the report is run
-    shows closures at the library you're logged in at
-    grouped by special_holidays.id and repeatable_holidays.id
-    sorted by branchcode and date
-  
-  Notes:
-  
-  Relies on jQuery to work properly
-  
-  #jquery_enhancement
-  
-
+<div class="reportinfo noprint"> 
+  <p>Produces a list of upcoming closures at a library</p>
+  <ul>
+    <li>Shows data current for the date and time the report is run</li>
+    <li>shows closures at the library you're logged in at</li>
+    <li>grouped by special_holidays.id and repeatable_holidays.id</li>
+    <li>sorted by branchcode and date</li>
+  </ul><br />
+  <p><ins>Notes:</ins></p>
+  <p></p>
+  <p>Relies on jQuery to work properly</p>
+  <p></p>
+  <p class= "notetags" style="display: none;">#jquery_enhancement</p>
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div>
 
 ----------
 */

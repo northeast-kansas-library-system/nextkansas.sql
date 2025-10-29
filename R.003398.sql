@@ -22,22 +22,22 @@ Expiry: 300
 
 ----------
 
- 
-Counts borrowers at a library by age (in years) and gender indicator
-Counts current borrowers
-where the borrowers home library matches the library you specify
-grouped and sorted by borrowers home branch and age
-
-Notes:
-
-Counts in the "BLANK_OR_BAD_CODE" column represent borrowers where the gender radio button on their account is either not set, or is set to a data code that is no longer in use.
-
-
-Partly replaces report 1081.
-Click here to run in a new window
-Click here to download as a csv file
-borrower count
-
+<div class="reportinfo noprint"> 
+<p>Counts borrowers at a library by age (in years) and gender indicator</p>
+<ul><li>Counts current borrowers</li>
+<li>where the borrowers home library matches the library you specify</li>
+<li>grouped and sorted by borrowers home branch and age</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Counts in the "BLANK_OR_BAD_CODE" column represent borrowers where the gender radio button on their account is either not set, or is set to a data code that is no longer in use.</p>
+<p></p>
+<p></p>
+<p>Partly replaces report 1081.</p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3398&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3398">Click here to download as a csv file</a></p>
+<p class= "notetags" style="display: none;">borrower count</p>
+</div>
 
 ----------
 */

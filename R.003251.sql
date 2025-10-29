@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-08-16 14:59:53
 Modified on: 2024-01-17 12:08:52
-Date last run: 2025-10-27 11:52:57
+Date last run: 2025-10-28 15:07:14
 
 ----------
 
@@ -22,14 +22,14 @@ Expiry: 300
 
 ----------
 
- 
-Print holds queue report
-Shows items in the current holds queue
-at the location you specify
-grouped by specified location, items home branch, call number, author, and title
-contains links to the bibliographic records
-
-
+<div class="reportinfo noprint"> 
+<p>Print holds queue report</p>
+<ul><li>Shows items in the current holds queue</li>
+<li>at the location you specify</li>
+<li>grouped by specified location, items home branch, call number, author, and title</li>
+<li>contains links to the bibliographic records</li>
+</ul><br />
+</div>
 
 ----------
 */

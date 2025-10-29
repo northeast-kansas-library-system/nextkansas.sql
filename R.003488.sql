@@ -22,39 +22,39 @@ Expiry: 300
 
 ----------
 
- 
-Verbose listing of circulation/fees/request rules regarding requests and some miscellaneous rules
-Shows the current rules
-at the library you specify
-grouped and sorted by rule branchcode, borrower category, and item type
+<div class="reportinfo noprint"> 
+<p>Verbose listing of circulation/fees/request rules regarding requests and some miscellaneous rules</p>
+<ul><li>Shows the current rules</li>
+<li>at the library you specify</li>
+<li>grouped and sorted by rule branchcode, borrower category, and item type</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Rules are applied from most specific to least specific and the rules in this report are set to display from most specific to least specific.  The higher a rule is in the results of this report, the higher its priority.</p>
+<p></p>
+<p>In Next Search Catalog, rules for requests are applied following the rules at the library that owns an item.<br />(Based on the ReservesControlBranch system preference - 2021.03.10)</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3486&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p class= "notetags" style="display: none;">rules, circulation</p>
 
-Notes:
+<div style="display: none;">
+<ul>
+<li>branchcode</li>
+<li>Patron category</li>
+<li>Item type</li>
+<li></li>
+<li>Holds allowed (total)</li>
+<li>Holds allowed (daily)</li>
+<li>Holds per record (count)</li>
+<li>On shelf holds allowed</li>
+<li>OPAC item level holds</li>
+<li>Holds pickup period (day)</li>
+<li>Article requests</li>
+<li>Rental discount (%)</li>
+</ul>
+</div>
 
-Rules are applied from most specific to least specific and the rules in this report are set to display from most specific to least specific.  The higher a rule is in the results of this report, the higher its priority.
-
-In Next Search Catalog, rules for requests are applied following the rules at the library that owns an item.(Based on the ReservesControlBranch system preference - 2021.03.10)
-
-Click here to run in a new window
-rules, circulation
-
-
-
-branchcode
-Patron category
-Item type
-
-Holds allowed (total)
-Holds allowed (daily)
-Holds per record (count)
-On shelf holds allowed
-OPAC item level holds
-Holds pickup period (day)
-Article requests
-Rental discount (%)
-
-
-
-
+</div>
 
 ----------
 */

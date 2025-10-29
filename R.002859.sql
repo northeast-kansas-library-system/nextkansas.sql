@@ -22,18 +22,18 @@ Expiry: 0
 
 ----------
 
- 
-Shows all hold information for an item - current and past
-shows current requests and request history
-from any item in NExpress
-grouped by request ID
-sorted by time of last activity on request
-links to the corresponding current requests on a biblio report
-
-Notes:
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Shows all hold information for an item - current and past</p>
+<ul><li>shows current requests and request history</li>
+<li>from any item in NExpress</li>
+<li>grouped by request ID</li>
+<li>sorted by time of last activity on request</li>
+<li>links to the corresponding current requests on a biblio report</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2859&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

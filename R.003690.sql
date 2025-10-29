@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
- 
-  Quick count for titles, items, and borrowers
-  
-    Shows current data for the time the report is run
-    at all libraries
-    grouped and sorted by library
-  
-  Notes:
-  
-  Notes go here.
-  
-  #quick_count
-  
-
+<div class="reportinfo noprint"> 
+  <p>Quick count for titles, items, and borrowers</p>
+  <ul>
+    <li>Shows current data for the time the report is run</li>
+    <li>at all libraries</li>
+    <li>grouped and sorted by library</li>
+  </ul><br />
+  <p><ins>Notes:</ins></p>
+  <p></p>
+  <p>Notes go here.</p>
+  <p></p>
+  <p class= "notetags" style="display: none;">#quick_count</p>
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div>
 
 ----------
 */

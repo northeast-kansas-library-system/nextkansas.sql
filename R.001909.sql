@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
- 
-Generates a list of notices sent to borrowers with a particular home library.
-Shows messages sent in the last 180 days
-To borrowers with the home library you specify
-grouped and sorted by message ID
-links to the borrower's account
-
-Notes:
-
-Older report updated by GHW on 2022-07-26.
-
-
- 
+<div class="reportinfo noprint"> 
+<p>Generates a list of notices sent to borrowers with a particular home library.</p>
+<ul><li>Shows messages sent in the last 180 days</li>
+<li>To borrowers with the home library you specify</li>
+<li>grouped and sorted by message ID</li>
+<li>links to the borrower's account</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Older report updated by GHW on 2022-07-26.</p>
+<p></p>
+<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div> 
 
 ----------
 */

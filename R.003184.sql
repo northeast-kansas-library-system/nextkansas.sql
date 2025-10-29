@@ -22,9 +22,9 @@ Expiry: 300
 
 ----------
 
-MNTHLY
-Click here to download as a csv file
-Click here to run in a new window
+<p style="display: none;">MNTHLY</p>
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3184">Click here to download as a csv file</a></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3184&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 
 ----------
 */

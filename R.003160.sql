@@ -22,22 +22,22 @@ Expiry: 300
 
 ----------
 
- 
-Generates a list of items added in the previous calendar month
-Only shows items added in the previous calendar month
-at the library you specify
-grouped by biblio number and item number
-sorted by home branch, shelving location, item type, collection code, call number, author, and title
-contains links to the item's bibliographic record
-
-Notes:
-
-Partially replaces report 536
-
-Updated on 2023.07.21 to fix a home library/holding library issue
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of items added in the previous calendar month</p>
+<ul><li>Only shows items added in the previous calendar month</li>
+<li>at the library you specify</li>
+<li>grouped by biblio number and item number</li>
+<li>sorted by home branch, shelving location, item type, collection code, call number, author, and title</li>
+<li>contains links to the item's bibliographic record</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Partially replaces report 536</p>
+<p></p>
+<p>Updated on 2023.07.21 to fix a home library/holding library issue</p>
+<p></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3160&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

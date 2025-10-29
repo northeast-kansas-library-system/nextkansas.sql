@@ -22,16 +22,16 @@ Expiry: 0
 
 ----------
 
- 
-Looks for requests that were cancelled after they were already waiting on the holds shelf
-Allows you to specify a "Start date" - will show you requests cancelled after that date
-Shows holds cancelled at a specified branch
-grouped and sorted by patron name, library card number, item home branch, item type, call number informaiton, author, and title
-includes links to the bibliographic records of the items cancelled
-
-Notes:
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Looks for requests that were cancelled after they were already waiting on the holds shelf</p>
+<ul><li>Allows you to specify a "Start date" - will show you requests cancelled after that date</li>
+<li>Shows holds cancelled at a specified branch</li>
+<li>grouped and sorted by patron name, library card number, item home branch, item type, call number informaiton, author, and title</li>
+<li>includes links to the bibliographic records of the items cancelled</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2805&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

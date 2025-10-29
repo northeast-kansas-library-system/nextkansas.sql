@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
- 
-Generates a list of all clubs
-List shows clubs that are current at the time you run the report
-at the library you specify
-grouped by club id number
-sorted by club home library, club name, and club id number
-contains links to report 3335 - which generates a list of club members that can be shared with other club members
-
-Notes:
-
-Updated on 2020.02.03
-
-Click here to run in a new window
-clubs
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of all clubs</p>
+<ul><li>List shows clubs that are current at the time you run the report</li>
+<li>at the library you specify</li>
+<li>grouped by club id number</li>
+<li>sorted by club home library, club name, and club id number</li>
+<li>contains links to report 3335 - which generates a list of club members that can be shared with other club members</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Updated on 2020.02.03</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3333&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p class= "notetags" style="display: none;">clubs</p>
+</div>
 
 ----------
 */

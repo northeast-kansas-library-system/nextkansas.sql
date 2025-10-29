@@ -24,7 +24,7 @@ Expiry: 300
 
 zbrq
 
-Click here to download as a csv file
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=3054&reportname=GHW%20-%20Videos%20without%20links">Click here to download as a csv file</a></p>
 
 ----------
 */

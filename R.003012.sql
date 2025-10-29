@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
- 
-Shows patrons with a restriction on their account that my no longer be justified
-Shows current restrictions
-shows patrons based on the home library you select when running the report
-grouped by borrowernumber and borrower_debarment_id
-sorted by borrower homebranch and date the restriction was created
-links
-
-Notes:
-
-There are thousands of restrictions that were added manually on 2014.03.12 in an effort to clear up some database issues.  None of the 2014.03.12 restrictions have any comments or notes explaining the reason for the restriction.
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Shows patrons with a restriction on their account that my no longer be justified</p>
+<ul><li>Shows current restrictions</li>
+<li>shows patrons based on the home library you select when running the report</li>
+<li>grouped by borrowernumber and borrower_debarment_id</li>
+<li>sorted by borrower homebranch and date the restriction was created</li>
+<li>links</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>There are thousands of restrictions that were added manually on 2014.03.12 in an effort to clear up some database issues.  None of the 2014.03.12 restrictions have any comments or notes explaining the reason for the restriction.</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3012&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

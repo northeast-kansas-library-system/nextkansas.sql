@@ -22,46 +22,46 @@ Expiry: 0
 
 ----------
 
+<div class="reportinfo noprint"> 
  
+  <div class="reportInfoContent"> 
  
-   
- 
-    Reports library basic information including 
+    <p>Reports library basic information including</p> 
 
-    
-      Library name
-      Library branchcode
-      Current borrower count
-      Current title count
-      Current item count
-    
+    <ol>
+      <li>Library name</li>
+      <li>Library branchcode</li>
+      <li>Current borrower count</li>
+      <li>Current title count</li>
+      <li>Current item count</li>
+    </ol>
  
-     
-      Reports current data 
-      at all member libraries 
-      grouped by library branchcode 
-      sorted by library branch name 
-     
+    <ul> 
+      <li>Reports current data</li> 
+      <li>at all member libraries</li> 
+      <li>grouped by library branchcode</li> 
+      <li>sorted by library branch name</li> 
+    </ul> 
  
-  
+  </div>
 
-  
+  <div class="reportInfoNotes">
  
-      
+    <p> </p> 
 
-     
+    <p> 
       Notes go here.
-     
+    </p> 
  
-     
+    <p> 
       Title count = number of titles owned by this library / item count = number of items.  Item counts are usually higher than title counts because most libraries own duplicate copies for several titles.
-     
+    </p> 
 
-     
+    <p> 
       Updated by GHW on 2023.08.01
-     
+    </p> 
    
-   
+  </div> 
 
 ----------
 */

@@ -22,55 +22,55 @@ Expiry: 300
 
 ----------
 
+<div class="noprint" div="reportinfo"> 
  
+  <div class="reportInfoContent"> 
  
-   
+    <p>Gives a count of barcode numbers with matching starting strings grouped by item home library</p> 
  
-    Gives a count of barcode numbers with matching starting strings grouped by item home library 
+    <ul> 
+      <li>Counts barcode numbers currently in the items and deleteditems tables</li> 
+      <li>counts items by home library</li> 
+      <li>grouped by home library</li> 
+      <li>links to barcode numbers that are exact matches</li> 
+    </ul> 
  
-     
-      Counts barcode numbers currently in the items and deleteditems tables 
-      counts items by home library 
-      grouped by home library 
-      links to barcode numbers that are exact matches 
-     
+  </div> 
  
-   
+  <div class="reportInfoNotes"> 
  
-   
+    <p> 
  
-     
+    </p> 
  
-     
- 
-     
+    <p> 
       If you search for an item barcode number or check in an item barcode number and get zero results, you can use this report to find barcode numbers that have similar starting strings to that barcode number.  For example, if you scan barcode number 1234567891234 this report will search for:
-    
-      1234567891234 as an exact match in items and deleteditems
-      123456789123 as the beginning of any barcode in items and deleteditems
-      12345678912 as the beginning of any barcode in items and deleteditems
-      1234567891 as the beginning of any barcode in items and deleteditems
-    
-     
+    <ul>
+      <li>1234567891234 as an exact match in items and deleteditems</li>
+      <li>123456789123 as the beginning of any barcode in items and deleteditems</li>
+      <li>12345678912 as the beginning of any barcode in items and deleteditems</li>
+      <li>1234567891 as the beginning of any barcode in items and deleteditems</li>
+    </ul>
+    </p> 
  
-     
+    <p> 
       If you are trying to find the home library for an item, if there is an exact match for that barcode number, this report will show you that item's home library.  If there is no exact match, it will show you the home library for item barcodes extremely close in sequence - the more extremely close matches, the more likely it is that the home library of the item you cannot find was owned by that library.   If there are no extremely close matches, it will show you the home library for item barcodes close in sequence - the more close matches, the more likely it is that the home library of the item you cannot find was owned by that library.  If there are no close matches, it will show you the home library for item barcodes that are good matches - the more good matches, the more likely it is that the home library of the item you cannot find was owned by that library.
-     
+    </p> 
  
-   
+  </div> 
  
-   
+  <div id="reportInfoTags"> 
  
-     
+    <p style="display: none;"> 
       #itemnotfound
       #barcodematch 
-     
+    </p> 
  
-   
+  </div> 
  
-   
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
  
- 
+</div> 
 
 ----------
 */

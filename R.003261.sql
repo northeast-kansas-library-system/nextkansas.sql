@@ -22,16 +22,16 @@ Expiry: 300
 
 ----------
 
- 
-Lists items that have been marked as lost and have been deleted
-Shows items marked lost during the date range you specify that have already been deleted
-at the library you specify
-grouped by item number
-sorted in the standard Next classification order
-
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Lists items that have been marked as lost and have been deleted</p>
+<ul><li>Shows items marked lost during the date range you specify that have already been deleted</li>
+<li>at the library you specify</li>
+<li>grouped by item number</li>
+<li>sorted in the standard Next classification order</li>
+</ul><br />
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3261&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

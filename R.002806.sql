@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2016-10-13 16:32:19
 Modified on: 2024-08-30 12:02:34
-Date last run: 2025-10-27 13:16:18
+Date last run: 2025-10-28 20:05:44
 
 ----------
 
@@ -22,21 +22,21 @@ Expiry: 0
 
 ----------
 
- 
-Counts circulation (check-outs, renewals, and local use) of items checked out at a library that were owned by that library
-Counts circulation during the date range you specify
-At the library you specify
-grouped and sorted by item type, collection code, and shelving location code
-Does not count items checked out to "Inhouse" accounts
-
-Notes:
-
-SHELVING_LOCATION is based on the shelving location of the item at the time it was checked out *Unless the item had a "Recently returned" shelving location.*  This report falls back to the items' "Permanent shelving location" whenever the statistics data shows that the item's shelving location was "Recently returned."
-
-Updated on 2020.01.06 to reflect changes in the database structure
-Updated on 2021.10.20 to include changes based on the "Recently returned" shelving location.
-#statistics #circulation #permanent_location
-
+<div class="reportinfo noprint"> 
+<p>Counts circulation (check-outs, renewals, and local use) of items checked out at a library that were owned by that library</p>
+<ul><li>Counts circulation during the date range you specify</li>
+<li>At the library you specify</li>
+<li>grouped and sorted by item type, collection code, and shelving location code</li>
+<li>Does not count items checked out to "Inhouse" accounts</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p class="updated">SHELVING_LOCATION is based on the shelving location of the item at the time it was checked out *Unless the item had a "Recently returned" shelving location.*  This report falls back to the items' "Permanent shelving location" whenever the statistics data shows that the item's shelving location was "Recently returned."</p>
+<p></p>
+<p>Updated on 2020.01.06 to reflect changes in the database structure</p>
+<p class="updated">Updated on 2021.10.20 to include changes based on the "Recently returned" shelving location.</p>
+<p class= "notetags" style="display: none;">#statistics #circulation #permanent_location</p>
+</div>
 
 ----------
 */

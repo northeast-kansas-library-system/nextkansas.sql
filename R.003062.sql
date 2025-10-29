@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
- 
-Generates a list of patrons based on their SMS text messaging e-mail address and produces a "Bounced Text" message that can be quickly cut and pasted into a message on the patron's account.
-Shows all borrowers that are using the specified SMS text e-mail address that has bounced in the last 60 days
-Shows borrowers at all NExpress branches with that SMS text e-mail address
-grouped by barcode number
-includes links to the patron record
-
-Notes:
-
-If more than one patron is using the text messaging number you enter on their account, you will receive one result in this report for each patron with that number.
-
-For bounced e-mails, use report 2910.
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of patrons based on their SMS text messaging e-mail address and produces a "Bounced Text" message that can be quickly cut and pasted into a message on the patron's account.</p>
+<ul><li>Shows all borrowers that are using the specified SMS text e-mail address that has bounced in the last 60 days</li>
+<li>Shows borrowers at all NExpress branches with that SMS text e-mail address</li>
+<li>grouped by barcode number</li>
+<li>includes links to the patron record</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>If more than one patron is using the text messaging number you enter on their account, you will receive one result in this report for each patron with that number.</p>
+<p></p>
+<p>For bounced e-mails, use report 2910.</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3062&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

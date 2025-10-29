@@ -22,17 +22,17 @@ Expiry: 300
 
 ----------
 
- 
-Shows the time a cronjob ran on the date specified within the previous 60 days
-Shows cronojb run times during the date range you specify
-shows runtimes for cronjobs system wide
-grouped by the actionlog ID for the cronjob
-sorted by the date and time the cronjob ran - newest dates to oldest dates
-
-Notes:
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Shows the time a cronjob ran on the date specified within the previous 60 days</p>
+<ul><li>Shows cronojb run times during the date range you specify</li>
+<li>shows runtimes for cronjobs system wide</li>
+<li>grouped by the actionlog ID for the cronjob</li>
+<li>sorted by the date and time the cronjob ran - newest dates to oldest dates</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3024&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
- 
-Shows overdue notice template automatically sent by Koha
-shows notices template for the library you specify
-allows you to specify which template you want to look at
-
-Notes:
-
-This report was created to work with the new notices NExpress will start using on January 1, 2016.
-You should run the report and then download the results into Excel or another spreadsheet program.  The results will be very hard to read on the screen in Koha.
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Shows overdue notice template automatically sent by Koha</p>
+<ul><li>shows notices template for the library you specify</li>
+<li>allows you to specify which template you want to look at</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>This report was created to work with the new notices NExpress will start using on January 1, 2016.</p>
+<p>You should run the report and then download the results into Excel or another spreadsheet program.  The results will be very hard to read on the screen in Koha.</p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2865&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

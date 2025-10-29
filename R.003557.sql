@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
- 
-Lists all items at a library with a specific item barcode number length
-Shows items currently in the catalog
-At the library you specify and with the item barcode number length you specify
-grouped by itemnumber and biblionumber
-sorted by the standard Next Search Catalog classification scheme
-contains links to the bibliographic record
-
-Notes:
-
-The easiest way to run this report is to run report 3558 for your library and then choose which length barcode for your library you want to list from the right hand column.
-#item #barcode #length #count
-
+<div class="reportinfo noprint"> 
+<p>Lists all items at a library with a specific item barcode number length</p>
+<ul><li>Shows items currently in the catalog</li>
+<li>At the library you specify and with the item barcode number length you specify</li>
+<li>grouped by itemnumber and biblionumber</li>
+<li>sorted by the standard Next Search Catalog classification scheme</li>
+<li>contains links to the bibliographic record</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>The easiest way to run this report is to run report 3558 for your library and then choose which length barcode for your library you want to list from the right hand column.</p>
+<p class= "notetags" style="display: none;">#item #barcode #length #count</p>
+</div>
 
 ----------
 */

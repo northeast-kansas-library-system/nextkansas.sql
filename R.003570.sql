@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
- 
-Outputs borrower address in a way that can be easily imported back into Koha via the patron import tool
-Shows current borrowers
-at the library you specify
-designed to be flexible
-
-Notes:
-
-Notes go here.
-
-hidden flexible openrefine
-
+<div class="reportinfo noprint"> 
+<p>Outputs borrower address in a way that can be easily imported back into Koha via the patron import tool</p>
+<ul><li>Shows current borrowers</li>
+<li>at the library you specify</li>
+<li>designed to be flexible</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Notes go here.</p>
+<p></p>
+<p class= "notetags" style="display: none;">hidden flexible openrefine</p>
+</div>
 
 ----------
 */

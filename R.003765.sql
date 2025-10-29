@@ -22,50 +22,50 @@ Expiry: 300
 
 ----------
 
+<div class="reportInfo noprint"> 
  
- 
-   
+  <div class="reportInfoContent"> 
 
-     
+    <p> 
       Holds policy by item type rules are hierarchical - First Koha will try to apply the most specific rule at a library first.  If no rule is set (as indicated by "---") then the next broadest rule will be followed. 
-    
+    </p>
  
-    Rules are applied in this order: 
+    <p>Rules are applied in this order:</p> 
  
-     
-      LIBRARY &gt; SPECIFIC ITEM TYPE
-      LIBRARY &gt; ALL ITEM TYPES
-      ALL LIBRARIES &gt; SPECIFIC ITEM TYPE
-      ALL LIBRARIES &gt; ALL ITEM TYPES
-     
+    <ul> 
+      <li>LIBRARY > SPECIFIC ITEM TYPE</li>
+      <li>LIBRARY > ALL ITEM TYPES</li>
+      <li>ALL LIBRARIES > SPECIFIC ITEM TYPE</li>
+      <li>ALL LIBRARIES > ALL ITEM TYPES</li>
+    </ul> 
  
-   
+  </div> 
  
-   
+  <div class="reportInfoNotes"> 
  
-    The default ALL LIBRARIES &gt; ALL ITEM TYPES rule is:
+    <p>The default ALL LIBRARIES > ALL ITEM TYPES rule is:</p>
 
 
-    All libraries &gt; All item types &gt; Requests can be placed by borrowers at any library &gt; Item can be picked up at any library &gt; Item returns to its home library when checked in 
+    <p>All libraries > All item types > Requests can be placed by borrowers at any library > Item can be picked up at any library > Item returns to its home library when checked in</p> 
  
  
-     
+    <p> 
  
-     
+    </p> 
  
-   
+  </div> 
  
-   
+  <div id="reportInfoTags"> 
  
-     
+    <p style="display: none;"> 
       #tags_go_here 
-     
+    </p> 
  
-   
+  </div> 
  
-   
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
  
- 
+</div> 
 
 ----------
 */

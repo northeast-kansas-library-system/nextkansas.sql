@@ -22,23 +22,23 @@ Expiry: 0
 
 ----------
 
- 
-Generates a list of all bibliographic records with requests sorted by the number of requests on each record
-Shows records with unfilled reqeusts on them
-at all Next Search Catalog libraries
-grouped by biblionumber
-sorted by number of reqeusts
-links to the bibliographic records
-
-Notes:
-
-Formerly titled "Most Reserved Titles"
-
-Updated by GHW on 2021.04.02
-
-Click here to download as a csv file
-requests
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of all bibliographic records with requests sorted by the number of requests on each record</p>
+<ul><li>Shows records with unfilled reqeusts on them</li>
+<li>at all Next Search Catalog libraries</li>
+<li>grouped by biblionumber</li>
+<li>sorted by number of reqeusts</li>
+<li>links to the bibliographic records</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Formerly titled "Most Reserved Titles"</p>
+<p></p>
+<p>Updated by GHW on 2021.04.02</p>
+<p></p>
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=803">Click here to download as a csv file</a></p>
+<p class= "notetags" style="display: none;">requests</p>
+</div>
 
 ----------
 */

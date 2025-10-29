@@ -22,59 +22,59 @@ Expiry: 300
 
 ----------
 
+<div class="reportinfo noprint"> 
  
+  <div class="reportInfoContent"> 
  
-   
+    <p>Generates a count of biblios added and deleted in the previous calendar month</p> 
  
-    Generates a count of biblios added and deleted in the previous calendar month 
+    <ul> 
+      <li>Counts biblios added in the previous calendar month</li> 
+      <li>At all libraries</li> 
+      <li>grouped and sorted by library name</li> 
+    </ul> 
  
-     
-      Counts biblios added in the previous calendar month 
-      At all libraries 
-      grouped and sorted by library name 
-     
+  </div> 
  
-   
+  <div class="reportInfoNotes"> 
  
-   
+    <p> 
  
-     
+    </p> 
  
-     
- 
-     
+    <p> 
      To be folded into 2024 spreadsheet. 
-     
+    </p> 
  
-     
+    <p> 
       If the library of the user that created or deleted a record cannot be determined, the creation/deletion is assigned to NEKLS 
-     
+    </p> 
    
-   
+  </div> 
  
-   
+  <div id="reportInfoLinks"> 
  
-     
-       
+    <p id="sql_quick_down"> 
+      <a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3768"> 
         Click here to download as a csv file 
-       
-     
+      </a> 
+    </p> 
  
-   
+  </div> 
  
-   
+  <div id="reportInfoTags"> 
  
-     
+    <p style="display: none;"> 
       #statistics 
       #monthly statistics 
       #biblio count 
-     
+    </p> 
  
-   
+  </div> 
  
-   
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
  
- 
+</div> 
 
 ----------
 */

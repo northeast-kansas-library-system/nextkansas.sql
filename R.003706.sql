@@ -22,54 +22,54 @@ Expiry: 300
 
 ----------
 
- 
-Items and holdings statistics - item count by item type 
-Generates a count of items all items owned at the time the report is run plus items added and deleted in the previous calendar month 
-columns are grouped by shelving locations 
-at all system libraries 
-grouped and sorted by item home library 
- 
-Notes: 
- 
-Items with blank item types are counted as "(Unclassified)." 
- 
-  'Adult' includes items with these permanent shelving locations: 
-   
-    Adult 
-    ~Display - BALDWIN - Adult 
-    ~Display - LEAVENWRTH - Adult 
-    ~Display - PAOLA - Adult 
-    Cataloging 
-    Processing Center 
-    Any items where the permanent shelving location is blank or ambiguous 
-   
-   
-  'Young adult' includes items with these permanent shelving locations: 
-   
-    Young adult 
-    ~Display - BALDWIN - Young Adult 
-    ~Display - LEAVENWRTH - Young adult 
-    ~Display - PAOLA - Young adult 
-    Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Young adult" locations 
-   
-   
-  'Juvenile' includes items with these permanent shelving locations: 
-   
-    Childrens 
-    ~Display - BALDWIN - Childrens 
-    ~Display - LEAVENWRTH - Children's 
-    ~Display - PAOLA - Children's 
-    Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Childrens" locations 
-   
- 
-  
-This report and these notes updated on 2023.02.10 
- 
-This report cannot track changes made to existing records over time.  Therefore, if staff change the home library, location, or item type of an item, those changes will not be reflected in the additions or deletions columns.  This means that the numbers may look inconsistent from month to month if changes are made to item records. 
- 
-#monthly #statistics #item #count #item type 
- 
- 
+<div class="reportinfo noprint"> 
+<p>Items and holdings statistics - item count by item type</p> 
+<ul><li>Generates a count of items all items owned at the time the report is run plus items added and deleted in the previous calendar month</li> 
+<li>columns are grouped by shelving locations</li> 
+<li>at all system libraries</li> 
+<li>grouped and sorted by item home library</li> 
+</ul><br /> 
+<p><ins>Notes:</ins></p> 
+<p></p> 
+<p>Items with blank item types are counted as "(Unclassified)."</p> 
+<ul> 
+  <li>'Adult' includes items with these permanent shelving locations:</li> 
+  <ul> 
+    <li>Adult</li> 
+    <li>~Display - BALDWIN - Adult</li> 
+    <li>~Display - LEAVENWRTH - Adult</li> 
+    <li>~Display - PAOLA - Adult</li> 
+    <li>Cataloging</li> 
+    <li>Processing Center</li> 
+    <li>Any items where the permanent shelving location is blank or ambiguous</li> 
+  </ul> 
+  <br /> 
+  <li>'Young adult' includes items with these permanent shelving locations:</li> 
+  <ul> 
+    <li>Young adult</li> 
+    <li>~Display - BALDWIN - Young Adult</li> 
+    <li>~Display - LEAVENWRTH - Young adult</li> 
+    <li>~Display - PAOLA - Young adult</li> 
+    <li>Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Young adult" locations</li> 
+  </ul> 
+  <br /> 
+  <li>'Juvenile' includes items with these permanent shelving locations:</li> 
+  <ul> 
+    <li>Childrens</li> 
+    <li>~Display - BALDWIN - Childrens</li> 
+    <li>~Display - LEAVENWRTH - Children's</li> 
+    <li>~Display - PAOLA - Children's</li> 
+    <li>Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Childrens" locations</li> 
+  </ul> 
+</ul> 
+ <br /> 
+<p class="updated">This report and these notes updated on 2023.02.10</p> 
+<p></p> 
+<p>This report cannot track changes made to existing records over time.  Therefore, if staff change the home library, location, or item type of an item, those changes will not be reflected in the additions or deletions columns.  This means that the numbers may look inconsistent from month to month if changes are made to item records.</p> 
+<p></p> 
+<p class= "notetags" style="display: none;">#monthly #statistics #item #count #item type</p> 
+<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
+</div> 
 
 ----------
 */

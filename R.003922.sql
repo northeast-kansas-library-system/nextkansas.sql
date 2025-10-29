@@ -22,9 +22,9 @@ Expiry: 300
 
 ----------
 
-&lt;div class="next_report_info next_noprint"&gt;
+<div class="next_report_info next_noprint">
 
-  &lt;style&gt;
+  <style>
 
        .page-section .next_report_info {
       font-size: 120% !important;
@@ -147,308 +147,308 @@ Expiry: 300
           !important;
         }
 
-  &lt;/style&gt;
+  </style>
 
 
 
-&lt;!-- Overview --&gt;
-  &lt;div class="next_report_summary"&gt;
-    &lt;br&gt;
+<!-- Overview -->
+  <div class="next_report_summary">
+    <br>
 
-    &lt;p id="report_id"&gt;&lt;strong&gt;Report number:&lt;/strong&gt; 666&lt;/p&gt;
+    <p id="report_id"><strong>Report number:</strong> 666</p>
 
-    &lt;p id="report_name"&gt;&lt;strong&gt;Report name:&lt;/strong&gt; Test report name&lt;/p&gt;
+    <p id="report_name"><strong>Report name:</strong> Test report name</p>
 
-    &lt;p id="report_author"&gt;&lt;strong&gt;Report author:&lt;/strong&gt; Test report author&lt;/p&gt;
+    <p id="report_author"><strong>Report author:</strong> Test report author</p>
 
-    &lt;p id="report_summary"&gt;&lt;strong&gt;Report summary:&lt;/strong&gt; The quick brown fox jumped over the lazy dog.&lt;/p&gt;
+    <p id="report_summary"><strong>Report summary:</strong> The quick brown fox jumped over the lazy dog.</p>
 
-  &lt;/div&gt;
+  </div>
 
-  &lt;div class="accordion accordion-flush"&gt;
+  <div class="accordion accordion-flush">
 
 
 
-&lt;!-- Function section --&gt;
-    &lt;div id="accordion_666-1" class="accordion-item next_report_function"&gt;
+<!-- Function section -->
+    <div id="accordion_666-1" class="accordion-item next_report_function">
 
-      &lt;h2 class="accordion-header" id="panelsStay_666Open-headingOne" &gt;
+      <h2 class="accordion-header" id="panelsStay_666Open-headingOne" >
 
-        &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#panelsStay_666Open-collapseOne" aria-expanded="true"
-          aria-controls="panelsStay_666Open-collapseOne"&gt;
+          aria-controls="panelsStay_666Open-collapseOne">
 
           Function:
 
-        &lt;/button&gt;
+        </button>
 
-      &lt;/h2&gt;
+      </h2>
 
-      &lt;div id="panelsStay_666Open-collapseOne" class="accordion-collapse collapse"
-        aria-labelledby="panelsStay_666Open-headingOne"&gt;
-        &lt;div class="accordion-body"&gt;
+      <div id="panelsStay_666Open-collapseOne" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_666Open-headingOne">
+        <div class="accordion-body">
 
-          &lt;div id="function_section" class="report_section"&gt;
-
-
-            &lt;p&gt;The lazy dog jumped over the quick brown fox.&lt;/p&gt;
-            &lt;ul&gt;
-
-              &lt;li&gt;Time frame&lt;/li&gt;
-
-              &lt;li&gt;Things at this library&lt;/li&gt;
-
-              &lt;li&gt;Grouped by some fields&lt;/li&gt;
-
-              &lt;li&gt;Sorted by some other fields&lt;/li&gt;
-
-              &lt;li&gt;This report has no links&lt;/li&gt;
-            &lt;/ul&gt;
+          <div id="function_section" class="report_section">
 
 
-            &lt;p&gt;Optional notes.  These can be huge or nothring or a litlle bit&lt;br&gt;&lt;br&gt; or a lot.&lt;/p&gt;
+            <p>The lazy dog jumped over the quick brown fox.</p>
+            <ul>
 
-          &lt;/div&gt;
+              <li>Time frame</li>
 
-        &lt;/div&gt;
-      &lt;/div&gt;
+              <li>Things at this library</li>
 
-    &lt;/div&gt;
+              <li>Grouped by some fields</li>
+
+              <li>Sorted by some other fields</li>
+
+              <li>This report has no links</li>
+            </ul>
+
+
+            <p>Optional notes.  These can be huge or nothring or a litlle bit<br><br> or a lot.</p>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
 
 
 
-&lt;!-- Notes section --&gt;
-    &lt;div id="accordion_REPORTID-2" class="accordion-item next_report_notes report_hidden"&gt;
+<!-- Notes section -->
+    <div id="accordion_REPORTID-2" class="accordion-item next_report_notes report_hidden">
 
-      &lt;h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingTwo"&gt;
+      <h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingTwo">
 
-        &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#panelsStay_REPORTIDOpen-collapseTwo" aria-expanded="false"
-          aria-controls="panelsStay_REPORTIDOpen-collapseTwo"&gt;
+          aria-controls="panelsStay_REPORTIDOpen-collapseTwo">
 
           Notes:
 
-        &lt;/button&gt;
+        </button>
 
-      &lt;/h2&gt;
+      </h2>
 
-      &lt;div id="panelsStay_REPORTIDOpen-collapseTwo" class="accordion-collapse collapse"
-        aria-labelledby="panelsStay_REPORTIDOpen-headingTwo"&gt;
-        &lt;div class="accordion-body"&gt;
+      <div id="panelsStay_REPORTIDOpen-collapseTwo" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_REPORTIDOpen-headingTwo">
+        <div class="accordion-body">
 
-          &lt;div id="notes_1" class="report_section report_hidden"&gt;
-            &lt;h4&gt; NOTE_ONE_TITLE &lt;/h4&gt;
-            &lt;p&gt; NOTE_ONE_CONTENT &lt;/p&gt;
-          &lt;/div&gt;
+          <div id="notes_1" class="report_section report_hidden">
+            <h4> NOTE_ONE_TITLE </h4>
+            <p> NOTE_ONE_CONTENT </p>
+          </div>
 
-          &lt;div id="notes_2" class="report_section report_hidden"&gt;
-            &lt;h4&gt; NOTE_TWO_TITLE &lt;/h4&gt;
-            &lt;p&gt; NOTE_TWO_CONTENT &lt;/p&gt;
-          &lt;/div&gt;
+          <div id="notes_2" class="report_section report_hidden">
+            <h4> NOTE_TWO_TITLE </h4>
+            <p> NOTE_TWO_CONTENT </p>
+          </div>
 
-          &lt;div id="notes_3" class="report_section report_hidden"&gt;
-            &lt;h4&gt; NOTE_THREE_TITLE &lt;/h4&gt;
-            &lt;p&gt; NOTE_THREE_CONTENT &lt;/p&gt;
-          &lt;/div&gt;
+          <div id="notes_3" class="report_section report_hidden">
+            <h4> NOTE_THREE_TITLE </h4>
+            <p> NOTE_THREE_CONTENT </p>
+          </div>
 
-          &lt;div id="notes_4" class="report_section report_hidden"&gt;
-            &lt;h4&gt; NOTE_FOUR_TITLE &lt;/h4&gt;
-            &lt;p&gt; NOTE_FOUR_CONTENT &lt;/p&gt;
-          &lt;/div&gt;
+          <div id="notes_4" class="report_section report_hidden">
+            <h4> NOTE_FOUR_TITLE </h4>
+            <p> NOTE_FOUR_CONTENT </p>
+          </div>
 
-          &lt;div id="notes_5" class="report_section report_hidden"&gt;
-            &lt;h4&gt; NOTE_FIVE_TITLE &lt;/h4&gt;
-            &lt;p&gt; NOTE_FIVE_CONTENT &lt;/p&gt;
-          &lt;/div&gt;
+          <div id="notes_5" class="report_section report_hidden">
+            <h4> NOTE_FIVE_TITLE </h4>
+            <p> NOTE_FIVE_CONTENT </p>
+          </div>
 
-        &lt;/div&gt;
-      &lt;/div&gt;
+        </div>
+      </div>
 
-    &lt;/div&gt;
-
-
+    </div>
 
 
-&lt;!-- Instructions section --&gt;
-    &lt;div id="accordion_REPORTID-3" class="accordion-item next_report_instructions report_hidden"&gt;
 
-      &lt;h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingThree"&gt;
 
-        &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+<!-- Instructions section -->
+    <div id="accordion_REPORTID-3" class="accordion-item next_report_instructions report_hidden">
+
+      <h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingThree">
+
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#panelsStay_REPORTIDOpen-collapseThree" aria-expanded="false"
-          aria-controls="panelsStay_REPORTIDOpen-collapseThree"&gt;
+          aria-controls="panelsStay_REPORTIDOpen-collapseThree">
 
           Instructions:
 
-        &lt;/button&gt;
+        </button>
 
-      &lt;/h2&gt;
+      </h2>
 
-      &lt;div id="panelsStay_REPORTIDOpen-collapseThree" class="accordion-collapse collapse"
-        aria-labelledby="panelsStay_REPORTIDOpen-headingThree"&gt;
-        &lt;div class="accordion-body"&gt;
+      <div id="panelsStay_REPORTIDOpen-collapseThree" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_REPORTIDOpen-headingThree">
+        <div class="accordion-body">
 
-          &lt;div id="instructions_1" class="report_section report_hidden"&gt;
-            &lt;h4&gt; INSTRUCTION_1_TITLE &lt;/h4&gt;
-            &lt;p&gt; INSTRUCTION_1_CONTENT &lt;/p&gt;
-          &lt;/div&gt;
+          <div id="instructions_1" class="report_section report_hidden">
+            <h4> INSTRUCTION_1_TITLE </h4>
+            <p> INSTRUCTION_1_CONTENT </p>
+          </div>
 
-          &lt;div id="instructions_2" class="report_section report_hidden"&gt;
-            &lt;h4&gt; INSTRUCTION_TWO_TITLE &lt;/h4&gt;
-            &lt;p&gt; INSTRUCTION_TWO_CONTENT &lt;/p&gt;
-          &lt;/div&gt;
+          <div id="instructions_2" class="report_section report_hidden">
+            <h4> INSTRUCTION_TWO_TITLE </h4>
+            <p> INSTRUCTION_TWO_CONTENT </p>
+          </div>
 
-          &lt;div id="instructions_3" class="report_section report_hidden"&gt;
-            &lt;h4&gt; INSTRUCTION_THREE_TITLE &lt;/h4&gt;
-            &lt;p&gt; INSTRUCTION_THREE_CONTENT &lt;/p&gt;
-          &lt;/div&gt;
+          <div id="instructions_3" class="report_section report_hidden">
+            <h4> INSTRUCTION_THREE_TITLE </h4>
+            <p> INSTRUCTION_THREE_CONTENT </p>
+          </div>
 
-          &lt;div id="instructions_4" class="report_section report_hidden"&gt;
-            &lt;h4&gt; INSTRUCTION_FOUR_TITLE &lt;/h4&gt;
-            &lt;p&gt; INSTRUCTION_FOUR_CONTENT &lt;/p&gt;
-          &lt;/div&gt;
+          <div id="instructions_4" class="report_section report_hidden">
+            <h4> INSTRUCTION_FOUR_TITLE </h4>
+            <p> INSTRUCTION_FOUR_CONTENT </p>
+          </div>
 
-          &lt;div id="instructions_5" class="report_section report_hidden"&gt;
-            &lt;h4&gt; INSTRUCTION_FIVE_TITLE &lt;/h4&gt;
-            &lt;p&gt; INSTRUCTION_FIVE_CONTENT &lt;/p&gt;
-          &lt;/div&gt;
+          <div id="instructions_5" class="report_section report_hidden">
+            <h4> INSTRUCTION_FIVE_TITLE </h4>
+            <p> INSTRUCTION_FIVE_CONTENT </p>
+          </div>
 
-        &lt;/div&gt;
-      &lt;/div&gt;
+        </div>
+      </div>
 
-    &lt;/div&gt;
+    </div>
 
 
 
-&lt;!-- Resources section --&gt;
-    &lt;div id="accordion_REPORTID-4" class="accordion-item next_report_resources report_hidden " style=""&gt;
+<!-- Resources section -->
+    <div id="accordion_REPORTID-4" class="accordion-item next_report_resources report_hidden " style="">
 
-      &lt;h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingFour"&gt;
-        &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+      <h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingFour">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#panelsStay_REPORTIDOpen-collapseFour" aria-expanded="false"
-          aria-controls="panelsStay_REPORTIDOpen-collapseFour"&gt;
+          aria-controls="panelsStay_REPORTIDOpen-collapseFour">
           Resources:
-        &lt;/button&gt;
-      &lt;/h2&gt;
+        </button>
+      </h2>
 
-      &lt;div id="panelsStay_REPORTIDOpen-collapseFour" class="accordion-collapse collapse"
-        aria-labelledby="panelsStay_REPORTIDOpen-headingFour"&gt;
+      <div id="panelsStay_REPORTIDOpen-collapseFour" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_REPORTIDOpen-headingFour">
 
-        &lt;div class="accordion-body"&gt;
+        <div class="accordion-body">
 
-          &lt;div id="resources_1" class="row report_section"&gt;
-            &lt;div class="col col-md-2 align-self-center"&gt;
-              &lt;a href="https://google.com" target="_blank" class="resources_btn"&gt;Google&lt;/a&gt;
-            &lt;/div&gt;            &lt;div class="col col-md-8 align-self-center"&gt;
-              &lt;p&gt;Lorem ipsum etc. etc.&lt;/p&gt;
-            &lt;/div&gt;          &lt;/div&gt;
-
-
-          &lt;div id="resources_2" class="row report_section"&gt;
-            &lt;div class="col col-md-2 align-self-center"&gt;
-              &lt;a href="https://hopperdietzel.org" target="_blank" class="resources_btn"&gt;Hopperdietzel&lt;/a&gt;
-            &lt;/div&gt;            &lt;div class="col col-md-8 align-self-center"&gt;
-              &lt;p&gt;Lorem ipsum etc. etc.&lt;/p&gt;
-            &lt;/div&gt;          &lt;/div&gt;
+          <div id="resources_1" class="row report_section">
+            <div class="col col-md-2 align-self-center">
+              <a href="https://google.com" target="_blank" class="resources_btn">Google</a>
+            </div>            <div class="col col-md-8 align-self-center">
+              <p>Lorem ipsum etc. etc.</p>
+            </div>          </div>
 
 
-          &lt;div id="resources_3" class="row report_section"&gt;
-            &lt;div class="col col-md-2 align-self-center"&gt;
-              &lt;a href="https://en.wikipedia.org/wiki/Claudius" target="_blank" class="resources_btn"&gt;Claudius&lt;/a&gt;
-            &lt;/div&gt;            &lt;div class="col col-md-8 align-self-center"&gt;
-              &lt;p&gt;Lorem ipsum etc. etc.&lt;/p&gt;
-            &lt;/div&gt;          &lt;/div&gt;
+          <div id="resources_2" class="row report_section">
+            <div class="col col-md-2 align-self-center">
+              <a href="https://hopperdietzel.org" target="_blank" class="resources_btn">Hopperdietzel</a>
+            </div>            <div class="col col-md-8 align-self-center">
+              <p>Lorem ipsum etc. etc.</p>
+            </div>          </div>
 
 
-          &lt;div id="resources_4" class="row report_section report_hidden"&gt;
-            &lt;div class="col col-md-2"&gt;
-              &lt;p&gt;&lt;a href=" RESOURCE_FOUR_URL " target="_blank" class="resources_btn"&gt; RESOURCE_FOUR_TITLE &lt;/a&gt;&lt;/p&gt;
-            &lt;/div&gt;            &lt;div class="col col-md-8"&gt;
-              &lt;p&gt; RESOURCE_FOUR_NOTE &lt;/p&gt;
-            &lt;/div&gt;          &lt;/div&gt;
+          <div id="resources_3" class="row report_section">
+            <div class="col col-md-2 align-self-center">
+              <a href="https://en.wikipedia.org/wiki/Claudius" target="_blank" class="resources_btn">Claudius</a>
+            </div>            <div class="col col-md-8 align-self-center">
+              <p>Lorem ipsum etc. etc.</p>
+            </div>          </div>
 
 
-          &lt;div id="resources_5" class="row report_section report_hidden"&gt;
-            &lt;div class="col col-md-2"&gt;
-              &lt;p&gt;&lt;a href=" RESOURCE_FIVE_URL " target="_blank" class="resources_btn"&gt; RESOURCE_FIVE_TITLE &lt;/a&gt;&lt;/p&gt;
-            &lt;/div&gt;            &lt;div class="col col-md-8"&gt;
-              &lt;p&gt; RESOURCE_FIVE_NOTE &lt;/p&gt;
-            &lt;/div&gt;          &lt;/div&gt;
-
-        &lt;/div&gt;
-
-      &lt;/div&gt;
-
-    &lt;/div&gt;
+          <div id="resources_4" class="row report_section report_hidden">
+            <div class="col col-md-2">
+              <p><a href=" RESOURCE_FOUR_URL " target="_blank" class="resources_btn"> RESOURCE_FOUR_TITLE </a></p>
+            </div>            <div class="col col-md-8">
+              <p> RESOURCE_FOUR_NOTE </p>
+            </div>          </div>
 
 
-&lt;!-- Training section --&gt;
-    &lt;div id="accordion_REPORTID-5" class="accordion-item next_report_training report_hidden"&gt;
+          <div id="resources_5" class="row report_section report_hidden">
+            <div class="col col-md-2">
+              <p><a href=" RESOURCE_FIVE_URL " target="_blank" class="resources_btn"> RESOURCE_FIVE_TITLE </a></p>
+            </div>            <div class="col col-md-8">
+              <p> RESOURCE_FIVE_NOTE </p>
+            </div>          </div>
 
-      &lt;h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingFive"&gt;
+        </div>
 
-        &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+      </div>
+
+    </div>
+
+
+<!-- Training section -->
+    <div id="accordion_REPORTID-5" class="accordion-item next_report_training report_hidden">
+
+      <h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingFive">
+
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#panelsStay_REPORTIDOpen-collapseFive" aria-expanded="false"
-          aria-controls="panelsStay_REPORTIDOpen-collapseFive"&gt;
+          aria-controls="panelsStay_REPORTIDOpen-collapseFive">
 
           Training available
 
-        &lt;/button&gt;
+        </button>
 
-      &lt;/h2&gt;
+      </h2>
 
-      &lt;div id="panelsStay_REPORTIDOpen-collapseFive" class="accordion-collapse collapse"
-        aria-labelledby="panelsStay_REPORTIDOpen-headingFive" style="color: white !important;"&gt;
-        &lt;div class="accordion-body"&gt;
+      <div id="panelsStay_REPORTIDOpen-collapseFive" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_REPORTIDOpen-headingFive" style="color: white !important;">
+        <div class="accordion-body">
 
-          &lt;div class="container text-center"&gt;
-            &lt;div class="row"&gt;
-
-
-              &lt;div id="training_link" class="col-md-3"&gt;
-                &lt;p&gt;&lt;a href="https://hopperdietzel.org" target="_blank" class="training_btn"&gt;Online training&lt;/a&gt;&lt;/p&gt;
-              &lt;/div&gt;
+          <div class="container text-center">
+            <div class="row">
 
 
-              &lt;div id="training_link" class="col-md-3"&gt;
-                &lt;p&gt;&lt;a href="https://yahoo.com" target="_blank" class="training_btn"&gt;Training handout&lt;/a&gt;&lt;/p&gt;
-              &lt;/div&gt;
-
-              &lt;div id="training_link" class="col-md-3"&gt;
-                &lt;p&gt;&lt;a href="https://google.com" target="_blank" class="training_btn"&gt;Video training&lt;/a&gt;&lt;/p&gt;
-              &lt;/div&gt;
-
-            &lt;/div&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-
-&lt;!-- Direct download section --&gt;
-  &lt;div class="next_report_direct_download report_hidden"&gt;
-    &lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=666" class="direct_download_btn"&gt;Download directly to a CSV file&lt;/a&gt;&lt;/p&gt;
-  &lt;/div&gt;
+              <div id="training_link" class="col-md-3">
+                <p><a href="https://hopperdietzel.org" target="_blank" class="training_btn">Online training</a></p>
+              </div>
 
 
+              <div id="training_link" class="col-md-3">
+                <p><a href="https://yahoo.com" target="_blank" class="training_btn">Training handout</a></p>
+              </div>
 
-&lt;!-- Hashtag section --&gt;
-  &lt;div class="next_report_hashtags" style="display: none;"&gt;
-    &lt;p&gt;#&lt;/p&gt;
-    &lt;p&gt;#&lt;/p&gt;
-    &lt;p&gt;#&lt;/p&gt;
-    &lt;p&gt;#&lt;/p&gt;
-    &lt;p&gt;#&lt;/p&gt;
-    &lt;p&gt;#&lt;/p&gt;
-    &lt;p&gt;#&lt;/p&gt;
-    &lt;p&gt;#&lt;/p&gt;
-    &lt;p&gt;#&lt;/p&gt;
-    &lt;p&gt;#&lt;/p&gt;
-  &lt;/div&gt;
+              <div id="training_link" class="col-md-3">
+                <p><a href="https://google.com" target="_blank" class="training_btn">Video training</a></p>
+              </div>
 
-&lt;/div&gt;
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+<!-- Direct download section -->
+  <div class="next_report_direct_download report_hidden">
+    <p><a href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=666" class="direct_download_btn">Download directly to a CSV file</a></p>
+  </div>
+
+
+
+<!-- Hashtag section -->
+  <div class="next_report_hashtags" style="display: none;">
+    <p>#</p>
+    <p>#</p>
+    <p>#</p>
+    <p>#</p>
+    <p>#</p>
+    <p>#</p>
+    <p>#</p>
+    <p>#</p>
+    <p>#</p>
+    <p>#</p>
+  </div>
+
+</div>
 
 ----------
 */

@@ -22,18 +22,18 @@ Expiry: 0
 
 ----------
 
- 
-Generates a list of the 50 bibliographic records with the greatest numbers of requests
-Shows current data
-Shows bibliographic records from all Next Search Cataloglibraries
-grouped by biblionumber
-sorted by request count (biggest first)
-contains links to the bibliographic record
-
-Notes:
-This report is being replaced by report 2735 which shows all items with more than 20 requests.
-Report created by HB.
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of the 50 bibliographic records with the greatest numbers of requests</p>
+<ul><li>Shows current data</li>
+<li>Shows bibliographic records from all Next Search Cataloglibraries</li>
+<li>grouped by biblionumber</li>
+<li>sorted by request count (biggest first)</li>
+<li>contains links to the bibliographic record</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p>This report is being replaced by <a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2735&phase=Run%20this%20report" target="_blank">report 2735</a> which shows all items with more than 20 requests.</p>
+<p>Report created by HB.</p>
+</div>
 
 ----------
 */

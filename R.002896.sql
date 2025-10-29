@@ -22,21 +22,21 @@ Expiry: 0
 
 ----------
 
- 
-Generates a list of lost items
-Shows items that currently have the lost status you specify
-shows items with a home library that you specify
-that were declared lost during the date range you specify
-grouped by item barcode number
-sorted by NExpress standard classification scheme
-
-Notes:
-
-Replaces report 888
-
-If an item has a blank LOST_DATE and a blank DAYS_LOST it is because the item was marked lost before we upgraded to Koha 3.16 (October 2014)
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of lost items</p>
+<ul><li>Shows items that currently have the lost status you specify</li>
+<li>shows items with a home library that you specify</li>
+<li>that were declared lost during the date range you specify</li>
+<li>grouped by item barcode number</li>
+<li>sorted by NExpress standard classification scheme</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Replaces report 888</p>
+<p></p>
+<p>If an item has a blank LOST_DATE and a blank DAYS_LOST it is because the item was marked lost before we upgraded to Koha 3.16 (October 2014)</p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2896&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

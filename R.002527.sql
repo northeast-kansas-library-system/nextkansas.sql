@@ -22,19 +22,19 @@ Expiry: 0
 
 ----------
 
- 
-Shows borrower history from the statistics table (goes back 25 months)
-Shows history for the previous 25 months
-for the borrower you specify
-grouped by itemnumber
-sorted by statistics date
-
-Notes:
-
-Updated in February of 2022
-
-#borrowers #circulation_history
-
+<div class="reportinfo noprint"> 
+<p>Shows borrower history from the statistics table (goes back 25 months)</p>
+<ul><li>Shows history for the previous 25 months</li>
+<li>for the borrower you specify</li>
+<li>grouped by itemnumber</li>
+<li>sorted by statistics date</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Updated in February of 2022</p>
+<p></p>
+<p class= "notetags" style="display: none;">#borrowers #circulation_history</p>
+</div>
 
 ----------
 */

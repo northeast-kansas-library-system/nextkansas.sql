@@ -22,12 +22,12 @@ Expiry: 300
 
 ----------
 
- 
-See Northeast Kansas Library Sytem/system_preference_backup on Github for full instructions
-
-Click here to download as a csv file
-#backups #monthly #sysprefs
-
+<div class="reportinfo noprint"> 
+<p>See Northeast Kansas Library Sytem/system_preference_backup on Github for full instructions</p>
+<p></p>
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=3596&reportname=GHW%20-%20Backups%20-%20system%20preferences">Click here to download as a csv file</a></p>
+<p class= "notetags" style="display: none;">#backups #monthly #sysprefs</p>
+</div>
 
 
 

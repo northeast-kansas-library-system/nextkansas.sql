@@ -22,19 +22,19 @@ Expiry: 0
 
 ----------
 
- 
-Lists items that (A) have never checked out or that (B) have not been borrowed since before the date you specify
-Shows items currently in the collection
-owned by the library you specify
-grouped by item number
-sorted by the standard Next Search Catalog classification scheme
-
-Notes:
-
-
-#weeding #datelastborrowed #dateaccessioned
-
- 
+<div class="reportinfo noprint"> 
+<p>Lists items that (A) have never checked out or that (B) have not been borrowed since before the date you specify</p>
+<ul><li>Shows items currently in the collection</li>
+<li>owned by the library you specify</li>
+<li>grouped by item number</li>
+<li>sorted by the standard Next Search Catalog classification scheme</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p></p>
+<p class= "notetags" style="display: none;">#weeding #datelastborrowed #dateaccessioned</p>
+<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div> 
 
 ----------
 */

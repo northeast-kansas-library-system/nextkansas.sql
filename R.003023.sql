@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
- 
-Counts the number of times a specified cronjob has run in the previous 60 days
-Counts cronjobs run in the previuos 60 days
-system-wide
-grouped by date and cronjob name
-sorted by date - newest to oldest
-Contains links to report 3024 which allows you to see the specific times the cronjob ran on that date
-
-Notes:
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Counts the number of times a specified cronjob has run in the previous 60 days</p>
+<ul><li>Counts cronjobs run in the previuos 60 days</li>
+<li>system-wide</li>
+<li>grouped by date and cronjob name</li>
+<li>sorted by date - newest to oldest</li>
+<li>Contains links to report 3024 which allows you to see the specific times the cronjob ran on that date</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3023&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

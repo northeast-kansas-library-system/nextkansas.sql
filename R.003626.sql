@@ -22,23 +22,23 @@ Expiry: 300
 
 ----------
 
- 
-Lists all Damaged, Lost, or Withdrawn items at a library
-shows items that have those statuses at the time the report is run
-at the library you specify
-biblionumber and item number
-Library, shelving location, item type, collection code, call number, author, and title.
-
-Notes:
-
-When presented with the options:
-
-List only damaged items
-List only lost items
-List only withdrawn items
-
-you should only select 1 and leave the others at their defaults.  If you choose "List only damaged items: Yes" and "List only lost items: Yes" you will only see items that are both damaged and lost.
-
+<div class="reportinfo noprint"> 
+<p>Lists all Damaged, Lost, or Withdrawn items at a library</p>
+<ul><li>shows items that have those statuses at the time the report is run</li>
+<li>at the library you specify</li>
+<li>biblionumber and item number</li>
+<li>Library, shelving location, item type, collection code, call number, author, and title.</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>When presented with the options:</p>
+<ul>
+<li>List only damaged items</li>
+<li>List only lost items</li>
+<li>List only withdrawn items</li>
+</ul>
+<p>you should only select 1 and leave the others at their defaults.  If you choose "List only damaged items: Yes" and "List only lost items: Yes" you will only see items that are both damaged and lost.</p>
+</div>
 
 ----------
 */

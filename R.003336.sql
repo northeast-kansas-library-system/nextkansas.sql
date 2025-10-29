@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
- 
-Shows items checked out or renewed during a date range
-Shows items checked out or renewed during the date range you specify
-at the library you specify
-grouped by itemnumber, biblionumber, and the timestamp for the checkout/renewal
-sorted by the checkout or renewal date, the item homebranch, the item permanent location, the item type, the collection code, the call number, the author, and the title
-
-Notes:
-
-Report created by George Williams.
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Shows items checked out or renewed during a date range</p>
+<ul><li>Shows items checked out or renewed during the date range you specify</li>
+<li>at the library you specify</li>
+<li>grouped by itemnumber, biblionumber, and the timestamp for the checkout/renewal</li>
+<li>sorted by the checkout or renewal date, the item homebranch, the item permanent location, the item type, the collection code, the call number, the author, and the title</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Report created by George Williams.</p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3336&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

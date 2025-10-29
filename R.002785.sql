@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
- 
-Identifies circulation history on a specific item
-Shows all circulation history that has been completed
-on an item you specify
-sorted by the last date the item was returned
-
-Notes:
-
-Report created to help troubleshoot problems with requested items (i.e. missing in transit, item on holds list not found, etc.).
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Identifies circulation history on a specific item</p>
+<ul><li>Shows all circulation history that has been completed</li>
+<li>on an item you specify</li>
+<li>sorted by the last date the item was returned</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Report created to help troubleshoot problems with requested items (i.e. missing in transit, item on holds list not found, etc.).</p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2785&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

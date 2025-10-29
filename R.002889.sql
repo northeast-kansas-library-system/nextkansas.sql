@@ -22,19 +22,19 @@ Expiry: 0
 
 ----------
 
- 
-Shows items with requests in the holds queue at the specified branch
-shows items currently in the holds queue
-shows items at the library you specify
-grouped by item barcode number
-sorted by Accelerated Reader information from the 526 a,b,c, and d subfields (if there is any data in those fields)
-contains links to the bibliographic records
-
-Notes:
-
-This report was created to help out the Axtell School where they have the library arranged by Accelerated Reader Level.  This report won't be perfect because not all items have AR data in the 526 fields, but it might help speed a few things up for them.
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Shows items with requests in the holds queue at the specified branch</p>
+<ul><li>shows items currently in the holds queue</li>
+<li>shows items at the library you specify</li>
+<li>grouped by item barcode number</li>
+<li>sorted by Accelerated Reader information from the 526 a,b,c, and d subfields (if there is any data in those fields)</li>
+<li>contains links to the bibliographic records</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>This report was created to help out the Axtell School where they have the library arranged by Accelerated Reader Level.  This report won't be perfect because not all items have AR data in the 526 fields, but it might help speed a few things up for them.</p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2889&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

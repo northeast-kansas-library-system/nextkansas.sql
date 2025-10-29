@@ -22,43 +22,43 @@ Expiry: 300
 
 ----------
 
+<div id="reportinfo" class="reportInfo noprint"> 
  
+  <div class="reportInfoContent"> 
  
-   
+    <p>Shows bibliographic records by author and title that had "localuse" checkouts</p> 
  
-    Shows bibliographic records by author and title that had "localuse" checkouts 
+    <ul> 
+      <li>during the previous calendar month</li> 
+      <li>at the library you specify</li> 
+      <li>grouped and sorted by library, author, and title</li>  
+    </ul> 
  
-     
-      during the previous calendar month 
-      at the library you specify 
-      grouped and sorted by library, author, and title  
-     
+  </div> 
  
-   
- 
-   
+  <div class="reportInfoNotes"> 
 
-     
+    <p> 
  
-     
+    </p> 
 
-    Collecting local use data requires the use of a "Staff - statistical purposes" library card.
+    <p>Collecting local use data requires the use of a "Staff - statistical purposes" library card.</p>
 
-     
+    <p> 
  
-     
+    </p> 
  
-   
+  </div> 
  
-   
+  <div id="reportInfoTags"> 
  
-     
+    <p style="display: none;"> 
       #localuse
       #statistics
       #previous_month 
-     
+    </p> 
  
-   
+  </div> 
 
 ----------
 */

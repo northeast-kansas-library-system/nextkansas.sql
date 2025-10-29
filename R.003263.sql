@@ -22,19 +22,19 @@ Expiry: 10
 
 ----------
 
- 
-Presents a list of items that have a higher than 3:1 requests to copies ratio.
-Shows titles that currently have more than 3 requests per copy
-system wide
-grouped by biblio number
-sorted by highest ratio to lowest ratio
-contains links to the bibliographic records
-
-Notes:
-
-Notes go here.
-
-
+<div class="reportinfo noprint"> 
+<p>Presents a list of items that have a higher than 3:1 requests to copies ratio.</p>
+<ul><li>Shows titles that currently have more than 3 requests per copy</li>
+<li>system wide</li>
+<li>grouped by biblio number</li>
+<li>sorted by highest ratio to lowest ratio</li>
+<li>contains links to the bibliographic records</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Notes go here.</p>
+<p></p>
+</div>
 
 ----------
 */

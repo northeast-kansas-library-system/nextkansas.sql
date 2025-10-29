@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
- 
-  Shows count of issues and renewal counts for items that are on public lists (virtualshelves)
-  
-    Shows checkout and renewal counts for the previous calendar month
-    at all Next Search Catalog libraries
-    grouped and sorted by shelf name
-  
-  Notes:
-  
-  Written at the request of Dan Alexander.
-  
-  #lists #circulation_statistics
-  
- 
+<div class="reportinfo noprint"> 
+  <p>Shows count of issues and renewal counts for items that are on public lists (virtualshelves)</p>
+  <ul>
+    <li>Shows checkout and renewal counts for the previous calendar month</li>
+    <li>at all Next Search Catalog libraries</li>
+    <li>grouped and sorted by shelf name</li>
+  </ul><br />
+  <p><ins>Notes:</ins></p>
+  <p></p>
+  <p>Written at the request of Dan Alexander.</p>
+  <p></p>
+  <p class= "notetags" style="display: none;">#lists #circulation_statistics</p>
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div> 
 
 ----------
 */

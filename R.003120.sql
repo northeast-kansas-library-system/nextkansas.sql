@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
- 
-Generates basic Z39.50 list (makes it easy to share with other people)
-Shows current Z39.50 list used by Next Search Catalog
-does not include Z39.50 targets that require a username/password for access
-grouped by server ID number
-sorted by server type and server name
-
-Notes:
-
-Good report for sharing Z39.50 data with other libraries.
-
-Click here to run in a new window
-Click here to download as a csv file
-
+<div class="reportinfo noprint"> 
+<p>Generates basic Z39.50 list (makes it easy to share with other people)</p>
+<ul><li>Shows current Z39.50 list used by Next Search Catalog</li>
+<li>does not include Z39.50 targets that require a username/password for access</li>
+<li>grouped by server ID number</li>
+<li>sorted by server type and server name</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Good report for sharing Z39.50 data with other libraries.</p>
+<p></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3120&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3120">Click here to download as a csv file</a></p>
+</div>
 
 ----------
 */

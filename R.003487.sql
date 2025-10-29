@@ -22,42 +22,42 @@ Expiry: 300
 
 ----------
 
- 
-Verbose listing of circulation/fees/request rules regarding late fees
-Shows the current rules
-at the library you specify
-grouped and sorted by rule branchcode, borrower category, and item type
+<div class="reportinfo noprint"> 
+<p>Verbose listing of circulation/fees/request rules regarding late fees</p>
+<ul><li>Shows the current rules</li>
+<li>at the library you specify</li>
+<li>grouped and sorted by rule branchcode, borrower category, and item type</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Rules are applied from most specific to least specific and the rules in this report are set to display from most specific to least specific.  The higher a rule is in the results of this report, the higher its priority.</p>
+<p></p>
+<p>In Next Search Catalog, late fee rules follow the rules at the library where an item is checked out.  If an item is shipped from ATCHISON to SILVERLAKE to fill a request and it is kept overdue, the borrower will be billed following the rules at SILVERLAKE.<br />(Based on the CircControl system preference - 2021.03.12)</p></p>
+<p></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3486&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p class= "notetags" style="display: none;">rules, circulation</p>
 
-Notes:
+<div style="display: none;">
+<ul>
+<li>branchcode</li>
+<li>Patron category</li>
+<li>Item type</li>
+<li></li>
+<li></li>
+<li>Fine amount</li>
+<li>Fine charging interval</li>
+<li>Unit</li>
+<li>When to charge</li>
+<li>Fine/suspension grace period</li>
+<li>Overdue fines cap</li>
+<li>Suspension in days (day)</li>
+<li>Max. suspension duration (day)</li>
+<li>Suspension charging interval</li>
+</ul>
+</div>
 
-Rules are applied from most specific to least specific and the rules in this report are set to display from most specific to least specific.  The higher a rule is in the results of this report, the higher its priority.
-
-In Next Search Catalog, late fee rules follow the rules at the library where an item is checked out.  If an item is shipped from ATCHISON to SILVERLAKE to fill a request and it is kept overdue, the borrower will be billed following the rules at SILVERLAKE.(Based on the CircControl system preference - 2021.03.12)
-
-
-Click here to run in a new window
-rules, circulation
-
-
-
-branchcode
-Patron category
-Item type
-
-
-Fine amount
-Fine charging interval
-Unit
-When to charge
-Fine/suspension grace period
-Overdue fines cap
-Suspension in days (day)
-Max. suspension duration (day)
-Suspension charging interval
-
-
-
-
+</div>
 
 ----------
 */

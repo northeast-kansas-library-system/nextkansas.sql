@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-&lt;div&gt; 
-&lt;p&gt;Shows action log entries for specific requests from the last 60 days&lt;/p&gt;
-&lt;ul&gt;&lt;li&gt;Shows actions that happened within the last 60 days&lt;/li&gt;
-&lt;li&gt;on the request you specify&lt;/li&gt;
-&lt;li&gt;grouped and sorted by action log ID&lt;/li&gt;
-&lt;/ul&gt;&lt;br /&gt;
-&lt;p&gt;Notes:&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;Data from the action logs is purged once it is 60 days old.  This report cannot show you information about request modifications if those modifications happened more than 60 days ago.&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;Click here to run in a new window&lt;/p&gt;
-&lt;/div&gt;
+<div> 
+<p>Shows action log entries for specific requests from the last 60 days</p>
+<ul><li>Shows actions that happened within the last 60 days</li>
+<li>on the request you specify</li>
+<li>grouped and sorted by action log ID</li>
+</ul><br />
+<p>Notes:</p>
+<p></p>
+<p>Data from the action logs is purged once it is 60 days old.  This report cannot show you information about request modifications if those modifications happened more than 60 days ago.</p>
+<p></p>
+<p>Click here to run in a new window</p>
+</div>
 
 ----------
 */

@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
- 
-Request and sharing statistics - request statistics 
-during the previous calendar month 
-at all system libraries 
-grouped and sorted by pick up library 
- 
-Notes: 
- 
-This report and these notes updated on 2022.03.11 
- 
-Click here to download as a csv file 
-#monthly #statistics #requests #count 
- 
- 
+<div class="reportinfo noprint"> 
+<p>Request and sharing statistics - request statistics</p> 
+<ul><li>during the previous calendar month</li> 
+<li>at all system libraries</li> 
+<li>grouped and sorted by pick up library</li> 
+</ul><br /> 
+<p><ins>Notes:</ins></p> 
+<p></p> 
+<p class="updated">This report and these notes updated on 2022.03.11</p> 
+<p></p> 
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=2975">Click here to download as a csv file</a></p> 
+<p class= "notetags" style="display: none;">#monthly #statistics #requests #count</p> 
+<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
+</div> 
 
 
 

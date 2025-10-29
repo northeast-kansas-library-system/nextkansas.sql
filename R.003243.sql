@@ -22,11 +22,11 @@ Expiry: 300
 
 ----------
 
- 
-Part 3 of the patron purge process - part 3 - change extended attribute to 5-16 ("Account expired for more than 3 years - scheduled to be auto-deleted on mm.dd") as appropriate based on PROJECTED_DELETION date
-
-#PP03 #patron_purge
-
+<div class="reportinfo noprint"> 
+<p>Part 3 of the patron purge process - part 3 - change extended attribute to 5-16 ("Account expired for more than 3 years - scheduled to be auto-deleted on mm.dd") as appropriate based on PROJECTED_DELETION date</p>
+<p></p>
+<p class= "notetags" style="display: none;">#PP03 #patron_purge</p>
+</div>
 
 ----------
 */

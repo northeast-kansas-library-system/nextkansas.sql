@@ -22,24 +22,24 @@ Expiry: 300
 
 ----------
 
- 
-Generates total value of all items checked out during the  previous calendar month at the library you specify
-Shows value of items checkered out during the previous calendar month
-at the library you specify (no matter which library owned the item)
-grouped by replacement price, check-out branch, item type, item number, date and time of checkout, library name, and item type description.
-sorted by checkout library and item type description
-links
-
-Notes:
-
-
-Summarizes the replacement cost of every item checked out, every time it was checked out at the specified library during the previous calendar month.  If, for example, a $10.00 MOVIE checks out 5 times at one library last month, those checkouts will contribute $50.00 to the total in the column for "MOVIE" at that library for last month.
-This report relies on the accuracy of the data in the 952$v field.  If, for example, the 952$v field has accidentally been sent to $999,999.99 for an item, each time that item checks out in a month, the total value for the VALUE_OF_ALL_ITEMS_CHECKED_OUT column will increase by slightly less than one million dollars.  Similarly, if the 952$v is left blank, no value will be recorded.
-This report only looks at check-outs - it does not record data for renewals.
-
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates total value of all items checked out during the  previous calendar month at the library you specify</p>
+<ul><li>Shows value of items checkered out during the previous calendar month</li>
+<li>at the library you specify (no matter which library owned the item)</li>
+<li>grouped by replacement price, check-out branch, item type, item number, date and time of checkout, library name, and item type description.</li>
+<li>sorted by checkout library and item type description</li>
+<li>links</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<ul>
+<li>Summarizes the replacement cost of every item checked out, every time it was checked out at the specified library during the previous calendar month.  If, for example, a $10.00 MOVIE checks out 5 times at one library last month, those checkouts will contribute $50.00 to the total in the column for "MOVIE" at that library for last month.</li>
+<li>This report relies on the accuracy of the data in the 952$v field.  If, for example, the 952$v field has accidentally been sent to $999,999.99 for an item, each time that item checks out in a month, the total value for the VALUE_OF_ALL_ITEMS_CHECKED_OUT column will increase by slightly less than one million dollars.  Similarly, if the 952$v is left blank, no value will be recorded.</li>
+<li>This report only looks at check-outs - it does not record data for renewals.</li>
+</ul>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3247&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

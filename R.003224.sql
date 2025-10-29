@@ -22,34 +22,34 @@ Expiry: 300
 
 ----------
 
- 
-Generates a list of public lists then allows you to run further reports on the results
-Displays current public lists.
-displays all public lists with search terms you specify (enter a % to display all lists)
-grouped by date created, list name, list number
-sorted by list name
-links to the Staff client and OPAC pages for the list; links to reports:
-
-3228 (Display list titles with links to bibliographic records)
-3227 (Display list titles with call numbers at a specific library)
-3226 (Display author/title information for a list - for printing)
-3279 (Export list to spreadsheet()
-
-
-
-Notes:
-
-This report is the master report for public lists.
-
-Replaces the following reports:
-
-2810 - GHW - Public lists with items
-2811 - GHW - List of lists
-3020 - GHW - List of lists
-
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of public lists then allows you to run further reports on the results</p>
+<ul><li>Displays current public lists.</li>
+<li>displays all public lists with search terms you specify (enter a % to display all lists)</li>
+<li>grouped by date created, list name, list number</li>
+<li>sorted by list name</li>
+<li>links to the Staff client and OPAC pages for the list; links to reports:
+<ul>
+<li>3228 (Display list titles with links to bibliographic records)</li>
+<li>3227 (Display list titles with call numbers at a specific library)</li>
+<li>3226 (Display author/title information for a list - for printing)</li>
+<li>3279 (Export list to spreadsheet()</li>
+</ul>
+</li><br />
+</ul>
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>This report is the master report for public lists.</p>
+<p></p>
+<p>Replaces the following reports:</p>
+<ul>
+<li>2810 - GHW - Public lists with items</li>
+<li>2811 - GHW - List of lists</li>
+<li>3020 - GHW - List of lists</li>
+</ul>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3224&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

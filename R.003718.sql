@@ -22,49 +22,49 @@ Expiry: 300
 
 ----------
 
+<div class="reportinfo noprint"> 
  
+  <div> 
  
-   
+    <p>On March 9 and 10, 2023, there was a fire at the warehouse complex in Topeka where Henry Industries has their Topeka shipping center.  It is very likely that any library materials that were in the shipping center were destroyed or damaged beyond repair.  This report hopes to identify items that may have been at the shipping center during the time that the fire took place.</p> 
  
-    On March 9 and 10, 2023, there was a fire at the warehouse complex in Topeka where Henry Industries has their Topeka shipping center.  It is very likely that any library materials that were in the shipping center were destroyed or damaged beyond repair.  This report hopes to identify items that may have been at the shipping center during the time that the fire took place. 
+    <ul> 
+      <li>Items that were in-transit between March 3 and March 10, 2023</li> 
+      <li>Either en-route to or en route from a library on the Topeka courier hub.</li> 
+      <li>grouped by biblio number and item number</li> 
+      <li>sorted by item home library</li> 
+      <li>links to the bibliographic record for the item</li> 
+    </ul> 
  
-     
-      Items that were in-transit between March 3 and March 10, 2023 
-      Either en-route to or en route from a library on the Topeka courier hub. 
-      grouped by biblio number and item number 
-      sorted by item home library 
-      links to the bibliographic record for the item 
-     
+    <p> 
+      <ins>Notes:</ins> 
+    </p> 
  
-     
-      Notes: 
-     
- 
-     
+    <p> 
 
-     
+    </p> 
  
-     
+    <p> 
       We recommend running this report for your library and checking the shelves during the week of March 19-25 to see if any items still on this list have been found. 
-     
+    </p> 
  
-     
+    <p> 
  
-     
+    </p> 
  
-   
+  </div> 
  
-   
+  <div id="reportInfoLinks"> 
  
-     
+    <p class="notetags" style="display: none;"> 
       #CourierFire2023
-     
+    </p> 
  
-     
+    <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
  
-   
+  </div> 
  
- 
+</div> 
 
 ----------
 */

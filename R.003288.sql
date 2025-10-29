@@ -22,28 +22,28 @@ Expiry: 300
 
 ----------
 
- 
-Generates data for batch deleting fees
-Shows current outstanding fees
-at the library you specify
-grouped by accountline ID number
-sorted by library and fee date
-
-Notes:
-
-When a library decides to remove all old late fees from all of their patron's accounts, run this report, determine which fees are for late fees, and send the list of accountline_id numbers to ByWater Solutions asking them to set the amount.outstanding to $0.00.
-
-The process this report uses works along 4 pathways
-
-  It looks for all accountlines where the issue_id is still in the issues table (i.e. item with fee is still checked out to the patron) AND the issuing library matches the specified library.
-  It looks for all accountlines where the issue_id is still in the old_issues table (i.e. when the item with the fee was returned within the last 13 months) AND the issuing library matches the specified library.
-  It looks for all accountlines that were created manually based on the home library of the account manually creating the fee.
-  It looks for all accountlines where the patron's home library matches the specified library AND the issue_id is null (i.e. no data about where the item was checked out) AND where the manager's ID is also null.  These are generally fees that have gone unpaid for such a long time that there is no longer any way to determine where the item was checked out.
-
-
-Click here to run in a new window
-tag goes here
-
+<div class="reportinfo noprint"> 
+<p>Generates data for batch deleting fees</p>
+<ul><li>Shows current outstanding fees</li>
+<li>at the library you specify</li>
+<li>grouped by accountline ID number</li>
+<li>sorted by library and fee date</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>When a library decides to remove all old late fees from all of their patron's accounts, run this report, determine which fees are for late fees, and send the list of accountline_id numbers to ByWater Solutions asking them to set the amount.outstanding to $0.00.</p>
+<p></p>
+<p>The process this report uses works along 4 pathways</p>
+<ul>
+  <li>It looks for all accountlines where the issue_id is still in the issues table (i.e. item with fee is still checked out to the patron) AND the issuing library matches the specified library.</li>
+  <li>It looks for all accountlines where the issue_id is still in the old_issues table (i.e. when the item with the fee was returned within the last 13 months) AND the issuing library matches the specified library.</li>
+  <li>It looks for all accountlines that were created manually based on the home library of the account manually creating the fee.</li>
+  <li>It looks for all accountlines where the patron's home library matches the specified library AND the issue_id is null (i.e. no data about where the item was checked out) AND where the manager's ID is also null.  These are generally fees that have gone unpaid for such a long time that there is no longer any way to determine where the item was checked out.</li>
+</ul>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3288&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p class= "notetags" style="display: none;">tag goes here</p>
+</div>
 
 ----------
 */

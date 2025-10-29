@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
- 
-Identifies old requests on a specific item
-Shows all finished requests
-on an item you specify
-sorted by the last activity on the item request
-
-Notes:
-
-Report created to help troubleshoot problems with requested items (i.e. missing in transit, item on holds list not found, etc.).
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Identifies old requests on a specific item</p>
+<ul><li>Shows all finished requests</li>
+<li>on an item you specify</li>
+<li>sorted by the last activity on the item request</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Report created to help troubleshoot problems with requested items (i.e. missing in transit, item on holds list not found, etc.).</p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2783&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

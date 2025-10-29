@@ -24,7 +24,7 @@ Expiry: 0
 
 This one is for students with grade levels set. 
 
-Run report #2694 for the list for students (and teachers) without a grade level set. 
+Run <a href="https://staff.nexpresslibrary.org/cgi-bin/koha/reports/guided_reports.pl?reports=2694&phase=Run%20this%20report" target="_blank">report #2694</a> for the list for students (and teachers) without a grade level set. 
 
 ----------
 */

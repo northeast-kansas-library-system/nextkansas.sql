@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
- 
-Counts all items at a library based on the length of their barcode numbers
-Lists current data
-At the library you specify
-grouped and sorted by the name of the library and the length of the barcode numbers
-links to report 3557 which lists all of the items at a library with a specified barcode number length
-
-Notes:
-
-Can be used to identified errors made when items are entered with an incorrect barcode number
-
-#item barcode #length #barcode count
-
+<div class="reportinfo noprint"> 
+<p>Counts all items at a library based on the length of their barcode numbers</p>
+<ul><li>Lists current data</li>
+<li>At the library you specify</li>
+<li>grouped and sorted by the name of the library and the length of the barcode numbers</li>
+<li>links to report 3557 which lists all of the items at a library with a specified barcode number length</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Can be used to identified errors made when items are entered with an incorrect barcode number</p>
+<p></p>
+<p class= "notetags" style="display: none;">#item barcode #length #barcode count</p>
+</div>
 
 ----------
 */

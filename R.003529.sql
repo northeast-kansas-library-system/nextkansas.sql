@@ -22,11 +22,11 @@ Expiry: 300
 
 ----------
 
- 
-Part 5 of the patron purge process - part 5 - botched patrons - remove the expired attribute because staff forgot to.
-
-#PP05 #patron_purge
-
+<div class="reportinfo noprint"> 
+<p>Part 5 of the patron purge process - part 5 - botched patrons - remove the expired attribute because staff forgot to.</p>
+<p></p>
+<p class= "notetags" style="display: none;">#PP05 #patron_purge</p>
+</div>
 
 ----------
 */

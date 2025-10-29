@@ -22,16 +22,16 @@ Expiry: 300
 
 ----------
 
- 
-Replacement for built-in for Overdue reports
-Shows overdues during the date range you specify
-At the checkout library/the item home library/or patron home library you specify
-sorted by date due and patron name, 
-
-Notes:
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Replacement for built-in for Overdue reports</p>
+<ul><li>Shows overdues during the date range you specify</li>
+<li>At the checkout library/the item home library/or patron home library you specify</li>
+<li>sorted by date due and patron name, </li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3143&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

@@ -22,27 +22,27 @@ Expiry: 300
 
 ----------
 
- 
-Generates a count of Lynda.com users at each library
-Shows count of users based on the most recent report from Lynda.com
-Shows users at all member libraries
-grouped by and sorted by library name
-
-Notes:
-
-
-  Open Google spreadsheet titled "Lynda.com report helper"
-  Copy all of the barcode numbers from the Lynda.com report into column A of the Google sheet
-  Copy all of the cells from column B of the Google sheet that contain barcode numbers
-  Edit this report 
-  Paste the copied cells from the Google sheet between the comment lines of this report
-  Click the "Update SQL" button
-  Once updated, click the "Run report" button
-
-
-Click here to run in a new window
-Click here to download as a csv file
-
+<div class="reportinfo noprint"> 
+<p>Generates a count of Lynda.com users at each library</p>
+<ul><li>Shows count of users based on the most recent report from Lynda.com</li>
+<li>Shows users at all member libraries</li>
+<li>grouped by and sorted by library name</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<ol>
+  <li>Open Google spreadsheet titled "<a href="https://docs.google.com/spreadsheets/d/1z2Gc4Dc4_cr0NarxBPT92O3CDpAumiqLj4HoYRWlLqU/edit?usp=sharing" target="_blank">Lynda.com report helper</a>"</li>
+  <li>Copy all of the barcode numbers from the Lynda.com report into column A of the Google sheet</li>
+  <li>Copy all of the cells from column B of the Google sheet that contain barcode numbers</li>
+  <li>Edit this report</li> 
+  <li>Paste the copied cells from the Google sheet between the comment lines of this report</li>
+  <li>Click the "Update SQL" button</li>
+  <li>Once updated, click the "Run report" button</li>
+</ol>
+<p></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3130&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3130">Click here to download as a csv file</a></p>
+</div>
 
 ----------
 */

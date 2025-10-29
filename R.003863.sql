@@ -22,53 +22,53 @@ Expiry: 300
 
 ----------
 
+<div class="reportInfo noprint"> 
  
+  <div class="reportInfoContent"> 
  
-   
+    <p>Outputs a list of all 10 and 13 digit ISBNs</p> 
  
-    Outputs a list of all 10 and 13 digit ISBNs 
+    <ul> 
+      <li>Shows current ISBNs in biblioitems table</li> 
+      <li>at all Next Search Catalog libraries</li> 
+      <li>grouped by ISBN</li> 
+    </ul> 
  
-     
-      Shows current ISBNs in biblioitems table 
-      at all Next Search Catalog libraries 
-      grouped by ISBN 
-     
+  </div> 
  
-   
+  <div class="reportInfoNotes"> 
  
-   
+    <p> 
  
-     
+    </p> 
  
-     
- 
-     
+    <p> 
      Used for Novelist updates
-     
+    </p> 
  
-   
+  </div> 
  
-   
+  <div id="reportInfoLinks"> 
  
-     
-       
+    <p id="sql_quick_down"> 
+      <a href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=3863"> 
         Click here to download as a csv file 
-       
-     
+      </a> 
+    </p> 
  
-   
+  </div> 
  
-   
+  <div id="reportInfoTags"> 
  
-     
+    <p style="display: none;"> 
       #isbn #novelist
-     
+    </p> 
  
-   
+  </div> 
  
-   
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/Query_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
  
- 
+</div> 
 
 ----------
 */

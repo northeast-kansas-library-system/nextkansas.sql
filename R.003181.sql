@@ -22,16 +22,16 @@ Expiry: 300
 
 ----------
 
- 
-Gives a circulation count by title and item type
-Shows items checkedout in the previous calendar month
-at the library you specify
-grouped and sorted by library, year, month, itemtype and title
-
-Notes:
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Gives a circulation count by title and item type</p>
+<ul><li>Shows items checkedout in the previous calendar month</li>
+<li>at the library you specify</li>
+<li>grouped and sorted by library, year, month, itemtype and title</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3181&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

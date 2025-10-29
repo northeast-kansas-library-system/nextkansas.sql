@@ -22,11 +22,11 @@ Expiry: 300
 
 ----------
 
- 
-Part 4 of the patron purge process - part 4 - change extended attribute to 4 ("Account expired for more than 3 years - can't be auto-deleted due to problems with the account ")
-
-#PP04 #patron_purge
-
+<div class="reportinfo noprint"> 
+<p>Part 4 of the patron purge process - part 4 - change extended attribute to 4 ("Account expired for more than 3 years - can't be auto-deleted due to problems with the account ")</p>
+<p></p>
+<p class= "notetags" style="display: none;">#PP04 #patron_purge</p>
+</div>
 
 ----------
 */

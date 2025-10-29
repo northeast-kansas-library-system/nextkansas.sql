@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
- 
-  Outputs label layout and template data to a spreadsheet as a backup
-  
-    Outputs current label data as of the time the report is run
-    for all Next libraries
-    grouped by creator_layouts.layout_id and creator_templates.template_id
-    sorted by file name
-  
-  
-  #backup
-  
-
+<div class="reportinfo noprint"> 
+  <p>Outputs label layout and template data to a spreadsheet as a backup</p>
+  <ul>
+    <li>Outputs current label data as of the time the report is run</li>
+    <li>for all Next libraries</li>
+    <li>grouped by creator_layouts.layout_id and creator_templates.template_id</li>
+    <li>sorted by file name</li>
+  </ul><br />
+  <p></p>
+  <p class= "notetags" style="display: none;">#backup</p>
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div>
 
 ----------
 */

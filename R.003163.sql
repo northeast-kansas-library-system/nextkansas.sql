@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
- 
-Shows number of login attempts on a specific account.
-Shows current data
-for the library card number you specify
-grouped by library card number
-sorted by patron's last name and card number
-
-Notes:
-
-For the full instruction sheet for unlocking a patron's account after it has been locked due to too many login attempts, click here
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Shows number of login attempts on a specific account.</p>
+<ul><li>Shows current data</li>
+<li>for the library card number you specify</li>
+<li>grouped by library card number</li>
+<li>sorted by patron's last name and card number</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>For the full instruction sheet for unlocking a patron's account after it has been locked due to too many login attempts, <a href="http://guides.nekls.org/assets/users/_gwilliams/account.lockout.pdf" target="_blank">click here</a></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3163&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 
 ----------

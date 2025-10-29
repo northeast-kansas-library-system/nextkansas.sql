@@ -22,17 +22,17 @@ Expiry: 300
 
 ----------
 
- 
-Counts delay in days between a request's waiting date and the date the request is cancelled
-Only shows requests that were cancelled in the previous calendar month
-at the library you specify
-grouped and sorted by the library name and the number of days
-
-Notes:
-
-This report will only requests that were waiting for pickup - if the request is cancelled before the item makes it to the hold shelf, it will not be counted.
-
-
+<div class="reportinfo noprint"> 
+<p>Counts delay in days between a request's waiting date and the date the request is cancelled</p>
+<ul><li>Only shows requests that were cancelled in the previous calendar month</li>
+<li>at the library you specify</li>
+<li>grouped and sorted by the library name and the number of days</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>This report will only requests that were waiting for pickup - if the request is cancelled before the item makes it to the hold shelf, it will not be counted.</p>
+<p></p>
+</div>
 
 ----------
 */

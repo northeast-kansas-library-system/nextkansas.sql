@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
- 
-List of transactions at the circulation desk at the library you specify
-Shows transactions on the date you specify
-shows transactions that occurred at the library you specify
-grouped and sorted by library, time the transaction occurred, and the item number
-
-Notes:
-
-This report cannot be used to show any transactions more than 25 months old.
-Shelving location information was not stored in the transaction logs until we upgraded to Koha 17.11 on 2018.07.28.
-
-Report changed to show item permanent location in addition to current location at time of circulation.
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>List of transactions at the circulation desk at the library you specify</p>
+<ul><li>Shows transactions on the date you specify</li>
+<li>shows transactions that occurred at the library you specify</li>
+<li>grouped and sorted by library, time the transaction occurred, and the item number</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>This report cannot be used to show any transactions more than 25 months old.</p>
+<p>Shelving location information was not stored in the transaction logs until we upgraded to Koha 17.11 on 2018.07.28.</p>
+<p></p>
+<p class="updated">Report changed to show item permanent location in addition to current location at time of circulation.</p>
+<p></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3125&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

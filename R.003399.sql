@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
- 
-Counts borrowers at a library by age (in years)
-Counts current borrowers
-where the borrowers home library matches the library you specify and the borrower category matches the category you select
-grouped and sorted by borrowers home branch, borrowers category, and age
-
-Notes:
-
-Counts in the "BLANK_OR_BAD_CODE" column represent borrowers where the gender radio button on their account is either not set, or is set to a data code that is no longer in use.
-
-
-Replaces report 1081 and 2443
-borrower count age
-
+<div class="reportinfo noprint"> 
+<p>Counts borrowers at a library by age (in years)</p>
+<ul><li>Counts current borrowers</li>
+<li>where the borrowers home library matches the library you specify and the borrower category matches the category you select</li>
+<li>grouped and sorted by borrowers home branch, borrowers category, and age</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Counts in the "BLANK_OR_BAD_CODE" column represent borrowers where the gender radio button on their account is either not set, or is set to a data code that is no longer in use.</p>
+<p></p>
+<p></p>
+<p>Replaces report 1081 and 2443</p>
+<p class= "notetags" style="display: none;">borrower count age</p>
+</div>
 
 ----------
 */

@@ -22,18 +22,18 @@ Expiry: 0
 
 ----------
 
- 
-Generates a list of all bibliographic records with more than 20 requests
-Shows current data
-Shows records from all NExpress libraries
-grouped by biblionumber
-sorted by item count (biggest first) and biblionumber (smallest first)
-contains links to the bibliographic record
-
-Notes:
-This report was created to help NExpress libraries identify all titles with more than 20 requests because the previous report (Report 1152) established to fill this role was limited to show only the 20 items with the greatest number of requests.
-Report created by GHW
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of all bibliographic records with more than 20 requests</p>
+<ul><li>Shows current data</li>
+<li>Shows records from all NExpress libraries</li>
+<li>grouped by biblionumber</li>
+<li>sorted by item count (biggest first) and biblionumber (smallest first)</li>
+<li>contains links to the bibliographic record</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p>This report was created to help NExpress libraries identify all titles with more than 20 requests because the previous report (<a href="https://staff.nexpresslibrary.org/cgi-bin/koha/reports/guided_reports.pl?reports=1152&phase=Run%20this%20report" target="_blank">Report 1152</a>) established to fill this role was limited to show only the 20 items with the greatest number of requests.</p>
+<p>Report created by GHW</p>
+</div>
 
 
 ----------

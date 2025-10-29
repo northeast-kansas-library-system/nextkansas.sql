@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
- 
-Counts checkins based on flexible date settings
-Counts checkins based on the date parameters you set
-at the library you choose
-grouped and sorted by checkin branch and date of checkin
-
-Notes:
-
-This report replaces reports 2404, 2405, 2406, 2407, 2408, 2409, 2410
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Counts checkins based on flexible date settings</p>
+<ul><li>Counts checkins based on the date parameters you set</li>
+<li>at the library you choose</li>
+<li>grouped and sorted by checkin branch and date of checkin</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>This report replaces reports 2404, 2405, 2406, 2407, 2408, 2409, 2410</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3029&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

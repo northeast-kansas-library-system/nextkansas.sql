@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
- 
-  Simple list of all current shelving locations
-  
-    Shows current locations
-    system-wide
-    grouped by code
-    sorted by location
-    links
-  
-  Notes:
-  
-  
-  #neststeps #locations
-  
-
+<div class="reportinfo noprint"> 
+  <p>Simple list of all current shelving locations</p>
+  <ul>
+    <li>Shows current locations</li>
+    <li>system-wide</li>
+    <li>grouped by code</li>
+    <li>sorted by location</li>
+    <li>links</li>
+  </ul><br />
+  <p><ins>Notes:</ins></p>
+  <p></p>
+  <p></p>
+  <p class= "notetags" style="display: none;">#neststeps #locations</p>
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div>
 
 ----------
 */

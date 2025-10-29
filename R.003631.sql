@@ -22,56 +22,56 @@ Expiry: 300
 
 ----------
 
+<div class="reportInfo noprint" id="reportinfo"> 
  
+  <div class="reportInfoContent"> 
  
-   
+    <p>Gives a count of items received from transfers</p> 
  
-    Gives a count of items received from transfers 
+    <ul> 
+      <li>received during the date range you specify</li> 
+      <li>received at the library you specify</li> 
+      <li>grouped by receiving library, date and time arrived, date arrived, and date range</li> 
+      <li>sorted by receiving library, date and time arrived</li> 
+    </ul> 
  
-     
-      received during the date range you specify 
-      received at the library you specify 
-      grouped by receiving library, date and time arrived, date arrived, and date range 
-      sorted by receiving library, date and time arrived 
-     
+  </div> 
  
-   
+  <div class="reportInfoNotes"> 
  
-   
+    <p> 
  
-     
+    </p> 
  
-     
- 
-     
+    <p> 
 
-     
+    </p> 
  
-     
+    <p> 
  
-     
+    </p> 
  
-   
+  </div> 
  
-   
+  <div id="reportInfoLinks"> 
  
-    
+    <!-- Can't be linked because the report requires runtime parameters -->
  
-   
+  </div> 
  
-   
+  <div id="reportInfoTags"> 
  
-     
+    <p style="display: none;"> 
       #transfers
       #received
       #count of items
-     
+    </p> 
  
-   
+  </div> 
  
-   
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
  
- 
+</div> 
 
 ----------
 */

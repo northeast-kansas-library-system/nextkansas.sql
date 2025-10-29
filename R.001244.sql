@@ -22,7 +22,7 @@ Expiry: 0
 
 ----------
 
-Enhanced. Choose Run --&gt; 1) Enter the date you want to count + % (ex. 2011-11-16%). 2) Choose your branch.  #circ
+Enhanced. Choose Run --> 1) Enter the date you want to count + % (ex. 2011-11-16%). 2) Choose your branch.  #circ
 
 ----------
 */

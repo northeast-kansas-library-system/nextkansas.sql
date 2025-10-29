@@ -22,47 +22,47 @@ Expiry: 300
 
 ----------
 
- 
-Verbose listing of circulation/fees/request rules regarding circulation and renewal rules
-Shows the current rules
-at the library you specify
-grouped and sorted by rule branchcode, borrower category, and item type
+<div class="reportinfo noprint"> 
+<p>Verbose listing of circulation/fees/request rules regarding circulation and renewal rules</p>
+<ul><li>Shows the current rules</li>
+<li>at the library you specify</li>
+<li>grouped and sorted by rule branchcode, borrower category, and item type</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Rules are applied from most specific to least specific and the rules in this report are set to display from most specific to least specific.  The higher a rule is in the results of this report, the higher its priority.</p>
+<p></p>
+<p>Rules regarding circulation are applied based on the library where the items are being checked out.  If an item is shipped from SENECA to OTTAWA to fill a request, it will follow the check-out and renewal rules at OTTAWA when it is checked out at OTTAWA.<br />(Based on the CircControl system preference - 2021.03.10)</p></p></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3486&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p class= "notetags" style="display: none;">rules, circulation</p>
 
-Notes:
+<div style="display: none;">
+<ul>
+<li>Branchcode</li>
+<li>Patron category</li>
+<li>Item type</li>
+<li>Note</li>
+<li></li>
+<li>Current checkouts allowed</li>
+<li>Current on-site checkouts allowed</li>
+<li>Loan period</li>
+<li>Days mode</li>
+<li>Unit</li>
+<li>Hard due date - comparison</li>
+<li>Hard due date - date</li>
+<li>Decreased loan period for high holds (day)</li>
+<li>Renewals allowed (count)</li>
+<li>Renewal period</li>
+<li>No renewal before</li>
+<li>No automatic renewal before</li>
+<li>Automatic renewal</li>
+<li>No automatic renewal after</li>
+<li>No automatic renewal after (hard limit)</li>
+</ul>
+</div>
 
-Rules are applied from most specific to least specific and the rules in this report are set to display from most specific to least specific.  The higher a rule is in the results of this report, the higher its priority.
-
-Rules regarding circulation are applied based on the library where the items are being checked out.  If an item is shipped from SENECA to OTTAWA to fill a request, it will follow the check-out and renewal rules at OTTAWA when it is checked out at OTTAWA.(Based on the CircControl system preference - 2021.03.10)
-
-Click here to run in a new window
-rules, circulation
-
-
-
-Branchcode
-Patron category
-Item type
-Note
-
-Current checkouts allowed
-Current on-site checkouts allowed
-Loan period
-Days mode
-Unit
-Hard due date - comparison
-Hard due date - date
-Decreased loan period for high holds (day)
-Renewals allowed (count)
-Renewal period
-No renewal before
-No automatic renewal before
-Automatic renewal
-No automatic renewal after
-No automatic renewal after (hard limit)
-
-
-
-
+</div>
 
 ----------
 */

@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
- 
-Generates a count of patrons with extended attributes at your library
-Counts current patrons with attributes
-at the library you specify
-allows you to specify a minimum patron count for displaying an attribute count (i.e. only show attributes assigned to at least X patrons)
-grouped and sorted by patron home branch, attribute category, and attribute
-contains links to report 3235 which will list all of the patrons at your library with the attribute specified
-
-Notes:
-
-Patrons can have multiple extended attributes on their accounts.  Similarly, patrons may not have any extended attributes on their accounts.  A total count of patrons from all of the rows of this report will not indicate an accurate count of total patrons at your library.
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a count of patrons with extended attributes at your library</p>
+<ul><li>Counts current patrons with attributes</li>
+<li>at the library you specify</li>
+<li>allows you to specify a minimum patron count for displaying an attribute count (i.e. only show attributes assigned to at least X patrons)</li>
+<li>grouped and sorted by patron home branch, attribute category, and attribute</li>
+<li>contains links to report 3235 which will list all of the patrons at your library with the attribute specified</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Patrons can have multiple extended attributes on their accounts.  Similarly, patrons may not have any extended attributes on their accounts.  A total count of patrons from all of the rows of this report will not indicate an accurate count of total patrons at your library.</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3234&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

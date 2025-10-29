@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
- 
-Attempts to discern which libraries are using a specified card prefix
-reports on current cards in NExpress
-shows a count of how many cards with the specified prefix exist at all NExpress libraries
-grouped and sorted by patron home library
-
-Notes:
-Report 2771 is the companion to this report
-Report created at the request of Robin Hastings.
-Report created by George Williams.
-
+<div class="reportinfo noprint"> 
+<p>Attempts to discern which libraries are using a specified card prefix</p>
+<ul><li>reports on current cards in NExpress</li>
+<li>shows a count of how many cards with the specified prefix exist at all NExpress libraries</li>
+<li>grouped and sorted by patron home library</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p>Report 2771 is the companion to this report</p>
+<p>Report created at the request of Robin Hastings.</p>
+<p>Report created by George Williams.</p>
+</div>
 
 ----------
 */

@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
- 
-Shows information on items that have been deleted and are still in the deleteditems table
-Shows information on items that are in the deleteditems table
-Shows information for the barcode number you specify (wildcards are OK)
-grouped by itemnumber
-sorted by item information
-
-Notes:
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Shows information on items that have been deleted and are still in the deleteditems table</p>
+<ul><li>Shows information on items that are in the deleteditems table</li>
+<li>Shows information for the barcode number you specify (wildcards are OK)</li>
+<li>grouped by itemnumber</li>
+<li>sorted by item information</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2927&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

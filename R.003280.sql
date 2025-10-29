@@ -22,17 +22,17 @@ Expiry: 300
 
 ----------
 
- 
-Counts borrowers by homebranch and city/state
-counts patrons currently in the system
-at the library you specify, at the group of libraries you specify, or at all libraries
-grouped by borrower home library, borrower city, and borrower state
-sorted by home library, city, and state
-
-Notes:
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Counts borrowers by homebranch and city/state</p>
+<ul><li>counts patrons currently in the system</li>
+<li>at the library you specify, at the group of libraries you specify, or at all libraries</li>
+<li>grouped by borrower home library, borrower city, and borrower state</li>
+<li>sorted by home library, city, and state</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3280&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

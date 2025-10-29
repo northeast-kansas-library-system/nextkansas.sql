@@ -22,23 +22,23 @@ Expiry: 0
 
 ----------
 
- 
-Generates a list of items based on their status
-Shows items currently in the system
-At the library you specify
-grouped and sorted by the normal Next Search Catalog classification scheme
-contains links to the item's bibliographic record
-
-Notes:
-
-Replaces the following reports:
-
-1420 - Items with a Lost Status
-
-
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of items based on their status</p>
+<ul><li>Shows items currently in the system</li>
+<li>At the library you specify</li>
+<li>grouped and sorted by the normal Next Search Catalog classification scheme</li>
+<li>contains links to the item's bibliographic record</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Replaces the following reports:</p>
+<ul>
+<li>1420 - Items with a Lost Status</li>
+</ul>
+</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2915&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 
 ----------

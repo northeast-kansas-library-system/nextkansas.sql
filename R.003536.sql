@@ -22,16 +22,16 @@ Expiry: 300
 
 ----------
 
- 
-Creates the Template Toolkit code for inserting a library phone number into a notice for the borrower's home library (in cases where the home library is needed rather than the library that's sending the e-mail notice)
-Creates code based on current library information in Koha
-
-Notes:
-
-Generates code for Template Toolkit use.
-
-#TT #templatetoolkit
-
+<div class="reportinfo noprint"> 
+<p>Creates the Template Toolkit code for inserting a library phone number into a notice for the borrower's home library (in cases where the home library is needed rather than the library that's sending the e-mail notice)</p>
+<ul><li>Creates code based on current library information in Koha</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Generates code for Template Toolkit use.</p>
+<p></p>
+<p class= "notetags" style="display: none;">#TT #templatetoolkit</p>
+</div>
 
 ----------
 */

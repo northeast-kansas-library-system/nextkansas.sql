@@ -24,11 +24,11 @@ Expiry: 0
 
 Enhanced - Pick your Branch, run and get a list of items checked out at your branch that belonged to another library.  Useful for Collection DEVELOPMENT.   
 
-Has potential
+<p><span style="background-color: green; color: white">Has potential</p>
 
-virtually line by line identical to report 684 - merge two to make one report
+<p><span style="background-color: darkred; color: white">virtually line by line identical to report 684 - merge two to make one report</p>
 
-group/sort/organize by classification order / link to deleteditsms/biblios
+<p>group/sort/organize by classification order / link to deleteditsms/biblios</p>
 
 ----------
 */

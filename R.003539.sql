@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
- 
-Borrower statistics - borrower counts by category 
-during the previous calendar month 
-at all system libraries 
-grouped and sorted by borrower home library and borrower category 
- 
-Notes: 
- 
-This report and these notes updated on 2022.03.10 
- 
-Click here to download as a csv file 
-#monthly #statistics #borrower #statistics #category 
- 
- 
+<div class="reportinfo noprint"> 
+<p>Borrower statistics - borrower counts by category</p> 
+<ul><li>during the previous calendar month</li> 
+<li>at all system libraries</li> 
+<li>grouped and sorted by borrower home library and borrower category</li> 
+</ul><br /> 
+<p><ins>Notes:</ins></p> 
+<p></p> 
+<p class="updated">This report and these notes updated on 2022.03.10</p> 
+<p></p> 
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id= 3539">Click here to download as a csv file</a></p> 
+<p class= "notetags" style="display: none;">#monthly #statistics #borrower #statistics #category</p> 
+<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
+</div> 
 
 ----------
 */

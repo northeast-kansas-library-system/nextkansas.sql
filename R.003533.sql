@@ -22,27 +22,27 @@ Expiry: 300
 
 ----------
 
- 
-Item count by item type
-Counts items currently in the collection
-At the library you specify - and/or - with the item type you specify
-grouped and sorted by library name and item type
-links to report 2731 to generate a shelflist for the items being counted
-
-Notes:
-
-Non-standard shelving locations are counted as "Adult" locations.
-Items with blank item types are counted as "(Unclassified)."
-
-Replaces all other item count by item type reports.
-
-  1124 - Collection size by Item Type
-  1179 - Entire Collection Size by IType
-  1413 - Collection Size by Item Type & Location (per branch)
-  1811 - Itemtypes in use at Prairie Hills Schools
-
-#ultimate #itemcount #itype #itemtype item count type
-
+<div class="reportinfo noprint"> 
+<p>Item count by item type</p>
+<ul><li>Counts items currently in the collection</li>
+<li>At the library you specify - and/or - with the item type you specify</li>
+<li>grouped and sorted by library name and item type</li>
+<li>links to report 2731 to generate a shelflist for the items being counted</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Non-standard shelving locations are counted as "Adult" locations.</p>
+<p>Items with blank item types are counted as "(Unclassified)."</p>
+<p></p>
+<p><strong>Replaces all other item count by item type reports.</strong></p>
+<ul>
+  <li>1124 - Collection size by Item Type</li>
+  <li>1179 - Entire Collection Size by IType</li>
+  <li>1413 - Collection Size by Item Type & Location (per branch)</li>
+  <li>1811 - Itemtypes in use at Prairie Hills Schools</li>
+</ul>
+<p class= "notetags" style="display: none;">#ultimate #itemcount #itype #itemtype item count type</p>
+</div>
 
 ----------
 */

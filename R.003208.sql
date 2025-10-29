@@ -22,26 +22,26 @@ Expiry: 300
 
 ----------
 
- 
-Creates borrower address report for use in Policy Map
-Shows current patron addresses
-at the library you select
-grouped by borrowernumber
-sorted by address
-
-Notes:
-
-
-  Patrons with an un-mappable address (PO Box, no address, no city, no state) will not appear in the results
-  Patron data may not map correctly if parts of the address are spelled incorrectly
-  YEAR_LASTSEEN is the year from the last_updated field in the borrowers table - this data has only been available since June of 2019, so it will not start being reliable or valuable until June of 2020
-  YEAR_LASTSEEN is updated whenever the patron account is used for checking out materials, renewing materials,  or logging into a SIP enabled system (such as Hoopla, PC Reservation, Libki, or Cybrarian - to name a few)
-  STATUS = Active means that the patron has checked out or renewed materials within the previous 12 months
-  STATUS = Inactive means that the patron has not checked out or renewed any materials in the previous 12 months
-
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Creates borrower address report for use in Policy Map</p>
+<ul><li>Shows current patron addresses</li>
+<li>at the library you select</li>
+<li>grouped by borrowernumber</li>
+<li>sorted by address</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<ul>
+  <li>Patrons with an un-mappable address (PO Box, no address, no city, no state) will not appear in the results</li>
+  <li>Patron data may not map correctly if parts of the address are spelled incorrectly</li>
+  <li>YEAR_LASTSEEN is the year from the last_updated field in the borrowers table - this data has only been available since June of 2019, so it will not start being reliable or valuable until June of 2020</li>
+  <li>YEAR_LASTSEEN is updated whenever the patron account is used for checking out materials, renewing materials,  or logging into a SIP enabled system (such as Hoopla, PC Reservation, Libki, or Cybrarian - to name a few)</li>
+  <li>STATUS = Active means that the patron has checked out or renewed materials within the previous 12 months</li>
+  <li>STATUS = Inactive means that the patron has not checked out or renewed any materials in the previous 12 months</li>
+</ul>
+<p></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3208&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

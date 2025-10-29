@@ -22,22 +22,22 @@ Expiry: 300
 
 ----------
 
- 
-Lists borrower accounts that have been expired for more than 730.5 days (2 years) and includes any account expiration flags
-Shows accounts that are currently expired
-at the home library you specify
-grouped by borrowernumber
-sorted by expiration, borrower home library, and borrower number
-links to the borrower account
-
-Notes:
-
-Replaces report 2495
-
-Does not include STAFF, Hoopla, or SIP accounts.
-
-#expired borrowers
-
+<div class="reportinfo noprint"> 
+<p>Lists borrower accounts that have been expired for more than 730.5 days (2 years) and includes any account expiration flags</p>
+<ul><li>Shows accounts that are currently expired</li>
+<li>at the home library you specify</li>
+<li>grouped by borrowernumber</li>
+<li>sorted by expiration, borrower home library, and borrower number</li>
+<li>links to the borrower account</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Replaces report 2495</p>
+<p></p>
+<p>Does not include STAFF, Hoopla, or SIP accounts.</p>
+<p></p>
+<p class= "notetags" style="display: none;">#expired borrowers</p>
+</div>
 
 ----------
 */

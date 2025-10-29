@@ -22,28 +22,28 @@ Expiry: 300
 
 ----------
 
- 
-Circulation by borrower details - checkouts and renewals by check-out library and zipcode 
-during the previous calendar month 
-at all system libraries 
-grouped and sorted by checkout-library and borrower zipcode 
- 
-Notes: 
- 
- 
-  Zip codes on borrower records are only as accurate as the staff members who entered those zip codes into the borrower records.  There are hundreds of incorrect and non-standard zip codes in the borrower data. 
-  All zip codes are trimmed to 5 digits  
-  If BORROWER_ZIPCODE = "-" that means there are less than 25 borrowers with that zip code system-widein order to protect borrower privacy, if there are fewer than 25 borrowers in a zip code, that zip code will be hidden. 
-  If BORROWER_ZIPCODE = "0" that means that the zipdcode that has been left blank, that zipcode contains nothing but spaces, or that zipcode is set to zero 
- 
- 
-This report and these notes updated on 2022-03-10 
-This report and these notes updated on 2022-02-09 
- 
-Click here to download as a csv file 
-#monthly #statistics #borrower #details #zipcode #circulation_by_borrower_details 
- 
- 
+<div class="reportinfo noprint"> 
+<p>Circulation by borrower details - checkouts and renewals by check-out library and zipcode</p> 
+<ul><li>during the previous calendar month</li> 
+<li>at all system libraries</li> 
+<li>grouped and sorted by checkout-library and borrower zipcode</li> 
+</ul><br /> 
+<p><ins>Notes:</ins></p> 
+<p></p> 
+<ul> 
+  <li>Zip codes on borrower records are only as accurate as the staff members who entered those zip codes into the borrower records.  There are hundreds of incorrect and non-standard zip codes in the borrower data.</li> 
+  <li>All zip codes are trimmed to 5 digits</li>  
+  <li>If BORROWER_ZIPCODE = "-" that means there are less than 25 borrowers with that zip code system-wide<br />in order to protect borrower privacy, if there are fewer than 25 borrowers in a zip code, that zip code will be hidden.</li> 
+  <li>If BORROWER_ZIPCODE = "0" that means that the zipdcode that has been left blank, that zipcode contains nothing but spaces, or that zipcode is set to zero</li> 
+</ul> 
+<p></p> 
+<p class="updated">This report and these notes updated on 2022-03-10</p> 
+<p class="updated">This report and these notes updated on 2022-02-09</p> 
+<p></p> 
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id= 3505">Click here to download as a csv file</a></p> 
+<p class= "notetags" style="display: none;">#monthly #statistics #borrower #details #zipcode #circulation_by_borrower_details</p> 
+<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
+</div> 
 
 ----------
 */

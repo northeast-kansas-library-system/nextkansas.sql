@@ -22,16 +22,16 @@ Expiry: 300
 
 ----------
 
- 
-Generates a list of SMS providers in the system
-Lists current providers plus the domain name for e-mail to text services
-For all libraries in the system
-grouped and sorted by provider name
-
-Notes:
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of SMS providers in the system</p>
+<ul><li>Lists current providers plus the domain name for e-mail to text services</li>
+<li>For all libraries in the system</li>
+<li>grouped and sorted by provider name</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3010&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

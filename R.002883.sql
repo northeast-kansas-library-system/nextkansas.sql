@@ -22,15 +22,15 @@ Expiry: 0
 
 ----------
 
- 
-Lists information about deleted items
-Shows information on items that have data in the deleteditems table
-Shows information for the single barcode number you specify
-grouped by item barcode
-If there is still an active bibliographic record for the title, a link will appear to that record
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Lists information about deleted items</p>
+<ul><li>Shows information on items that have data in the deleteditems table</li>
+<li>Shows information for the single barcode number you specify</li>
+<li>grouped by item barcode</li>
+<li>If there is still an active bibliographic record for the title, a link will appear to that record</li>
+</ul><br />
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2883&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

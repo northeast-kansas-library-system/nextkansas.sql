@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
- 
-Generates a list of patrons with contact information based on their "Account expired" attributes
-Shows current patrons
-with the home library and account expired attribute you specify
-grouped by borrower number and attribute
-sorted by patron last name/patron first name
-contains links to the patron's account
-
-Notes:
-
-This report can be used to determine which patrons at your library have a account expired attribute set.
-
-#PP05 #patron_purge #expired #borrowers
-
+<div class="reportinfo noprint"> 
+<p>Generates a list of patrons with contact information based on their "Account expired" attributes</p>
+<ul><li>Shows current patrons</li>
+<li>with the home library and account expired attribute you specify</li>
+<li>grouped by borrower number and attribute</li>
+<li>sorted by patron last name/patron first name</li>
+<li>contains links to the patron's account</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>This report can be used to determine which patrons at your library have a account expired attribute set.</p>
+<p></p>
+<p class= "notetags" style="display: none;">#PP05 #patron_purge #expired #borrowers</p>
+</div>
 
 ----------
 */

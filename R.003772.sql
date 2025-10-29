@@ -22,61 +22,61 @@ Expiry: 300
 
 ----------
 
+<div class="reportinfo noprint"> 
  
+  <div class="reportInfoContent"> 
  
-   
+    <p>Lists bibliographic records</p> 
  
-    Lists bibliographic records 
+    <ul> 
+      <li>created during the date range you specify</li> 
+      <li>by staff at the library you specify</li> 
+      <li>grouped by biblio number and action logs ID</li> 
+      <li>sorted by:
+      <ol>
+        <li>the library that created the record</li>
+        <li>bibliographic shelving location (942$c)</li>
+        <li>bibliographic item type (942$e)</li>
+        <li>bibliographic collection code (942$h)</li>
+      </ol>
+    </li>
+    <li>links to the bibliographic record</li>
+    </ul> 
  
-     
-      created during the date range you specify 
-      by staff at the library you specify 
-      grouped by biblio number and action logs ID 
-      sorted by:
-      
-        the library that created the record
-        bibliographic shelving location (942$c)
-        bibliographic item type (942$e)
-        bibliographic collection code (942$h)
-      
-    
-    links to the bibliographic record
-     
+  </div> 
  
-   
+  <div class="reportInfoNotes"> 
  
-   
+    <p> 
  
-     
+    </p> 
  
-     
- 
-     
+    <p> 
       If a bibliographic record is created and then deleted in the period specified, you will be unable to link to the record.
-     
+    </p> 
  
-     
+    <p> 
  
-     
+    </p> 
  
-   
+  </div> 
  
-   
+  <div id="reportInfoLinks"> 
  
-   
+  </div> 
  
-   
+  <div id="reportInfoTags"> 
  
-     
+    <p style="display: none;"> 
       #bibliographic record 
       #by library 
-     
+    </p> 
  
-   
+  </div> 
  
-   
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
  
- 
+</div> 
 
 ----------
 */

@@ -23,22 +23,22 @@ Expiry: 0
 ----------
 
 notes
-"&lt;div class=""reportinfo noprint""&gt; 
-&lt;p&gt;Counts circulation (checkouts + renewals) on items checked out between the beginning of the day on DATE1 and the end of the day on DATE2 and groups them by shelving location&lt;/p&gt;
-&lt;ul&gt;&lt;li&gt;Shows items checked out or renewed between two specified dates (between 12:00 a.m. on DATE1 and 11:59 p.m. on DATE2&lt;/li&gt;
-&lt;li&gt;shows items checked out at the specified library&lt;/li&gt;
-&lt;li&gt;grouped by item check-out branch&lt;/li&gt;
-&lt;li&gt;sorted by item check-out branch and shelving location&lt;/li&gt;
-&lt;/ul&gt;&lt;br /&gt;
-&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
-&lt;p class=""updated""&gt;SHELVING_LOCATION is based on the shelving location of the item at the time it was checked out *Unless the item had a ""Recently returned"" shelving location.*  This report falls back to the items' ""Permanent shelving location"" whenever the statistics data shows that the item's shelving location was ""Recently returned.""&lt;/p&gt;
-&lt;p&gt;Report created by GHW at the request of LEAVENWRTH so they could track circulation of items on display.&lt;/p&gt;
-&lt;p&gt;Items without a shelving location will be recorded as having a shelving location of ""Adult.""&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p class=""updated""&gt;Updated on 2021.10.20 to include changes based on the ""Recently returned"" shelving location.&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;
-&lt;p class= ""notetags"" style=""display: none;""&gt;#statistics #circulation #permanent_location&lt;/p&gt;
-&lt;/div&gt;"
+"<div class=""reportinfo noprint""> 
+<p>Counts circulation (checkouts + renewals) on items checked out between the beginning of the day on DATE1 and the end of the day on DATE2 and groups them by shelving location</p>
+<ul><li>Shows items checked out or renewed between two specified dates (between 12:00 a.m. on DATE1 and 11:59 p.m. on DATE2</li>
+<li>shows items checked out at the specified library</li>
+<li>grouped by item check-out branch</li>
+<li>sorted by item check-out branch and shelving location</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p class=""updated"">SHELVING_LOCATION is based on the shelving location of the item at the time it was checked out *Unless the item had a ""Recently returned"" shelving location.*  This report falls back to the items' ""Permanent shelving location"" whenever the statistics data shows that the item's shelving location was ""Recently returned.""</p>
+<p>Report created by GHW at the request of LEAVENWRTH so they could track circulation of items on display.</p>
+<p>Items without a shelving location will be recorded as having a shelving location of ""Adult.""</p>
+<p></p>
+<p class=""updated"">Updated on 2021.10.20 to include changes based on the ""Recently returned"" shelving location.</p>
+<p></p>
+<p class= ""notetags"" style=""display: none;"">#statistics #circulation #permanent_location</p>
+</div>"
 
 ----------
 */

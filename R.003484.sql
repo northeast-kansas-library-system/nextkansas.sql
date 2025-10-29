@@ -22,24 +22,24 @@ Expiry: 300
 
 ----------
 
- 
-Shows turnover rate by location and collection code
-in the previous 12 months
-at the library you specify
-grouped by library, location, and collection code
-sorted by library, location, and collection code with an "All locations" and "All collection codes" grouping at the top of the results
-
-Notes:
-
-Developed for "Collection development 2.0" workshop
-
-Please note that these calculations include all items checked out at your library regardless of which library owned the item.  If, for example, your library doesn't own any items with a "VG-Nintendo 3DS" collection code but one from another library was checked out at your library to fill a request, that item will be counted in these calculations.
-
-"CURRENT_ITEM_COUNT" is based on an item's collection code at the time the report was run.  "CKO_RENEW_COUNT" is based on an item's collection code at the time it was checked out.  It an item's collection code changes between the time it was checked out and the time this report is run, the results will be skewed.  This can be particularly true with temporary items such as ILL items.
-
-Click here to run in a new window
-statistics, turnover, previous 12 months
-
+<div class="reportinfo noprint"> 
+<p>Shows turnover rate by location and collection code</p>
+<ul><li>in the previous 12 months</li>
+<li>at the library you specify</li>
+<li>grouped by library, location, and collection code</li>
+<li>sorted by library, location, and collection code with an "All locations" and "All collection codes" grouping at the top of the results</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Developed for "Collection development 2.0" workshop</p>
+<p></p>
+<p>Please note that these calculations include all items checked out at your library regardless of which library owned the item.  If, for example, your library doesn't own any items with a "VG-Nintendo 3DS" collection code but one from another library was checked out at your library to fill a request, that item will be counted in these calculations.</p>
+<p></p>
+<p>"CURRENT_ITEM_COUNT" is based on an item's collection code at the time the report was run.  "CKO_RENEW_COUNT" is based on an item's collection code at the time it was checked out.  It an item's collection code changes between the time it was checked out and the time this report is run, the results will be skewed.  This can be particularly true with temporary items such as ILL items.</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3484&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p class= "notetags" style="display: none;">statistics, turnover, previous 12 months</p>
+</div>
 
 ----------
 */

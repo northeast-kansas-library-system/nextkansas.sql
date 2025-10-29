@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
- 
-Searches for phantom restrictions
-Searches for current instances where data exists in borrowers.debarred but there is no corresponding entry in borrower_debarments.
-grouped and sorted by borrowernumber
-
-Notes:
-
-Run once a week to identify borrowers with phantom restrictions.  Then use the batch patron editor to remove all restrictions from the accounts.
-
-Training on this report
-
-Click here to run in a new window
-borrowers restrictions
-
+<div class="reportinfo noprint"> 
+<p>Searches for phantom restrictions</p>
+<ul><li>Searches for current instances where data exists in borrowers.debarred but there is no corresponding entry in borrower_debarments.</li>
+<li>grouped and sorted by borrowernumber</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Run once a week to identify borrowers with phantom restrictions.  Then use the batch patron editor to remove all restrictions from the accounts.</p>
+<p></p>
+<p><a href="https://northeast-kansas-library-system.github.io/next/bugs/phantom_restrictions.html"   target="_blank">Training on this report</a></p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3482&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p class= "notetags" style="display: none;">borrowers restrictions</p>
+</div>
 
 ----------
 */

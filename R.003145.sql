@@ -22,16 +22,16 @@ Expiry: 300
 
 ----------
 
- 
-Adult patrons with lingering guarantor problems
-Shows patrons who still have guarantor information connected to their accounts even though they are now adults
-Shows patrons at all libraries
-
-Notes:
-
-Click here to run in a new window
-Click here to download as a csv file
-
+<div class="reportinfo noprint"> 
+<p>Adult patrons with lingering guarantor problems</p>
+<ul><li>Shows patrons who still have guarantor information connected to their accounts even though they are now adults</li>
+<li>Shows patrons at all libraries</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3145&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3145">Click here to download as a csv file</a></p>
+</div>
 
 ----------
 */

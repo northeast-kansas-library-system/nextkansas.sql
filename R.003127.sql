@@ -24,7 +24,7 @@ Expiry: 300
 
 zbrq
 
-Click here to download as a csv file
+<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3127">Click here to download as a csv file</a></p>
 
 ----------
 */

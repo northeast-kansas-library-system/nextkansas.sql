@@ -22,11 +22,11 @@ Expiry: 300
 
 ----------
 
- 
-Part 2 of the patron purge process - part 2 - change extended attribute to 2 ("Account expired for more than 2 years - cannot be deleted due to fines/fees/ouverdues/etc.")
-
-#PP02 #patron_purge
-
+<div class="reportinfo noprint"> 
+<p>Part 2 of the patron purge process - part 2 - change extended attribute to 2 ("Account expired for more than 2 years - cannot be deleted due to fines/fees/ouverdues/etc.")</p>
+<p></p>
+<p class= "notetags" style="display: none;">#PP02 #patron_purge</p>
+</div>
 
 ----------
 */

@@ -22,19 +22,19 @@ Expiry: 0
 
 ----------
 
- 
-Shows information on an item based on its barcode number
-shows current data on that item's record
-on any item in NExpress
-sorted by homebranch, shelving location, item type, collection code, call number, author, and title
-contains links to the bibliographic record of the item
-
-Notes:
-
-This report was created to help find items while we work through our indexing problems.
-The input field in this report can accept the standard SQL wildcard characters (%, _, [charlist], [^charlist], [!charlist]).
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Shows information on an item based on its barcode number</p>
+<ul><li>shows current data on that item's record</li>
+<li>on any item in NExpress</li>
+<li>sorted by homebranch, shelving location, item type, collection code, call number, author, and title</li>
+<li>contains links to the bibliographic record of the item</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>This report was created to help find items while we work through our indexing problems.</p>
+<p>The input field in this report can accept the standard SQL wildcard characters (%, _, [charlist], [^charlist], [!charlist]).</p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2826&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

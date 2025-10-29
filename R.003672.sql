@@ -22,22 +22,22 @@ Expiry: 300
 
 ----------
 
- 
-  Displays a list of items shipped during a specific date range that are still "in transit."
-  
-    Shows items that are still in transit during the date range you specify
-    at all Next libraries
-    grouped by biblio and item number
-    sorted in the standard Next Search Catalog classification order
-    links to the bibliographic record and a mailto link to contact all libraries involved in the transfer
-  
-  Notes:
-  
-  Designed to help libraries track items that are missing in transit.
-  
-  #transfers #missing_in_transit #courier
-  
-
+<div class="reportinfo noprint"> 
+  <p>Displays a list of items shipped during a specific date range that are still "in transit."</p>
+  <ul>
+    <li>Shows items that are still in transit during the date range you specify</li>
+    <li>at all Next libraries</li>
+    <li>grouped by biblio and item number</li>
+    <li>sorted in the standard Next Search Catalog classification order</li>
+    <li>links to the bibliographic record and a mailto link to contact all libraries involved in the transfer</li>
+  </ul><br />
+  <p><ins>Notes:</ins></p>
+  <p></p>
+  <p>Designed to help libraries track items that are missing in transit.</p>
+  <p></p>
+  <p class= "notetags" style="display: none;">#transfers #missing_in_transit #courier</p>
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div>
 
 ----------
 */

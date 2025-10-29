@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
- 
-Counts checkouts + renewals grouped by the patron's birth year
-Shows data from the date range you specify
-at the library you specify
-grouped and sorted by checkout branchcode and borrower's birth year
-
-Notes:
-
-Data from the statistics table is purged after 25 months so this report cannot generate reports for data more than 25 months old.  As with all statistical data, the best practice is to run the reports for the data you want within a month or two of the creation of that data and then to save that data as a spreadsheet.
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Counts checkouts + renewals grouped by the patron's birth year</p>
+<ul><li>Shows data from the date range you specify</li>
+<li>at the library you specify</li>
+<li>grouped and sorted by checkout branchcode and borrower's birth year</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Data from the statistics table is purged after 25 months so this report cannot generate reports for data more than 25 months old.  As with all statistical data, the best practice is to run the reports for the data you want within a month or two of the creation of that data and then to save that data as a spreadsheet.</p>
+<p></p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2979&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

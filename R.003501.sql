@@ -22,12 +22,12 @@ Expiry: 300
 
 ----------
 
-SHELVING_LOCATION is based on the shelving location of the item at the time it was checked out *Unless the item had a "Recently returned" shelving location.*  This report falls back to the items' "Permanent shelving location" whenever the statistics data shows that the item's shelving location was "Recently returned."
+<p class="updated">SHELVING_LOCATION is based on the shelving location of the item at the time it was checked out *Unless the item had a "Recently returned" shelving location.*  This report falls back to the items' "Permanent shelving location" whenever the statistics data shows that the item's shelving location was "Recently returned."</p>
 
-
-Updated on 2021.10.20 to include changes based on the "Recently returned" shelving location.
-Updated on 2021.12.03  to fix errors.
-
+<p></p>
+<p class="updated">Updated on 2021.10.20 to include changes based on the "Recently returned" shelving location.</p>
+<p class="updated">Updated on 2021.12.03  to fix errors.</p>
+<p></p>
 
 ----------
 */

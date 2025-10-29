@@ -22,19 +22,19 @@ Expiry: 0
 
 ----------
 
- 
-Attempts to discern which card number ranges are in use at a specified library
-reports on current cards in NExpress
-Shows card prefixes at a specified patron homebranchwith a specified number of prefix digitsand where there are more than a specified number of cards with that prefix
-grouped and sorted by patron home library and card number prefix
-click on links to see if other libraries are using this same prefix identified in the report (report 2773)
-
-Notes:
-Report 2773 is the companion to this report
-Report created at the request of Robin Hastings.
-Report created by George Williams.
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Attempts to discern which card number ranges are in use at a specified library</p>
+<ul><li>reports on current cards in NExpress</li>
+<li>Shows card prefixes at a specified patron homebranch<br />with a specified number of prefix digits<br />and where there are more than a specified number of cards with that prefix</li>
+<li>grouped and sorted by patron home library and card number prefix</li>
+<li>click on links to see if other libraries are using this same prefix identified in the report (report 2773)</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p>Report 2773 is the companion to this report</p>
+<p>Report created at the request of Robin Hastings.</p>
+<p>Report created by George Williams.</p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2771&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

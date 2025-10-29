@@ -22,11 +22,11 @@ Expiry: 0
 
 ----------
 
- 
+<div class="reportinfo noprint"> 
 
-This report has been replaced by report 3879
+<p><a  class="next_btn next_red noprint embigen5" href="/cgi-bin/koha/reports/guided_reports.pl?id=3879&op=run">This report has been replaced by report 3879</a></p>
 
-
+</div>
 
 ----------
 */

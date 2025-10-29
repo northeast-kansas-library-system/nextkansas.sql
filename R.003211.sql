@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
- 
-Items in a specific "Rotating collections" group for editing
-Shows all items in the group you specify
-grouped by collection id, biblionumber, and item number
-sorted by the standard Next classification pattern
-
-Notes:
-
-Once you no longer need a group, all items must be removed from the group before it can be deleted.  If you accidentally delete a group before removing the items from the group, contact Nexthelp@nekls.org for assistance.
-
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Items in a specific "Rotating collections" group for editing</p>
+<ul><li>Shows all items in the group you specify</li>
+<li>grouped by collection id, biblionumber, and item number</li>
+<li>sorted by the standard Next classification pattern</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Once you no longer need a group, all items must be removed from the group before it can be deleted.  If you accidentally delete a group before removing the items from the group, contact Nexthelp@nekls.org for assistance.</p>
+<p></p>
+<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3211&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

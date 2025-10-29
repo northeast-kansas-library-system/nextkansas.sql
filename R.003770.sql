@@ -22,66 +22,66 @@ Expiry: 300
 
 ----------
 
+<div class="reportinfo noprint"> 
  
+  <div class="reportInfoContent"> 
  
-   
+    <p>Counts bibliographic records</p> 
  
-    Counts bibliographic records 
+    <ul> 
+      <li>added in the previous calendar month</li> 
+      <li>at all Next Search Catalog libraries</li> 
+      <li>grouped and sorted by library where the bibliographic record was created and the current bibliographic level item type</li> 
+      <li>links</li> 
+    </ul> 
  
-     
-      added in the previous calendar month 
-      at all Next Search Catalog libraries 
-      grouped and sorted by library where the bibliographic record was created and the current bibliographic level item type 
-      links 
-     
+  </div> 
  
-   
+  <div class="reportInfoNotes"> 
  
-   
- 
-     
+    <p> 
       This report reflects the bibliographic shelving location, the bibliographic item type, and the bibliographic collection code at the time that the report was run.
-     
+    </p> 
 
-     
+    <p> 
       If a bibliographic record does not have an item type in the 942$e, that record will be counted as having an "(Unclassified)" item type.
-    
+    </p>
 
-     
+    <p> 
       If a bibliographic record does not have a shelving location in the 942$c, the count for that bibliographic record will appear in the "OTHER_OR_ALREADY_DELETED" column.
-    
+    </p>
 
-     
+    <p> 
       If a bibliographic record was added in the previous calendar month but has been deleted by the time the report is run, the count for that bibliographic record will appear in the "OTHER_OR_ALREADY_DELETED" column.
-     
+    </p> 
  
-   
+  </div> 
  
-   
+  <div id="reportInfoLinks"> 
  
-     
-       
+    <p id="sql_quick_down"> 
+      <a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3770"> 
         Click here to download as a csv file 
-       
-     
+      </a> 
+    </p> 
  
-   
+  </div> 
  
-   
+  <div id="reportInfoTags"> 
  
-     
+    <p style="display: none;"> 
       #statistics 
       #monthly statistics 
       #next statistics 
       #biblio count 
       #count by item type
-     
+    </p> 
  
-   
+  </div> 
  
-   
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
  
- 
+</div> 
 
 ----------
 */

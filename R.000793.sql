@@ -22,25 +22,25 @@ Expiry: 0
 
 ----------
 
- 
-Counts the number of items that were put in transit to fill requests at other libraries
-during the month you specify
-Based on the item's home library
-grouped by library and shipping or receiving date
-sorted by library name
-
-Notes:
-
-NX_ILL_LOANED_LM = the number of items owned by your library that were shipped "in transit" to another library during the month.
-NX_ILL_BORROWED_LM = the number of items not owned by your library that arrived "in transit" to your library during the month.
-This report does not take into account whether the item was actually checked out by a borrower - it only considers that the item was shipped from or to your library.
-Replaces report 794.
-
-Updated on 2022.03.29
-
-#ILL #statistics #count
-
-
+<div class="reportinfo noprint"> 
+<p>Counts the number of items that were put in transit to fill requests at other libraries</p>
+<ul><li>during the month you specify</li>
+<li>Based on the item's home library</li>
+<li>grouped by library and shipping or receiving date</li>
+<li>sorted by library name</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>NX_ILL_LOANED_LM = the number of items owned by your library that were shipped "in transit" to another library during the month.</p>
+<p>NX_ILL_BORROWED_LM = the number of items not owned by your library that arrived "in transit" to your library during the month.</p>
+<p>This report does not take into account whether the item was actually checked out by a borrower - it only considers that the item was shipped from or to your library.</p>
+<p>Replaces report 794.</p>
+<p></p>
+<p>Updated on 2022.03.29</p>
+<p></p>
+<p class= "notetags" style="display: none;">#ILL #statistics #count</p>
+<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div>
 
 ----------
 */

@@ -22,18 +22,18 @@ Expiry: 0
 
 ----------
 
- 
-Shows titles that haven't indexed properly since 2016.11.10
-Shows items added since 2016.11.10
-At the library you specify
-sorted by homebranch, shelving location, item type, collection code, call number, author, and title
-contains links to the bibliographic record of the item
-
-Notes:
-
-This report was created to help catalogers find items that can't be searched because of the indexing problems we are currently having.
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Shows titles that haven't indexed properly since 2016.11.10</p>
+<ul><li>Shows items added since 2016.11.10</li>
+<li>At the library you specify</li>
+<li>sorted by homebranch, shelving location, item type, collection code, call number, author, and title</li>
+<li>contains links to the bibliographic record of the item</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>This report was created to help catalogers find items that can't be searched because of the indexing problems we are currently having.</p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2825&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

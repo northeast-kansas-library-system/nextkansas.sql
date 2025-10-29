@@ -22,20 +22,20 @@ Expiry: 0
 
 ----------
 
- 
-Lists patrons with items more than XX days overdue at a specified library
-Shows patrons who currently have overdues
-that were checked out at the specified location
-grouped by
-sorted by patron name, card number, and date due
-links to the patron record
-
-Notes:
-
-Report created at the request of HIAWATHA.
-Essentially the same as report 350 - just with fewer fields.
-Click here to run in a new window
-
+<div class="reportinfo noprint"> 
+<p>Lists patrons with items more than XX days overdue at a specified library</p>
+<ul><li>Shows patrons who currently have overdues</li>
+<li>that were checked out at the specified location</li>
+<li>grouped by</li>
+<li>sorted by patron name, card number, and date due</li>
+<li>links to the patron record</li>
+</ul><br />
+<p><ins>Notes:</ins></p>
+<p></p>
+<p>Report created at the request of HIAWATHA.</p>
+<p>Essentially the same as report 350 - just with fewer fields.</p>
+<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2858&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+</div>
 
 ----------
 */

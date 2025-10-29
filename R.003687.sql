@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
- 
-  Creates the holds queue button on the home page in the staff client
-  
-    Creates button to take staff to the current holds queue
-    for the library you're logged in at
-    grouped by holds queue branchcode
-    button links to report 3084
-  
-  Notes:
-  
-  Relies on jQuery to work properly
-  
-  #jquery_enhancement
-  
-
+<div class="reportinfo noprint"> 
+  <p>Creates the holds queue button on the home page in the staff client</p>
+  <ul>
+    <li>Creates button to take staff to the current holds queue</li>
+    <li>for the library you're logged in at</li>
+    <li>grouped by holds queue branchcode</li>
+    <li>button links to report 3084</li>
+  </ul><br />
+  <p><ins>Notes:</ins></p>
+  <p></p>
+  <p>Relies on jQuery to work properly</p>
+  <p></p>
+  <p class= "notetags" style="display: none;">#jquery_enhancement</p>
+  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+</div>
 
 ----------
 */
