@@ -111,7 +111,7 @@ From action_logs
     From biblio
       Join biblioitems On biblioitems.biblionumber = biblio.biblionumber
     Where 
-      biblio.datecreated Between &lt;&gt; and (&lt;&gt; + Interval 1 Day)
+      biblio.datecreated Between <> and (<> + Interval 1 Day)
     Group By biblio.biblionumber
     Union
     Select 
@@ -127,7 +127,7 @@ From action_logs
     From deletedbiblio
       Join deletedbiblioitems On deletedbiblioitems.biblionumber = deletedbiblio.biblionumber
     Where 
-      deletedbiblio.datecreated Between &lt;&gt; and (&lt;&gt; + Interval 1 Day)
+      deletedbiblio.datecreated Between <> and (<> + Interval 1 Day)
     Group By deletedbiblio.biblionumber
   ) biblios 
     On biblios.biblionumber = action_logs.object
@@ -156,11 +156,11 @@ Where
   action_logs.module = 'CATALOGUING'
   And action_logs.action = 'ADD'
   And action_logs.info = 'biblio'
-  And branches.branchcode Like &lt;&gt;
-  And biblios.agerestriction Like &lt;&gt;
-  And biblios.itemtype Like &lt;&gt;
-  And biblios.cn_class Like &lt;&gt;
-  And action_logs.timestamp Between &lt;&gt; and (&lt;&gt; + Interval 1 Day)
+  And branches.branchcode Like <>
+  And biblios.agerestriction Like <>
+  And biblios.itemtype Like <>
+  And biblios.cn_class Like <>
+  And action_logs.timestamp Between <> and (<> + Interval 1 Day)
 Group By 
   action_logs.action_id,
   biblios.biblionumber  

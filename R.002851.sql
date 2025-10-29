@@ -56,7 +56,7 @@ FROM borrowers patron
 JOIN messages ON messages.borrowernumber = patron.borrowernumber
   LEFT JOIN borrowers staff ON messages.manager_id = staff.borrowernumber
 WHERE
-  messages.branchcode LIKE Concat('%', &lt;&gt;, '%')
+  messages.branchcode LIKE Concat('%', <>, '%')
 GROUP BY
   messages.message_id
 ORDER BY

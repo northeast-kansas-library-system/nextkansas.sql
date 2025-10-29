@@ -44,7 +44,7 @@ SELECT
   borrowers.dateenrolled,
   borrowers.dateexpiry,
   If(
-    Day(Now()) &gt;= 15, 
+    Day(Now()) >= 15, 
     Date_Format(Now() + INTERVAL 15 MONTH, '%Y-%m-15'),
     Date_Format(Now() + INTERVAL 14 MONTH, '%Y-%m-15')
   ) AS PROJECTED_DELETION,
@@ -106,14 +106,14 @@ WHERE
   borrowers.dateexpiry BETWEEN CurDate() - INTERVAL 1095 DAY AND CurDate() - INTERVAL 730.5 DAY AND
   borrowers.branchcode LIKE '%' AND
   Coalesce(borrowers.othernames, "0") NOT LIKE "%SIP%" AND
-  borrowers.categorycode &lt;&gt; 'STAFF' AND
-  borrowers.categorycode &lt;&gt; 'ILL' AND
-  borrowers.categorycode &lt;&gt; 'HOOPLA' AND
+  borrowers.categorycode <> 'STAFF' AND
+  borrowers.categorycode <> 'ILL' AND
+  borrowers.categorycode <> 'HOOPLA' AND
   Coalesce(accountlinesx.DUE_SUM, 0) = 0 AND
   Coalesce(issuesx.ICOUNT, 0) = 0 AND
   Coalesce(guaranteesx.GCOUNT, 0) = 0 AND
   Coalesce(requestsx.Count_reserve_id, 0) = 0 AND
-  Coalesce(expired_attribute.attribute, 0) &lt;&gt; 1
+  Coalesce(expired_attribute.attribute, 0) <> 1
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

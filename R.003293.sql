@@ -32,7 +32,7 @@ Expiry: 300
 Select
   rnums.row_number,
   ccodess.code_number,
-  CONCAT(If(rnums.row_number % 2 &lt;&gt; 0, "Odd", "Even"), If(Right(ccodess.code_number, 1) % 2 &lt;&gt; 0, "Odd", "Even")) As EO,
+  CONCAT(If(rnums.row_number % 2 <> 0, "Odd", "Even"), If(Right(ccodess.code_number, 1) % 2 <> 0, "Odd", "Even")) As EO,
   rnums.branchname As `Library Name`,
   authorised_values.lib As `Collection Code`,
   Concat("") As `CKO + Renewal`,

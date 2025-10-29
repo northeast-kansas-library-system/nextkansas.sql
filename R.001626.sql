@@ -29,7 +29,7 @@ A revised version of 1128 #circ
 
 
 
-SELECT items.ccode, items.location, substring(items.itemcallnumber,1,1) AS 'Call Number range', count(*) AS count FROM statistics LEFT JOIN items USING (itemnumber) WHERE statistics.type IN ('issue', 'renew') AND YEAR(datetime) = &lt;&gt; AND statistics.branch = &lt;&gt; GROUP BY items.ccode, items.location, substring(items.itemcallnumber,1,1)
+SELECT items.ccode, items.location, substring(items.itemcallnumber,1,1) AS 'Call Number range', count(*) AS count FROM statistics LEFT JOIN items USING (itemnumber) WHERE statistics.type IN ('issue', 'renew') AND YEAR(datetime) = <> AND statistics.branch = <> GROUP BY items.ccode, items.location, substring(items.itemcallnumber,1,1)
 
 
 

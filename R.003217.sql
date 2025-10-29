@@ -30,14 +30,14 @@ Expiry: 300
 
 
 SELECT
-  Concat('&lt;br /&gt;POSSIBLE DUPLICATE PATRON&lt;br /&gt;There are two patrons with this name and birth date.  This account (', pat1.cardnumber, ' - ',  pat1.branchcode, ') and another with card number  &lt;a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=', pat2.borrowernumber, '" target="_blank"&gt;', pat2.cardnumber, ' - ',  pat2.branchcode, '.&lt;/a&gt;&lt;br /&gt;Please check with the patron to determine which account is the active account and', ' d', 'elete the inactive account.&lt;br /&gt;GHW - NEKLS&lt;br /&gt;') AS CARDONE,
-  Concat('&lt;br /&gt;POSSIBLE DUPLICATE PATRON&lt;br /&gt;There are two patrons with this name and birth date.  This account (', pat2.cardnumber, ' - ',  pat2.branchcode, ') and another with card number  &lt;a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=', pat1.borrowernumber, '" target="_blank"&gt;', pat1.cardnumber, ' - ',  pat1.branchcode, '.&lt;/a&gt;&lt;br /&gt;Please check with the patron to determine which account is the active account and', ' d', 'elete the inactive account.&lt;br /&gt;GHW - NEKLS&lt;br /&gt;') AS CARDTWO
+  Concat('<br />POSSIBLE DUPLICATE PATRON<br />There are two patrons with this name and birth date.  This account (', pat1.cardnumber, ' - ',  pat1.branchcode, ') and another with card number  <a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=', pat2.borrowernumber, '" target="_blank">', pat2.cardnumber, ' - ',  pat2.branchcode, '.</a><br />Please check with the patron to determine which account is the active account and', ' d', 'elete the inactive account.<br />GHW - NEKLS<br />') AS CARDONE,
+  Concat('<br />POSSIBLE DUPLICATE PATRON<br />There are two patrons with this name and birth date.  This account (', pat2.cardnumber, ' - ',  pat2.branchcode, ') and another with card number  <a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=', pat1.borrowernumber, '" target="_blank">', pat1.cardnumber, ' - ',  pat1.branchcode, '.</a><br />Please check with the patron to determine which account is the active account and', ' d', 'elete the inactive account.<br />GHW - NEKLS<br />') AS CARDTWO
 FROM
   borrowers pat1,
   borrowers pat2
 WHERE
-  pat1.cardnumber = &lt;&gt; AND
-  pat2.cardnumber = &lt;&gt;
+  pat1.cardnumber = <> AND
+  pat2.cardnumber = <>
 
 
 

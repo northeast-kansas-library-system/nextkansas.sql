@@ -74,8 +74,8 @@ FROM
   borrowers
     ON issues.borrowernumber = borrowers.borrowernumber
 WHERE
-  items.holdingbranch LIKE &lt;&gt; AND
-  items.onloan &lt;= &lt;&gt;
+  items.holdingbranch LIKE <> AND
+  items.onloan <= <>
 GROUP BY
   items.barcode
 ORDER BY

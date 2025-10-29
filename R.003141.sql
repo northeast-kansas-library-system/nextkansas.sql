@@ -46,7 +46,7 @@ FROM
       authorised_values
     WHERE
       authorised_values.category = 'CCODE' AND
-      branches.branchcode = &lt;&gt;) branchcodes
+      branches.branchcode = <>) branchcodes
   LEFT JOIN (SELECT
       statistics.branch,
       statistics.ccode,

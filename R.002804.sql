@@ -56,15 +56,15 @@ FROM
   JOIN authorised_values ON items.ccode = authorised_values.authorised_value
   JOIN biblio_metadata ON items.biblionumber = biblio_metadata.biblionumber
 WHERE
-  items.homebranch LIKE &lt;&gt; AND
+  items.homebranch LIKE <> AND
   authorised_values.category = "CCODE"
 GROUP BY
   items.itemnumber
 HAVING
   PROGRAM LIKE "Accelerated Reader%" AND
-  INTEREST_LEVEL LIKE &lt;&gt; AND
-  READING_LEVEL LIKE &lt;&gt; AND
-  POINTS LIKE &lt;&gt;
+  INTEREST_LEVEL LIKE <> AND
+  READING_LEVEL LIKE <> AND
+  POINTS LIKE <>
 ORDER BY
   PROGRAM,
   INTEREST_LEVEL,

@@ -97,7 +97,7 @@ From (
     From branches, 
       authorised_values 
     Where authorised_values.category = 'CCODE' 
-      And branches.branchcode Like &lt;&gt; 
+      And branches.branchcode Like <> 
     Order By 
       branches.branchcode, 
       authorised_values.lib 

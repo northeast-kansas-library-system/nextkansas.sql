@@ -44,7 +44,7 @@ SELECT
   items.itemnumber,
   Concat('- ', items.barcode, ' -') AS 'Item barcode',
   If(
-    items.homebranch &lt;&gt; items.holdingbranch,
+    items.homebranch <> items.holdingbranch,
     Concat(
       home_library.branchname,
       ' (',
@@ -54,7 +54,7 @@ SELECT
     home_library.branchname
   ) AS 'Home library',
   If(
-    items.permanent_location &lt;&gt; items.location,
+    items.permanent_location <> items.location,
     Concat(perm_locs.lib, ' (', locs.lib, ')'),
     perm_locs.lib
   ) AS 'Shelving location',
@@ -152,10 +152,10 @@ FROM items
   LEFT JOIN 
     itemtypes ON itemtypes.itemtype = items.itype
 WHERE 
-  items.homebranch LIKE &lt;&gt;
-  AND items.itype LIKE &lt;&gt;
-  AND items.permanent_location LIKE &lt;&gt;
-  AND items.ccode LIKE &lt;&gt;
+  items.homebranch LIKE <>
+  AND items.itype LIKE <>
+  AND items.permanent_location LIKE <>
+  AND items.ccode LIKE <>
 GROUP BY 
   biblio.biblionumber,
   items.itemnumber

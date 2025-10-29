@@ -46,7 +46,7 @@ FROM
   suggestions
 WHERE
   borrowers.borrowernumber = suggestions.suggestedby AND
-  suggestions.branchcode LIKE &lt;&gt; AND
+  suggestions.branchcode LIKE <> AND
   suggestions.STATUS = 'ASKED'
 ORDER BY
   suggestions.suggesteddate DESC

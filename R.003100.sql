@@ -45,7 +45,7 @@ FROM
   items_last_borrower
   JOIN items ON items_last_borrower.itemnumber = items.itemnumber
 WHERE
-  items_last_borrower.created_on &lt; (Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) + 7 DAY) + INTERVAL 1 WEEK) - INTERVAL 13 MONTH AND
+  items_last_borrower.created_on < (Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) + 7 DAY) + INTERVAL 1 WEEK) - INTERVAL 13 MONTH AND
   Coalesce(items.damaged, "0") = 0 AND
   Coalesce(items.itemlost, "0") = 0 AND
   Coalesce(items.withdrawn, "0") = 0

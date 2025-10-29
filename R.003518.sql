@@ -75,9 +75,9 @@ FROM
           categories
       ) categoriess
     WHERE
-      (branchess.branchcode LIKE &lt;&gt; OR
+      (branchess.branchcode LIKE <> OR
       branchess.branchcode LIKE '*') AND
-      (categoriess.categorycode LIKE &lt;&gt; OR
+      (categoriess.categorycode LIKE <> OR
       categoriess.categorycode LIKE '*')
   ) branches_categoriess LEFT JOIN
   (

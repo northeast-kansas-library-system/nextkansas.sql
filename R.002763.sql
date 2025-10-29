@@ -65,9 +65,9 @@ FROM
   issues
     ON issues.itemnumber = items.itemnumber
 WHERE
-  issues.branchcode  LIKE &lt;&gt;AND
-  items.homebranch  LIKE &lt;&gt; AND
-  items.onloan &lt;= (NOW() - INTERVAL &lt;&gt; DAY)
+  issues.branchcode  LIKE <>AND
+  items.homebranch  LIKE <> AND
+  items.onloan <= (NOW() - INTERVAL <> DAY)
 GROUP BY
   issues.branchcode,
   items.homebranch,

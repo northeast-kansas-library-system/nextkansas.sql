@@ -46,7 +46,7 @@ SELECT
   borrowers.categorycode,
   borrowers.dateofbirth,
   
-  If(Count(DISTINCT issues.issue_id) &gt; 0, "Yes", "No") AS HAS_ITEMS_OUT,
+  If(Count(DISTINCT issues.issue_id) > 0, "Yes", "No") AS HAS_ITEMS_OUT,
   Count(DISTINCT issues.issue_id) AS CURRENT_CKO_COUNT,
   outstanding.date AS FEE_DATE,
   If(outstanding.accounttype = "L", "Lost Item", If(outstanding.accounttype LIKE "F%", "Fine",
@@ -57,7 +57,7 @@ SELECT
   outstanding.description AS FEE_DESCRIPTION,
   outstanding.note AS FEE_NOTE,
   Format(Sum(outstanding.amount - outstanding.amountoutstanding),2) AS PAID_SO_FAR,
-  If(Sum(outstanding.amount &gt; outstanding.amountoutstanding), CAST(outstanding.timestamp AS DATE), "-") AS MOST_RECENT_PAYMENT,
+  If(Sum(outstanding.amount > outstanding.amountoutstanding), CAST(outstanding.timestamp AS DATE), "-") AS MOST_RECENT_PAYMENT,
   Format(outstanding.amountoutstanding,2) AS AMOUNT_OUTSTANDING
 FROM
     (SELECT
@@ -78,8 +78,8 @@ FROM
       accountlines
       JOIN borrowers ON borrowers.borrowernumber = accountlines.manager_id
     WHERE
-      accountlines.amountoutstanding &gt; 0 AND
-      borrowers.branchcode = @brn := &lt;&gt; COLLATE utf8mb4_unicode_ci
+      accountlines.amountoutstanding > 0 AND
+      borrowers.branchcode = @brn := <> COLLATE utf8mb4_unicode_ci
     UNION
     SELECT
       accountlines.accountlines_id,
@@ -100,7 +100,7 @@ FROM
       JOIN old_issues ON old_issues.borrowernumber = accountlines.borrowernumber AND old_issues.itemnumber =
         accountlines.itemnumber
     WHERE
-      accountlines.amountoutstanding &gt; 0 AND
+      accountlines.amountoutstanding > 0 AND
       old_issues.branchcode = @brn) outstanding
   JOIN borrowers ON borrowers.borrowernumber = outstanding.borrowernumber
   LEFT JOIN issues ON issues.borrowernumber = borrowers.borrowernumber
@@ -108,7 +108,7 @@ GROUP BY
   Upper(borrowers.cardnumber),
   outstanding.accountlines_id
 HAVING
-  HAS_ITEMS_OUT LIKE &lt;&gt;
+  HAS_ITEMS_OUT LIKE <>
 ORDER BY
   borrowers.surname,
   borrowers.firstname,

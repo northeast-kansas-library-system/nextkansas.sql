@@ -31,7 +31,7 @@ Expiry: 300
 
 SELECT 
   branches_cnty_sub.branchname AS CKO_RENEW_AT,
-  Concat_WS('-', &lt;&gt;, &lt;&gt;) AS DURING,
+  Concat_WS('-', <>, <>) AS DURING,
   branches_cnty_sub.lib AS BORROWER_RESIDES_IN,
   statisticss.cko_renew_count AS CKO_RENEW_COUNT
 FROM (
@@ -64,8 +64,8 @@ FROM (
         statistics.type = 'issue'
         OR statistics.type = 'renew'
       )
-      AND Year(statistics.datetime) = &lt;&gt;
-      AND Month(statistics.datetime) = &lt;&gt;
+      AND Year(statistics.datetime) = <>
+      AND Month(statistics.datetime) = <>
     GROUP BY statistics.branch,
       Coalesce(cnty_subs.attribute, '-')
   ) statisticss 

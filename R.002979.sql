@@ -57,13 +57,13 @@ FROM
     WHERE
       (statistics.type = 'issue' OR
         statistics.type = 'renew') AND
-        (statistics.datetime BETWEEN &lt;&gt; and (&lt;&gt; + interval 1 day))
+        (statistics.datetime BETWEEN <> and (<> + interval 1 day))
     GROUP BY
       statistics.branch,
       Coalesce(Year(borrowers.dateofbirth), Year(deletedborrowers.dateofbirth))) CIR_RENEW_LM ON branches.branchcode = CIR_RENEW_LM.branch
 WHERE
-  branches.branchcode LIKE &lt;&gt; AND
-  Coalesce(CIR_RENEW_LM.BIRTHYEAR, "-") LIKE CONCAT("%",&lt;&gt;,"%")
+  branches.branchcode LIKE <> AND
+  Coalesce(CIR_RENEW_LM.BIRTHYEAR, "-") LIKE CONCAT("%",<>,"%")
 GROUP BY
   branches.branchcode,
   Coalesce(CIR_RENEW_LM.BIRTHYEAR, "-")

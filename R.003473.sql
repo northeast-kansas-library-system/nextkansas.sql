@@ -36,8 +36,8 @@ FROM
   biblioitems JOIN
   items ON items.biblioitemnumber = biblioitems.biblioitemnumber
 WHERE
-  items.homebranch = &lt;&gt; AND
-  biblioitems.publicationyear &lt; Year(Now()) AND
+  items.homebranch = <> AND
+  biblioitems.publicationyear < Year(Now()) AND
   biblioitems.publicationyear REGEXP '^[0-9]+$'
 GROUP BY
   items.homebranch,

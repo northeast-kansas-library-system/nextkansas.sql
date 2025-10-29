@@ -57,7 +57,7 @@ FROM
   items
   JOIN branchtransfers ON branchtransfers.itemnumber = items.itemnumber
 WHERE
-  items.barcode LIKE Concat("%", &lt;&gt;,"%")
+  items.barcode LIKE Concat("%", <>,"%")
 GROUP BY
   branchtransfers.branchtransfer_id
 ORDER BY

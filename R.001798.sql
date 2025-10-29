@@ -29,7 +29,7 @@ Lists name, cardnumber, and grade. Limits on branch and grade.
 
 
 
-SELECT CONCAT (borrowers.firstname,' ',borrowers.surname) AS name, borrowers.cardnumber, borrower_attributes.attribute as 'grade' FROM borrowers LEFT JOIN borrower_attributes USING (borrowernumber) WHERE borrowers.branchcode=&lt;&gt; AND borrower_attributes.attribute=&lt;&gt; ORDER BY borrowers.surname LIMIT 300
+SELECT CONCAT (borrowers.firstname,' ',borrowers.surname) AS name, borrowers.cardnumber, borrower_attributes.attribute as 'grade' FROM borrowers LEFT JOIN borrower_attributes USING (borrowernumber) WHERE borrowers.branchcode=<> AND borrower_attributes.attribute=<> ORDER BY borrowers.surname LIMIT 300
 
 
 

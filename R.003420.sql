@@ -76,7 +76,7 @@ FROM
     FROM 
       borrowers 
     WHERE 
-      borrowers.dateenrolled &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
+      borrowers.dateenrolled < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
     GROUP BY 
       borrowers.branchcode 
     ) BORROWERS1 

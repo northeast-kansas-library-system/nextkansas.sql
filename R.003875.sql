@@ -118,14 +118,14 @@ FROM items
     FROM
       biblio_metadata
     WHERE
-      Length(biblio_metadata.metadata) &lt; 2001
+      Length(biblio_metadata.metadata) < 2001
   ) bib_created_by 
     ON bib_created_by.biblionumber = items.biblionumber 
   JOIN borrowers 
     ON borrowers.borrowernumber = bib_created_by.metadata
 WHERE
-  items.homebranch LIKE &lt;&gt; AND
-  borrowers.branchcode LIKE &lt;&gt;
+  items.homebranch LIKE <> AND
+  borrowers.branchcode LIKE <>
 GROUP BY
   items.itemnumber
 ORDER BY

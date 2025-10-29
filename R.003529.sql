@@ -99,13 +99,13 @@ FROM
       borrower_relationships.guarantor_id) guaranteesx ON
       guaranteesx.guarantor_id = borrowers.borrowernumber
 WHERE
-  borrowers.dateexpiry &gt; CURRENT_DATE() - INTERVAL 730.5 DAY AND
+  borrowers.dateexpiry > CURRENT_DATE() - INTERVAL 730.5 DAY AND
   borrowers.branchcode LIKE '%' AND
   Coalesce(borrowers.othernames, "0") NOT LIKE "%SIP%" AND
-  borrowers.categorycode &lt;&gt; 'STAFF' AND
-  borrowers.categorycode &lt;&gt; 'ILL' AND
-  borrowers.categorycode &lt;&gt; 'HOOPLA' AND
-  Coalesce(expired_attribute.attribute, 0) &lt;&gt; 0
+  borrowers.categorycode <> 'STAFF' AND
+  borrowers.categorycode <> 'ILL' AND
+  borrowers.categorycode <> 'HOOPLA' AND
+  Coalesce(expired_attribute.attribute, 0) <> 0
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

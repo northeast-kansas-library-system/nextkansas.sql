@@ -46,7 +46,7 @@ SELECT
 FROM
   biblio
 LEFT JOIN items on (biblio.biblionumber = items.biblionumber)
-WHERE biblio.biblionumber = &lt;&gt;
+WHERE biblio.biblionumber = <>
 GROUP BY
   biblio.biblionumber
 ORDER BY

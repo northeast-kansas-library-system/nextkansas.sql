@@ -37,7 +37,7 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.cardnumber = &lt;&gt;
+  borrowers.cardnumber = <>
 
 
 

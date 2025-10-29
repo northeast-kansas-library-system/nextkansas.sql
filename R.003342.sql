@@ -41,7 +41,7 @@ SELECT
 FROM
   action_logs
 WHERE
-  action_logs.info LIKE Concat("%'itemnumber' =&gt; ", &lt;&gt;, "%")
+  action_logs.info LIKE Concat("%'itemnumber' => ", <>, "%")
 
 
 

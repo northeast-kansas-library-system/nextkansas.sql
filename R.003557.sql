@@ -104,8 +104,8 @@ FROM
     FROM
       itemtypes) itypes ON itypes.itemtype = items.itype
 WHERE
-    items.homebranch LIKE &lt;&gt; AND
-    Coalesce(Length(items.barcode), 0) LIKE &lt;&gt;
+    items.homebranch LIKE <> AND
+    Coalesce(Length(items.barcode), 0) LIKE <>
 GROUP BY
   biblio.biblionumber,
   items.itemnumber,

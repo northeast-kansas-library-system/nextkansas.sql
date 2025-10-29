@@ -30,7 +30,7 @@ Expiry: 0
 
 
 SELECT count(statistics.datetime) AS circs, biblio.title, biblio.author, items.ccode FROM statistics JOIN items USING (itemnumber) 
-LEFT JOIN biblio USING(biblionumber) WHERE DATE(statistics.datetime) &gt; DATE_SUB(CURRENT_DATE(),INTERVAL 6 MONTH) AND DATE(statistics.datetime)&lt;=CURRENT_DATE() AND statistics.itemnumber IS NOT NULL AND items.ccode=&lt;&gt; AND items.location =&lt;&gt; GROUP BY biblio.biblionumber ORDER BY circs DESC LIMIT 20
+LEFT JOIN biblio USING(biblionumber) WHERE DATE(statistics.datetime) > DATE_SUB(CURRENT_DATE(),INTERVAL 6 MONTH) AND DATE(statistics.datetime)<=CURRENT_DATE() AND statistics.itemnumber IS NOT NULL AND items.ccode=<> AND items.location =<> GROUP BY biblio.biblionumber ORDER BY circs DESC LIMIT 20
 
 
 

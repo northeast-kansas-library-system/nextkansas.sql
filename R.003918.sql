@@ -81,7 +81,7 @@ From
       borrower_relationships.guarantor_id) guaranteesx On guaranteesx.guarantor_id = borrowers.borrowernumber
 Where
   borrowers.branchcode Like 'HIGH_CC' And
-  borrowers.login_attempts &lt;&gt; '0'
+  borrowers.login_attempts <> '0'
 Group By
   borrowers.dateexpiry,
   borrowers.borrowernumber

@@ -60,7 +60,7 @@ From
       items On items.biblionumber = biblio.biblionumber Inner Join
       itemtypes On itemtypes.itemtype = items.itype
     Where
-      items.itype LIKE &lt;&gt;
+      items.itype LIKE <>
     Order By
       biblio.title
   ) items_subquery 
@@ -80,9 +80,9 @@ From
       (statistics.type = 'issue' Or
        statistics.type = 'renew') And
       Year(statistics.datetime) 
-        Like &lt;&gt; And
+        Like <> And
       Month(statistics.datetime) 
-        Like Concat('%', &lt;&gt; , '%')
+        Like Concat('%', <> , '%')
     Group By
       statistics.itemnumber
   ) annual_statistics 

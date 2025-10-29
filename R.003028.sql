@@ -62,15 +62,15 @@ FROM
       WHERE
         (statistics.type = 'issue' OR
           statistics.type = 'renew') AND
-        Date_Format(statistics.datetime, "%Y") LIKE &lt;&gt; AND
-        Date_Format(statistics.datetime, "%m") LIKE &lt;&gt; AND
-        Date_Format(statistics.datetime, "%d") LIKE &lt;&gt; AND
-        Date_Format(statistics.datetime, "%W") LIKE &lt;&gt;
+        Date_Format(statistics.datetime, "%Y") LIKE <> AND
+        Date_Format(statistics.datetime, "%m") LIKE <> AND
+        Date_Format(statistics.datetime, "%d") LIKE <> AND
+        Date_Format(statistics.datetime, "%W") LIKE <>
       GROUP BY
         statistics.branch,
         Date_Format(statistics.datetime, "%Y-%m-%d")) checkouts ON branches.branchcode = checkouts.branch
 WHERE
-  branches.branchcode LIKE &lt;&gt;
+  branches.branchcode LIKE <>
 ORDER BY
   branches.branchcode,
   checkouts.DATE

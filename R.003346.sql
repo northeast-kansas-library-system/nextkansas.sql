@@ -74,7 +74,7 @@ SELECT
 FROM 
   branches 
 WHERE 
-  branches.branchcode LIKE &lt;&gt; 
+  branches.branchcode LIKE <> 
 
 
 

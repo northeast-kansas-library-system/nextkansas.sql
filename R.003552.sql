@@ -57,7 +57,7 @@ FROM
       circulation_rules
     WHERE
       circulation_rules.rule_name = 'fine' AND
-      circulation_rules.rule_value &gt; 0) ruless LEFT JOIN
+      circulation_rules.rule_value > 0) ruless LEFT JOIN
   (SELECT
       itemtypes.itemtype,
       itemtypes.description
@@ -93,7 +93,7 @@ FROM
       circulation_rules
     WHERE
       circulation_rules.rule_name = 'fine' AND
-      circulation_rules.rule_value &gt; 0) ruless LEFT JOIN
+      circulation_rules.rule_value > 0) ruless LEFT JOIN
   (SELECT
       itemtypes.itemtype,
       itemtypes.description

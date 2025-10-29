@@ -58,8 +58,8 @@ FROM
   biblioitems
     ON biblioitems.biblionumber = biblio.biblionumber
 WHERE
-  biblio.biblionumber &gt; '769233' AND
-  Coalesce(items.homebranch, '') LIKE &lt;&gt;
+  biblio.biblionumber > '769233' AND
+  Coalesce(items.homebranch, '') LIKE <>
 ORDER BY
   HOMEBRANCH,
   LOCATION,

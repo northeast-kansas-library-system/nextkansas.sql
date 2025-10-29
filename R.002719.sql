@@ -62,10 +62,10 @@ FROM
     ON biblio_metadata.biblionumber = biblio.biblionumber AND
     items.biblionumber = biblio_metadata.biblionumber
 WHERE
-  items.homebranch LIKE &lt;&gt; AND
-  items.location LIKE &lt;&gt; AND
-  items.itype LIKE &lt;&gt; AND
-  items.ccode LIKE &lt;&gt;
+  items.homebranch LIKE <> AND
+  items.location LIKE <> AND
+  items.itype LIKE <> AND
+  items.ccode LIKE <>
 GROUP BY
   items.homebranch,
   items.location,

@@ -85,7 +85,7 @@ FROM
   LEFT JOIN borrowers manualinvoiceinfo ON manualinvoiceinfo.borrowernumber = debits.manager_id
 WHERE
   (credits.note LIKE "%Paypal%" AND
-  credits.date BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day)) AND
+  credits.date BETWEEN <> AND (<> + interval 1 day)) AND
   If(
     debits.accounttype = 'F',
     Coalesce(old_issues.branchcode, borrowerinfo.branchcode),
@@ -98,7 +98,7 @@ WHERE
         borrowerinfo.branchcode
       )
     )
-  ) LIKE &lt;&gt;
+  ) LIKE <>
 GROUP BY
   account_offsets.id
 ORDER BY

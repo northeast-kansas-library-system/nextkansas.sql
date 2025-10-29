@@ -36,7 +36,7 @@ SELECT
 FROM
   message_queue
 WHERE
-  message_queue.updated_on BETWEEN &lt;&gt; AND (&lt;&gt; + INTERVAL 1
+  message_queue.updated_on BETWEEN <> AND (<> + INTERVAL 1
   DAY)
 GROUP BY
   Date_Format(message_queue.updated_on, '%Y-%m-%d'),

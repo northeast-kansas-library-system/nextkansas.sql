@@ -140,7 +140,7 @@ FROM
     RENEWALS.DATE = ALL_STATS.DATE AND
     RENEWALS.HOUR_OF_DAY = ALL_STATS.HOUR_OF_DAY
 WHERE
-  branchess.branchcode LIKE &lt;&gt;
+  branchess.branchcode LIKE <>
 GROUP BY
   branchess.branchname,
   ALL_STATS.DATE,

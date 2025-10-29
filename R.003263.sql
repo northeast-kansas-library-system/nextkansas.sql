@@ -85,7 +85,7 @@ GROUP BY
   biblio.biblionumber,
   biblio_metadata.metadata
 HAVING
-  (Count(DISTINCT reserves.borrowernumber) / Count(DISTINCT items.itemnumber)) &gt; 3
+  (Count(DISTINCT reserves.borrowernumber) / Count(DISTINCT items.itemnumber)) > 3
 ORDER BY
   (Count(DISTINCT reserves.borrowernumber) / Count(DISTINCT items.itemnumber)) DESC
 

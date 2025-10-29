@@ -66,7 +66,7 @@ FROM
   biblio
     ON reserves.biblionumber = biblio.biblionumber
 WHERE
-  borrowers.cardnumber = &lt;&gt;
+  borrowers.cardnumber = <>
 ORDER BY
   reserves.timestamp DESC
 

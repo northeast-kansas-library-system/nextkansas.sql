@@ -80,14 +80,14 @@ SELECT
     Concat('Expiration date: ', borrowers.dateexpiry)
   ) AS LIBRARY_SETUP,
   If(borrowers.smsalertnumber = '', '', Concat('Provider: ', sms_providers.name, 'SMS number: ', borrowers.smsalertnumber)) AS SMS,
-  @SortOrder := &lt;&gt; AS SORTING
+  @SortOrder := <> AS SORTING
 FROM
   borrowers LEFT JOIN
   sms_providers ON borrowers.sms_provider_id = sms_providers.id LEFT JOIN
   branches ON borrowers.branchcode = branches.branchcode LEFT JOIN
   categories ON borrowers.categorycode = categories.categorycode
 WHERE
-  borrowers.branchcode LIKE &lt;&gt; AND
+  borrowers.branchcode LIKE <> AND
   Year(borrowers.dateenrolled) = Year(Now() - INTERVAL 1 MONTH) AND
   Month(borrowers.dateenrolled) = Month(Now() - INTERVAL 1 MONTH)
 GROUP BY

@@ -41,7 +41,7 @@ FROM
     FROM
       items
     WHERE
-      items.dateaccessioned &lt; MakeDate(Year(Now()), 1) - INTERVAL 1 YEAR AND
+      items.dateaccessioned < MakeDate(Year(Now()), 1) - INTERVAL 1 YEAR AND
       ((items.itype = 'BOOK' OR
         items.itype = 'PBBKNEW' OR
         items.itype = 'PBBKCLUB' OR
@@ -122,7 +122,7 @@ FROM
   FROM
     deleteditems
   WHERE
-    deleteditems.dateaccessioned &lt; MakeDate(Year(Now()), 1) - INTERVAL 1 YEAR
+    deleteditems.dateaccessioned < MakeDate(Year(Now()), 1) - INTERVAL 1 YEAR
     AND
     ((deleteditems.itype = 'BOOK' OR
       deleteditems.itype = 'PBBKNEW' OR

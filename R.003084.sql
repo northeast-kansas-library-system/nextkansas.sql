@@ -193,13 +193,13 @@ FROM
           items 
         WHERE 
           (items.notforloan IS NOT NULL OR 
-            items.notforloan &lt;&gt; 0) AND 
+            items.notforloan <> 0) AND 
           (items.damaged IS NOT NULL OR 
-            items.damaged &lt;&gt; 0) AND 
+            items.damaged <> 0) AND 
           (items.itemlost IS NOT NULL OR 
-            items.itemlost &lt;&gt; 0) AND 
+            items.itemlost <> 0) AND 
           (items.withdrawn IS NOT NULL OR 
-            items.withdrawn &lt;&gt; 0) AND 
+            items.withdrawn <> 0) AND 
           items.onloan IS NULL 
         GROUP BY 
           items.biblionumber 
@@ -208,7 +208,7 @@ FROM
   ) priority 
   ON priority.reserve_id = hold_fill_targets.reserve_id 
 WHERE 
-  hold_fill_targets.source_branchcode LIKE &lt;&gt; 
+  hold_fill_targets.source_branchcode LIKE <> 
 GROUP BY 
   hold_fill_targets.itemnumber 
 ORDER BY 

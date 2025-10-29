@@ -88,7 +88,7 @@ FROM
       JOIN reserves
         ON reserves.biblionumber = items.biblionumber
     WHERE
-      items.homebranch = &lt;&gt;
+      items.homebranch = <>
     GROUP BY
       items.biblionumber
   ) localitems
@@ -108,10 +108,10 @@ FROM
   ) reservesx
     ON reservesx.biblionumber = reservess.biblionumber
 WHERE
-  branchess.branchcode = &lt;&gt; AND
-  ((reservess.Count_reserve_id &gt; 1 AND
+  branchess.branchcode = <> AND
+  ((reservess.Count_reserve_id > 1 AND
       Coalesce(localitems.Count_itemnumber, 0) = 0) OR
-    (reservess.Count_reserve_id / totalitems.Count_itemnumber &gt; 3))
+    (reservess.Count_reserve_id / totalitems.Count_itemnumber > 3))
 GROUP BY
   Concat_Ws(" ", reservess.title, reservess.GMD),
   reservess.Count_reserve_id,

@@ -66,7 +66,7 @@ Select
 From
     special_holidays
 Where
-    special_holidays.branchcode Like &lt;&gt; And
+    special_holidays.branchcode Like <> And
     Str_To_Date(
       Concat(
         special_holidays.month, 
@@ -76,7 +76,7 @@ Where
         special_holidays.year
       ), 
       '%m/%d/%Y'
-    ) &gt; Now() - Interval 1 Day
+    ) > Now() - Interval 1 Day
 Group By
     special_holidays.id
 UNION 
@@ -91,7 +91,7 @@ Select
           repeatable_holidays.day, 
           '/', 
           If(
-            repeatable_holidays.month &gt;= Month(CurDate()), 
+            repeatable_holidays.month >= Month(CurDate()), 
             Year(CurDate()), 
             Year(CurDate()) + 1
           )
@@ -127,7 +127,7 @@ Select
                           repeatable_holidays.day, 
                           '/', 
                           If(
-                            repeatable_holidays.month &gt;= Month(CurDate()), 
+                            repeatable_holidays.month >= Month(CurDate()), 
                             Year(CurDate()), 
                             Year(CurDate()) + 1
                           )
@@ -159,7 +159,7 @@ From
     repeatable_holidays
 Where
     (
-      repeatable_holidays.branchcode Like &lt;&gt; And
+      repeatable_holidays.branchcode Like <> And
       Str_To_Date(
         Concat(
           repeatable_holidays.month, 
@@ -167,17 +167,17 @@ Where
           repeatable_holidays.day, 
           '/', 
           If(
-            repeatable_holidays.month &gt;= Month(CurDate()), 
+            repeatable_holidays.month >= Month(CurDate()), 
             Year(CurDate()), 
             Year(CurDate()) + 1
           )
         ), 
         '%m/%d/%Y'
-      ) &gt; Now() - Interval 1 Day
+      ) > Now() - Interval 1 Day
     ) 
     Or
     (
-      repeatable_holidays.branchcode Like &lt;&gt; And
+      repeatable_holidays.branchcode Like <> And
       Str_To_Date(
         Concat(
           repeatable_holidays.month, 
@@ -185,7 +185,7 @@ Where
           repeatable_holidays.day, 
           '/', 
           If(
-            repeatable_holidays.month &gt;= Month(CurDate()), 
+            repeatable_holidays.month >= Month(CurDate()), 
             Year(CurDate()), 
             Year(CurDate()) + 1
           )

@@ -49,7 +49,7 @@ FROM
  statistics
 JOIN items ON statistics.itemnumber = items.itemnumber
 WHERE
- (statistics.datetime BETWEEN (@StartDate:= &lt;&gt;)  AND (@EndDate:= &lt;&gt;+ INTERVAL 1 DAY)) AND (statistics.type = 'issue' OR statistics.type = 'renew') AND (items.homebranch &lt;&gt; statistics.branch)
+ (statistics.datetime BETWEEN (@StartDate:= <>)  AND (@EndDate:= <>+ INTERVAL 1 DAY)) AND (statistics.type = 'issue' OR statistics.type = 'renew') AND (items.homebranch <> statistics.branch)
 GROUP BY CHECK_OUT_BRANCH, SHELVING_LOCATION, COLLECTION_CODE 
 
 UNION
@@ -60,9 +60,9 @@ FROM
  statistics
 JOIN deleteditems ON statistics.itemnumber = deleteditems.itemnumber
 WHERE
- (statistics.datetime BETWEEN @StartDate  AND @EndDate) AND (statistics.type = 'issue' OR statistics.type = 'renew') AND (deleteditems.homebranch &lt;&gt; statistics.branch)
+ (statistics.datetime BETWEEN @StartDate  AND @EndDate) AND (statistics.type = 'issue' OR statistics.type = 'renew') AND (deleteditems.homebranch <> statistics.branch)
 GROUP BY CHECK_OUT_BRANCH, SHELVING_LOCATION, COLLECTION_CODE) AS X
-WHERE CHECK_OUT_BRANCH = &lt;&gt;
+WHERE CHECK_OUT_BRANCH = <>
 GROUP BY CHECK_OUT_BRANCH, SHELVING_LOCATION, COLLECTION_CODE WITH ROLLUP
 
 

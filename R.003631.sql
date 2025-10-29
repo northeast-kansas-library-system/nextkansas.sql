@@ -89,8 +89,8 @@ FROM
   branchtransfers JOIN
   branches ON branches.branchcode = branchtransfers.tobranch
 WHERE
-  branchtransfers.tobranch Like &lt;&gt; AND
-  branchtransfers.datearrived BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day)
+  branchtransfers.tobranch Like <> AND
+  branchtransfers.datearrived BETWEEN <> AND (<> + interval 1 day)
 GROUP BY
   Date_Format(branchtransfers.datearrived, "%Y-%m-%d--%H:%i"),
   branchtransfers.tobranch
@@ -106,8 +106,8 @@ FROM
   branchtransfers JOIN
   branches ON branches.branchcode = branchtransfers.tobranch
 WHERE
-  branchtransfers.tobranch Like &lt;&gt; AND
-  branchtransfers.datearrived BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day)
+  branchtransfers.tobranch Like <> AND
+  branchtransfers.datearrived BETWEEN <> AND (<> + interval 1 day)
 GROUP BY
   DATE_TIME,
   branchtransfers.tobranch)
@@ -123,8 +123,8 @@ FROM
   branchtransfers JOIN
   branches ON branches.branchcode = branchtransfers.tobranch
 WHERE
-  branchtransfers.tobranch Like &lt;&gt; AND
-  branchtransfers.datearrived BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day)
+  branchtransfers.tobranch Like <> AND
+  branchtransfers.datearrived BETWEEN <> AND (<> + interval 1 day)
 GROUP BY
   DATE_TIME,
   branchtransfers.tobranch)

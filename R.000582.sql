@@ -238,11 +238,11 @@ FROM
   borrowers
   LEFT JOIN accountlines ON borrowers.borrowernumber = accountlines.borrowernumber
 WHERE
-  borrowers.branchcode LIKE &lt;&gt;
+  borrowers.branchcode LIKE <>
 GROUP BY
   borrowers.cardnumber
 HAVING
-  AMT_DUE &gt; 0
+  AMT_DUE > 0
 ORDER BY
   borrowers.surname
 

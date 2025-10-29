@@ -88,8 +88,8 @@ FROM
   biblioitems
     ON biblio.biblionumber = biblioitems.biblionumber
 WHERE
-  (To_Days(CurDate()) - To_Days(issues.date_due)) &gt; &lt;&gt; AND
-  issues.branchcode LIKE &lt;&gt;
+  (To_Days(CurDate()) - To_Days(issues.date_due)) > <> AND
+  issues.branchcode LIKE <>
 GROUP BY
   items.itemnumber,
   issues.date_due

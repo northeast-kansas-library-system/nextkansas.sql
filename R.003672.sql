@@ -140,7 +140,7 @@ FROM
 WHERE
   branchtransfers.datearrived IS NULL AND
   branchtransfers.datecancelled IS NULL AND
-  branchtransfers.datesent BETWEEN &lt;&gt; AND (&lt;&gt; + INTERVAL 1 DAY)
+  branchtransfers.datesent BETWEEN <> AND (<> + INTERVAL 1 DAY)
 GROUP BY
   item_info.biblionumber,
   item_info.itemnumber

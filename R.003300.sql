@@ -64,12 +64,12 @@ FROM
 WHERE
   borrowers.branchcode = 'OTTAWA' AND
   kanopy.attribute IS NULL AND
-  borrowers.categorycode &lt;&gt; 'STAFF' AND
-  borrowers.categorycode &lt;&gt; "ILL" AND
-  borrowers.categorycode &lt;&gt; "INHOUSE" AND
-  borrowers.categorycode &lt;&gt; "STATISTIC" AND
-  borrowers.categorycode &lt;&gt; "S_SIP" AND 
-  borrowers.othernames &lt;&gt; 'SIP2 test account'
+  borrowers.categorycode <> 'STAFF' AND
+  borrowers.categorycode <> "ILL" AND
+  borrowers.categorycode <> "INHOUSE" AND
+  borrowers.categorycode <> "STATISTIC" AND
+  borrowers.categorycode <> "S_SIP" AND 
+  borrowers.othernames <> 'SIP2 test account'
 GROUP BY
   borrowers.categorycode,
   borrowers.borrowernumber

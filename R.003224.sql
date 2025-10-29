@@ -87,7 +87,7 @@ FROM
     ON virtualshelfcontents.shelfnumber = virtualshelves.shelfnumber
 WHERE
   virtualshelves.category = '2'AND
-  virtualshelves.shelfname LIKE Concat("%", &lt;&gt;, "%")
+  virtualshelves.shelfname LIKE Concat("%", <>, "%")
 GROUP BY
   virtualshelves.created_on,
   virtualshelves.shelfname,

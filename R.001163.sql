@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-SELECT biblio.title, items.replacementprice, count(items.biblionumber) as items, sum(items.replacementprice) as value FROM items JOIN biblio USING (biblionumber) WHERE items.homebranch = &lt;&gt; AND items.ccode = &lt;&gt; GROUP BY items.biblionumber ORDER BY items.biblionumber asc
+SELECT biblio.title, items.replacementprice, count(items.biblionumber) as items, sum(items.replacementprice) as value FROM items JOIN biblio USING (biblionumber) WHERE items.homebranch = <> AND items.ccode = <> GROUP BY items.biblionumber ORDER BY items.biblionumber asc
 
 
 

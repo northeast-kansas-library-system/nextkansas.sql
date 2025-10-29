@@ -111,7 +111,7 @@ FROM
      If(statistics.branch IS NULL, "NEKLS", statistics.branch)
   ) statcounts ON statcounts.branch = branchess.branchcode
 WHERE
-  branchess.branchcode LIKE &lt;&gt;
+  branchess.branchcode LIKE <>
 GROUP BY
   branchess.branchcode,
   icounts.Count_itemnumber,
@@ -147,7 +147,7 @@ FROM
         authorised_values
       WHERE
         authorised_values.category = 'bibloc' AND
-        authorised_values.authorised_value &lt;&gt; "YOUNGADULT"
+        authorised_values.authorised_value <> "YOUNGADULT"
      ) biblocs
   ) branchess
   LEFT JOIN
@@ -244,7 +244,7 @@ FROM
   ) statcounts ON statcounts.branch = branchess.branchcode AND
       statcounts.LOCATION = branchess.authorised_value
 WHERE
-  branchess.branchcode LIKE &lt;&gt;
+  branchess.branchcode LIKE <>
 GROUP BY
   branchess.branchcode,
   branchess.lib,
@@ -285,7 +285,7 @@ FROM
         authorised_values
       WHERE
         authorised_values.category = 'bibloc' AND
-        authorised_values.authorised_value &lt;&gt; "YOUNGADULT"
+        authorised_values.authorised_value <> "YOUNGADULT"
      ) biblocs
   )
   branchesitypes LEFT JOIN
@@ -388,7 +388,7 @@ FROM
       statcounts.itemtype = branchesitypes.itemtype AND
       statcounts.LOCATION = branchesitypes.authorised_value
 WHERE
-  branchesitypes.branchcode LIKE &lt;&gt;
+  branchesitypes.branchcode LIKE <>
 GROUP BY
   branchesitypes.branchcode,
   branchesitypes.lib,
@@ -473,7 +473,7 @@ WHERE
     If(branchess.branchcode LIKE 'PH%', 'PH_COMBINED', 
       branchess.branchcode
     )
-  ) LIKE &lt;&gt;
+  ) LIKE <>
 GROUP BY
   If(branchess.branchcode LIKE 'DONI%', 'DONIPHAN_COMBINED',
     If(branchess.branchcode LIKE 'PH%', 'PH_COMBINED', 
@@ -521,7 +521,7 @@ FROM
        authorised_values
      WHERE
        authorised_values.category = 'bibloc' AND
-       authorised_values.authorised_value &lt;&gt; "YOUNGADULT"
+       authorised_values.authorised_value <> "YOUNGADULT"
      ) biblocs
   ) branchess LEFT JOIN
   (SELECT
@@ -633,7 +633,7 @@ WHERE
     If(branchess.branchcode LIKE 'PH%', 'PH_COMBINED', 
       branchess.branchcode
     )
-  ) LIKE &lt;&gt;
+  ) LIKE <>
 GROUP BY
   If(branchess.branchcode LIKE 'DONI%', 'DONIPHAN_COMBINED',
     If(branchess.branchcode LIKE 'PH%', 'PH_COMBINED', 
@@ -680,7 +680,7 @@ FROM
     authorised_values
   WHERE
     authorised_values.category = 'bibloc' AND
-    authorised_values.authorised_value &lt;&gt; "YOUNGADULT") biblocs
+    authorised_values.authorised_value <> "YOUNGADULT") biblocs
   GROUP BY
     If(branches.branchcode LIKE 'DONI%', 'DONIPHAN_COMBINED',
       If(branches.branchcode LIKE 'PH%', 'PH_COMBINED', 
@@ -810,7 +810,7 @@ FROM
     statcounts.itemtype = branchesitypes.itemtype AND
     statcounts.LOCATION = branchesitypes.authorised_value
 WHERE
-  branchesitypes.branchcode LIKE &lt;&gt;
+  branchesitypes.branchcode LIKE <>
 GROUP BY
   branchesitypes.branchcode,
   branchesitypes.lib,

@@ -59,7 +59,7 @@ FROM
   biblioitems
     ON biblioitems.biblionumber = biblio.biblionumber
 WHERE
-  Coalesce(items.barcode, '') LIKE &lt;&gt;
+  Coalesce(items.barcode, '') LIKE <>
 ORDER BY
   HOMEBRANCH,
   LOCATION,

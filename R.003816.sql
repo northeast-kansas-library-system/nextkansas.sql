@@ -45,7 +45,7 @@ SELECT
 FROM
   biblioitems
 WHERE
-  biblioitems.itemtype LIKE &lt;&gt;
+  biblioitems.itemtype LIKE <>
 
 
 

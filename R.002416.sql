@@ -29,7 +29,7 @@ This report returns circulation statistics (checkins, checkouts, renewals) for a
 
 
 
-SELECT month(datetime), day(datetime), hour(datetime), type, count(*) FROM statistics WHERE branch=&lt;&gt; AND datetime LIKE &lt;&gt; GROUP BY day(datetime), hour(datetime), type
+SELECT month(datetime), day(datetime), hour(datetime), type, count(*) FROM statistics WHERE branch=<> AND datetime LIKE <> GROUP BY day(datetime), hour(datetime), type
 
 
 

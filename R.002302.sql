@@ -29,7 +29,7 @@ Shows your library's items marked lost that have a current location that is not 
 
 
 
-SELECT items.timestamp AS "Last System Change", items.datelastseen AS "Last Scanner Gun Date", biblio.title, biblio.author,biblioitems.publicationyear, items.holdingbranch, items.location, items.ccode,items.itype,items.itemcallnumber, items.itemnotes, items.barcode, items.replacementprice, CONCAT (''"item info"'') AS "Item Info" FROM items LEFT JOIN biblio USING(biblionumber) LEFT JOIN biblioitems USING (biblionumber) LEFT JOIN authorised_values ON (items.itemlost=authorised_values.authorised_value) WHERE items.homebranch=&lt;&gt; AND items.holdingbranch != &lt;&gt; AND items.itemlost != 0 AND authorised_values.category='LOST' ORDER BY items.timestamp ASC
+SELECT items.timestamp AS "Last System Change", items.datelastseen AS "Last Scanner Gun Date", biblio.title, biblio.author,biblioitems.publicationyear, items.holdingbranch, items.location, items.ccode,items.itype,items.itemcallnumber, items.itemnotes, items.barcode, items.replacementprice, CONCAT (''"item info"'') AS "Item Info" FROM items LEFT JOIN biblio USING(biblionumber) LEFT JOIN biblioitems USING (biblionumber) LEFT JOIN authorised_values ON (items.itemlost=authorised_values.authorised_value) WHERE items.homebranch=<> AND items.holdingbranch != <> AND items.itemlost != 0 AND authorised_values.category='LOST' ORDER BY items.timestamp ASC
 
 
 

@@ -96,7 +96,7 @@ WHERE
         borrowerinfo.branchcode
       )
     )
-  ) LIKE &lt;&gt;
+  ) LIKE <>
 GROUP BY
   account_offsets.id
 ORDER BY

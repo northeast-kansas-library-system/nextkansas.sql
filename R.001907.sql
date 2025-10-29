@@ -490,7 +490,7 @@ Select
 From message_queue 
   Join borrowers On message_queue.borrowernumber = borrowers.borrowernumber 
 Where 
-  borrowers.cardnumber Like &lt;&gt; 
+  borrowers.cardnumber Like <> 
 Group By 
   message_queue.time_queued, 
   message_queue.updated_on, 

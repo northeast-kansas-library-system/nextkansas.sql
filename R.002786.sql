@@ -98,11 +98,11 @@ FROM
     WHERE
       authorised_values.category = 'CCODE') CCODES ON CCODES.authorised_value = items.ccode
 WHERE
-  items.homebranch LIKE &lt;&gt; AND
-  items.location LIKE &lt;&gt; AND
-  items.itype LIKE &lt;&gt; AND
-  items.ccode LIKE &lt;&gt; AND
-  items.dateaccessioned BETWEEN &lt;&gt; AND &lt;&gt;
+  items.homebranch LIKE <> AND
+  items.location LIKE <> AND
+  items.itype LIKE <> AND
+  items.ccode LIKE <> AND
+  items.dateaccessioned BETWEEN <> AND <>
 GROUP BY
   items.biblionumber,
   items.itemnumber

@@ -29,7 +29,7 @@ Shows count of new items added to a collection in last month by item type and sh
 
 
 
-SELECT count(itemnumber) as added, itype, location FROM items WHERE homebranch=&lt;&gt; AND month(dateaccessioned) = &lt;&gt; AND year(dateaccessioned) = &lt;&gt; GROUP BY itype,location ORDER BY itype,location ASC
+SELECT count(itemnumber) as added, itype, location FROM items WHERE homebranch=<> AND month(dateaccessioned) = <> AND year(dateaccessioned) = <> GROUP BY itype,location ORDER BY itype,location ASC
 
 
 

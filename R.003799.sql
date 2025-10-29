@@ -49,7 +49,7 @@ From
       branches,
       categories
     Where
-      branches.branchcode Like Concat('%', &lt;&gt;, '%')
+      branches.branchcode Like Concat('%', <>, '%')
   ) branches_categories Left Join
   borrowers On borrowers.branchcode = branches_categories.branchcode And
       borrowers.categorycode = branches_categories.categorycode Left Join

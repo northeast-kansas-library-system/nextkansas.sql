@@ -109,8 +109,8 @@ FROM
       letter.code) codes_blanks ON codes_blanks.code = branchess.code AND
       codes_blanks.message_transport_type = branchess.message_transport_type
 WHERE
-  branchess.branchcode LIKE &lt;&gt; AND
-  branchess.code LIKE &lt;&gt;
+  branchess.branchcode LIKE <> AND
+  branchess.code LIKE <>
 GROUP BY
   branchess.branchname,
   Coalesce(codes_branches.message_transport_type,

@@ -162,7 +162,7 @@ FROM
 GROUP BY 
   isbns 
 HAVING 
-  isbns &lt;&gt; 'X' AND 
+  isbns <> 'X' AND 
   isbns Not like '%:%' AND 
   isbns Not like '%-%' AND 
   isbns Not like '%"%' AND 
@@ -279,7 +279,7 @@ FROM
 GROUP BY 
   isbns 
 HAVING 
-  isbns &lt;&gt; 'X' AND 
+  isbns <> 'X' AND 
   isbns Not like '%:%' AND 
   isbns Not like '%-%' AND 
   isbns Not like '%"%' AND 

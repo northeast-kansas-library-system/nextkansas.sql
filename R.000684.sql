@@ -44,7 +44,7 @@ FROM
   LEFT JOIN items ON issues.itemnumber = items.itemnumber
   LEFT JOIN biblio ON items.biblionumber = biblio.biblionumber
 WHERE
-  issues.branchcode = &lt;&gt; AND
+  issues.branchcode = <> AND
   items.holdingbranch != items.homebranch
 ORDER BY
   items.itemcallnumber,

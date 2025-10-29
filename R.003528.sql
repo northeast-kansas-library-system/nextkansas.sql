@@ -58,7 +58,7 @@ FROM
     FROM
       accountlines
     WHERE
-      accountlines.amountoutstanding &gt; 0
+      accountlines.amountoutstanding > 0
     GROUP BY
       accountlines.borrowernumber) outstanding_debits ON
       outstanding_debits.borrowernumber = borrowers.borrowernumber INNER JOIN
@@ -73,12 +73,12 @@ FROM
     FROM
       accountlines
     WHERE
-      accountlines.amountoutstanding &lt; 0
+      accountlines.amountoutstanding < 0
     GROUP BY
       accountlines.borrowernumber) outstanding_credits ON
       outstanding_credits.borrowernumber = borrowers.borrowernumber
 WHERE
-  borrowers.branchcode LIKE &lt;&gt; AND
+  borrowers.branchcode LIKE <> AND
   Format((outstanding_credits.Sum_amountoutstanding + outstanding_debits.Sum_amountoutstanding), 2) = 0
 GROUP BY
   borrowers.borrowernumber

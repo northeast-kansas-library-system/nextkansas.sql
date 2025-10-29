@@ -63,7 +63,7 @@ From
       hold_fill_targets.itemnumber
   ) request_counts On request_counts.source_branchcode = branches.branchcode
 Where
-    branches.branchcode = &lt;&gt;
+    branches.branchcode = <>
 Group By
     branches.branchcode
 

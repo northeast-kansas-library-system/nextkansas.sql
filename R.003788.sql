@@ -82,7 +82,7 @@ WHERE
   statistics.type = 'localuse' AND
   Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
   Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
-  branches.branchcode LIKE &lt;&gt;
+  branches.branchcode LIKE <>
 GROUP BY
   branches.branchname,
   biblio.author,

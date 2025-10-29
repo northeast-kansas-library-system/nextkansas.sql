@@ -30,7 +30,7 @@ Shows items with more than XX total circs for various shelving locations.  Enhan
 
 
 SELECT items.barcode, items.itemcallnumber, CONCAT( '',biblio.biblionumber,'' ) as 'Link to Record', biblio.title, t.publicationyear as 'Copyright', items.dateaccessioned as 'Accessioned', items.itype, items.ccode, items.issues, items.renewals,(IFNULL(items.issues,0)+IFNULL(items.renewals,0)) as
-Total_Circ,items.datelastborrowed,items.itemlost,items.onloan,items.damaged,items.itemnotes FROM items LEFT JOIN biblio USING(biblionumber)  LEFT JOIN biblioitems t USING(biblionumber) WHERE items.homebranch=&lt;&gt; AND items.issues &gt; &lt;&gt; and items.location = &lt;&gt; 
+Total_Circ,items.datelastborrowed,items.itemlost,items.onloan,items.damaged,items.itemnotes FROM items LEFT JOIN biblio USING(biblionumber)  LEFT JOIN biblioitems t USING(biblionumber) WHERE items.homebranch=<> AND items.issues > <> and items.location = <> 
 ORDER BY Total_Circ DESC
 
 

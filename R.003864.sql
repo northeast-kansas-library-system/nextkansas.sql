@@ -58,8 +58,8 @@ From
 Where
   borrower_attribute_types.code Like 'ST_ASPEN' And
   authorised_values.category = 'PA_P_ASPEN' And
-  authorised_values.authorised_value Like &lt;&gt; AND 
-  borrowers.branchcode LIKE &lt;&gt;
+  authorised_values.authorised_value Like <> AND 
+  borrowers.branchcode LIKE <>
 Group By
   borrowers.borrowernumber
 Order By

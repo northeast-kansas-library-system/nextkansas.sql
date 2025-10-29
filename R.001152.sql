@@ -45,7 +45,7 @@ SELECT
   Concat(
     biblio.title, 
     " ", 
-    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code&gt;="b"]')
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code>="b"]')
   ) AS TITLE,
   Concat(
     'LINK'

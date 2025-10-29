@@ -54,7 +54,7 @@ FROM
     FROM
       statistics
     WHERE
-      statistics.datetime &gt; CurDate() - INTERVAL 1 YEAR
+      statistics.datetime > CurDate() - INTERVAL 1 YEAR
     GROUP BY
       statistics.borrowernumber) cko_count_ty ON cko_count_ty.borrowernumber =
       borrowers.borrowernumber LEFT JOIN

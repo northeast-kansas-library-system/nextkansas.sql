@@ -44,7 +44,7 @@ SELECT
   borrowers.dateenrolled,
   borrowers.dateexpiry,
   If(
-    Day(Now()) &gt;= 15, 
+    Day(Now()) >= 15, 
     Date_Format(Now() + INTERVAL 3 MONTH, '%Y-%m-15'),
     Date_Format(Now() + INTERVAL 2 MONTH, '%Y-%m-15')
   ) AS PROJECTED_DELETION,
@@ -103,17 +103,17 @@ FROM
       authorised_values.category = 'expired') expired_attribute ON
       borrowers.borrowernumber = expired_attribute.borrowernumber
 WHERE
-  borrowers.dateexpiry &lt; CurDate() - INTERVAL 3 YEAR AND
+  borrowers.dateexpiry < CurDate() - INTERVAL 3 YEAR AND
   borrowers.branchcode LIKE '%' AND
   Coalesce(borrowers.othernames, "0") NOT LIKE "%SIP%" AND
-  borrowers.categorycode &lt;&gt; 'STAFF' AND
-  borrowers.categorycode &lt;&gt; 'ILL' AND
-  borrowers.categorycode &lt;&gt; 'HOOPLA'  AND
-  Coalesce(expired_attribute.attribute, 0) &lt;&gt; 4 AND
-  (Coalesce(accountlinesx.DUE_SUM, 0) &lt;&gt; 0 OR
-      Coalesce(issuesx.ICOUNT, 0) &lt;&gt; 0 OR
-      Coalesce(guaranteesx.GCOUNT, 0) &gt; 0 OR
-      Coalesce(requestsx.Count_reserve_id, 0) &lt;&gt; 0)
+  borrowers.categorycode <> 'STAFF' AND
+  borrowers.categorycode <> 'ILL' AND
+  borrowers.categorycode <> 'HOOPLA'  AND
+  Coalesce(expired_attribute.attribute, 0) <> 4 AND
+  (Coalesce(accountlinesx.DUE_SUM, 0) <> 0 OR
+      Coalesce(issuesx.ICOUNT, 0) <> 0 OR
+      Coalesce(guaranteesx.GCOUNT, 0) > 0 OR
+      Coalesce(requestsx.Count_reserve_id, 0) <> 0)
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

@@ -51,16 +51,16 @@ SELECT
     ELSE borrowers.login_attempts
   END AS login_attempts,
   borrowers.updated_on AS LAST_LOGIN_ATTEMPT,
-  If(borrowers.flags &gt; 0, "Staff", "-") AS ACCESS_TYPE,
+  If(borrowers.flags > 0, "Staff", "-") AS ACCESS_TYPE,
   borrowers.email,
-  IF(borrowers.login_attempts &gt; 4, "LOCKED OUT", "-") AS LOCKED,
+  IF(borrowers.login_attempts > 4, "LOCKED OUT", "-") AS LOCKED,
   borrowers.dateexpiry
 FROM
   borrowers
 WHERE
-  borrowers.login_attempts &gt; 0 AND
-  borrowers.branchcode LIKE &lt;&gt; AND
-  borrowers.cardnumber LIKE &lt;&gt;
+  borrowers.login_attempts > 0 AND
+  borrowers.branchcode LIKE <> AND
+  borrowers.cardnumber LIKE <>
 GROUP BY
   borrowers.cardnumber
 ORDER BY

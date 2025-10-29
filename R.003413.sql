@@ -62,7 +62,7 @@ SELECT
     ),
     borrowers.borrowernumber
   ) AS BORROWER,
-  Concat_Ws(' &lt;br &#47;&gt;&lt;br &#47;&gt; ', 
+  Concat_Ws(' <br &#47;><br &#47;> ', 
     'LOST ITEM PROCESSING FEE: ', 
     Concat('Item barcode: ', item_info.barcode), 
     Concat('Owned by: ', item_info.homebranch),
@@ -73,7 +73,7 @@ SELECT
     Concat('Author: ', item_info.author), 
     Concat('Title: ', item_info.FULL_TITLE),
     Concat('Due date: ', old_checkouts.ORIGINAL_DUE_DATE), 
-    Concat('Lost on: ', item_info.LOST_ON_DATE, '&lt;br &#47;&gt;&lt;br &#47;&gt;')
+    Concat('Lost on: ', item_info.LOST_ON_DATE, '<br &#47;><br &#47;>')
   ) AS FEE_NOTE
 FROM
   (SELECT
@@ -161,7 +161,7 @@ FROM
       item_info.LOST_ON_DATE = old_checkouts.LOST_DATE JOIN
   borrowers ON borrowers.borrowernumber = old_checkouts.borrowernumber
 WHERE
-  item_info.LOST_ON_DATE &gt; (Now() - INTERVAL &lt;&gt; DAY)
+  item_info.LOST_ON_DATE > (Now() - INTERVAL <> DAY)
 GROUP BY
   old_checkouts.itemnumber
 ORDER BY

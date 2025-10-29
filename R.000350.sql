@@ -61,8 +61,8 @@ FROM
   JOIN biblioitems
     ON biblioitems.biblionumber = biblio.biblionumber
 WHERE
-  (To_Days(CurDate()) - To_Days(issues.date_due)) &gt; &lt;&gt; AND
-  issues.branchcode = &lt;&gt;
+  (To_Days(CurDate()) - To_Days(issues.date_due)) > <> AND
+  issues.branchcode = <>
 ORDER BY
   borrowers.surname,
   "borrowers.surname",

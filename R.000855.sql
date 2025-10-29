@@ -41,8 +41,8 @@ FROM
   LEFT JOIN biblio ON items.biblionumber = biblio.biblionumber
   LEFT JOIN biblioitems ON biblio.biblionumber = biblioitems.biblionumber
 WHERE
-  items.homebranch LIKE &lt;&gt; AND
-  items.itemcallnumber LIKE Concat(&lt;&gt;, "%")
+  items.homebranch LIKE <> AND
+  items.itemcallnumber LIKE Concat(<>, "%")
 ORDER BY
   items.dateaccessioned DESC
 

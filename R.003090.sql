@@ -97,9 +97,9 @@ FROM
     ) holdscontact 
   ON borrowers.borrowernumber = holdscontact.borrowernumber
 WHERE
-  borrowers.branchcode LIKE &lt;&gt; AND
-  borrowers.categorycode LIKE &lt;&gt; AND
-  Coalesce(holdscontact.attribute, "~") LIKE &lt;&gt;
+  borrowers.branchcode LIKE <> AND
+  borrowers.categorycode LIKE <> AND
+  Coalesce(holdscontact.attribute, "~") LIKE <>
 GROUP BY
   borrowers.borrowernumber,
   Coalesce(holdscontact.lib, "~")

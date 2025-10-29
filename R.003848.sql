@@ -46,7 +46,7 @@ FROM
   biblio_metadata JOIN
   biblio ON biblio_metadata.biblionumber = biblio.biblionumber
 WHERE
-  SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 7 FOR 1 ) = &lt;&gt;
+  SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 7 FOR 1 ) = <>
 
 
 

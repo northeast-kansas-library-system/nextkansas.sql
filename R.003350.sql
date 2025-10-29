@@ -54,11 +54,11 @@ Select
       items.barcode
     ) AS BARCODE,
     CONCAT_WS('',
-    If(reserves.suspend_until &gt; 1, Concat('Suspended until ', Date_Format(reserves.suspend_until, "%m/%d/%Y")), If(reserves.suspend = '', 'Active', 'Suspended indefinitely')),
+    If(reserves.suspend_until > 1, Concat('Suspended until ', Date_Format(reserves.suspend_until, "%m/%d/%Y")), If(reserves.suspend = '', 'Active', 'Suspended indefinitely')),
     Concat_Ws('', 
-      If(items.damaged_on &gt; 0, Concat('Damaged on ', items.damaged_on, ''), ''), 
-      If(items.itemlost_on &gt; 0, Concat('Lost on ', items.itemlost_on, ''), ''), 
-      If(items.withdrawn_on &gt; 0, Concat('Withdrawn on ', items.withdrawn_on, ''), '')
+      If(items.damaged_on > 0, Concat('Damaged on ', items.damaged_on, ''), ''), 
+      If(items.itemlost_on > 0, Concat('Lost on ', items.itemlost_on, ''), ''), 
+      If(items.withdrawn_on > 0, Concat('Withdrawn on ', items.withdrawn_on, ''), '')
     )
   ) As STATUS_ISSUES
 From
@@ -76,8 +76,8 @@ From
     biblio_metadata On biblio_metadata.biblionumber = biblio.biblionumber
 Where
     reserves.branchcode Like 'LEAVENWRTH' And
-    If(reserves.suspend &gt; 0, 'Yes', 'No') Like '%' And
-    If(reserves.suspend_until &gt; 1, Concat('Suspended until ', Date_Format(reserves.suspend_until, "%m/%d/%Y")),
+    If(reserves.suspend > 0, 'Yes', 'No') Like '%' And
+    If(reserves.suspend_until > 1, Concat('Suspended until ', Date_Format(reserves.suspend_until, "%m/%d/%Y")),
     If(reserves.suspend = '', 'Active', 'Suspended indefinitely')) = 'Suspended until 08/31/2020' And
     items.homebranch = 'LEAVENWRTH' And
     items.notforloan = 0 And

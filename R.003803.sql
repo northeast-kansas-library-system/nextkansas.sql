@@ -88,7 +88,7 @@ FROM
   LEFT JOIN categories 
     ON borrowers.categorycode = categories.categorycode
 WHERE
-  borrowers.branchcode LIKE &lt;&gt; AND
+  borrowers.branchcode LIKE <> AND
   Coalesce(newsletter_permission.attribute, "~") LIKE 'Yes'
 GROUP BY
   borrowers.borrowernumber

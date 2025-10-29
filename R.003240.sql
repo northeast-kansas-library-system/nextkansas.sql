@@ -100,7 +100,7 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.dateexpiry &lt; "1900-12-31"
+  borrowers.dateexpiry < "1900-12-31"
 
 
 

@@ -46,16 +46,16 @@ Expiry: 300
 SELECT
   borrowers.smsalertnumber AS TEXT_NUMBER,
   borrowers.cardnumber,
-  Concat("&lt;br /&gt;BOUNCED SMS TEXT MESSAGE&lt;br /&gt;An SMS text message sent to this patron's phone number at &lt;strong&gt;(",
+  Concat("<br />BOUNCED SMS TEXT MESSAGE<br />An SMS text message sent to this patron's phone number at <strong>(",
   borrowers.smsalertnumber,
-  ")&lt;/strong&gt; bounced.&lt;br /&gt;Please confirm the patron's contact information the next time they use their account.&lt;br /&gt;", CurDate()) AS MESSAGE,
+  ")</strong> bounced.<br />Please confirm the patron's contact information the next time they use their account.<br />", CurDate()) AS MESSAGE,
   Concat('',
   borrowers.borrowernumber, '') AS 'LINK_TO_PATRON'
 FROM
   borrowers
   JOIN message_queue ON message_queue.borrowernumber = borrowers.borrowernumber
 WHERE
-  message_queue.to_address LIKE CONCAT("%", &lt;&gt;,"%")
+  message_queue.to_address LIKE CONCAT("%", <>,"%")
 GROUP BY
   borrowers.borrowernumber
 

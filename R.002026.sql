@@ -62,8 +62,8 @@ FROM
   LEFT JOIN biblio ON items.biblionumber = biblio.biblionumber
   LEFT JOIN biblioitems ON biblio.biblionumber = biblioitems.biblionumber
 WHERE
-  items.homebranch LIKE &lt;&gt; AND
-  items.itemlost LIKE &lt;&gt;
+  items.homebranch LIKE <> AND
+  items.itemlost LIKE <>
 ORDER BY
   items.itemcallnumber
 

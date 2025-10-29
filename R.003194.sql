@@ -34,7 +34,7 @@ SELECT
 FROM
   branches
 WHERE
-  branches.branchcode LIKE Concat(&lt;&gt;, "%")
+  branches.branchcode LIKE Concat(<>, "%")
 
 
 

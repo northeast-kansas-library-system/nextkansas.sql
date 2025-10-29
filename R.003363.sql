@@ -168,7 +168,7 @@ FROM
       renewborrowers.branch = branchess.branchcode AND
       renewborrowers.DATE = ALL_STATS.DATE
 WHERE
-  branchess.branchcode LIKE &lt;&gt;
+  branchess.branchcode LIKE <>
 GROUP BY
   branchess.branchname,
   ALL_STATS.DATE

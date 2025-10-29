@@ -29,7 +29,7 @@ All materials that are overdue that checked out at your library.
 
 
 
-SELECT borrowers.surname, borrowers.firstname, borrowers.phone, borrowers.cardnumber, borrowers.address, borrowers.city, borrowers.zipcode, issues.date_due, (TO_DAYS(curdate())-TO_DAYS( date_due)) as 'days overdue', items.itype, items.itemcallnumber, items.barcode, items.homebranch, biblio.title, biblio.author FROM borrowers left join issues  USING (borrowernumber) LEFT JOIN items USING (itemnumber) LEFT JOIN biblio USING (biblionumber)  WHERE (TO_DAYS(curdate())-TO_DAYS(date_due)) &gt; &lt;&gt; and issues.branchcode = &lt;&gt; order by borrowers.surname asc, issues.date_due asc
+SELECT borrowers.surname, borrowers.firstname, borrowers.phone, borrowers.cardnumber, borrowers.address, borrowers.city, borrowers.zipcode, issues.date_due, (TO_DAYS(curdate())-TO_DAYS( date_due)) as 'days overdue', items.itype, items.itemcallnumber, items.barcode, items.homebranch, biblio.title, biblio.author FROM borrowers left join issues  USING (borrowernumber) LEFT JOIN items USING (itemnumber) LEFT JOIN biblio USING (biblionumber)  WHERE (TO_DAYS(curdate())-TO_DAYS(date_due)) > <> and issues.branchcode = <> order by borrowers.surname asc, issues.date_due asc
 
 
 

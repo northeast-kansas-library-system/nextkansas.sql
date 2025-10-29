@@ -45,7 +45,7 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.cardnumber LIKE CONCAT((&lt;&gt;),'%')
+  borrowers.cardnumber LIKE CONCAT((<>),'%')
 GROUP BY
   borrowers.branchcode
   WITH ROLLUP

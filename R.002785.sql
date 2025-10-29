@@ -63,7 +63,7 @@ FROM
   borrowers
     ON old_issues.borrowernumber = borrowers.borrowernumber
 WHERE
-  items.barcode = &lt;&gt;
+  items.barcode = <>
 ORDER BY
   old_issues.returndate DESC
 

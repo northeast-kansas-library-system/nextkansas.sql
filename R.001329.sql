@@ -29,7 +29,7 @@ Choose branch and enter year added to list. #patrons
 
 
 
-SELECT borrowers.dateenrolled, borrowers.surname,borrowers.firstname,borrowers.branchcode,borrowers.categorycode, borrowers.cardnumber,borrowers.address,borrowers.city,borrowers.phone FROM borrowers WHERE year(dateenrolled) = &lt;&lt; numericyear &gt;&gt; AND borrowers.branchcode = &lt;&gt; ORDER BY borrowers.categorycode ASC
+SELECT borrowers.dateenrolled, borrowers.surname,borrowers.firstname,borrowers.branchcode,borrowers.categorycode, borrowers.cardnumber,borrowers.address,borrowers.city,borrowers.phone FROM borrowers WHERE year(dateenrolled) = << numericyear >> AND borrowers.branchcode = <> ORDER BY borrowers.categorycode ASC
 
 
 

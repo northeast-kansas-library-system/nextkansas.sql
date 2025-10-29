@@ -83,7 +83,7 @@ FROM
   virtualshelves ON virtualshelfcontents.shelfnumber =
       virtualshelves.shelfnumber
 WHERE
-  virtualshelfcontents.shelfnumber = &lt;&gt;
+  virtualshelfcontents.shelfnumber = <>
 
 
 

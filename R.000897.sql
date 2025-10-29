@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-SELECT cardnumber, surname, firstname,debarred, dateexpiry FROM borrowers WHERE branchcode=&lt;&gt; ORDER BY surname
+SELECT cardnumber, surname, firstname,debarred, dateexpiry FROM borrowers WHERE branchcode=<> ORDER BY surname
 
 
 

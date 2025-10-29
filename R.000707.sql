@@ -30,7 +30,7 @@ Enhanced. Choose branch and enter call number prefix + % to search on.
 
 
 SELECT items.dateaccessioned,items.datelastseen,items.itype,items.ccode,items.location,items.itemcallnumber,items.barcode,biblio.title,biblio.author,t.publicationyear, CONCAT(''"edit item"'') as "edit item" 
-  FROM items LEFT JOIN biblio USING(biblionumber)  LEFT JOIN biblioitems t USING(biblionumber)  WHERE items.homebranch=&lt;&gt; AND items.itemcallnumber LIKE &lt;&gt; ORDER BY items.itemcallnumber ASC
+  FROM items LEFT JOIN biblio USING(biblionumber)  LEFT JOIN biblioitems t USING(biblionumber)  WHERE items.homebranch=<> AND items.itemcallnumber LIKE <> ORDER BY items.itemcallnumber ASC
 
 
 

@@ -32,7 +32,7 @@ Expiry: 300
 SELECT
   reserves.branchcode AS PICKUP_AT,
   reserves.reservedate AS REQUESTED_ON,
-  If(reserves.suspend_until &gt; 1, Concat('Suspended until ', Date_Format(reserves.suspend_until, "%m/%d/%Y")), If(reserves.suspend = '', 'Active', 'Suspended indefinitely')) AS SUSPENDED,
+  If(reserves.suspend_until > 1, Concat('Suspended until ', Date_Format(reserves.suspend_until, "%m/%d/%Y")), If(reserves.suspend = '', 'Active', 'Suspended indefinitely')) AS SUSPENDED,
   biblio.author,
   biblio.title,
   If(reserves.item_level_hold = '', '-', 'Item level request') AS ITEM_LEVEL,
@@ -41,8 +41,8 @@ FROM
   reserves JOIN
   biblio ON reserves.biblionumber = biblio.biblionumber
 WHERE
-  reserves.branchcode LIKE &lt;&gt; AND
-  If(reserves.suspend &gt; 0, 'Yes', 'No') LIKE &lt;&gt;
+  reserves.branchcode LIKE <> AND
+  If(reserves.suspend > 0, 'Yes', 'No') LIKE <>
 GROUP BY
   reserves.reserve_id
 ORDER BY

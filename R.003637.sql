@@ -35,7 +35,7 @@ SELECT
 FROM
   items
 WHERE
-  items.itype = &lt;&gt;
+  items.itype = <>
 
 
 

@@ -42,8 +42,8 @@ WHERE
     statistics.type = 'renew') AND
   Year(statistics.datetime) = 2021 AND
   Month(statistics.datetime) = 6 AND
-  biblio.biblionumber LIKE &lt;&gt; AND
-  items.homebranch Like &lt;&gt;
+  biblio.biblionumber LIKE <> AND
+  items.homebranch Like <>
 GROUP BY
   biblio.biblionumber,
   biblio.title

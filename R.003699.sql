@@ -77,7 +77,7 @@ From
           branches,
           itemtypes
       Where
-          branches.branchcode Like &lt;&gt;) branch_itype Left Join
+          branches.branchcode Like <>) branch_itype Left Join
     (Select
           Coalesce(statistics.branch, "NEKLS") As branch,
           Coalesce(statistics.itemtype, "BOOK") As itemtype,

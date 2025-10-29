@@ -138,7 +138,7 @@ LEFT JOIN
   ) ccode 
     ON ccode.authorised_value = items.ccode
 WHERE
-  items.barcode LIKE Concat('%',  &lt;&gt; , '%')
+  items.barcode LIKE Concat('%',  <> , '%')
 GROUP BY
   items.itemnumber
 ORDER BY

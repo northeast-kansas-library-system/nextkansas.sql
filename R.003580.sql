@@ -43,7 +43,7 @@ FROM
   LEFT JOIN
   itemtypes ON circulation_rules.itemtype = itemtypes.itemtype
 WHERE
-  circulation_rules.branchcode = &lt;&gt; AND
+  circulation_rules.branchcode = <> AND
   circulation_rules.rule_name = 'issuelength'
 ORDER BY
   circulation_rules.branchcode,

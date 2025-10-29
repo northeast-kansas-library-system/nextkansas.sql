@@ -119,10 +119,10 @@ Sub WriteToSQL()
     
     ' Perform the replacements in column B.
     With ws.Columns("B")
-        ' Replace "&lt;" with "<".
-        .Replace What:="&lt;", Replacement:="<", LookAt:=xlPart
-        ' Replace "&gt;" with ">".
-        .Replace What:="&gt;", Replacement:=">", LookAt:=xlPart
+        ' Replace "<" with "<".
+        .Replace What:="<", Replacement:="<", LookAt:=xlPart
+        ' Replace ">" with ">".
+        .Replace What:=">", Replacement:=">", LookAt:=xlPart
     End With
     
     ' Re-enable screen updating.
@@ -173,10 +173,10 @@ Sub WriteToRST()
     
     ' Perform the replacements in column B.
     With ws.Columns("B")
-        ' Replace "&lt;" with "<".
-        .Replace What:="&lt;", Replacement:="<", LookAt:=xlPart
-        ' Replace "&gt;" with ">".
-        .Replace What:="&gt;", Replacement:=">", LookAt:=xlPart
+        ' Replace "<" with "<".
+        .Replace What:="<", Replacement:="<", LookAt:=xlPart
+        ' Replace ">" with ">".
+        .Replace What:=">", Replacement:=">", LookAt:=xlPart
     End With
     
     ' Re-enable screen updating.

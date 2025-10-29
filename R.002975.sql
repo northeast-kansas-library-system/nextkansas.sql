@@ -119,7 +119,7 @@ FROM
     WHERE 
       Month(old_reserves.cancellationdate) = Month(Now() - INTERVAL 1 MONTH) AND 
       Year(old_reserves.cancellationdate) = Year(Now() - INTERVAL 1 MONTH) AND 
-      (old_reserves.found &lt;&gt; 'F' OR 
+      (old_reserves.found <> 'F' OR 
         old_reserves.found IS NULL) 
     GROUP BY 
       old_reserves.branchcode 

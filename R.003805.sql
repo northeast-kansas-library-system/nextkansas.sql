@@ -71,7 +71,7 @@ WHERE
       ".", 
       ""
     )
-  ) LIKE Concat('%', &lt;&gt;, '%')
+  ) LIKE Concat('%', <>, '%')
 GROUP BY
   biblio_metadata.biblionumber
 ORDER BY

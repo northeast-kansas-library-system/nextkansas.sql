@@ -40,7 +40,7 @@ SELECT
     If(
       Coalesce(loc.COUNT, 0) + 
         Coalesce(ccode.COUNT, 0) + 
-          Coalesce(itemtypes.COUNT, 0) &gt; 1, 
+          Coalesce(itemtypes.COUNT, 0) > 1, 
       "-- duplicated codes in these settings", 
       ""
     )

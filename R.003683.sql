@@ -142,7 +142,7 @@ FROM
   ) itypes ON 
     itypes.itemtype = items.itype
 WHERE
-  items.homebranch LIKE &lt;&gt; AND
+  items.homebranch LIKE <> AND
   ( 
     (items.barcode IS NULL) OR
     (plocs.lib IS NULL) OR

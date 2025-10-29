@@ -134,7 +134,7 @@ WHEN i.itemcallnumber REGEXP '^.*99[0-9]\..*$' OR i.itemcallnumber REGEXP '^.*99
 		ELSE 'all others'
 	END dewey_number, location, COUNT(s.datetime) as total_circ, COUNT(DISTINCT s.itemnumber) as unique_circed
 FROM items i LEFT OUTER JOIN statistics s USING(itemnumber)
-WHERE month(s.datetime)=&lt;&gt; AND year(s.datetime)=&lt;&gt; AND s.type IN ('issue','renew') AND s.branch=&lt;&gt;
+WHERE month(s.datetime)=<> AND year(s.datetime)=<> AND s.type IN ('issue','renew') AND s.branch=<>
 GROUP BY dewey_number, location
 
 

@@ -46,12 +46,12 @@ UNION
   Coalesce(ours_at_other_libraries.COUNTS, 0) AS "Our materials checked out at other Next libraries",
   Coalesce(not_ours_at_ours.COUNTS, 0) - Coalesce(ours_at_other_libraries.COUNTS, 0) AS NET,
   If(
-    Coalesce(not_ours_at_ours.COUNTS, 0) - Coalesce(ours_at_other_libraries.COUNTS, 0) &gt; 0,
+    Coalesce(not_ours_at_ours.COUNTS, 0) - Coalesce(ours_at_other_libraries.COUNTS, 0) > 0,
     "We borrowerd more than we lent",
     ""
   ) AS "Net borrower",
   If(
-    Coalesce(not_ours_at_ours.COUNTS, 0) - Coalesce(ours_at_other_libraries.COUNTS, 0) &lt; 0,
+    Coalesce(not_ours_at_ours.COUNTS, 0) - Coalesce(ours_at_other_libraries.COUNTS, 0) < 0,
     "We lent more than we borrowed",
     ""
   ) AS "Net lender",

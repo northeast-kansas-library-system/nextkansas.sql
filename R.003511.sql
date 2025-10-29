@@ -138,7 +138,7 @@ FROM
       ) = 1 
   ) bib_locations ON bib_locations.biblionumber = biblio.biblionumber 
 WHERE 
-  biblioitems.agerestriction &lt;&gt; 'L_AD' AND 
+  biblioitems.agerestriction <> 'L_AD' AND 
   bib_locations.Group_Concat_permanent_location = 'L_AD' 
 GROUP BY 
   biblio.biblionumber 

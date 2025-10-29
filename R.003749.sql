@@ -38,7 +38,7 @@ Select
 From
   items
 Where
-  items.dateaccessioned BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day)
+  items.dateaccessioned BETWEEN <> AND (<> + interval 1 day)
 Group By
   items.homebranch,
   items.ccode

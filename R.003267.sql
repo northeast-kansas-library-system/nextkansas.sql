@@ -50,7 +50,7 @@ FROM
     ON biblioitems.biblionumber = biblio.biblionumber
 WHERE
   biblioitems.isbn LIKE '%(%' AND
-  biblioitems.itemtype &lt;&gt; 'DIGITAL'
+  biblioitems.itemtype <> 'DIGITAL'
 GROUP BY
   biblio.biblionumber
 ORDER BY

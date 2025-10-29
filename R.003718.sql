@@ -279,7 +279,7 @@ WHERE
     item_info.homebranch, 
     branchtransfers.frombranch, 
     branchtransfers.tobranch 
-  ) LIKE Concat('%', &lt;&gt;, '%')
+  ) LIKE Concat('%', <>, '%')
 GROUP BY 
   item_info.biblionumber, 
   item_info.itemnumber 

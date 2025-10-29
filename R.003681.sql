@@ -37,7 +37,7 @@ SELECT
   GROUP_CONCAT(branchcode  SEPARATOR ', ') as branches 
 FROM borrowers 
 GROUP BY userid 
-HAVING COUNT(borrowernumber) &gt; 1
+HAVING COUNT(borrowernumber) > 1
 
 
 

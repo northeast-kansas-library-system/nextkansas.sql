@@ -83,7 +83,7 @@ FROM
   ) branches_counts
   LEFT JOIN borrowers ON borrowers.branchcode = branches_counts.branchcode
 WHERE
-  branches_counts.branchcode LIKE &lt;&gt;
+  branches_counts.branchcode LIKE <>
 GROUP BY 
   branches_counts.branchname,
   Coalesce(borrowers.sex, '')

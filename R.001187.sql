@@ -29,7 +29,7 @@ Enhanced - Run, pick and go... #count
 
 
 
-SELECT location, homebranch,count(itemnumber) as items FROM items WHERE items.homebranch = &lt;&gt; GROUP BY location ORDER BY location asc 
+SELECT location, homebranch,count(itemnumber) as items FROM items WHERE items.homebranch = <> GROUP BY location ORDER BY location asc 
 
 
 

@@ -40,9 +40,9 @@ SELECT
   borrowers.city, 
   borrowers.phone 
 FROM borrowers 
-WHERE month(dateenrolled) = &lt;&lt; numericmonth &gt;&gt; AND 
-  year(dateenrolled) = &lt;&lt; numericyear &gt;&gt; AND 
-  borrowers.branchcode = &lt;&gt; 
+WHERE month(dateenrolled) = << numericmonth >> AND 
+  year(dateenrolled) = << numericyear >> AND 
+  borrowers.branchcode = <> 
 ORDER BY borrowers.categorycode ASC
 
 

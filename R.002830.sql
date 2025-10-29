@@ -32,7 +32,7 @@ Expiry: 0
 SELECT
   Concat_Ws('', CONCAT('',(Concat_Ws(' | ', 'Item details: ', items.itemcallnumber, biblio.author, CONCAT('', biblio.title,''), concat(items.barcode,'')))),
   (Concat_Ws(' | ',(Concat(DateDiff(Now(), issues.date_due), ' days overdue')), (Concat('Date due: ', CAST(issues.date_due AS date))), (Concat('Replacement price: $', items.replacementprice)))), 
-  (Concat_Ws(' | ',(Concat('Checked out at: ', issues.branchcode)), CONCAT( (Concat('Item home branch: ',items.homebranch)),' ')))) AS ITEMINFO,
+  (Concat_Ws(' | ',(Concat('Checked out at: ', issues.branchcode)), CONCAT( (Concat('Item home branch: ',items.homebranch)),'ï¿½')))) AS ITEMINFO,
   items.content
 FROM
   items JOIN
@@ -41,7 +41,7 @@ FROM
   issues
     ON issues.itemnumber = items.itemnumber
 WHERE
-  issues.date_due &lt; Now() - INTERVAL 7 DAY AND issues.borrowernumber LIKE &lt;&gt; AND issues.branchcode LIKE &lt;&gt;
+  issues.date_due < Now() - INTERVAL 7 DAY AND issues.borrowernumber LIKE <> AND issues.branchcode LIKE <>
 GROUP BY
   issues.borrowernumber, items.itemnumber
 ORDER BY

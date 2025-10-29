@@ -29,7 +29,7 @@ USE THIS ONE FOR MONTHLY CIRCS
 
 
 
-SELECT count(*) FROM statistics LEFT JOIN items USING(itemnumber) WHERE statistics.type IN ('issue', 'renew') AND datetime &gt;='2014-01-01' AND datetime &lt;'2014-02-01' AND statistics.branch = 'BASEHOR'  AND (items.itemcallnumber LIKE 'YBIO%' OR items.itemcallnumber LIKE 'YB%' OR items.itemcallnumber LIKE 'Y BIO%')    
+SELECT count(*) FROM statistics LEFT JOIN items USING(itemnumber) WHERE statistics.type IN ('issue', 'renew') AND datetime >='2014-01-01' AND datetime <'2014-02-01' AND statistics.branch = 'BASEHOR'  AND (items.itemcallnumber LIKE 'YBIO%' OR items.itemcallnumber LIKE 'YB%' OR items.itemcallnumber LIKE 'Y BIO%')    
 
 
 

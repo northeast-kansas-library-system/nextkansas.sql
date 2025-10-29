@@ -84,7 +84,7 @@ FROM
     WHERE
       (statistics.type = 'issue' OR
         statistics.type = 'renew') AND
-      statistics.branch = &lt;&gt;
+      statistics.branch = <>
     GROUP BY
       statistics.borrowernumber
     ORDER BY
@@ -99,12 +99,12 @@ FROM
     GROUP BY
       accountlines.borrowernumber
     HAVING
-      Sum(accountlines.amountoutstanding) &gt; 0) accountliness ON
+      Sum(accountlines.amountoutstanding) > 0) accountliness ON
       accountliness.borrowernumber = borrowers.borrowernumber
 WHERE
-  borrowers.branchcode LIKE &lt;&gt; AND
-  borrowers.categorycode LIKE &lt;&gt; AND
-  statisticss.Max_datetime &lt; &lt;&gt;
+  borrowers.branchcode LIKE <> AND
+  borrowers.categorycode LIKE <> AND
+  statisticss.Max_datetime < <>
 ORDER BY
   LAST_BORROWED DESC
 

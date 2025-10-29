@@ -96,7 +96,7 @@ FROM
     ON borrowers.branchcode = branches.branchcode
 WHERE
   borrower_attributes.code = 'REGBRANCH' AND
-  borrower_attributes.attribute IN [&lt;&gt;]
+  borrower_attributes.attribute IN [<>]
 ORDER BY
   borrowers.borrowernumber
 

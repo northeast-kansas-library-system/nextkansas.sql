@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-SELECT MONTH(timestamp), YEAR(timestamp), count(*) FROM old_reserves WHERE old_reserves.branchcode = &lt;&gt; GROUP BY MONTH(timestamp), YEAR(timestamp) ORDER BY YEAR(timestamp) DESC, MONTH(timestamp) DESC
+SELECT MONTH(timestamp), YEAR(timestamp), count(*) FROM old_reserves WHERE old_reserves.branchcode = <> GROUP BY MONTH(timestamp), YEAR(timestamp) ORDER BY YEAR(timestamp) DESC, MONTH(timestamp) DESC
 
 
 

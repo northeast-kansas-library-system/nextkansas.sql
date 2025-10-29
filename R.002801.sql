@@ -61,7 +61,7 @@ FROM
   biblio
     ON old_reserves.biblionumber = biblio.biblionumber
 WHERE
-  borrowers.cardnumber LIKE Concat("%", &lt;&gt;)
+  borrowers.cardnumber LIKE Concat("%", <>)
 ORDER BY
   old_reserves.timestamp
 DESC

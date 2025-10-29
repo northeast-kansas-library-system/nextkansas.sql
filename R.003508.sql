@@ -69,7 +69,7 @@ FROM
   cnx_turnaround 
   ON cnx_turnaround.branchcode = branches.branchcode 
 WHERE 
-  branches.branchcode LIKE &lt;&gt; 
+  branches.branchcode LIKE <> 
 GROUP BY 
   branches.branchcode, 
   cnx_turnaround.CNX_DELAY_DAYS

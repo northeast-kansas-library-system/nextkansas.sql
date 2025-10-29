@@ -59,14 +59,14 @@ FROM
 WHERE
   borrowers.branchcode NOT LIKE "HIGH_CC" AND
   /* borrowers.branchcode NOT LIKE "PH%" AND */
-  borrowers.branchcode LIKE &lt;&gt; AND
-  borrowers.categorycode &lt;&gt; "STAFF" AND
+  borrowers.branchcode LIKE <> AND
+  borrowers.categorycode <> "STAFF" AND
   borrowers.cardnumber NOT LIKE "0%" AND
   borrowers.cardnumber IS NOT NULL AND
   borrowers.cardnumber NOT LIKE "" AND
-  borrowers.address LIKE Concat(&lt;&gt; ,"%") AND
-  borrowers.city LIKE Concat(&lt;&gt;, "%") AND
-  borrowers.state LIKE Concat(&lt;&gt;, "%")
+  borrowers.address LIKE Concat(<> ,"%") AND
+  borrowers.city LIKE Concat(<>, "%") AND
+  borrowers.state LIKE Concat(<>, "%")
 
 
 

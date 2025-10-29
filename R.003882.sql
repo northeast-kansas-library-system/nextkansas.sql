@@ -34,10 +34,10 @@ Select
     borrowers.cardnumber,
     borrowers.branchcode,
     borrowers.categorycode,
-    If(borrowers.dateexpiry &lt; Now(), Concat('Borrower registration expired on ', borrowers.dateexpiry), '') As REASON_1,
-    If(borrower_restrictions.restricted &gt; 1, 'Borrower is restricted', '') As REASON_2,
-    If(amount_outstanding.amount &gt;= 10, Concat('Borrower owes ', amount_outstanding.amount), '') As REASON_3,
-    If(overdues.Count_issue_id = 1, Concat('Borrower has 1 overdue item'), If(overdues.Count_issue_id &gt; 1, Concat('Borrower has ', overdues.Count_issue_id, ' overdue items'), '')) As REASON_3
+    If(borrowers.dateexpiry < Now(), Concat('Borrower registration expired on ', borrowers.dateexpiry), '') As REASON_1,
+    If(borrower_restrictions.restricted > 1, 'Borrower is restricted', '') As REASON_2,
+    If(amount_outstanding.amount >= 10, Concat('Borrower owes ', amount_outstanding.amount), '') As REASON_3,
+    If(overdues.Count_issue_id = 1, Concat('Borrower has 1 overdue item'), If(overdues.Count_issue_id > 1, Concat('Borrower has ', overdues.Count_issue_id, ' overdue items'), '')) As REASON_3
 From
     borrowers Left Join
     (Select
@@ -63,11 +63,11 @@ From
      From
          issues
      Where
-         issues.date_due &lt; CurDate()
+         issues.date_due < CurDate()
      Group By
          issues.borrowernumber) overdues On overdues.borrowernumber = borrowers.borrowernumber
 Where
-    borrowers.branchcode Like &lt;&gt; And
+    borrowers.branchcode Like <> And
     borrowers.categorycode Like '%'
 Group By
     borrowers.borrowernumber

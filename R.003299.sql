@@ -62,9 +62,9 @@ FROM
   ) kanopy
     ON kanopy.borrowernumber = borrowers.borrowernumber
 WHERE
-  borrowers.branchcode &lt;&gt; 'LEAVENWRTH' AND
+  borrowers.branchcode <> 'LEAVENWRTH' AND
   kanopy.attribute = 'LEAVENWRTH' AND
-  borrowers.othernames &lt;&gt; 'SIP2 test account'
+  borrowers.othernames <> 'SIP2 test account'
 GROUP BY
   borrowers.categorycode,
   borrowers.borrowernumber

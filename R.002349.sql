@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-select surname, firstname, GROUP_CONCAT(cardnumber SEPARATOR ', ') as barcodes, GROUP_CONCAT(borrowernumber SEPARATOR ', ') as borrowers, GROUP_CONCAT(branchcode SEPARATOR ', ') as "home libraries" from borrowers WHERE branchcode IN ('PAOLA','OSAWATOMIE') group by CONCAT(surname,'-',firstname,'/') HAVING COUNT(CONCAT(surname,'-',firstname,'/'))&gt;1
+select surname, firstname, GROUP_CONCAT(cardnumber SEPARATOR ', ') as barcodes, GROUP_CONCAT(borrowernumber SEPARATOR ', ') as borrowers, GROUP_CONCAT(branchcode SEPARATOR ', ') as "home libraries" from borrowers WHERE branchcode IN ('PAOLA','OSAWATOMIE') group by CONCAT(surname,'-',firstname,'/') HAVING COUNT(CONCAT(surname,'-',firstname,'/'))>1
 
 
 

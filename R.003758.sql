@@ -38,8 +38,8 @@ WHERE
   branchtransfers.datearrived IS NULL AND
   branchtransfers.datecancelled IS NULL AND
   Concat_Ws(" ", branchtransfers.frombranch, branchtransfers.tobranch,
-  items.homebranch) LIKE Concat("%", &lt;&gt; ,"%") AND
-  branchtransfers.datesent &lt; CurDate() - INTERVAL 7 DAY
+  items.homebranch) LIKE Concat("%", <> ,"%") AND
+  branchtransfers.datesent < CurDate() - INTERVAL 7 DAY
 
 
 

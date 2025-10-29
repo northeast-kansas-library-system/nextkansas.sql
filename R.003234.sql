@@ -94,14 +94,14 @@ FROM
       borrowerss.code = columncreator.CAT_CODE AND
       borrowerss.attribute = columncreator.AV_CODE
 WHERE
-  columncreator.branchcode LIKE &lt;&gt; AND
-  columncreator.CAT_CODE LIKE &lt;&gt;
+  columncreator.branchcode LIKE <> AND
+  columncreator.CAT_CODE LIKE <>
 GROUP BY
   columncreator.branchcode,
   columncreator.CAT_CODE,
   columncreator.AV_CODE
 HAVING
-  PATRON_COUNT &gt;= &lt;&gt;
+  PATRON_COUNT >= <>
 ORDER BY
   LIBRARY,
   EXTENDED_ATTRIBUTE

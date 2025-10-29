@@ -65,7 +65,7 @@ FROM
   biblio
     ON reserves.biblionumber = biblio.biblionumber
 WHERE
-  items.barcode = &lt;&gt;
+  items.barcode = <>
 ORDER BY
   reserves.timestamp DESC
 

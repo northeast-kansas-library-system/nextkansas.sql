@@ -36,7 +36,7 @@ FROM
   JOIN items
     ON items.itemnumber = collections_tracking.itemnumber
 WHERE
-  collections_tracking.colId = &lt;&gt;
+  collections_tracking.colId = <>
 
 
 

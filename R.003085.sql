@@ -185,18 +185,18 @@ FROM
         borrower_attributes.attribute) newsletter_permission ON
     borrowers.borrowernumber = newsletter_permission.borrowernumber
 WHERE
-  borrowers.branchcode LIKE &lt;&gt;  AND
-  borrowers.categorycode LIKE &lt;&gt; AND
-  Coalesce(otherinfoone.attribute, "~") LIKE CONCAT("%", &lt;&gt;, "%") AND
-  Coalesce(otherinfotwo.attribute, "~") LIKE CONCAT("%", &lt;&gt;, "%") AND
-  Coalesce(registrationbranch.attribute, "~") LIKE CONCAT("%", &lt;&gt;, "%") AND
-  Coalesce(collectionagency.attribute, "~") LIKE &lt;&gt; AND
-  Coalesce(expired_account.attribute, "~") LIKE &lt;&gt; AND
-  Coalesce(holdscontact.attribute, "~") LIKE &lt;&gt; AND
-  Coalesce(location.attribute, "~") LIKE &lt;&gt; AND 
-  Coalesce(internet_permission.attribute, "~") LIKE &lt;&gt; AND
-  Coalesce(movie_permissionx.attribute, "~") LIKE &lt;&gt; AND
-  Coalesce(newsletter_permission.attribute, "~") LIKE &lt;&gt;
+  borrowers.branchcode LIKE <>  AND
+  borrowers.categorycode LIKE <> AND
+  Coalesce(otherinfoone.attribute, "~") LIKE CONCAT("%", <>, "%") AND
+  Coalesce(otherinfotwo.attribute, "~") LIKE CONCAT("%", <>, "%") AND
+  Coalesce(registrationbranch.attribute, "~") LIKE CONCAT("%", <>, "%") AND
+  Coalesce(collectionagency.attribute, "~") LIKE <> AND
+  Coalesce(expired_account.attribute, "~") LIKE <> AND
+  Coalesce(holdscontact.attribute, "~") LIKE <> AND
+  Coalesce(location.attribute, "~") LIKE <> AND 
+  Coalesce(internet_permission.attribute, "~") LIKE <> AND
+  Coalesce(movie_permissionx.attribute, "~") LIKE <> AND
+  Coalesce(newsletter_permission.attribute, "~") LIKE <>
 GROUP BY
   borrowers.email,
   borrowers.dateofbirth,

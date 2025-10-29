@@ -29,7 +29,7 @@ Choose branch, enter four-digit-year
 
 
 
-SELECT Count(*) AS count  FROM statistics WHERE statistics.branch=&lt;&gt; AND statistics.type IN ('issue','renew','localuse') AND year(statistics.datetime) = &lt;&gt; 
+SELECT Count(*) AS count  FROM statistics WHERE statistics.branch=<> AND statistics.type IN ('issue','renew','localuse') AND year(statistics.datetime) = <> 
 
 
 

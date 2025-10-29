@@ -29,7 +29,7 @@ Choose library and collection code
 
 
 
-SELECT biblio.title, items.itemcallnumber, items.datelastseen, items.barcode FROM biblio LEFT JOIN items USING(biblionumber) WHERE items.homebranch=&lt;&gt; AND items.itemlost='3' and items.ccode=&lt;&gt; ORDER BY title
+SELECT biblio.title, items.itemcallnumber, items.datelastseen, items.barcode FROM biblio LEFT JOIN items USING(biblionumber) WHERE items.homebranch=<> AND items.itemlost='3' and items.ccode=<> ORDER BY title
 
 
 

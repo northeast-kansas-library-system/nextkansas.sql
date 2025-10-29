@@ -52,7 +52,7 @@ FROM
   JOIN borrowers
     ON accountlines.borrowernumber = borrowers.borrowernumber
 WHERE
-  accountlines.accountlines_id = &lt;&gt;
+  accountlines.accountlines_id = <>
 GROUP BY
   accountlines.borrowernumber,
   accountlines.accountlines_id

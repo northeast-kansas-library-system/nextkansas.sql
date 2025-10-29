@@ -69,7 +69,7 @@ UNION
 (SELECT 
   branches.branchname, 
   If( 
-    zipcounts.Count_borrowernumber &lt; 25, 
+    zipcounts.Count_borrowernumber < 25, 
     '-', 
     If( 
       branchcodeszipss.ZIPCODE = '', 
@@ -181,7 +181,7 @@ FROM
 GROUP BY 
   branches.branchname, 
   If( 
-    zipcounts.Count_borrowernumber &lt; 25, 
+    zipcounts.Count_borrowernumber < 25, 
     '-', 
     If( 
       branchcodeszipss.ZIPCODE = '', 
@@ -192,7 +192,7 @@ GROUP BY
 ORDER BY 
   branches.branchname, 
   If( 
-    zipcounts.Count_borrowernumber &lt; 25, 
+    zipcounts.Count_borrowernumber < 25, 
     ' -', 
     If( 
       branchcodeszipss.ZIPCODE = '', 

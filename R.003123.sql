@@ -55,12 +55,12 @@ FROM
   LEFT JOIN items ON statistics.itemnumber = items.itemnumber
   LEFT JOIN biblio_metadata ON items.biblionumber = biblio_metadata.biblionumber
 WHERE
-  statistics.datetime &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 25 MONTH)), 1) AND
-  statistics.datetime &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
+  statistics.datetime > AddDate(Last_Day(SubDate(Now(), INTERVAL 25 MONTH)), 1) AND
+  statistics.datetime < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
   (statistics.type = 'issue' OR
     statistics.type = 'renew') AND
-  (ExtractValue(biblio_metadata.metadata, '//datafield[@tag="655"]/subfield[@code="a"]') LIKE @subj := CONCAT("%", &lt;&gt;, "%") COLLATE utf8mb4_unicode_ci) AND
-  (statistics.branch LIKE @brn := &lt;&gt; COLLATE utf8mb4_unicode_ci)
+  (ExtractValue(biblio_metadata.metadata, '//datafield[@tag="655"]/subfield[@code="a"]') LIKE @subj := CONCAT("%", <>, "%") COLLATE utf8mb4_unicode_ci) AND
+  (statistics.branch LIKE @brn := <> COLLATE utf8mb4_unicode_ci)
 GROUP BY
   statistics.branch,
   Year(statistics.datetime),
@@ -78,8 +78,8 @@ FROM
   LEFT JOIN deleteditems ON statistics.itemnumber = deleteditems.itemnumber
   LEFT JOIN deletedbiblio_metadata ON deleteditems.biblionumber = deletedbiblio_metadata.biblionumber
 WHERE
-  statistics.datetime &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 25 MONTH)), 1) AND
-  statistics.datetime &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
+  statistics.datetime > AddDate(Last_Day(SubDate(Now(), INTERVAL 25 MONTH)), 1) AND
+  statistics.datetime < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
   (statistics.type = 'issue' OR
     statistics.type = 'renew') AND
   (ExtractValue(deletedbiblio_metadata.metadata, '//datafield[@tag="655"]/subfield[@code="a"]') LIKE @subj) AND
@@ -101,8 +101,8 @@ FROM
   LEFT JOIN deleteditems ON statistics.itemnumber = deleteditems.itemnumber
   LEFT JOIN biblio_metadata ON deleteditems.biblionumber = biblio_metadata.biblionumber
 WHERE
-  statistics.datetime &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 25 MONTH)), 1) AND
-  statistics.datetime &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
+  statistics.datetime > AddDate(Last_Day(SubDate(Now(), INTERVAL 25 MONTH)), 1) AND
+  statistics.datetime < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
   (statistics.type = 'issue' OR
     statistics.type = 'renew') AND
   (ExtractValue(biblio_metadata.metadata, '//datafield[@tag="655"]/subfield[@code="a"]') LIKE @subj) AND

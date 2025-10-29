@@ -43,11 +43,11 @@ SELECT items.barcode AS 'Barcode',
 FROM items
 LEFT JOIN biblio USING (biblionumber)
 LEFT JOIN biblioitems t USING(biblionumber)
-WHERE items.homebranch= &lt;&gt;
-  AND items.ccode=&lt;&gt;
-  AND items.location=&lt;&gt;
-  AND ((items.issues IS NULL AND items.dateaccessioned &lt; &lt;&gt;)
-       OR items.datelastborrowed &lt; &lt;&gt;)
+WHERE items.homebranch= <>
+  AND items.ccode=<>
+  AND items.location=<>
+  AND ((items.issues IS NULL AND items.dateaccessioned < <>)
+       OR items.datelastborrowed < <>)
 ORDER BY items.itemcallnumber
 
 

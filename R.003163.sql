@@ -45,7 +45,7 @@ Expiry: 300
 SELECT
   borrowers.cardnumber,
   borrowers.surname,
-  If(borrowers.login_attempts &gt; 4,
+  If(borrowers.login_attempts > 4,
     Concat(
       "This account is locked because of ",
       borrowers.login_attempts,
@@ -57,7 +57,7 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.borrowernumber LIKE &lt;&gt;
+  borrowers.borrowernumber LIKE <>
 GROUP BY
   borrowers.cardnumber,
   borrowers.borrowernumber

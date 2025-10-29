@@ -92,7 +92,7 @@ FROM
 WHERE 
   (statistics.type = 'issue' OR 
       statistics.type = 'renew') AND 
-  borrowers.cardnumber = &lt;&gt; 
+  borrowers.cardnumber = <> 
 GROUP BY 
   borrowers.cardnumber, 
   If(borrowers.privacy = 2, 'History', cko_branch.branchname), 

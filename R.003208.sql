@@ -61,8 +61,8 @@ SELECT
   borrowers.categorycode,
   Floor((DateDiff(CurDate(), borrowers.dateofbirth) / 365.25)) AS AGE,
   borrowers.branchcode AS HOMEBRANCH,
-  If(Floor((DateDiff(CurDate(), borrowers.dateofbirth) / 365.25)) &gt; 17, "Adult", "Minor") AS AGE_GROUP,
-  If(usecount.Count_datetime &gt; 0, "Active", "Inactive") AS STATUS
+  If(Floor((DateDiff(CurDate(), borrowers.dateofbirth) / 365.25)) > 17, "Adult", "Minor") AS AGE_GROUP,
+  If(usecount.Count_datetime > 0, "Active", "Inactive") AS STATUS
 FROM
   borrowers
   LEFT JOIN (
@@ -80,14 +80,14 @@ FROM
   ) usecount
     ON usecount.borrowernumber = borrowers.borrowernumber
 WHERE
-  borrowers.categorycode &lt;&gt; 'ILL' AND
-  borrowers.categorycode &lt;&gt; 'STAFF' AND
-  borrowers.categorycode &lt;&gt; 'INHOUSE' AND
-  borrowers.branchcode LIKE &lt;&gt; AND
+  borrowers.categorycode <> 'ILL' AND
+  borrowers.categorycode <> 'STAFF' AND
+  borrowers.categorycode <> 'INHOUSE' AND
+  borrowers.branchcode LIKE <> AND
   If(Trim(If(Coalesce(borrowers.address, borrowers.address2) LIKE "PO%", borrowers.address2, borrowers.address)) = "", "X", (If(borrowers.city = "", "Y", (If(borrowers.state = "", "Z", "A"))))) = 'A'
 GROUP BY
-  If(Floor((DateDiff(CurDate(), borrowers.dateofbirth) / 365.25)) &gt; 17, "Adult", "Minor"),
-  If(usecount.Count_datetime &gt; 0, "Active", "Inactive"),
+  If(Floor((DateDiff(CurDate(), borrowers.dateofbirth) / 365.25)) > 17, "Adult", "Minor"),
+  If(usecount.Count_datetime > 0, "Active", "Inactive"),
   borrowers.borrowernumber
 ORDER BY
   If(Trim(If(Coalesce(borrowers.address, borrowers.address2) LIKE "PO%", borrowers.address2, borrowers.address)) = "", "X", (If(borrowers.city = "", "Y", (If(borrowers.state = "", "Z", "A"))))),

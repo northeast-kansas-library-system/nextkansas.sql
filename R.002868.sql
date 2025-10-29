@@ -253,11 +253,11 @@ FROM
     FROM
       items
     WHERE
-      (Year(items.dateaccessioned) &lt; MakeDate(Year(Now()), 1) AND
+      (Year(items.dateaccessioned) < MakeDate(Year(Now()), 1) AND
         (items.itype = 'AUDIOBOOK' OR
           items.itype = 'FLPLAYAWAY' OR
           items.itype = 'NAUDNEW')) OR
-      (Year(items.dateaccessioned) &lt; MakeDate(Year(Now()), 1) AND
+      (Year(items.dateaccessioned) < MakeDate(Year(Now()), 1) AND
         ((items.itype = 'DIGITAL' AND
             (items.ccode = 'BOOKONCD' OR
               items.ccode = 'BOOKONMP')) OR
@@ -285,7 +285,7 @@ FROM
     FROM
       items
     WHERE
-      Year(items.dateaccessioned) &lt; MakeDate(Year(Now()), 1)
+      Year(items.dateaccessioned) < MakeDate(Year(Now()), 1)
     GROUP BY
       items.homebranch) ALL_ITEMS ON branches.branchcode = ALL_ITEMS.homebranch
   LEFT JOIN
@@ -295,12 +295,12 @@ FROM
     FROM
       items
     WHERE
-      (Year(items.dateaccessioned) &lt; MakeDate(Year(Now()), 1) AND
+      (Year(items.dateaccessioned) < MakeDate(Year(Now()), 1) AND
         (items.itype = 'NVIDEO' OR
           items.itype = 'NVIDLH' OR
           items.itype = 'NVIDNEW' OR
           items.itype = 'NVIDTV')) OR
-      (Year(items.dateaccessioned) &lt; MakeDate(Year(Now()), 1) AND
+      (Year(items.dateaccessioned) < MakeDate(Year(Now()), 1) AND
         ((items.itype = 'DIGITAL' AND
             (items.ccode = 'VID_D')) OR
           (items.itype = 'EQUIPMENT' AND
@@ -340,7 +340,7 @@ FROM
     FROM
       items
     WHERE
-      items.dateaccessioned &lt; MakeDate(Year(Now()), 1) - INTERVAL 1 YEAR AND
+      items.dateaccessioned < MakeDate(Year(Now()), 1) - INTERVAL 1 YEAR AND
       ((items.itype = 'BOOK' OR
           items.itype = 'PBBKNEW' OR
           items.itype = 'PBBKCLUB' OR
@@ -420,20 +420,20 @@ FROM
     FROM
       items
     WHERE
-      (Year(items.dateaccessioned) &lt; MakeDate(Year(Now()), 1) AND
+      (Year(items.dateaccessioned) < MakeDate(Year(Now()), 1) AND
         ((items.itype = 'NVIDEO' AND
-            (items.ccode &lt;&gt; 'VHS' AND
-              items.ccode &lt;&gt; 'VID_M')) OR
+            (items.ccode <> 'VHS' AND
+              items.ccode <> 'VID_M')) OR
           (items.itype = 'NVIDLH' AND
-            (items.ccode &lt;&gt; 'VHS' AND
-              items.ccode &lt;&gt; 'VID_M')) OR
+            (items.ccode <> 'VHS' AND
+              items.ccode <> 'VID_M')) OR
           (items.itype = 'NVIDNEW' AND
-            (items.ccode &lt;&gt; 'VHS' AND
-              items.ccode &lt;&gt; 'VID_M')) OR
+            (items.ccode <> 'VHS' AND
+              items.ccode <> 'VID_M')) OR
           (items.itype = 'NVIDTV' AND
-            (items.ccode &lt;&gt; 'VHS' AND
-              items.ccode &lt;&gt; 'VID_M')))) OR
-      (Year(items.dateaccessioned) &lt; MakeDate(Year(Now()), 1) AND
+            (items.ccode <> 'VHS' AND
+              items.ccode <> 'VID_M')))) OR
+      (Year(items.dateaccessioned) < MakeDate(Year(Now()), 1) AND
         ((items.itype = 'DIGITAL' AND
             (items.ccode = 'VID_D')) OR
           (items.itype = 'GAME' AND

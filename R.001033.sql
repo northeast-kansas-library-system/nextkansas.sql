@@ -29,7 +29,7 @@ Enhanced - Pick your branch to find patrons with fines over $10 #fines
 
 
 
-SELECT  borrowers.cardnumber, borrowers.surname, borrowers.firstname, Phone, borrowers.altcontactphone, borrowers.email, borrowers.address, borrowers.city, borrowers.zipcode, FORMAT(SUM(accountlines.amountoutstanding),2) as due FROM borrowers LEFT JOIN accountlines USING (borrowernumber) WHERE borrowers.branchcode= &lt;&gt; AND accountlines.amountoutstanding != 0 GROUP BY borrowers.cardnumber having SUM(accountlines.amountoutstanding) &gt;10 ORDER BY borrowers.surname ASC
+SELECT  borrowers.cardnumber, borrowers.surname, borrowers.firstname, Phone, borrowers.altcontactphone, borrowers.email, borrowers.address, borrowers.city, borrowers.zipcode, FORMAT(SUM(accountlines.amountoutstanding),2) as due FROM borrowers LEFT JOIN accountlines USING (borrowernumber) WHERE borrowers.branchcode= <> AND accountlines.amountoutstanding != 0 GROUP BY borrowers.cardnumber having SUM(accountlines.amountoutstanding) >10 ORDER BY borrowers.surname ASC
 
 
 

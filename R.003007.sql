@@ -45,7 +45,7 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.cardnumber LIKE Concat("%", &lt;&gt;, "%")
+  borrowers.cardnumber LIKE Concat("%", <>, "%")
 
 
 

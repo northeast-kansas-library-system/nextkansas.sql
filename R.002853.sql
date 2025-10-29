@@ -50,7 +50,7 @@ SELECT
 FROM
   action_logs
 WHERE
-  action_logs.timestamp &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 3 MONTH)), 1) AND
+  action_logs.timestamp > AddDate(Last_Day(SubDate(Now(), INTERVAL 3 MONTH)), 1) AND
   action_logs.module = 'reports' AND 
   action_logs.object = "2946"
 

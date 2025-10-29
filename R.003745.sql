@@ -132,11 +132,11 @@ FROM statistics
 WHERE 
   (statistics.type = 'issue' 
     OR statistics.type = 'renew') AND 
-  (branches.branchcode LIKE @brn:=&lt;&gt; COLLATE utf8mb4_unicode_ci) AND 
+  (branches.branchcode LIKE @brn:=<> COLLATE utf8mb4_unicode_ci) AND 
   (items.homebranch NOT LIKE @brn) AND 
-  items.permanent_location LIKE &lt;&gt; AND 
-  statistics.itemtype LIKE &lt;&gt; AND 
-  statistics.ccode LIKE &lt;&gt; AND 
+  items.permanent_location LIKE <> AND 
+  statistics.itemtype LIKE <> AND 
+  statistics.ccode LIKE <> AND 
   Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND 
   Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) 
 ORDER BY CKO_LIBRARY, 

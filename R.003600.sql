@@ -44,14 +44,14 @@ FROM
 WHERE 
   ( 
     biblioitems.publicationyear IS NULL AND 
-    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="260"]/subfield[@code="c"]') &lt;&gt; '' 
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="260"]/subfield[@code="c"]') <> '' 
   ) OR 
   ( 
     biblioitems.publishercode IS NULL AND 
-    ExtractValue(biblio_metadata.metadata,'//datafield[@tag="260"]/subfield[@code="b"]') &lt;&gt; '' 
+    ExtractValue(biblio_metadata.metadata,'//datafield[@tag="260"]/subfield[@code="b"]') <> '' 
   ) OR 
   ( 
-    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="260"]/subfield[@code="a"]') &lt;&gt; '' 
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="260"]/subfield[@code="a"]') <> '' 
   ) 
 GROUP BY 
   biblioitems.biblionumber 

@@ -93,7 +93,7 @@ FROM
   JOIN borrowers
     ON virtualshelves.owner = borrowers.borrowernumber
 WHERE
-  borrowers.cardnumber LIKE &lt;&gt;
+  borrowers.cardnumber LIKE <>
 GROUP BY
   virtualshelves.created_on,
   virtualshelves.shelfname,

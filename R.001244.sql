@@ -29,7 +29,7 @@ Enhanced. Choose Run --> 1) Enter the date you want to count + % (ex. 2011-11-16
 
 
 
-SELECT COUNT(*) FROM statistics WHERE statistics.type IN ('issue','renew') AND statistics.datetime LIKE &lt;&gt; AND statistics.branch = &lt;&gt; 
+SELECT COUNT(*) FROM statistics WHERE statistics.type IN ('issue','renew') AND statistics.datetime LIKE <> AND statistics.branch = <> 
 
 
 

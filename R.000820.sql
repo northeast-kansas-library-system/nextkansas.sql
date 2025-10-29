@@ -29,7 +29,7 @@ Edit branchcode and categorycode scheme. Find potential patron category errors.
 
 
 
-SELECT borrowers.cardnumber, borrowers.surname, borrowers.firstname, borrowers.categorycode FROM borrowers LEFT JOIN categories USING(categorycode) WHERE borrowers.branchcode=&lt;&gt; AND categories.categorycode=&lt;&gt;  AND borrowers.categorycode != 'STAFF'
+SELECT borrowers.cardnumber, borrowers.surname, borrowers.firstname, borrowers.categorycode FROM borrowers LEFT JOIN categories USING(categorycode) WHERE borrowers.branchcode=<> AND categories.categorycode=<>  AND borrowers.categorycode != 'STAFF'
 
 
 

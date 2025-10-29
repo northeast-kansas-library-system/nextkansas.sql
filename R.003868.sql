@@ -292,11 +292,11 @@ FROM
   LEFT JOIN borrowers staffs 
     ON staffs.borrowernumber = action_logs.user
 WHERE
-  branches.branchcode LIKE &lt;&gt; AND
+  branches.branchcode LIKE <> AND
   action_logs.module = 'HOLDS' AND
   action_logs.action = 'CANCEL' AND
   old_reserves.found = 'W' AND
-  old_reserves.cancellationdate &gt; Now() - INTERVAL 7 DAY
+  old_reserves.cancellationdate > Now() - INTERVAL 7 DAY
 GROUP BY
   old_reserves.reserve_id
 ORDER BY

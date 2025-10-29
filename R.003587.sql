@@ -42,10 +42,10 @@ FROM
   items ON items.itemnumber = statistics.itemnumber LEFT JOIN
   deleteditems ON deleteditems.itemnumber = statistics.itemnumber
 WHERE
-  statistics.branch = &lt;&gt; AND
+  statistics.branch = <> AND
   (statistics.type = 'issue' OR
       statistics.type = 'renew') AND
-  statistics.datetime &gt; CurDate() - INTERVAL 2 YEAR
+  statistics.datetime > CurDate() - INTERVAL 2 YEAR
 
 
 

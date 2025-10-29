@@ -83,7 +83,7 @@ From (
         From authorised_values 
         Where authorised_values.category = 'CCODE' 
       ) ccodess 
-    Where branches.branchcode Like &lt;&gt; 
+    Where branches.branchcode Like <> 
   ) branchesscodess 
   Join statistics On statistics.branch = branchesscodess.branchcode 
   And statistics.location = branchesscodess.LOCATION_CODE 
@@ -93,7 +93,7 @@ Where (
     statistics.type = 'issue' 
     Or statistics.type = 'renew' 
   ) 
-  And statistics.datetime Between &lt;&gt; And (&lt;&gt; + Interval 1 Day) 
+  And statistics.datetime Between <> And (<> + Interval 1 Day) 
 Group By  
   branchesscodess.branchname, 
   branchesscodess.branchcode, 

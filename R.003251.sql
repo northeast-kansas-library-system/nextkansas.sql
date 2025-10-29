@@ -100,7 +100,7 @@ FROM
     FROM
       itemtypes) ITEMTYPESS ON ITEMTYPESS.itemtype = items.itype
 WHERE
-  hold_fill_targets.source_branchcode LIKE &lt;&gt;
+  hold_fill_targets.source_branchcode LIKE <>
 GROUP BY
   hold_fill_targets.itemnumber
 ORDER BY

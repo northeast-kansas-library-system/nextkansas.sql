@@ -48,16 +48,16 @@ FROM
   old_issues
 WHERE
   old_issues.branchcode LIKE "LEAVENWRTH" AND
-  Month(old_issues.returndate) = Month(&lt;&gt;) - INTERVAL 1 MONTH) AND
-  Year(old_issues.returndate) = Year(&lt;&gt;) - INTERVAL 1 MONTH) AND
-  old_issues.date_due &lt; old_issues.returndate
+  Month(old_issues.returndate) = Month(<>) - INTERVAL 1 MONTH) AND
+  Year(old_issues.returndate) = Year(<>) - INTERVAL 1 MONTH) AND
+  old_issues.date_due < old_issues.returndate
 GROUP BY
   old_issues.branchcode,
   DateDiff(old_issues.returndate, old_issues.date_due)
 UNION
 SELECT
   " Month" AS Column1,
-  Concat(Year(&lt;&gt;) - INTERVAL 1 MONTH), " - ", Month(&lt;&gt;) - INTERVAL 1 MONTH)) AS Column2,
+  Concat(Year(<>) - INTERVAL 1 MONTH), " - ", Month(<>) - INTERVAL 1 MONTH)) AS Column2,
   NULL AS Column3
 ORDER BY
   branchcode,

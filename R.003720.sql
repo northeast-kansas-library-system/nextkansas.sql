@@ -41,7 +41,7 @@ SELECT
             Concat(Char(10), '    ') 
           ) 
         ) 
-      ) &gt; 32766, 
+      ) > 32766, 
       "X_", 
       "report_" 
     ), 
@@ -168,7 +168,7 @@ SELECT
       ) 
     ), 
     if( 
-      saved_sql.public &lt;&gt; 1, 
+      saved_sql.public <> 1, 
       "", 
       concat( 
         "Public: ", 
@@ -281,7 +281,7 @@ SELECT
           ) 
         ) 
       ) 
-    ) &gt; 30000, 
+    ) > 30000, 
     "||AAAAA||", 
     "" 
   ) AS SEP_ONE, 
@@ -308,7 +308,7 @@ SELECT
           ) 
         ) 
       ) 
-    ) &gt; 60000, 
+    ) > 60000, 
     "||AAAAA||", 
     "" 
   ) AS SEP_TWO, 
@@ -335,7 +335,7 @@ SELECT
           ) 
         ) 
       ) 
-    ) &gt; 90000, 
+    ) > 90000, 
     "||AAAAA||", 
     "" 
   ) AS SEP_THREE, 
@@ -362,7 +362,7 @@ SELECT
           ) 
         ) 
       ) 
-    ) &gt; 120000, 
+    ) > 120000, 
     "||AAAAA||", 
     "" 
   ) AS SEP_FOUR, 

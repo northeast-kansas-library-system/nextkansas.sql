@@ -41,7 +41,7 @@ SELECT
 FROM
   biblio_metadata
 WHERE
-  biblio_metadata.biblionumber LIKE &lt;&gt;
+  biblio_metadata.biblionumber LIKE <>
 GROUP BY
   biblio_metadata.biblionumber
 ORDER BY

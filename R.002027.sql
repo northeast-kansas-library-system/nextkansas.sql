@@ -30,7 +30,7 @@ Items marked long overdue/assumed lost. Enhanced. Choose branch, run.
 
 
 SELECT i.datelastseen, b.title, b.author,t.publicationyear, i.location, i.ccode,i.itype,i.itemcallnumber, i.barcode, i.holdingbranch, CONCAT(''"edit item"'') as "edit item" FROM items i LEFT JOIN biblio b USING (biblionumber)  LEFT JOIN biblioitems t USING(biblionumber) 
-WHERE i.homebranch=&lt;&gt; AND i.itemlost = '2'
+WHERE i.homebranch=<> AND i.itemlost = '2'
 ORDER BY  i.itemcallnumber
 
 

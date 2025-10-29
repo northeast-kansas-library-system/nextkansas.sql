@@ -200,15 +200,15 @@ FROM branches
       items.homebranch, 
       Count(*) AS count 
     FROM items 
-    WHERE items.dateaccessioned &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) 
+    WHERE items.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) 
     GROUP BY items.homebranch 
     UNION 
     SELECT 
       deleteditems.homebranch, 
       Count(*) AS count 
     FROM deleteditems 
-    WHERE deleteditems.dateaccessioned &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) 
-      AND deleteditems.timestamp &gt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) 
+    WHERE deleteditems.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) 
+      AND deleteditems.timestamp >= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) 
     GROUP BY deleteditems.homebranch 
   ) START_ITEMS ON branches.branchcode = START_ITEMS.homebranch 
   LEFT JOIN ( 
@@ -216,15 +216,15 @@ FROM branches
       items.homebranch, 
       Count(*) AS count 
     FROM items 
-    WHERE items.dateaccessioned &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
+    WHERE items.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
     GROUP BY items.homebranch 
     UNION 
     SELECT 
       deleteditems.homebranch, 
       Count(*) AS count 
     FROM deleteditems 
-    WHERE deleteditems.dateaccessioned &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
-      AND deleteditems.timestamp &gt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
+    WHERE deleteditems.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
+      AND deleteditems.timestamp >= AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
     GROUP BY deleteditems.homebranch 
   ) END_ITEMS ON branches.branchcode = END_ITEMS.homebranch 
   LEFT JOIN ( 
@@ -257,15 +257,15 @@ FROM branches
     SELECT items.homebranch, 
       Count(DISTINCT items.biblionumber) AS count 
     FROM items 
-    WHERE items.dateaccessioned &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
+    WHERE items.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
     GROUP BY items.homebranch 
     UNION 
     SELECT 
       deleteditems.homebranch, 
       Count(DISTINCT deleteditems.biblionumber) AS count 
     FROM deleteditems 
-    WHERE deleteditems.dateaccessioned &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
-      AND deleteditems.timestamp &gt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
+    WHERE deleteditems.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
+      AND deleteditems.timestamp >= AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
     GROUP BY deleteditems.homebranch 
   ) TOTAL_HOLDINGS ON branches.branchcode = TOTAL_HOLDINGS.homebranch 
 GROUP BY branches.branchname 

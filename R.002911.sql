@@ -63,7 +63,7 @@ FROM
     borrower_attributes.code = 'HOLD') contact
     ON borrowers.borrowernumber = contact.borrowernumber
 WHERE
-  reserves.branchcode LIKE &lt;&gt; AND
+  reserves.branchcode LIKE <> AND
   reserves.found = 'W'
 ORDER BY
   WAITING_SINCE DESC

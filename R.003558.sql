@@ -52,7 +52,7 @@ FROM
   items JOIN
   branches ON items.homebranch = branches.branchcode
 WHERE
-  items.homebranch LIKE &lt;&gt;
+  items.homebranch LIKE <>
 GROUP BY
   branches.branchname,
   Length(items.barcode)

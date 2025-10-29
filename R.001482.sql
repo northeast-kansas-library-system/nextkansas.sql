@@ -29,7 +29,7 @@ enhanced #patrons
 
 
 
-SELECT borrowers.firstname, borrowers.surname, borrowers.cardnumber, borrowers.userid from borrowers where branchcode = &lt;&gt;
+SELECT borrowers.firstname, borrowers.surname, borrowers.cardnumber, borrowers.userid from borrowers where branchcode = <>
 
 
 

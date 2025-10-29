@@ -75,8 +75,8 @@ FROM
       items ON items.itemnumber = statistics.itemnumber
     WHERE
       statistics.datetime BETWEEN 
-        &lt;&gt; AND 
-        (&lt;&gt; + INTERVAL 1 DAY) AND
+        <> AND 
+        (<> + INTERVAL 1 DAY) AND
       (statistics.type = 'issue' OR
         statistics.type = 'renew')
     GROUP BY
@@ -85,7 +85,7 @@ FROM
       statisticss.branch = branches.branchcode AND
       statisticss.location = branches.authorised_value
 WHERE
-  branches.branchcode LIKE &lt;&gt;
+  branches.branchcode LIKE <>
 GROUP BY
   branches.branchname,
   branches.lib

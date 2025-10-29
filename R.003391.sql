@@ -35,7 +35,7 @@ Select
 From
   items
 WHERE 
-items.dateaccessioned &gt; '2024-01-30'- interval &lt;&gt; day
+items.dateaccessioned > '2024-01-30'- interval <> day
 
 
 

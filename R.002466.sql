@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-SELECT email, phone, B_phone, cardnumber, surname, firstname, zipcode, city, debarred, dateexpiry FROM borrowers WHERE branchcode=&lt;&gt; ORDER BY branchcode, surname ASC
+SELECT email, phone, B_phone, cardnumber, surname, firstname, zipcode, city, debarred, dateexpiry FROM borrowers WHERE branchcode=<> ORDER BY branchcode, surname ASC
 
 
 

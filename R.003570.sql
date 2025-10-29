@@ -55,12 +55,12 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.branchcode LIKE &lt;&gt; AND
-  borrowers.address LIKE Concat(&lt;&gt; ,"%") AND
-  borrowers.city LIKE Concat(&lt;&gt;, "%") AND
-  borrowers.state LIKE Concat(&lt;&gt;, "%") AND
-  borrowers.zipcode LIKE Concat(&lt;&gt;, "%") AND 
-  borrowers.zipcode &lt;&gt; Concat(&lt;&gt;)
+  borrowers.branchcode LIKE <> AND
+  borrowers.address LIKE Concat(<> ,"%") AND
+  borrowers.city LIKE Concat(<>, "%") AND
+  borrowers.state LIKE Concat(<>, "%") AND
+  borrowers.zipcode LIKE Concat(<>, "%") AND 
+  borrowers.zipcode <> Concat(<>)
 ORDER BY
   borrowers.zipcode
 

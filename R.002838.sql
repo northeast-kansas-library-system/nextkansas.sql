@@ -48,14 +48,14 @@ FROM
   deleteditems
     ON statistics.itemnumber = deleteditems.itemnumber
 WHERE
-  (statistics.datetime BETWEEN  &lt;&gt;  AND (&lt;&gt;+ INTERVAL 1 DAY)) AND
+  (statistics.datetime BETWEEN  <>  AND (<>+ INTERVAL 1 DAY)) AND
   (statistics.type = 'issue' OR statistics.type = 'renew' OR statistics.type = 'localuse') AND
-  statistics.branch LIKE &lt;&gt; AND
-  If(borrowers.branchcode IS NULL AND deletedborrowers.branchcode IS NULL, ' --', Concat(Coalesce(borrowers.branchcode, deletedborrowers.branchcode))) LIKE &lt;&gt; AND
-  If(borrowers.categorycode IS NULL AND deletedborrowers.categorycode IS NULL, ' --', Concat(Coalesce(borrowers.categorycode, deletedborrowers.categorycode))) LIKE &lt;&gt; AND
-  If(items.homebranch IS NULL AND deleteditems.homebranch IS NULL, ' --', Concat(Coalesce(items.homebranch, deleteditems.homebranch))) LIKE &lt;&gt; AND
-  If(items.itype IS NULL AND deleteditems.itype IS NULL, ' --', Concat(Coalesce(items.itype , deleteditems.itype ))) LIKE &lt;&gt; AND
-  If(items.ccode IS NULL AND deleteditems.ccode IS NULL, ' --', Concat(Coalesce(items.ccode, deleteditems.ccode))) LIKE &lt;&gt;
+  statistics.branch LIKE <> AND
+  If(borrowers.branchcode IS NULL AND deletedborrowers.branchcode IS NULL, ' --', Concat(Coalesce(borrowers.branchcode, deletedborrowers.branchcode))) LIKE <> AND
+  If(borrowers.categorycode IS NULL AND deletedborrowers.categorycode IS NULL, ' --', Concat(Coalesce(borrowers.categorycode, deletedborrowers.categorycode))) LIKE <> AND
+  If(items.homebranch IS NULL AND deleteditems.homebranch IS NULL, ' --', Concat(Coalesce(items.homebranch, deleteditems.homebranch))) LIKE <> AND
+  If(items.itype IS NULL AND deleteditems.itype IS NULL, ' --', Concat(Coalesce(items.itype , deleteditems.itype ))) LIKE <> AND
+  If(items.ccode IS NULL AND deleteditems.ccode IS NULL, ' --', Concat(Coalesce(items.ccode, deleteditems.ccode))) LIKE <>
 GROUP BY
   CHECK_OUT_BRANCH,
   BORROWERS_HOMEBRANCH,

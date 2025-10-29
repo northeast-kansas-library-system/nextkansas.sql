@@ -35,7 +35,7 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.borrowernotes &lt;&gt; ' '
+  borrowers.borrowernotes <> ' '
 
 
 

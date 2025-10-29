@@ -51,14 +51,14 @@ FROM
   reserves
   JOIN borrowers ON reserves.borrowernumber = borrowers.borrowernumber
 WHERE
-  borrowers.categorycode &lt;&gt; 'BOOKCLUB'  AND
+  borrowers.categorycode <> 'BOOKCLUB'  AND
   reserves.found IS NULL   
 GROUP BY
   reserves.biblionumber,
   borrowers.cardnumber,
   borrowers.borrowernumber
 HAVING
-  Count(reserves.borrowernumber) &gt; 1
+  Count(reserves.borrowernumber) > 1
 
 
 

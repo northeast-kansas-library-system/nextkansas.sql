@@ -77,7 +77,7 @@ SELECT
   Concat(
     'Link to borrower'
   ) AS BORROWER,
-  @SortOrder := &lt;&gt; AS SORTING 
+  @SortOrder := <> AS SORTING 
 FROM
   items 
   JOIN
@@ -151,7 +151,7 @@ FROM
   ON itemtypes.itemtype = items.itype
 WHERE
   Date_Format(old_issues.returndate, '%m/%d/%Y') = Date_Format(items.itemlost_on, '%m/%d/%Y') AND
-  items.holdingbranch LIKE &lt;&gt; 
+  items.holdingbranch LIKE <> 
 GROUP BY
   holdingbranches.branchname,
   homebranches.branchname,
@@ -161,12 +161,12 @@ GROUP BY
   borrowers.surname,
   items.itemnumber
 HAVING
-  LOST_STATUS LIKE &lt;&gt; 
+  LOST_STATUS LIKE <> 
 ORDER BY
   (CASE WHEN SORTING = 3 THEN old_issues.returndate END) ASC, 
   (CASE WHEN SORTING = 2 THEN old_issues.returndate END) DESC, 
   (CASE WHEN SORTING = 1 THEN CKO_BRANCH END) ASC, 
-  (CASE WHEN SORTING &gt; 1 THEN borrowers.cardnumber END) ASC, 
+  (CASE WHEN SORTING > 1 THEN borrowers.cardnumber END) ASC, 
   LOCATION,
   ITYPE,
   CCODE,

@@ -50,7 +50,7 @@ WHERE
   old_issues.branchcode LIKE "LEAVENWRTH" AND
   Month(old_issues.returndate) = Month(Now() - INTERVAL 1 MONTH) AND
   Year(old_issues.returndate) = Year(Now() - INTERVAL 1 MONTH) AND
-  old_issues.date_due &lt; old_issues.returndate
+  old_issues.date_due < old_issues.returndate
 GROUP BY
   old_issues.branchcode,
   DateDiff(old_issues.returndate, old_issues.date_due)

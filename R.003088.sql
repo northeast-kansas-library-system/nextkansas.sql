@@ -76,9 +76,9 @@ FROM
         borrower_attributes.attribute) internet_permission ON
     borrowers.borrowernumber = internet_permission.borrowernumber
 WHERE
-  borrowers.branchcode LIKE &lt;&gt; AND
-  borrowers.categorycode LIKE &lt;&gt; AND
-  Coalesce(internet_permission.attribute, "~") LIKE &lt;&gt;
+  borrowers.branchcode LIKE <> AND
+  borrowers.categorycode LIKE <> AND
+  Coalesce(internet_permission.attribute, "~") LIKE <>
 GROUP BY
   borrowers.borrowernumber,
   Coalesce(internet_permission.lib, "~")

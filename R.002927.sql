@@ -92,7 +92,7 @@ FROM
     authorised_values.category = 'DAMAGED') damageditems
     ON deleteditems.damaged = damageditems.authorised_value
 WHERE
-  deleteditems.barcode LIKE &lt;&gt;
+  deleteditems.barcode LIKE <>
 GROUP BY
   deleteditems.itemnumber
 ORDER BY

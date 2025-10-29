@@ -50,8 +50,8 @@ FROM
   JOIN biblio ON items.biblionumber = biblio.biblionumber
 WHERE
   (items.itype = 'LOCALHOLD2' or items.itype = 'WALKIN2') AND
-  items.dateaccessioned &lt; curdate() - Interval 60 Day AND
-  (items.ccode &lt;&gt; 'ILL' AND items.ccode &lt;&gt; 'GADGET' AND items.ccode &lt;&gt; 'MAGAZINE' AND items.ccode &lt;&gt; 'COMPUTER') AND
+  items.dateaccessioned < curdate() - Interval 60 Day AND
+  (items.ccode <> 'ILL' AND items.ccode <> 'GADGET' AND items.ccode <> 'MAGAZINE' AND items.ccode <> 'COMPUTER') AND
   biblio.title NOT LIKE 'BASEHOR ILL%'
 ORDER BY
   items.homebranch,

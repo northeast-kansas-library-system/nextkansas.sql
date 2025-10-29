@@ -54,7 +54,7 @@ FROM
   borrower_relationships ON borrower_relationships.guarantee_id =
       borrowers.borrowernumber
 WHERE
-  (borrowers.dateofbirth &lt;= CurDate() - INTERVAL 18 YEAR OR
+  (borrowers.dateofbirth <= CurDate() - INTERVAL 18 YEAR OR
       borrowers.dateofbirth IS NULL) AND
   borrower_relationships.guarantor_id IS NOT NULL
 GROUP BY

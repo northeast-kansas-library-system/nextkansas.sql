@@ -49,7 +49,7 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.smsalertnumber LIKE CONCAT("%", REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(&lt;&gt;, ' ', ''), '-', ''), '(', ''), ')', ''), '.', ''), "%")
+  borrowers.smsalertnumber LIKE CONCAT("%", REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(<>, ' ', ''), '-', ''), '(', ''), ')', ''), '.', ''), "%")
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

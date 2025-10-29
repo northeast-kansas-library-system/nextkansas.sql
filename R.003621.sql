@@ -32,7 +32,7 @@ Expiry: 30
 Select
   If(branches.branchcode = 'NEKLS',
     'next_hidden',
-    IF(Coalesce(counts.Count_borrowernumber, 0) &gt; 0, 'next_hidden', '-')
+    IF(Coalesce(counts.Count_borrowernumber, 0) > 0, 'next_hidden', '-')
   ) As class
 From
   branches Left Join
@@ -49,7 +49,7 @@ From
   On 
     counts.branchcode = branches.branchcode
 Where
-  branches.branchcode Like Concat(&lt;&gt;, '%')
+  branches.branchcode Like Concat(<>, '%')
 Group By
   branches.branchcode
 

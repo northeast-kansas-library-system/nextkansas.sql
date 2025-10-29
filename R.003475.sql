@@ -71,7 +71,7 @@ FROM
      biblioitems JOIN
      items ON items.biblioitemnumber = biblioitems.biblioitemnumber
    WHERE
-     biblioitems.publicationyear &lt; Year(Now()) AND
+     biblioitems.publicationyear < Year(Now()) AND
      biblioitems.publicationyear REGEXP '^[0-9]+$'
    GROUP BY
      items.homebranch) count_with_pubyear ON count_with_pubyear.homebranch =
@@ -84,7 +84,7 @@ FROM
      biblioitems JOIN
      items ON items.biblioitemnumber = biblioitems.biblioitemnumber
    WHERE
-     biblioitems.publicationyear &lt; Year(Now()) AND
+     biblioitems.publicationyear < Year(Now()) AND
      biblioitems.publicationyear REGEXP '^[0-9]+$'
    GROUP BY
      items.homebranch,
@@ -92,7 +92,7 @@ FROM
      biblioitems.publicationyear) average_age ON average_age.homebranch =
       branches.branchcode
 WHERE
-  branches.branchcode LIKE &lt;&gt;
+  branches.branchcode LIKE <>
 GROUP BY
   branches.branchcode,
   count_total.Count_itemnumber,

@@ -105,21 +105,21 @@ FROM
       WHERE
         authorised_values.category = 'withdrawn') wcodes ON items.withdrawn = wcodes.authorised_value
 WHERE
-  items.homebranch LIKE &lt;&gt; AND
-  ((items.itemlost &gt; 0 AND
+  items.homebranch LIKE <> AND
+  ((items.itemlost > 0 AND
   (Greatest(Coalesce(CAST(items.dateaccessioned AS DATE), 0),
     Coalesce(CAST(items.datelastborrowed AS DATE), 0),
     Coalesce(CAST(items.datelastseen AS DATE), 0),
     Coalesce(CAST(items.itemlost_on AS DATE), 0),
     Coalesce(CAST(items.withdrawn_on AS DATE), 0),
-    Coalesce(CAST(items.timestamp AS DATE), 0)) + INTERVAL 13 MONTH) &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL -2 MONTH)), 1)) OR
-  (items.withdrawn &gt; 0 AND
+    Coalesce(CAST(items.timestamp AS DATE), 0)) + INTERVAL 13 MONTH) < AddDate(Last_Day(SubDate(Now(), INTERVAL -2 MONTH)), 1)) OR
+  (items.withdrawn > 0 AND
   (Greatest(Coalesce(CAST(items.dateaccessioned AS DATE), 0),
     Coalesce(CAST(items.datelastborrowed AS DATE), 0),
     Coalesce(CAST(items.datelastseen AS DATE), 0),
     Coalesce(CAST(items.itemlost_on AS DATE), 0),
     Coalesce(CAST(items.withdrawn_on AS DATE), 0),
-    Coalesce(CAST(items.timestamp AS DATE), 0)) + INTERVAL 13 MONTH) &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL -2 MONTH)), 1)))
+    Coalesce(CAST(items.timestamp AS DATE), 0)) + INTERVAL 13 MONTH) < AddDate(Last_Day(SubDate(Now(), INTERVAL -2 MONTH)), 1)))
 GROUP BY
   biblio.biblionumber,
   items.itemnumber

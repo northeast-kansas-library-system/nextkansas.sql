@@ -44,7 +44,7 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.borrowernumber = &lt;&gt;
+  borrowers.borrowernumber = <>
 
 
 

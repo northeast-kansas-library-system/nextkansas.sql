@@ -50,13 +50,13 @@ FROM
         categories) categoryx ON borrowers.categorycode = categoryx.categorycode
   LEFT JOIN messages ON borrowers.borrowernumber = messages.borrowernumber
 WHERE
-  borrowers.branchcode LIKE &lt;&gt; AND
+  borrowers.branchcode LIKE <> AND
   (borrowers.contactname IS NULL OR
     borrowers.contactname = " ") AND
-  (borrowers.guarantorid &lt; 1 OR
+  (borrowers.guarantorid < 1 OR
     borrowers.guarantorid IS NULL) AND
   categoryx.category_type = 'C' AND
-  (TimestampDiff(DAY, borrowers.dateofbirth, CurDate())) / 365.25 BETWEEN &lt;&gt; AND &lt;&gt;
+  (TimestampDiff(DAY, borrowers.dateofbirth, CurDate())) / 365.25 BETWEEN <> AND <>
 GROUP BY
   borrowers.cardnumber,
   messages.message_id

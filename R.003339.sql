@@ -58,11 +58,11 @@ FROM
     FROM
       accountlines
     WHERE
-      accountlines.amountoutstanding &lt; 0) accountlineslesszero ON
+      accountlines.amountoutstanding < 0) accountlineslesszero ON
       accountlineslesszero.borrowernumber = borrowers.borrowernumber,
     (SELECT @row_number:=0) AS t
 WHERE
-  borrowers.branchcode LIKE &lt;&gt;
+  borrowers.branchcode LIKE <>
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

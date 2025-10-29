@@ -30,7 +30,7 @@ Gives total of payments in Koha each month (listed as negative amount in the acc
 
 
 
-SELECT month(a.date) as month, year(a.date) as year, ROUND(ABS(SUM(a.amount)),2) as total FROM accountlines a WHERE manager_id IN (SELECT borrowernumber FROM borrowers WHERE categorycode='STAFF' AND branchcode=&lt;&gt;) AND a.accounttype="Pay" AND a.amount &lt; 0 GROUP BY month(a.date), year(a.date) ORDER BY year, month
+SELECT month(a.date) as month, year(a.date) as year, ROUND(ABS(SUM(a.amount)),2) as total FROM accountlines a WHERE manager_id IN (SELECT borrowernumber FROM borrowers WHERE categorycode='STAFF' AND branchcode=<>) AND a.accounttype="Pay" AND a.amount < 0 GROUP BY month(a.date), year(a.date) ORDER BY year, month
 
 
 

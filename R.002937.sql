@@ -73,12 +73,12 @@ FROM
 WHERE
   Date_Format(old_issues.returndate, '%m/%d/%Y') =
   Date_Format(items.itemlost_on, '%m/%d/%Y') AND
-  items.holdingbranch LIKE &lt;&gt;
+  items.holdingbranch LIKE <>
 GROUP BY
   items.barcode, Date_Format(old_issues.returndate, '%m/%d/%Y'),
   borrowers.cardnumber, borrowers.surname
 HAVING
- LOST_STATUS LIKE &lt;&gt;
+ LOST_STATUS LIKE <>
 ORDER BY
   CKO_BRANCH,
   LOCATION,

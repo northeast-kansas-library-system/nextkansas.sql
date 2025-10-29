@@ -128,7 +128,7 @@ FROM
     ON transfered_lm.frombranch = branches.branchcode 
     AND transfered_lm.DATE = returns_lm.DATE
 WHERE
-  branches.branchcode LIKE &lt;&gt;
+  branches.branchcode LIKE <>
 GROUP BY
   branches.branchname,
   returns_lm.DATE,

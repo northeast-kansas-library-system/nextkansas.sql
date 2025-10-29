@@ -35,9 +35,9 @@ COUNT(DISTINCT ccode)
 FROM items 
 GROUP BY biblionumber 
 HAVING 
-count(itemnumber) &gt; '1' AND
-COUNT(DISTINCT ccode) &gt; 1 AND
-GROUP_CONCAT(DISTINCT ccode) LIKE Concat("%", &lt;&gt;, "%")
+count(itemnumber) > '1' AND
+COUNT(DISTINCT ccode) > 1 AND
+GROUP_CONCAT(DISTINCT ccode) LIKE Concat("%", <>, "%")
 
 
 

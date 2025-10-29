@@ -84,8 +84,8 @@ FROM
 WHERE
   borrowers.email NOT LIKE '' AND
   borrowers.branchcode = 'BASEHOR' AND
-  borrowers.categorycode LIKE &lt;&gt; AND
-  borrowers.dateenrolled BETWEEN &lt;&gt; AND &lt;&gt;
+  borrowers.categorycode LIKE <> AND
+  borrowers.dateenrolled BETWEEN <> AND <>
 GROUP BY
   borrowers.email
 LIMIT

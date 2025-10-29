@@ -57,8 +57,8 @@ FROM
     WHERE
       reserves.branchcode = 'NEKLS') reservess ON reservess.itemnumber = items.itemnumber
 WHERE
-  items.homebranch = &lt;&gt; AND
-  items.holdingbranch &lt;&gt; &lt;&gt; AND
+  items.homebranch = <> AND
+  items.holdingbranch <> <> AND
   (items.itemlost IS NULL OR
       items.itemlost = '' OR
       items.itemlost = 0)

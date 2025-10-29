@@ -61,9 +61,9 @@ FROM
   ) kanopy
     ON kanopy.borrowernumber = borrowers.borrowernumber
 WHERE
-  borrowers.branchcode &lt;&gt; 'BONNERSPGS' AND
+  borrowers.branchcode <> 'BONNERSPGS' AND
   kanopy.attribute = 'BONNERSPGS' AND
-  borrowers.othernames &lt;&gt; 'SIP2 test account'
+  borrowers.othernames <> 'SIP2 test account'
 GROUP BY
   borrowers.categorycode,
   borrowers.borrowernumber

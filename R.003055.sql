@@ -66,7 +66,7 @@ WHERE
   Coalesce(items.location, "-") LIKE '%' AND
   Coalesce(items.itype, "-") LIKE '%' AND
   Coalesce(items.ccode, "-") LIKE '%' AND
-  copies_in_system.Count_itemnumber &gt;= 5
+  copies_in_system.Count_itemnumber >= 5
 GROUP BY
   items.itemnumber
 ORDER BY

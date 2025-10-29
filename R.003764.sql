@@ -42,7 +42,7 @@ SELECT
 FROM
   biblio_metadata
 WHERE
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="100"]/subfield[@code="0"]') &lt;&gt; ''
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="100"]/subfield[@code="0"]') <> ''
 
 
 

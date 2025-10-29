@@ -230,7 +230,7 @@ WHERE
     ', ', 
     accountlines.description, 
     accountlines.note
-  ) LIKE CONCAT("%", &lt;&gt;, "%")
+  ) LIKE CONCAT("%", <>, "%")
 GROUP BY
   borrowers.cardnumber,
   accountlines.accountlines_id

@@ -38,7 +38,7 @@ Expiry: 0
 
 
 SELECT
-  If(Coalesce(biblio.biblionumber, 0) = deleteditems.biblionumber, Concat('Click for bibliographic record'), If(Coalesce(deletedbiblio.biblionumber, 0) &gt; 0, 'Biblio has been deleted', '--') ) AS BIBLIO_RECORD_STATUS,
+  If(Coalesce(biblio.biblionumber, 0) = deleteditems.biblionumber, Concat('Click for bibliographic record'), If(Coalesce(deletedbiblio.biblionumber, 0) > 0, 'Biblio has been deleted', '--') ) AS BIBLIO_RECORD_STATUS,
   deleteditems.barcode,
   deleteditems.homebranch,
   deleteditems.location,
@@ -56,7 +56,7 @@ FROM
   deletedbiblio
     ON deleteditems.biblionumber = deletedbiblio.biblionumber
 WHERE
-  deleteditems.barcode LIKE Concat("%", &lt;&gt;, "%")
+  deleteditems.barcode LIKE Concat("%", <>, "%")
 GROUP BY
   deleteditems.biblionumber
 ORDER BY

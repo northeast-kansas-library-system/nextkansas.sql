@@ -116,13 +116,13 @@ FROM
       hold_reminder.borrowernumber = borrowers.borrowernumber LEFT JOIN
   branches ON borrowers.branchcode = branches.branchcode
 WHERE
-  borrowers.branchcode LIKE &lt;&gt; AND
-  If(due.borrower_message_preference_id IS NULL, '0', If(due.borrower_message_preference_id = '', '0', '1')) LIKE &lt;&gt; AND
-  If(predue.borrower_message_preference_id IS NULL, '0', If(predue.borrower_message_preference_id = '', '0', '1')) LIKE &lt;&gt; AND
-  If(hold.borrower_message_preference_id IS NULL, '0', If(hold.borrower_message_preference_id = '', '0', '1')) LIKE &lt;&gt; AND
-  If(checkin.borrower_message_preference_id IS NULL, '0', If(checkin.borrower_message_preference_id = '', '0', '1')) LIKE &lt;&gt; AND
-  If(checkout.borrower_message_preference_id IS NULL, '0', If(checkout.borrower_message_preference_id = '', '0', '1')) LIKE &lt;&gt; AND
-  If(hold_reminder.borrower_message_preference_id IS NULL, '0', If(hold_reminder.borrower_message_preference_id = '', '0', '1')) LIKE &lt;&gt;
+  borrowers.branchcode LIKE <> AND
+  If(due.borrower_message_preference_id IS NULL, '0', If(due.borrower_message_preference_id = '', '0', '1')) LIKE <> AND
+  If(predue.borrower_message_preference_id IS NULL, '0', If(predue.borrower_message_preference_id = '', '0', '1')) LIKE <> AND
+  If(hold.borrower_message_preference_id IS NULL, '0', If(hold.borrower_message_preference_id = '', '0', '1')) LIKE <> AND
+  If(checkin.borrower_message_preference_id IS NULL, '0', If(checkin.borrower_message_preference_id = '', '0', '1')) LIKE <> AND
+  If(checkout.borrower_message_preference_id IS NULL, '0', If(checkout.borrower_message_preference_id = '', '0', '1')) LIKE <> AND
+  If(hold_reminder.borrower_message_preference_id IS NULL, '0', If(hold_reminder.borrower_message_preference_id = '', '0', '1')) LIKE <>
 GROUP BY
   borrowers.borrowernumber
 

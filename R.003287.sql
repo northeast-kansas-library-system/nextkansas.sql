@@ -141,9 +141,9 @@ WHERE
   Coalesce(items.ccode, "XXX") LIKE '%' AND
   Coalesce(items.itemcallnumber, "-") LIKE Concat('%', "%") AND
   If(notloan.authorised_value = 0, "-", Concat(notloan.lib, "X")) LIKE '%' AND
-  Coalesce(items.dateaccessioned, "0") &lt;= '2019-12-18' AND
-  Coalesce(items.datelastborrowed, "0") &lt;= '2019-12-18' AND
-  Coalesce(items.datelastseen, "0") &lt;= '2019-12-18'
+  Coalesce(items.dateaccessioned, "0") <= '2019-12-18' AND
+  Coalesce(items.datelastborrowed, "0") <= '2019-12-18' AND
+  Coalesce(items.datelastseen, "0") <= '2019-12-18'
 GROUP BY
   items.itemnumber,
   items.holdingbranch,
@@ -151,11 +151,11 @@ GROUP BY
   itypes.description,
   ccodes.lib
 HAVING
-  CHECKOUTS_PLUS_RENEWALS &lt;= '999999999999' AND
+  CHECKOUTS_PLUS_RENEWALS <= '999999999999' AND
   CHECKED_OUT LIKE '%' AND
   STATUS_PROBLEMS LIKE '%' AND
-  LOCAL_COPIES &gt;= '0' AND
-  SYSTEM_COPIES &gt;= '0'
+  LOCAL_COPIES >= '0' AND
+  SYSTEM_COPIES >= '0'
 ORDER BY
   items.homebranch,
   LOCATION,

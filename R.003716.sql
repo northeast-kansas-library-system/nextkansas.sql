@@ -37,7 +37,7 @@ FROM
   branches LEFT JOIN
   borrowers ON borrowers.branchcode = branches.branchcode
 WHERE
-  branches.branchcode LIKE &lt;&gt;
+  branches.branchcode LIKE <>
 GROUP BY
   branches.branchname
 UNION
@@ -49,7 +49,7 @@ FROM
   branches LEFT JOIN
   items ON items.homebranch = branches.branchcode
 WHERE
-  branches.branchcode LIKE &lt;&gt;
+  branches.branchcode LIKE <>
 GROUP BY
   branches.branchname
 UNION
@@ -61,7 +61,7 @@ FROM
   branches LEFT JOIN
   items ON items.homebranch = branches.branchcode
 WHERE
-  branches.branchcode LIKE &lt;&gt;
+  branches.branchcode LIKE <>
 GROUP BY
   branches.branchname
 UNION
@@ -73,7 +73,7 @@ FROM
   branches LEFT JOIN
   statistics ON statistics.branch = branches.branchcode
 WHERE
-  branches.branchcode LIKE &lt;&gt; AND
+  branches.branchcode LIKE <> AND
   (statistics.type = 'issue' OR
     statistics.type = 'renew') AND
   statistics.datetime BETWEEN CurDate() - INTERVAL 1 YEAR AND CurDate()
@@ -88,7 +88,7 @@ FROM
   branches LEFT JOIN
   statistics ON statistics.branch = branches.branchcode
 WHERE
-  branches.branchcode LIKE &lt;&gt; AND
+  branches.branchcode LIKE <> AND
   (statistics.type = 'issue' OR
     statistics.type = 'renew') AND
   statistics.datetime BETWEEN CurDate() - INTERVAL 1 YEAR AND CurDate()

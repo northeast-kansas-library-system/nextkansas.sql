@@ -44,7 +44,7 @@ SELECT
   items.holdingbranch AS CKO_BRANCH,
   borrowers.cardnumber,
   CONCAT(
-    If(borrowers.firstname &lt;&gt; '', Concat_Ws(', ', borrowers.surname, borrowers.firstname), borrowers.surname), 
+    If(borrowers.firstname <> '', Concat_Ws(', ', borrowers.surname, borrowers.firstname), borrowers.surname), 
     If(borrowers.othernames = '', '', Concat(', (', borrowers.othernames, ')'))
   ) AS NAME,
   CONCAT_WS(' | ', 
@@ -110,7 +110,7 @@ FROM
     GROUP BY
       accountlines.borrowernumber
     HAVING
-      Sum(accountlines.amountoutstanding) &lt;&gt; 0) borroweraccountlines ON
+      Sum(accountlines.amountoutstanding) <> 0) borroweraccountlines ON
       borroweraccountlines.borrowernumber = borrowers.borrowernumber LEFT JOIN
   (SELECT
       authorised_values.category,
@@ -130,7 +130,7 @@ FROM
     FROM
       accountlines
     WHERE
-      accountlines.amountoutstanding &lt;&gt; 0
+      accountlines.amountoutstanding <> 0
     GROUP BY
       accountlines.borrowernumber,
       accountlines.itemnumber,
@@ -140,12 +140,12 @@ FROM
       borrowers.borrowernumber AND
       itemaccountlines.itemnumber = items.itemnumber
 WHERE
-  items.holdingbranch LIKE &lt;&gt;
+  items.holdingbranch LIKE <>
 GROUP BY
   borrowers.borrowernumber,
   items.itemnumber
 HAVING
-  LOST_STATUS LIKE &lt;&gt;
+  LOST_STATUS LIKE <>
 ORDER BY
   borrowers.surname DESC,
   borrowers.firstname,

@@ -115,7 +115,7 @@ Select
 From
   borrowers
 Where
-  borrowers.cardnumber = &lt;&gt;
+  borrowers.cardnumber = <>
 
 
 

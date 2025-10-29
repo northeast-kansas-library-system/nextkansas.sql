@@ -133,7 +133,7 @@ FROM
             Coalesce(items.homebranch, deleteditems.homebranch)
           )
         )
-      ) &lt;&gt; If(
+      ) <> If(
         statistics.branch IS NULL,
         "NEKLS",
         If(

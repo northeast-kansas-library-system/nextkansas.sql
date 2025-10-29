@@ -307,7 +307,7 @@ FROM
   ) deletedwithdrawni
     ON deletedwithdrawni.authorised_value = deleteditems.withdrawn
 WHERE
-  deleteditems.barcode LIKE Concat("%", Trim(&lt;&gt;), "%")
+  deleteditems.barcode LIKE Concat("%", Trim(<>), "%")
 GROUP BY
   deleteditems.itemnumber
 ORDER BY

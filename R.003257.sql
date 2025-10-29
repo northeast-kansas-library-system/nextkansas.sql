@@ -46,8 +46,8 @@ FROM
 WHERE
   borrowers.branchcode NOT LIKE "HIGH_CC" AND
   borrowers.branchcode NOT LIKE "PH%" AND
-  borrowers.branchcode LIKE &lt;&gt; AND
-  borrowers.categorycode &lt;&gt; "STAFF" AND
+  borrowers.branchcode LIKE <> AND
+  borrowers.categorycode <> "STAFF" AND
   borrowers.cardnumber NOT LIKE "0%" AND
   borrowers.cardnumber IS NOT NULL AND
   borrowers.cardnumber NOT LIKE ""

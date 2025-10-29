@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-SELECT * FROM deletedbiblio WHERE biblionumber=&lt;&gt;
+SELECT * FROM deletedbiblio WHERE biblionumber=<>
 
 
 

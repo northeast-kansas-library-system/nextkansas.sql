@@ -54,7 +54,7 @@ FROM
       borrower_attributes.code) expired_account ON
       expired_account.borrowernumber = borrowers.borrowernumber
 WHERE
-  expired_account.attribute &lt; '30'
+  expired_account.attribute < '30'
 
 
 

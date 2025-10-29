@@ -58,9 +58,9 @@ FROM
   JOIN account_offsets
     ON account_offsets.debit_id = accountlines.accountlines_id
 WHERE
-  old_issues.branchcode Like &lt;&gt; AND
+  old_issues.branchcode Like <> AND
   items.itemlost = 2 AND
-  (items.itemlost_on BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day))AND
+  (items.itemlost_on BETWEEN <> AND (<> + interval 1 day))AND
   (account_offsets.type = 'Lost item' OR
     account_offsets.type = 'Forgiven')
 GROUP BY

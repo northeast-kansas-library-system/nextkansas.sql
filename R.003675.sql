@@ -1096,8 +1096,8 @@ FROM
   ) attributes 
     ON attributes.borrowernumber = borrowers.borrowernumber 
 WHERE 
-  ((borrowers.flags &gt; 0) OR 
-    (user_permissions.module_bit &gt; 0)) AND 
+  ((borrowers.flags > 0) OR 
+    (user_permissions.module_bit > 0)) AND 
   borrowers.branchcode LIKE "%" 
 GROUP BY 
   borrowers.borrowernumber 

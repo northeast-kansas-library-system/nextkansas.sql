@@ -37,8 +37,8 @@ SELECT
 FROM
   items
 WHERE
-  Year(items.dateaccessioned) = &lt;&lt; Choose year|YEAR&gt;&gt; AND
-  Month(items.dateaccessioned) = &lt;&lt; Choose month|MONTH &gt;&gt;
+  Year(items.dateaccessioned) = << Choose year|YEAR>> AND
+  Month(items.dateaccessioned) = << Choose month|MONTH >>
 GROUP BY
   items.homebranch,
   items.ccode,

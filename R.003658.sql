@@ -133,7 +133,7 @@ SELECT
   Concat_WS('', 
     'Send e-mail' 
   ) AS MAILTO_LINK, 
-  @SortOrder := &lt;&gt; AS SORTING 
+  @SortOrder := <> AS SORTING 
 FROM 
   branchtransfers JOIN 
   branches frombranches ON branchtransfers.frombranch = frombranches.branchcode JOIN 
@@ -217,8 +217,8 @@ WHERE
     item_info.homebranch, 
     branchtransfers.frombranch, 
     branchtransfers.tobranch 
-  ) LIKE Concat('%', &lt;&gt;, '%') AND 
-  branchtransfers.datesent &lt; CurDate() - INTERVAL 7 DAY 
+  ) LIKE Concat('%', <>, '%') AND 
+  branchtransfers.datesent < CurDate() - INTERVAL 7 DAY 
 GROUP BY 
   item_info.biblionumber, 
   item_info.itemnumber 

@@ -63,14 +63,14 @@ WHERE
   action_logs.module = 'CIRCULATION' AND 
   action_logs.action = 'RENEWAL' AND 
   Coalesce(active_staff.cardnumber, deleted_staff.cardnumber, '--') 
-    LIKE Concat('%', &lt;&lt;(Optional) Enter staff member barcode number or "--" for OPAC renewals&gt;&gt;, '%') AND 
+    LIKE Concat('%', <<(Optional) Enter staff member barcode number or "--" for OPAC renewals>>, '%') AND 
   items.barcode 
-    LIKE Concat('%', &lt;&lt;(Optional) Enter the barcode number of the item renewed&gt;&gt;, '%') AND 
+    LIKE Concat('%', <<(Optional) Enter the barcode number of the item renewed>>, '%') AND 
   borrowers.cardnumber 
-    LIKE Concat('%', &lt;&lt;(Optional) Enter the library card number of the borrower who renewed the item&gt;&gt;, '%') AND 
+    LIKE Concat('%', <<(Optional) Enter the library card number of the borrower who renewed the item>>, '%') AND 
   action_logs.timestamp BETWEEN 
-    (Coalesce(&lt;&lt;(Optional) Start of day on date1|date&gt;&gt;, '1900-01-01')) AND 
-    (Coalesce(&lt;&lt;(Optional) End of day on date2|date&gt;&gt; + INTERVAL 1 DAY, CurDate() + INTERVAL 1 DAY)) 
+    (Coalesce(<<(Optional) Start of day on date1|date>>, '1900-01-01')) AND 
+    (Coalesce(<<(Optional) End of day on date2|date>> + INTERVAL 1 DAY, CurDate() + INTERVAL 1 DAY)) 
 GROUP BY 
   action_logs.action_id 
 ORDER BY 

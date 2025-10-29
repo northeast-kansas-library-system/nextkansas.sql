@@ -47,7 +47,7 @@ FROM
       branches,
       itemtypes
     WHERE
-      branches.branchcode LIKE &lt;&gt;) branch_itype
+      branches.branchcode LIKE <>) branch_itype
   LEFT JOIN (SELECT
       Coalesce(statistics.branch, "NEKLS") AS branch,
       Coalesce(statistics.itemtype, "BOOK") AS itemtype,
@@ -97,12 +97,12 @@ FROM
         statistics.type = 'renew') AND
       Year(statistics.datetime) = Year(Now() - INTERVAL 2 MONTH) AND
       Month(statistics.datetime) = Month(Now() - INTERVAL 2 MONTH) AND
-      Coalesce(statistics.location, "CART") &lt;&gt; 'ADULT' AND
-      Coalesce(statistics.location, "CART") &lt;&gt; 'LVPLADULT' AND
-      Coalesce(statistics.location, "CART") &lt;&gt; 'YOUNGADULT' AND
-      Coalesce(statistics.location, "CART") &lt;&gt; 'LVPLYA' AND
-      Coalesce(statistics.location, "CART") &lt;&gt; 'CHILDRENS' AND
-      Coalesce(statistics.location, "CART") &lt;&gt; 'LVPLCHILD'
+      Coalesce(statistics.location, "CART") <> 'ADULT' AND
+      Coalesce(statistics.location, "CART") <> 'LVPLADULT' AND
+      Coalesce(statistics.location, "CART") <> 'YOUNGADULT' AND
+      Coalesce(statistics.location, "CART") <> 'LVPLYA' AND
+      Coalesce(statistics.location, "CART") <> 'CHILDRENS' AND
+      Coalesce(statistics.location, "CART") <> 'LVPLCHILD'
     GROUP BY
       Coalesce(statistics.branch, "NEKLS"),
       Coalesce(statistics.itemtype, "BOOK")

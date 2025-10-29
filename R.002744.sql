@@ -62,7 +62,7 @@ FROM
   JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
 WHERE
   (items.homebranch = 'PAOLA' AND
-  Coalesce(items.copynumber, "~") &lt;&gt; "~") OR
+  Coalesce(items.copynumber, "~") <> "~") OR
   (items.homebranch = 'PAOLA' AND
   Coalesce(items.copynumber, "~") = "~" AND
   (items.itype LIKE 'NVID%') AND

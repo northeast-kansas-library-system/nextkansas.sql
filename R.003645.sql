@@ -38,7 +38,7 @@ FROM
 GROUP BY
   Left(Trim(borrowers.zipcode), 5)
 HAVING
-  Count(DISTINCT borrowers.borrowernumber) &lt; 10
+  Count(DISTINCT borrowers.borrowernumber) < 10
 
 
 

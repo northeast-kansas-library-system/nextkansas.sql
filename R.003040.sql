@@ -60,7 +60,7 @@ FROM
   action_logs
 WHERE
   action_logs.module = "HOLDS" AND
-  action_logs.object LIKE Concat('%', &lt;&gt;, '%')
+  action_logs.object LIKE Concat('%', <>, '%')
 GROUP BY
   action_logs.action_id
 ORDER BY

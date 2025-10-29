@@ -51,10 +51,10 @@ FROM
     FROM
       branches
     WHERE
-      branches.branchcode LIKE &lt;&gt;
+      branches.branchcode LIKE <>
   ) reportingbranch
 WHERE
-  items.barcode LIKE Concat("%", &lt;&gt;, "%")
+  items.barcode LIKE Concat("%", <>, "%")
 GROUP BY
   branchtransfers.branchtransfer_id,
   reportingbranch.branchcode

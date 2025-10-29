@@ -48,7 +48,7 @@ SELECT
 FROM
   borrowers
   INNER JOIN (SELECT
-      Concat(If(old_reserves.reserve_id &gt; 0, "Inactive", ""), If(old_reserves.cancellationdate &gt; 0, " - cancelled",
+      Concat(If(old_reserves.reserve_id > 0, "Inactive", ""), If(old_reserves.cancellationdate > 0, " - cancelled",
       " - filled")) AS ACTIVE_REQUESTS,
       borrowers.cardnumber,
       biblio.author,
@@ -70,7 +70,7 @@ FROM
       JOIN biblio ON old_reserves.biblionumber = biblio.biblionumber
     UNION
     SELECT
-      Concat(If(reserves.reserve_id &gt; 0, "Active", ""), If(reserves.found = "T", " - item in transit", If(reserves.found
+      Concat(If(reserves.reserve_id > 0, "Active", ""), If(reserves.found = "T", " - item in transit", If(reserves.found
       = "W", " - waiting for pickup", ""))) AS ACTIVE_REQUESTS,
       borrowers.cardnumber,
       biblio.author,
@@ -93,9 +93,9 @@ FROM
     ORDER BY
       REQ_PLACED_ON DESC) requests ON borrowers.borrowernumber = requests.borrowernumber
 WHERE
-  requests.ACTIVE_REQUESTS LIKE &lt;&gt; AND
-  requests.cardnumber LIKE Concat("%",&lt;&gt;,"%") AND
-  requests.PICK_UP_BRANCH LIKE &lt;&gt;
+  requests.ACTIVE_REQUESTS LIKE <> AND
+  requests.cardnumber LIKE Concat("%",<>,"%") AND
+  requests.PICK_UP_BRANCH LIKE <>
 
 
 

@@ -34,7 +34,7 @@ Select
     branches.branchcode = 'NEKLS', 
     'next_hidden', 
     If(
-      Count(opac_problem_reports.reportid) &gt; 0, 
+      Count(opac_problem_reports.reportid) > 0, 
       'next_hidden', 
       '-'
     )
@@ -48,12 +48,12 @@ From
     From
       problem_reports
     Where
-      problem_reports.status &lt;&gt; 'closed'
+      problem_reports.status <> 'closed'
   ) opac_problem_reports 
   On 
     opac_problem_reports.branchcode = branches.branchcode
 Where
-  branches.branchcode Like Concat(&lt;&gt;, '%')
+  branches.branchcode Like Concat(<>, '%')
 Group By
   branches.branchcode
 

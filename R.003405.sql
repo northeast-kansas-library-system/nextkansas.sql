@@ -58,7 +58,7 @@ SELECT
     ),
     borrowers.borrowernumber
   ) AS BORROWER,
-  Concat_Ws(' &lt;br&gt;&lt;br&gt; ', 
+  Concat_Ws(' <br><br> ', 
     'LOST ITEM PROCESSING FEE: ', 
     Concat('Item barcode: ', item_info.barcode), 
     Concat('Owned by: ', item_info.homebranch),
@@ -69,7 +69,7 @@ SELECT
     Concat('Author: ', item_info.author), 
     Concat('Title: ', item_info.FULL_TITLE),
     Concat('Due date: ', old_checkouts.ORIGINAL_DUE_DATE), 
-    Concat('Lost on: ', item_info.LOST_ON_DATE, '&lt;br&gt;&lt;br&gt;')
+    Concat('Lost on: ', item_info.LOST_ON_DATE, '<br><br>')
   ) AS FEE_NOTE
 FROM
   (SELECT

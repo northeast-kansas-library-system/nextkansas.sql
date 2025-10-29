@@ -106,12 +106,12 @@ From
     Where
       authorised_values.category = 'CCODE') ccodes On ccodes.authorised_value = items.ccode
 Where
-  issues.branchcode IN &lt;&gt; And
-  borrowers.categorycode IN &lt;&gt; And
-  items.permanent_location IN &lt;&gt; And 
-  items.location IN &lt;&gt; And 
-  items.itype IN &lt;&gt; And 
-  items.ccode IN &lt;&gt;
+  issues.branchcode IN <> And
+  borrowers.categorycode IN <> And
+  items.permanent_location IN <> And 
+  items.location IN <> And 
+  items.itype IN <> And 
+  items.ccode IN <>
 Group By
   issues.issue_id
 

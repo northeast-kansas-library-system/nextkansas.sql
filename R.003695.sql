@@ -54,7 +54,7 @@ FROM branches
     SELECT items.homebranch,
       Count(DISTINCT items.itemnumber) AS Count_itemnumber
     FROM items
-    WHERE Year(items.dateaccessioned) &lt; 2023
+    WHERE Year(items.dateaccessioned) < 2023
       AND (
         items.itype = 'BOOK'
         OR items.itype = 'LOCALHOLD2'
@@ -70,7 +70,7 @@ FROM branches
     SELECT Count(DISTINCT deleteditems.itemnumber) AS Count_itemnumber,
       deleteditems.homebranch
     FROM deleteditems
-    WHERE Year(deleteditems.dateaccessioned) &lt; 2023
+    WHERE Year(deleteditems.dateaccessioned) < 2023
       AND (
         Year(deleteditems.timestamp) = 2023
         OR Year(deleteditems.timestamp) = 2024
@@ -122,7 +122,7 @@ FROM branches
     SELECT Count(DISTINCT items.itemnumber) AS Count_itemnumber,
       items.homebranch
     FROM items
-    WHERE Year(items.dateaccessioned) &lt;&gt; 2024
+    WHERE Year(items.dateaccessioned) <> 2024
       AND (
         items.itype = 'AUDIOBOOK'
         OR items.itype = 'N_AB'
@@ -149,7 +149,7 @@ FROM branches
         OR deleteditems.itype = 'NAUDNEW'
         OR deleteditems.itype = 'MUSIC'
       )
-      AND Year(deleteditems.dateaccessioned) &lt; 2024
+      AND Year(deleteditems.dateaccessioned) < 2024
     GROUP BY deleteditems.homebranch
   ) total_audio_deleteditems ON total_audio_deleteditems.homebranch = branches.branchcode
   LEFT JOIN 
@@ -157,7 +157,7 @@ FROM branches
     SELECT Count(DISTINCT items.itemnumber) AS Count_itemnumber,
       items.homebranch
     FROM items
-    WHERE Year(items.dateaccessioned) &lt;&gt; 2024
+    WHERE Year(items.dateaccessioned) <> 2024
       AND items.itype LIKE 'NVID%'
     GROUP BY items.homebranch
   ) total_video_items ON total_video_items.homebranch = branches.branchcode
@@ -168,7 +168,7 @@ FROM branches
     FROM deleteditems
     WHERE Year(deleteditems.timestamp) = 2024
       AND deleteditems.itype LIKE 'NVID%'
-      AND Year(deleteditems.dateaccessioned) &lt; 2024
+      AND Year(deleteditems.dateaccessioned) < 2024
     GROUP BY deleteditems.homebranch
   ) total_video_deleteditems ON total_video_deleteditems.homebranch = branches.branchcode
   LEFT JOIN 
@@ -176,7 +176,7 @@ FROM branches
     SELECT Count(DISTINCT items.itemnumber) AS Count_itemnumber,
       items.homebranch
     FROM items
-    WHERE Year(items.dateaccessioned) &lt;&gt; 2024
+    WHERE Year(items.dateaccessioned) <> 2024
       AND (
         items.itype = 'COMPUTER'
         OR items.itype = 'DIGITAL'
@@ -227,7 +227,7 @@ FROM branches
       deleteditems.homebranch
     FROM deleteditems
     WHERE Year(deleteditems.timestamp) = 2024
-      AND Year(deleteditems.dateaccessioned) &lt; 2024
+      AND Year(deleteditems.dateaccessioned) < 2024
       AND (
         deleteditems.itype = 'COMPUTER'
         OR deleteditems.itype = 'DIGITAL'

@@ -49,7 +49,7 @@ SELECT
 FROM
   biblio_metadata
 WHERE
-  SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 7 FOR 1 ) = &lt;&gt;
+  SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 7 FOR 1 ) = <>
 GROUP BY
   SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 7 FOR 1 ),
   biblio_metadata.biblionumber

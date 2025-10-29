@@ -85,9 +85,9 @@ FROM
      borrower_attributes.code) expired_account ON borrowers.borrowernumber =
       expired_account.borrowernumber
 WHERE
-  borrowers.branchcode LIKE &lt;&gt; AND
+  borrowers.branchcode LIKE <> AND
   borrowers.categorycode LIKE '%' AND
-  expired_account.attribute LIKE &lt;&gt;
+  expired_account.attribute LIKE <>
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

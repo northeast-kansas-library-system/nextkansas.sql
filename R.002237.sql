@@ -29,7 +29,7 @@ Choose your branch three times. Gives the circulation of your materials at your 
 
 
 
-SELECT IF(items.ccode IS NULL AND deleteditems.ccode IS NULL, NULL, CONCAT(COALESCE(items.ccode,''), COALESCE(deleteditems.ccode,''))) AS ccode, IF(items.location IS NULL AND deleteditems.location IS NULL, NULL, CONCAT(COALESCE(items.location,''), COALESCE(deleteditems.location,''))) AS location, Count(*) AS count  FROM statistics LEFT JOIN items USING(itemnumber) LEFT JOIN deleteditems USING(itemnumber) WHERE statistics.branch=&lt;&gt; AND statistics.type IN ('issue','renew','localuse') AND month(statistics.datetime) = &lt;&gt; AND year(statistics.datetime) = &lt;&gt; AND (items.homebranch=&lt;&gt; OR deleteditems.homebranch=&lt;&gt;) GROUP BY ccode, location
+SELECT IF(items.ccode IS NULL AND deleteditems.ccode IS NULL, NULL, CONCAT(COALESCE(items.ccode,''), COALESCE(deleteditems.ccode,''))) AS ccode, IF(items.location IS NULL AND deleteditems.location IS NULL, NULL, CONCAT(COALESCE(items.location,''), COALESCE(deleteditems.location,''))) AS location, Count(*) AS count  FROM statistics LEFT JOIN items USING(itemnumber) LEFT JOIN deleteditems USING(itemnumber) WHERE statistics.branch=<> AND statistics.type IN ('issue','renew','localuse') AND month(statistics.datetime) = <> AND year(statistics.datetime) = <> AND (items.homebranch=<> OR deleteditems.homebranch=<>) GROUP BY ccode, location
 
 
 

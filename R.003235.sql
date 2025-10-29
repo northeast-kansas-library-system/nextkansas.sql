@@ -76,9 +76,9 @@ FROM
   JOIN categories
     ON borrowers.categorycode = categories.categorycode
 WHERE
-  borrowers.branchcode LIKE &lt;&gt; AND
-  borrower_attributes.code LIKE &lt;&gt; AND
-  borrower_attributes.attribute LIKE &lt;&gt;
+  borrowers.branchcode LIKE <> AND
+  borrower_attributes.code LIKE <> AND
+  borrower_attributes.attribute LIKE <>
 ORDER BY
   borrowers.branchcode,
   NAME,

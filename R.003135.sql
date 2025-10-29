@@ -41,12 +41,12 @@ SELECT
 FROM
   borrowers
 WHERE
-  (borrowers.dateofbirth &lt;= CurDate() - INTERVAL 18 YEAR or borrowers.dateofbirth IS NULL) AND
+  (borrowers.dateofbirth <= CurDate() - INTERVAL 18 YEAR or borrowers.dateofbirth IS NULL) AND
   (borrowers.guarantorid is not null OR
-  borrowers.guarantorid &lt;&gt; "" OR
-  borrowers.contactname &lt;&gt; "" OR
-  borrowers.contactfirstname &lt;&gt; "" OR
-  borrowers.contacttitle &lt;&gt; "")
+  borrowers.guarantorid <> "" OR
+  borrowers.contactname <> "" OR
+  borrowers.contactfirstname <> "" OR
+  borrowers.contacttitle <> "")
 GROUP BY
   borrowers.borrowernumber
 

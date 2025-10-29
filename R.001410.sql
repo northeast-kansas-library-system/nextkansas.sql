@@ -29,7 +29,7 @@ Enhanced. - Choose Branch, Item Type, and Location -- (On Reports Webpages, 5/14
 
 
 
-SELECT b.biblionumber, i.dateaccessioned, b.title, b.author, i.ccode, i.location, i.itemcallnumber, i.itype, t.publicationyear, i.barcode, CONCAT(''"edit item"'') as "edit item" FROM items i LEFT JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE i.homebranch=&lt;&gt; AND i.itype=&lt;&gt; AND i.location=&lt;&gt; ORDER BY i.itemcallnumber
+SELECT b.biblionumber, i.dateaccessioned, b.title, b.author, i.ccode, i.location, i.itemcallnumber, i.itype, t.publicationyear, i.barcode, CONCAT(''"edit item"'') as "edit item" FROM items i LEFT JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE i.homebranch=<> AND i.itype=<> AND i.location=<> ORDER BY i.itemcallnumber
 
 
 

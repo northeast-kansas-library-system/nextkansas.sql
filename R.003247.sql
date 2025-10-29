@@ -87,7 +87,7 @@ FROM
     ON statsitmes.branch = branchsitypes.branchcode AND
       statsitmes.itemtype = branchsitypes.itemtype
 WHERE
-  branchsitypes.branchcode LIKE &lt;&gt;
+  branchsitypes.branchcode LIKE <>
 GROUP BY
   branchsitypes.branchname,
   branchsitypes.description

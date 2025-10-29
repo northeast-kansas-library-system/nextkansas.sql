@@ -40,7 +40,7 @@ SELECT
 FROM
   biblio
 WHERE
-  biblio.medium LIKE concat('%', &lt;&gt;, '%')
+  biblio.medium LIKE concat('%', <>, '%')
 ORDER BY
   biblio.medium
 

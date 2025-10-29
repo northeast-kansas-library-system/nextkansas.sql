@@ -82,9 +82,9 @@ FROM
   JOIN branches 
     ON items.homebranch = branches.branchcode
 WHERE
-  items.homebranch LIKE &lt;&gt; AND
-  items.permanent_location LIKE &lt;&gt; AND
-  items.ccode LIKE &lt;&gt;
+  items.homebranch LIKE <> AND
+  items.permanent_location LIKE <> AND
+  items.ccode LIKE <>
 GROUP BY
   branches.branchname,
   locs.lib,

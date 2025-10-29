@@ -134,9 +134,9 @@ FROM
       authorised_values.category = 'NOT_LOAN') not_loans ON
       not_loans.authorised_value = items.notforloan
 WHERE
-  items.homebranch LIKE &lt;&gt; AND
-  (items.notforloan LIKE &lt;&gt; AND
-   items.notforloan &lt;&gt; '')
+  items.homebranch LIKE <> AND
+  (items.notforloan LIKE <> AND
+   items.notforloan <> '')
 GROUP BY
   biblio.biblionumber,
   items.itemnumber

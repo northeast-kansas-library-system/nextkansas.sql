@@ -136,12 +136,12 @@ FROM
     FROM
       items
     WHERE
-      items.homebranch Like &lt;&gt; AND
-      (Length(Replace(items.itemcallnumber, ' ', '-')) - Length(Replace(items.itemcallnumber, ' ', '')) + 1) &gt; &lt;&gt;) cnlines 
+      items.homebranch Like <> AND
+      (Length(Replace(items.itemcallnumber, ' ', '-')) - Length(Replace(items.itemcallnumber, ' ', '')) + 1) > <>) cnlines 
     ON cnlines.itemnumber = items.itemnumber AND
       cnlines.homebranch = items.homebranch
 WHERE
-  items.homebranch Like &lt;&gt; AND
+  items.homebranch Like <> AND
   (Replace(items.itemcallnumber, ' ', '|') LIKE "\|%" OR
     Replace(items.itemcallnumber, ' ', '|') LIKE "%\|\|%" OR
     Replace(items.itemcallnumber, ' ', '|') LIKE "%\|")

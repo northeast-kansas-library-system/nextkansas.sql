@@ -64,7 +64,7 @@ SELECT
       IF(Coalesce(damageds.lib, " ") = " ", "", "Damaged"),
       IF(Coalesce(losts.lib, " ") = " ", "", "Lost or missing"),
       IF(Coalesce(withdrawns.lib, " ") = " ", "", "Withdrawn"),
-      IF(Coalesce(items.onloan, "") &lt;&gt; "", "CHECKED OUT", "")
+      IF(Coalesce(items.onloan, "") <> "", "CHECKED OUT", "")
     ),
     "",
     Concat_Ws('', (Concat('')), items.barcode)
@@ -144,7 +144,7 @@ FROM
   JOIN collections
     ON collections.colId = collections_tracking.colId
 WHERE
-  collections.colId = &lt;&gt;
+  collections.colId = <>
 GROUP BY
   collections.colId,
   biblio.biblionumber,

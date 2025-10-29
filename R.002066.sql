@@ -36,7 +36,7 @@ LEFT JOIN categories USING(categorycode)
 WHERE borrowers.branchcode IN ('HIAWATHA') 
 AND borrowers.sort1 = 'yes'
 GROUP BY borrowers.borrowernumber 
-HAVING Due &gt;=25.00 
+HAVING Due >=25.00 
 ORDER BY borrowers.surname ASC 
 
 

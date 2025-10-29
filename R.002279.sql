@@ -29,7 +29,7 @@ Returns titles with holds by your patrons, sorted by the records with the bigges
 
 
 
-select CONCAT ('',r.biblionumber,'') AS "Link to Record", b.title, b.author, t.publicationyear, count(*) AS "Number of Holds by Your Patrons" from reserves r left join biblio b USING (biblionumber) left join biblioitems t USING(biblionumber) where r.branchcode = &lt;&gt; group by r.biblionumber ORDER BY count(*) DESC, r.reservedate DESC
+select CONCAT ('',r.biblionumber,'') AS "Link to Record", b.title, b.author, t.publicationyear, count(*) AS "Number of Holds by Your Patrons" from reserves r left join biblio b USING (biblionumber) left join biblioitems t USING(biblionumber) where r.branchcode = <> group by r.biblionumber ORDER BY count(*) DESC, r.reservedate DESC
 
 
 

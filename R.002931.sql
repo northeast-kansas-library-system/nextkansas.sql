@@ -30,17 +30,17 @@ Expiry: 0
 
 
 SELECT
-  &lt;&gt; AS CARD_PREFIX_LENGTH,
-  UPPER(Left(borrowers.cardnumber, &lt;&gt;)) AS LIBRAY_CARD_PREFIX,
+  <> AS CARD_PREFIX_LENGTH,
+  UPPER(Left(borrowers.cardnumber, <>)) AS LIBRAY_CARD_PREFIX,
   LENGTH(borrowers.cardnumber) AS CARD_NUMBER_LENGTH,
   Count(borrowers.borrowernumber) AS LIBRARY_CARD_COUNT,
-  CONCAT( '&gt;)) ,'&limit=10000 \" target="_blank"&gt;Link to report 2773' ) AS LINK_TO_PREFIX_REPORT_2
+  CONCAT( '>)) ,'&limit=10000 \" target="_blank">Link to report 2773' ) AS LINK_TO_PREFIX_REPORT_2
 FROM
   borrowers
 GROUP BY
   LIBRAY_CARD_PREFIX, CARD_NUMBER_LENGTH
 HAVING
-  LIBRARY_CARD_COUNT &gt;= &lt;&gt;
+  LIBRARY_CARD_COUNT >= <>
 ORDER BY
   LIBRAY_CARD_PREFIX, CARD_NUMBER_LENGTH
 

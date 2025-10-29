@@ -57,7 +57,7 @@ FROM
     WHERE
       (statistics.type = 'issue' OR
         statistics.type = 'renew') AND
-      statistics.datetime &gt;= CurDate() - INTERVAL 1 YEAR
+      statistics.datetime >= CurDate() - INTERVAL 1 YEAR
     GROUP BY
       statistics.branch) cko_renew_365 ON cko_renew_365.branch =
       branches.branchcode JOIN
@@ -72,7 +72,7 @@ FROM
         FROM
           items
         WHERE
-          items.dateaccessioned &gt;= CurDate() - INTERVAL 1 YEAR
+          items.dateaccessioned >= CurDate() - INTERVAL 1 YEAR
         GROUP BY
           items.homebranch
         UNION
@@ -82,7 +82,7 @@ FROM
         FROM
           deleteditems
         WHERE
-          deleteditems.dateaccessioned &gt;= CurDate() - INTERVAL 1 YEAR
+          deleteditems.dateaccessioned >= CurDate() - INTERVAL 1 YEAR
         GROUP BY
           deleteditems.homebranch) icount_365_raw ON icount_365_raw.homebranch =
           branches.branchcode
@@ -131,12 +131,12 @@ FROM
     FROM
       statistics
     WHERE
-      statistics.datetime &gt;= CurDate() - INTERVAL 1 YEAR
+      statistics.datetime >= CurDate() - INTERVAL 1 YEAR
     GROUP BY
       statistics.branch) activer_borrower_count ON activer_borrower_count.branch
       = branches.branchcode
 WHERE
-  branches.branchcode = &lt;&gt;
+  branches.branchcode = <>
 GROUP BY
   branches.branchcode
 

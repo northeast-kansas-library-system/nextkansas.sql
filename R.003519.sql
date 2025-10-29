@@ -42,7 +42,7 @@ SELECT
   borrowers.borrowernumber,
   borrowers.branchcode,
   message_queue.subject,
-  Replace(message_queue.content, '<', '&lt;')  AS CONTENT, 
+  Replace(message_queue.content, '<', '<')  AS CONTENT, 
   message_queue.metadata,
   message_queue.letter_code,
   message_queue.message_transport_type,

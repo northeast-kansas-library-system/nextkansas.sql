@@ -126,13 +126,13 @@ FROM
     FROM
       items
     WHERE
-      items.homebranch Like &lt;&gt; AND
-      (Length(Replace(items.itemcallnumber, ' ', '-')) - Length(Replace(items.itemcallnumber, ' ', '')) + 1) &gt; &lt;&gt;
+      items.homebranch Like <> AND
+      (Length(Replace(items.itemcallnumber, ' ', '-')) - Length(Replace(items.itemcallnumber, ' ', '')) + 1) > <>
     ) cnlines 
     ON cnlines.itemnumber = items.itemnumber AND
       cnlines.homebranch = items.homebranch
 WHERE
-  items.homebranch Like &lt;&gt;
+  items.homebranch Like <>
 GROUP BY
   items.itemnumber,
   cnlines.length,

@@ -170,10 +170,10 @@ FROM
 WHERE
   borrowers.branchcode LIKE 'HIGH_CC' AND
   Coalesce(borrowers.othernames, "0") NOT LIKE "%SIP%" AND
-  borrowers.categorycode &lt;&gt; 'STAFF' AND
-  borrowers.categorycode &lt;&gt; 'ILL' AND
-  borrowers.categorycode &lt;&gt; 'HOOPLA' AND
-  borrowers.password_expiration_date &lt;&gt; ''
+  borrowers.categorycode <> 'STAFF' AND
+  borrowers.categorycode <> 'ILL' AND
+  borrowers.categorycode <> 'HOOPLA' AND
+  borrowers.password_expiration_date <> ''
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

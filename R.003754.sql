@@ -118,7 +118,7 @@ WHERE
 GROUP BY
   biblio.biblionumber
 HAVING
-  isbns &lt;&gt; 'X'
+  isbns <> 'X'
 ORDER BY
   items.itemnumber DESC
 LIMIT 25

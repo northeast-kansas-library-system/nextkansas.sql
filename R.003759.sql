@@ -133,9 +133,9 @@ FROM
           branchtransfers.datecancelled = ''
         ) 
           AND
-        branchtransfers.datesent &lt; CurDate() - INTERVAL 7 DAY 
+        branchtransfers.datesent < CurDate() - INTERVAL 7 DAY 
           AND
-        branchtransfers.tobranch = &lt;&gt;
+        branchtransfers.tobranch = <>
       ) 
         OR
       (
@@ -151,9 +151,9 @@ FROM
           branchtransfers.datecancelled = ''
         ) 
           AND
-        branchtransfers.datesent &lt; CurDate() - INTERVAL 7 DAY 
+        branchtransfers.datesent < CurDate() - INTERVAL 7 DAY 
           AND
-        branchtransfers.frombranch = &lt;&gt;
+        branchtransfers.frombranch = <>
       ) 
         OR
       (
@@ -169,13 +169,13 @@ FROM
           branchtransfers.datecancelled = ''
         ) 
           AND
-        branchtransfers.datesent &lt; CurDate() - INTERVAL 7 DAY 
+        branchtransfers.datesent < CurDate() - INTERVAL 7 DAY 
           AND
-        items.homebranch = &lt;&gt;
+        items.homebranch = <>
       )
   ) missing_in_transit
 WHERE
-  branches.branchcode = &lt;&gt;
+  branches.branchcode = <>
 
 
 

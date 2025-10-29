@@ -109,12 +109,12 @@ FROM
      borrower_relationships.guarantor_id) guaranteesx ON
       guaranteesx.guarantor_id = borrowers.borrowernumber
 WHERE
-  borrowers.dateexpiry &lt; CurDate() - INTERVAL 730.5 DAY AND
-  borrowers.branchcode LIKE &lt;&gt; AND
+  borrowers.dateexpiry < CurDate() - INTERVAL 730.5 DAY AND
+  borrowers.branchcode LIKE <> AND
   borrowers.othernames NOT LIKE "%SIP%" AND
-  borrowers.categorycode &lt;&gt; 'STAFF' AND
-  borrowers.categorycode &lt;&gt; 'ILL' AND
-  borrowers.categorycode &lt;&gt; 'HOOPLA'
+  borrowers.categorycode <> 'STAFF' AND
+  borrowers.categorycode <> 'ILL' AND
+  borrowers.categorycode <> 'HOOPLA'
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

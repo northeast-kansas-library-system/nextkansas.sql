@@ -76,7 +76,7 @@ FROM
   borrowers
     ON borrowers.borrowernumber = allreserves.borrowernumber
 WHERE
-  items.barcode LIKE &lt;&gt;
+  items.barcode LIKE <>
 GROUP BY
   allreserves.reserve_id, items.barcode
 ORDER BY

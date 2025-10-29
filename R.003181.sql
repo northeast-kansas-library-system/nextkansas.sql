@@ -53,8 +53,8 @@ FROM
   LEFT JOIN biblio biblio1 ON biblio1.biblionumber = deleteditems.biblionumber
   INNER JOIN itemtypes ON itemtypes.itemtype = statistics.itemtype
 WHERE
-  statistics.branch LIKE &lt;&gt; AND
-  statistics.itemtype LIKE &lt;&gt; AND
+  statistics.branch LIKE <> AND
+  statistics.itemtype LIKE <> AND
   Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
   Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
   (statistics.type = 'ISSUE' OR

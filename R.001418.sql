@@ -29,7 +29,7 @@ Enhanced -- Choose Library. (On Reports Webpages, 5/14/12)  #special
 
 
 
-SELECT items.datelastseen, authorised_values.lib, biblio.title, biblio.author, biblioitems.publicationyear, items.location, items.ccode,items.itype, items.itemcallnumber, items.barcode, CONCAT(''"edit item"'') as "edit item" FROM items LEFT JOIN biblioitems USING(biblionumber) LEFT JOIN biblio USING (biblionumber) LEFT JOIN authorised_values ON (items.withdrawn=authorised_values.authorised_value) WHERE items.homebranch=&lt;&gt; AND items.withdrawn != 0 AND authorised_values.category='WITHDRAWN' ORDER BY authorised_values.lib, items.itemcallnumber
+SELECT items.datelastseen, authorised_values.lib, biblio.title, biblio.author, biblioitems.publicationyear, items.location, items.ccode,items.itype, items.itemcallnumber, items.barcode, CONCAT(''"edit item"'') as "edit item" FROM items LEFT JOIN biblioitems USING(biblionumber) LEFT JOIN biblio USING (biblionumber) LEFT JOIN authorised_values ON (items.withdrawn=authorised_values.authorised_value) WHERE items.homebranch=<> AND items.withdrawn != 0 AND authorised_values.category='WITHDRAWN' ORDER BY authorised_values.lib, items.itemcallnumber
 
 
 

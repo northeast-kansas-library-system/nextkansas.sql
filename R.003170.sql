@@ -86,7 +86,7 @@ FROM
       authorised_values.authorised_value,
       authorised_values.lib) ccodes ON items.ccode = ccodes.authorised_value
 WHERE
-  items.barcode LIKE Concat("%", &lt;&gt;, "%")
+  items.barcode LIKE Concat("%", <>, "%")
 GROUP BY
   items.itemnumber
 ORDER BY

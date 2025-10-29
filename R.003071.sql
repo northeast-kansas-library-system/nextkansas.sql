@@ -61,7 +61,7 @@ FROM
     FROM
       issues
     WHERE
-      issues.date_due &lt; Now()
+      issues.date_due < Now()
     GROUP BY
       issues.borrowernumber,
       issues.itemnumber,
@@ -76,7 +76,7 @@ FROM
     FROM
       accountlines
     WHERE
-      accountlines.amountoutstanding &gt; 0
+      accountlines.amountoutstanding > 0
     GROUP BY
       accountlines.borrowernumber
   ) fees
@@ -95,9 +95,9 @@ WHERE
   (Char_Length(borrowers.debarredcomment) = 33 OR
     Char_Length(borrowers.debarredcomment) = 54 OR
     (borrowers.debarredcomment IS NULL)) AND
-  Coalesce(borrowers.gonenoaddress, 0) &lt; 1 AND
-  Coalesce(borrowers.lost, 0) &lt; 1 AND
-  fees.SUM &lt;= 10
+  Coalesce(borrowers.gonenoaddress, 0) < 1 AND
+  Coalesce(borrowers.lost, 0) < 1 AND
+  fees.SUM <= 10
 GROUP BY
   borrowers.borrowernumber
 HAVING

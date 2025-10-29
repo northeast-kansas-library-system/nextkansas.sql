@@ -65,7 +65,7 @@ FROM
     FROM 
       items 
     WHERE 
-      (items.notforloan &lt; 1 OR 
+      (items.notforloan < 1 OR 
         items.notforloan IS NULL) AND 
       (items.damaged = 0 OR 
         items.damaged IS NULL) AND 
@@ -82,7 +82,7 @@ FROM
   reserves ON counts.biblionumber = reserves.biblionumber 
 WHERE 
   Coalesce(counts.Count_itemnumber, 0) = 0 AND 
-  reserves.branchcode LIKE &lt;&gt; 
+  reserves.branchcode LIKE <> 
 ORDER BY 
   expirationdate, 
   one_year DESC 

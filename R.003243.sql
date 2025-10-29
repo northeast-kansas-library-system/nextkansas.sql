@@ -45,7 +45,7 @@ SELECT
   borrowers.dateenrolled,
   borrowers.dateexpiry,
   If(
-    Day(Now()) &gt;= 15, 
+    Day(Now()) >= 15, 
     Date_Format(Now() + INTERVAL 3 MONTH, '%Y-%m-15'),
     Date_Format(Now() + INTERVAL 2 MONTH, '%Y-%m-15')
   ) AS PROJECTED_DELETION,
@@ -105,17 +105,17 @@ FROM
       borrower_relationships.guarantor_id) guaranteesx ON
       guaranteesx.guarantor_id = borrowers.borrowernumber
 WHERE
-  borrowers.dateexpiry &lt; CurDate() - INTERVAL 3 YEAR AND
+  borrowers.dateexpiry < CurDate() - INTERVAL 3 YEAR AND
   borrowers.branchcode LIKE '%' AND
   Coalesce(borrowers.othernames, "0") NOT LIKE "%SIP%" AND
-  borrowers.categorycode &lt;&gt; 'STAFF' AND
-  borrowers.categorycode &lt;&gt; 'ILL' AND
-  borrowers.categorycode &lt;&gt; 'HOOPLA' AND
+  borrowers.categorycode <> 'STAFF' AND
+  borrowers.categorycode <> 'ILL' AND
+  borrowers.categorycode <> 'HOOPLA' AND
   Coalesce(accountlinesx.DUE_SUM, 0) = 0 AND
   Coalesce(issuesx.ICOUNT, 0) = 0 AND
   Coalesce(guaranteesx.GCOUNT, 0) = 0 AND
   Coalesce(requestsx.Count_reserve_id, 0) = 0 AND
-  (Coalesce(expired_attribute.attribute, 0) &lt; 5 OR
+  (Coalesce(expired_attribute.attribute, 0) < 5 OR
     expired_attribute.attribute IS NULL)
 GROUP BY
   borrowers.borrowernumber

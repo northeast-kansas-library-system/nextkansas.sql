@@ -127,10 +127,10 @@ Where
   And action_logs.info = 'biblio'
   And Year(action_logs.timestamp) = Year(Now() - Interval 1 Month)
   And Month(action_logs.timestamp) = Month(Now() - Interval 1 Month)
-  And branches.branchcode Like &lt;&gt;
-  And biblios.agerestriction Like &lt;&gt;
-  And biblios.itemtype Like &lt;&gt;
-  And biblios.cn_class Like &lt;&gt;
+  And branches.branchcode Like <>
+  And biblios.agerestriction Like <>
+  And biblios.itemtype Like <>
+  And biblios.cn_class Like <>
 Group By 
   action_logs.action_id,
   biblios.biblionumber  

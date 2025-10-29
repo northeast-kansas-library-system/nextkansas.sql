@@ -50,9 +50,9 @@ SELECT
 FROM
   message_queue
 WHERE
-  message_queue.subject LIKE Concat("%", &lt;&gt;,"%") AND
+  message_queue.subject LIKE Concat("%", <>,"%") AND
   message_queue.letter_code LIKE "OD%" AND
-  message_queue.message_transport_type LIKE &lt;&gt; AND
+  message_queue.message_transport_type LIKE <> AND
   message_queue.status = 'sent'
 GROUP BY
   Date_Format(message_queue.time_queued, "%Y.%m.%d - %W"),

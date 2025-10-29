@@ -44,8 +44,8 @@ FROM
   items ON items.itemnumber = issues.itemnumber LEFT JOIN
   biblio ON biblio.biblionumber = items.biblionumber
 WHERE
-  (To_Days(CurDate()) - To_Days(issues.date_due)) &gt;= '2' AND
-  issues.branchcode = &lt;&gt;
+  (To_Days(CurDate()) - To_Days(issues.date_due)) >= '2' AND
+  issues.branchcode = <>
 GROUP BY
   borrowers.cardnumber,
   issues.issue_id

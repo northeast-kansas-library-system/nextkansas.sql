@@ -61,10 +61,10 @@ FROM
   authorised_values
     ON items.ccode = authorised_values.authorised_value
 WHERE
-  old_reserves.branchcode = &lt;&gt; AND
+  old_reserves.branchcode = <> AND
   old_reserves.cancellationdate IS NOT NULL AND
   old_reserves.waitingdate IS NOT NULL AND
-  old_reserves.timestamp &gt; &lt;&gt; AND
+  old_reserves.timestamp > <> AND
   authorised_values.category = "CCODE"
 GROUP BY
   old_reserves.branchcode,

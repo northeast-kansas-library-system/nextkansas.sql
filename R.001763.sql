@@ -34,7 +34,7 @@ Select
   Count(Distinct items.itemnumber) As itemcount,
   ROUND(Count(Distinct reserves.borrowernumber) / Count(Distinct items.itemnumber)) As holdsratio,
   biblio.title,
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code&gt;="b"]') As 'Remainder of Title',
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code>="b"]') As 'Remainder of Title',
   items.ccode,
   items.itype,
   biblio.biblionumber

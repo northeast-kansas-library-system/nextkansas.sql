@@ -40,9 +40,9 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.branchcode LIKE &lt;&gt; AND
-  borrowers.city LIKE Concat('%', &lt;&gt;, '%')  AND
-  borrowers.zipcode LIKE Concat('%', &lt;&gt;, '%') 
+  borrowers.branchcode LIKE <> AND
+  borrowers.city LIKE Concat('%', <>, '%')  AND
+  borrowers.zipcode LIKE Concat('%', <>, '%') 
 ORDER BY 
   borrowers.city,
   borrowers.zipcode

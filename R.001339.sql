@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-SELECT items.location, items.ccode, substring(items.itemcallnumber,1,4) AS 'Call Number range', count(*) AS count FROM statistics LEFT JOIN items USING (itemnumber) WHERE statistics.type IN ('issue', 'renew') AND YEAR(datetime) = &lt;&gt; AND statistics.branch = &lt;&gt; GROUP BY items.location, substring(items.itemcallnumber,1,4), items.ccode ORDER BY items.ccode, substring(items.itemcallnumber,1,4)
+SELECT items.location, items.ccode, substring(items.itemcallnumber,1,4) AS 'Call Number range', count(*) AS count FROM statistics LEFT JOIN items USING (itemnumber) WHERE statistics.type IN ('issue', 'renew') AND YEAR(datetime) = <> AND statistics.branch = <> GROUP BY items.location, substring(items.itemcallnumber,1,4), items.ccode ORDER BY items.ccode, substring(items.itemcallnumber,1,4)
 
 
 

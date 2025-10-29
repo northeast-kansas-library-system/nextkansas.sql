@@ -150,10 +150,10 @@ FROM
       authorised_values.category = 'WITHDRAWN') withdrawns ON
       withdrawns.authorised_value = items.withdrawn
 WHERE
-  items.homebranch LIKE &lt;&gt; AND
-  If(items.damaged + 0 = 0, "No", "Yes") LIKE &lt;&gt; AND
-  If(items.itemlost + 0 = 0, "No", "Yes") LIKE &lt;&gt; AND
-  If(items.withdrawn + 0 = 0, "No", "Yes") LIKE &lt;&gt; 
+  items.homebranch LIKE <> AND
+  If(items.damaged + 0 = 0, "No", "Yes") LIKE <> AND
+  If(items.itemlost + 0 = 0, "No", "Yes") LIKE <> AND
+  If(items.withdrawn + 0 = 0, "No", "Yes") LIKE <> 
 GROUP BY
   items.biblionumber,
   items.itemnumber

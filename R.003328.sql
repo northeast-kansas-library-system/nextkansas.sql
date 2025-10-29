@@ -68,7 +68,7 @@ FROM
       biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber JOIN
       items ON items.biblionumber = biblio.biblionumber) bibliossitemss ON bibliossitemss.itemnumber = issues.itemnumber
 WHERE
-  branchess.branchcode LIKE &lt;&gt;
+  branchess.branchcode LIKE <>
 GROUP BY
   borrowers.cardnumber,
   branchess.branchemail,

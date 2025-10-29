@@ -59,8 +59,8 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.branchcode LIKE &lt;&gt; AND
-  borrowers.categorycode LIKE &lt;&gt;
+  borrowers.branchcode LIKE <> AND
+  borrowers.categorycode LIKE <>
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

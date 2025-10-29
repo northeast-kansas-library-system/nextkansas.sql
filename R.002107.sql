@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-SELECT biblio.title,count(statistics.datetime), items.itype,items.ccode,items.homebranch FROM biblio LEFT JOIN items USING (biblionumber) LEFT JOIN statistics USING(itemnumber) WHERE items.homebranch=&lt;&gt; AND items.ccode=&lt;&gt; AND statistics.type IN ('issue','renew') AND YEAR(statistics.datetime)=&lt;&gt; GROUP BY biblio.biblionumber ORDER BY biblio.title asc
+SELECT biblio.title,count(statistics.datetime), items.itype,items.ccode,items.homebranch FROM biblio LEFT JOIN items USING (biblionumber) LEFT JOIN statistics USING(itemnumber) WHERE items.homebranch=<> AND items.ccode=<> AND statistics.type IN ('issue','renew') AND YEAR(statistics.datetime)=<> GROUP BY biblio.biblionumber ORDER BY biblio.title asc
 
 
 

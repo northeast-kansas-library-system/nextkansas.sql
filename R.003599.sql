@@ -99,7 +99,7 @@ WHERE
 GROUP BY
   biblio.biblionumber
 HAVING
-  isbns &lt;&gt; 'X'
+  isbns <> 'X'
 ORDER BY
   biblio.biblionumber DESC
 LIMIT 25

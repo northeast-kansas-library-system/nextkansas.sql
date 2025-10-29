@@ -66,7 +66,7 @@ From (
       authorised_values.lib_opac
     From branches,
       authorised_values
-    Where branches.branchcode Like &lt;&gt;
+    Where branches.branchcode Like <>
       And authorised_values.category = 'CCODE'
   ) branchtypes
   Left Join (

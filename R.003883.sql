@@ -41,7 +41,7 @@ SELECT
 FROM
   biblio_metadata
 WHERE
-  biblio_metadata.biblionumber = &lt;&gt;
+  biblio_metadata.biblionumber = <>
 ORDER BY
   biblio_metadata.biblionumber DESC
 

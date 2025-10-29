@@ -105,8 +105,8 @@ FROM
     WHERE
       authorised_values.category = 'loc') permlocs ON permlocs.authorised_value = items.permanent_location
 WHERE
-  statistics.branch like &lt;&gt; AND
-  statistics.datetime LIKE Concat(&lt;&gt;, "%") AND
+  statistics.branch like <> AND
+  statistics.datetime LIKE Concat(<>, "%") AND
   If(
     statistics.type = "renew",
     "renew-issue",
@@ -114,7 +114,7 @@ WHERE
       statistics.type = "issue",
       "issue-renew", statistics.type
     )
-  ) LIKE &lt;&gt;
+  ) LIKE <>
 GROUP BY
   statistics.branch,
   statistics.datetime,

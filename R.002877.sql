@@ -42,7 +42,7 @@ FROM
   authorised_values
     ON items.itemlost = authorised_values.authorised_value
 WHERE
-  items.itemlost &lt;&gt; 0 AND
+  items.itemlost <> 0 AND
   items.onloan IS NOT NULL AND
   authorised_values.category = 'LOST'
 GROUP BY

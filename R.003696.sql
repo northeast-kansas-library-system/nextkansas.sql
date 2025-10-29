@@ -98,11 +98,11 @@ WHERE
   items.damaged = 0 AND
   items.itemlost = '' AND
   items.withdrawn = 0 AND 
-  biblioitems.publicationyear &gt;= Year(Now() - INTERVAL 3 MONTH)
+  biblioitems.publicationyear >= Year(Now() - INTERVAL 3 MONTH)
 GROUP BY
   biblio.biblionumber
 HAVING
-  isbns &lt;&gt; 'X'
+  isbns <> 'X'
 ORDER BY
   items.itemnumber DESC
 LIMIT 25

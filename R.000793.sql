@@ -60,10 +60,10 @@ FROM
       branchtransfers LEFT JOIN 
       items ON branchtransfers.itemnumber = items.itemnumber 
     WHERE 
-      items.homebranch &lt;&gt; branchtransfers.tobranch AND 
-      Year(branchtransfers.datesent) = &lt;&gt; AND 
-      Month(branchtransfers.datesent) = &lt;&gt; AND 
-      branchtransfers.tobranch &lt;&gt; branchtransfers.frombranch AND 
+      items.homebranch <> branchtransfers.tobranch AND 
+      Year(branchtransfers.datesent) = <> AND 
+      Month(branchtransfers.datesent) = <> AND 
+      branchtransfers.tobranch <> branchtransfers.frombranch AND 
       branchtransfers.comments IS NULL AND
       branchtransfers.reason = 'reserve'
     GROUP BY 
@@ -77,10 +77,10 @@ FROM
       branchtransfers LEFT JOIN 
       items ON branchtransfers.itemnumber = items.itemnumber 
     WHERE 
-      branchtransfers.tobranch &lt;&gt; items.homebranch AND 
-      Year(branchtransfers.datearrived) = &lt;&gt; AND 
-      Month(branchtransfers.datearrived) = &lt;&gt; AND 
-      branchtransfers.frombranch &lt;&gt; branchtransfers.tobranch AND 
+      branchtransfers.tobranch <> items.homebranch AND 
+      Year(branchtransfers.datearrived) = <> AND 
+      Month(branchtransfers.datearrived) = <> AND 
+      branchtransfers.frombranch <> branchtransfers.tobranch AND 
       branchtransfers.comments IS NULL  AND
       branchtransfers.reason = 'reserve'
     GROUP BY 

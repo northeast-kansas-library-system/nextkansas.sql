@@ -30,33 +30,33 @@ Expiry: 300
 
 
 SELECT
-  CONCAT("&lt;br /&gt;REQUEST CANCELLED&lt;br /&gt;The request on the following item was cancelled because there are no longer any copies available on the specified bibliographic record:&lt;br /&gt;", 
+  CONCAT("<br />REQUEST CANCELLED<br />The request on the following item was cancelled because there are no longer any copies available on the specified bibliographic record:<br />", 
     Concat_WS(" ",
-      "Title: &lt;span style='color: #000000;'&gt;",
+      "Title: <span style='color: #000000;'>",
       biblio.title,
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]'),
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'),
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'),
-      "&lt;/span&gt;"),
-    Concat("&lt;br /&gt;Link to bibliographic record in staff client: ",
-      Concat("&lt;a href='/cgi-bin/koha/catalogue/detail.pl?biblionumber=",
+      "</span>"),
+    Concat("<br />Link to bibliographic record in staff client: ",
+      Concat("<a href='/cgi-bin/koha/catalogue/detail.pl?biblionumber=",
         biblio.biblionumber,
-        "' target='_blank'&gt;",
+        "' target='_blank'>",
         biblio.title,
-        "&lt;/a&gt;")),
-      "&lt;br /&gt;Search for other copies of this title: ",
-      Concat("&lt;a href='/cgi-bin/koha/catalogue/search.pl?idx=ti%2Cphr&q=",
+        "</a>")),
+      "<br />Search for other copies of this title: ",
+      Concat("<a href='/cgi-bin/koha/catalogue/search.pl?idx=ti%2Cphr&q=",
         REPLACE(biblio.title,
         ' ',
         '+'),
-      "' target='_blank'&gt;SEARCH&lt;/a&gt;")) AS TITLE
+      "' target='_blank'>SEARCH</a>")) AS TITLE
 FROM
   items
   JOIN biblio ON items.biblionumber = biblio.biblionumber
   JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
 WHERE
-  items.barcode Like Concat("%", &lt;&gt;, "%")
+  items.barcode Like Concat("%", <>, "%")
 
 
 

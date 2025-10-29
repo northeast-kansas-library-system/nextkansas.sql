@@ -37,7 +37,7 @@ WHERE
   (message_queue.letter_code = 'OVERDUE' OR
     message_queue.letter_code = 'FREEZE') AND
   message_queue.message_transport_type = 'email' AND
-  message_queue.time_queued LIKE CONCAT(&lt;&gt;, '%') AND
+  message_queue.time_queued LIKE CONCAT(<>, '%') AND
   message_queue.from_address LIKE '%hiawathalibrary.org%'
 
 

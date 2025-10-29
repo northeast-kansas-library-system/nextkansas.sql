@@ -51,14 +51,14 @@ FROM
 WHERE
   ((items.itype = 'NVIDLH' OR
     items.itype = 'NVIDWALK') AND
-  items.dateaccessioned &lt; Date_Sub(CurDate(), INTERVAL 30 DAY) AND
-  items.ccode &lt;&gt; 'ILL' AND
-  items.ccode &lt;&gt; 'GADGET' AND
-  items.ccode &lt;&gt; 'MAGAZINE' AND
-  items.ccode &lt;&gt; 'COMPUTER' AND
+  items.dateaccessioned < Date_Sub(CurDate(), INTERVAL 30 DAY) AND
+  items.ccode <> 'ILL' AND
+  items.ccode <> 'GADGET' AND
+  items.ccode <> 'MAGAZINE' AND
+  items.ccode <> 'COMPUTER' AND
   biblio.title NOT LIKE 'BASEHOR ILL%') OR
   (items.itype = "NVIDNEW" AND
-  items.dateaccessioned &lt; Date_Sub(CurDate(), INTERVAL 60 DAY) AND
+  items.dateaccessioned < Date_Sub(CurDate(), INTERVAL 60 DAY) AND
   items.homebranch = "MCLOUTH")
 GROUP BY
   items.barcode

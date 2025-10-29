@@ -103,7 +103,7 @@ FROM
 WHERE
   (borrowers.sex = 'M' OR
     borrowers.sex = 'F') or
-  borrowers.title &lt;&gt; ''
+  borrowers.title <> ''
 GROUP BY
   borrowers.borrowernumber
 

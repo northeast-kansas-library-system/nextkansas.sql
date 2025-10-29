@@ -49,7 +49,7 @@ FROM
   action_logs
 WHERE
   action_logs.module = 'CRONJOBS' AND
-  action_logs.info LIKE &lt;&gt;
+  action_logs.info LIKE <>
 GROUP BY
   Date_Format(action_logs.timestamp, "%Y.%m.%d"),
   action_logs.info

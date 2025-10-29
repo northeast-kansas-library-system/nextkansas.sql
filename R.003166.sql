@@ -31,7 +31,7 @@ Expiry: 300
 
 SELECT
   IF(
-    Trim(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'),".",""),",",""),"'",""),"/",""),":",""),";",""),"[",""),"]",""),"(",""),")","")) &lt;&gt; "",
+    Trim(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'),".",""),",",""),"'",""),"/",""),":",""),";",""),"[",""),"]",""),"(",""),")","")) <> "",
     Concat(
       'Search the catalog'
     ),
@@ -48,7 +48,7 @@ FROM
   biblio
   JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
 WHERE
-  Replace(Replace(Replace(biblio.author, ".", ""), ",", ""), "'", "") LIKE Concat(&lt;&gt;, "%")
+  Replace(Replace(Replace(biblio.author, ".", ""), ",", ""), "'", "") LIKE Concat(<>, "%")
 GROUP BY
   Replace(Replace(Replace(biblio.author, ".", ""), ",", ""), "'", ""),
   Trim(Replace(Replace(Replace(Replace(Replace(Replace(biblio.title, ".", ""), ",", ""), "'", ""), "/", ""), ":", ""),
@@ -56,7 +56,7 @@ GROUP BY
   Trim(Replace(Replace(Replace(Replace(Replace(Replace(ExtractValue(biblio_metadata.metadata,
   '//datafield[@tag="245"]/subfield[@code="h"]'), ".", ""), ",", ""), "'", ""), "/", ""), ":", ""), ";", ""))
 HAVING
-  Count(biblio.biblionumber) &gt; 1 AND
+  Count(biblio.biblionumber) > 1 AND
   GMD NOT LIKE "%Hoopla%"
 
 

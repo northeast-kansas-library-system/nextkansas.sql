@@ -82,13 +82,13 @@ From
 Where
   borrowers.branchcode Like '%' And
   Coalesce(borrowers.othernames, "0") Not Like "%SIP%" And
-  borrowers.categorycode &lt;&gt; 'STAFF' And
-  borrowers.categorycode &lt;&gt; 'ILL' And
-  borrowers.categorycode &lt;&gt; 'HOOPLA' And
+  borrowers.categorycode <> 'STAFF' And
+  borrowers.categorycode <> 'ILL' And
+  borrowers.categorycode <> 'HOOPLA' And
   Coalesce(requestsx.Count_reserve_id, 0) = 0 And
-  Coalesce(expired_attribute.attribute, 0) &lt;&gt; 1 And
-  Coalesce(expired_attribute.attribute, 0) &lt;&gt; 2 And
-  borrowers.login_attempts &lt; 5 And
+  Coalesce(expired_attribute.attribute, 0) <> 1 And
+  Coalesce(expired_attribute.attribute, 0) <> 2 And
+  borrowers.login_attempts < 5 And
   expired_attribute.code = 'EXPIRED'
 Group By
   borrowers.borrowernumber

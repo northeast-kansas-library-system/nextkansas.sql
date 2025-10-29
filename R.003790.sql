@@ -262,7 +262,7 @@ FROM biblio
     WHERE authorised_values.category = 'withdrawn'
   ) withdrawns ON withdrawns.authorised_value = items.withdrawn
   LEFT JOIN branches ON items.homebranch = branches.branchcode
-WHERE items.barcode LIKE Concat('%', &lt;&gt;, '%')
+WHERE items.barcode LIKE Concat('%', <>, '%')
 
 
 

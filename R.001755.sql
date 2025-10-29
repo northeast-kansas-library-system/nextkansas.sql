@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-SELECT d.biblionumber,b.biblionumber, d.title, b.title, d.author, b.author, e.homebranch,e.barcode FROM deletedbiblio d LEFT JOIN deleteditems e USING(biblionumber) LEFT JOIN biblio b USING(biblionumber) WHERE e.barcode=&lt;&gt;
+SELECT d.biblionumber,b.biblionumber, d.title, b.title, d.author, b.author, e.homebranch,e.barcode FROM deletedbiblio d LEFT JOIN deleteditems e USING(biblionumber) LEFT JOIN biblio b USING(biblionumber) WHERE e.barcode=<>
 
 
 

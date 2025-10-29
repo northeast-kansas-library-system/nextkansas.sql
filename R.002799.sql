@@ -56,9 +56,9 @@ FROM
   biblio
     ON items.biblionumber = biblio.biblionumber
 WHERE
-  items.homebranch LIKE &lt;&gt; AND
+  items.homebranch LIKE <> AND
   items.paidfor IS NOT NULL AND
-  items.paidfor &lt;&gt; " "
+  items.paidfor <> " "
 ORDER BY
   items.homebranch,
   items.location,

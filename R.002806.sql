@@ -82,7 +82,7 @@ FROM
           authorised_values.category = 'LOC') ilocs ON ilocs.authorised_value =
           items.permanent_location
     WHERE
-      items.homebranch LIKE &lt;&gt;
+      items.homebranch LIKE <>
     UNION
     SELECT
       deleteditems.itemnumber,
@@ -101,7 +101,7 @@ FROM
           authorised_values.category = 'LOC') dilocs ON
           dilocs.authorised_value = deleteditems.permanent_location
     WHERE
-      deleteditems.homebranch LIKE &lt;&gt;) itemss ON itemss.itemnumber =
+      deleteditems.homebranch LIKE <>) itemss ON itemss.itemnumber =
       statistics.itemnumber LEFT JOIN
   itemtypes ON itemtypes.itemtype = statistics.itemtype LEFT JOIN
   (SELECT
@@ -121,7 +121,7 @@ FROM
     FROM
       borrowers
     WHERE
-      borrowers.categorycode &lt;&gt; 'INHOUSE'
+      borrowers.categorycode <> 'INHOUSE'
     UNION
     SELECT
       deletedborrowers.borrowernumber,
@@ -130,16 +130,16 @@ FROM
     FROM
       deletedborrowers
     WHERE
-      deletedborrowers.categorycode &lt;&gt; 'INHOUSE') borrowerss ON
+      deletedborrowers.categorycode <> 'INHOUSE') borrowerss ON
       borrowerss.borrowernumber = statistics.borrowernumber
 WHERE
-  statistics.branch LIKE &lt;&gt; AND
+  statistics.branch LIKE <> AND
   (statistics.type = 'issue' OR
     statistics.type = 'renew' OR
     statistics.type = 'localuse') AND
   statistics.datetime BETWEEN 
-    (&lt;&gt;) AND 
-    (&lt;&gt; + INTERVAL 1 DAY)
+    (<>) AND 
+    (<> + INTERVAL 1 DAY)
 GROUP BY
   branches.branchname,
   Coalesce(If(locs.lib = "Recently returned", itemss.lib, locs.lib), " Adult"),

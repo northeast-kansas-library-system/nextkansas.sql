@@ -42,7 +42,7 @@ FROM
     FROM
       biblio
     WHERE
-      biblio.biblionumber &gt; &lt;&gt;
+      biblio.biblionumber > <>
     LIMIT 25)
     UNION
     SELECT
@@ -74,7 +74,7 @@ FROM
     FROM
       biblio
     WHERE
-      biblio.biblionumber &gt; &lt;&gt;
+      biblio.biblionumber > <>
     LIMIT 25)) Query1
 LIMIT 1000
 

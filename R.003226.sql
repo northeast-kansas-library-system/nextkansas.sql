@@ -58,7 +58,7 @@ FROM
   virtualshelfcontents
   LEFT JOIN biblio ON virtualshelfcontents.biblionumber = biblio.biblionumber
 WHERE
-  virtualshelfcontents.shelfnumber = &lt;&gt;
+  virtualshelfcontents.shelfnumber = <>
 GROUP BY
   biblio.biblionumber
 ORDER BY

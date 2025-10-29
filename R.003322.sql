@@ -45,7 +45,7 @@ FROM
 WHERE
   accountlines1.debit_type_code = 'OVERDUE' AND
   account_offsets.type = 'Payment' AND
-  borrowers.branchcode LIKE &lt;&gt;
+  borrowers.branchcode LIKE <>
 GROUP BY
   borrowers.branchcode,
   Year(account_offsets.created_on),

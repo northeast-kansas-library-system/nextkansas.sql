@@ -250,8 +250,8 @@ FROM
   branchtransfers JOIN
   branches ON branches.branchcode = branchtransfers.frombranch
 WHERE
-  branchtransfers.frombranch Like &lt;&gt; AND
-  branchtransfers.datesent BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day)
+  branchtransfers.frombranch Like <> AND
+  branchtransfers.datesent BETWEEN <> AND (<> + interval 1 day)
 GROUP BY
   Date_Format(branchtransfers.datesent, "%W"),
   Date_Format(branchtransfers.datesent, "%Y-%m-%d--%H:%i"),
@@ -269,8 +269,8 @@ FROM
   branchtransfers JOIN
   branches ON branches.branchcode = branchtransfers.frombranch
 WHERE
-  branchtransfers.frombranch Like &lt;&gt; AND
-  branchtransfers.datesent BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day)
+  branchtransfers.frombranch Like <> AND
+  branchtransfers.datesent BETWEEN <> AND (<> + interval 1 day)
 GROUP BY
   Date_Format(branchtransfers.datesent, "%W"),
   Concat_Ws('', Date_Format(branchtransfers.datesent, "%Y-%m-%d"),
@@ -288,8 +288,8 @@ FROM
   branchtransfers JOIN
   branches ON branches.branchcode = branchtransfers.frombranch
 WHERE
-  branchtransfers.frombranch Like &lt;&gt; AND
-  branchtransfers.datesent BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day)
+  branchtransfers.frombranch Like <> AND
+  branchtransfers.datesent BETWEEN <> AND (<> + interval 1 day)
 GROUP BY
   branchtransfers.frombranch)
 ORDER BY

@@ -98,7 +98,7 @@ FROM
       itemtypes.itemtype 
     FROM branches, 
       itemtypes 
-    WHERE branches.branchcode LIKE &lt;&gt; 
+    WHERE branches.branchcode LIKE <> 
   ) branch_itype 
   LEFT JOIN 
   ( 

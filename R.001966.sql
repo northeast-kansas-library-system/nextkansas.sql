@@ -135,13 +135,13 @@ FROM
     ) ccode 
     ON ccode.authorised_value = items.ccode
 WHERE
-  items.homebranch LIKE &lt;&gt; AND
+  items.homebranch LIKE <> AND
   (
     (
-      items.dateaccessioned &lt; &lt;&gt; AND
+      items.dateaccessioned < <> AND
       (Coalesce(items.issues, 0) + Coalesce(items.renewals, 0) = 0)
     ) OR
-    (items.datelastborrowed &lt; &lt;&gt;)
+    (items.datelastborrowed < <>)
   )
 GROUP BY
   items.itemnumber

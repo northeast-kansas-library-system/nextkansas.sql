@@ -43,7 +43,7 @@ Expiry: 0
 
 SELECT
   COUNT(reserves.reserve_id) as REQUESTS_COUNT,
-  CONCAT_WS('  ',biblio.title, ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code&gt;="b"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')) AS FULL_TITLE,
+  CONCAT_WS('  ',biblio.title, ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code>="b"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')) AS FULL_TITLE,
   CONCAT( '', biblio.biblionumber, '' ) AS LINK_TO_TITLE
 FROM
   reserves JOIN
@@ -54,7 +54,7 @@ FROM
 GROUP BY
   biblio.biblionumber
 HAVING
-  Count(reserves.reserve_id) &gt; 19
+  Count(reserves.reserve_id) > 19
 ORDER BY
   REQUESTS_COUNT DESC,
   biblio.biblionumber ASC

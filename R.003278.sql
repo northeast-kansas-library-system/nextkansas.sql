@@ -53,9 +53,9 @@ FROM
   ) messagess
     ON messagess.borrowernumber = reserves.borrowernumber
 WHERE
-  reserves.branchcode LIKE &lt;&gt; AND
+  reserves.branchcode LIKE <> AND
   reserves.found IS NULL AND
-  reserves.suspend_until = &lt;&gt;
+  reserves.suspend_until = <>
 GROUP BY
   reserves.branchcode,
   reserves.suspend_until,

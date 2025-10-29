@@ -85,7 +85,7 @@ Select
 From
   borrowers
 Where
-  borrowers.cardnumber LIKE &lt;&gt;
+  borrowers.cardnumber LIKE <>
 
 
 

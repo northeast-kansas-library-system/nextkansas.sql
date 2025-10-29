@@ -512,7 +512,7 @@ SELECT
   ) AS LINKS,
     Concat_Ws("", 
     If(items.barcode IS NULL, "Barcode is blank / ", ""), 
-    If(items.dateaccessioned &gt; CURDATE(), "Date added is in the future / ", ""),
+    If(items.dateaccessioned > CURDATE(), "Date added is in the future / ", ""),
     If(plocs.lib IS NULL, "Permanent location is blank / ", 
       If(plocs.lib LIKE "%Cataloging%", "Permanent location = cataloging / ", 
         If(plocs.lib LIKE "%Processing%", "Permanent location = processing / ", 
@@ -594,10 +594,10 @@ FROM
   ) 
   itypes ON itypes.itemtype = items.itype 
 WHERE 
-  items.homebranch LIKE &lt;&gt; AND 
+  items.homebranch LIKE <> AND 
   (
     (items.barcode IS NULL) OR 
-    (items.dateaccessioned &gt; CURDATE()) OR
+    (items.dateaccessioned > CURDATE()) OR
     (plocs.lib IS NULL) OR 
     (plocs.lib LIKE "%Cataloging%") OR 
     (plocs.lib LIKE "%Processing%") OR 
@@ -611,7 +611,7 @@ WHERE
   ) AND 
   Concat( 
     If(items.barcode IS NULL, "BE", ""), 
-    If(items.dateaccessioned &gt; CURDATE(), "FD", ""), 
+    If(items.dateaccessioned > CURDATE(), "FD", ""), 
     If(plocs.lib IS NULL, "LE3", 
       If(plocs.lib LIKE "%Cataloging%", "LG3", 
         If(plocs.lib LIKE "%Processing%", "LG3", 
@@ -629,7 +629,7 @@ WHERE
     If(items.replacementprice IS NULL, "PE", 
       If(items.replacementprice = 0, "PE", "") 
     ) 
-  ) LIKE Concat("%", &lt;&gt;, "%") 
+  ) LIKE Concat("%", <>, "%") 
 GROUP BY 
   biblio.biblionumber, 
   items.itemnumber 

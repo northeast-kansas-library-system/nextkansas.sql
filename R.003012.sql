@@ -58,7 +58,7 @@ FROM
   LEFT JOIN issues ON issues.borrowernumber = borrowers.borrowernumber
   JOIN borrower_debarments ON borrower_debarments.borrowernumber = borrowers.borrowernumber
 WHERE
-  borrowers.branchcode LIKE &lt;&gt;
+  borrowers.branchcode LIKE <>
 GROUP BY
   borrowers.borrowernumber,
   borrower_debarments.borrower_debarment_id

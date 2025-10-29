@@ -100,8 +100,8 @@ FROM
   ) teacher
     ON teacher.borrowernumber = borrowers.borrowernumber
 WHERE
-  borrowers.branchcode LIKE &lt;&gt; AND
-  borrowers.categorycode LIKE &lt;&gt; AND
+  borrowers.branchcode LIKE <> AND
+  borrowers.categorycode LIKE <> AND
   Coalesce(grade.attribute, "~") LIKE '%' AND
   Coalesce(teacher.attribute, "~") LIKE '%'
 GROUP BY

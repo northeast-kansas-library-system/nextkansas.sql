@@ -61,16 +61,16 @@ From
          issues.branchcode) bcounts On bcounts.borrowernumber = issues.borrowernumber Join
     borrowers On issues.borrowernumber = borrowers.borrowernumber
 Where
-    borrowers.categorycode &lt;&gt; 'INHOUSE' And
-    borrowers.categorycode &lt;&gt; 'ILL' And
-    borrowers.branchcode Like &lt;&gt;
+    borrowers.categorycode <> 'INHOUSE' And
+    borrowers.categorycode <> 'ILL' And
+    borrowers.branchcode Like <>
 Group By
     borrowers.cardnumber,
     borrowers.branchcode,
     borrowers.categorycode,
     issues.borrowernumber
 Having
-    Count(Distinct issues.issue_id) &gt; 1
+    Count(Distinct issues.issue_id) > 1
 Order By
     CKO_FROM_ALL_LIBRARIES Desc
 

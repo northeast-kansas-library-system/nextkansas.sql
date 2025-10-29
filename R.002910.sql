@@ -46,12 +46,12 @@ Expiry: 0
 SELECT
   borrowers.email,
   borrowers.cardnumber,
-  Concat("&lt;br /&gt;BOUNCED EMAIL&lt;br /&gt;An e-mail sent to this patron's e-mail address &lt;strong&gt;(",borrowers.email,")&lt;/strong&gt; bounced.&lt;br /&gt;Please confirm the patron's contact information the next time they use their account.&lt;br /&gt;", CurDate()) AS MESSAGE,
+  Concat("<br />BOUNCED EMAIL<br />An e-mail sent to this patron's e-mail address <strong>(",borrowers.email,")</strong> bounced.<br />Please confirm the patron's contact information the next time they use their account.<br />", CurDate()) AS MESSAGE,
   Concat('', borrowers.borrowernumber,'') AS 'LINK_TO_PATRON'
 FROM
   borrowers
 WHERE
-  borrowers.email LIKE CONCAT( '%',&lt;&gt;, '%')
+  borrowers.email LIKE CONCAT( '%',<>, '%')
 GROUP BY borrowers.cardnumber
 
 

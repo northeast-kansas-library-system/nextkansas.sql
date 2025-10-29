@@ -106,7 +106,7 @@ FROM
   biblio ON biblioitems.biblionumber = biblio.biblionumber JOIN
   items ON items.biblioitemnumber = biblioitems.biblioitemnumber
 WHERE
-  biblioitems.publicationyear &gt;= Year(Now() - INTERVAL 6 MONTH) AND 
+  biblioitems.publicationyear >= Year(Now() - INTERVAL 6 MONTH) AND 
   biblioitems.isbn IS NOT NULL AND
   items.homebranch LIKE '%' AND
   items.permanent_location LIKE "%" AND
@@ -119,7 +119,7 @@ WHERE
 GROUP BY
   biblio.biblionumber
 HAVING
-  isbns &lt;&gt; 'X'
+  isbns <> 'X'
 ORDER BY
   items.itemnumber DESC
 LIMIT 25

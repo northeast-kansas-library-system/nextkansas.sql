@@ -63,10 +63,10 @@ FROM
   borrowers staff ON staff.borrowernumber = accountlines.manager_id LEFT JOIN
   borrowers patrons ON accountlines.borrowernumber = patrons.borrowernumber
 WHERE
-  staff.branchcode LIKE &lt;&gt; AND
+  staff.branchcode LIKE <> AND
   staff.categorycode = 'STAFF' AND
   accountlines.credit_type_code IS NOT NULL AND
-  accountlines.timestamp BETWEEN &lt;&gt; AND &lt;&gt; + INTERVAL 1 DAY
+  accountlines.timestamp BETWEEN <> AND <> + INTERVAL 1 DAY
 GROUP BY
   accountlines.accountlines_id
 ORDER BY

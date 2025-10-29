@@ -47,9 +47,9 @@ FROM
   statistics
 WHERE
   statistics.type = 'return' AND
-  statistics.branch LIKE &lt;&gt; AND
-  (CAST(statistics.datetime AS DATE) BETWEEN &lt;&gt; AND &lt;&gt;) AND
-  Date_Format(statistics.datetime, '%a') LIKE &lt;&gt;
+  statistics.branch LIKE <> AND
+  (CAST(statistics.datetime AS DATE) BETWEEN <> AND <>) AND
+  Date_Format(statistics.datetime, '%a') LIKE <>
 GROUP BY
   CHECK_IN_BRANCH,
   DATE

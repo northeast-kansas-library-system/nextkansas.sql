@@ -31,7 +31,7 @@ Expiry: 300
 
 SELECT
   userflags.bit,
-  If(userflags.bit &lt; 7, userflags.bit + 1, userflags.bit) AS HTML_FLAG_NUMBER,
+  If(userflags.bit < 7, userflags.bit + 1, userflags.bit) AS HTML_FLAG_NUMBER,
   power(2, userflags.bit) AS FLAGS,
   userflags.flag,
   userflags.flagdesc,

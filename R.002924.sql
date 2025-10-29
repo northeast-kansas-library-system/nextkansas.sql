@@ -32,7 +32,7 @@ Expiry: 0
 </ul><br />
 <p><ins>Notes:</ins></p>
 <p></p>
-<p>The sources of acquisition in the database appear to be “AMAZON,” “AUTHOR,” “CENTER POINT,” “CHILDREN'S PLUS,” “Donation,” “GALE,” “INGRAM,” “INGRAMS,” “MIDWEST TAPE,” “MIDWEST TAPES,” “NEW READERS PRESS,” “OMNIGRAPHICS,” "PUBLISHER DIRECT," "RECATALOG," “RECORDED BOOKS,” and “TURN THE PAGE KC.”  If staff want to limit to one source, they can enter the exact name of the source in the "Source of acquisition" field in this report, or, since Ingram appears to be spelled two different ways, staff can type "Ing%" to get all items from Ingram - even if "Ingram" is misspelled in the item record.</p>
+<p>The sources of acquisition in the database appear to be ï¿½AMAZON,ï¿½ ï¿½AUTHOR,ï¿½ ï¿½CENTER POINT,ï¿½ ï¿½CHILDREN'S PLUS,ï¿½ ï¿½Donation,ï¿½ ï¿½GALE,ï¿½ ï¿½INGRAM,ï¿½ ï¿½INGRAMS,ï¿½ ï¿½MIDWEST TAPE,ï¿½ ï¿½MIDWEST TAPES,ï¿½ ï¿½NEW READERS PRESS,ï¿½ ï¿½OMNIGRAPHICS,ï¿½ "PUBLISHER DIRECT," "RECATALOG," ï¿½RECORDED BOOKS,ï¿½ and ï¿½TURN THE PAGE KC.ï¿½  If staff want to limit to one source, they can enter the exact name of the source in the "Source of acquisition" field in this report, or, since Ingram appears to be spelled two different ways, staff can type "Ing%" to get all items from Ingram - even if "Ingram" is misspelled in the item record.</p>
 <p></p>
 <p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2924=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
 </div>
@@ -63,13 +63,13 @@ FROM
   JOIN biblio ON items.biblionumber = biblio.biblionumber
   JOIN biblio_metadata ON items.biblionumber = biblio_metadata.biblionumber
 WHERE
-  items.dateaccessioned BETWEEN &lt;&gt; AND &lt;&gt; AND
+  items.dateaccessioned BETWEEN <> AND <> AND
   items.homebranch = "BONNERSPGS" AND
-  items.location LIKE &lt;&gt; AND
-  items.itype LIKE &lt;&gt; AND
-  items.ccode LIKE &lt;&gt; AND
-  Coalesce(items.booksellerid, "-") LIKE Concat("%", &lt;&gt;, "%") AND
-  Coalesce(items.price, 0) &lt; .01
+  items.location LIKE <> AND
+  items.itype LIKE <> AND
+  items.ccode LIKE <> AND
+  Coalesce(items.booksellerid, "-") LIKE Concat("%", <>, "%") AND
+  Coalesce(items.price, 0) < .01
 GROUP BY
   items.barcode
 ORDER BY

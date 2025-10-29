@@ -59,15 +59,15 @@ FROM
         statistics
       WHERE
         statistics.type = 'return' AND
-        Date_Format(statistics.datetime, "%Y") LIKE &lt;&gt; AND
-        Date_Format(statistics.datetime, "%m") LIKE &lt;&gt; AND
-        Date_Format(statistics.datetime, "%d") LIKE &lt;&gt; AND
-        Date_Format(statistics.datetime, "%W") LIKE &lt;&gt;
+        Date_Format(statistics.datetime, "%Y") LIKE <> AND
+        Date_Format(statistics.datetime, "%m") LIKE <> AND
+        Date_Format(statistics.datetime, "%d") LIKE <> AND
+        Date_Format(statistics.datetime, "%W") LIKE <>
       GROUP BY
         statistics.branch,
         Date_Format(statistics.datetime, "%Y-%m-%d")) checkins ON branches.branchcode = checkins.branch
 WHERE
-  branches.branchcode LIKE &lt;&gt;
+  branches.branchcode LIKE <>
 GROUP BY
   branches.branchcode,
   checkins.DATE

@@ -48,8 +48,8 @@ FROM
   action_logs
 WHERE
   action_logs.module = 'CRONJOBS' AND
-  action_logs.info LIKE &lt;&gt; AND
-  action_logs.timestamp BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day)
+  action_logs.info LIKE <> AND
+  action_logs.timestamp BETWEEN <> AND (<> + interval 1 day)
 GROUP BY
   action_logs.action_id
 ORDER BY

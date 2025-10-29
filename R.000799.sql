@@ -52,9 +52,9 @@ FROM
 WHERE
   statistics.branch != items.homebranch AND
   statistics.type IN ('issue', 'renew') AND
-  Month(statistics.datetime) = &lt;&gt; AND
-  Year(statistics.datetime) = &lt;&gt; AND
-  statistics.branch = &lt;&gt;
+  Month(statistics.datetime) = <> AND
+  Year(statistics.datetime) = <> AND
+  statistics.branch = <>
 ORDER BY
   Library,
   biblio.title

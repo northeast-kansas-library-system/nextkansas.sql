@@ -79,19 +79,19 @@ Where
         borrowers.cardnumber Like "%\'%" Or
         borrowers.cardnumber Like "%\"%" Or
         borrowers.cardnumber Like "%,%" Or
-        borrowers.cardnumber Like "%&lt;%" Or
+        borrowers.cardnumber Like "%<%" Or
         borrowers.cardnumber Like "%.%" Or
-        borrowers.cardnumber Like "%&gt;%" Or
+        borrowers.cardnumber Like "%>%" Or
         borrowers.cardnumber Like "%/%" Or
         borrowers.cardnumber Like "%?%" Or
         borrowers.cardnumber Like "%|%" Or
         borrowers.cardnumber Like "%\\%") And
-    branches.branchcode Like &lt;&gt; And
-    categories.categorycode &lt;&gt; 'S_SIP' And
-    categories.categorycode &lt;&gt; 'STATISTIC' And
-    categories.categorycode &lt;&gt; 'ILL' And
-    categories.categorycode &lt;&gt; 'INHOUSE' And
-    categories.categorycode &lt;&gt; 'STAFF'
+    branches.branchcode Like <> And
+    categories.categorycode <> 'S_SIP' And
+    categories.categorycode <> 'STATISTIC' And
+    categories.categorycode <> 'ILL' And
+    categories.categorycode <> 'INHOUSE' And
+    categories.categorycode <> 'STAFF'
 Group By
     borrowers.borrowernumber,
     branches.branchname,

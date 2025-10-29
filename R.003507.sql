@@ -84,7 +84,7 @@ FROM
   ) ckoturnaround ON 
       ckoturnaround.branchcode = branches.branchcode 
 WHERE 
-  branches.branchcode LIKE &lt;&gt; 
+  branches.branchcode LIKE <> 
 GROUP BY 
   branches.branchcode, 
   ckoturnaround.PICKUP_DELAY_DAYS, 

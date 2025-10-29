@@ -75,9 +75,9 @@ FROM
         borrower_attributes.attribute,
         borrower_attributes.code) collectionagency ON borrowers.borrowernumber = collectionagency.borrowernumber
 WHERE
-  borrowers.branchcode LIKE &lt;&gt; AND
-  borrowers.categorycode LIKE &lt;&gt; AND
-  Coalesce(collectionagency.attribute, "~") LIKE &lt;&gt;
+  borrowers.branchcode LIKE <> AND
+  borrowers.categorycode LIKE <> AND
+  Coalesce(collectionagency.attribute, "~") LIKE <>
 GROUP BY
   borrowers.email,
   borrowers.dateofbirth,

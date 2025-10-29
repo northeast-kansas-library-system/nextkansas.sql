@@ -93,11 +93,11 @@ FROM
         borrower_attributes.borrowernumber,
         borrower_attributes.code) registrationbranch ON borrowers.borrowernumber = registrationbranch.borrowernumber
 WHERE
-  borrowers.branchcode LIKE &lt;&gt; AND
-  borrowers.categorycode LIKE &lt;&gt; AND
-  Coalesce(otherinfoone.attribute, "~") LIKE Concat("%", &lt;&gt;, "%") AND
-  Coalesce(otherinfotwo.attribute, "~") LIKE Concat("%", &lt;&gt;, "%") AND
-  Coalesce(registrationbranch.attribute, "~") LIKE Concat("%", &lt;&gt;, "%")
+  borrowers.branchcode LIKE <> AND
+  borrowers.categorycode LIKE <> AND
+  Coalesce(otherinfoone.attribute, "~") LIKE Concat("%", <>, "%") AND
+  Coalesce(otherinfotwo.attribute, "~") LIKE Concat("%", <>, "%") AND
+  Coalesce(registrationbranch.attribute, "~") LIKE Concat("%", <>, "%")
 GROUP BY
   borrowers.email,
   borrowers.dateofbirth,

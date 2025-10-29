@@ -57,7 +57,7 @@ FROM
       Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       (statistics.type = 'issue' OR
         statistics.type = 'renew') AND
-      If(statistics.branch IS NULL, "NEKLS", statistics.branch) = &lt;&gt;
+      If(statistics.branch IS NULL, "NEKLS", statistics.branch) = <>
     GROUP BY
       If(statistics.branch IS NULL, "NEKLS", statistics.branch),
       If(Coalesce(items.homebranch, deleteditems.homebranch) IS NULL, "NEKLS", Coalesce(items.homebranch, deleteditems.homebranch))

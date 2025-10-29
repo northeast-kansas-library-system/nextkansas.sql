@@ -42,7 +42,7 @@ FROM
   patron_list_patrons JOIN
   patron_lists ON patron_list_patrons.patron_list_id = patron_lists.patron_list_id
 WHERE
-  patron_list_patrons.borrowernumber = &lt;&gt;
+  patron_list_patrons.borrowernumber = <>
 
 
 

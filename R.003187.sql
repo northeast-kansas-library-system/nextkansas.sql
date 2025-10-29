@@ -39,7 +39,7 @@ Expiry: 1
 
 
 SELECT
-  If(borrowers.login_attempts &gt; 4, "loginblock", "") AS CLASS
+  If(borrowers.login_attempts > 4, "loginblock", "") AS CLASS
 FROM
   borrowers,
   (
@@ -55,8 +55,8 @@ FROM
       systempreferences.variable = 'FailedLoginAttempts'
   ) FAILEDLOGIN
 WHERE
-  borrowers.login_attempts &gt;= FAILEDLOGIN.value AND
-  borrowers.borrowernumber = &lt;&gt;
+  borrowers.login_attempts >= FAILEDLOGIN.value AND
+  borrowers.borrowernumber = <>
 
 
 

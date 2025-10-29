@@ -173,11 +173,11 @@ FROM
       authorised_values.category = 'CCODE') CCODES ON CCODES.authorised_value =
       items.ccode
 WHERE
-  items.homebranch LIKE &lt;&gt; AND 
-  Coalesce(lost.lib, "-") LIKE &lt;&gt; AND 
-  items.damaged LIKE &lt;&gt; AND 
-  items.withdrawn LIKE &lt;&gt; AND 
-  Coalesce(not_for_loan.lib_opac, "-") LIKE &lt;&gt; 
+  items.homebranch LIKE <> AND 
+  Coalesce(lost.lib, "-") LIKE <> AND 
+  items.damaged LIKE <> AND 
+  items.withdrawn LIKE <> AND 
+  Coalesce(not_for_loan.lib_opac, "-") LIKE <> 
 GROUP BY
   items.itemnumber,
   CCODES.lib,

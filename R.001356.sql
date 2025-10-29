@@ -31,7 +31,7 @@ HB_Monthly
 
 
 
-select i.itemnumber, i.dateaccessioned, b.title, i.ccode, i.itype, i.itemcallnumber, i.barcode, CONCAT(''"edit item"'') as "edit barcode" from biblio b left join items i using (biblionumber) where i.notforloan &lt;&gt;'-1' AND i.homebranch=&lt;&gt; AND (i.barcode IS NULL OR LENGTH(i.barcode) &lt; 13 OR i.barcode LIKE 'eudora%') ORDER BY i.ccode, i.itemcallnumber
+select i.itemnumber, i.dateaccessioned, b.title, i.ccode, i.itype, i.itemcallnumber, i.barcode, CONCAT(''"edit item"'') as "edit barcode" from biblio b left join items i using (biblionumber) where i.notforloan <>'-1' AND i.homebranch=<> AND (i.barcode IS NULL OR LENGTH(i.barcode) < 13 OR i.barcode LIKE 'eudora%') ORDER BY i.ccode, i.itemcallnumber
 
 
 

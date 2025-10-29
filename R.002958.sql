@@ -84,11 +84,11 @@ FROM
       authorised_values.authorised_value,
       authorised_values.lib) location ON deleteditems.location = location.authorised_value
 WHERE
-  deleteditems.homebranch LIKE &lt;&gt; AND
-  Coalesce(deleteditems.location, "-") LIKE &lt;&gt; AND
-  Coalesce(deleteditems.itype, "-") LIKE &lt;&gt; AND
-  Coalesce(deleteditems.ccode, "-") LIKE &lt;&gt; AND
-  deleteditems.timestamp BETWEEN &lt;&gt; AND (&lt;&gt; + INTERVAL 1 DAY) 
+  deleteditems.homebranch LIKE <> AND
+  Coalesce(deleteditems.location, "-") LIKE <> AND
+  Coalesce(deleteditems.itype, "-") LIKE <> AND
+  Coalesce(deleteditems.ccode, "-") LIKE <> AND
+  deleteditems.timestamp BETWEEN <> AND (<> + INTERVAL 1 DAY) 
 GROUP BY
   deleteditems.itemnumber
 ORDER BY

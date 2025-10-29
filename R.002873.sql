@@ -63,7 +63,7 @@ FROM
   borrowers staff ON staff.borrowernumber = accountlines.manager_id LEFT JOIN
   borrowers patrons ON accountlines.borrowernumber = patrons.borrowernumber
 WHERE
-  staff.branchcode LIKE &lt;&gt; AND
+  staff.branchcode LIKE <> AND
   staff.categorycode = 'STAFF' AND
   accountlines.credit_type_code IS NOT NULL AND
   Year(accountlines.timestamp) = Year(Now() - INTERVAL 1 MONTH) AND

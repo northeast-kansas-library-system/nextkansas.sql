@@ -36,7 +36,7 @@ Expiry: 300
 
 Select Concat(
     If(
-      Length(systempreferences.value) &gt; 30000,
+      Length(systempreferences.value) > 30000,
       "PRODUCTION_XX.",
       "PRODUCTION_SP."
     ),
@@ -49,7 +49,7 @@ Select Concat(
     Char(10),
     Concat(
       If(
-        Length(systempreferences.value) &gt; 30000,
+        Length(systempreferences.value) > 30000,
         "XX.",
         "SP."
       ),
@@ -100,7 +100,7 @@ Select Concat(
     From 1 For 30000
   ) As PART_ONE,
   If(
-    Length(systempreferences.value) &gt; 30000,
+    Length(systempreferences.value) > 30000,
     "||AAAAA||",
     ""
   ) As SEP_ONE,
@@ -109,7 +109,7 @@ Select Concat(
     From 30001 For 30000
   ) As PART_TWO,
   If(
-    Length(systempreferences.value) &gt; 60000,
+    Length(systempreferences.value) > 60000,
     "||AAAAA||",
     ""
   ) As SEP_TWO,
@@ -118,7 +118,7 @@ Select Concat(
     From 60001 For 30000
   ) As PART_THREE,
   If(
-    Length(systempreferences.value) &gt; 90000,
+    Length(systempreferences.value) > 90000,
     "||AAAAA||",
     ""
   ) As SEP_THREE,
@@ -127,7 +127,7 @@ Select Concat(
     From 90001 For 30000
   ) As PART_FOUR,
   If(
-    Length(systempreferences.value) &gt; 120000,
+    Length(systempreferences.value) > 120000,
     "||AAAAA||",
     ""
   ) As SEP_FOUR,

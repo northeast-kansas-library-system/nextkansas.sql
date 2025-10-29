@@ -43,9 +43,9 @@ FROM
   items JOIN
   biblio_metadata ON biblio_metadata.biblionumber = items.biblionumber
 WHERE
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="e"]') &lt;&gt; "ADULT" AND
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="e"]') &lt;&gt; "CHILDRENS" AND
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="e"]') &lt;&gt; "YOUNGADULT"
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="e"]') <> "ADULT" AND
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="e"]') <> "CHILDRENS" AND
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="e"]') <> "YOUNGADULT"
 GROUP BY
   items.biblionumber
 

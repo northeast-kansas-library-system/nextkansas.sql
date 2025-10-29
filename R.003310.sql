@@ -50,7 +50,7 @@ Group By
   Concat('SEARCH'),
   Trim(Replace(Replace(Replace(Replace(Replace(biblio.title, '/', ''), ':', ''), ';', ''), '.', ''), '"', ''))
 Having
-  Count(biblio.biblionumber) &gt; 1
+  Count(biblio.biblionumber) > 1
 Order By
   TITLE
 

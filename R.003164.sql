@@ -48,7 +48,7 @@ FROM
   biblio
   JOIN items ON items.biblionumber = biblio.biblionumber
 WHERE
-  items.barcode LIKE Concat("%", &lt;&gt;, "%") AND
+  items.barcode LIKE Concat("%", <>, "%") AND
   (items.notforloan = 0 OR
     items.notforloan IS NULL) AND
   (items.damaged = 0 OR

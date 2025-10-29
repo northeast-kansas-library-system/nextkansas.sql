@@ -56,8 +56,8 @@ SELECT
 FROM
   issues
 WHERE
-  issues.date_due BETWEEN &lt;&gt;  AND (&lt;&gt; + interval 1 day) AND
-  issues.branchcode LIKE &lt;&gt;
+  issues.date_due BETWEEN <>  AND (<> + interval 1 day) AND
+  issues.branchcode LIKE <>
 GROUP BY
   issues.branchcode,
   issues.itemnumber

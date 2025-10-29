@@ -75,10 +75,10 @@ FROM
     FROM
       issues
     WHERE
-      issues.branchcode LIKE &lt;&gt; AND
+      issues.branchcode LIKE <> AND
       issues.issuedate BETWEEN 
-        &lt;&gt; AND 
-        (&lt;&gt; + INTERVAL 1 DAY)
+        <> AND 
+        (<> + INTERVAL 1 DAY)
     GROUP BY
       issues.issue_id,
       issues.itemnumber,
@@ -93,10 +93,10 @@ FROM
     FROM
       old_issues
     WHERE
-      old_issues.branchcode LIKE &lt;&gt; AND
+      old_issues.branchcode LIKE <> AND
       old_issues.issuedate BETWEEN 
-        &lt;&gt; AND 
-        (&lt;&gt; + INTERVAL 1 DAY)
+        <> AND 
+        (<> + INTERVAL 1 DAY)
     GROUP BY
       old_issues.issue_id,
       old_issues.itemnumber,
@@ -106,10 +106,10 @@ FROM
   biblio ON items.biblionumber = biblio.biblionumber  JOIN
   biblio_metadata ON biblio_metadata.biblionumber = items.biblionumber
 WHERE
-  items.homebranch LIKE &lt;&gt; AND
-  items.permanent_location LIKE &lt;&gt; AND
-  items.itype LIKE &lt;&gt; AND
-  items.ccode LIKE &lt;&gt;
+  items.homebranch LIKE <> AND
+  items.permanent_location LIKE <> AND
+  items.itype LIKE <> AND
+  items.ccode LIKE <>
 GROUP BY
   biblio.biblionumber
 ORDER BY

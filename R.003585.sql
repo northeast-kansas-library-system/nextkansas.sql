@@ -290,8 +290,8 @@ FROM
       borrower_message_preferences.borrower_message_preference_id) checkout_sms
     ON checkout_sms.borrowernumber = borrowers.borrowernumber
 WHERE
-  borrowers.branchcode LIKE &lt;&gt; AND
-  borrowers.categorycode LIKE &lt;&gt;
+  borrowers.branchcode LIKE <> AND
+  borrowers.categorycode LIKE <>
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

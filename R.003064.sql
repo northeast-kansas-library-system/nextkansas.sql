@@ -43,8 +43,8 @@ FROM
   action_logs
 WHERE
   action_logs.module = 'HOLDS' AND
-  action_logs.user = &lt;&gt; AND
-  action_logs.timestamp BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day)
+  action_logs.user = <> AND
+  action_logs.timestamp BETWEEN <> AND (<> + interval 1 day)
 GROUP BY
   action_logs.action_id
 HAVING

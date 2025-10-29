@@ -44,7 +44,7 @@ SELECT
   END AS SENT_TO,
   borrowers.cardnumber AS LIBRARY_CARD,
   Concat_Ws('', 
-    '&lt;br /&gt;', 
+    '<br />', 
     'BOUNCED ', 
     CASE
       WHEN
@@ -56,7 +56,7 @@ SELECT
       ELSE message_queue.message_transport_type
     END, 
     ' MESSAGE', 
-    '&lt;br /&gt;', 
+    '<br />', 
     'An ', 
     CASE
       WHEN
@@ -78,12 +78,12 @@ SELECT
       ELSE message_queue.message_transport_type
     END, 
     ' -- has bounced.', 
-    '&lt;br /&gt;',
+    '<br />',
     'Please confirm and up',
     'date the patron\'s contact information the next time they use their account.', 
-    '&lt;br /&gt;', 
+    '<br />', 
     CurDate(), 
-    '&lt;br /&gt;'
+    '<br />'
   ) AS MESSAGE,
   Concat(
     '', 
@@ -94,7 +94,7 @@ FROM
   borrowers JOIN
   message_queue ON message_queue.borrowernumber = borrowers.borrowernumber
 WHERE
-  message_queue.to_address LIKE Concat("%", &lt;&gt;, "%")
+  message_queue.to_address LIKE Concat("%", <>, "%")
 GROUP BY
   borrowers.borrowernumber
 

@@ -112,7 +112,7 @@ FROM items
   ) perm_locs ON perm_locs.authorised_value = items.permanent_location 
   JOIN branches ON items.homebranch = branches.branchcode 
 WHERE 
-  items.homebranch Like &lt;&gt; And 
+  items.homebranch Like <> And 
   Month(items.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) AND 
   Year(items.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH) 
 GROUP BY 

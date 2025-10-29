@@ -29,7 +29,7 @@ Expiry: 300
 
 
 
-SELECT count(itemnumber) as deleted, ccode, location from deleteditems WHERE homebranch=&lt;&gt; AND year(timestamp) = &lt;&gt; GROUP BY ccode,location ORDER BY  ccode,location 
+SELECT count(itemnumber) as deleted, ccode, location from deleteditems WHERE homebranch=<> AND year(timestamp) = <> GROUP BY ccode,location ORDER BY  ccode,location 
 
 
 

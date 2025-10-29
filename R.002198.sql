@@ -29,7 +29,7 @@ Expiry: 300
 
 
 
-SELECT count(*) FROM borrowers WHERE branchcode=&lt;&gt; AND year(dateenrolled)=&lt;&gt; AND month(dateenrolled)=&lt;&gt;
+SELECT count(*) FROM borrowers WHERE branchcode=<> AND year(dateenrolled)=<> AND month(dateenrolled)=<>
 
 
 

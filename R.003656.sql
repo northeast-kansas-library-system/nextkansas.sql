@@ -42,7 +42,7 @@ FROM
 WHERE
   borrower_attributes.code = 'INTERNET' AND
   authorised_values.category = 'InternetPolicy' AND
-  borrowers.branchcode Like &lt;&gt;
+  borrowers.branchcode Like <>
 GROUP BY
   borrower_attributes.borrowernumber,
   borrowers.branchcode,

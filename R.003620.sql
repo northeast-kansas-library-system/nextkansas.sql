@@ -32,7 +32,7 @@ Expiry: 30
 Select
   IF(branchcode_asked.branchcode = 'NEKLS',
     'hidden',
-    If(Count(suggestionss.suggestionid) &gt; 0, 'next_hidden', '-')
+    If(Count(suggestionss.suggestionid) > 0, 'next_hidden', '-')
   ) As class
 From
   (
@@ -53,7 +53,7 @@ From
     suggestionss.branchcode = branchcode_asked.branchcode And
     suggestionss.STATUS = branchcode_asked.asked
 Where
-  branchcode_asked.branchcode LIKE Concat(&lt;&gt;, '%')
+  branchcode_asked.branchcode LIKE Concat(<>, '%')
 Group By
   branchcode_asked.asked
 

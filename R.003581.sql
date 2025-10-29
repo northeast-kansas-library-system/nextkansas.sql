@@ -142,7 +142,7 @@ FROM
             FROM
               circulation_rules
             WHERE
-              circulation_rules.branchcode = &lt;&gt; AND
+              circulation_rules.branchcode = <> AND
               circulation_rules.rule_name = 'issuelength' AND
               circulation_rules.categorycode IS NULL AND
               circulation_rules.itemtype IS NOT NULL) all_specific_rules ON

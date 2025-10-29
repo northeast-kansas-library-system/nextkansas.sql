@@ -45,10 +45,10 @@ SELECT
 FROM
   message_queue
 WHERE
-  (message_queue.letter_code LIKE &lt;&gt; or message_queue.letter_code LIKE &lt;&gt; or message_queue.letter_code LIKE &lt;&gt;) AND
-  message_queue.message_transport_type LIKE &lt;&gt; AND
-  (message_queue.time_queued BETWEEN &lt;&gt;  AND (&lt;&gt;+ INTERVAL 1 DAY)) AND
-  message_queue.subject LIKE &lt;&gt;
+  (message_queue.letter_code LIKE <> or message_queue.letter_code LIKE <> or message_queue.letter_code LIKE <>) AND
+  message_queue.message_transport_type LIKE <> AND
+  (message_queue.time_queued BETWEEN <>  AND (<>+ INTERVAL 1 DAY)) AND
+  message_queue.subject LIKE <>
 GROUP BY
   message_queue.time_queued, message_queue.content
 

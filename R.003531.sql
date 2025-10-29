@@ -298,9 +298,9 @@ FROM
       ya_deleted.homebranch = branchestypescodes.branchcode AND
       ya_deleted.ccode = branchestypescodes.authorised_value
 WHERE
-  branchestypescodes.branchcode LIKE &lt;&gt; AND
-  branchestypescodes.itemtype LIKE &lt;&gt; AND
-  branchestypescodes.authorised_value LIKE &lt;&gt;
+  branchestypescodes.branchcode LIKE <> AND
+  branchestypescodes.itemtype LIKE <> AND
+  branchestypescodes.authorised_value LIKE <>
 GROUP BY
   branchestypescodes.branchname,
   branchestypescodes.description,

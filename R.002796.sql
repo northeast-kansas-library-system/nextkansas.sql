@@ -46,9 +46,9 @@ SELECT
   borrowers.surname,
   COUNT(reserves.borrowernumber) AS COUNT_OF_REQUESTS
 FROM reserves JOIN borrowers ON reserves.borrowernumber = borrowers.borrowernumber
-WHERE (reserves.biblionumber LIKE &lt;&gt;)
+WHERE (reserves.biblionumber LIKE <>)
 GROUP BY reserves.biblionumber, reserves.borrowernumber
-HAVING COUNT_OF_REQUESTS &gt; 1
+HAVING COUNT_OF_REQUESTS > 1
 
 
 

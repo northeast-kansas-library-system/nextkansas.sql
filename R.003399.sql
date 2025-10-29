@@ -135,9 +135,9 @@ FROM
       borrowers
     WHERE
       (borrowers.sex IS NULL) OR
-      (borrowers.sex &lt;&gt; 'N' AND
-          borrowers.sex &lt;&gt; 'F' AND
-          borrowers.sex &lt;&gt; 'M')
+      (borrowers.sex <> 'N' AND
+          borrowers.sex <> 'F' AND
+          borrowers.sex <> 'M')
     GROUP BY
       borrowers.branchcode,
       Coalesce(floor(DateDiff(CurDate(), borrowers.dateofbirth) / 365.25), '-'),
@@ -146,8 +146,8 @@ FROM
       BLANK_OR_UNKNOWN.categorycode = branchescategories.categorycode AND
       BLANK_OR_UNKNOWN.BORROWER_AGE = ages.BORROWER_AGE
 WHERE
-  branchescategories.branchcode LIKE &lt;&gt; AND
-  branchescategories.categorycode LIKE &lt;&gt;
+  branchescategories.branchcode LIKE <> AND
+  branchescategories.categorycode LIKE <>
 GROUP BY
   branchescategories.branchname,
   branchescategories.description,

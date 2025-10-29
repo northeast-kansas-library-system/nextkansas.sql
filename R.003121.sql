@@ -53,7 +53,7 @@ FROM
 WHERE
   authorised_values.category = "ccode" AND
   branchtransfers.datearrived IS NULL AND
-  ((items.homebranch = @brn := &lt;&gt; COLLATE utf8mb4_unicode_ci) OR
+  ((items.homebranch = @brn := <> COLLATE utf8mb4_unicode_ci) OR
   (branchtransfers.frombranch = @brn) OR
   (branchtransfers.tobranch = @brn))
 GROUP BY

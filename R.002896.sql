@@ -83,9 +83,9 @@ FROM
         authorised_values.category = 'LOST') losts ON items.itemlost = losts.authorised_value
   JOIN biblio_metadata ON biblio.biblionumber = biblio_metadata.biblionumber
 WHERE
-  items.homebranch LIKE &lt;&gt; AND
-  items.itemlost LIKE &lt;&gt; AND
-  If(items.itemlost_on IS NULL, (CAST('2000-01-01' AS DATETIME)), items.itemlost_on) BETWEEN &lt;&gt; AND &lt;&gt;
+  items.homebranch LIKE <> AND
+  items.itemlost LIKE <> AND
+  If(items.itemlost_on IS NULL, (CAST('2000-01-01' AS DATETIME)), items.itemlost_on) BETWEEN <> AND <>
 GROUP BY
   items.barcode
 HAVING

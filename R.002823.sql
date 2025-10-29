@@ -42,16 +42,16 @@ SELECT
 FROM
   special_holidays
 WHERE
-  (special_holidays.branchcode LIKE @brn:=&lt;&gt; COLLATE utf8mb4_unicode_ci) AND
+  (special_holidays.branchcode LIKE @brn:=<> COLLATE utf8mb4_unicode_ci) AND
   Str_To_Date(Concat(special_holidays.month, '/', special_holidays.day, '/',
-  special_holidays.year), '%m/%d/%Y') &gt; Now() - INTERVAL 1 DAY
+  special_holidays.year), '%m/%d/%Y') > Now() - INTERVAL 1 DAY
 UNION
 SELECT
   repeatable_holidays.branchcode AS BRANCH,
   repeatable_holidays.title AS TITLE,
   repeatable_holidays.description AS DESCRIPTION,
   Str_To_Date(Concat(repeatable_holidays.month, '/', repeatable_holidays.day,
-  '/', (If(repeatable_holidays.month &gt;= Month(CurDate()), Year(CurDate()),
+  '/', (If(repeatable_holidays.month >= Month(CurDate()), Year(CurDate()),
   Year(CurDate()) + 1))), '%m/%d/%Y') AS UPCOMING_DATE,
   If(repeatable_holidays.weekday = 0, 'Every Sunday',
   If(repeatable_holidays.weekday = 1, 'Every Monday',
@@ -61,7 +61,7 @@ SELECT
   If(repeatable_holidays.weekday = 5, 'Every Friday',
   If(repeatable_holidays.weekday = 6, 'Every Saturday',
   Date_Format(Str_To_Date(Concat(repeatable_holidays.month, '/',
-  repeatable_holidays.day, '/', (If(repeatable_holidays.month &gt;=
+  repeatable_holidays.day, '/', (If(repeatable_holidays.month >=
   Month(CurDate()), Year(CurDate()), Year(CurDate()) + 1))), '%m/%d/%Y'),
   '%W')))))))) AS DAY_OF_WEEK,
   ('R') AS REPEATS
@@ -70,11 +70,11 @@ FROM
 WHERE
   (repeatable_holidays.branchcode LIKE @brn AND
   Str_To_Date(Concat(repeatable_holidays.month, '/', repeatable_holidays.day,
-  '/', (If(repeatable_holidays.month &gt;= Month(CurDate()), Year(CurDate()),
-  Year(CurDate()) + 1))), '%m/%d/%Y') &gt; Now() - INTERVAL 1 DAY) OR
+  '/', (If(repeatable_holidays.month >= Month(CurDate()), Year(CurDate()),
+  Year(CurDate()) + 1))), '%m/%d/%Y') > Now() - INTERVAL 1 DAY) OR
   (repeatable_holidays.branchcode LIKE @brn AND
   Str_To_Date(Concat(repeatable_holidays.month, '/', repeatable_holidays.day,
-  '/', (If(repeatable_holidays.month &gt;= Month(CurDate()), Year(CurDate()),
+  '/', (If(repeatable_holidays.month >= Month(CurDate()), Year(CurDate()),
   Year(CurDate()) + 1))), '%m/%d/%Y') IS NULL)
 ORDER BY
   BRANCH,

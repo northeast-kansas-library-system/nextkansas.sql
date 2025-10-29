@@ -59,7 +59,7 @@ FROM
   authorised_values
     ON items.ccode = authorised_values.authorised_value
 WHERE
-  hold_fill_targets.source_branchcode LIKE &lt;&gt; AND
+  hold_fill_targets.source_branchcode LIKE <> AND
   authorised_values.category = "ccode"
 GROUP BY
   items.barcode

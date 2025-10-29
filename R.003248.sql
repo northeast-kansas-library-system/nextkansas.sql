@@ -77,8 +77,8 @@ FROM
       LEFT JOIN deleteditems
         ON deleteditems.itemnumber = statistics.itemnumber
     WHERE
-      (Month(statistics.datetime) = &lt;&gt; AND
-      Year(statistics.datetime) = &lt;&gt;) AND
+      (Month(statistics.datetime) = <> AND
+      Year(statistics.datetime) = <>) AND
       statistics.type = 'issue'
     GROUP BY
       items.replacementprice,
@@ -89,7 +89,7 @@ FROM
     ON statsitmes.branch = branchsitypes.branchcode AND
       statsitmes.itemtype = branchsitypes.itemtype
 WHERE
-  branchsitypes.branchcode LIKE &lt;&gt;
+  branchsitypes.branchcode LIKE <>
 GROUP BY
   branchsitypes.branchname,
   branchsitypes.description

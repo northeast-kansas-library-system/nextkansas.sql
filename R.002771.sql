@@ -42,9 +42,9 @@ Expiry: 0
 
 
 SELECT
-  &lt;&gt; AS CARD_PREFIX_LENGTH,
+  <> AS CARD_PREFIX_LENGTH,
   borrowers.branchcode AS BORROWERS_HOME_BRANCH,
-  Left(borrowers.cardnumber, &lt;&gt;) AS LIBRAY_CARD_PREFIX,
+  Left(borrowers.cardnumber, <>) AS LIBRAY_CARD_PREFIX,
   LENGTH(borrowers.cardnumber) AS CARD_NUMBER_LENGTH,
   Count(borrowers.borrowernumber) AS LIBRARY_CARD_COUNT,
   CONCAT(
@@ -52,7 +52,7 @@ SELECT
   ) AS LINK_TO_PREFIX_REPORT_2,
   Concat_WS('',
     'Prefix ',
-    Left(borrowers.cardnumber, &lt;&gt;),
+    Left(borrowers.cardnumber, <>),
     ' / card length ',
     LENGTH(borrowers.cardnumber),
     ' digits (',
@@ -62,11 +62,11 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.branchcode LIKE &lt;&gt;
+  borrowers.branchcode LIKE <>
 GROUP BY
   borrowers.branchcode, CARD_NUMBER_LENGTH, LIBRAY_CARD_PREFIX
 HAVING
-  LIBRARY_CARD_COUNT &gt;= &lt;&gt;
+  LIBRARY_CARD_COUNT >= <>
 ORDER BY
   borrowers.branchcode,
   LIBRAY_CARD_PREFIX

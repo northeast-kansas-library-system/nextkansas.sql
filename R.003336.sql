@@ -88,10 +88,10 @@ FROM
       authorised_values.category = 'ccode') ccodes ON ccodes.authorised_value =
       items.ccode
 WHERE
-  statistics.datetime BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day) AND
+  statistics.datetime BETWEEN <> AND (<> + interval 1 day) AND
   (statistics.type = 'issue' OR
       statistics.type = 'renew') AND
-  statistics.branch = &lt;&gt;
+  statistics.branch = <>
 GROUP BY
   items.itemnumber,
   biblio.biblionumber,

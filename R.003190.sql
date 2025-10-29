@@ -126,9 +126,9 @@ WHERE
   action_logs.action LIKE 'DEL%' AND
   action_logs.info = 'item' AND
   If(borrowers.branchcode LIKE "DONI%", "DONI", If(borrowers.branchcode LIKE "PH%", "PH", borrowers.branchcode))
-    &lt;&gt;
+    <>
   If(borrowers.branchcode LIKE "DONI%", "DONI", If(deleteditems.homebranch LIKE "PH%", "PH", deleteditems.homebranch)) AND
-  deleteditems.homebranch &lt;&gt; 'digital'
+  deleteditems.homebranch <> 'digital'
 GROUP BY
   action_logs.action_id,
   deleteditems.itemnumber,

@@ -154,7 +154,7 @@ From (
         From itemtypes
       ) itemtypes
     Where (
-        branchess.branchcode Like &lt;&gt;
+        branchess.branchcode Like <>
         Or branchess.branchcode Like '*'
       )
   ) branches_itemtypess

@@ -59,8 +59,8 @@ FROM
      biblioitems JOIN
      items ON items.biblioitemnumber = biblioitems.biblioitemnumber
    WHERE
-     items.homebranch = &lt;&gt; AND
-     biblioitems.publicationyear &lt; Year(Now()) AND
+     items.homebranch = <> AND
+     biblioitems.publicationyear < Year(Now()) AND
      biblioitems.publicationyear REGEXP '^[0-9]+$'
    GROUP BY
      items.homebranch,
@@ -75,7 +75,7 @@ GROUP BY
   MEDIAN_AGE.homebranch,
   MEDIAN_AGE.MEDIAN_COLLECTION_AGE
 HAVING
-  ROW_NUM = &lt;&gt;
+  ROW_NUM = <>
 ORDER BY
   MEDIAN_AGE.MEDIAN_COLLECTION_AGE ASC
 

@@ -40,7 +40,7 @@ SELECT
 FROM 
   borrowers
 WHERE 
-  borrowers.branchcode = &lt;&gt;
+  borrowers.branchcode = <>
   AND borrowers.debarred IS NOT NULL
 
 

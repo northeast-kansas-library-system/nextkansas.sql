@@ -60,7 +60,7 @@ FROM
   JOIN virtualshelfcontents
     ON biblio.biblionumber = virtualshelfcontents.biblionumber
 WHERE
-  virtualshelfcontents.shelfnumber LIKE &lt;&gt;
+  virtualshelfcontents.shelfnumber LIKE <>
 GROUP BY
   biblio.biblionumber
 ORDER BY

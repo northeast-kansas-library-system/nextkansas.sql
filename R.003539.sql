@@ -58,7 +58,7 @@ UNION
   renewed_lm.Count_borrowernumber AS "BORROWERS RENEWED LAST MONTH", 
   added_lm.Count_borrowernumber AS "BORROWERS ADDED LAST MONTH", 
   deleted_lm.Count_borrowernumber AS "BORROWERS DELETED LAST MONTH", 
-  If(limitationss.categorycode &lt;&gt; "", "Yes", "") AS "THIS LIBRARY CAN ACCESS THIS CATEGORY" 
+  If(limitationss.categorycode <> "", "Yes", "") AS "THIS LIBRARY CAN ACCESS THIS CATEGORY" 
 FROM 
     (SELECT 
       branches.branchcode, 

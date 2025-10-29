@@ -37,10 +37,10 @@ SELECT
 FROM
   reserves
 WHERE
-  reserves.branchcode LIKE &lt;&gt; AND
+  reserves.branchcode LIKE <> AND
   reserves.found IS NULL AND
   reserves.suspend = "" AND 
-  reserves.reservedate &lt;= CURRENT_DATE()
+  reserves.reservedate <= CURRENT_DATE()
 GROUP BY
   reserves.borrowernumber,
   reserves.branchcode,

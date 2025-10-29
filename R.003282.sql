@@ -45,7 +45,7 @@ Expiry: 300
 SELECT
   Concat_Ws('',
     'This item is currently in the catalog',
-    Concat('You searched for: "', Trim(&lt;&gt;), '"'),
+    Concat('You searched for: "', Trim(<>), '"'),
     Concat('Item homebranch: ', items.homebranch),
     Concat('Current branch: ', items.holdingbranch),
     Concat('Permanent shelving location: ', items.permanent_location),
@@ -185,7 +185,7 @@ FROM
     WHERE
       (statistics.type = 'issue' OR
         statistics.type = 'renew') AND
-      statistics.datetime &gt; CurDate() - INTERVAL 1 YEAR
+      statistics.datetime > CurDate() - INTERVAL 1 YEAR
     GROUP BY
       statistics.itemnumber) statistics_one ON statistics_one.itemnumber = items.itemnumber 
   LEFT JOIN (
@@ -197,18 +197,18 @@ FROM
     WHERE
       (statistics.type = 'issue' OR
         statistics.type = 'renew') AND
-      statistics.datetime &gt; CurDate() - INTERVAL 2 YEAR
+      statistics.datetime > CurDate() - INTERVAL 2 YEAR
     GROUP BY
       statistics.itemnumber) statistics_two ON statistics_two.itemnumber = items.itemnumber
 WHERE
-  items.barcode LIKE Concat("%", Trim(&lt;&gt;), "%")
+  items.barcode LIKE Concat("%", Trim(<>), "%")
 GROUP BY
   items.itemnumber
 UNION
 SELECT
   Concat_Ws('',
     'This item has been deleted',
-    Concat('You searched for: "', Trim(&lt;&gt;), '"'),
+    Concat('You searched for: "', Trim(<>), '"'),
     Concat('At the time of its deletion on:  ', deleteditems.timestamp, " this item's information was as follows:"),
     Concat('Item homebranch: ', deleteditems.homebranch),
     Concat('Current branch: ', deleteditems.holdingbranch),
@@ -280,21 +280,21 @@ FROM
   ) deletedwithdrawni
     ON deletedwithdrawni.authorised_value = deleteditems.withdrawn
 WHERE
-  deleteditems.barcode LIKE Concat("%", Trim(&lt;&gt;), "%")
+  deleteditems.barcode LIKE Concat("%", Trim(<>), "%")
 GROUP BY
   deleteditems.itemnumber
 UNION
 SELECT 
   Concat_WS('', 
     'Run report 3840 for close barcode matches',
-    Concat('You searched for: "', Trim(&lt;&gt;), '"'),
+    Concat('You searched for: "', Trim(<>), '"'),
     'Running report 3480 will look up the owning libraries for other barcode numbers close in sequence to this one.', 
     'For example, if you look up barcode number 10005, this report will tell you which libraries own barcode numbers 10001, 10002, 10003, 10004, 10006, 10007, 10008, etc.', 
     Concat(
       "Adjacent barcodes: ", 
       Concat(
-        '&gt;), Char(43), "%2B"), Char(47), "%2F"), Char(32), "%20"), Char(45), "%2D"), Char(36), "%24"), Char(37), "%25"), Char(46), "%2E"), 
-        '&op=run" target="_blank"&gt;Run report 3840 for barcode number ', Trim(&lt;&gt;), ''
+        '>), Char(43), "%2B"), Char(47), "%2F"), Char(32), "%20"), Char(45), "%2D"), Char(36), "%24"), Char(37), "%25"), Char(46), "%2E"), 
+        '&op=run" target="_blank">Run report 3840 for barcode number ', Trim(<>), ''
       ),
       'Run report 3840 for close barcode matches'
     )

@@ -100,11 +100,11 @@ FROM
   ) losts
     ON losts.authorised_value = deleteditems.itemlost
 WHERE
-  deleteditems.homebranch LIKE &lt;&gt; AND
-  Coalesce(deleteditems.location, "-") LIKE &lt;&gt; AND
-  Coalesce(deleteditems.itype, "-") LIKE &lt;&gt; AND
-  Coalesce(deleteditems.ccode, "-") LIKE &lt;&gt; AND
-  deleteditems.itemlost_on BETWEEN &lt;&gt; AND (&lt;&gt; + INTERVAL 1 DAY)
+  deleteditems.homebranch LIKE <> AND
+  Coalesce(deleteditems.location, "-") LIKE <> AND
+  Coalesce(deleteditems.itype, "-") LIKE <> AND
+  Coalesce(deleteditems.ccode, "-") LIKE <> AND
+  deleteditems.itemlost_on BETWEEN <> AND (<> + INTERVAL 1 DAY)
 GROUP BY
   deleteditems.itemnumber
 ORDER BY

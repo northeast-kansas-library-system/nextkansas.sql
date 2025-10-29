@@ -58,7 +58,7 @@ UNION
 (SELECT 
   branches.branchname AS 'Library',
   If(
-    zipcounts.Count_borrowernumber &lt; 25,
+    zipcounts.Count_borrowernumber < 25,
     '-',
     If(
       circcounts.BORROWER_ZIPCODE = '',
@@ -129,7 +129,7 @@ FROM
   JOIN branches ON circcounts.CKO_BRANCH = branches.branchcode
 GROUP BY branches.branchname,
   If(
-    zipcounts.Count_borrowernumber &lt; 25,
+    zipcounts.Count_borrowernumber < 25,
     '-',
     If(
       circcounts.BORROWER_ZIPCODE = '',
@@ -140,7 +140,7 @@ GROUP BY branches.branchname,
 ORDER BY
   branches.branchname,
   If(
-    zipcounts.Count_borrowernumber &lt; 25,
+    zipcounts.Count_borrowernumber < 25,
     ' -',
     If(
       circcounts.BORROWER_ZIPCODE = '',

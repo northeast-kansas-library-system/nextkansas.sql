@@ -204,7 +204,7 @@ SELECT
 FROM
   biblio_metadata
 WHERE 
-  SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 7 FOR 1 ) LIKE &lt;&gt;
+  SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 7 FOR 1 ) LIKE <>
 GROUP BY
   biblio_metadata.biblionumber
 ORDER BY

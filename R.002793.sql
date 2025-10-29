@@ -36,7 +36,7 @@ SELECT
 FROM statistics
 WHERE statistics.type = "issue" AND
   (statistics.datetime BETWEEN "2016-09-01" AND "2016-09-08") AND
-  statistics.branch = &lt;&gt;
+  statistics.branch = <>
 GROUP BY statistics.branch, statistics.itemtype
 WITH ROLLUP
 

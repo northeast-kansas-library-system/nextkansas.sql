@@ -29,7 +29,7 @@ From John
 
 
 
-select date_format(`datetime`,"%X-%V") as 'Week', count(*) as 'Checkouts' from statistics LEFT JOIN items USING (itemnumber) where homebranch=&lt;&gt; AND datetime LIKE &lt;&gt; AND type in ('issue','renew') AND (items.itemcallnumber like &lt;&gt; and type in ('issue','renew') OR &lt;&gt; OR items.location in ('CHILDRENS')) group by date_format(`datetime`,"%X-%V") order by date_format(`datetime`,"%X-%V")
+select date_format(`datetime`,"%X-%V") as 'Week', count(*) as 'Checkouts' from statistics LEFT JOIN items USING (itemnumber) where homebranch=<> AND datetime LIKE <> AND type in ('issue','renew') AND (items.itemcallnumber like <> and type in ('issue','renew') OR <> OR items.location in ('CHILDRENS')) group by date_format(`datetime`,"%X-%V") order by date_format(`datetime`,"%X-%V")
 
 
 

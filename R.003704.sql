@@ -50,7 +50,7 @@ SELECT
   renewed_lm.Count_borrowernumber AS 'Borrowers renewed last month', 
   added_lm.Count_borrowernumber AS 'Borrowers added last month', 
   deleted_lm.Count_borrowernumber AS 'Borrowers deleted last month', 
-  If(limitationss.categorycode &lt;&gt; '', 'Yes', '') AS 'New borrowers allowed' 
+  If(limitationss.categorycode <> '', 'Yes', '') AS 'New borrowers allowed' 
 FROM 
     (SELECT 
       branches.branchcode, 
@@ -61,7 +61,7 @@ FROM
       branches, 
       categories
     WHERE 
-      branches.branchcode LIKE &lt;&gt;
+      branches.branchcode LIKE <>
     ) branches_categories 
   LEFT JOIN 
     (SELECT 

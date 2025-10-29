@@ -198,14 +198,14 @@ Select
     '', 
     'Edit item' 
   ) AS LINKS,
-  If(coalesce(items.dateaccessioned, '1900-01-01') &lt; '2000-01-01', '2000-01-01', DATE_FORMAT(items.dateaccessioned, '%Y-%m-%d')) AS DATE_ADDED,
+  If(coalesce(items.dateaccessioned, '1900-01-01') < '2000-01-01', '2000-01-01', DATE_FORMAT(items.dateaccessioned, '%Y-%m-%d')) AS DATE_ADDED,
   Count(items.itemnumber) As Count_itemnumber
 From
   items
 Group By
-  If(coalesce(items.dateaccessioned, '1900-01-01') &lt; '2000-01-01', '2000-01-01', DATE_FORMAT(items.dateaccessioned, '%Y-%m-%d'))
+  If(coalesce(items.dateaccessioned, '1900-01-01') < '2000-01-01', '2000-01-01', DATE_FORMAT(items.dateaccessioned, '%Y-%m-%d'))
 Order By
-  If(coalesce(items.dateaccessioned, '1900-01-01') &lt; '2000-01-01', '2000-01-01', DATE_FORMAT(items.dateaccessioned, '%Y-%m-%d')) ASC
+  If(coalesce(items.dateaccessioned, '1900-01-01') < '2000-01-01', '2000-01-01', DATE_FORMAT(items.dateaccessioned, '%Y-%m-%d')) ASC
 
 
 

@@ -84,7 +84,7 @@ FROM
     FROM
       borrowers
     WHERE
-      borrowers.dateexpiry &gt;= Now()
+      borrowers.dateexpiry >= Now()
     GROUP BY
       borrowers.branchcode,
       borrowers.city,
@@ -94,7 +94,7 @@ FROM
       borrowers_unepired.state = information1.state AND
       borrowers_unepired.HOMEBRANCH = information1.HOMEBRANCH
 WHERE
-  information1.HOMEBRANCH LIKE &lt;&gt;
+  information1.HOMEBRANCH LIKE <>
 GROUP BY
   information1.HOMEBRANCH,
   information1.city,

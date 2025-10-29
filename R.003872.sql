@@ -38,8 +38,8 @@ Select
     Where
       (statistics.type = 'issue' Or
        statistics.type = 'renew') And
-      Year(statistics.datetime) Like &lt;&gt; And
-      Month(statistics.datetime) Like Concat('%', &lt;&gt; , '%')
+      Year(statistics.datetime) Like <> And
+      Month(statistics.datetime) Like Concat('%', <> , '%')
     Group By
       statistics.itemnumber
 

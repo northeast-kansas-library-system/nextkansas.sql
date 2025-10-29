@@ -29,7 +29,7 @@ Expiry: 300
 
 
 
-SELECT count(i.itemnumber) as added from items i WHERE i.homebranch=&lt;&gt; AND year(i.dateaccessioned) = &lt;&gt;
+SELECT count(i.itemnumber) as added from items i WHERE i.homebranch=<> AND year(i.dateaccessioned) = <>
 
 
 

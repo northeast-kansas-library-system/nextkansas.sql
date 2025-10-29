@@ -104,9 +104,9 @@ FROM
       borrower_attributes.borrowernumber,
       borrower_attributes.attribute) newsletter_permission ON borrowers.borrowernumber = newsletter_permission.borrowernumber
 WHERE
-  borrowers.branchcode LIKE &lt;&gt; AND
-  borrowers.categorycode LIKE &lt;&gt; AND
-  Coalesce(newsletter_permission.attribute, "~") LIKE &lt;&gt;
+  borrowers.branchcode LIKE <> AND
+  borrowers.categorycode LIKE <> AND
+  Coalesce(newsletter_permission.attribute, "~") LIKE <>
 GROUP BY
   Coalesce(newsletter_permission.lib, "~"),
   If(borrowers.email LIKE "%", "X", "Y"),

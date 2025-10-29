@@ -68,10 +68,10 @@ FROM
    FROM
      statistics
    WHERE
-     statistics.branch LIKE &lt;&gt; AND
+     statistics.branch LIKE <> AND
      statistics.type IN ('issue', 'renew') AND
-     Year(statistics.datetime) = &lt;&gt; AND
-     Month(statistics.datetime)= &lt;&gt; 
+     Year(statistics.datetime) = <> AND
+     Month(statistics.datetime)= <> 
    GROUP BY
      statistics.branch,
      statistics.itemtype,
@@ -91,10 +91,10 @@ FROM
      items ON items.itemnumber = statistics.itemnumber LEFT JOIN
      deleteditems ON deleteditems.itemnumber = statistics.itemnumber
    WHERE
-     statistics.branch LIKE &lt;&gt; AND
+     statistics.branch LIKE <> AND
      statistics.type IN ('issue', 'renew') AND
-     Month(statistics.datetime)= &lt;&gt; AND
-     Year(statistics.datetime) = &lt;&gt; AND
+     Month(statistics.datetime)= <> AND
+     Year(statistics.datetime) = <> AND
      If(statistics.location = "CART", 
        Coalesce(items.permanent_location, deleteditems.permanent_location), 
        statistics.location
@@ -123,10 +123,10 @@ FROM
      items ON items.itemnumber = statistics.itemnumber LEFT JOIN
      deleteditems ON deleteditems.itemnumber = statistics.itemnumber
    WHERE
-     statistics.branch LIKE &lt;&gt; AND
+     statistics.branch LIKE <> AND
      statistics.type IN ('issue', 'renew') AND
-     Month(statistics.datetime)= &lt;&gt; AND
-     Year(statistics.datetime) = &lt;&gt; AND
+     Month(statistics.datetime)= <> AND
+     Year(statistics.datetime) = <> AND
      If(statistics.location = "CART", 
        Coalesce(items.permanent_location, deleteditems.permanent_location), 
        statistics.location
@@ -155,10 +155,10 @@ FROM
      items ON items.itemnumber = statistics.itemnumber LEFT JOIN
      deleteditems ON deleteditems.itemnumber = statistics.itemnumber
    WHERE
-     statistics.branch LIKE &lt;&gt; AND
+     statistics.branch LIKE <> AND
      statistics.type IN ('issue', 'renew') AND
-     Month(statistics.datetime)= &lt;&gt; AND
-     Year(statistics.datetime) = &lt;&gt; AND
+     Month(statistics.datetime)= <> AND
+     Year(statistics.datetime) = <> AND
      If(statistics.location = "CART", 
        Coalesce(items.permanent_location, deleteditems.permanent_location), 
        statistics.location

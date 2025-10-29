@@ -32,7 +32,7 @@ Expiry: 30
 Select
   IF(branches.branchcode = 'NEKLS',
     'next_hidden',  
-    If(Count(issuess.noteseen) &gt; 0, 'next_hidden', '-')
+    If(Count(issuess.noteseen) > 0, 'next_hidden', '-')
   ) As 'class',
   Concat(
     'Notes for ', 
@@ -54,7 +54,7 @@ From
   On 
     issuess.branchcode = branches.branchcode
 Where
-  branches.branchcode Like Concat(&lt;&gt;, '%')
+  branches.branchcode Like Concat(<>, '%')
 Group By
   branches.branchcode
 

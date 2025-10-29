@@ -67,7 +67,7 @@ SELECT
   borrowers.email,
   borrowers.phone,
   borrowers.branchcode,
-  If(Count(DISTINCT issues.issue_id) &gt; 0, "Yes", "No") AS HAS_ITEMS_OUT,
+  If(Count(DISTINCT issues.issue_id) > 0, "Yes", "No") AS HAS_ITEMS_OUT,
   Count(DISTINCT issues.issue_id) AS CURRENT_CKO_COUNT,
   outstanding.date AS FEE_DATE,
   If(
@@ -97,7 +97,7 @@ SELECT
   outstanding.description AS FEE_DESCRIPTION,
   outstanding.note AS FEE_NOTE,
   Format(Sum(outstanding.amount - outstanding.amountoutstanding), 2) AS PAID_SO_FAR,
-  If(Sum(outstanding.amount &gt; outstanding.amountoutstanding), CAST(outstanding.timestamp AS DATE), "-") AS MOST_RECENT_PAYMENT,
+  If(Sum(outstanding.amount > outstanding.amountoutstanding), CAST(outstanding.timestamp AS DATE), "-") AS MOST_RECENT_PAYMENT,
   Format(outstanding.amountoutstanding, 2) AS AMOUNT_OUTSTANDING
 FROM
   (
@@ -121,8 +121,8 @@ FROM
       JOIN borrowers
         ON borrowers.borrowernumber = accountlines.manager_id
     WHERE
-      accountlines.amountoutstanding &gt; 0 AND
-      borrowers.branchcode LIKE @brn := &lt;&gt; COLLATE utf8mb4_unicode_ci
+      accountlines.amountoutstanding > 0 AND
+      borrowers.branchcode LIKE @brn := <> COLLATE utf8mb4_unicode_ci
     UNION
     SELECT
       accountlines.accountlines_id,
@@ -145,7 +145,7 @@ FROM
         ON old_issues.borrowernumber = accountlines.borrowernumber AND
         old_issues.itemnumber = accountlines.itemnumber
     WHERE
-      accountlines.amountoutstanding &gt; 0 AND
+      accountlines.amountoutstanding > 0 AND
       old_issues.branchcode LIKE  @brn AND
       accountlines.manager_id IS NULL
     UNION
@@ -178,7 +178,7 @@ FROM
               ON old_issues.borrowernumber = accountlines.borrowernumber AND
               old_issues.itemnumber = accountlines.itemnumber
           WHERE
-            accountlines.amountoutstanding &gt; 0 AND
+            accountlines.amountoutstanding > 0 AND
             old_issues.branchcode LIKE @brn AND
             accountlines.manager_id IS NULL
           UNION
@@ -190,11 +190,11 @@ FROM
               ON issues.borrowernumber = accountlines.borrowernumber AND
               issues.itemnumber = accountlines.itemnumber
           WHERE
-            accountlines.amountoutstanding &gt; 0 AND
+            accountlines.amountoutstanding > 0 AND
             issues.branchcode LIKE @brn AND
             accountlines.manager_id IS NULL
         ) AND
-      accountlines.amountoutstanding &gt; 0 AND
+      accountlines.amountoutstanding > 0 AND
       borrowers.branchcode LIKE @brn AND
       accountlines.manager_id IS NULL
     UNION
@@ -219,7 +219,7 @@ FROM
         ON issues.borrowernumber = accountlines.borrowernumber AND
         issues.itemnumber = accountlines.itemnumber
     WHERE
-      accountlines.amountoutstanding &gt; 0 AND
+      accountlines.amountoutstanding > 0 AND
       issues.branchcode LIKE @brn AND
       accountlines.manager_id IS NULL
   ) outstanding
@@ -249,13 +249,13 @@ WHERE
         )
       )
     )
-  ) LIKE &lt;&gt; AND
-  borrowers.branchcode LIKE &lt;&gt;
+  ) LIKE <> AND
+  borrowers.branchcode LIKE <>
 GROUP BY
   Upper(borrowers.cardnumber),
   outstanding.accountlines_id
 HAVING
-  HAS_ITEMS_OUT LIKE &lt;&gt;
+  HAS_ITEMS_OUT LIKE <>
 ORDER BY
   borrowers.surname,
   borrowers.firstname,

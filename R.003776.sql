@@ -73,9 +73,9 @@ FROM
   LEFT JOIN authorised_values ON items.ccode = authorised_values.authorised_value
 WHERE
   reserves.found = 'W' AND
-  (reserves.waitingdate + INTERVAL 7 DAY) &lt; CurDate() - INTERVAL 7 DAY AND
+  (reserves.waitingdate + INTERVAL 7 DAY) < CurDate() - INTERVAL 7 DAY AND
   authorised_values.category = "CCODE" AND
-  reserves.branchcode LIKE &lt;&gt;
+  reserves.branchcode LIKE <>
 GROUP BY
   reserves.itemnumber,
   reserves.borrowernumber

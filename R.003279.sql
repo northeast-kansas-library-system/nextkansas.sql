@@ -124,8 +124,8 @@ FROM
   JOIN virtualshelves
     ON virtualshelfcontents.shelfnumber = virtualshelves.shelfnumber
 WHERE
-  virtualshelfcontents.shelfnumber = &lt;&gt; AND
-  items.homebranch LIKE Concat("%", &lt;&gt;,"%")
+  virtualshelfcontents.shelfnumber = <> AND
+  items.homebranch LIKE Concat("%", <>,"%")
 GROUP BY
   items.barcode,
   virtualshelfcontents.shelfnumber,

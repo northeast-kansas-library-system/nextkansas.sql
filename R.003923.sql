@@ -60,7 +60,7 @@ SELECT
     Concat('Updated on: ', requests.timestamp)) AS DATES, 
   Concat_Ws( 
     '', 
-    If(requests.suspend &lt;&gt; 0, 'Suspended', '-'), 
+    If(requests.suspend <> 0, 'Suspended', '-'), 
     If( 
       requests.suspend = 0, 
       '-', 
@@ -188,8 +188,8 @@ FROM
   LEFT JOIN biblio ON requests.biblionumber = biblio.biblionumber 
   LEFT JOIN deletedbiblio ON requests.biblionumber = deletedbiblio.biblionumber 
 WHERE 
-  requests.branchcode LIKE &lt;&gt; AND 
-  requests.statuss LIKE &lt;&gt; AND 
+  requests.branchcode LIKE <> AND 
+  requests.statuss LIKE <> AND 
   If( 
     requests.cancellationdate IS NOT NULL, 
     'Cancelled', 
@@ -204,13 +204,13 @@ WHERE
         ) 
       ) 
     ) 
-  ) LIKE &lt;&gt; AND 
-  If(requests.suspend &lt;&gt; 0, 'Suspended', '-') LIKE &lt;&gt; AND 
-  borrowers.cardnumber LIKE Concat('%', &lt;&gt;, '%') AND 
-  requests.biblionumber LIKE Concat('%', &lt;&gt;, '%') AND 
+  ) LIKE <> AND 
+  If(requests.suspend <> 0, 'Suspended', '-') LIKE <> AND 
+  borrowers.cardnumber LIKE Concat('%', <>, '%') AND 
+  requests.biblionumber LIKE Concat('%', <>, '%') AND 
   Coalesce( 
     Coalesce(items.barcode, '-'), Coalesce(deleteditems.barcode, '-') 
-  ) LIKE Concat('%', &lt;&gt;, '%') 
+  ) LIKE Concat('%', <>, '%') 
 GROUP BY 
   requests.reserve_id 
 ORDER BY 

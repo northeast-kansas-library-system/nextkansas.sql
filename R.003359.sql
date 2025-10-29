@@ -53,7 +53,7 @@ SELECT
     If(
       old_reserves.found = "F", 
       "Request filled", 
-      If(old_reserves.itemnumber &gt; 1, "Request not picked up", "Cancelled before being held")
+      If(old_reserves.itemnumber > 1, "Request not picked up", "Cancelled before being held")
     ),
     DATE_FORMAT(old_reserves.timestamp, "%Y.%m.%d")
   ) AS FILLED,
@@ -92,7 +92,7 @@ FROM
       authorised_values.category = 'LOC') LOCATIONS ON
       LOCATIONS.authorised_value = items.permanent_location
 WHERE
-  old_reserves.branchcode LIKE &lt;&gt; AND
+  old_reserves.branchcode LIKE <> AND
   Year(old_reserves.timestamp) = Year(Now() - INTERVAL 1 MONTH) AND
   Month(old_reserves.timestamp) = Month(Now() - INTERVAL 1 MONTH)
 GROUP BY

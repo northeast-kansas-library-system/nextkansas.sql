@@ -46,7 +46,7 @@ FROM
     GROUP BY
       statistics.branch) stats ON branches.branchcode = stats.branch
 WHERE
-  branches.branchcode LIKE &lt;&gt;
+  branches.branchcode LIKE <>
 GROUP BY
   branches.branchcode
 

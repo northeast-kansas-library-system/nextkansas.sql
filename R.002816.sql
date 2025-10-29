@@ -57,9 +57,9 @@ FROM
   authorised_values
     ON items.ccode = authorised_values.authorised_value
 WHERE
-  items.homebranch LIKE &lt;&gt; AND
-  items.itype LIKE &lt;&gt; AND
-  biblio.author LIKE concat('%',&lt;&gt;, '%') AND
+  items.homebranch LIKE <> AND
+  items.itype LIKE <> AND
+  biblio.author LIKE concat('%',<>, '%') AND
   authorised_values.category = "CCODE"
 ORDER BY
   biblio.title

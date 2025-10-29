@@ -51,9 +51,9 @@ FROM
     ON deletedborrowers.borrowernumber = action_logs.object
 WHERE
   action_logs.module = 'MEMBERS' AND
-  deletedborrowers.branchcode LIKE &lt;&gt; AND
-  deletedborrowers.categorycode LIKE &lt;&gt; AND
-  (action_logs.timestamp BETWEEN &lt;&gt;  AND (&lt;&gt;+ INTERVAL 1 DAY)) AND
+  deletedborrowers.branchcode LIKE <> AND
+  deletedborrowers.categorycode LIKE <> AND
+  (action_logs.timestamp BETWEEN <>  AND (<>+ INTERVAL 1 DAY)) AND
   action_logs.action LIKE 'DELET%'
 GROUP BY
   PATRON_HOME_LIBRARY, PATRON_CATEGORY

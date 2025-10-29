@@ -82,13 +82,13 @@ FROM biblio
     ) ccodes 
       ON ccodes.authorised_value = biblioitems.cn_class
 WHERE 
-  biblioitems.agerestriction IN &lt;&gt; AND 
-  biblioitems.itemtype IN &lt;&gt; AND 
-  biblioitems.cn_class IN &lt;&gt;
+  biblioitems.agerestriction IN <> AND 
+  biblioitems.itemtype IN <> AND 
+  biblioitems.cn_class IN <>
 GROUP BY 
   biblio.biblionumber
 HAVING 
-  ITEM_COUNT &gt;= &lt;&gt;
+  ITEM_COUNT >= <>
 ORDER BY 
   ITEM_COUNT DESC
 

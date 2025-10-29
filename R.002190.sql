@@ -45,7 +45,7 @@ FROM
   items
   JOIN biblio ON items.biblionumber = biblio.biblionumber
 WHERE
-  items.homebranch LIKE &lt;&gt; AND
+  items.homebranch LIKE <> AND
   items.itemnotes IS NOT NULL
 ORDER BY
   items.dateaccessioned DESC

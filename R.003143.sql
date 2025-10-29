@@ -60,13 +60,13 @@ FROM
   LEFT JOIN biblioitems ON biblioitems.biblioitemnumber = items.biblioitemnumber
   LEFT JOIN biblio ON biblio.biblionumber = items.biblionumber
   LEFT JOIN borrowers guarantor ON guarantor.borrowernumber = borrowers.guarantorid
-WHERE (date_due BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day)) AND
-  (borrowers.cardnumber LIKE Concat("%",&lt;&gt;,"%")) AND
-  (borrowers.categorycode LIKE &lt;&gt;) AND
-  (items.itype LIKE &lt;&gt;) AND
-  (items.homebranch LIKE &lt;&gt;) AND
-  (items.holdingbranch LIKE &lt;&gt;) AND
-  (borrowers.branchcode LIKE &lt;&gt;)
+WHERE (date_due BETWEEN <> AND (<> + interval 1 day)) AND
+  (borrowers.cardnumber LIKE Concat("%",<>,"%")) AND
+  (borrowers.categorycode LIKE <>) AND
+  (items.itype LIKE <>) AND
+  (items.homebranch LIKE <>) AND
+  (items.holdingbranch LIKE <>) AND
+  (borrowers.branchcode LIKE <>)
 ORDER BY
   issues.date_due,
   borrowers.surname,

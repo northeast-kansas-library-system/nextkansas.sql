@@ -103,7 +103,7 @@ FROM
   JOIN branches ON issues.branchcode = branches.branchcode
   JOIN borrowers ON issues.borrowernumber = borrowers.borrowernumber
 WHERE
-  issues.borrowernumber = &lt;&gt;
+  issues.borrowernumber = <>
 GROUP BY
   items.biblionumber,
   issues.borrowernumber

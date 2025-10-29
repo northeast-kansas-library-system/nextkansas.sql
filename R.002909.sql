@@ -56,8 +56,8 @@ FROM borrowers
 GROUP BY
   CONCAT(TRIM(surname),'-',TRIM(SUBSTRING_INDEX(firstname, ' ', 1)),'/')
 HAVING
-  COUNT(CONCAT(TRIM(surname),'-',TRIM(SUBSTRING_INDEX(firstname, ' ', 1)),'/'))&gt;1 AND
-  HOME_BRANCH LIKE CONCAT( '%', &lt;&gt;, '%')
+  COUNT(CONCAT(TRIM(surname),'-',TRIM(SUBSTRING_INDEX(firstname, ' ', 1)),'/'))>1 AND
+  HOME_BRANCH LIKE CONCAT( '%', <>, '%')
 
 
 

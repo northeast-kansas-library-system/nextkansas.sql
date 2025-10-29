@@ -46,7 +46,7 @@ SELECT
 FROM
   biblio_metadata
 WHERE
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="655"]/subfield[@code="a"]') LIKE Concat("%", &lt;&gt;, "%")
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="655"]/subfield[@code="a"]') LIKE Concat("%", <>, "%")
 GROUP BY
   INDEX_TERM
 

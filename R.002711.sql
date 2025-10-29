@@ -29,7 +29,7 @@ Hoopla Report
 
 
 
-SELECT biblionumber FROM biblioitems WHERE biblionumber IN (SELECT biblionumber FROM items WHERE itype = 'DIGITAL' AND homebranch='DIGITAL' AND itemcallnumber='HOOPLA' AND ccode IN ('DLAUDIO','DLVIDEO','DLMUSIC','DLBOOK')) AND date(timestamp) &lt; '2017-03-01' limit 200000
+SELECT biblionumber FROM biblioitems WHERE biblionumber IN (SELECT biblionumber FROM items WHERE itype = 'DIGITAL' AND homebranch='DIGITAL' AND itemcallnumber='HOOPLA' AND ccode IN ('DLAUDIO','DLVIDEO','DLMUSIC','DLBOOK')) AND date(timestamp) < '2017-03-01' limit 200000
 
 
 

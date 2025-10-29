@@ -56,7 +56,7 @@ SELECT
 FROM 
   biblio
 WHERE 
-  biblio.datecreated &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1)
+  biblio.datecreated < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1)
 
 
 

@@ -78,7 +78,7 @@ FROM
 WHERE
   items.itemnumber IS NULL AND
   biblioitems.url IS NULL AND
-  biblio.datecreated &lt; Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) + 6 DAY) AND
+  biblio.datecreated < Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) + 6 DAY) AND
   action_logs.action LIKE 'del%'
 GROUP BY
   biblio.biblionumber

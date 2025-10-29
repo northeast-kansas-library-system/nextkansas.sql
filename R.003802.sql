@@ -37,13 +37,13 @@ SELECT
   ) AS BORROWER_URL,
   borrowers.branchcode,
   Concat(
-    '&amp;lt;br&gt;TEXT MESSAGE NUMBER REMOVED&amp;lt;br&gt;The text message number ', 
+    '&amp;lt;br>TEXT MESSAGE NUMBER REMOVED&amp;lt;br>The text message number ', 
     borrowers.smsalertnumber, 
-    ' has been removed from this account because it is not a complete text messaging number.&amp;lt;br&gt;', 
-    'All text message numbers must be 10 digit phone numbers in order for the text messaging system to work properly.&amp;lt;br&gt;', 
+    ' has been removed from this account because it is not a complete text messaging number.&amp;lt;br>', 
+    'All text message numbers must be 10 digit phone numbers in order for the text messaging system to work properly.&amp;lt;br>', 
     'GHW - NEKLS ', 
     Now(), 
-    '&amp;lt;br&gt;'
+    '&amp;lt;br>'
   ) AS MESSAGE,
   Length(borrowers.smsalertnumber) AS smsalertnumber,
   borrowers.sms_provider_id

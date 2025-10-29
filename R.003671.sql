@@ -68,7 +68,7 @@ FROM
         Str_To_Date(Concat(YearWeek(branchtransfers.datesent + Interval 7 DAY, 0), ' Sunday'), '%X%V %W') - Interval 1 DAY 
       ) AS d2 
     FROM branchtransfers 
-    WHERE branchtransfers.datesent &lt; Date_Sub(Date(Now()), Interval DayOfWeek(Now()) + 6 DAY) 
+    WHERE branchtransfers.datesent < Date_Sub(Date(Now()), Interval DayOfWeek(Now()) + 6 DAY) 
     GROUP BY YearWeek(branchtransfers.datesent, 0) 
   ) weeks 
 LEFT JOIN 
@@ -109,7 +109,7 @@ LEFT JOIN
     GROUP BY YearWeek(branchtransfers.datesent, 0) 
   ) shipped_but_not_yet_received ON shipped_but_not_yet_received.SHIPPED_WEEK = weeks.YEARWEEK 
 WHERE 
-  Coalesce(shipped_but_not_yet_received.COUNT, 0) &gt; 0 
+  Coalesce(shipped_but_not_yet_received.COUNT, 0) > 0 
 GROUP BY 
   weeks.START_END, 
   all_shipped.COUNT, 

@@ -29,7 +29,7 @@ Lists the items your library deleted in XXXX year. Pick your branch and insert t
 
 
 
-SELECT deleteditems.homebranch, deleteditems.barcode,deleteditems.datelastseen, deleteditems.itype, deleteditems.ccode, deleteditems.timestamp, deletedbiblio.title AS "Title of Deleted Record", biblio.title AS "Title Still in Catalog", biblio.author FROM deleteditems LEFT JOIN deletedbiblio USING(biblionumber) LEFT JOIN biblio USING(biblionumber) WHERE deleteditems.homebranch = &lt;&gt; AND YEAR(deleteditems.timestamp) = &lt;&lt; numericyear &gt;&gt; ORDER BY deleteditems.timestamp DESC
+SELECT deleteditems.homebranch, deleteditems.barcode,deleteditems.datelastseen, deleteditems.itype, deleteditems.ccode, deleteditems.timestamp, deletedbiblio.title AS "Title of Deleted Record", biblio.title AS "Title Still in Catalog", biblio.author FROM deleteditems LEFT JOIN deletedbiblio USING(biblionumber) LEFT JOIN biblio USING(biblionumber) WHERE deleteditems.homebranch = <> AND YEAR(deleteditems.timestamp) = << numericyear >> ORDER BY deleteditems.timestamp DESC
 
 
 

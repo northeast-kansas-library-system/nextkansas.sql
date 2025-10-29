@@ -29,7 +29,7 @@ Choose your branch and a collection code. Displays item title, callnumber, locat
 
 
 
-SELECT biblio.title, items.itemcallnumber, items.location, items.barcode, CONCAT(''"edit item"'') as "edit barcode"  FROM biblio JOIN items USING(biblionumber) WHERE items.homebranch=&lt;&gt; AND items.ccode=&lt;&gt; ORDER BY biblio.title
+SELECT biblio.title, items.itemcallnumber, items.location, items.barcode, CONCAT(''"edit item"'') as "edit barcode"  FROM biblio JOIN items USING(biblionumber) WHERE items.homebranch=<> AND items.ccode=<> ORDER BY biblio.title
 
 
 

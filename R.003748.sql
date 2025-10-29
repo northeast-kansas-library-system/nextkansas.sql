@@ -38,8 +38,8 @@ Select
 From
   items
 Where
-  Year(items.dateaccessioned) = &lt;&gt; And
-  Month(items.dateaccessioned) = &lt;&gt;
+  Year(items.dateaccessioned) = <> And
+  Month(items.dateaccessioned) = <>
 Group By
   items.homebranch,
   items.ccode

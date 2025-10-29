@@ -170,7 +170,7 @@ FROM
       items.itemnumber
 WHERE
   items.homebranch = "OTTAWA" AND
-  withdrawnst.lib &lt;&gt; "" AND
+  withdrawnst.lib <> "" AND
   Month(items.withdrawn_on) = Month(Now() - INTERVAL 1 MONTH) AND
   Year(items.withdrawn_on) = Year(Now() - INTERVAL 1 MONTH)
 GROUP BY

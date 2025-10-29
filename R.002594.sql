@@ -29,7 +29,7 @@ For when Overbrook needs stats early.
 
 
 
-SELECT i.itype as "Item Type", i.location as "Location", count(i.biblionumber) as "Total Added" FROM items i WHERE month(i.dateaccessioned) = &lt;&gt; AND year (i.dateaccessioned) = &lt;&gt; AND i.homebranch='OVERBROOK' GROUP BY i.homebranch,i.itype,i.location ORDER BY i.homebranch,i.itype,i.location ASC
+SELECT i.itype as "Item Type", i.location as "Location", count(i.biblionumber) as "Total Added" FROM items i WHERE month(i.dateaccessioned) = <> AND year (i.dateaccessioned) = <> AND i.homebranch='OVERBROOK' GROUP BY i.homebranch,i.itype,i.location ORDER BY i.homebranch,i.itype,i.location ASC
 
 
 

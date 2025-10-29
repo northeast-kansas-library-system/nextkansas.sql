@@ -34,7 +34,7 @@ Select
   If(itypes.itemtype Is Null, "Possible errror", itypes.itemtype) As ITYPE,
   If(ltypes.authorised_value Is Null, "Errror", ltypes.authorised_value) As authorised_value,
   If(itypes.description Is Null, "Possible errror", itypes.description) As description,
-  If(itypes.description &lt;&gt; authorised_values.lib, 'Error', '') AS DESC_MATCH,
+  If(itypes.description <> authorised_values.lib, 'Error', '') AS DESC_MATCH,
   ltypes.lib
 From
   (Select

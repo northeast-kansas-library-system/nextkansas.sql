@@ -55,7 +55,7 @@ From
   borrowers Join branches 
     On borrowers.branchcode = branches.branchcode
 Where
-  borrowers.branchcode Like &lt;&gt;
+  borrowers.branchcode Like <>
 Group By
   borrowers.branchcode,
   Cast(Left(Trim(Coalesce(If(borrowers.zipcode = '', Null, borrowers.zipcode), '0')), 5) As Decimal)

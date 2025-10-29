@@ -35,9 +35,9 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.login_attempts &gt; 0 AND
-  borrowers.updated_on &gt; Last_Day(CURRENT_DATE()) - INTERVAL 14 MONTH AND
-  borrowers.branchcode = &lt;&gt;
+  borrowers.login_attempts > 0 AND
+  borrowers.updated_on > Last_Day(CURRENT_DATE()) - INTERVAL 14 MONTH AND
+  borrowers.branchcode = <>
 GROUP BY
   Concat(Year(borrowers.updated_on), '-', LPad(Month(borrowers.updated_on), 2, 0))
 ORDER BY

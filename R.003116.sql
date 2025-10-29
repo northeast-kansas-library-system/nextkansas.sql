@@ -56,7 +56,7 @@ FROM
         issues.borrowernumber,
         issues.notedate,
         items.barcode AS ITEM_BC,
-        If(issues.itemnumber &lt;&gt; 0, issues.date_due, "Item has already been returned") AS IN_OR_OUT,
+        If(issues.itemnumber <> 0, issues.date_due, "Item has already been returned") AS IN_OR_OUT,
         issues.branchcode,
         issues.issuedate,
         issues.itemnumber
@@ -71,7 +71,7 @@ FROM
         old_issues.borrowernumber,
         old_issues.notedate,
         items.barcode AS ITEM_BC,
-        If(old_issues.itemnumber &lt;&gt; 0, "Item has already been returned", "Still checked out") AS IN_OR_OUT,
+        If(old_issues.itemnumber <> 0, "Item has already been returned", "Still checked out") AS IN_OR_OUT,
         old_issues.branchcode,
         old_issues.issuedate,
         old_issues.itemnumber
@@ -84,7 +84,7 @@ FROM
   LEFT JOIN items ON allissues.itemnumber = items.itemnumber
   INNER JOIN biblio ON items.biblionumber = biblio.biblionumber
 WHERE
-  borrowers.cardnumber LIKE &lt;&gt;
+  borrowers.cardnumber LIKE <>
 GROUP BY
   allissues.borrowernumber,
   items.itemnumber

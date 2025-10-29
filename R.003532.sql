@@ -158,8 +158,8 @@ FROM
   ON branchlimits.av_id = branchccodes.id 
   AND branchlimits.branchcode = branchccodes.branchcode 
 WHERE 
-  branchccodes.branchcode LIKE &lt;&gt; AND 
-  branchccodes.authorised_value LIKE &lt;&gt; 
+  branchccodes.branchcode LIKE <> AND 
+  branchccodes.authorised_value LIKE <> 
 GROUP BY 
   branchccodes.branchcode, 
   branchccodes.authorised_value 

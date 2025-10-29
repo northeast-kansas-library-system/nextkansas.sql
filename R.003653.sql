@@ -91,7 +91,7 @@ FROM
       items.ccode
 WHERE
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="n"]') = 1 AND
-  items.homebranch LIKE &lt;&gt;
+  items.homebranch LIKE <>
 GROUP BY
   biblio.biblionumber,
   items.itemnumber

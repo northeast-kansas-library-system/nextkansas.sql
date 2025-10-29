@@ -30,7 +30,7 @@ Enhanced -- Choose Library. (On Reports Webpages, 5/14/12) #special #count
 
 
 SELECT i.datelastseen,b.title, b.author,t.publicationyear, i.location, i.ccode,i.itype,i.itemcallnumber, i.barcode, CONCAT(''"edit item"'') as "edit item" FROM items i LEFT JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber)
-WHERE i.homebranch=&lt;&gt; AND (i.damaged='1' OR i.itemlost='4') ORDER BY  i.itemcallnumber
+WHERE i.homebranch=<> AND (i.damaged='1' OR i.itemlost='4') ORDER BY  i.itemcallnumber
 
 
 

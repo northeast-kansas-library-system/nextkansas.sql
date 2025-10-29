@@ -56,7 +56,7 @@ FROM
     FROM
       accountlines
     WHERE
-      accountlines.amountoutstanding &gt; 0
+      accountlines.amountoutstanding > 0
     GROUP BY
       accountlines.borrowernumber) outstanding_debits ON
       outstanding_debits.borrowernumber = borrowers.borrowernumber INNER JOIN
@@ -66,7 +66,7 @@ FROM
     FROM
       branches) branchess ON branchess.branchcode = borrowers.branchcode
 WHERE
-  borrowers.branchcode LIKE &lt;&gt;
+  borrowers.branchcode LIKE <>
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

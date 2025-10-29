@@ -29,7 +29,7 @@ Limited by Branch. Lists all items WAITING for more than 7 days
 
 
 
-SELECT reserves.waitingdate, reserves.reservedate, reserves.branchcode, CONCAT ('',biblio.title,'') AS "Items Display", CONCAT (''"Holds Table"'') AS "Holds Table",  items.barcode, items.itemcallnumber, borrowers.firstname, borrowers.surname FROM borrowers LEFT JOIN reserves USING(borrowernumber) JOIN biblio USING(biblionumber) JOIN items USING(itemnumber) WHERE (TO_DAYS(curdate())-TO_DAYS(reserves.waitingdate)) &gt; '7' AND reserves.branchcode=&lt;&gt; ORDER BY reserves.waitingdate ASC
+SELECT reserves.waitingdate, reserves.reservedate, reserves.branchcode, CONCAT ('',biblio.title,'') AS "Items Display", CONCAT (''"Holds Table"'') AS "Holds Table",  items.barcode, items.itemcallnumber, borrowers.firstname, borrowers.surname FROM borrowers LEFT JOIN reserves USING(borrowernumber) JOIN biblio USING(biblionumber) JOIN items USING(itemnumber) WHERE (TO_DAYS(curdate())-TO_DAYS(reserves.waitingdate)) > '7' AND reserves.branchcode=<> ORDER BY reserves.waitingdate ASC
 
 
 

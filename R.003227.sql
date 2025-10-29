@@ -73,7 +73,7 @@ SELECT
       Concat_Ws(
         "",
         IF(
-          Length(biblio.title) &gt; 40,
+          Length(biblio.title) > 40,
           Concat(Left(biblio.title, 40), ". . . "),
           biblio.title
         ),
@@ -97,7 +97,7 @@ SELECT
           ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]') = "",
           "",
           If(
-            LENGTH(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]')) &gt; 40,
+            LENGTH(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]')) > 40,
             Concat(LEFT(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), 40), " . . ."),
             Concat(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), "")
           )
@@ -164,11 +164,11 @@ FROM
       ) locs
         ON locs.authorised_value = items.location
     WHERE
-      items.homebranch LIKE &lt;&gt;
+      items.homebranch LIKE <>
   ) itemss
     ON itemss.biblionumber = biblio.biblionumber
 WHERE
-  virtualshelves.shelfnumber = &lt;&gt;
+  virtualshelves.shelfnumber = <>
 GROUP BY
   TITLE_INFO,
   virtualshelves.shelfnumber

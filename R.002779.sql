@@ -41,8 +41,8 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.dateexpiry &gt; Now() AND
-  borrowers.branchcode LIKE &lt;&gt;
+  borrowers.dateexpiry > Now() AND
+  borrowers.branchcode LIKE <>
 GROUP BY
   borrowers.branchcode WITH ROLLUP
 

@@ -85,7 +85,7 @@ FROM
       accountlines JOIN
       borrowers ON borrowers.borrowernumber = accountlines.manager_id
     WHERE
-      accountlines.amountoutstanding &gt; 0 AND
+      accountlines.amountoutstanding > 0 AND
       accountlines.date BETWEEN (Date_Sub(CurDate(), INTERVAL 1 YEAR)) AND (Date_Sub(CurDate(), INTERVAL 60 DAY)) AND
       borrowers.branchcode = @brn := "OTTAWA" COLLATE utf8mb4_unicode_ci
     UNION
@@ -105,7 +105,7 @@ FROM
       old_issues ON old_issues.borrowernumber = accountlines.borrowernumber AND 
       old_issues.itemnumber = accountlines.itemnumber
     WHERE
-      accountlines.amountoutstanding &gt; 0 AND
+      accountlines.amountoutstanding > 0 AND
       accountlines.timestamp BETWEEN (Date_Sub(CurDate(), INTERVAL 1 YEAR)) AND (Date_Sub(CurDate(), INTERVAL 60 DAY)) AND old_issues.branchcode = @brn) outstanding_sixty JOIN
       borrowers ON borrowers.borrowernumber = outstanding_sixty.borrowernumber JOIN
       categories ON borrowers.categorycode = categories.categorycode LEFT JOIN
@@ -128,7 +128,7 @@ FROM
     FROM
       accountlines
     WHERE
-      accountlines.amountoutstanding &gt; .01
+      accountlines.amountoutstanding > .01
     GROUP BY
       accountlines.borrowernumber) outstanding_total ON
       outstanding_total.borrowernumber = outstanding_sixty.borrowernumber
@@ -137,7 +137,7 @@ WHERE
 GROUP BY
   borrowers.borrowernumber
 HAVING
-  AMOUNT_OUTSTANDING_SIXTY &gt; 25
+  AMOUNT_OUTSTANDING_SIXTY > 25
 ORDER BY
   borrowers.surname,
   borrowers.firstname

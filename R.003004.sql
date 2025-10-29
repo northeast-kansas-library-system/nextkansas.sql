@@ -79,8 +79,8 @@ FROM
 WHERE
   (statistics.type = 'ISSUE' OR
     statistics.type = 'RENEW') AND
-  statistics.branch LIKE &lt;&gt; AND
-  statistics.datetime BETWEEN (@startdate := CAST(&lt;&gt; AS DATE)) AND (CAST(@startdate AS DATE) + INTERVAL 1 DAY)
+  statistics.branch LIKE <> AND
+  statistics.datetime BETWEEN (@startdate := CAST(<> AS DATE)) AND (CAST(@startdate AS DATE) + INTERVAL 1 DAY)
 GROUP BY
   statistics.datetime,
   ITEM_BC,

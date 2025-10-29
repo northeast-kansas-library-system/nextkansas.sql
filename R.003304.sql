@@ -109,8 +109,8 @@ FROM
       branchtypes.branchcode AND
       yaitems.itype = branchtypes.itemtype
 WHERE
-  branchtypes.branchcode LIKE &lt;&gt; AND
-  branchtypes.itemtype LIKE &lt;&gt;
+  branchtypes.branchcode LIKE <> AND
+  branchtypes.itemtype LIKE <>
 GROUP BY
   branchtypes.branchcode,
   branchtypes.description,

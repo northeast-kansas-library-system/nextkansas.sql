@@ -39,9 +39,9 @@ SELECT
 FROM
   circulation_rules
 WHERE
-  Coalesce(circulation_rules.branchcode, " All") LIKE &lt;&gt; AND
-  Coalesce(circulation_rules.categorycode, " All") LIKE &lt;&gt; AND
-  Coalesce(circulation_rules.itemtype, " All") LIKE &lt;&gt; AND
+  Coalesce(circulation_rules.branchcode, " All") LIKE <> AND
+  Coalesce(circulation_rules.categorycode, " All") LIKE <> AND
+  Coalesce(circulation_rules.itemtype, " All") LIKE <> AND
   circulation_rules.rule_name LIKE "%"
 GROUP BY
   circulation_rules.id,
