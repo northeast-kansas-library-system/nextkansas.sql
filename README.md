@@ -107,9 +107,26 @@ Make sure you have a folder on your local computer called C:\git\ and that it is
 
 Open the csv file and run the following VBA macro:
 
-```
-
+```vb
 Sub WriteToSQL()
+
+' Declare the worksheet variable.
+    Dim ws As Worksheet
+    Set ws = ThisWorkbook.ActiveSheet
+    
+    ' Disable screen updating to speed up the macro.
+    Application.ScreenUpdating = False
+    
+    ' Perform the replacements in column B.
+    With ws.Columns("B")
+        ' Replace "&lt;" with "<".
+        .Replace What:="&lt;", Replacement:="<", LookAt:=xlPart
+        ' Replace "&gt;" with ">".
+        .Replace What:="&gt;", Replacement:=">", LookAt:=xlPart
+    End With
+    
+    ' Re-enable screen updating.
+    Application.ScreenUpdating = True
 
 Const forReading = 1, forAppending = 3, fsoForWriting = 2
 Dim fs, objTextStream, sText As String
@@ -143,9 +160,27 @@ End Sub
 
 Alternately you can use this VBA file to convert the data into rst files for Sphinx:
 
-```
+```vb
 
 Sub WriteToRST()
+
+' Declare the worksheet variable.
+    Dim ws As Worksheet
+    Set ws = ThisWorkbook.ActiveSheet
+    
+    ' Disable screen updating to speed up the macro.
+    Application.ScreenUpdating = False
+    
+    ' Perform the replacements in column B.
+    With ws.Columns("B")
+        ' Replace "&lt;" with "<".
+        .Replace What:="&lt;", Replacement:="<", LookAt:=xlPart
+        ' Replace "&gt;" with ">".
+        .Replace What:="&gt;", Replacement:=">", LookAt:=xlPart
+    End With
+    
+    ' Re-enable screen updating.
+    Application.ScreenUpdating = True
 
 Const forReading = 1, forAppending = 3, fsoForWriting = 2
 Dim fs, objTextStream, sText As String
