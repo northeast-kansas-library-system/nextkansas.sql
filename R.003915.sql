@@ -1,0 +1,102 @@
+/*
+R.003915
+
+----------
+
+Name: Who renewed report
+Created by: George Williams
+
+----------
+
+Group: -
+     -
+
+Created on: 2025-09-07 11:44:47
+Modified on: 2026-01-29 18:42:06
+Date last run: 2026-01-29 18:42:19
+
+----------
+
+Public: 0
+Expiry: 300
+
+----------
+
+
+
+----------
+*/
+
+
+
+SELECT 
+  action_logs.timestamp, 
+  Coalesce( 
+    active_staff.cardnumber, 
+    deleted_staff.cardnumber, 
+    '--' 
+  ) AS STAFF_MEMBER_WHO_RENEWED_ITEM, 
+  Concat_Ws(' / ', 
+    items.barcode, 
+    items.itemcallnumber, 
+    biblio.author, 
+    biblio.title 
+  ) AS ITEM_RENEWED, 
+  Coalesce( 
+    borrowers.cardnumber, 
+    '--' 
+  ) AS BORROWERS_CARD_NUMBER, 
+  action_logs.interface AS RENEWAL_INTERFACE 
+FROM 
+  action_logs 
+  LEFT JOIN borrowers active_staff 
+    ON active_staff.borrowernumber = action_logs.user 
+  LEFT JOIN deletedborrowers deleted_staff 
+    ON deleted_staff.borrowernumber = action_logs.user 
+  LEFT JOIN items 
+    ON items.itemnumber = action_logs.info 
+  LEFT JOIN biblio 
+    ON biblio.biblionumber = items.biblionumber 
+  LEFT JOIN borrowers 
+    ON borrowers.borrowernumber = action_logs.object 
+WHERE 
+  action_logs.module = 'CIRCULATION' AND 
+  action_logs.action = 'RENEWAL' AND 
+  Coalesce(active_staff.cardnumber, deleted_staff.cardnumber, '--') 
+    LIKE Concat('%', <<(Optional) Enter staff member barcode number or "--" for OPAC renewals>>, '%') AND 
+  items.barcode 
+    LIKE Concat('%', <<(Optional) Enter the barcode number of the item renewed>>, '%') AND 
+  borrowers.cardnumber 
+    LIKE Concat('%', <<(Optional) Enter the library card number of the borrower who renewed the item>>, '%') AND 
+  action_logs.timestamp BETWEEN 
+    (Coalesce(<<(Optional) Start of day on date1|date>>, '1900-01-01')) AND 
+    (Coalesce(<<(Optional) End of day on date2|date>> + INTERVAL 1 DAY, CurDate() + INTERVAL 1 DAY)) 
+GROUP BY 
+  action_logs.action_id 
+ORDER BY 
+  action_logs.timestamp DESC 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -118,14 +118,16 @@ Sub WriteToSQL()
     Application.ScreenUpdating = False
     
     ' Perform the replacements in column B-K.
-    With ws.Columns("B:K")
-        ' Replace "&lt;" with "<".
-        .Replace What:="&lt;", Replacement:="<", LookAt:=xlPart
-        ' Replace "" with ">".
-        .Replace What:="", Replacement:=">", LookAt:=xlPart
-        ' Replace "*" with "*".
-        .Replace What:="", Replacement:=">", LookAt:=xlPart
-    End With
+    Dim r As Range
+
+    ' Loop through each cell in columns B to K that is in use
+    For Each r In Intersect(ActiveSheet.UsedRange, ActiveSheet.Range("B:K"))
+        If Not IsError(r.Value) Then
+            r.Value = Replace(r.Value, "&lt;", "<")
+            r.Value = Replace(r.Value, "&gt;", ">")
+            r.Value = Replace(r.Value, "&ast;", "*")
+        End If
+    Next r
     
     ' Re-enable screen updating.
     Application.ScreenUpdating = True
@@ -174,14 +176,16 @@ Sub WriteToRST()
     Application.ScreenUpdating = False
     
     ' Perform the replacements in column B-K
-    With ws.Columns("B:K")
-        ' Replace "&lt;" with "<".
-        .Replace What:="&lt;", Replacement:="<", LookAt:=xlPart
-        ' Replace "" with ">".
-        .Replace What:="", Replacement:=">", LookAt:=xlPart
-        ' Replace "*" with "*".
-        .Replace What:="", Replacement:=">", LookAt:=xlPart
-    End With
+    Dim r As Range
+
+    ' Loop through each cell in columns B to K that is in use
+    For Each r In Intersect(ActiveSheet.UsedRange, ActiveSheet.Range("B:K"))
+        If Not IsError(r.Value) Then
+            r.Value = Replace(r.Value, "&lt;", "<")
+            r.Value = Replace(r.Value, "&gt;", ">")
+            r.Value = Replace(r.Value, "&ast;", "*")
+        End If
+    Next r
     
     ' Re-enable screen updating.
     Application.ScreenUpdating = True
