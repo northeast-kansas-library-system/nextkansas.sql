@@ -8,7 +8,7 @@
 2363,bibitype,COMPUTER,"Computers and internet : Public computer",,"Computers and internet : Public computer"
 2367,bibitype,DIGITAL,"E-content : Digital content",,"E-content : Digital content"
 2383,bibitype,EQUIPMENT,"Things : Equipment",,"Things : Equipment"
-2360,bibitype,ILL,"Borrowed from another library",,"Borrowed from another library"
+2888,bibitype,I_ILL,"Inter-library loan ",,"Inter-library loan "
 2388,bibitype,ITNVIDGAM,"Video game",,"Video game"
 2379,bibitype,ITRTOY,"Things : Board games, dolls, puzzles, and toys",,"Things : Board games, dolls, puzzles, and toys"
 2370,bibitype,KITS,"Kit or multi-part set",,"Kit or multi-part set"
@@ -46,6 +46,12 @@
 205,BOR_NOTES,CheckID,"Need to check patron's ID",,
 1759,BOR_NOTES,MID,"UPDATE PATRON'S NAMEPlease update the account with a middle name or middle initial.",,
 2495,BOR_NOTES,sample,"This is just an example message for testing",,
+2893,CCODE,ab_cass,"Audiobook (cassette)",vokal/Book-On-Tape-32px.png,"Audiobook (cassette)"
+2892,CCODE,ab_cd,"Audiobook (CD)",vokal/Book-On-CD-32px.png,"Audiobook (CD)"
+2894,CCODE,ab_down,"Audiobook (downloadable)",crystal-clear/build.png,"Audiobook (downloadable)"
+2895,CCODE,ab_pre,"Audiobook (preloaded player)",vokal/PlayAway-32px.png,"Audiobook (preloaded player)"
+2891,CCODE,ab_toni,"Audiobook (Tonie)",https://nekls.bywatersolutions.com/images/d48a133f2973ffcf7d61bb02aa7dd2f0_tonie.jpg,"Audiobook (Tonie)"
+2890,CCODE,ab_yoto,"Audiobook (Yoto)",https://nekls.bywatersolutions.com/images/463f3299b1d5ec4f659b152f9c011e5a_REQYOPL.png,"Audiobook (Yoto)"
 2224,CCODE,ARCHIVE,"Archival materials",bridge/archive.png,"Archival materials"
 1643,CCODE,ATLAS,Atlas,https://nextkansas.org/images/c170de4aeae2c02357e8b746e89ddd22_p_atlas.png,Atlas
 509,CCODE,BAKEWARE,Bakeware,crystal-clear/kcoloredit.png,Bakeware
@@ -55,9 +61,9 @@
 155,CCODE,BIOGRAPHY,Biography,vokal/Book-32px.png,
 146,CCODE,BOARDBK,"Board Book",vokal/Book-32px.png,
 2428,CCODE,BOB,"Battle of the books",https://nextkansas.org/images/802ba86fc65bb7722fffe4d7e3174d32_bob.svg,"Battle of the books"
-157,CCODE,BOOKONCASS,"Audiobook (cassette)",vokal/Book-On-Tape-32px.png,"Audiobook (cassette)"
+157,CCODE,BOOKONCASS,"AUDIOBOOK (CASSETTE)",https://github.com/northeast-kansas-library-system/nextimages/blob/master/itypes/do_not_use.png?raw=true,"No longer used"
 156,CCODE,BOOKONCD,"Audiobook (CD)",vokal/Book-On-CD-32px.png,"Audiobook (CD)"
-143,CCODE,BOOKONMP,"Audiobook (media player)",vokal/PlayAway-32px.png,"Audiobook (media player)"
+143,CCODE,BOOKONMP,"Audiobook (preloaded player)",vokal/PlayAway-32px.png,"Audiobook (preloaded player)"
 2198,CCODE,CLASSICS,Classics,,Classics
 194,CCODE,COMPUTER,"Public Computer",crystal-clear/mymac.png,
 168,CCODE,DISPLAY,"On Display",crystal-clear/bookmark.png,
@@ -71,10 +77,10 @@
 158,CCODE,EASY,"Picture Book",vokal/Book-32px.png,
 175,CCODE,EDUCATION,Education,vokal/Book-32px.png,
 206,CCODE,ERESOURCE,"Online Resource",crystal-clear/build.png,
-1729,CCODE,F_ACT_ADV,"Action & Adventure",,"Action & Adventure"
+1729,CCODE,F_ACT_ADV,"Action and Adventure",,"Action and Adventure"
 1730,CCODE,F_CONTEMP,"Contemporary Issues",,"Contemporary Issues"
 1732,CCODE,F_HIST,"Historical ",,"Historical "
-1731,CCODE,F_SPORTS,"Sports & Recreation",,"Sports & Recreation"
+1731,CCODE,F_SPORTS,"Sports and Recreation",,"Sports and Recreation"
 160,CCODE,FICTION,Fiction,vokal/FIC-32px.png,
 218,CCODE,GADGET,Gadget,vokal/Hardware-32px.png,
 371,CCODE,GAMEBOY,VG-Gameboy,https://nextkansas.org/images/ae404fbe9c037b9e998b85cf4fe916b6_n_vg_gboy.png,
@@ -118,6 +124,7 @@
 312,CCODE,PUZZLESBDG,"Puzzles & Board Games",vokal/ACT-32px.png,
 2677,CCODE,R_AV,"Audiovisual equipment",,"Audiovisual equipment"
 2573,CCODE,R_BLU,"Blu-ray player",https://staff.nekls.bywatersolutions.com/images/0b820bc01afce0616dd01e3f3594f0af_r_blu.svg,"Blu-ray player"
+2858,CCODE,R_EQ_YOPL,"Media player - Yoto",https://nekls.bywatersolutions.com/images/463f3299b1d5ec4f659b152f9c011e5a_REQYOPL.png,"Media player - Yoto"
 2674,CCODE,R_INST_B,"Musical instrument : brass instruments",,"Musical instrument : brass instruments"
 2675,CCODE,R_INST_M,"Musical instrument : misceleaneous",,"Musical instrument : misceleaneous"
 2671,CCODE,R_INST_P,"Musical instrument : drums and percussion",,"Musical instrument : drums and percussion"
@@ -130,6 +137,9 @@
 2448,CCODE,R_REC_F,"Recreation : fishing equipment",,"Recreation : fishing equipment"
 2447,CCODE,R_REC_S,"Recreation : athletic / sports equipment",,"Recreation : athletic / sports equipment"
 2449,CCODE,R_REC_T,"Recreation : tennis equipment",,"Recreation : tennis equipment"
+2897,CCODE,R_T_HAND,"Tools - hand tools",,"Tools - hand tools"
+2898,CCODE,R_T_HOU,"Tools - household appliances",,"Tools - household appliances"
+2896,CCODE,R_T_POW,"Tools - power tools",,
 148,CCODE,READER,"Easy Reader",vokal/Book-32px.png,
 1646,CCODE,REFERENCE,Reference,,Reference
 1900,CCODE,RL_EASY,"Read and listen - easy reader",liblime-kids/book-icon-title-search.png,"Read and listen - easy reader"
@@ -462,6 +472,86 @@
 2436,fatype,I_ILL_21,"Inter-library loan -- Inter-library loan - 21 day loan",,"Inter-library loan -- Inter-library loan - 21 day loan"
 2437,fatype,I_ILL_28,"Inter-library loan -- Inter-library loan - 28 day loan",,"Inter-library loan -- Inter-library loan - 28 day loan"
 2438,fatype,PUNC,(Unclassified),,(Unclassified)
+2899,FR_BRB_942C,BOOK,Book,,Book
+2927,FR_BRB_942H,FICTION,Fiction,,Fiction
+2928,FR_BRB_942H,NONFICTION,Non-Fiction,,Non-Fiction
+2966,FR_BRB_94Y,BOOK,Book,,Book
+2972,FR_BRB_94Y,HCC_RES,"Reserve desk - Highland Community College",,"Reserve desk - Highland Community College"
+2973,FR_BRB_94Y,LOCALHOLD,"Special collections (local requests only)",,"Special collections (local requests only)"
+2967,FR_BRB_94Y,LOCALHOLD2,"Book (local requests only)",,"Book (local requests only)"
+2971,FR_BRB_94Y,P_REF,"Reference material",,"Reference material"
+2970,FR_BRB_94Y,P_USD454,"Book - School District 454",,"Book - School District 454"
+2968,FR_BRB_94Y,PBBKNEW,"Book (new)",,"Book (new)"
+2969,FR_BRB_94Y,PBBKWALK,"Book (no requests allowed)",,"Book (no requests allowed)"
+2974,FR_BRB_94Y,PSPECIAL,"Special collections (no requests allowed)",,"Special collections (no requests allowed)"
+2929,FR_BRB_9528,ARCHIVE,"Archival materials",,"Archival materials"
+2930,FR_BRB_9528,ATLAS,Atlas,,Atlas
+2931,FR_BRB_9528,BILINGUAL,Bilingual,,Bilingual
+2932,FR_BRB_9528,BIOGRAPHY,Biography,,Biography
+2933,FR_BRB_9528,BOARDBK,"Board Book",,"Board Book"
+2934,FR_BRB_9528,BOB,"Battle of the books",,"Battle of the books"
+2935,FR_BRB_9528,CLASSICS,Classics,,Classics
+2936,FR_BRB_9528,EASY,"Picture Book",,"Picture Book"
+2937,FR_BRB_9528,EDUCATION,Education,,Education
+2938,FR_BRB_9528,FICTION,Fiction,,Fiction
+2939,FR_BRB_9528,GENEALOGY,Genealogy,,Genealogy
+2940,FR_BRB_9528,GRAPHIC,"Graphic Novel",,"Graphic Novel"
+2941,FR_BRB_9528,HOLIDAY,Holiday,,Holiday
+2942,FR_BRB_9528,INSPRATION,Inspirational,,Inspirational
+2943,FR_BRB_9528,KANSAS,Kansas,,Kansas
+2944,FR_BRB_9528,LGBTQ,LGBTQ+,,LGBTQ+
+2945,FR_BRB_9528,LIT_A,"Adult literacy",,"Adult literacy"
+2946,FR_BRB_9528,M_AFRICAN,"African American history and literature",,"African American history and literature"
+2947,FR_BRB_9528,MCNA_FIC,"McNaughton Fiction",,"McNaughton Fiction"
+2948,FR_BRB_9528,MCNA_NON,"McNaughton Non-fiction",,"McNaughton Non-fiction"
+2949,FR_BRB_9528,MISC,Miscellaneous,,Miscellaneous
+2950,FR_BRB_9528,MYST_COZY,Mystery-Cozy,,Mystery-Cozy
+2951,FR_BRB_9528,MYSTERY,Mystery,,Mystery
+2952,FR_BRB_9528,NONFICTION,Non-Fiction,,Non-Fiction
+2953,FR_BRB_9528,NOTABLE,"Kansas notable books",,"Kansas notable books"
+2954,FR_BRB_9528,OVERSIZE,Oversize,,Oversize
+2955,FR_BRB_9528,PAPERBACK,Paperback,,Paperback
+2956,FR_BRB_9528,PARENTING,Parenting,,Parenting
+2957,FR_BRB_9528,PROFCOLL,"Professional Collection",,"Professional Collection"
+2958,FR_BRB_9528,READER,"Easy Reader",,"Easy Reader"
+2959,FR_BRB_9528,REFERENCE,Reference,,Reference
+2960,FR_BRB_9528,ROMANCE,Romance,,Romance
+2961,FR_BRB_9528,SF-FANT,"Sci Fi-Fantasy",,"Sci Fi-Fantasy"
+2962,FR_BRB_9528,SPANISH,Spanish,,Spanish
+2963,FR_BRB_9528,SPC_DARE,"Special collection - Dyslexic and Autistic Reading Engagement",,"Special collection - Dyslexic and Autistic Reading Engagement"
+2964,FR_BRB_9528,WESTERN,Western,,Western
+2965,FR_BRB_9528,XXX,(Unclassified),,(Unclassified)
+2975,FR_BRDV_942C,NVIDEO,Video,,Video
+2976,FR_BRDV_942C,NVIDTV,"Video (Television)",,"Video (Television)"
+2977,FR_BRDV_942H,VID_D,"Video (DVD)",,"Video (DVD)"
+2978,FR_BRDV_942H,VID_D_T,"Video-TV series (DVD)",,"Video-TV series (DVD)"
+2986,FR_BRDV_9528,ARCHIVE,"Archival materials",,"Archival materials"
+2987,FR_BRDV_9528,BILINGUAL,Bilingual,,Bilingual
+2988,FR_BRDV_9528,BIOGRAPHY,Biography,,Biography
+2989,FR_BRDV_9528,CLASSICS,Classics,,Classics
+2990,FR_BRDV_9528,DISPLAY,"On Display",,"On Display"
+2991,FR_BRDV_9528,EDUCATION,Education,,Education
+2992,FR_BRDV_9528,FICTION,Fiction,,Fiction
+2993,FR_BRDV_9528,GENEALOGY,Genealogy,,Genealogy
+2994,FR_BRDV_9528,INSPRATION,Inspirational,,Inspirational
+2995,FR_BRDV_9528,KANSAS,Kansas,,Kansas
+2996,FR_BRDV_9528,LGBTQ,LGBTQ+,,LGBTQ+
+2997,FR_BRDV_9528,LIT_A,"Adult literacy",,"Adult literacy"
+2998,FR_BRDV_9528,M_AFRICAN,"African American history and literature",,"African American history and literature"
+2999,FR_BRDV_9528,MISC,Miscellaneous,,Miscellaneous
+3000,FR_BRDV_9528,MYST_COZY,Mystery-Cozy,,Mystery-Cozy
+3001,FR_BRDV_9528,MYSTERY,Mystery,,Mystery
+3002,FR_BRDV_9528,NONFICTION,Non-Fiction,,Non-Fiction
+3003,FR_BRDV_9528,PARENTING,Parenting,,Parenting
+3004,FR_BRDV_9528,PROFCOLL,"Professional Collection",,"Professional Collection"
+3005,FR_BRDV_9528,REFERENCE,Reference,,Reference
+2979,FR_BRDV_952Y,NVIDEO,Video,,Video
+2980,FR_BRDV_952Y,NVIDLH,"Video (Local requests only)",,"Video (Local requests only)"
+2981,FR_BRDV_952Y,NVIDNEW,"Video (New)",,"Video (New)"
+2983,FR_BRDV_952Y,NVIDTV,"Video (Television)",,"Video (Television)"
+2982,FR_BRDV_952Y,NVIDWALK,"Video (No requests allowed)",,"Video (No requests allowed)"
+2984,FR_BRDV_952Y,P_REF,"Reference material",,"Reference material"
+2985,FR_BRDV_952Y,PSPECIAL,"Special collections (no requests allowed)",,"Special collections (no requests allowed)"
 2844,FRAME_FA_CCODE,ILL,"Interlibrary Loan",,"Interlibrary Loan"
 2843,FRAME_FA_TYPE,I_ILL,"Inter-library loan",,"Inter-library loan"
 1977,frame_hoop_9528,DLAUDIO,"Downloadable Audiobook",,"Downloadable Audiobook"
@@ -482,6 +572,8 @@
 2395,frame_relia,NREL_TOOL,"Things : Tools",,"Things : Tools"
 2390,frame_relia,NREL_TOY,"Things : Board games, dolls, puzzles, and toys",,"Things : Board games, dolls, puzzles, and toys"
 2389,frame_relia,R_ART,"Things : Artwork",,"Things : Artwork"
+2860,FRAME_REQP_CCODE,R_EQ_YOPL,"Media player - Yoto",,"Media player - Yoto"
+2859,FRAME_REQP_TYPE,R_EQ_PLAR,"Things - Electronic Media Player",,"Things - Electronic Media Player"
 2689,"Framework - Digital branches",DIGITAL,"Next Digital Library",,"Next Digital Library"
 2695,"Framework - Digital ccode",DLAUDIO,"Audiobook (downloadable)",,"Audiobook (downloadable)"
 2696,"Framework - Digital ccode",DLBOOK,"Downloadable Book",,"Downloadable Book"
@@ -651,6 +743,7 @@
 29,HINGS_UT,a,"Basic bibliographic unit",,
 30,HINGS_UT,c,"Secondary bibliographic unit: supplements, special issues, accompanying material",,
 31,HINGS_UT,d,Indexes,,
+2887,HOLD_CANCELLATION,NOT_AVAIL,"Staff cancellation - Copies of this title are no longer available to fill this request",,"Staff cancellation - Copies of this title are no longer available to fill this request"
 2718,HOLD_CANCELLATION,ST_BOOT,"Staff cancellation - bootleg edition",,"Staff cancellation - bootleg edition"
 2683,HOLD_CANCELLATION,ST_BOR_REQ,"Staff cancellation - borrower requested cancellation",," "
 2685,HOLD_CANCELLATION,ST_CKI,"Staff cancellation - cancelled on check-in page - no reason given",," "
@@ -772,7 +865,6 @@
 585,LBRANCH,PHSES,"Prairie Hills Schools - Sabetha Elementary School",,
 586,LBRANCH,PHSHS,"Prairie Hills Schools - Sabetha High School",,
 587,LBRANCH,PHSMS,"Prairie Hills Schools - Sabetha Middle School",,
-588,LBRANCH,PHWAC,"Prairie Hills Schools - Wetmore Academic Center",,
 589,LBRANCH,POMONA,"Pomona Community Library",,
 590,LBRANCH,RICHMOND,"Richmond Public Library",,
 591,LBRANCH,ROSSVILLE,"Rossville Community Library",,
@@ -915,6 +1007,14 @@
 2148,LCCODE,PS5,"VG-PlayStation 5 (PS5)",,"VG-PlayStation 5 (PS5)"
 650,LCCODE,PSP,"VG-PlayStation Portable (PSP)",,
 651,LCCODE,PUZZLESBDG,"Puzzles & Board Games",,
+2847,LCCODE,R_AV,"Audiovisual equipment ",,"Audiovisual equipment "
+2848,LCCODE,R_BLU,"Blu-ray player",,"Blu-ray player"
+2849,LCCODE,R_INST_B,"Musical instrument : brass instruments",,"Musical instrument : brass instruments"
+2850,LCCODE,R_INST_M,"Musical instrument : misceleaneous",,"Musical instrument : misceleaneous"
+2851,LCCODE,R_INST_P,"Musical instrument : drums and percussion",,"Musical instrument : drums and percussion"
+2852,LCCODE,R_INST_S,"Musical instrument : stringed instruments",,"Musical instrument : stringed instruments"
+2853,LCCODE,R_INST_W,"Musical instrument : woodwind instruments",,"Musical instrument : woodwind instruments"
+2854,LCCODE,R_REC,"Record player",,"Record player"
 2570,LCCODE,R_REC_A,"Recreation : softball / baseball equipment",,"Recreation : softball / baseball equipment"
 2569,LCCODE,R_REC_B,"Recreation : basketball equipment",,"Recreation : basketball equipment"
 2568,LCCODE,R_REC_C,"Recreation : football equipment",,"Recreation : football equipment"
@@ -1047,12 +1147,14 @@
 2077,LDEBITTYPE,LOST,"Lost item",,"Lost item"
 2078,LDEBITTYPE,LOST_RETURN,"Lost item (Returned) (no longer used)",,"Lost item (Returned) (no longer used)"
 2079,LDEBITTYPE,LOSTI,"Lost item? (no longer used)",,"Lost item? (no longer used)"
+2882,LDEBITTYPE,LOSTPROC,"Lost item processing fee (SENECA)",,"Lost item processing fee (SENECA)"
 2080,LDEBITTYPE,MANUAL,"Miscellaneous fee",,"Miscellaneous fee"
 2081,LDEBITTYPE,NEW_CARD,"New card fee",,"New card fee"
 2082,LDEBITTYPE,NOTE,NOTE,,NOTE
 2094,LDEBITTYPE,null,"Debit type is null (no longer used)",,"Debit type is null (no longer used)"
 2083,LDEBITTYPE,OVERDUE,"Late fee",,"Late fee"
 2084,LDEBITTYPE,Pay,"Payment (no longer used)",,"Payment (no longer used)"
+2883,LDEBITTYPE,PAYOUT,"Pay out (no longer used)",,"Pay out (no longer used)"
 2085,LDEBITTYPE,PROCESSING,"Lost item processing fee",,"Lost item processing fee"
 2086,LDEBITTYPE,RENT,"Rental fee",,"Rental fee"
 2087,LDEBITTYPE,RENT_DAILY,"Daily rental fee",,"Daily rental fee"
@@ -1060,7 +1162,9 @@
 2089,LDEBITTYPE,RENT_RENEW,"Renewal of rental item",,"Renewal of rental item"
 2090,LDEBITTYPE,RESERVE,"Hold fee",,"Hold fee"
 2091,LDEBITTYPE,RESERVE_EXPIRED,"Hold waiting too long",,"Hold waiting too long"
+2884,LDEBITTYPE,TEST,"Test (no longer used)",,"Test (no longer used)"
 2092,LDEBITTYPE,UNKNOWN,"Unknown fee type (no longer used)",,"Unknown fee type (no longer used)"
+2885,LDEBITTYPE,VOID,"Void (no longer used)",,"Void (no longer used)"
 2093,LDEBITTYPE,W,"Writeoff (no longer used)",,"Writeoff (no longer used)"
 1530,LEXPIRED,~," Any accounts without an ""expiration"" attribute",," Any accounts without an ""expiration"" attribute"
 1202,LEXPIRED,1,"Account expired for more than 2 years -  scheduled for auto-deletion when expired for 3 years",,"Account expired for more than 2 years -  scheduled for auto-deletion when expired for 3 years"
@@ -1126,7 +1230,6 @@
 670,LITYPES,COMPUTER,"Computers and internet : Public computer",,
 671,LITYPES,DIGITAL,"E-content : Digital content",,
 672,LITYPES,EQUIPMENT,"Things : Equipment",,"Things : Equipment"
-674,LITYPES,GAME,"Video game",,"Video game"
 1984,LITYPES,HCC_RES,"Reserve desk : Highland Community College",,"Reserve desk : Highland Community College"
 2560,LITYPES,I_ILL,"Inter-library loan",,"Inter-library loan"
 2561,LITYPES,I_ILL_07,"Inter-library loan -- Inter-library loan - 07 day loan",,"Inter-library loan -- Inter-library loan - 07 day loan"
@@ -1134,6 +1237,9 @@
 2563,LITYPES,I_ILL_21,"Inter-library loan -- Inter-library loan - 21 day loan",,"Inter-library loan -- Inter-library loan - 21 day loan"
 2564,LITYPES,I_ILL_28,"Inter-library loan -- Inter-library loan - 28 day loan",,"Inter-library loan -- Inter-library loan - 28 day loan"
 675,LITYPES,ILL,"INTER-LIBRARY LOAN",,"INTER-LIBRARY LOAN"
+674,LITYPES,ITNVIDGAM,"Video game",,"Video game"
+2856,LITYPES,ITRART,"Things - Artwork",,"Things - Artwork"
+2857,LITYPES,ITRTOY,"Things : Board games, dolls, puzzles, and toys",,"Things : Board games, dolls, puzzles, and toys"
 676,LITYPES,KITS,"KIT OR MULTI-PART SET",,
 677,LITYPES,LAUNCHPAD,"Computers and internet : Launchpad tablet",,"Computers and internet : Launchpad tablet"
 678,LITYPES,LOCALHOLD,"Special collections (local requests only)",,
@@ -1152,7 +1258,6 @@
 2186,LITYPES,NREL_CLOTH,"Things : Clothing, costumes, and masks",,"Things : Clothing, costumes, and masks"
 2187,LITYPES,NREL_COOK,"Things : Cooking equipment",,"Things : Cooking equipment"
 2188,LITYPES,NREL_TOOL,"Things : Tools",,"Things : Tools"
-2189,LITYPES,NREL_TOY,"Things : Board games, dolls, puzzles, and toys",,"Things : Board games, dolls, puzzles, and toys"
 2190,LITYPES,NROOM,Room,,
 2191,LITYPES,NSOFT,"Computers and internet : Software",,"Computers and internet : Software"
 1998,LITYPES,NVID%,"VIDEO - (All 5 VIDEO item types)",,
@@ -1164,13 +1269,13 @@
 2421,LITYPES,P_MAG,Magazine,,Magazine
 2422,LITYPES,P_MAG_N,"Magazine (new)",,"Magazine (new)"
 2423,LITYPES,P_REF,"Reference material",,"Reference material"
+2855,LITYPES,"P_USD454 ","Book - School District 454",,"Book - School District 454"
 1989,LITYPES,PBBKCLUB,"Book Club Set",,"Book Club Set"
 1990,LITYPES,PBBKNEW,"Book (new)",,
 2056,LITYPES,PBBKWALK,"Book (no requests allowed)",,"Book (no requests allowed)"
 2192,LITYPES,PPHAM,Pamphlet,,
 2193,LITYPES,PSPECIAL,"Special collections (no requests allowed)",,
 2057,LITYPES,PUNC,(UNCLASSIFIED),,(UNCLASSIFIED)
-2418,LITYPES,R_ART,"Things : Artwork",,"Things : Artwork"
 2419,LITYPES,R_CMP_LAP,"Computers and internet : Laptop computer",,"Computers and internet : Laptop computer"
 2559,LITYPES,R_EQ_AV,"Things : Audio-visual equipment",,"Things : Audio-visual equipment"
 2558,LITYPES,R_INST,"Things : Musical insturments and accessories",,"Things : Musical insturments and accessories"
@@ -1256,7 +1361,7 @@
 2141,LOC,D_YA_BALD,"Young adult display (Baldwin City Library)",,"Young adult display (Baldwin City Library)"
 2139,LOC,D_YA_LEAV,"Young adult display (Leavenworth Public Library)",,"Young adult display (Leavenworth Public Library)"
 2140,LOC,D_YA_PAOL,"Young adult display (Paola Free Library)",,"Young adult display (Paola Free Library)"
-2352,LOC,L_AD," Adult",," Adult"
+2352,LOC,L_AD," Adult",carredart/cd.png," Adult"
 2196,LOC,L_JU," Children's",," Children's"
 2138,LOC,L_YA," Young adult",," Young adult"
 210,LOC,PROC,"Processing Center",,"Processing center"
@@ -1512,9 +1617,9 @@
 496,PA_CLASS,School,School,,
 2709,PA_CLASS,STAFF,"Staff type attributes",,"Staff type attributes"
 2582,PA_CLASS,STATS,"Statistical groups",,"Statistical groups"
-2743,PA_P_ASPEN,10010,"01 - Superlibrarian",,"01 - Superlibrarian"
-2744,PA_P_ASPEN,10020,"02 - Aspen Discovery administrator",,"02 - Aspen Discovery administrator"
-2745,PA_P_ASPEN,10030,"03 - Technical services",,"03 - Technical services"
+2743,PA_P_ASPEN,10010,"01 - opacAdmin",,"01 - opacAdmin"
+2744,PA_P_ASPEN,10020,"02 - library_admin",,"02 - library_admin"
+2745,PA_P_ASPEN,10030,"03 - technical_services",,"03 - technical_services"
 2746,PA_P_ASPEN,10040,"04 - Circulation",,"04 - Circulation"
 2747,PA_P_ASPEN,10050,"05 - Aide - Volunteer",,"05 - Aide - Volunteer"
 2748,PA_P_ASPEN,10060,"06 - Outreach",,"06 - Outreach"
@@ -1836,6 +1941,7 @@
 2480,Year,2023,2023,,2023
 2686,Year,2024,2024,,2024
 2806,Year,2025,2025,,2025
+3006,Year,2026,2026,,2026
 1125,YEMAILNEWS,%," All newsletter permissions",," All newsletter permissions"
 1126,YEMAILNEWS,No,No,,No
 1128,YEMAILNEWS,NotApp,"Not Used at Library",,"Not Used at Library"
@@ -1956,6 +2062,27 @@
 1113,Z_AGE_LEST,8," 8",," 8"
 1114,Z_AGE_LEST,9," 9",," 9"
 1104,Z_AGE_LEST,999,"  Any Age",,"  Any Age"
+2868,Z_FEE_STATUS,%," All statuses",," All statses"
+2869,Z_FEE_STATUS,ADDED,Added,,Added
+2870,Z_FEE_STATUS,APPLIED,Applied,,Applied
+2871,Z_FEE_STATUS,CANCELLED,Cancelled,,Cancelled
+2872,Z_FEE_STATUS,DISCOUNTED,Discounted,,Discounted
+2873,Z_FEE_STATUS,FORGIVEN,Forgiven,,Forgiven
+2874,Z_FEE_STATUS,FOUND,Found,,Found
+2875,Z_FEE_STATUS,LOST,Lost,,Lost
+2876,Z_FEE_STATUS,PAID,Paid,,Paid
+2877,Z_FEE_STATUS,REFUNDED,Refunded,,Refunded
+2878,Z_FEE_STATUS,RENEWED,Renewed,,Renewed
+2879,Z_FEE_STATUS,RETURNED,Returned,,Returned
+2880,Z_FEE_STATUS,UNRETURNED,Unreturned,,Unreturned
+2881,Z_FEE_STATUS,VOID,Void,,Void
+2861,Z_INTERFACE,%," All interfaces",," All interfaces"
+2862,Z_INTERFACE,api,API,,API
+2863,Z_INTERFACE,cron,"Cron job",,"Cron job"
+2864,Z_INTERFACE,intranet,"Koha staff interface",,"Koha staff interface"
+2865,Z_INTERFACE,opac,"Koha OPAC",,"Koha OPAC"
+2866,Z_INTERFACE,sip,SIP,,SIP
+2867,Z_INTERFACE,upgrade,Upgrade,,Upgrade
 2846,Z3950_STATUS,SYSPREF,"Local availability only",,
 905,ZBRAN,ATCHISON,"Atchison Public Library",,
 906,ZBRAN,BALDWIN,"Baldwin City Public Library",,
@@ -2000,7 +2127,6 @@
 945,ZBRAN,PHSES,"Prairie Hills Schools - Sabetha Elementary School",,
 946,ZBRAN,PHSHS,"Prairie Hills Schools - Sabetha High School",,
 947,ZBRAN,PHSMS,"Prairie Hills Schools - Sabetha Middle School",,
-948,ZBRAN,PHWAC,"Prairie Hills Schools - Wetmore Academic Center",,
 942,ZBRAN,POMONA,"Pomona Community Library",,
 949,ZBRAN,RICHMOND,"Richmond Public Library",,
 950,ZBRAN,ROSSVILLE,"Rossville Community Library",,
