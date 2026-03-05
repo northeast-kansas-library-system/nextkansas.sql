@@ -22,7 +22,7 @@ Expiry: 300
 
 ----------
 
-<script>
+&lt;script&gt;
 
   $(window).on("load", function() {
 
@@ -43,22 +43,22 @@ Expiry: 300
 
 });
 
-</script>
+&lt;/script&gt;
 
-<div class="reportinfo noprint hideme"> 
-<p>Creates a digital receipt that can be copied and pasted into a form for easy mailing to a patron's e-mail address</p>
-<ul><li>WHEN</li>
-<li>Whose Stuff</li>
-<li>grouped by</li>
-<li>sorted by</li>
-<li>links</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p><input type="button" id="digireciept" style="margin: 20px; padding: 5px;" value="One time e-mail receipt step 2"></p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3076&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint hideme"&gt; 
+&lt;p&gt;Creates a digital receipt that can be copied and pasted into a form for easy mailing to a patron's e-mail address&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;WHEN&lt;/li&gt;
+&lt;li&gt;Whose Stuff&lt;/li&gt;
+&lt;li&gt;grouped by&lt;/li&gt;
+&lt;li&gt;sorted by&lt;/li&gt;
+&lt;li&gt;links&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;input type="button" id="digireciept" style="margin: 20px; padding: 5px;" value="One time e-mail receipt step 2"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3076&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -103,7 +103,7 @@ FROM
   JOIN branches ON issues.branchcode = branches.branchcode
   JOIN borrowers ON issues.borrowernumber = borrowers.borrowernumber
 WHERE
-  issues.borrowernumber = <>
+  issues.borrowernumber = &lt;&gt;
 GROUP BY
   items.biblionumber,
   issues.borrowernumber

@@ -110,8 +110,8 @@ FROM
   ) expired_account 
     ON expired_account.borrowernumber = borrowers.borrowernumber
 WHERE
-  expired_account.attribute > 4 AND 
-  expired_account.attribute LIKE <>
+  expired_account.attribute &gt; 4 AND 
+  expired_account.attribute LIKE &lt;&gt;
 
 
 

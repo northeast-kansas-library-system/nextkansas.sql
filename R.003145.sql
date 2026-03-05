@@ -22,16 +22,16 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Adult patrons with lingering guarantor problems</p>
-<ul><li>Shows patrons who still have guarantor information connected to their accounts even though they are now adults</li>
-<li>Shows patrons at all libraries</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3145&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3145">Click here to download as a csv file</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Adult patrons with lingering guarantor problems&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows patrons who still have guarantor information connected to their accounts even though they are now adults&lt;/li&gt;
+&lt;li&gt;Shows patrons at all libraries&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p id="rquickopen"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3145&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;p id="rquickdown"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3145"&gt;Click here to download as a csv file&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -54,7 +54,7 @@ FROM
   borrower_relationships ON borrower_relationships.guarantee_id =
       borrowers.borrowernumber
 WHERE
-  (borrowers.dateofbirth <= CurDate() - INTERVAL 18 YEAR OR
+  (borrowers.dateofbirth &lt;= CurDate() - INTERVAL 18 YEAR OR
       borrowers.dateofbirth IS NULL) AND
   borrower_relationships.guarantor_id IS NOT NULL
 GROUP BY

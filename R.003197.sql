@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
-A work-in-progress<br />
+A work-in-progress&lt;br /&gt;
 
-ODUE1 - goes to most patrons XX days after an item is overdue - XX is set on a library-by-library basis<br />
-ODUE2 - goes to most patron 35 days after an item is due - warns patrons that they will be billed for the cost of the item in 10 days<br />
-ODUE3 - goes to most patrons 45 days after an item is due - warns them that they are being billed for the cost of the item<br />
+ODUE1 - goes to most patrons XX days after an item is overdue - XX is set on a library-by-library basis&lt;br /&gt;
+ODUE2 - goes to most patron 35 days after an item is due - warns patrons that they will be billed for the cost of the item in 10 days&lt;br /&gt;
+ODUE3 - goes to most patrons 45 days after an item is due - warns them that they are being billed for the cost of the item&lt;br /&gt;
 
-ODUE1_ILL - goes to ILL partners XX days after an item is overdue - XX is set on a library-by-library basis<br />
-ODUE2_ILL - goes to ILL partners 35 days after an item is overdue<br />
-ODUE3_ILL - goes to ILL partners 45 days after an item is overdue<br />
+ODUE1_ILL - goes to ILL partners XX days after an item is overdue - XX is set on a library-by-library basis&lt;br /&gt;
+ODUE2_ILL - goes to ILL partners 35 days after an item is overdue&lt;br /&gt;
+ODUE3_ILL - goes to ILL partners 45 days after an item is overdue&lt;br /&gt;
 
-ODUE1_SPEC - goes to non-billed patrons XX days after an item is overdue - XX is set on a library-by-library basis<br />
-ODUE2_SPEC - goes to non-billed patrons 35 days after an item is overdue<br />
-ODUE3_SPEC - goes to non-billed patrons 45 days after an item is overdue<br />
+ODUE1_SPEC - goes to non-billed patrons XX days after an item is overdue - XX is set on a library-by-library basis&lt;br /&gt;
+ODUE2_SPEC - goes to non-billed patrons 35 days after an item is overdue&lt;br /&gt;
+ODUE3_SPEC - goes to non-billed patrons 45 days after an item is overdue&lt;br /&gt;
 
 ----------
 */
@@ -50,9 +50,9 @@ SELECT
 FROM
   message_queue
 WHERE
-  message_queue.subject LIKE Concat("%", <>,"%") AND
+  message_queue.subject LIKE Concat("%", &lt;&gt;,"%") AND
   message_queue.letter_code LIKE "OD%" AND
-  message_queue.message_transport_type LIKE <> AND
+  message_queue.message_transport_type LIKE &lt;&gt; AND
   message_queue.status = 'sent'
 GROUP BY
   Date_Format(message_queue.time_queued, "%Y.%m.%d - %W"),

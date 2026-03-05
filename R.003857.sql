@@ -32,7 +32,7 @@ Expiry: 300
 
 
 SELECT
-  *
+  &ast;
 FROM
   ((SELECT
       Concat(
@@ -42,7 +42,7 @@ FROM
     FROM
       biblio
     WHERE
-      biblio.biblionumber > <>
+      biblio.biblionumber &gt; &lt;&gt;
     LIMIT 25)
     UNION
     SELECT
@@ -74,7 +74,7 @@ FROM
     FROM
       biblio
     WHERE
-      biblio.biblionumber > <>
+      biblio.biblionumber &gt; &lt;&gt;
     LIMIT 25)) Query1
 LIMIT 1000
 

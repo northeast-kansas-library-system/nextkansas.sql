@@ -22,30 +22,30 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
+&lt;div class="reportinfo noprint"&gt; 
 
-<p>Valid data =</p>
+&lt;p&gt;Valid data =&lt;/p&gt;
 
-    <ul>
-      <li>a - Language material</li> 
-      <li>c - Notated music</li> 
-      <li>d - Manuscript notated music</li> 
-      <li>e - Cartographic material</li> 
-      <li>f - Manuscript cartographic material</li> 
-      <li>g - Projected medium</li> 
-      <li>i - Nonmusical sound recording</li> 
-      <li>j - Musical sound recording</li> 
-      <li>k - Two-dimensional nonprojectable graphic</li> 
-      <li>m - Computer file</li> 
-      <li>o - Kit</li> 
-      <li>p - Mixed materials</li> 
-      <li>r - Three-dimensional artifact or naturally occurring object</li> 
-      <li>t - Manuscript language material</li> 
-    </ul>
+    &lt;ul&gt;
+      &lt;li&gt;a - Language material&lt;/li&gt; 
+      &lt;li&gt;c - Notated music&lt;/li&gt; 
+      &lt;li&gt;d - Manuscript notated music&lt;/li&gt; 
+      &lt;li&gt;e - Cartographic material&lt;/li&gt; 
+      &lt;li&gt;f - Manuscript cartographic material&lt;/li&gt; 
+      &lt;li&gt;g - Projected medium&lt;/li&gt; 
+      &lt;li&gt;i - Nonmusical sound recording&lt;/li&gt; 
+      &lt;li&gt;j - Musical sound recording&lt;/li&gt; 
+      &lt;li&gt;k - Two-dimensional nonprojectable graphic&lt;/li&gt; 
+      &lt;li&gt;m - Computer file&lt;/li&gt; 
+      &lt;li&gt;o - Kit&lt;/li&gt; 
+      &lt;li&gt;p - Mixed materials&lt;/li&gt; 
+      &lt;li&gt;r - Three-dimensional artifact or naturally occurring object&lt;/li&gt; 
+      &lt;li&gt;t - Manuscript language material&lt;/li&gt; 
+    &lt;/ul&gt;
 
 
 
-</div>
+&lt;/div&gt;
 
 ----------
 */

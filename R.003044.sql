@@ -29,7 +29,7 @@ Expiry: 300
 
 
 
-SELECT *
+SELECT &ast;
 FROM action_logs
 ORDER BY 
   action_id

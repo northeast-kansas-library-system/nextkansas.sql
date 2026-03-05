@@ -22,39 +22,39 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Lists items with a specific "Not for loan" status</p>
-<ul><li>Shows items that currently have a "Not for loan" status</li>
-<li>at the library you specify</li>
-<li>grouped by biblio.biblionumber and items.itemnumber</li>
-<li>sorted by the standard Next Search Catalog classification scheme</li>
-<li>links to the bibliographic record for the item</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p>Not for loan statuses include:
-  <ul>
-    <li>Download or Online Access (5)</li>
-    <li>In Processing (7)</li>
-    <li>Migration (3)</li>
-    <li>Not For Loan (1)</li>
-    <li>Online Access (6)</li>
-    <li>Ordered (-1)</li>
-    <li>Paola processing (-9)</li>
-    <li>Paola repair/mending (-8)</li>
-    <li>Staff Collection (2)</li>
-  </ul>
-</p>
-<p></p>
-<p>This report replaces the following reports:
-  <ul>
-    <li>1307 - Not For Loan Items</li>
-    <li>1407 - Not For Loan Status</li>
-    <li>1412 - All items in a specific not for loan status</li>
-  </ul>
-</p>
-<p></p>
-<p class= "notetags" style="display: none;">#ultimate #notloan not for loan</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Lists items with a specific "Not for loan" status&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows items that currently have a "Not for loan" status&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped by biblio.biblionumber and items.itemnumber&lt;/li&gt;
+&lt;li&gt;sorted by the standard Next Search Catalog classification scheme&lt;/li&gt;
+&lt;li&gt;links to the bibliographic record for the item&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;Not for loan statuses include:
+  &lt;ul&gt;
+    &lt;li&gt;Download or Online Access (5)&lt;/li&gt;
+    &lt;li&gt;In Processing (7)&lt;/li&gt;
+    &lt;li&gt;Migration (3)&lt;/li&gt;
+    &lt;li&gt;Not For Loan (1)&lt;/li&gt;
+    &lt;li&gt;Online Access (6)&lt;/li&gt;
+    &lt;li&gt;Ordered (-1)&lt;/li&gt;
+    &lt;li&gt;Paola processing (-9)&lt;/li&gt;
+    &lt;li&gt;Paola repair/mending (-8)&lt;/li&gt;
+    &lt;li&gt;Staff Collection (2)&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;This report replaces the following reports:
+  &lt;ul&gt;
+    &lt;li&gt;1307 - Not For Loan Items&lt;/li&gt;
+    &lt;li&gt;1407 - Not For Loan Status&lt;/li&gt;
+    &lt;li&gt;1412 - All items in a specific not for loan status&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;#ultimate #notloan not for loan&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -134,9 +134,9 @@ FROM
       authorised_values.category = 'NOT_LOAN') not_loans ON
       not_loans.authorised_value = items.notforloan
 WHERE
-  items.homebranch LIKE <> AND
-  (items.notforloan LIKE <> AND
-   items.notforloan <> '')
+  items.homebranch LIKE &lt;&gt; AND
+  (items.notforloan LIKE &lt;&gt; AND
+   items.notforloan &lt;&gt; '')
 GROUP BY
   biblio.biblionumber,
   items.itemnumber

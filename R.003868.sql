@@ -22,199 +22,199 @@ Expiry: 300
 
 ----------
 
-<div class="next_report_info next_noprint">
+&lt;div class="next_report_info next_noprint"&gt;
 
-  <div id="next_report_introduction-3868" class="">
-    <p class="">Shows items cancelled from hold shelf in the last 7 days</p>
-    <p class=""><strong>Report created by: </strong>GHW</p>
-  </div>
+  &lt;div id="next_report_introduction-3868" class=""&gt;
+    &lt;p class=""&gt;Shows items cancelled from hold shelf in the last 7 days&lt;/p&gt;
+    &lt;p class=""&gt;&lt;strong&gt;Report created by: &lt;/strong&gt;GHW&lt;/p&gt;
+  &lt;/div&gt;
 
-  <div id="next_report_accordion-3868" class="accordion accordion-flush">
+  &lt;div id="next_report_accordion-3868" class="accordion accordion-flush"&gt;
 
-    <div id="next_report_function" class="accordion-item ">
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button next_report_function" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne-3868" aria-expanded="true" aria-controls="collapseOne">
+    &lt;div id="next_report_function" class="accordion-item "&gt;
+      &lt;h2 class="accordion-header" id="headingOne"&gt;
+        &lt;button class="accordion-button next_report_function" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne-3868" aria-expanded="true" aria-controls="collapseOne"&gt;
             Report function:
-        </button>
-      </h2>
+        &lt;/button&gt;
+      &lt;/h2&gt;
 
-      <div id="collapseOne-3868" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#next_report_accordion-3868">
-        <div class="accordion-body">
-          <ul>
-            <li>Shows the items waiting on the hold shelf for pickup where the hold was cancelled in the last 7 days</li>
-            <li>on the hold shelf at the library you specify</li>
-            <li>grouped by reserve_id number</li>
-            <li>sorted by library where the item was held and the card number of the borrower the item was held for</li>
-            <li>links to the bibliogrpahic record of the item</li>
-          </ul>
+      &lt;div id="collapseOne-3868" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#next_report_accordion-3868"&gt;
+        &lt;div class="accordion-body"&gt;
+          &lt;ul&gt;
+            &lt;li&gt;Shows the items waiting on the hold shelf for pickup where the hold was cancelled in the last 7 days&lt;/li&gt;
+            &lt;li&gt;on the hold shelf at the library you specify&lt;/li&gt;
+            &lt;li&gt;grouped by reserve_id number&lt;/li&gt;
+            &lt;li&gt;sorted by library where the item was held and the card number of the borrower the item was held for&lt;/li&gt;
+            &lt;li&gt;links to the bibliogrpahic record of the item&lt;/li&gt;
+          &lt;/ul&gt;
 
-        </div>
-      </div>
-    </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-    <div id="next_report_notes" class="accordion-item ">
-      <h2 class="accordion-header" id="headingTwo">
-        <button class="accordion-button collapsed next_report_notes" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo-3868" aria-expanded="false" aria-controls="collapseTwo">
+    &lt;div id="next_report_notes" class="accordion-item "&gt;
+      &lt;h2 class="accordion-header" id="headingTwo"&gt;
+        &lt;button class="accordion-button collapsed next_report_notes" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo-3868" aria-expanded="false" aria-controls="collapseTwo"&gt;
           Report notes:
-        </button>
-      </h2>
-      <div id="collapseTwo-3868" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#next_report_accordion-3868">
-        <div class="accordion-body">
+        &lt;/button&gt;
+      &lt;/h2&gt;
+      &lt;div id="collapseTwo-3868" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#next_report_accordion-3868"&gt;
+        &lt;div class="accordion-body"&gt;
 
-          <div id="next_report_notes-1" class="next_report_section ">
-            <h3>HELD_FOR_CARD_NUMBER</h3>
-            <p>The report only shows the first 3 letters of the borrower's lat name and the last 6 digits of the borrower's card number in order to protect the borrower's privacy.</p>
-          </div>
+          &lt;div id="next_report_notes-1" class="next_report_section "&gt;
+            &lt;h3&gt;HELD_FOR_CARD_NUMBER&lt;/h3&gt;
+            &lt;p&gt;The report only shows the first 3 letters of the borrower's lat name and the last 6 digits of the borrower's card number in order to protect the borrower's privacy.&lt;/p&gt;
+          &lt;/div&gt;
 
-          <div id="next_report_notes-2" class="next_report_section ">
-            <h3>CANCELLED_BY</h3>
-            <p>The report shows the home library and borrower category of the user that cancelled the request</p>
-          </div>
+          &lt;div id="next_report_notes-2" class="next_report_section "&gt;
+            &lt;h3&gt;CANCELLED_BY&lt;/h3&gt;
+            &lt;p&gt;The report shows the home library and borrower category of the user that cancelled the request&lt;/p&gt;
+          &lt;/div&gt;
 
-          <div id="next_report_notes-3" class="next_report_section ">
-            <h3>CANCELLED_USING_THE</h3>
-            <p><ul>  <li>API = probably cancelled using Aspen Discovery or Aspen Lida</li>  <li>Cron job = cancelled automatically by Koha</li>  <li>Koha staff client = A library staff member cancelled this request</li>  <li>OPAC = Cancelled via the Koha OPAC</li></ul></p>
-          </div>
+          &lt;div id="next_report_notes-3" class="next_report_section "&gt;
+            &lt;h3&gt;CANCELLED_USING_THE&lt;/h3&gt;
+            &lt;p&gt;&lt;ul&gt;  &lt;li&gt;API = probably cancelled using Aspen Discovery or Aspen Lida&lt;/li&gt;  &lt;li&gt;Cron job = cancelled automatically by Koha&lt;/li&gt;  &lt;li&gt;Koha staff client = A library staff member cancelled this request&lt;/li&gt;  &lt;li&gt;OPAC = Cancelled via the Koha OPAC&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
+          &lt;/div&gt;
 
-          <div id="next_report_notes-4" class="next_report_section next_hidden">
-            <h3>~Notes heading 4~</h3>
-            <p>~Notes sample 4~</p>
-          </div>
+          &lt;div id="next_report_notes-4" class="next_report_section next_hidden"&gt;
+            &lt;h3&gt;~Notes heading 4~&lt;/h3&gt;
+            &lt;p&gt;~Notes sample 4~&lt;/p&gt;
+          &lt;/div&gt;
 
-          <div id="next_report_notes-5" class="next_report_section next_hidden">
-            <h3>~Notes heading 5~</h3>
-            <p>~Notes sample 5~</p>
-          </div>
+          &lt;div id="next_report_notes-5" class="next_report_section next_hidden"&gt;
+            &lt;h3&gt;~Notes heading 5~&lt;/h3&gt;
+            &lt;p&gt;~Notes sample 5~&lt;/p&gt;
+          &lt;/div&gt;
 
-        </div>
-      </div>
-    </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-    <div id="next_report_instruction" class="accordion-item next_hidden">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed next_report_instruction" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree-3868" aria-expanded="false" aria-controls="collapseThree">
+    &lt;div id="next_report_instruction" class="accordion-item next_hidden"&gt;
+      &lt;h2 class="accordion-header" id="headingThree"&gt;
+        &lt;button class="accordion-button collapsed next_report_instruction" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree-3868" aria-expanded="false" aria-controls="collapseThree"&gt;
           Report instructions:
-        </button>
-      </h2>
-      <div id="collapseThree-3868" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#next_report_accordion-3868">
-        <div class="accordion-body">
+        &lt;/button&gt;
+      &lt;/h2&gt;
+      &lt;div id="collapseThree-3868" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#next_report_accordion-3868"&gt;
+        &lt;div class="accordion-body"&gt;
 
-          <div class="next_report_section next_hidden">
-            <h3>~heading 1~</h3>
-            <p id="next_report_instruction-1">
+          &lt;div class="next_report_section next_hidden"&gt;
+            &lt;h3&gt;~heading 1~&lt;/h3&gt;
+            &lt;p id="next_report_instruction-1"&gt;
               Instructions go here
-            </p>
-          </div>
+            &lt;/p&gt;
+          &lt;/div&gt;
 
-          <div class="next_report_section next_hidden">
-            <h3>~heading 2~</h3>
-            <p id="next_report_instruction-2">
+          &lt;div class="next_report_section next_hidden"&gt;
+            &lt;h3&gt;~heading 2~&lt;/h3&gt;
+            &lt;p id="next_report_instruction-2"&gt;
               Instructions go here
-            </p>
-          </div>
+            &lt;/p&gt;
+          &lt;/div&gt;
 
-          <div class="next_report_section next_hidden">
-            <h3>~heading 3~</h3>
-            <p id="next_report_instruction-3">
+          &lt;div class="next_report_section next_hidden"&gt;
+            &lt;h3&gt;~heading 3~&lt;/h3&gt;
+            &lt;p id="next_report_instruction-3"&gt;
               Instructions go here
-            </p>
-          </div>
+            &lt;/p&gt;
+          &lt;/div&gt;
 
-          <div class="next_report_section next_hidden">
-            <h3>~heading 4~</h3>
-            <p id="next_report_instruction-4">
+          &lt;div class="next_report_section next_hidden"&gt;
+            &lt;h3&gt;~heading 4~&lt;/h3&gt;
+            &lt;p id="next_report_instruction-4"&gt;
               Instructions go here
-            </p>
-          </div>
+            &lt;/p&gt;
+          &lt;/div&gt;
 
-          <div class="next_report_section ">
-            <h3>~heading 5~</h3>
-            <p id="next_report_instruction-5">
+          &lt;div class="next_report_section "&gt;
+            &lt;h3&gt;~heading 5~&lt;/h3&gt;
+            &lt;p id="next_report_instruction-5"&gt;
               Instructions go here
-            </p>
-          </div>
+            &lt;/p&gt;
+          &lt;/div&gt;
 
-        </div>
-      </div>
-    </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-    <div id="next_report_resources" class="accordion-item next_hidden">
-      <h2 class="accordion-header" id="headingFour">
-        <button class="accordion-button collapsed next_report_resources" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour-3868" aria-expanded="false" aria-controls="collapseFour">
+    &lt;div id="next_report_resources" class="accordion-item next_hidden"&gt;
+      &lt;h2 class="accordion-header" id="headingFour"&gt;
+        &lt;button class="accordion-button collapsed next_report_resources" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour-3868" aria-expanded="false" aria-controls="collapseFour"&gt;
           Report external resources:
-        </button>
-      </h2>
+        &lt;/button&gt;
+      &lt;/h2&gt;
 
-      <div id="collapseFour-3868" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#next_report_accordion-3868">
-        <div class="accordion-body">
+      &lt;div id="collapseFour-3868" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#next_report_accordion-3868"&gt;
+        &lt;div class="accordion-body"&gt;
 
-          <ul style="list-style-type: none;">
+          &lt;ul style="list-style-type: none;"&gt;
 
-            <li class="next_hidden"></li>
-              ~Link 1 description~<br>
-              <a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen2">~Link 1~</a><br>
-            </li>
+            &lt;li class="next_hidden"&gt;&lt;/li&gt;
+              ~Link 1 description~&lt;br&gt;
+              &lt;a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen2"&gt;~Link 1~&lt;/a&gt;&lt;br&gt;
+            &lt;/li&gt;
 
-            <li class="next_hidden"></li>
-              ~Link 2 description~<br>
-              <a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen2">~Link 2~</a><br>
-            </li>
+            &lt;li class="next_hidden"&gt;&lt;/li&gt;
+              ~Link 2 description~&lt;br&gt;
+              &lt;a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen2"&gt;~Link 2~&lt;/a&gt;&lt;br&gt;
+            &lt;/li&gt;
 
-            <li class="next_hidden"></li>
-              ~Link 3 description~<br>
-              <a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen2">~Link 3~</a><br>
-            </li>
+            &lt;li class="next_hidden"&gt;&lt;/li&gt;
+              ~Link 3 description~&lt;br&gt;
+              &lt;a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen2"&gt;~Link 3~&lt;/a&gt;&lt;br&gt;
+            &lt;/li&gt;
 
-            <li class="next_hidden"></li>
-              ~Link 4 description~<br>
-              <a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen2">~Link 4~</a><br>
-            </li>
+            &lt;li class="next_hidden"&gt;&lt;/li&gt;
+              ~Link 4 description~&lt;br&gt;
+              &lt;a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen2"&gt;~Link 4~&lt;/a&gt;&lt;br&gt;
+            &lt;/li&gt;
 
-            <li class="next_hidden"></li>
-              ~Link 5 description~<br>
-              <a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen2">~Link 5~</a><br>
-            </li>
+            &lt;li class="next_hidden"&gt;&lt;/li&gt;
+              ~Link 5 description~&lt;br&gt;
+              &lt;a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen2"&gt;~Link 5~&lt;/a&gt;&lt;br&gt;
+            &lt;/li&gt;
 
-          </ul>
+          &lt;/ul&gt;
 
-        </div>
-      </div>
-    </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-  </div>
+  &lt;/div&gt;
 
-  <div id="next_report_tags" class="next_hidden">
-    <p>
+  &lt;div id="next_report_tags" class="next_hidden"&gt;
+    &lt;p&gt;
       #requests: 
       #holds: 
       #hold shelf: 
       #cancellations: 
 
-    </p>
-  </div>
+    &lt;/p&gt;
+  &lt;/div&gt;
 
-  <div id="next_report_training" class="next_report_training next_hidden">
-    <br><br>
-    <a class="next_btn next_indigo next_embiggen2" href="/cgi-bin/koha/mainpage.pl" target="_blank">Training page for report 3868 <i class="bi bi-arrow-up-right-square"></i></a>
-    <br>
-    <a class="next_btn next_indigo next_embiggen2" href="/cgi-bin/koha/mainpage.pl" target="_blank">Printable instructions for report 3868 <i class="bi bi-download"></i></a>
-    <br>
-    <a class="next_btn next_indigo next_embiggen2" href="/cgi-bin/koha/mainpage.pl" target="_blank">Training video for report 3868 <i class="bi bi-play-btn-fill"></i></a>
-  </div>
+  &lt;div id="next_report_training" class="next_report_training next_hidden"&gt;
+    &lt;br&gt;&lt;br&gt;
+    &lt;a class="next_btn next_indigo next_embiggen2" href="/cgi-bin/koha/mainpage.pl" target="_blank"&gt;Training page for report 3868 &lt;i class="bi bi-arrow-up-right-square"&gt;&lt;/i&gt;&lt;/a&gt;
+    &lt;br&gt;
+    &lt;a class="next_btn next_indigo next_embiggen2" href="/cgi-bin/koha/mainpage.pl" target="_blank"&gt;Printable instructions for report 3868 &lt;i class="bi bi-download"&gt;&lt;/i&gt;&lt;/a&gt;
+    &lt;br&gt;
+    &lt;a class="next_btn next_indigo next_embiggen2" href="/cgi-bin/koha/mainpage.pl" target="_blank"&gt;Training video for report 3868 &lt;i class="bi bi-play-btn-fill"&gt;&lt;/i&gt;&lt;/a&gt;
+  &lt;/div&gt;
 
-  <div id="next_direct_download" class="next_direct_download next_hidden">
-    <br><br>
-    <a class="next_btn next_indigo next_embiggen2" href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=3868" target="_blank">Download this report as a csv file <i class="bi bi-download"></i></a>
-    <br>
-  </div>
+  &lt;div id="next_direct_download" class="next_direct_download next_hidden"&gt;
+    &lt;br&gt;&lt;br&gt;
+    &lt;a class="next_btn next_indigo next_embiggen2" href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=3868" target="_blank"&gt;Download this report as a csv file &lt;i class="bi bi-download"&gt;&lt;/i&gt;&lt;/a&gt;
+    &lt;br&gt;
+  &lt;/div&gt;
 
-  <div class="next_report_note_collapse next_hidden">
-    <br><br>
-    <button type="button" id="next_report_notes_hide" class="next_btn next_indigo next_report_notes_close">Collapse report notes</button>
-    <br>
-  </div>
+  &lt;div class="next_report_note_collapse next_hidden"&gt;
+    &lt;br&gt;&lt;br&gt;
+    &lt;button type="button" id="next_report_notes_hide" class="next_btn next_indigo next_report_notes_close"&gt;Collapse report notes&lt;/button&gt;
+    &lt;br&gt;
+  &lt;/div&gt;
 
-</div>
+&lt;/div&gt;
 
 
 ----------
@@ -292,11 +292,11 @@ FROM
   LEFT JOIN borrowers staffs 
     ON staffs.borrowernumber = action_logs.user
 WHERE
-  branches.branchcode LIKE <> AND
+  branches.branchcode LIKE &lt;&gt; AND
   action_logs.module = 'HOLDS' AND
   action_logs.action = 'CANCEL' AND
   old_reserves.found = 'W' AND
-  old_reserves.cancellationdate > Now() - INTERVAL 7 DAY
+  old_reserves.cancellationdate &gt; Now() - INTERVAL 7 DAY
 GROUP BY
   old_reserves.reserve_id
 ORDER BY

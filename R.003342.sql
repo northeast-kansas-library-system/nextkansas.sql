@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2020-08-13 14:10:41
 Modified on: 2021-04-19 14:30:08
-Date last run: 2025-10-21 10:53:13
+Date last run: 2025-12-30 11:27:51
 
 ----------
 
@@ -41,7 +41,7 @@ SELECT
 FROM
   action_logs
 WHERE
-  action_logs.info LIKE Concat("%'itemnumber' => ", <>, "%")
+  action_logs.info LIKE Concat("%'itemnumber' =&gt; ", &lt;&gt;, "%")
 
 
 

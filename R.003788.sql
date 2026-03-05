@@ -22,43 +22,43 @@ Expiry: 300
 
 ----------
 
-<div id="reportinfo" class="reportInfo noprint"> 
+&lt;div id="reportinfo" class="reportInfo noprint"&gt; 
  
-  <div class="reportInfoContent"> 
+  &lt;div class="reportInfoContent"&gt; 
  
-    <p>Shows bibliographic records by author and title that had "localuse" checkouts</p> 
+    &lt;p&gt;Shows bibliographic records by author and title that had "localuse" checkouts&lt;/p&gt; 
  
-    <ul> 
-      <li>during the previous calendar month</li> 
-      <li>at the library you specify</li> 
-      <li>grouped and sorted by library, author, and title</li>  
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;during the previous calendar month&lt;/li&gt; 
+      &lt;li&gt;at the library you specify&lt;/li&gt; 
+      &lt;li&gt;grouped and sorted by library, author, and title&lt;/li&gt;  
+    &lt;/ul&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div class="reportInfoNotes"> 
+  &lt;div class="reportInfoNotes"&gt; 
 
-    <p> 
+    &lt;p&gt; 
  
-    </p> 
+    &lt;/p&gt; 
 
-    <p>Collecting local use data requires the use of a "Staff - statistical purposes" library card.</p>
+    &lt;p&gt;Collecting local use data requires the use of a "Staff - statistical purposes" library card.&lt;/p&gt;
 
-    <p> 
+    &lt;p&gt; 
  
-    </p> 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div id="reportInfoTags"> 
+  &lt;div id="reportInfoTags"&gt; 
  
-    <p style="display: none;"> 
+    &lt;p style="display: none;"&gt; 
       #localuse
       #statistics
       #previous_month 
-    </p> 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
 
 ----------
 */
@@ -82,7 +82,7 @@ WHERE
   statistics.type = 'localuse' AND
   Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
   Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
-  branches.branchcode LIKE <>
+  branches.branchcode LIKE &lt;&gt;
 GROUP BY
   branches.branchname,
   biblio.author,

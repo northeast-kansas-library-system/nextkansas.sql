@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2021-08-03 09:12:55
 Modified on: 2025-04-30 11:32:44
-Date last run: 2025-10-02 01:00:02
+Date last run: 2026-01-01 01:00:03
 
 ----------
 
@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Borrower statistics - borrower counts by category</p> 
-<ul><li>during the previous calendar month</li> 
-<li>at all system libraries</li> 
-<li>grouped and sorted by borrower home library and borrower category</li> 
-</ul><br /> 
-<p><ins>Notes:</ins></p> 
-<p></p> 
-<p class="updated">This report and these notes updated on 2022.03.10</p> 
-<p></p> 
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id= 3539">Click here to download as a csv file</a></p> 
-<p class= "notetags" style="display: none;">#monthly #statistics #borrower #statistics #category</p> 
-<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
-</div> 
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Borrower statistics - borrower counts by category&lt;/p&gt; 
+&lt;ul&gt;&lt;li&gt;during the previous calendar month&lt;/li&gt; 
+&lt;li&gt;at all system libraries&lt;/li&gt; 
+&lt;li&gt;grouped and sorted by borrower home library and borrower category&lt;/li&gt; 
+&lt;/ul&gt;&lt;br /&gt; 
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p class="updated"&gt;This report and these notes updated on 2022.03.10&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p id="rquickdown"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id= 3539"&gt;Click here to download as a csv file&lt;/a&gt;&lt;/p&gt; 
+&lt;p class= "notetags" style="display: none;"&gt;#monthly #statistics #borrower #statistics #category&lt;/p&gt; 
+&lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt; 
+&lt;/div&gt; 
 
 ----------
 */
@@ -58,7 +58,7 @@ UNION
   renewed_lm.Count_borrowernumber AS "BORROWERS RENEWED LAST MONTH", 
   added_lm.Count_borrowernumber AS "BORROWERS ADDED LAST MONTH", 
   deleted_lm.Count_borrowernumber AS "BORROWERS DELETED LAST MONTH", 
-  If(limitationss.categorycode <> "", "Yes", "") AS "THIS LIBRARY CAN ACCESS THIS CATEGORY" 
+  If(limitationss.categorycode &lt;&gt; "", "Yes", "") AS "THIS LIBRARY CAN ACCESS THIS CATEGORY" 
 FROM 
     (SELECT 
       branches.branchcode, 

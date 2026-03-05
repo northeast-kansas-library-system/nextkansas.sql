@@ -22,7 +22,7 @@ Expiry: 0
 
 ----------
 
-<p><span style="background-color: darkred; color: white">Needs metadata conversion post 17.05</p>
+&lt;p&gt;&lt;span style="background-color: darkred; color: white"&gt;Needs metadata conversion post 17.05&lt;/p&gt;
 
 ----------
 */
@@ -73,12 +73,12 @@ FROM
 WHERE
   Date_Format(old_issues.returndate, '%m/%d/%Y') =
   Date_Format(items.itemlost_on, '%m/%d/%Y') AND
-  items.holdingbranch LIKE <>
+  items.holdingbranch LIKE &lt;&gt;
 GROUP BY
   items.barcode, Date_Format(old_issues.returndate, '%m/%d/%Y'),
   borrowers.cardnumber, borrowers.surname
 HAVING
- LOST_STATUS LIKE <>
+ LOST_STATUS LIKE &lt;&gt;
 ORDER BY
   CKO_BRANCH,
   LOCATION,

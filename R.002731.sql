@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2016-08-11 16:36:03
 Modified on: 2025-03-25 22:48:47
-Date last run: 2025-10-20 18:43:07
+Date last run: 2026-01-29 08:56:07
 
 ----------
 
@@ -22,11 +22,11 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
+&lt;div class="reportinfo noprint"&gt; 
 
-<p><a  class="next_btn next_red noprint embigen5" href="/cgi-bin/koha/reports/guided_reports.pl?id=3879&op=run">This report has been replaced by report 3879</a></p>
+&lt;p&gt;&lt;a  class="next_btn next_red noprint embigen5" href="/cgi-bin/koha/reports/guided_reports.pl?id=3879&op=run"&gt;This report has been replaced by report 3879&lt;/a&gt;&lt;/p&gt;
 
-</div>
+&lt;/div&gt;
 
 ----------
 */

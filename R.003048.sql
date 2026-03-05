@@ -63,18 +63,18 @@ FROM
   JOIN biblio_metadata ON items.biblionumber = biblio_metadata.biblionumber
   JOIN biblioitems ON items.biblioitemnumber = biblioitems.biblioitemnumber
 WHERE
-  items.homebranch LIKE <> AND
-  Coalesce(items.location, "-") LIKE <> AND
-  Coalesce(items.itype, "-") LIKE <> AND
-  Coalesce(items.ccode, "-") LIKE <> AND
-  Coalesce(items.itemcallnumber, "-") LIKE CONCAT(<>, "%") AND
-  items.dateaccessioned BETWEEN <> AND <> + INTERVAL 1 DAY
+  items.homebranch LIKE &lt;&gt; AND
+  Coalesce(items.location, "-") LIKE &lt;&gt; AND
+  Coalesce(items.itype, "-") LIKE &lt;&gt; AND
+  Coalesce(items.ccode, "-") LIKE &lt;&gt; AND
+  Coalesce(items.itemcallnumber, "-") LIKE CONCAT(&lt;&gt;, "%") AND
+  items.dateaccessioned BETWEEN &lt;&gt; AND &lt;&gt; + INTERVAL 1 DAY
 GROUP BY
   items.itemnumber
 HAVING 
-  CHECKOUTS_PLUS_RENEWALS <= <> AND
-  CHECKED_OUT LIKE <> AND
-  STATUS_PROBLEMS LIKE <>
+  CHECKOUTS_PLUS_RENEWALS &lt;= &lt;&gt; AND
+  CHECKED_OUT LIKE &lt;&gt; AND
+  STATUS_PROBLEMS LIKE &lt;&gt;
 ORDER BY
   items.homebranch,
   items.location,

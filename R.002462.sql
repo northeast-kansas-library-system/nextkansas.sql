@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2015-02-12 21:15:52
 Modified on: 2021-07-16 10:42:19
-Date last run: 2025-10-28 17:00:04
+Date last run: 2026-01-29 13:00:05
 
 ----------
 
@@ -32,7 +32,7 @@ Expiry: 0
 SELECT
   CURRENT_TIMESTAMP() AS "report time",
   Coalesce(tmp_holdsqueue.holdingbranch, "Total") AS BRANCH,
-  count(*)
+  count(&ast;)
 FROM
   tmp_holdsqueue
 GROUP BY

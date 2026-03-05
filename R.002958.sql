@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2017-06-15 10:26:44
 Modified on: 2024-01-17 11:49:44
-Date last run: 2025-07-01 08:38:49
+Date last run: 2026-01-08 16:02:57
 
 ----------
 
@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a list of items that have already been deleted from the catalog - includes all price information as well as the timestamp from when the item was deleted</p>
-<ul><li>Lists items that were deleted between the dates you specify</li>
-<li>at the library you specify</li>
-<li>grouped by itemnumber</li>
-<li>sorted by homebranch, location, item type, collection code, author, title, and call number</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>This gets the item information from the deleteditems table and the biblio information from the biblios table or the deletedbiblios table depending on whether or not the bibliographic record has been deleted.</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2958&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a list of items that have already been deleted from the catalog - includes all price information as well as the timestamp from when the item was deleted&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Lists items that were deleted between the dates you specify&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped by itemnumber&lt;/li&gt;
+&lt;li&gt;sorted by homebranch, location, item type, collection code, author, title, and call number&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;This gets the item information from the deleteditems table and the biblio information from the biblios table or the deletedbiblios table depending on whether or not the bibliographic record has been deleted.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2958&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -84,11 +84,11 @@ FROM
       authorised_values.authorised_value,
       authorised_values.lib) location ON deleteditems.location = location.authorised_value
 WHERE
-  deleteditems.homebranch LIKE <> AND
-  Coalesce(deleteditems.location, "-") LIKE <> AND
-  Coalesce(deleteditems.itype, "-") LIKE <> AND
-  Coalesce(deleteditems.ccode, "-") LIKE <> AND
-  deleteditems.timestamp BETWEEN <> AND (<> + INTERVAL 1 DAY) 
+  deleteditems.homebranch LIKE &lt;&gt; AND
+  Coalesce(deleteditems.location, "-") LIKE &lt;&gt; AND
+  Coalesce(deleteditems.itype, "-") LIKE &lt;&gt; AND
+  Coalesce(deleteditems.ccode, "-") LIKE &lt;&gt; AND
+  deleteditems.timestamp BETWEEN &lt;&gt; AND (&lt;&gt; + INTERVAL 1 DAY) 
 GROUP BY
   deleteditems.itemnumber
 ORDER BY

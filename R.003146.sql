@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2018-12-17 15:53:14
-Modified on: 2018-12-17 15:53:42
-Date last run: 2025-09-04 14:03:52
+Modified on: 2025-11-11 21:55:29
+Date last run: 2026-01-07 17:52:41
 
 ----------
 
@@ -153,7 +153,7 @@ SELECT
   @1 := 'D_NEXT_SUNDAY',
   @2 := 'Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) - 1 DAY) + INTERVAL 1 WEEK',
   Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) - 1 DAY) + INTERVAL 1 WEEK
-LIMIT 50
+LIMIT 90
 
 
 

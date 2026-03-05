@@ -165,13 +165,13 @@ FROM
 WHERE
   biblio_metadata.biblionumber LIKE '%'
   AND Replace(SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 6 FOR 1 ), ' ', '#') not in ('a', 'd', 'c', 'n', 'p')
-  /* AND Replace(SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 7 FOR 1 ), ' ', '#') LIKE '%' */
-  /* AND Replace(SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 8 FOR 1 ), ' ', '#') LIKE '%' */
-  /* AND Replace(SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 9 FOR 1 ), ' ', '#') LIKE '%' */
-  /* AND Replace(SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 10 FOR 1 ), ' ', '#') LIKE '%' */ 
-  /* AND Replace(SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 18 FOR 1 ), ' ', '#') LIKE '%' */
-  /* AND Replace(SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 19 FOR 1 ), ' ', '#') LIKE '%' */
-  /* AND Replace(SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 20 FOR 1 ), ' ', '#') LIKE '%' */
+  /&ast; AND Replace(SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 7 FOR 1 ), ' ', '#') LIKE '%' &ast;/
+  /&ast; AND Replace(SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 8 FOR 1 ), ' ', '#') LIKE '%' &ast;/
+  /&ast; AND Replace(SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 9 FOR 1 ), ' ', '#') LIKE '%' &ast;/
+  /&ast; AND Replace(SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 10 FOR 1 ), ' ', '#') LIKE '%' &ast;/ 
+  /&ast; AND Replace(SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 18 FOR 1 ), ' ', '#') LIKE '%' &ast;/
+  /&ast; AND Replace(SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 19 FOR 1 ), ' ', '#') LIKE '%' &ast;/
+  /&ast; AND Replace(SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 20 FOR 1 ), ' ', '#') LIKE '%' &ast;/
 GROUP BY
   biblio_metadata.biblionumber
 ORDER BY

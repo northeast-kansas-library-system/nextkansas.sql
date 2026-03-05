@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Counts borrowers at a library by age (in years)</p>
-<ul><li>Counts current borrowers</li>
-<li>where the borrowers home library matches the library you specify and the borrower category matches the category you select</li>
-<li>grouped and sorted by borrowers home branch, borrowers category, and age</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Counts in the "BLANK_OR_BAD_CODE" column represent borrowers where the gender radio button on their account is either not set, or is set to a data code that is no longer in use.</p>
-<p></p>
-<p></p>
-<p>Replaces report 1081 and 2443</p>
-<p class= "notetags" style="display: none;">borrower count age</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Counts borrowers at a library by age (in years)&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Counts current borrowers&lt;/li&gt;
+&lt;li&gt;where the borrowers home library matches the library you specify and the borrower category matches the category you select&lt;/li&gt;
+&lt;li&gt;grouped and sorted by borrowers home branch, borrowers category, and age&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Counts in the "BLANK_OR_BAD_CODE" column represent borrowers where the gender radio button on their account is either not set, or is set to a data code that is no longer in use.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Replaces report 1081 and 2443&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;borrower count age&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -135,9 +135,9 @@ FROM
       borrowers
     WHERE
       (borrowers.sex IS NULL) OR
-      (borrowers.sex <> 'N' AND
-          borrowers.sex <> 'F' AND
-          borrowers.sex <> 'M')
+      (borrowers.sex &lt;&gt; 'N' AND
+          borrowers.sex &lt;&gt; 'F' AND
+          borrowers.sex &lt;&gt; 'M')
     GROUP BY
       borrowers.branchcode,
       Coalesce(floor(DateDiff(CurDate(), borrowers.dateofbirth) / 365.25), '-'),
@@ -146,8 +146,8 @@ FROM
       BLANK_OR_UNKNOWN.categorycode = branchescategories.categorycode AND
       BLANK_OR_UNKNOWN.BORROWER_AGE = ages.BORROWER_AGE
 WHERE
-  branchescategories.branchcode LIKE <> AND
-  branchescategories.categorycode LIKE <>
+  branchescategories.branchcode LIKE &lt;&gt; AND
+  branchescategories.categorycode LIKE &lt;&gt;
 GROUP BY
   branchescategories.branchname,
   branchescategories.description,

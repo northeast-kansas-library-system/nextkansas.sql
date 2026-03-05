@@ -29,7 +29,7 @@ Expiry: 300
 
 
 
-select * from borrower_relationships where relationship=''
+select &ast; from borrower_relationships where relationship=''
 
 
 

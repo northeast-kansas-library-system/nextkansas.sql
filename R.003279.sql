@@ -22,30 +22,30 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Converts a list into a format that can be downloaded as spreadsheet</p>
-<ul><li>Displays all items currently attached to a list</li>
-<li>at all libraries</li>
-<li>grouped by list number, biblionumber, and item barcode number</li>
-<li>sorted by home library, shelving location, item type, collection code, call number, author, and title</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Replaces report:</p>
-<ul>
-<li>1746 - Shelf List from a Private List</li>
-<li>3021 - GHW - Print a list - variant</li>
-<li>3063 - GHW - Print list by ID number</li>
-</ul>
-<p></p>
-<p>A list's ID number will be the last 4 digits of the list's URL.</p>
-<p></p>
-<p>Items listed as "Unavailable" are either checked out or have a status of "Not for loan," one of the "Lost" statuses, one of the "Damaged" statuses, or a </p>
-<p></p>
-<p>Once the report has been run, click on the "Download" button and select "Comma separated text (.csv)" to download the results to your computer where the sheet can be opened in Excel and modified as you see fit.</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3279&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Converts a list into a format that can be downloaded as spreadsheet&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Displays all items currently attached to a list&lt;/li&gt;
+&lt;li&gt;at all libraries&lt;/li&gt;
+&lt;li&gt;grouped by list number, biblionumber, and item barcode number&lt;/li&gt;
+&lt;li&gt;sorted by home library, shelving location, item type, collection code, call number, author, and title&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Replaces report:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1746 - Shelf List from a Private List&lt;/li&gt;
+&lt;li&gt;3021 - GHW - Print a list - variant&lt;/li&gt;
+&lt;li&gt;3063 - GHW - Print list by ID number&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;A list's ID number will be the last 4 digits of the list's URL.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Items listed as "Unavailable" are either checked out or have a status of "Not for loan," one of the "Lost" statuses, one of the "Damaged" statuses, or a &lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Once the report has been run, click on the "Download" button and select "Comma separated text (.csv)" to download the results to your computer where the sheet can be opened in Excel and modified as you see fit.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3279&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -124,8 +124,8 @@ FROM
   JOIN virtualshelves
     ON virtualshelfcontents.shelfnumber = virtualshelves.shelfnumber
 WHERE
-  virtualshelfcontents.shelfnumber = <> AND
-  items.homebranch LIKE Concat("%", <>,"%")
+  virtualshelfcontents.shelfnumber = &lt;&gt; AND
+  items.homebranch LIKE Concat("%", &lt;&gt;,"%")
 GROUP BY
   items.barcode,
   virtualshelfcontents.shelfnumber,

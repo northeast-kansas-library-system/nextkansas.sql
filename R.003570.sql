@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Outputs borrower address in a way that can be easily imported back into Koha via the patron import tool</p>
-<ul><li>Shows current borrowers</li>
-<li>at the library you specify</li>
-<li>designed to be flexible</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Notes go here.</p>
-<p></p>
-<p class= "notetags" style="display: none;">hidden flexible openrefine</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Outputs borrower address in a way that can be easily imported back into Koha via the patron import tool&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows current borrowers&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;designed to be flexible&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Notes go here.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;hidden flexible openrefine&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -55,12 +55,12 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.branchcode LIKE <> AND
-  borrowers.address LIKE Concat(<> ,"%") AND
-  borrowers.city LIKE Concat(<>, "%") AND
-  borrowers.state LIKE Concat(<>, "%") AND
-  borrowers.zipcode LIKE Concat(<>, "%") AND 
-  borrowers.zipcode <> Concat(<>)
+  borrowers.branchcode LIKE &lt;&gt; AND
+  borrowers.address LIKE Concat(&lt;&gt; ,"%") AND
+  borrowers.city LIKE Concat(&lt;&gt;, "%") AND
+  borrowers.state LIKE Concat(&lt;&gt;, "%") AND
+  borrowers.zipcode LIKE Concat(&lt;&gt;, "%") AND 
+  borrowers.zipcode &lt;&gt; Concat(&lt;&gt;)
 ORDER BY
   borrowers.zipcode
 

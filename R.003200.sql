@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2019-05-07 14:47:46
 Modified on: 2025-04-30 11:51:59
-Date last run: 2025-10-02 01:30:02
+Date last run: 2026-01-01 01:30:03
 
 ----------
 
@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Counts checkouts and renewals at a library during the previous calendar month based on whether the items circulated were owned by the check-out library or owned by a different library</p>
-<ul><li>Counts circulation and renewals in the previous calendar month</li>
-<li>at all libraries</li>
-<li>grouped and sorted by checkout branchcode</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Items that appear in the statistics table without a checkout branch are counted as NEKLS checkouts.</p>
-<p>Items where the owning library cannot be determined will be counted as being owned by NEKLS.</p>
-<p>All items owned by Doniphan County Library District are considered Doniphan County Library District items at all of their libraries - i.e. a DONITROY item checked out at DONIELWD counts as a DONIELWD item.</p>
-<p>All items owned by Prairie Hills School District are considered Prairie Hills School District items at all of their libraries - i.e. a PHWAC item checked out at PHSHS counts as a PHSHS item.</p>
-<p></p>
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3200">Click here to download as a csv file</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Counts checkouts and renewals at a library during the previous calendar month based on whether the items circulated were owned by the check-out library or owned by a different library&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Counts circulation and renewals in the previous calendar month&lt;/li&gt;
+&lt;li&gt;at all libraries&lt;/li&gt;
+&lt;li&gt;grouped and sorted by checkout branchcode&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Items that appear in the statistics table without a checkout branch are counted as NEKLS checkouts.&lt;/p&gt;
+&lt;p&gt;Items where the owning library cannot be determined will be counted as being owned by NEKLS.&lt;/p&gt;
+&lt;p&gt;All items owned by Doniphan County Library District are considered Doniphan County Library District items at all of their libraries - i.e. a DONITROY item checked out at DONIELWD counts as a DONIELWD item.&lt;/p&gt;
+&lt;p&gt;All items owned by Prairie Hills School District are considered Prairie Hills School District items at all of their libraries - i.e. a PHWAC item checked out at PHSHS counts as a PHSHS item.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p id="rquickdown"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3200"&gt;Click here to download as a csv file&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -65,7 +65,7 @@ FROM
   LEFT JOIN (
     SELECT
       If(statistics.branch IS NULL, "NEKLS", statistics.branch) AS CKO_BRANCH,
-      Count(*) AS CKO_RENEW
+      Count(&ast;) AS CKO_RENEW
     FROM
       statistics
       LEFT JOIN items
@@ -109,7 +109,7 @@ FROM
   LEFT JOIN (
     SELECT
       If(statistics.branch IS NULL, "NEKLS", statistics.branch) AS CKO_BRANCH,
-      Count(*) AS CKO_RENEW
+      Count(&ast;) AS CKO_RENEW
     FROM
       statistics
       LEFT JOIN items
@@ -133,7 +133,7 @@ FROM
             Coalesce(items.homebranch, deleteditems.homebranch)
           )
         )
-      ) <> If(
+      ) &lt;&gt; If(
         statistics.branch IS NULL,
         "NEKLS",
         If(
@@ -153,7 +153,7 @@ FROM
   LEFT JOIN (
     SELECT
       If(statistics.branch IS NULL, "NEKLS", statistics.branch) AS CKO_BRANCH,
-      Count(*) AS CKO_RENEW
+      Count(&ast;) AS CKO_RENEW
     FROM
       statistics
     WHERE

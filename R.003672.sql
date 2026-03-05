@@ -22,22 +22,22 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-  <p>Displays a list of items shipped during a specific date range that are still "in transit."</p>
-  <ul>
-    <li>Shows items that are still in transit during the date range you specify</li>
-    <li>at all Next libraries</li>
-    <li>grouped by biblio and item number</li>
-    <li>sorted in the standard Next Search Catalog classification order</li>
-    <li>links to the bibliographic record and a mailto link to contact all libraries involved in the transfer</li>
-  </ul><br />
-  <p><ins>Notes:</ins></p>
-  <p></p>
-  <p>Designed to help libraries track items that are missing in transit.</p>
-  <p></p>
-  <p class= "notetags" style="display: none;">#transfers #missing_in_transit #courier</p>
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+  &lt;p&gt;Displays a list of items shipped during a specific date range that are still "in transit."&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Shows items that are still in transit during the date range you specify&lt;/li&gt;
+    &lt;li&gt;at all Next libraries&lt;/li&gt;
+    &lt;li&gt;grouped by biblio and item number&lt;/li&gt;
+    &lt;li&gt;sorted in the standard Next Search Catalog classification order&lt;/li&gt;
+    &lt;li&gt;links to the bibliographic record and a mailto link to contact all libraries involved in the transfer&lt;/li&gt;
+  &lt;/ul&gt;&lt;br /&gt;
+  &lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;p&gt;Designed to help libraries track items that are missing in transit.&lt;/p&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;p class= "notetags" style="display: none;"&gt;#transfers #missing_in_transit #courier&lt;/p&gt;
+  &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -140,7 +140,7 @@ FROM
 WHERE
   branchtransfers.datearrived IS NULL AND
   branchtransfers.datecancelled IS NULL AND
-  branchtransfers.datesent BETWEEN <> AND (<> + INTERVAL 1 DAY)
+  branchtransfers.datesent BETWEEN &lt;&gt; AND (&lt;&gt; + INTERVAL 1 DAY)
 GROUP BY
   item_info.biblionumber,
   item_info.itemnumber

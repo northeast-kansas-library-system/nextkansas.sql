@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2009-10-15 15:19:28
 Modified on: 2017-01-03 14:53:42
-Date last run: 2025-10-28 13:32:27
+Date last run: 2026-01-26 13:34:38
 
 ----------
 
@@ -31,7 +31,7 @@ Enhanced.
 
 
 
-SELECT borrowers.surname, borrowers.firstname, borrowers.cardnumber, borrowers.categorycode, borrowers.branchcode as "patron home library", issues.branchcode as "location checked out", borrowers.city, issues.date_due, (TO_DAYS(curdate())-TO_DAYS( date_due)) as 'days overdue', items.itype, items.replacementprice, items.itemcallnumber, items.barcode, items.homebranch, biblio.title, biblio.author, items.itemlost FROM borrowers left join issues USING (borrowernumber) LEFT JOIN items USING (itemnumber) LEFT JOIN biblio USING (biblionumber) WHERE (TO_DAYS(curdate())-TO_DAYS(date_due)) > <> and issues.branchcode <> <> and items.homebranch = <> order by borrowers.surname asc, issues.date_due asc
+SELECT borrowers.surname, borrowers.firstname, borrowers.cardnumber, borrowers.categorycode, borrowers.branchcode as "patron home library", issues.branchcode as "location checked out", borrowers.city, issues.date_due, (TO_DAYS(curdate())-TO_DAYS( date_due)) as 'days overdue', items.itype, items.replacementprice, items.itemcallnumber, items.barcode, items.homebranch, biblio.title, biblio.author, items.itemlost FROM borrowers left join issues USING (borrowernumber) LEFT JOIN items USING (itemnumber) LEFT JOIN biblio USING (biblionumber) WHERE (TO_DAYS(curdate())-TO_DAYS(date_due)) &gt; &lt;&gt; and issues.branchcode &lt;&gt; &lt;&gt; and items.homebranch = &lt;&gt; order by borrowers.surname asc, issues.date_due asc
 
 
 

@@ -29,7 +29,7 @@ Enhanced - just hit Run #circ
 
 
 
-SELECT biblio.title,t.publicationyear,items.replacementprice,items.dateaccessioned,items.issues,items.itype,items.ccode,items.homebranch FROM items LEFT JOIN biblio USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE items.homebranch=<> AND items.ccode=<> GROUP BY biblio.biblionumber, items.itemnumber ORDER BY biblio.title asc
+SELECT biblio.title,t.publicationyear,items.replacementprice,items.dateaccessioned,items.issues,items.itype,items.ccode,items.homebranch FROM items LEFT JOIN biblio USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE items.homebranch=&lt;&gt; AND items.ccode=&lt;&gt; GROUP BY biblio.biblionumber, items.itemnumber ORDER BY biblio.title asc
 
 
 

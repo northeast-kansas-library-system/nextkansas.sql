@@ -22,41 +22,41 @@ Expiry: 300
 
 ----------
 
-<div id="reportinfo" class="reportInfo noprint">
+&lt;div id="reportinfo" class="reportInfo noprint"&gt;
  
-  <div class="reportInfoContent"> 
+  &lt;div class="reportInfoContent"&gt; 
  
-    <p>Counts "localuse" checkouts by item type</p> 
+    &lt;p&gt;Counts "localuse" checkouts by item type&lt;/p&gt; 
  
-    <ul> 
-      <li>during the previous calendar month</li> 
-      <li>at the library you specify</li> 
-      <li>grouped and sorted by library and item type</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;during the previous calendar month&lt;/li&gt; 
+      &lt;li&gt;at the library you specify&lt;/li&gt; 
+      &lt;li&gt;grouped and sorted by library and item type&lt;/li&gt; 
+    &lt;/ul&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div class="reportInfoNotes"> 
+  &lt;div class="reportInfoNotes"&gt; 
 
-    <p></p>
-    <p>Collecting local use data requires the use of a "Staff - statistical purposes" library card.</p>
-    <p></p>
+    &lt;p&gt;&lt;/p&gt;
+    &lt;p&gt;Collecting local use data requires the use of a "Staff - statistical purposes" library card.&lt;/p&gt;
+    &lt;p&gt;&lt;/p&gt;
  
-  </div> 
+  &lt;/div&gt; 
  
 
-  <div id="reportInfoTags"> 
+  &lt;div id="reportInfoTags"&gt; 
  
-    <p style="display: none;"> 
+    &lt;p style="display: none;"&gt; 
       #localuse
       #statistics
       #itype
       #previous_month 
-    </p> 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
 
-  <!-- html notes rendered on guided_reports.pl by jquery see https://wiki.koha-community.org/wiki/Query_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+  &lt;!-- html notes rendered on guided_reports.pl by jquery see https://wiki.koha-community.org/wiki/Query_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt;
 
 ----------
 */
@@ -77,11 +77,11 @@ From
           branches,
           itemtypes
       Where
-          branches.branchcode Like <>) branch_itype Left Join
+          branches.branchcode Like &lt;&gt;) branch_itype Left Join
     (Select
           Coalesce(statistics.branch, "NEKLS") As branch,
           Coalesce(statistics.itemtype, "BOOK") As itemtype,
-          Count(*) As CKO_REN
+          Count(&ast;) As CKO_REN
       From
           statistics
       Where

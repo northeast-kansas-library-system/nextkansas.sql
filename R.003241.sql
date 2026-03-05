@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-08-02 23:01:21
 Modified on: 2024-01-17 12:08:39
-Date last run: 2025-10-27 09:30:50
+Date last run: 2026-01-28 16:33:45
 
 ----------
 
@@ -22,11 +22,11 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Part 1 of the patron purge process - part 1 - change extended attribute to 1 (" Account expired for more than 2 years - scheduled for deletion when expired for 3 years") on all results</p>
-<p></p>
-<p class= "notetags" style="display: none;">#PP01 #patron_purge</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Part 1 of the patron purge process - part 1 - change extended attribute to 1 (" Account expired for more than 2 years - scheduled for deletion when expired for 3 years") on all results&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;#PP01 #patron_purge&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -44,7 +44,7 @@ SELECT
   borrowers.dateenrolled,
   borrowers.dateexpiry,
   If(
-    Day(Now()) >= 15, 
+    Day(Now()) &gt;= 15, 
     Date_Format(Now() + INTERVAL 15 MONTH, '%Y-%m-15'),
     Date_Format(Now() + INTERVAL 14 MONTH, '%Y-%m-15')
   ) AS PROJECTED_DELETION,
@@ -106,14 +106,14 @@ WHERE
   borrowers.dateexpiry BETWEEN CurDate() - INTERVAL 1095 DAY AND CurDate() - INTERVAL 730.5 DAY AND
   borrowers.branchcode LIKE '%' AND
   Coalesce(borrowers.othernames, "0") NOT LIKE "%SIP%" AND
-  borrowers.categorycode <> 'STAFF' AND
-  borrowers.categorycode <> 'ILL' AND
-  borrowers.categorycode <> 'HOOPLA' AND
+  borrowers.categorycode &lt;&gt; 'STAFF' AND
+  borrowers.categorycode &lt;&gt; 'ILL' AND
+  borrowers.categorycode &lt;&gt; 'HOOPLA' AND
   Coalesce(accountlinesx.DUE_SUM, 0) = 0 AND
   Coalesce(issuesx.ICOUNT, 0) = 0 AND
   Coalesce(guaranteesx.GCOUNT, 0) = 0 AND
   Coalesce(requestsx.Count_reserve_id, 0) = 0 AND
-  Coalesce(expired_attribute.attribute, 0) <> 1
+  Coalesce(expired_attribute.attribute, 0) &lt;&gt; 1
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

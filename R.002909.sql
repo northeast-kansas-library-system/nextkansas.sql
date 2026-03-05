@@ -22,20 +22,20 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Report of possible duplicate borrowers at a library</p>
-<ul><li>Shows patrons currently in the database</li>
-<li>with at least one library account at the library you specify</li>
-<li>grouped and sorted by last name/first name</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Updated on 2019.07.22 to filter out middle names - now matches on last name and first name when those two names are spelled exactly.  Ignores everything after the first space between name/initial strings in the borrowers.firstname field.</p>
-<p></p>
-<p>Report created by George Williams.</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2909&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Report of possible duplicate borrowers at a library&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows patrons currently in the database&lt;/li&gt;
+&lt;li&gt;with at least one library account at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped and sorted by last name/first name&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Updated on 2019.07.22 to filter out middle names - now matches on last name and first name when those two names are spelled exactly.  Ignores everything after the first space between name/initial strings in the borrowers.firstname field.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Report created by George Williams.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2909&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 
 ----------
@@ -56,8 +56,8 @@ FROM borrowers
 GROUP BY
   CONCAT(TRIM(surname),'-',TRIM(SUBSTRING_INDEX(firstname, ' ', 1)),'/')
 HAVING
-  COUNT(CONCAT(TRIM(surname),'-',TRIM(SUBSTRING_INDEX(firstname, ' ', 1)),'/'))>1 AND
-  HOME_BRANCH LIKE CONCAT( '%', <>, '%')
+  COUNT(CONCAT(TRIM(surname),'-',TRIM(SUBSTRING_INDEX(firstname, ' ', 1)),'/'))&gt;1 AND
+  HOME_BRANCH LIKE CONCAT( '%', &lt;&gt;, '%')
 
 
 

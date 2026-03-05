@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2020-11-30 16:48:41
 Modified on: 2025-08-18 13:31:49
-Date last run: 2025-08-18 13:32:04
+Date last run: 2026-01-13 22:51:20
 
 ----------
 
@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Outputs borrower address in a way that can be easily imported back into Koha via the patron import tool</p>
-<ul><li>Shows current borrowers</li>
-<li>at the library you specify</li>
-<li>designed to be flexible</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Notes go here.</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3389&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-<p class= "notetags" style="display: none;">hidden flexible openrefine</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Outputs borrower address in a way that can be easily imported back into Koha via the patron import tool&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows current borrowers&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;designed to be flexible&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Notes go here.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3389&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;hidden flexible openrefine&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -58,15 +58,15 @@ FROM
   borrowers
 WHERE
   borrowers.branchcode NOT LIKE "HIGH_CC" AND
-  /* borrowers.branchcode NOT LIKE "PH%" AND */
-  borrowers.branchcode LIKE <> AND
-  borrowers.categorycode <> "STAFF" AND
+  /&ast; borrowers.branchcode NOT LIKE "PH%" AND &ast;/
+  borrowers.branchcode LIKE &lt;&gt; AND
+  borrowers.categorycode &lt;&gt; "STAFF" AND
   borrowers.cardnumber NOT LIKE "0%" AND
   borrowers.cardnumber IS NOT NULL AND
   borrowers.cardnumber NOT LIKE "" AND
-  borrowers.address LIKE Concat(<> ,"%") AND
-  borrowers.city LIKE Concat(<>, "%") AND
-  borrowers.state LIKE Concat(<>, "%")
+  borrowers.address LIKE Concat(&lt;&gt; ,"%") AND
+  borrowers.city LIKE Concat(&lt;&gt;, "%") AND
+  borrowers.state LIKE Concat(&lt;&gt;, "%")
 
 
 

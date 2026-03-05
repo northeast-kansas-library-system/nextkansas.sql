@@ -36,7 +36,7 @@ FROM
   branches LEFT JOIN
   (SELECT
     borrowers.branchcode,
-    Count(*) AS COUNT
+    Count(&ast;) AS COUNT
   FROM
     borrowers
   GROUP BY

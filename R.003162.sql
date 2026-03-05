@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a report of payments made to libraries via Paypal in a date range</p>
-<ul><li>Shows payments made in the date range you specify</li>
-<li>At all libraries</li>
-<li>grouped by account offsets ID</li>
-<li>sorted by library owed the fee, payment date, and fee reference ID</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Due to changes in the database during the upgrade in July of 2018, this report will not work for any fees collected before July 8, 2018</p>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3162&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a report of payments made to libraries via Paypal in a date range&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows payments made in the date range you specify&lt;/li&gt;
+&lt;li&gt;At all libraries&lt;/li&gt;
+&lt;li&gt;grouped by account offsets ID&lt;/li&gt;
+&lt;li&gt;sorted by library owed the fee, payment date, and fee reference ID&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Due to changes in the database during the upgrade in July of 2018, this report will not work for any fees collected before July 8, 2018&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p id="rquickopen"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3162&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
-<p><span style="color: yellow; background-color: red; font-size: 200%;">References accountlines.accounttype.  Needs to be updated after January 4, 2020</span></p>
+&lt;p&gt;&lt;span style="color: yellow; background-color: red; font-size: 200%;"&gt;References accountlines.accounttype.  Needs to be updated after January 4, 2020&lt;/span&gt;&lt;/p&gt;
 
 ----------
 */
@@ -85,7 +85,7 @@ FROM
   LEFT JOIN borrowers manualinvoiceinfo ON manualinvoiceinfo.borrowernumber = debits.manager_id
 WHERE
   (credits.note LIKE "%Paypal%" AND
-  credits.date BETWEEN <> AND (<> + interval 1 day)) AND
+  credits.date BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day)) AND
   If(
     debits.accounttype = 'F',
     Coalesce(old_issues.branchcode, borrowerinfo.branchcode),
@@ -98,7 +98,7 @@ WHERE
         borrowerinfo.branchcode
       )
     )
-  ) LIKE <>
+  ) LIKE &lt;&gt;
 GROUP BY
   account_offsets.id
 ORDER BY

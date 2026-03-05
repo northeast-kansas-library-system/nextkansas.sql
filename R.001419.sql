@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2012-05-14 23:40:18
 Modified on: 2015-08-16 18:11:42
-Date last run: 2025-10-04 08:25:45
+Date last run: 2026-01-28 12:21:33
 
 ----------
 
@@ -30,7 +30,7 @@ Enhanced -- Choose Library.(On Reports Web Page, 5/14/12). #lost
 
 
 SELECT i.datelastseen, b.title, b.author,t.publicationyear, i.location, i.ccode,i.itype,i.itemcallnumber, i.barcode, i.holdingbranch, CONCAT(''"edit item"'') as "edit item" FROM items i LEFT JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber)
-WHERE i.homebranch=<> AND i.itemlost = '3'
+WHERE i.homebranch=&lt;&gt; AND i.itemlost = '3'
 ORDER BY  i.itemcallnumber
 
 

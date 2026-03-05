@@ -47,16 +47,16 @@ FROM
   borrowers
     ON issues.borrowernumber = borrowers.borrowernumber
 WHERE
-  (items.itemlost < 1 OR
+  (items.itemlost &lt; 1 OR
     items.itemlost IS NULL) AND
-  items.onloan < CurDate() - INTERVAL 46 DAY AND
+  items.onloan &lt; CurDate() - INTERVAL 46 DAY AND
   authorised_values.category = 'LOST' AND
-  borrowers.categorycode <> 'ASSOCIATE' AND
-  borrowers.categorycode <> 'STUDENT' AND
-  borrowers.categorycode <> 'INHOUSE' AND
-  borrowers.categorycode <> 'TEACHER' AND
-  borrowers.categorycode <> 'ILL' AND
-  borrowers.categorycode <> 'STAFF'
+  borrowers.categorycode &lt;&gt; 'ASSOCIATE' AND
+  borrowers.categorycode &lt;&gt; 'STUDENT' AND
+  borrowers.categorycode &lt;&gt; 'INHOUSE' AND
+  borrowers.categorycode &lt;&gt; 'TEACHER' AND
+  borrowers.categorycode &lt;&gt; 'ILL' AND
+  borrowers.categorycode &lt;&gt; 'STAFF'
 GROUP BY
   items.itemnumber, items.barcode, items.homebranch, authorised_values.lib,
   items.itemlost_on, items.onloan, issues.date_due, borrowers.categorycode

@@ -22,15 +22,15 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates an easily scheduled media post for a new title</p>
-<ul><li>Shows a title or titles based on the barcode number you specify</li>
-<li>At all Next libraries</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3164&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates an easily scheduled media post for a new title&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows a title or titles based on the barcode number you specify&lt;/li&gt;
+&lt;li&gt;At all Next libraries&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p id="rquickopen"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3164&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -48,7 +48,7 @@ FROM
   biblio
   JOIN items ON items.biblionumber = biblio.biblionumber
 WHERE
-  items.barcode LIKE Concat("%", <>, "%") AND
+  items.barcode LIKE Concat("%", &lt;&gt;, "%") AND
   (items.notforloan = 0 OR
     items.notforloan IS NULL) AND
   (items.damaged = 0 OR

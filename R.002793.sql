@@ -32,11 +32,11 @@ Expiry: 0
 SELECT
   statistics.branch,
   statistics.itemtype,
-  count(*)
+  count(&ast;)
 FROM statistics
 WHERE statistics.type = "issue" AND
   (statistics.datetime BETWEEN "2016-09-01" AND "2016-09-08") AND
-  statistics.branch = <>
+  statistics.branch = &lt;&gt;
 GROUP BY statistics.branch, statistics.itemtype
 WITH ROLLUP
 

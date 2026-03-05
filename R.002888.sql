@@ -38,8 +38,8 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.categorycode LIKE <> AND
-  borrowers.branchcode LIKE <>
+  borrowers.categorycode LIKE &lt;&gt; AND
+  borrowers.branchcode LIKE &lt;&gt;
 GROUP BY
   borrowers.branchcode, borrowers.categorycode, borrowers.cardnumber,
   borrowers.surname, borrowers.dateexpiry

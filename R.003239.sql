@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a list of automatically created lost item fees and late fees that have been written off automatically</p>
-<ul><li>Shows fees added or modified during the date range you specify</li>
-<li>at the library you specify</li>
-<li>grouped by issue id number and account offset id number</li>
-<li>sorted by item lost date, item barcode number, account offset type</li>
-<li>contains links to the patron's fee history</li>
-</ul><br />
-<p></p>
-<p>Replaces report 888</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3239&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a list of automatically created lost item fees and late fees that have been written off automatically&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows fees added or modified during the date range you specify&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped by issue id number and account offset id number&lt;/li&gt;
+&lt;li&gt;sorted by item lost date, item barcode number, account offset type&lt;/li&gt;
+&lt;li&gt;contains links to the patron's fee history&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Replaces report 888&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3239&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -58,9 +58,9 @@ FROM
   JOIN account_offsets
     ON account_offsets.debit_id = accountlines.accountlines_id
 WHERE
-  old_issues.branchcode Like <> AND
+  old_issues.branchcode Like &lt;&gt; AND
   items.itemlost = 2 AND
-  (items.itemlost_on BETWEEN <> AND (<> + interval 1 day))AND
+  (items.itemlost_on BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day))AND
   (account_offsets.type = 'Lost item' OR
     account_offsets.type = 'Forgiven')
 GROUP BY

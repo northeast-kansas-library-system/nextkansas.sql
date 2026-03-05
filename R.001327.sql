@@ -29,7 +29,7 @@ Enhanced - enter MM, YYYY and branch #circ
 
 
 
-SELECT statistics.branch as Library, biblio.title, biblio.author, items.itemcallnumber, items.itype, items.ccode, items.location, items.homebranch as ItemBranch, statistics.itemtype FROM statistics LEFT JOIN items USING (itemnumber) LEFT JOIN biblio USING (biblionumber) WHERE statistics.type IN ('issue', 'renew') AND MONTH(statistics.datetime)= <> and YEAR(statistics.datetime)=<> and statistics.branch = <> ORDER BY statistics.branch, biblio.title
+SELECT statistics.branch as Library, biblio.title, biblio.author, items.itemcallnumber, items.itype, items.ccode, items.location, items.homebranch as ItemBranch, statistics.itemtype FROM statistics LEFT JOIN items USING (itemnumber) LEFT JOIN biblio USING (biblionumber) WHERE statistics.type IN ('issue', 'renew') AND MONTH(statistics.datetime)= &lt;&gt; and YEAR(statistics.datetime)=&lt;&gt; and statistics.branch = &lt;&gt; ORDER BY statistics.branch, biblio.title
 
 
 

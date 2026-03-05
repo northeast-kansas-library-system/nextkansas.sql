@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2012-04-20 14:27:57
 Modified on: 2018-09-20 13:54:54
-Date last run: 2025-07-31 12:44:00
+Date last run: 2026-01-14 14:31:38
 
 ----------
 
@@ -31,7 +31,7 @@ HB_Monthly
 
 
 
-select i.itemnumber, i.dateaccessioned, b.title, i.ccode, i.itype, i.itemcallnumber, i.barcode, CONCAT(''"edit item"'') as "edit barcode" from biblio b left join items i using (biblionumber) where i.notforloan <>'-1' AND i.homebranch=<> AND (i.barcode IS NULL OR LENGTH(i.barcode) < 13 OR i.barcode LIKE 'eudora%') ORDER BY i.ccode, i.itemcallnumber
+select i.itemnumber, i.dateaccessioned, b.title, i.ccode, i.itype, i.itemcallnumber, i.barcode, CONCAT(''"edit item"'') as "edit barcode" from biblio b left join items i using (biblionumber) where i.notforloan &lt;&gt;'-1' AND i.homebranch=&lt;&gt; AND (i.barcode IS NULL OR LENGTH(i.barcode) &lt; 13 OR i.barcode LIKE 'eudora%') ORDER BY i.ccode, i.itemcallnumber
 
 
 

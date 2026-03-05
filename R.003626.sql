@@ -22,23 +22,23 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Lists all Damaged, Lost, or Withdrawn items at a library</p>
-<ul><li>shows items that have those statuses at the time the report is run</li>
-<li>at the library you specify</li>
-<li>biblionumber and item number</li>
-<li>Library, shelving location, item type, collection code, call number, author, and title.</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>When presented with the options:</p>
-<ul>
-<li>List only damaged items</li>
-<li>List only lost items</li>
-<li>List only withdrawn items</li>
-</ul>
-<p>you should only select 1 and leave the others at their defaults.  If you choose "List only damaged items: Yes" and "List only lost items: Yes" you will only see items that are both damaged and lost.</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Lists all Damaged, Lost, or Withdrawn items at a library&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;shows items that have those statuses at the time the report is run&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;biblionumber and item number&lt;/li&gt;
+&lt;li&gt;Library, shelving location, item type, collection code, call number, author, and title.&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;When presented with the options:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;List only damaged items&lt;/li&gt;
+&lt;li&gt;List only lost items&lt;/li&gt;
+&lt;li&gt;List only withdrawn items&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;you should only select 1 and leave the others at their defaults.  If you choose "List only damaged items: Yes" and "List only lost items: Yes" you will only see items that are both damaged and lost.&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -150,10 +150,10 @@ FROM
       authorised_values.category = 'WITHDRAWN') withdrawns ON
       withdrawns.authorised_value = items.withdrawn
 WHERE
-  items.homebranch LIKE <> AND
-  If(items.damaged + 0 = 0, "No", "Yes") LIKE <> AND
-  If(items.itemlost + 0 = 0, "No", "Yes") LIKE <> AND
-  If(items.withdrawn + 0 = 0, "No", "Yes") LIKE <> 
+  items.homebranch LIKE &lt;&gt; AND
+  If(items.damaged + 0 = 0, "No", "Yes") LIKE &lt;&gt; AND
+  If(items.itemlost + 0 = 0, "No", "Yes") LIKE &lt;&gt; AND
+  If(items.withdrawn + 0 = 0, "No", "Yes") LIKE &lt;&gt; 
 GROUP BY
   items.biblionumber,
   items.itemnumber

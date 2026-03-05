@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2016-03-07 10:42:35
 Modified on: 2016-03-07 10:42:35
-Date last run: 2025-07-17 16:31:47
+Date last run: 2025-12-01 16:58:52
 
 ----------
 
@@ -29,7 +29,7 @@ Expiry: 300
 
 
 
-SELECT b.biblionumber, i.dateaccessioned, b.title, b.author, i.ccode, i.location, i.itemcallnumber, i.itype, t.publicationyear, i.barcode, CONCAT(''"edit item"'') as "edit item" FROM items i LEFT JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE i.homebranch=<> AND i.ccode=<> AND i.itype=<> ORDER BY i.itemcallnumber
+SELECT b.biblionumber, i.dateaccessioned, b.title, b.author, i.ccode, i.location, i.itemcallnumber, i.itype, t.publicationyear, i.barcode, CONCAT(''"edit item"'') as "edit item" FROM items i LEFT JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE i.homebranch=&lt;&gt; AND i.ccode=&lt;&gt; AND i.itype=&lt;&gt; ORDER BY i.itemcallnumber
 
 
 

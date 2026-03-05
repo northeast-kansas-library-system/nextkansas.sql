@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a list of all clubs</p>
-<ul><li>List shows clubs that are current at the time you run the report</li>
-<li>at the library you specify</li>
-<li>grouped by club id number</li>
-<li>sorted by club home library, club name, and club id number</li>
-<li>contains links to report 3335 - which generates a list of club members that can be shared with other club members</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Updated on 2020.02.03</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3333&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-<p class= "notetags" style="display: none;">clubs</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a list of all clubs&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;List shows clubs that are current at the time you run the report&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped by club id number&lt;/li&gt;
+&lt;li&gt;sorted by club home library, club name, and club id number&lt;/li&gt;
+&lt;li&gt;contains links to report 3335 - which generates a list of club members that can be shared with other club members&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Updated on 2020.02.03&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3333&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;clubs&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -147,7 +147,7 @@ FROM
       club_enrollments.club_id
   ) counts ON counts.club_id = clubs.id
 WHERE
-  clubs.branchcode LIKE <>
+  clubs.branchcode LIKE &lt;&gt;
 GROUP BY
   liaisons.LIAISON,
   leaders.LEADER,

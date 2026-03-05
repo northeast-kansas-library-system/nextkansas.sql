@@ -22,18 +22,18 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Shows titles that haven't indexed properly since 2016.11.10</p>
-<ul><li>Shows items added since 2016.11.10</li>
-<li>At the library you specify</li>
-<li>sorted by homebranch, shelving location, item type, collection code, call number, author, and title</li>
-<li>contains links to the bibliographic record of the item</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>This report was created to help catalogers find items that can't be searched because of the indexing problems we are currently having.</p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2825&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Shows titles that haven't indexed properly since 2016.11.10&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows items added since 2016.11.10&lt;/li&gt;
+&lt;li&gt;At the library you specify&lt;/li&gt;
+&lt;li&gt;sorted by homebranch, shelving location, item type, collection code, call number, author, and title&lt;/li&gt;
+&lt;li&gt;contains links to the bibliographic record of the item&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;This report was created to help catalogers find items that can't be searched because of the indexing problems we are currently having.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2825&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -58,8 +58,8 @@ FROM
   biblioitems
     ON biblioitems.biblionumber = biblio.biblionumber
 WHERE
-  biblio.biblionumber > '769233' AND
-  Coalesce(items.homebranch, '') LIKE <>
+  biblio.biblionumber &gt; '769233' AND
+  Coalesce(items.homebranch, '') LIKE &lt;&gt;
 ORDER BY
   HOMEBRANCH,
   LOCATION,

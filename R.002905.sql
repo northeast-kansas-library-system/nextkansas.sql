@@ -27,8 +27,6 @@ Expiry: 0
 ----------
 */
 
-
-
 SELECT
   staff.branchcode AS STAFF_AT,
   payments.amount AS COLLECTED,
@@ -1262,20 +1260,3 @@ GROUP BY
   payments.accountno), items.barcode, items.homebranch, paid.date, paid.amount,
   payments.amountoutstanding, paid.description, Replace(paid.note, "\r\n", ""),
   Concat_Ws("-", paid.accountlines_id, paid.accountno)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

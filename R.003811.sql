@@ -31,7 +31,7 @@ Expiry: 300
 
 SELECT
   ' You searched for' AS SEARCH_BARCODE,
-  <> AS ADJACENT_BARCODES,
+  &lt;&gt; AS ADJACENT_BARCODES,
   '' AS OWNED_BY
 UNION
 SELECT
@@ -42,7 +42,7 @@ FROM
   items JOIN
   branches ON items.homebranch = branches.branchcode
 WHERE
-  items.barcode LIKE Concat((Left(Trim(<>), Length(Trim(<>)) - 1)), '%')
+  items.barcode LIKE Concat((Left(Trim(&lt;&gt;), Length(Trim(&lt;&gt;)) - 1)), '%')
 ORDER BY
   SEARCH_BARCODE
 LIMIT 250

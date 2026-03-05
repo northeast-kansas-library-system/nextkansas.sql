@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a list of patrons with contact information based on their "Special location" attributes</p>
-<ul><li>Shows current patrons</li>
-<li>with the home library and special location you specify</li>
-<li>grouped by borrower number and attribute</li>
-<li>sorted by patron last name/patron first name</li>
-<li>contains links to the patron's account</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>This report can be used to determine which patrons at your library have a special location attribute set on their account.</p>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3089&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a list of patrons with contact information based on their "Special location" attributes&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows current patrons&lt;/li&gt;
+&lt;li&gt;with the home library and special location you specify&lt;/li&gt;
+&lt;li&gt;grouped by borrower number and attribute&lt;/li&gt;
+&lt;li&gt;sorted by patron last name/patron first name&lt;/li&gt;
+&lt;li&gt;contains links to the patron's account&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;This report can be used to determine which patrons at your library have a special location attribute set on their account.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p id="rquickopen"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3089&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -75,9 +75,9 @@ FROM
         borrower_attributes.attribute,
         borrower_attributes.code) location ON borrowers.borrowernumber = location.borrowernumber
 WHERE
-  borrowers.branchcode LIKE <> AND
-  borrowers.categorycode LIKE <> AND
-  Coalesce(location.attribute, "~") LIKE <>
+  borrowers.branchcode LIKE &lt;&gt; AND
+  borrowers.categorycode LIKE &lt;&gt; AND
+  Coalesce(location.attribute, "~") LIKE &lt;&gt;
 GROUP BY
   borrowers.email,
   borrowers.dateofbirth,

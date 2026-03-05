@@ -22,17 +22,17 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-  <p>Gives a count for the requests queue at all Next Search Catalog libraries</p>
-  <ul>
-    <li>Shows counts for current holds queue</li>
-    <li>at all Next libraries</li>
-    <li>grouped and sorted by library with a total at the top of the column</li>
-  </ul><br />
-  <p></p>
-  <p class= "notetags" style="display: none;">#quick_count</p>
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+  &lt;p&gt;Gives a count for the requests queue at all Next Search Catalog libraries&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Shows counts for current holds queue&lt;/li&gt;
+    &lt;li&gt;at all Next libraries&lt;/li&gt;
+    &lt;li&gt;grouped and sorted by library with a total at the top of the column&lt;/li&gt;
+  &lt;/ul&gt;&lt;br /&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;p class= "notetags" style="display: none;"&gt;#quick_count&lt;/p&gt;
+  &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt;
+&lt;/div&gt;
 
 ----------
 */

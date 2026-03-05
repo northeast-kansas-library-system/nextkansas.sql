@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a spreadsheet style report of current and past request information based on very flexible parameters</p>
-<ul><li>Shows the history of any active, filled, and cancelled requests in NExpress</li>
-<li>at all pickup libraries or at the pickup library you specify</li>
-<li>with the request status and progress that you specify</li>
-<li>with the hold suspension status you specify</li>
-<li>and with the library card, biblionumber, or item barcode number you specify</li>
-<li>grouped by reserve ID number</li>
-<li>sorted by the last time the request was updated</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3041&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a spreadsheet style report of current and past request information based on very flexible parameters&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows the history of any active, filled, and cancelled requests in NExpress&lt;/li&gt;
+&lt;li&gt;at all pickup libraries or at the pickup library you specify&lt;/li&gt;
+&lt;li&gt;with the request status and progress that you specify&lt;/li&gt;
+&lt;li&gt;with the hold suspension status you specify&lt;/li&gt;
+&lt;li&gt;and with the library card, biblionumber, or item barcode number you specify&lt;/li&gt;
+&lt;li&gt;grouped by reserve ID number&lt;/li&gt;
+&lt;li&gt;sorted by the last time the request was updated&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3041&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -117,13 +117,13 @@ FROM
   LEFT JOIN biblio ON requests.biblionumber = biblio.biblionumber
   LEFT JOIN deletedbiblio ON requests.biblionumber = deletedbiblio.biblionumber
 WHERE
-  requests.branchcode LIKE <> AND
-  requests.statuss LIKE <> AND
-  If(requests.cancellationdate IS NOT NULL, "Cancelled", If(requests.found = "T", "In transit", If(requests.found = "F", "Filled", If(requests.found = "W", "Waiting for pickup", "Still active")))) LIKE <> AND
-  If(requests.suspend <> 0, "Suspended", "-") LIKE <> AND
-  borrowers.cardnumber LIKE Concat("%", <>, "%") AND
-  requests.biblionumber LIKE Concat("%", <>, "%") AND
-  Coalesce(Coalesce(items.barcode, "-"), Coalesce(deleteditems.barcode, "-")) LIKE Concat("%", <>, "%")
+  requests.branchcode LIKE &lt;&gt; AND
+  requests.statuss LIKE &lt;&gt; AND
+  If(requests.cancellationdate IS NOT NULL, "Cancelled", If(requests.found = "T", "In transit", If(requests.found = "F", "Filled", If(requests.found = "W", "Waiting for pickup", "Still active")))) LIKE &lt;&gt; AND
+  If(requests.suspend &lt;&gt; 0, "Suspended", "-") LIKE &lt;&gt; AND
+  borrowers.cardnumber LIKE Concat("%", &lt;&gt;, "%") AND
+  requests.biblionumber LIKE Concat("%", &lt;&gt;, "%") AND
+  Coalesce(Coalesce(items.barcode, "-"), Coalesce(deleteditems.barcode, "-")) LIKE Concat("%", &lt;&gt;, "%")
 GROUP BY
   requests.reserve_id
 ORDER BY

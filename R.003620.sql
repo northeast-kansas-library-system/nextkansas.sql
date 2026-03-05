@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2021-11-09 00:16:43
 Modified on: 2025-03-18 15:05:51
-Date last run: 2025-10-28 20:05:17
+Date last run: 2026-01-29 14:13:40
 
 ----------
 
@@ -32,7 +32,7 @@ Expiry: 30
 Select
   IF(branchcode_asked.branchcode = 'NEKLS',
     'hidden',
-    If(Count(suggestionss.suggestionid) > 0, 'next_hidden', '-')
+    If(Count(suggestionss.suggestionid) &gt; 0, 'next_hidden', '-')
   ) As class
 From
   (
@@ -45,7 +45,7 @@ From
   Left Join
   (
     Select
-      *
+      &ast;
     From
       suggestions
   ) suggestionss 
@@ -53,7 +53,7 @@ From
     suggestionss.branchcode = branchcode_asked.branchcode And
     suggestionss.STATUS = branchcode_asked.asked
 Where
-  branchcode_asked.branchcode LIKE Concat(<>, '%')
+  branchcode_asked.branchcode LIKE Concat(&lt;&gt;, '%')
 Group By
   branchcode_asked.asked
 

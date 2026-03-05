@@ -22,25 +22,25 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>List of requested titles picked up or cancelled in the previous calendar month</p>
-<ul><li>Shows requests in the previous calendar month</li>
-<li>at the request pickup library you specify</li>
-<li>grouped by reserveid number</li>
-<li>sorted by the pickup library plus the normal Next classification order</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>If a request shows up in this report with no classification information it's because no specific item was ever assigned to fill this request.  This can happen in several situations.</p>
-<ul>
-<li>The first situation would be if a title level request was placed and then cancelled before an available item reached the top of the requests queue</li>
-<li>The second situation would be if a request was placed and an item was checked out to the borrower that filled that request before an available item reached the top of the requests queue</li>
-<li>The third situation would be if an item was checked out to the borrower that was deleted after the item was returned but before this report was run</li>
-</ul>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3359&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-<p class= "notetags" style="display: none;">#requests</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;List of requested titles picked up or cancelled in the previous calendar month&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows requests in the previous calendar month&lt;/li&gt;
+&lt;li&gt;at the request pickup library you specify&lt;/li&gt;
+&lt;li&gt;grouped by reserveid number&lt;/li&gt;
+&lt;li&gt;sorted by the pickup library plus the normal Next classification order&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;If a request shows up in this report with no classification information it's because no specific item was ever assigned to fill this request.  This can happen in several situations.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The first situation would be if a title level request was placed and then cancelled before an available item reached the top of the requests queue&lt;/li&gt;
+&lt;li&gt;The second situation would be if a request was placed and an item was checked out to the borrower that filled that request before an available item reached the top of the requests queue&lt;/li&gt;
+&lt;li&gt;The third situation would be if an item was checked out to the borrower that was deleted after the item was returned but before this report was run&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3359&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;#requests&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -53,7 +53,7 @@ SELECT
     If(
       old_reserves.found = "F", 
       "Request filled", 
-      If(old_reserves.itemnumber > 1, "Request not picked up", "Cancelled before being held")
+      If(old_reserves.itemnumber &gt; 1, "Request not picked up", "Cancelled before being held")
     ),
     DATE_FORMAT(old_reserves.timestamp, "%Y.%m.%d")
   ) AS FILLED,
@@ -92,7 +92,7 @@ FROM
       authorised_values.category = 'LOC') LOCATIONS ON
       LOCATIONS.authorised_value = items.permanent_location
 WHERE
-  old_reserves.branchcode LIKE <> AND
+  old_reserves.branchcode LIKE &lt;&gt; AND
   Year(old_reserves.timestamp) = Year(Now() - INTERVAL 1 MONTH) AND
   Month(old_reserves.timestamp) = Month(Now() - INTERVAL 1 MONTH)
 GROUP BY

@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2024-10-20 22:48:44
 Modified on: 2024-10-20 22:56:23
-Date last run: 2024-10-20 23:23:38
+Date last run: 2026-01-28 15:04:47
 
 ----------
 
@@ -58,8 +58,8 @@ From
 Where
   borrower_attribute_types.code Like 'ST_KOHA' And
   authorised_values.category = 'PA_P_KOHA' And
-  authorised_values.authorised_value Like <> AND 
-  borrowers.branchcode LIKE <>
+  authorised_values.authorised_value Like &lt;&gt; AND 
+  borrowers.branchcode LIKE &lt;&gt;
 Group By
   borrowers.borrowernumber
 Order By

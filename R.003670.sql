@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-  <p>Shows count of issues and renewal counts for items that are on public lists (virtualshelves)</p>
-  <ul>
-    <li>Shows checkout and renewal counts for the previous calendar month</li>
-    <li>at all Next Search Catalog libraries</li>
-    <li>grouped and sorted by shelf name</li>
-  </ul><br />
-  <p><ins>Notes:</ins></p>
-  <p></p>
-  <p>Written at the request of Dan Alexander.</p>
-  <p></p>
-  <p class= "notetags" style="display: none;">#lists #circulation_statistics</p>
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div> 
+&lt;div class="reportinfo noprint"&gt; 
+  &lt;p&gt;Shows count of issues and renewal counts for items that are on public lists (virtualshelves)&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Shows checkout and renewal counts for the previous calendar month&lt;/li&gt;
+    &lt;li&gt;at all Next Search Catalog libraries&lt;/li&gt;
+    &lt;li&gt;grouped and sorted by shelf name&lt;/li&gt;
+  &lt;/ul&gt;&lt;br /&gt;
+  &lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;p&gt;Written at the request of Dan Alexander.&lt;/p&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;p class= "notetags" style="display: none;"&gt;#lists #circulation_statistics&lt;/p&gt;
+  &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt;
+&lt;/div&gt; 
 
 ----------
 */
@@ -68,7 +68,7 @@ FROM
           (
             SELECT
               statistics.itemnumber,
-              Count(*) AS CKO_COUNT
+              Count(&ast;) AS CKO_COUNT
             FROM
               statistics
             WHERE

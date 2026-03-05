@@ -22,14 +22,14 @@ Expiry: 0
 
 ----------
 
-<p><span style="color: yellow; background-color: red; font-size: 200%;">References accountlines.accounttype.  Needs to be updated after January 4, 2020</span></p>
+&lt;p&gt;&lt;span style="color: yellow; background-color: red; font-size: 200%;"&gt;References accountlines.accounttype.  Needs to be updated after January 4, 2020&lt;/span&gt;&lt;/p&gt;
 
 ----------
 */
 
 
 
-SELECT accounttype, COUNT(*) from accountlines LEFT JOIN borrowers USING (borrowernumber) WHERE borrowers.branchcode="EUDORA" AND year(date)="2015" AND month(date)="04" GROUP BY accounttype
+SELECT accounttype, COUNT(&ast;) from accountlines LEFT JOIN borrowers USING (borrowernumber) WHERE borrowers.branchcode="EUDORA" AND year(date)="2015" AND month(date)="04" GROUP BY accounttype
 
 
 

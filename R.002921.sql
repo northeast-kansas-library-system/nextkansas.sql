@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2017-03-08 08:40:06
 Modified on: 2024-01-17 11:49:23
-Date last run: 2024-08-27 14:16:41
+Date last run: 2025-12-23 16:47:25
 
 ----------
 
@@ -22,16 +22,16 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Counts the number of items returned at a specified branch during a specified date range (and can be limited to specified days of the week)</p>
-<ul><li>Counts returns during the date range you specify (the statistics table only covers the previous 25 months)</li>
-<li>Counts returns at the library you specify</li>
-<li>grouped and sorted by the branch where the items were checked in and the date the items were returned</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2921&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Counts the number of items returned at a specified branch during a specified date range (and can be limited to specified days of the week)&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Counts returns during the date range you specify (the statistics table only covers the previous 25 months)&lt;/li&gt;
+&lt;li&gt;Counts returns at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped and sorted by the branch where the items were checked in and the date the items were returned&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2921&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -42,14 +42,14 @@ SELECT
   statistics.branch AS CHECK_IN_BRANCH,
   CAST(statistics.datetime AS DATE) AS DATE,
   Date_Format(statistics.datetime, '%a') AS DAY,
-  COUNT(*) AS RETURN_COUNT
+  COUNT(&ast;) AS RETURN_COUNT
 FROM
   statistics
 WHERE
   statistics.type = 'return' AND
-  statistics.branch LIKE <> AND
-  (CAST(statistics.datetime AS DATE) BETWEEN <> AND <>) AND
-  Date_Format(statistics.datetime, '%a') LIKE <>
+  statistics.branch LIKE &lt;&gt; AND
+  (CAST(statistics.datetime AS DATE) BETWEEN &lt;&gt; AND &lt;&gt;) AND
+  Date_Format(statistics.datetime, '%a') LIKE &lt;&gt;
 GROUP BY
   CHECK_IN_BRANCH,
   DATE

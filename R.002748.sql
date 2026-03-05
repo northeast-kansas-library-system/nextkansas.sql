@@ -45,7 +45,7 @@ FROM biblio b
   LEFT JOIN biblioitems t USING(biblionumber)
 WHERE (i.ccode NOT IN ('ERESOURCE','DLVIDEO','DLAUDIO','DLBOOK','DLMUSIC'))
 GROUP BY CONCAT(trim(b.title))
-HAVING (count(DISTINCT b.biblionumber) > 1) AND homebranches LIKE '%corning%'
+HAVING (count(DISTINCT b.biblionumber) &gt; 1) AND homebranches LIKE '%corning%'
 
 
 

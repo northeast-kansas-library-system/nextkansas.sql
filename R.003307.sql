@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2020-01-28 13:36:58
-Modified on: 2023-11-15 17:17:43
-Date last run: 2024-04-11 15:11:35
+Modified on: 2025-11-24 14:31:43
+Date last run: 2025-11-24 14:33:52
 
 ----------
 
@@ -29,60 +29,66 @@ Expiry: 300
 
 
 
-Select
-  Concat('Link to AV') As LINK,
-  If(itypes.itemtype Is Null, "Possible errror", itypes.itemtype) As ITYPE,
-  If(ltypes.authorised_value Is Null, "Errror", ltypes.authorised_value) As authorised_value,
-  If(itypes.description Is Null, "Possible errror", itypes.description) As description,
-  If(itypes.description <> authorised_values.lib, 'Error', '') AS DESC_MATCH,
-  ltypes.lib
-From
-  (Select
-     itemtypes.itemtype,
-     itemtypes.description
-   From
-     itemtypes) itypes Left Join
-  (Select
-     authorised_values.category,
-     authorised_values.authorised_value,
-     authorised_values.lib
-   From
-     authorised_values
-   Where
-     authorised_values.category = 'LITYPES'
-   Group By
-     authorised_values.category,
-     authorised_values.authorised_value,
-     authorised_values.lib) ltypes On ltypes.authorised_value = itypes.itemtype
-Union
-Select
-  Concat('Link to AV') As LINK,
-  If(itypes.itemtype Is Null, "Possible errror", itypes.itemtype) As ITYPE,
-  If(ltypes.authorised_value Is Null, "Errror", ltypes.authorised_value) As authorised_value,
-  If(itypes.description Is Null, "Possible errror", itypes.description) As description,
-  ltypes.lib
-From
-  (Select
-     itemtypes.itemtype,
-     itemtypes.description
-   From
-     itemtypes) itypes Right Join
-  (Select
-     authorised_values.category,
-     authorised_values.authorised_value,
-     authorised_values.lib
-   From
-     authorised_values
-   Where
-     authorised_values.category = 'LITYPES'
-   Group By
-     authorised_values.category,
-     authorised_values.authorised_value,
-     authorised_values.lib) ltypes On ltypes.authorised_value = itypes.itemtype
+SELECT
+  itemtypes_av.itemtype,
+  itemtypes_av.description,
+  itemtypes.description AS description1,
+  authorized_values.lib,
+  If(
+    itemtypes.description IS NULL, 
+    'AV only', 
+    If(
+      authorized_values.lib IS NULL, 
+      'ITYPE only', 
+      ''
+    )
+  ) AS Status
+FROM
+  (
+    SELECT
+      itemtypes.itemtype,
+      itemtypes.description
+    FROM
+      itemtypes
+    GROUP BY
+      itemtypes.itemtype,
+      itemtypes.description
+    UNION
+    SELECT
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'LITYPES'
+    GROUP BY
+      authorised_values.authorised_value,
+      authorised_values.lib
+  ) itemtypes_av 
+  LEFT JOIN itemtypes 
+    ON itemtypes.itemtype = itemtypes_av.itemtype 
+  LEFT JOIN
+  (
+    SELECT
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib
+    FROM
+      authorised_values
+    WHERE
+      authorised_values.category = 'LITYPES'
+    GROUP BY
+      authorised_values.authorised_value,
+      authorised_values.lib
+  ) authorized_values 
+    ON authorized_values.authorised_value = itemtypes_av.itemtype
+GROUP BY
+  itemtypes_av.itemtype,
+  itemtypes_av.description,
+  itemtypes.description,
+  authorized_values.lib
 ORDER BY
-  ITYPE,
-  authorised_value
-LIMIT 1000
+  itemtypes_av.description
 
 
 

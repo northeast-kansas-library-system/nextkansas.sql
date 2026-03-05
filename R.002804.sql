@@ -22,16 +22,16 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Accelerated reader report</p>
-<ul><li>Shows items currently in the catalog with "Accelerated Reader" information in the 526a field</li>
-<li>at a specified branch</li>
-<li>grouped by item home branch, call number information, author, and title</li>
-<li>sorted by interest level, grade level, and AR points</li>
-<li>contains links to the title's bibliographic record</li>
-</ul><br />
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2804&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Accelerated reader report&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows items currently in the catalog with "Accelerated Reader" information in the 526a field&lt;/li&gt;
+&lt;li&gt;at a specified branch&lt;/li&gt;
+&lt;li&gt;grouped by item home branch, call number information, author, and title&lt;/li&gt;
+&lt;li&gt;sorted by interest level, grade level, and AR points&lt;/li&gt;
+&lt;li&gt;contains links to the title's bibliographic record&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2804&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -56,15 +56,15 @@ FROM
   JOIN authorised_values ON items.ccode = authorised_values.authorised_value
   JOIN biblio_metadata ON items.biblionumber = biblio_metadata.biblionumber
 WHERE
-  items.homebranch LIKE <> AND
+  items.homebranch LIKE &lt;&gt; AND
   authorised_values.category = "CCODE"
 GROUP BY
   items.itemnumber
 HAVING
   PROGRAM LIKE "Accelerated Reader%" AND
-  INTEREST_LEVEL LIKE <> AND
-  READING_LEVEL LIKE <> AND
-  POINTS LIKE <>
+  INTEREST_LEVEL LIKE &lt;&gt; AND
+  READING_LEVEL LIKE &lt;&gt; AND
+  POINTS LIKE &lt;&gt;
 ORDER BY
   PROGRAM,
   INTEREST_LEVEL,

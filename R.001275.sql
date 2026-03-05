@@ -31,7 +31,7 @@ Enhanced. Choose library. #holds
 
 SELECT biblio.biblionumber, items.ccode, CONCAT('',biblio.title,'')
 AS Title, items.dateaccessioned, CONCAT('',biblio.biblionumber,'') AS bibnumber
-FROM biblio LEFT JOIN items USING (biblionumber) LEFT JOIN reserves USING (biblionumber) WHERE reserves.borrowernumber IS NOT NULL and items.homebranch =<> GROUP BY biblio.biblionumber ORDER BY biblio.biblionumber DESC LIMIT 1000
+FROM biblio LEFT JOIN items USING (biblionumber) LEFT JOIN reserves USING (biblionumber) WHERE reserves.borrowernumber IS NOT NULL and items.homebranch =&lt;&gt; GROUP BY biblio.biblionumber ORDER BY biblio.biblionumber DESC LIMIT 1000
 
 
 

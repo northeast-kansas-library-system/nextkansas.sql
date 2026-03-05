@@ -22,7 +22,7 @@ Expiry: 0
 
 ----------
 
-<p><span style="background-color: darkred; color: white">Report upgrade needed.</p>
+&lt;p&gt;&lt;span style="background-color: darkred; color: white"&gt;Report upgrade needed.&lt;/p&gt;
 
 ----------
 */

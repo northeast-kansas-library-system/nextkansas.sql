@@ -32,8 +32,8 @@ Expiry: 300
 SELECT  ' ' AS Checkbox, b.title, b.author, i.itemcallnumber, i.barcode
 FROM items i
 JOIN biblio b USING (biblionumber)
-WHERE i.homebranch=<> AND 
-      b.author LIKE CONCAT(<>,'%')
+WHERE i.homebranch=&lt;&gt; AND 
+      b.author LIKE CONCAT(&lt;&gt;,'%')
 ORDER BY b.title
 
 

@@ -29,7 +29,7 @@ Shows patrons at your library with their total CURRENT holds. Only displays card
 
 
 
-SELECT b.cardnumber, count(r.reserve_id) as count FROM reserves r JOIN borrowers b USING(borrowernumber) WHERE b.branchcode = <> GROUP BY b.borrowernumber ORDER BY count DESC
+SELECT b.cardnumber, count(r.reserve_id) as count FROM reserves r JOIN borrowers b USING(borrowernumber) WHERE b.branchcode = &lt;&gt; GROUP BY b.borrowernumber ORDER BY count DESC
 
 
 

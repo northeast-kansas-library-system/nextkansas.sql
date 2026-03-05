@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-  <p>Outputs label layout and template data to a spreadsheet as a backup</p>
-  <ul>
-    <li>Outputs current label data as of the time the report is run</li>
-    <li>for all Next libraries</li>
-    <li>grouped by creator_layouts.layout_id and creator_templates.template_id</li>
-    <li>sorted by file name</li>
-  </ul><br />
-  <p></p>
-  <p class= "notetags" style="display: none;">#backup</p>
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+  &lt;p&gt;Outputs label layout and template data to a spreadsheet as a backup&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Outputs current label data as of the time the report is run&lt;/li&gt;
+    &lt;li&gt;for all Next libraries&lt;/li&gt;
+    &lt;li&gt;grouped by creator_layouts.layout_id and creator_templates.template_id&lt;/li&gt;
+    &lt;li&gt;sorted by file name&lt;/li&gt;
+  &lt;/ul&gt;&lt;br /&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;p class= "notetags" style="display: none;"&gt;#backup&lt;/p&gt;
+  &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt;
+&lt;/div&gt;
 
 ----------
 */

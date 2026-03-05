@@ -61,7 +61,7 @@ FROM
     FROM
       items
     WHERE
-      items.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1)
+      items.dateaccessioned &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1)
     GROUP BY
       Coalesce(items.homebranch, "NEKLS"),
       Coalesce(items.itype, "XXX")
@@ -73,8 +73,8 @@ FROM
     FROM
       deleteditems
     WHERE
-      deleteditems.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
-      deleteditems.timestamp > AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1)
+      deleteditems.dateaccessioned &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
+      deleteditems.timestamp &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1)
     GROUP BY
       Coalesce(deleteditems.homebranch, "NEKLS"),
       Coalesce(deleteditems.itype, "XXX")
@@ -90,7 +90,7 @@ FROM
     FROM
       items
     WHERE
-      items.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
+      items.dateaccessioned &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
       (items.location = 'ADULT' OR
         items.location = "LVPLADULT" OR
         items.location = "PAOLAADULT")
@@ -107,8 +107,8 @@ FROM
     FROM
       deleteditems
     WHERE
-      deleteditems.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
-      deleteditems.timestamp > AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
+      deleteditems.dateaccessioned &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
+      deleteditems.timestamp &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
       (deleteditems.location = 'ADULT' OR
         deleteditems.location = "LVPLADULT" OR
         deleteditems.location = "PAOLAADULT")
@@ -128,7 +128,7 @@ FROM
     FROM
       items
     WHERE
-      items.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
+      items.dateaccessioned &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
       (items.location = 'CHILDRENS' OR
         items.location = "LVPLCHILD" OR
         items.location = "PAOLACHILD")
@@ -145,8 +145,8 @@ FROM
     FROM
       deleteditems
     WHERE
-      deleteditems.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
-      deleteditems.timestamp > AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
+      deleteditems.dateaccessioned &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
+      deleteditems.timestamp &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
       (deleteditems.location = 'CHILDRENS' OR
         deleteditems.location = "LVPLCHILD" OR
         deleteditems.location = "PAOLACHILD")
@@ -166,7 +166,7 @@ FROM
     FROM
       items
     WHERE
-      items.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
+      items.dateaccessioned &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
       (items.location = 'YOUNGADULT' OR
         items.location = "LVPLYA" OR
         items.location = "PAOLAYA")
@@ -183,8 +183,8 @@ FROM
     FROM
       deleteditems
     WHERE
-      deleteditems.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
-      deleteditems.timestamp > AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
+      deleteditems.dateaccessioned &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
+      deleteditems.timestamp &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
       (deleteditems.location = 'YOUNGADULT' OR
         deleteditems.location = "LVPLYA" OR
         deleteditems.location = "PAOLAYA")
@@ -204,7 +204,7 @@ FROM
     FROM
       items
     WHERE
-      items.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
+      items.dateaccessioned &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
       (items.location = 'CART' OR
         items.location = "CATALOGING" OR
         items.location = "PROC" OR
@@ -223,8 +223,8 @@ FROM
     FROM
       deleteditems
     WHERE
-      deleteditems.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
-      deleteditems.timestamp > AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
+      deleteditems.dateaccessioned &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
+      deleteditems.timestamp &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) AND
       (deleteditems.location = 'CART' OR
         deleteditems.location = "CATALOGING" OR
         deleteditems.location = "PROC" OR

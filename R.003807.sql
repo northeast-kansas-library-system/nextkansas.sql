@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2024-03-07 16:01:47
-Modified on: 2025-09-14 17:07:51
-Date last run: 2025-09-14 17:06:55
+Modified on: 2025-12-28 22:36:04
+Date last run: 2025-12-30 21:07:41
 
 ----------
 
@@ -22,165 +22,165 @@ Expiry: 300
 
 ----------
 
-<div id=""reportinfo"" class=""noprint reportInfo""> 
+&lt;div id=""reportinfo"" class=""noprint reportInfo""&gt; 
  
-  <div class=""reportInfoContent""> 
+  &lt;div class=""reportInfoContent""&gt; 
  
-    <p>Shows LDR positions</p> 
+    &lt;p&gt;Shows LDR positions&lt;/p&gt; 
 
-    <h3>00-04 - Record length</h3>
+    &lt;h3&gt;00-04 - Record length&lt;/h3&gt;
  
-    <h3>05 - Record status</h3>
+    &lt;h3&gt;05 - Record status&lt;/h3&gt;
  
-    <ul> 
-      <li>a - Increase in encoding level</li> 
-      <li>c - Corrected or revised</li> 
-      <li>d - Deleted</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;a - Increase in encoding level&lt;/li&gt; 
+      &lt;li&gt;c - Corrected or revised&lt;/li&gt; 
+      &lt;li&gt;d - Deleted&lt;/li&gt; 
+    &lt;/ul&gt; 
 
-    <h3>06 - Type of record</h3>
+    &lt;h3&gt;06 - Type of record&lt;/h3&gt;
 
-    <ul>
-      <li>a - Language material</li> 
-      <li>c - Notated music</li> 
-      <li>d - Manuscript notated music</li> 
-      <li>  e - Cartographic material</li> 
-      <li>f - Manuscript cartographic material</li> 
-      <li>g - Projected medium</li> 
-      <li>i - Nonmusical sound recording</li> 
-      <li>j - Musical sound recording</li> 
-      <li>k - Two-dimensional nonprojectable graphic</li> 
-      <li>m - Computer file</li> 
-      <li>o - Kit</li> 
-      <li>p - Mixed materials</li> 
-      <li>r - Three-dimensional artifact or naturally occurring object</li> 
-      <li>t - Manuscript language material</li> 
-    </ul>
+    &lt;ul&gt;
+      &lt;li&gt;a - Language material&lt;/li&gt; 
+      &lt;li&gt;c - Notated music&lt;/li&gt; 
+      &lt;li&gt;d - Manuscript notated music&lt;/li&gt; 
+      &lt;li&gt;  e - Cartographic material&lt;/li&gt; 
+      &lt;li&gt;f - Manuscript cartographic material&lt;/li&gt; 
+      &lt;li&gt;g - Projected medium&lt;/li&gt; 
+      &lt;li&gt;i - Nonmusical sound recording&lt;/li&gt; 
+      &lt;li&gt;j - Musical sound recording&lt;/li&gt; 
+      &lt;li&gt;k - Two-dimensional nonprojectable graphic&lt;/li&gt; 
+      &lt;li&gt;m - Computer file&lt;/li&gt; 
+      &lt;li&gt;o - Kit&lt;/li&gt; 
+      &lt;li&gt;p - Mixed materials&lt;/li&gt; 
+      &lt;li&gt;r - Three-dimensional artifact or naturally occurring object&lt;/li&gt; 
+      &lt;li&gt;t - Manuscript language material&lt;/li&gt; 
+    &lt;/ul&gt;
     
-    <h3>07 - Bibliographic level</h3>
+    &lt;h3&gt;07 - Bibliographic level&lt;/h3&gt;
  
-    <ul> 
-      <li>a - Monographic component part</li> 
-      <li>b - Serial component part</li> 
-      <li>c - Collection</li> 
-      <li>d - Subunit</li> 
-      <li>i - Integrating resource</li> 
-      <li>m - Monograph/Item</li> 
-      <li>s - Serial</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;a - Monographic component part&lt;/li&gt; 
+      &lt;li&gt;b - Serial component part&lt;/li&gt; 
+      &lt;li&gt;c - Collection&lt;/li&gt; 
+      &lt;li&gt;d - Subunit&lt;/li&gt; 
+      &lt;li&gt;i - Integrating resource&lt;/li&gt; 
+      &lt;li&gt;m - Monograph/Item&lt;/li&gt; 
+      &lt;li&gt;s - Serial&lt;/li&gt; 
+    &lt;/ul&gt; 
 
-    <h3>08 - Type of control</h3>
+    &lt;h3&gt;08 - Type of control&lt;/h3&gt;
  
-    <ul> 
-      <li># - No specified type</li> 
-      <li>a - Archival</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;# - No specified type&lt;/li&gt; 
+      &lt;li&gt;a - Archival&lt;/li&gt; 
+    &lt;/ul&gt; 
 
-    <h3>09 - Character coding scheme</h3>
+    &lt;h3&gt;09 - Character coding scheme&lt;/h3&gt;
  
-    <ul> 
-      <li># - MARC-8</li> 
-      <li>a - UCS/Unicode</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;# - MARC-8&lt;/li&gt; 
+      &lt;li&gt;a - UCS/Unicode&lt;/li&gt; 
+    &lt;/ul&gt; 
 
-    <h3>10 - Indicator count</h3>
+    &lt;h3&gt;10 - Indicator count&lt;/h3&gt;
  
-    <ul> 
-      <li>2 - Number of character positions used for indicators</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;2 - Number of character positions used for indicators&lt;/li&gt; 
+    &lt;/ul&gt; 
 
-    <h3>11 - Subfield code count</h3>
+    &lt;h3&gt;11 - Subfield code count&lt;/h3&gt;
  
-    <ul> 
-      <li>2 - Number of character positions used for a subfield code</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;2 - Number of character positions used for a subfield code&lt;/li&gt; 
+    &lt;/ul&gt; 
 
-    <h3>12-16 - Base address of data</h3>
+    &lt;h3&gt;12-16 - Base address of data&lt;/h3&gt;
  
-    <ul> 
-      <li>[number] - Length of Leader and Directory</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;[number] - Length of Leader and Directory&lt;/li&gt; 
+    &lt;/ul&gt; 
 
-    <h3>17 - Encoding level</h3>
+    &lt;h3&gt;17 - Encoding level&lt;/h3&gt;
  
-    <ul> 
-      <li># - Full level</li> 
-      <li>1 - Full level, material not examined</li> 
-      <li>2 - Less-than-full level, material not examined</li> 
-      <li>3 - Abbreviated level</li> 
-      <li>4 - Core level</li> 
-      <li>5 - Partial (preliminary) level</li> 
-      <li>7 - Minimal level</li> 
-      <li>8 - Prepublication level</li> 
-      <li>u - Unknown</li> 
-      <li>z - Not applicable</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;# - Full level&lt;/li&gt; 
+      &lt;li&gt;1 - Full level, material not examined&lt;/li&gt; 
+      &lt;li&gt;2 - Less-than-full level, material not examined&lt;/li&gt; 
+      &lt;li&gt;3 - Abbreviated level&lt;/li&gt; 
+      &lt;li&gt;4 - Core level&lt;/li&gt; 
+      &lt;li&gt;5 - Partial (preliminary) level&lt;/li&gt; 
+      &lt;li&gt;7 - Minimal level&lt;/li&gt; 
+      &lt;li&gt;8 - Prepublication level&lt;/li&gt; 
+      &lt;li&gt;u - Unknown&lt;/li&gt; 
+      &lt;li&gt;z - Not applicable&lt;/li&gt; 
+    &lt;/ul&gt; 
 
-    <h3>18 - Descriptive cataloging form</h3>
+    &lt;h3&gt;18 - Descriptive cataloging form&lt;/h3&gt;
  
-    <ul> 
-      <li># - Non-ISBD</li> 
-      <li>a - AACR 2</li> 
-      <li>c - ISBD punctuation omitted</li> 
-      <li>i - ISBD punctuation included</li> 
-      <li>n - Non-ISBD punctuation omitted</li> 
-      <li>u - Unknown</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;# - Non-ISBD&lt;/li&gt; 
+      &lt;li&gt;a - AACR 2&lt;/li&gt; 
+      &lt;li&gt;c - ISBD punctuation omitted&lt;/li&gt; 
+      &lt;li&gt;i - ISBD punctuation included&lt;/li&gt; 
+      &lt;li&gt;n - Non-ISBD punctuation omitted&lt;/li&gt; 
+      &lt;li&gt;u - Unknown&lt;/li&gt; 
+    &lt;/ul&gt; 
 
-    <h3>19 - Multipart resource record level</h3>
+    &lt;h3&gt;19 - Multipart resource record level&lt;/h3&gt;
  
-    <ul> 
-      <li># - Not specified or not applicable</li> 
-      <li>a - Set</li> 
-      <li>b - Part with independent title</li> 
-      <li>c - Part with dependent title</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;# - Not specified or not applicable&lt;/li&gt; 
+      &lt;li&gt;a - Set&lt;/li&gt; 
+      &lt;li&gt;b - Part with independent title&lt;/li&gt; 
+      &lt;li&gt;c - Part with dependent title&lt;/li&gt; 
+    &lt;/ul&gt; 
 
-    <h3>20 - Length of the length-of-field portion</h3>
+    &lt;h3&gt;20 - Length of the length-of-field portion&lt;/h3&gt;
  
-    <ul> 
-      <li>4 - Number of characters in the length-of-field portion of a Directory entry</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;4 - Number of characters in the length-of-field portion of a Directory entry&lt;/li&gt; 
+    &lt;/ul&gt; 
 
-    <h3>21 - Length of the starting-character-position portion</h3>
+    &lt;h3&gt;21 - Length of the starting-character-position portion&lt;/h3&gt;
 
-    <ul> 
-      <li>5 - Number of characters in the starting-character-position portion of a Directory entry</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;5 - Number of characters in the starting-character-position portion of a Directory entry&lt;/li&gt; 
+    &lt;/ul&gt; 
 
-    <h3>22 - Length of the implementation-defined portion</h3>
+    &lt;h3&gt;22 - Length of the implementation-defined portion&lt;/h3&gt;
 
-    <ul> 
-      <li>0 - Number of characters in the implementation-defined portion of a Directory entry</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;0 - Number of characters in the implementation-defined portion of a Directory entry&lt;/li&gt; 
+    &lt;/ul&gt; 
 
-    <h3>23 - Undefined</h3>
+    &lt;h3&gt;23 - Undefined&lt;/h3&gt;
 
-    <ul> 
-      <li>0 - Undefined</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;0 - Undefined&lt;/li&gt; 
+    &lt;/ul&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div class=""reportInfoNotes""> 
+  &lt;div class=""reportInfoNotes""&gt; 
  
-    <p> 
+    &lt;p&gt; 
  
-    </p> 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div id=""reportInfoTags""> 
+  &lt;div id=""reportInfoTags""&gt; 
  
-    <p style=""display: none;""> 
+    &lt;p style=""display: none;""&gt; 
       #controlfields
-    </p> 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
+  &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt; 
  
-</div>
+&lt;/div&gt;
 
 ----------
 */
@@ -188,6 +188,9 @@ Expiry: 300
 
 
 SELECT
+  Concat( 
+    'Bibliographic record' 
+  ) AS LINK,
   biblio_metadata.biblionumber AS BIBS,
   ExtractValue(biblio_metadata.metadata, '//leader') AS 'LDR',
   SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 1 FOR 5 ) AS RECORD_SIZE,
@@ -204,7 +207,7 @@ SELECT
 FROM
   biblio_metadata
 WHERE 
-  SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 7 FOR 1 ) LIKE <>
+  SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 7 FOR 1 ) LIKE &lt;&gt;
 GROUP BY
   biblio_metadata.biblionumber
 ORDER BY

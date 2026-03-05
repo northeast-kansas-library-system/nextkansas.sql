@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Counts all items at a library based on the length of their barcode numbers</p>
-<ul><li>Lists current data</li>
-<li>At the library you specify</li>
-<li>grouped and sorted by the name of the library and the length of the barcode numbers</li>
-<li>links to report 3557 which lists all of the items at a library with a specified barcode number length</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Can be used to identified errors made when items are entered with an incorrect barcode number</p>
-<p></p>
-<p class= "notetags" style="display: none;">#item barcode #length #barcode count</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Counts all items at a library based on the length of their barcode numbers&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Lists current data&lt;/li&gt;
+&lt;li&gt;At the library you specify&lt;/li&gt;
+&lt;li&gt;grouped and sorted by the name of the library and the length of the barcode numbers&lt;/li&gt;
+&lt;li&gt;links to report 3557 which lists all of the items at a library with a specified barcode number length&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Can be used to identified errors made when items are entered with an incorrect barcode number&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;#item barcode #length #barcode count&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -52,7 +52,7 @@ FROM
   items JOIN
   branches ON items.homebranch = branches.branchcode
 WHERE
-  items.homebranch LIKE <>
+  items.homebranch LIKE &lt;&gt;
 GROUP BY
   branches.branchname,
   Length(items.barcode)

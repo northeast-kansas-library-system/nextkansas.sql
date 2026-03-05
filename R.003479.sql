@@ -51,9 +51,9 @@ FROM
       authorised_values ccodes
     WHERE
       locations.category = 'bibloc' AND
-      locations.authorised_value <> 'YOUNGADULT' AND
-      branches.branchcode LIKE <> AND
-      ccodes.authorised_value = <>) branches_locations LEFT JOIN
+      locations.authorised_value &lt;&gt; 'YOUNGADULT' AND
+      branches.branchcode LIKE &lt;&gt; AND
+      ccodes.authorised_value = &lt;&gt;) branches_locations LEFT JOIN
   (SELECT
       items.homebranch,
       Count(DISTINCT items.itemnumber) AS Count_itemnumber,
@@ -71,7 +71,7 @@ FROM
     FROM
       items
     WHERE
-      items.homebranch LIKE <> AND
+      items.homebranch LIKE &lt;&gt; AND
       If(items.permanent_location LIKE "%YA%", "L_YA",
         If(items.permanent_location LIKE "%CHILD%", "CHILDRENS",
           If(items.permanent_location LIKE "%ADULT%", "ADULT",
@@ -82,8 +82,8 @@ FROM
             )
           )
         )
-      ) LIKE <> AND
-      Coalesce(items.ccode, "XXX") = <>
+      ) LIKE &lt;&gt; AND
+      Coalesce(items.ccode, "XXX") = &lt;&gt;
     GROUP BY
       items.homebranch,
       If(items.permanent_location LIKE "%YA%", "L_YA",
@@ -120,9 +120,9 @@ FROM
       biblioitems JOIN
       items ON items.biblioitemnumber = biblioitems.biblioitemnumber
     WHERE
-      biblioitems.publicationyear < Year(Now()) AND
+      biblioitems.publicationyear &lt; Year(Now()) AND
       biblioitems.publicationyear REGEXP '^[0-9]+$' AND
-      items.homebranch LIKE <> AND
+      items.homebranch LIKE &lt;&gt; AND
       If(items.permanent_location LIKE "%YA%", "L_YA",
         If(items.permanent_location LIKE "%CHILD%", "CHILDRENS",
           If(items.permanent_location LIKE "%ADULT%", "ADULT",
@@ -133,8 +133,8 @@ FROM
             )
           )
         )
-      ) LIKE <> AND
-      Coalesce(items.ccode, "XXX") = <>
+      ) LIKE &lt;&gt; AND
+      Coalesce(items.ccode, "XXX") = &lt;&gt;
     GROUP BY
       items.homebranch,
       If(items.permanent_location LIKE "%YA%", "L_YA",
@@ -172,9 +172,9 @@ FROM
       biblioitems JOIN
       items ON items.biblioitemnumber = biblioitems.biblioitemnumber
     WHERE
-      biblioitems.publicationyear < Year(Now()) AND
+      biblioitems.publicationyear &lt; Year(Now()) AND
       biblioitems.publicationyear REGEXP '^[0-9]+$' AND
-      items.homebranch LIKE <> AND
+      items.homebranch LIKE &lt;&gt; AND
       If(items.permanent_location LIKE "%YA%", "L_YA",
         If(items.permanent_location LIKE "%CHILD%", "CHILDRENS",
           If(items.permanent_location LIKE "%ADULT%", "ADULT",
@@ -185,8 +185,8 @@ FROM
             )
           )
         )
-      ) LIKE <> AND
-      Coalesce(items.ccode, "XXX") = <>
+      ) LIKE &lt;&gt; AND
+      Coalesce(items.ccode, "XXX") = &lt;&gt;
     GROUP BY
       items.homebranch,
       items.itemnumber,
@@ -207,9 +207,9 @@ FROM
       average_age.LOCATION = branches_locations.LOCATION_CODE AND
       average_age.ccode = branches_locations.CCODE_CODE
 WHERE
-  branches_locations.branchcode LIKE <> AND
-  branches_locations.LOCATION_CODE LIKE <> AND
-  branches_locations.CCODE_CODE = <>
+  branches_locations.branchcode LIKE &lt;&gt; AND
+  branches_locations.LOCATION_CODE LIKE &lt;&gt; AND
+  branches_locations.CCODE_CODE = &lt;&gt;
 GROUP BY
   branches_locations.branchcode,
   branches_locations.LOCATION_DESCRIPTION,

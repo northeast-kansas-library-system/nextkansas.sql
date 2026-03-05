@@ -50,11 +50,11 @@ SELECT
 FROM 
   special_holidays 
 WHERE 
-    (special_holidays.branchcode LIKE @brn:=<> COLLATE utf8mb4_unicode_ci) 
+    (special_holidays.branchcode LIKE @brn:=&lt;&gt; COLLATE utf8mb4_unicode_ci) 
   AND 
     Str_To_Date( 
       Concat(special_holidays.month, '/', special_holidays.day, '/', special_holidays.year), '%m/%d/%Y' 
-    ) > Now() - INTERVAL 1 DAY 
+    ) &gt; Now() - INTERVAL 1 DAY 
 UNION 
 SELECT 
   repeatable_holidays.branchcode AS BRANCH, 
@@ -66,7 +66,7 @@ SELECT
       '/', 
       repeatable_holidays.day, 
       '/', 
-      (If(repeatable_holidays.month >= Month(CurDate()), Year(CurDate()), Year(CurDate()) + 1)) 
+      (If(repeatable_holidays.month &gt;= Month(CurDate()), Year(CurDate()), Year(CurDate()) + 1)) 
     ), 
     '%m/%d/%Y' 
   ) AS UPCOMING_DATE, 
@@ -84,7 +84,7 @@ SELECT
                     '/', 
                     repeatable_holidays.day, 
                     '/', 
-                    (If(repeatable_holidays.month >= Month(CurDate()), Year(CurDate()), Year(CurDate()) + 1)) 
+                    (If(repeatable_holidays.month &gt;= Month(CurDate()), Year(CurDate()), Year(CurDate()) + 1)) 
                   ), 
                   '%m/%d/%Y'), 
                   '%W' 
@@ -108,9 +108,9 @@ WHERE
         '/', 
         repeatable_holidays.day, 
         '/', 
-        (If(repeatable_holidays.month >= Month(CurDate()), Year(CurDate()), Year(CurDate()) + 1)) 
+        (If(repeatable_holidays.month &gt;= Month(CurDate()), Year(CurDate()), Year(CurDate()) + 1)) 
       ), 
-    '%m/%d/%Y') > Now() - INTERVAL 1 DAY) 
+    '%m/%d/%Y') &gt; Now() - INTERVAL 1 DAY) 
   OR 
     (repeatable_holidays.branchcode LIKE @brn 
   AND 
@@ -120,7 +120,7 @@ WHERE
         '/', 
         repeatable_holidays.day, 
         '/', 
-        (If(repeatable_holidays.month >= Month(CurDate()), Year(CurDate()), Year(CurDate()) + 1)) 
+        (If(repeatable_holidays.month &gt;= Month(CurDate()), Year(CurDate()), Year(CurDate()) + 1)) 
       ), 
     '%m/%d/%Y') IS NULL) 
 ORDER BY 

@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2013-07-31 13:02:01
 Modified on: 2023-10-16 22:06:11
-Date last run: 2025-09-29 14:23:13
+Date last run: 2026-01-29 13:38:11
 
 ----------
 
@@ -22,19 +22,19 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Lists items that (A) have never checked out or that (B) have not been borrowed since before the date you specify</p>
-<ul><li>Shows items currently in the collection</li>
-<li>owned by the library you specify</li>
-<li>grouped by item number</li>
-<li>sorted by the standard Next Search Catalog classification scheme</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p></p>
-<p class= "notetags" style="display: none;">#weeding #datelastborrowed #dateaccessioned</p>
-<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div> 
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Lists items that (A) have never checked out or that (B) have not been borrowed since before the date you specify&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows items currently in the collection&lt;/li&gt;
+&lt;li&gt;owned by the library you specify&lt;/li&gt;
+&lt;li&gt;grouped by item number&lt;/li&gt;
+&lt;li&gt;sorted by the standard Next Search Catalog classification scheme&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;#weeding #datelastborrowed #dateaccessioned&lt;/p&gt;
+&lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt;
+&lt;/div&gt; 
 
 ----------
 */
@@ -135,13 +135,13 @@ FROM
     ) ccode 
     ON ccode.authorised_value = items.ccode
 WHERE
-  items.homebranch LIKE <> AND
+  items.homebranch LIKE &lt;&gt; AND
   (
     (
-      items.dateaccessioned < <> AND
+      items.dateaccessioned &lt; &lt;&gt; AND
       (Coalesce(items.issues, 0) + Coalesce(items.renewals, 0) = 0)
     ) OR
-    (items.datelastborrowed < <>)
+    (items.datelastborrowed &lt; &lt;&gt;)
   )
 GROUP BY
   items.itemnumber

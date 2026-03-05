@@ -45,7 +45,7 @@ Select
       items On items.biblionumber = biblio.biblionumber Inner Join
       itemtypes On itemtypes.itemtype = items.itype
     Where
-      items.itype LIKE <>
+      items.itype LIKE &lt;&gt;
     Order By
       biblio.title
 

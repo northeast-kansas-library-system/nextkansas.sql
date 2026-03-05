@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>This report counts items that were checked out at a library that did not have a homebranch of that same library.</p>
-<ul><li>Counts items that were checked out during a specified date range (between 12:00 a.m. on the <strong>START DATE</strong> and 11:59 p.m. on the <strong>END DATE</strong>)</li>
-<li>Counts all items checked out or renewed at a specified branch that were not owned by that branch</li>
-<li>grouped by check-out-branch, shelving-location, and collection-code</li>
-<li>sorted by check-out-branch, shelving-location, and collection-code</li>
-<li>includes rollup totals for each grouping sub-set</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p>This report is similar to report 2707 which does the same thing but only shows items checked out or renewed in the previous calendar month.</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;This report counts items that were checked out at a library that did not have a homebranch of that same library.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Counts items that were checked out during a specified date range (between 12:00 a.m. on the &lt;strong&gt;START DATE&lt;/strong&gt; and 11:59 p.m. on the &lt;strong&gt;END DATE&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;Counts all items checked out or renewed at a specified branch that were not owned by that branch&lt;/li&gt;
+&lt;li&gt;grouped by check-out-branch, shelving-location, and collection-code&lt;/li&gt;
+&lt;li&gt;sorted by check-out-branch, shelving-location, and collection-code&lt;/li&gt;
+&lt;li&gt;includes rollup totals for each grouping sub-set&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;This report is similar to report 2707 which does the same thing but only shows items checked out or renewed in the previous calendar month.&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -44,25 +44,25 @@ SELECT
 FROM
  (
 SELECT 
- statistics.branch AS CHECK_OUT_BRANCH, items.location AS SHELVING_LOCATION, statistics.ccode AS COLLECTION_CODE, COUNT(*) AS C_R
+ statistics.branch AS CHECK_OUT_BRANCH, items.location AS SHELVING_LOCATION, statistics.ccode AS COLLECTION_CODE, COUNT(&ast;) AS C_R
 FROM
  statistics
 JOIN items ON statistics.itemnumber = items.itemnumber
 WHERE
- (statistics.datetime BETWEEN (@StartDate:= <>)  AND (@EndDate:= <>+ INTERVAL 1 DAY)) AND (statistics.type = 'issue' OR statistics.type = 'renew') AND (items.homebranch <> statistics.branch)
+ (statistics.datetime BETWEEN (@StartDate:= &lt;&gt;)  AND (@EndDate:= &lt;&gt;+ INTERVAL 1 DAY)) AND (statistics.type = 'issue' OR statistics.type = 'renew') AND (items.homebranch &lt;&gt; statistics.branch)
 GROUP BY CHECK_OUT_BRANCH, SHELVING_LOCATION, COLLECTION_CODE 
 
 UNION
 
 SELECT 
- statistics.branch AS CHECK_OUT_BRANCH, deleteditems.location AS SHELVING_LOCATION, statistics.ccode AS COLLECTION_CODE, COUNT(*) AS C_R
+ statistics.branch AS CHECK_OUT_BRANCH, deleteditems.location AS SHELVING_LOCATION, statistics.ccode AS COLLECTION_CODE, COUNT(&ast;) AS C_R
 FROM
  statistics
 JOIN deleteditems ON statistics.itemnumber = deleteditems.itemnumber
 WHERE
- (statistics.datetime BETWEEN @StartDate  AND @EndDate) AND (statistics.type = 'issue' OR statistics.type = 'renew') AND (deleteditems.homebranch <> statistics.branch)
+ (statistics.datetime BETWEEN @StartDate  AND @EndDate) AND (statistics.type = 'issue' OR statistics.type = 'renew') AND (deleteditems.homebranch &lt;&gt; statistics.branch)
 GROUP BY CHECK_OUT_BRANCH, SHELVING_LOCATION, COLLECTION_CODE) AS X
-WHERE CHECK_OUT_BRANCH = <>
+WHERE CHECK_OUT_BRANCH = &lt;&gt;
 GROUP BY CHECK_OUT_BRANCH, SHELVING_LOCATION, COLLECTION_CODE WITH ROLLUP
 
 

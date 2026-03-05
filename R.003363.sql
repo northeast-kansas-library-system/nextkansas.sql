@@ -50,7 +50,7 @@ FROM
       statistics.branch,
       DayName(statistics.datetime) AS DAY,
       Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE,
-      count(*) AS COUNT
+      count(&ast;) AS COUNT
     FROM
       statistics
     WHERE
@@ -68,7 +68,7 @@ FROM
       statistics.branch,
       DayName(statistics.datetime) AS DAY,
       Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE,
-      count(*) AS COUNT
+      count(&ast;) AS COUNT
     FROM
       statistics
     WHERE
@@ -85,7 +85,7 @@ FROM
       statistics.branch,
       DayName(statistics.datetime) AS DAY,
       Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE,
-      count(*) AS COUNT
+      count(&ast;) AS COUNT
     FROM
       statistics
     WHERE
@@ -102,7 +102,7 @@ FROM
       statistics.branch,
       DayName(statistics.datetime) AS DAY,
       Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE,
-      count(*) AS COUNT
+      count(&ast;) AS COUNT
     FROM
       statistics
     WHERE
@@ -168,7 +168,7 @@ FROM
       renewborrowers.branch = branchess.branchcode AND
       renewborrowers.DATE = ALL_STATS.DATE
 WHERE
-  branchess.branchcode LIKE <>
+  branchess.branchcode LIKE &lt;&gt;
 GROUP BY
   branchess.branchname,
   ALL_STATS.DATE

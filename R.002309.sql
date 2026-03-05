@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-select DISTINCT CONCAT('',b.biblionumber,''), b.title, b.author, i.itemcallnumber, ExtractValue(t.metadata, '//datafield[@tag="440"]/subfield[@code>="a"]') as "440 series info", ExtractValue(t.metadata, '//datafield[@tag="490"]/subfield[@code>="z"]') as "490 series info", (IFNULL(i.issues,0)+IFNULL(i.renewals,0)) as Total_Circ from biblio b left join biblio_metadata t using (biblionumber) join items i using (biblionumber) WHERE i.homebranch=<> AND i.ccode=<> GROUP BY i.biblionumber
+select DISTINCT CONCAT('',b.biblionumber,''), b.title, b.author, i.itemcallnumber, ExtractValue(t.metadata, '//datafield[@tag="440"]/subfield[@code&gt;="a"]') as "440 series info", ExtractValue(t.metadata, '//datafield[@tag="490"]/subfield[@code&gt;="z"]') as "490 series info", (IFNULL(i.issues,0)+IFNULL(i.renewals,0)) as Total_Circ from biblio b left join biblio_metadata t using (biblionumber) join items i using (biblionumber) WHERE i.homebranch=&lt;&gt; AND i.ccode=&lt;&gt; GROUP BY i.biblionumber
 
 
 

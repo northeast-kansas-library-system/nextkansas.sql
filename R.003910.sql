@@ -90,11 +90,11 @@ FROM
 WHERE
   borrowers.branchcode LIKE '%' AND
   Coalesce(borrowers.othernames, "0") NOT LIKE "%SIP%" AND
-  borrowers.categorycode <> 'STAFF' AND
-  borrowers.categorycode <> 'ILL' AND
-  borrowers.categorycode <> 'HOOPLA' AND
+  borrowers.categorycode &lt;&gt; 'STAFF' AND
+  borrowers.categorycode &lt;&gt; 'ILL' AND
+  borrowers.categorycode &lt;&gt; 'HOOPLA' AND
   Coalesce(requestsx.Count_reserve_id, 0) = 0 AND
-  Coalesce(expired_attribute.attribute, 0) LIKE <>
+  Coalesce(expired_attribute.attribute, 0) LIKE &lt;&gt;
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

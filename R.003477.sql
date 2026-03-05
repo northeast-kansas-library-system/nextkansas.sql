@@ -46,8 +46,8 @@ FROM
       authorised_values locations
     WHERE
       locations.category = 'bibloc' AND
-      locations.authorised_value <> 'YOUNGADULT' AND
-      branches.branchcode LIKE <>) branches_locations LEFT JOIN
+      locations.authorised_value &lt;&gt; 'YOUNGADULT' AND
+      branches.branchcode LIKE &lt;&gt;) branches_locations LEFT JOIN
   (SELECT
       items.homebranch,
       Count(DISTINCT items.itemnumber) AS Count_itemnumber,
@@ -65,7 +65,7 @@ FROM
     FROM
       items
     WHERE
-      items.homebranch LIKE <> AND
+      items.homebranch LIKE &lt;&gt; AND
       If(items.permanent_location LIKE "%YA%", "L_YA",
         If(items.permanent_location LIKE "%CHILD%", "CHILDRENS",
           If(items.permanent_location LIKE "%ADULT%", "ADULT",
@@ -76,7 +76,7 @@ FROM
             )
           )
         )
-      ) LIKE <>
+      ) LIKE &lt;&gt;
     GROUP BY
       items.homebranch,
       If(items.permanent_location LIKE "%YA%", "L_YA",
@@ -110,9 +110,9 @@ FROM
       biblioitems JOIN
       items ON items.biblioitemnumber = biblioitems.biblioitemnumber
     WHERE
-      biblioitems.publicationyear < Year(Now()) AND
+      biblioitems.publicationyear &lt; Year(Now()) AND
       biblioitems.publicationyear REGEXP '^[0-9]+$' AND
-      items.homebranch LIKE <> AND
+      items.homebranch LIKE &lt;&gt; AND
       If(items.permanent_location LIKE "%YA%", "L_YA",
         If(items.permanent_location LIKE "%CHILD%", "CHILDRENS",
           If(items.permanent_location LIKE "%ADULT%", "ADULT",
@@ -123,7 +123,7 @@ FROM
             )
           )
         )
-      ) LIKE <>
+      ) LIKE &lt;&gt;
     GROUP BY
       items.homebranch,
       If(items.permanent_location LIKE "%YA%", "L_YA",
@@ -159,9 +159,9 @@ FROM
       biblioitems JOIN
       items ON items.biblioitemnumber = biblioitems.biblioitemnumber
     WHERE
-      biblioitems.publicationyear < Year(Now()) AND
+      biblioitems.publicationyear &lt; Year(Now()) AND
       biblioitems.publicationyear REGEXP '^[0-9]+$' AND
-      items.homebranch LIKE <> AND
+      items.homebranch LIKE &lt;&gt; AND
       If(items.permanent_location LIKE "%YA%", "L_YA",
         If(items.permanent_location LIKE "%CHILD%", "CHILDRENS",
           If(items.permanent_location LIKE "%ADULT%", "ADULT",
@@ -172,7 +172,7 @@ FROM
             )
           )
         )
-      ) LIKE <>
+      ) LIKE &lt;&gt;
     GROUP BY
       items.homebranch,
       items.itemnumber,
@@ -192,8 +192,8 @@ FROM
       branches_locations.branchcode AND
       average_age.LOCATION = branches_locations.LOCATION_CODE
 WHERE
-  branches_locations.branchcode LIKE <> AND
-  branches_locations.LOCATION_CODE LIKE <>
+  branches_locations.branchcode LIKE &lt;&gt; AND
+  branches_locations.LOCATION_CODE LIKE &lt;&gt;
 GROUP BY
   branches_locations.branchcode,
   branches_locations.LOCATION_DESCRIPTION,

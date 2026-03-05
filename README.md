@@ -1,7 +1,7 @@
 # nexpress-SQL
 Next Kansas SQL
 
-This is a repostitory for all of the SQL used by the Next Search Catalog library consortium reports.
+This is a repository for all of the SQL used by the Next Search Catalog library consortium reports.
 
 -----
 

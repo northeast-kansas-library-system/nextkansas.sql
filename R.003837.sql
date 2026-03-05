@@ -43,7 +43,7 @@ WHERE
   action_logs.action = 'FAILURE' AND
   Year(action_logs.timestamp) = 2024 AND
   Month(action_logs.timestamp) = 5 AND
-  action_logs.object <> 0
+  action_logs.object &lt;&gt; 0
 GROUP BY
   action_logs.interface,
   borrowers.branchcode,

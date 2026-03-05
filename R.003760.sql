@@ -128,7 +128,7 @@ WHERE
     branchtransfers.frombranch, 
     branchtransfers.tobranch 
   ) LIKE Concat('%', 'NEKLS', '%') AND 
-  branchtransfers.datesent < CurDate() - INTERVAL 7 DAY 
+  branchtransfers.datesent &lt; CurDate() - INTERVAL 7 DAY 
 GROUP BY 
   item_info.biblionumber, 
   item_info.itemnumber 

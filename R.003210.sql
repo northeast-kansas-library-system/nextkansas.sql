@@ -22,17 +22,17 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a list of all items in a specified "Rotating collection" in a printable format</p>
-<ul><li>Shows all items currently in the collection you select</li>
-<li>grouped by collection id, biblionumber, and item number</li>
-<li>sorted by the standard Next classification pattern</li>
-<li>links</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3210&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a list of all items in a specified "Rotating collection" in a printable format&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows all items currently in the collection you select&lt;/li&gt;
+&lt;li&gt;grouped by collection id, biblionumber, and item number&lt;/li&gt;
+&lt;li&gt;sorted by the standard Next classification pattern&lt;/li&gt;
+&lt;li&gt;links&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p id="rquickopen"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3210&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -64,7 +64,7 @@ SELECT
       IF(Coalesce(damageds.lib, " ") = " ", "", "Damaged"),
       IF(Coalesce(losts.lib, " ") = " ", "", "Lost or missing"),
       IF(Coalesce(withdrawns.lib, " ") = " ", "", "Withdrawn"),
-      IF(Coalesce(items.onloan, "") <> "", "CHECKED OUT", "")
+      IF(Coalesce(items.onloan, "") &lt;&gt; "", "CHECKED OUT", "")
     ),
     "",
     Concat_Ws('', (Concat('')), items.barcode)
@@ -144,7 +144,7 @@ FROM
   JOIN collections
     ON collections.colId = collections_tracking.colId
 WHERE
-  collections.colId = <>
+  collections.colId = &lt;&gt;
 GROUP BY
   collections.colId,
   biblio.biblionumber,

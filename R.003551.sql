@@ -56,7 +56,7 @@ SELECT
     "- General", 
     Char(13), Char(10), 
     "   - Library: ", 
-    If(letter.branchcode = "", "* All libraries (default)", letter.branchcode), 
+    If(letter.branchcode = "", "&ast; All libraries (default)", letter.branchcode), 
     Char(13), Char(10), 
     "   - Module: ", 
     letter.module, 

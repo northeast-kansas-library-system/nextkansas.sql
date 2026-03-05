@@ -35,7 +35,7 @@ Select
   Count(Distinct borrowers.borrowernumber) As Count_borrowernumber,
   Concat(
     Format(
-      Count(Distinct borrowers.borrowernumber) / borrower_percentage.Count_borrowernumber * 100, 4),
+      Count(Distinct borrowers.borrowernumber) / borrower_percentage.Count_borrowernumber &ast; 100, 4),
       '%'
   ) As Percentage_of_total_account_holders,
   Group_Concat(Distinct Left(Trim(Coalesce(borrowers.zipcode, '-')), 5) SEPARATOR '') As BORROWER_ZIPCODES
@@ -49,7 +49,7 @@ From
       branches,
       categories
     Where
-      branches.branchcode Like Concat('%', <>, '%')
+      branches.branchcode Like Concat('%', &lt;&gt;, '%')
   ) branches_categories Left Join
   borrowers On borrowers.branchcode = branches_categories.branchcode And
       borrowers.categorycode = branches_categories.categorycode Left Join

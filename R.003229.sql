@@ -53,7 +53,7 @@ SELECT
 FROM
   reserves
 WHERE
-  DateDiff(reserves.expirationdate, reserves.reservedate) < 365
+  DateDiff(reserves.expirationdate, reserves.reservedate) &lt; 365
 
 
 

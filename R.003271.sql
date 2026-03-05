@@ -31,7 +31,7 @@ Expiry: 300
 
 SELECT
   CONCAT('') AS biblionumber,
-  COUNT(*) AS BIB_ITYPE
+  COUNT(&ast;) AS BIB_ITYPE
 FROM
   biblio_metadata
 WHERE

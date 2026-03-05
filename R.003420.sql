@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2021-02-04 17:10:37
 Modified on: 2025-04-30 10:08:11
-Date last run: 2025-10-03 12:46:29
+Date last run: 2026-01-06 15:27:36
 
 ----------
 
@@ -22,31 +22,31 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Monthly overview - borrower statistics</p> 
-<ul><li>Shows borrower counts for the previous calendar month</li> 
-<li>At all Next Search Catalog libraries</li> 
-<li>grouped and sorted by branch name</li> 
-</ul><br /> 
-<p><ins>Notes:</ins></p> 
-<p></p> 
-<p>Generates data for:</p> 
-<ul> 
-  <li>BORROWER_ACCT_USED_LM = number of borrower accounts used to check out materials last month</li> 
-  <li>TOTAL_BORROWERS = number of total borrowers with this home library</li> 
-  <li>B_ADDED_LM = number of borrowers with this home library added last month</li> 
-  <li>B_RENEWED_LM = number of borrowers with this home library renewed last month</li> 
-  <li>B_DELETED_LM = number of borrowers with this home library deleted last month</li> 
-</ul> 
-<p></p> 
-<p>These counts are current at the time the report is run (which for Next Search Catalog is usually between 12:01 a.m. and 4:00 a.m. on the first day of the month).</p> 
-<p></p> 
-<p class="updated">This report and these notes updated on 2022.03.10</p> 
-<p></p> 
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3420">Click here to download as a csv file</a></p> 
-<p class= "notetags" style="display: none;">#monthly #statistics #overview #monthly_overview</p> 
-<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
-</div> 
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Monthly overview - borrower statistics&lt;/p&gt; 
+&lt;ul&gt;&lt;li&gt;Shows borrower counts for the previous calendar month&lt;/li&gt; 
+&lt;li&gt;At all Next Search Catalog libraries&lt;/li&gt; 
+&lt;li&gt;grouped and sorted by branch name&lt;/li&gt; 
+&lt;/ul&gt;&lt;br /&gt; 
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;Generates data for:&lt;/p&gt; 
+&lt;ul&gt; 
+  &lt;li&gt;BORROWER_ACCT_USED_LM = number of borrower accounts used to check out materials last month&lt;/li&gt; 
+  &lt;li&gt;TOTAL_BORROWERS = number of total borrowers with this home library&lt;/li&gt; 
+  &lt;li&gt;B_ADDED_LM = number of borrowers with this home library added last month&lt;/li&gt; 
+  &lt;li&gt;B_RENEWED_LM = number of borrowers with this home library renewed last month&lt;/li&gt; 
+  &lt;li&gt;B_DELETED_LM = number of borrowers with this home library deleted last month&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;These counts are current at the time the report is run (which for Next Search Catalog is usually between 12:01 a.m. and 4:00 a.m. on the first day of the month).&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p class="updated"&gt;This report and these notes updated on 2022.03.10&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p id="rquickdown"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3420"&gt;Click here to download as a csv file&lt;/a&gt;&lt;/p&gt; 
+&lt;p class= "notetags" style="display: none;"&gt;#monthly #statistics #overview #monthly_overview&lt;/p&gt; 
+&lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt; 
+&lt;/div&gt; 
 
 ----------
 */
@@ -72,18 +72,18 @@ FROM
   branches LEFT JOIN 
     (SELECT 
       borrowers.branchcode, 
-      Count(*) AS COUNT 
+      Count(&ast;) AS COUNT 
     FROM 
       borrowers 
     WHERE 
-      borrowers.dateenrolled < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
+      borrowers.dateenrolled &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
     GROUP BY 
       borrowers.branchcode 
     ) BORROWERS1 
   ON branches.branchcode = BORROWERS1.branchcode LEFT JOIN 
     (SELECT 
       borrowers.branchcode, 
-      Count(*) AS COUNT 
+      Count(&ast;) AS COUNT 
     FROM 
       borrowers 
     WHERE 
@@ -95,7 +95,7 @@ FROM
   ON branches.branchcode = BORROWERSA.branchcode LEFT JOIN 
     (SELECT 
       deletedborrowers.branchcode, 
-      Count(*) AS COUNT 
+      Count(&ast;) AS COUNT 
     FROM 
       action_logs JOIN 
       deletedborrowers ON deletedborrowers.borrowernumber = action_logs.object 
@@ -110,7 +110,7 @@ FROM
   ON branches.branchcode = BORROWESD.branchcode LEFT JOIN 
     (SELECT 
       borrowers.branchcode, 
-      Count(*) AS COUNT 
+      Count(&ast;) AS COUNT 
     FROM 
       borrowers 
     WHERE 

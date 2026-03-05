@@ -12,8 +12,8 @@ Group: Borrowers
      Patron attributes
 
 Created on: 2017-09-18 10:49:25
-Modified on: 2025-03-17 15:31:13
-Date last run: 2025-10-23 14:18:25
+Modified on: 2025-11-17 18:06:28
+Date last run: 2026-01-27 15:03:51
 
 ----------
 
@@ -22,15 +22,15 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Lists patrons based on Account Expiration attributes.</p>
-<ul><li>Shows patrons who currently have an Account Expiration attribute set</li>
-<li>at the library you specify</li>
-<li>grouped by borrower number</li>
-<li>sorted by branchcode, patron name, and borrower number</li>
-<li>contains links to borrower accounts</li>
-</ul><br />
-</div>
+&lt;div&gt; 
+&lt;p&gt;Lists patrons based on Account Expiration attributes.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows patrons who currently have an Account Expiration attribute set&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped by borrower number&lt;/li&gt;
+&lt;li&gt;sorted by branchcode, patron name, and borrower number&lt;/li&gt;
+&lt;li&gt;contains links to borrower accounts&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -38,15 +38,17 @@ Expiry: 300
 
 
 SELECT
-  Concat('Link to patron') AS LINK_TO_PATRON,
-  borrowers.borrowernumber,
-  borrowers.cardnumber,
+  Concat(
+    'Link to patron'
+  ) AS LINK_TO_PATRON,
+  borrowers.borrowernumber AS BORROWER_ID,
+  borrowers.cardnumber LIBRARY_CARD,
   borrowers.branchcode,
   borrowers.categorycode,
   borrowers.dateenrolled,
   borrowers.dateexpiry,
   If(
-    (AddDate(Last_Day(SubDate(borrowers.dateexpiry, INTERVAL -37 MONTH)), 1) + INTERVAL 14 DAY) < CAST('2018-04-15' AS DATE), 
+    (AddDate(Last_Day(SubDate(borrowers.dateexpiry, INTERVAL -37 MONTH)), 1) + INTERVAL 14 DAY) &lt; CAST('2018-04-15' AS DATE), 
     CAST('2018-04-15' AS DATE), 
     (AddDate(Last_Day(SubDate(borrowers.dateexpiry, INTERVAL -37 MONTH)), 1) + INTERVAL 14 DAY)
   ) AS PROJECTED_DELETION,
@@ -104,12 +106,12 @@ FROM
       borrower_relationships.guarantor_id) guaranteesx ON
       guaranteesx.guarantor_id = borrowers.borrowernumber
 WHERE
-  borrowers.branchcode LIKE <> AND
+  borrowers.branchcode LIKE &lt;&gt; AND
   borrowers.othernames NOT LIKE "%SIP%" AND
-  borrowers.categorycode <> 'STAFF' AND
-  borrowers.categorycode <> 'ILL' AND
-  borrowers.categorycode <> 'HOOPLA' AND
-  expired_attribute.attribute LIKE <>
+  borrowers.categorycode &lt;&gt; 'STAFF' AND
+  borrowers.categorycode &lt;&gt; 'ILL' AND
+  borrowers.categorycode &lt;&gt; 'HOOPLA' AND
+  expired_attribute.attribute LIKE &lt;&gt;
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

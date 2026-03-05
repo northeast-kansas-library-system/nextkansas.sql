@@ -22,9 +22,9 @@ Expiry: 300
 
 ----------
 
-<div class="next_report_info next_noprint">
+&lt;div class="next_report_info next_noprint"&gt;
 
-  <style>
+  &lt;style&gt;
     .accordion .accordion-button{font-size: 1.1em !important; color: white !important; font-weight: 900;}
     .next_report_function .accordion-header * {background-color: #DF6320 !important; color: #ffffff !important;}
     .next_report_notes .accordion-header * {background-color: #DFC220 !important; color: #000000 !important;}
@@ -32,160 +32,160 @@ Expiry: 300
     .next_report_resources .accordion-header * {background-color: #1f9bde !important; color: #ffffff !important;}
     .next_report_training .accordion-header * {background-color: #6320DF !important; color: #ffffff !important;}
     .accordion-collapse.collapse * {background-color: #e6e6e6 !important; color: #000000 !important;}
-  </style>
+  &lt;/style&gt;
 
-  <div class="next_report_summary">
-    <p>Report summary</p>
-  </div>
-
-
+  &lt;div class="next_report_summary"&gt;
+    &lt;p&gt;Report summary&lt;/p&gt;
+  &lt;/div&gt;
 
 
 
-  <div class="accordion accordion-flush">
 
-    <div id="accordion-1" class="accordion-item next_report_function">
+
+  &lt;div class="accordion accordion-flush"&gt;
+
+    &lt;div id="accordion-1" class="accordion-item next_report_function"&gt;
   
-      <h2 class="accordion-header" id="panelsStayOpen-headingOne" >
+      &lt;h2 class="accordion-header" id="panelsStayOpen-headingOne" &gt;
   
-        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+        &lt;button class="accordion-button" type="button" data-bs-toggle="collapse"
           data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-          aria-controls="panelsStayOpen-collapseOne">
+          aria-controls="panelsStayOpen-collapseOne"&gt;
   
           Function:
   
-        </button>
+        &lt;/button&gt;
   
-      </h2>
+      &lt;/h2&gt;
   
-      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-        aria-labelledby="panelsStayOpen-headingOne">
-        <div class="accordion-body">
+      &lt;div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
+        aria-labelledby="panelsStayOpen-headingOne"&gt;
+        &lt;div class="accordion-body"&gt;
   
-          <h1>Accordion content 1</h1>
+          &lt;h1&gt;Accordion content 1&lt;/h1&gt;
   
-        </div>
-      </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
   
-    </div>
+    &lt;/div&gt;
   
-    <div id="accordion-2" class="accordion-item next_report_notes" style="">
+    &lt;div id="accordion-2" class="accordion-item next_report_notes" style=""&gt;
   
-      <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+      &lt;h2 class="accordion-header" id="panelsStayOpen-headingTwo"&gt;
   
-        <button class="accordion-button collapsed next_report_notes" type="button" data-bs-toggle="collapse"
+        &lt;button class="accordion-button collapsed next_report_notes" type="button" data-bs-toggle="collapse"
           data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false"
-          aria-controls="panelsStayOpen-collapseTwo">
+          aria-controls="panelsStayOpen-collapseTwo"&gt;
   
           Notes:
   
-        </button>
+        &lt;/button&gt;
   
-      </h2>
+      &lt;/h2&gt;
   
-      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
-        aria-labelledby="panelsStayOpen-headingTwo">
-        <div class="accordion-body">
+      &lt;div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse"
+        aria-labelledby="panelsStayOpen-headingTwo"&gt;
+        &lt;div class="accordion-body"&gt;
   
-          <h1>Accordion content 2</h1>
+          &lt;h1&gt;Accordion content 2&lt;/h1&gt;
   
-        </div>
-      </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
   
-    </div>
+    &lt;/div&gt;
   
-    <div id="accordion-3" class="accordion-item next_report_instructions" style="">
+    &lt;div id="accordion-3" class="accordion-item next_report_instructions" style=""&gt;
   
-      <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+      &lt;h2 class="accordion-header" id="panelsStayOpen-headingThree"&gt;
   
-        <button class="accordion-button collapsed next_report_notes" type="button" data-bs-toggle="collapse"
+        &lt;button class="accordion-button collapsed next_report_notes" type="button" data-bs-toggle="collapse"
           data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false"
-          aria-controls="panelsStayOpen-collapseThree">
+          aria-controls="panelsStayOpen-collapseThree"&gt;
   
           Instructions:
   
-        </button>
+        &lt;/button&gt;
   
-      </h2>
+      &lt;/h2&gt;
   
-      <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
-        aria-labelledby="panelsStayOpen-headingThree">
-        <div class="accordion-body">
+      &lt;div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse"
+        aria-labelledby="panelsStayOpen-headingThree"&gt;
+        &lt;div class="accordion-body"&gt;
   
-          <h1>Accordion content 3</h1>
+          &lt;h1&gt;Accordion content 3&lt;/h1&gt;
   
-        </div>
-      </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
   
-    </div>
+    &lt;/div&gt;
 
-    <div id="accordion-4" class="accordion-item next_report_resources" style="">
+    &lt;div id="accordion-4" class="accordion-item next_report_resources" style=""&gt;
   
-      <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+      &lt;h2 class="accordion-header" id="panelsStayOpen-headingFour"&gt;
   
-        <button class="accordion-button collapsed next_report_notes" type="button" data-bs-toggle="collapse"
+        &lt;button class="accordion-button collapsed next_report_notes" type="button" data-bs-toggle="collapse"
           data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false"
-          aria-controls="panelsStayOpen-collapseFour">
+          aria-controls="panelsStayOpen-collapseFour"&gt;
   
           Resources:
   
-        </button>
+        &lt;/button&gt;
   
-      </h2>
+      &lt;/h2&gt;
   
-      <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
-        aria-labelledby="panelsStayOpen-headingFour">
-        <div class="accordion-body">
+      &lt;div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse"
+        aria-labelledby="panelsStayOpen-headingFour"&gt;
+        &lt;div class="accordion-body"&gt;
   
-          <h1>Accordion content 4</h1>
+          &lt;h1&gt;Accordion content 4&lt;/h1&gt;
   
-        </div>
-      </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
   
-    </div>
+    &lt;/div&gt;
 
-    <div id="accordion-5" class="accordion-item next_report_training">
+    &lt;div id="accordion-5" class="accordion-item next_report_training"&gt;
   
-      <h2 class="accordion-header" id="panelsStayOpen-headingFive">
+      &lt;h2 class="accordion-header" id="panelsStayOpen-headingFive"&gt;
   
-        <button class="accordion-button collapsed next_report_notes" type="button" data-bs-toggle="collapse"
+        &lt;button class="accordion-button collapsed next_report_notes" type="button" data-bs-toggle="collapse"
           data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false"
-          aria-controls="panelsStayOpen-collapseFive">
+          aria-controls="panelsStayOpen-collapseFive"&gt;
   
           Training
   
-        </button>
+        &lt;/button&gt;
   
-      </h2>
+      &lt;/h2&gt;
   
-      <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse"
-        aria-labelledby="panelsStayOpen-headingFive" style="color: white !important;">
-        <div class="accordion-body">
+      &lt;div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse"
+        aria-labelledby="panelsStayOpen-headingFive" style="color: white !important;"&gt;
+        &lt;div class="accordion-body"&gt;
   
-          <h1>Training</h1>
+          &lt;h1&gt;Training&lt;/h1&gt;
   
-        </div>
-      </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
   
-    </div>
+    &lt;/div&gt;
 
-  </div>
+  &lt;/div&gt;
 
-  <div class="next_report_direct_download">
-    <p>direct download</p>
-  </div>
+  &lt;div class="next_report_direct_download"&gt;
+    &lt;p&gt;direct download&lt;/p&gt;
+  &lt;/div&gt;
 
-  <div class="next_report_hashtags">
-    <p>hashtags</p>
-  </div>
-
-
+  &lt;div class="next_report_hashtags"&gt;
+    &lt;p&gt;hashtags&lt;/p&gt;
+  &lt;/div&gt;
 
 
 
 
 
-</div>
+
+
+&lt;/div&gt;
 
 ----------
 */
@@ -198,14 +198,14 @@ Select
     '', 
     'Edit item' 
   ) AS LINKS,
-  If(coalesce(items.dateaccessioned, '1900-01-01') < '2000-01-01', '2000-01-01', DATE_FORMAT(items.dateaccessioned, '%Y-%m-%d')) AS DATE_ADDED,
+  If(coalesce(items.dateaccessioned, '1900-01-01') &lt; '2000-01-01', '2000-01-01', DATE_FORMAT(items.dateaccessioned, '%Y-%m-%d')) AS DATE_ADDED,
   Count(items.itemnumber) As Count_itemnumber
 From
   items
 Group By
-  If(coalesce(items.dateaccessioned, '1900-01-01') < '2000-01-01', '2000-01-01', DATE_FORMAT(items.dateaccessioned, '%Y-%m-%d'))
+  If(coalesce(items.dateaccessioned, '1900-01-01') &lt; '2000-01-01', '2000-01-01', DATE_FORMAT(items.dateaccessioned, '%Y-%m-%d'))
 Order By
-  If(coalesce(items.dateaccessioned, '1900-01-01') < '2000-01-01', '2000-01-01', DATE_FORMAT(items.dateaccessioned, '%Y-%m-%d')) ASC
+  If(coalesce(items.dateaccessioned, '1900-01-01') &lt; '2000-01-01', '2000-01-01', DATE_FORMAT(items.dateaccessioned, '%Y-%m-%d')) ASC
 
 
 

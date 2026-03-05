@@ -30,13 +30,13 @@ Expiry: 300
 
 
 SELECT
-  <> AS BARCODE,
+  &lt;&gt; AS BARCODE,
   items.itemnumber,
   items.barcode
 FROM
   items
 WHERE
-  items.barcode = <>
+  items.barcode = &lt;&gt;
 
 
 

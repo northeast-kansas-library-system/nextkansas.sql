@@ -22,16 +22,16 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Looks for requests that were cancelled after they were already waiting on the holds shelf</p>
-<ul><li>Allows you to specify a "Start date" - will show you requests cancelled after that date</li>
-<li>Shows holds cancelled at a specified branch</li>
-<li>grouped and sorted by patron name, library card number, item home branch, item type, call number informaiton, author, and title</li>
-<li>includes links to the bibliographic records of the items cancelled</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2805&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Looks for requests that were cancelled after they were already waiting on the holds shelf&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Allows you to specify a "Start date" - will show you requests cancelled after that date&lt;/li&gt;
+&lt;li&gt;Shows holds cancelled at a specified branch&lt;/li&gt;
+&lt;li&gt;grouped and sorted by patron name, library card number, item home branch, item type, call number informaiton, author, and title&lt;/li&gt;
+&lt;li&gt;includes links to the bibliographic records of the items cancelled&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2805&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -61,10 +61,10 @@ FROM
   authorised_values
     ON items.ccode = authorised_values.authorised_value
 WHERE
-  old_reserves.branchcode = <> AND
+  old_reserves.branchcode = &lt;&gt; AND
   old_reserves.cancellationdate IS NOT NULL AND
   old_reserves.waitingdate IS NOT NULL AND
-  old_reserves.timestamp > <> AND
+  old_reserves.timestamp &gt; &lt;&gt; AND
   authorised_values.category = "CCODE"
 GROUP BY
   old_reserves.branchcode,

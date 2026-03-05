@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2021-07-26 11:25:35
 Modified on: 2025-04-30 11:42:44
-Date last run: 2025-10-02 01:15:02
+Date last run: 2026-01-01 01:15:03
 
 ----------
 
@@ -22,112 +22,112 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
+&lt;div class="reportinfo noprint"&gt; 
  
-  <div> 
+  &lt;div&gt; 
  
-    <p>Items and holdings statistics - item count by item type</p> 
+    &lt;p&gt;Items and holdings statistics - item count by item type&lt;/p&gt; 
  
-    <ul> 
-      <li>Generates a count of items all items owned at the time the report is run plus items added and deleted in the previous calendar month</li> 
-      <li>columns are grouped by shelving locations</li> 
-      <li>at all system libraries</li> 
-      <li>grouped and sorted by item home library</li> 
-      <li>sorted by</li> 
-      <li>links</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;Generates a count of items all items owned at the time the report is run plus items added and deleted in the previous calendar month&lt;/li&gt; 
+      &lt;li&gt;columns are grouped by shelving locations&lt;/li&gt; 
+      &lt;li&gt;at all system libraries&lt;/li&gt; 
+      &lt;li&gt;grouped and sorted by item home library&lt;/li&gt; 
+      &lt;li&gt;sorted by&lt;/li&gt; 
+      &lt;li&gt;links&lt;/li&gt; 
+    &lt;/ul&gt; 
  
-    <p> 
-      <ins>Notes:</ins> 
-    </p> 
+    &lt;p&gt; 
+      &lt;ins&gt;Notes:&lt;/ins&gt; 
+    &lt;/p&gt; 
  
-    <p> 
+    &lt;p&gt; 
  
-    </p> 
+    &lt;/p&gt; 
  
-    <p>Items with blank item types are counted as "(Unclassified)."</p> 
+    &lt;p&gt;Items with blank item types are counted as "(Unclassified)."&lt;/p&gt; 
 
-    <ul> 
-      <li>"ADULT" includes items with these permanent shelving locations:</li> 
+    &lt;ul&gt; 
+      &lt;li&gt;"ADULT" includes items with these permanent shelving locations:&lt;/li&gt; 
 
-      <ul> 
-        <li>Adult</li> 
-        <li>~Display - BALDWIN - Adult</li> 
-        <li>~Display - LEAVENWRTH - Adult</li> 
-        <li>~Display - PAOLA - Adult</li> 
-        <li>Cataloging</li> 
-        <li>Processing Center</li> 
-        <li>Any items where the permanent shelving location is blank or ambiguous</li> 
-      </ul> 
+      &lt;ul&gt; 
+        &lt;li&gt;Adult&lt;/li&gt; 
+        &lt;li&gt;~Display - BALDWIN - Adult&lt;/li&gt; 
+        &lt;li&gt;~Display - LEAVENWRTH - Adult&lt;/li&gt; 
+        &lt;li&gt;~Display - PAOLA - Adult&lt;/li&gt; 
+        &lt;li&gt;Cataloging&lt;/li&gt; 
+        &lt;li&gt;Processing Center&lt;/li&gt; 
+        &lt;li&gt;Any items where the permanent shelving location is blank or ambiguous&lt;/li&gt; 
+      &lt;/ul&gt; 
 
-      <br /> 
+      &lt;br /&gt; 
 
-      <li>"YOUNG ADULT" includes items with these permanent shelving locations:</li> 
+      &lt;li&gt;"YOUNG ADULT" includes items with these permanent shelving locations:&lt;/li&gt; 
 
-      <ul> 
-        <li>Young adult</li> 
-        <li>~Display - BALDWIN - Young Adult</li> 
-        <li>~Display - LEAVENWRTH - Young adult</li> 
-        <li>~Display - PAOLA - Young adult</li> 
-        <li>Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Young adult" locations</li> 
-      </ul> 
+      &lt;ul&gt; 
+        &lt;li&gt;Young adult&lt;/li&gt; 
+        &lt;li&gt;~Display - BALDWIN - Young Adult&lt;/li&gt; 
+        &lt;li&gt;~Display - LEAVENWRTH - Young adult&lt;/li&gt; 
+        &lt;li&gt;~Display - PAOLA - Young adult&lt;/li&gt; 
+        &lt;li&gt;Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Young adult" locations&lt;/li&gt; 
+      &lt;/ul&gt; 
 
-      <br /> 
+      &lt;br /&gt; 
 
-      <li>"JUVENILE" includes items with these permanent shelving locations:</li>
+      &lt;li&gt;"JUVENILE" includes items with these permanent shelving locations:&lt;/li&gt;
 
-      <ul> 
-        <li>Childrens</li> 
-        <li>~Display - BALDWIN - Childrens</li> 
-        <li>~Display - LEAVENWRTH - Children's</li> 
-        <li>~Display - PAOLA - Children's</li> 
-        <li>Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Childrens" locations</li> 
-      </ul> 
+      &lt;ul&gt; 
+        &lt;li&gt;Childrens&lt;/li&gt; 
+        &lt;li&gt;~Display - BALDWIN - Childrens&lt;/li&gt; 
+        &lt;li&gt;~Display - LEAVENWRTH - Children's&lt;/li&gt; 
+        &lt;li&gt;~Display - PAOLA - Children's&lt;/li&gt; 
+        &lt;li&gt;Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Childrens" locations&lt;/li&gt; 
+      &lt;/ul&gt; 
 
-    </ul> 
+    &lt;/ul&gt; 
  
-    <p> 
+    &lt;p&gt; 
  
-    </p> 
+    &lt;/p&gt; 
 
-    <p class="updated">
+    &lt;p class="updated"&gt;
       This report and these notes updated on 2022.03.10
-    </p> 
+    &lt;/p&gt; 
 
-    <p>
+    &lt;p&gt;
 
-    </p>
+    &lt;/p&gt;
 
-    <p>
+    &lt;p&gt;
       This report cannot track changes made to existing records over time.  Therefore, if staff change the home library, location, or item type of an item, those changes will not be reflected in the additions or deletions columns.  This means that the numbers may look inconsistent from month to month if changes are made to item records.
-    </p> 
+    &lt;/p&gt; 
     
-    <p>
+    &lt;p&gt;
 
-    </p> 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div id="reportInfoLinks"> 
+  &lt;div id="reportInfoLinks"&gt; 
  
-    <p id="sql_quick_down"> 
-      <a class= "btn btn-small" href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3530"> 
+    &lt;p id="sql_quick_down"&gt; 
+      &lt;a class= "btn btn-small" href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3530"&gt; 
         Download as a .csv file 
-      </a> 
-    </p> 
+      &lt;/a&gt; 
+    &lt;/p&gt; 
  
-    <p class="notetags" style="display: none;"> 
+    &lt;p class="notetags" style="display: none;"&gt; 
       #statistics
       #monthlyStatistics 
       #itemCount 
       #itemType 
-    </p> 
+    &lt;/p&gt; 
  
-    <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
+    &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt; 
  
-  </div>
+  &lt;/div&gt;
  
-</div> 
+&lt;/div&gt; 
 
 ----------
 */

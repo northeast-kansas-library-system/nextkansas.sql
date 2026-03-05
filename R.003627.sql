@@ -42,8 +42,8 @@ FROM
      statistics,
      branches
    WHERE
-     branches.branchcode LIKE <> AND
-     statistics.datetime BETWEEN <> AND (<> + interval 1 day)
+     branches.branchcode LIKE &lt;&gt; AND
+     statistics.datetime BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day)
    GROUP BY
      branches.branchcode,
      branches.branchname,
@@ -53,7 +53,7 @@ FROM
   (SELECT
      Coalesce(statistics.branch, "NEKLS") AS branch,
      Date_Format(statistics.datetime, "%Y.%m.%d") AS dates,
-     Count(*) AS CKO_RENEW
+     Count(&ast;) AS CKO_RENEW
    FROM
      statistics LEFT JOIN
      (SELECT
@@ -106,7 +106,7 @@ FROM
               )
             )
           )
-        ) LIKE <>
+        ) LIKE &lt;&gt;
       UNION
       SELECT
         deleteditems.itemnumber,
@@ -182,7 +182,7 @@ FROM
               )
             )
           )
-        ) LIKE <>
+        ) LIKE &lt;&gt;
       ) itemss ON itemss.itemnumber = statistics.itemnumber
    WHERE
      (statistics.type = 'issue' OR
@@ -191,11 +191,11 @@ FROM
        statistics.location = "CART", 
        Coalesce(itemss.permanent_location, "OTHER"), 
        Coalesce(statistics.location, "OTHER")
-     ) LIKE <> AND
-     Coalesce(statistics.itemtype, "PUNC") LIKE <> AND
-     Coalesce(statistics.ccode, "XXX") LIKE <> AND
-     Coalesce(statistics.branch, "NEKLS") LIKE <> AND
-     statistics.datetime BETWEEN <> AND (<> + interval 1 day)
+     ) LIKE &lt;&gt; AND
+     Coalesce(statistics.itemtype, "PUNC") LIKE &lt;&gt; AND
+     Coalesce(statistics.ccode, "XXX") LIKE &lt;&gt; AND
+     Coalesce(statistics.branch, "NEKLS") LIKE &lt;&gt; AND
+     statistics.datetime BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day)
    GROUP BY
      Coalesce(statistics.branch, "NEKLS"),
      Date_Format(statistics.datetime, "%Y.%m.%d")) stats ON

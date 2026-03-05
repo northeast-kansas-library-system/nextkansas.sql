@@ -13,7 +13,7 @@ Group: -
 
 Created on: -
 Modified on: -
-Date last run: 2025-07-08 10:23:44
+Date last run: 2025-12-28 13:37:04
 
 ----------
 
@@ -29,7 +29,7 @@ Expiry: 300
 
 
 
-SELECT * FROM biblio_metadata bmWHERE bm.biblionumber = 226453LIMIT 10
+SELECT &ast; FROM biblio_metadata bmWHERE bm.biblionumber = 226453LIMIT 10
 
 
 

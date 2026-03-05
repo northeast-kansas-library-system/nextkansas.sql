@@ -13,7 +13,7 @@ Group: Holds-Reserves
 
 Created on: 2016-09-25 22:37:09
 Modified on: 2024-01-17 11:36:34
-Date last run: 2025-10-27 11:38:55
+Date last run: 2026-01-27 12:14:43
 
 ----------
 
@@ -22,14 +22,14 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Print holds queue report with scannable barcodes</p>
-<ul><li>Shows items in the current holds queue</li>
-<li>at the location you specify</li>
-<li>grouped by specified location, items home branch, call number, author, and title</li>
-<li>contains links to the bibliographic records</li>
-</ul><br />
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Print holds queue report with scannable barcodes&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows items in the current holds queue&lt;/li&gt;
+&lt;li&gt;at the location you specify&lt;/li&gt;
+&lt;li&gt;grouped by specified location, items home branch, call number, author, and title&lt;/li&gt;
+&lt;li&gt;contains links to the bibliographic records&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;/div&gt;
 
 
 
@@ -105,7 +105,7 @@ FROM
     FROM
       itemtypes) ITEMTYPESS ON ITEMTYPESS.itemtype = items.itype
 WHERE
-  hold_fill_targets.source_branchcode LIKE <>
+  hold_fill_targets.source_branchcode LIKE &lt;&gt;
 GROUP BY
   hold_fill_targets.itemnumber
 ORDER BY

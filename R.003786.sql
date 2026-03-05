@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-  <p>Simple list of all current shelving locations</p>
-  <ul>
-    <li>Shows current locations</li>
-    <li>system-wide</li>
-    <li>grouped by code</li>
-    <li>sorted by location</li>
-    <li>links</li>
-  </ul><br />
-  <p><ins>Notes:</ins></p>
-  <p></p>
-  <p></p>
-  <p class= "notetags" style="display: none;">#neststeps #locations</p>
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+  &lt;p&gt;Simple list of all current shelving locations&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Shows current locations&lt;/li&gt;
+    &lt;li&gt;system-wide&lt;/li&gt;
+    &lt;li&gt;grouped by code&lt;/li&gt;
+    &lt;li&gt;sorted by location&lt;/li&gt;
+    &lt;li&gt;links&lt;/li&gt;
+  &lt;/ul&gt;&lt;br /&gt;
+  &lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;p class= "notetags" style="display: none;"&gt;#neststeps #locations&lt;/p&gt;
+  &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt;
+&lt;/div&gt;
 
 ----------
 */

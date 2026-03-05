@@ -35,7 +35,7 @@ FROM
   auth_header 
 ORDER BY 
   auth_header.authid
-  DESC /* saved_sql.id: 3679 */
+  DESC /&ast; saved_sql.id: 3679 &ast;/
 
 
 

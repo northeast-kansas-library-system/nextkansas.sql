@@ -13,7 +13,7 @@ Group:  BASEHOR
 
 Created on: 2023-04-03 15:50:55
 Modified on: 2025-07-03 10:34:34
-Date last run: 2025-08-25 17:59:39
+Date last run: 2026-01-26 15:47:50
 
 ----------
 
@@ -22,54 +22,54 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint">  
+&lt;div class="reportinfo noprint"&gt;  
  
-  <div class="reportInfoContent"> 
+  &lt;div class="reportInfoContent"&gt; 
  
-    <p>Generates a list of e-mail addresses for borrowers with a BASEHOR home library based on borrowers date enrolled.</p> 
+    &lt;p&gt;Generates a list of e-mail addresses for borrowers with a BASEHOR home library based on borrowers date enrolled.&lt;/p&gt; 
  
-    <ul> 
-      <li>Shows borrower emails with an enrollment date during the date range you specify.</li> 
-      <li>at BASEHOR</li> 
-      <li>grouped and sorted by email address</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;Shows borrower emails with an enrollment date during the date range you specify.&lt;/li&gt; 
+      &lt;li&gt;at BASEHOR&lt;/li&gt; 
+      &lt;li&gt;grouped and sorted by email address&lt;/li&gt; 
+    &lt;/ul&gt; 
  
-  </div>
+  &lt;/div&gt;
 
-  <div class="reportInfoNotes">
+  &lt;div class="reportInfoNotes"&gt;
 
-    <p> 
+    &lt;p&gt; 
 
-    </p> 
+    &lt;/p&gt; 
  
-    <p> 
+    &lt;p&gt; 
       BASEHOR was previously using report 555 to accomplish this function.
-     </p> 
+     &lt;/p&gt; 
 
-    <p> 
+    &lt;p&gt; 
  
-    </p> 
+    &lt;/p&gt; 
    
-  </div> 
+  &lt;/div&gt; 
  
-  <div id="reportInfoLinks"> 
+  &lt;div id="reportInfoLinks"&gt; 
  
-    <input id="report_data_copy_btn" type="button" style="display: none;" value="Copy table data to clipboard">
+    &lt;input id="report_data_copy_btn" type="button" style="display: none;" value="Copy table data to clipboard"&gt;
  
-  </div>
+  &lt;/div&gt;
 
-  <div id="reportInfoTags">
+  &lt;div id="reportInfoTags"&gt;
 
-    <p style="display: none;">
+    &lt;p style="display: none;"&gt;
       #basehor 
       #email 
-    </p>
+    &lt;/p&gt;
 
-  </div>
+  &lt;/div&gt;
  
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
+  &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt; 
 
-</div> 
+&lt;/div&gt; 
 
 ----------
 */
@@ -84,8 +84,8 @@ FROM
 WHERE
   borrowers.email NOT LIKE '' AND
   borrowers.branchcode = 'BASEHOR' AND
-  borrowers.categorycode LIKE <> AND
-  borrowers.dateenrolled BETWEEN <> AND <>
+  borrowers.categorycode LIKE &lt;&gt; AND
+  borrowers.dateenrolled BETWEEN &lt;&gt; AND &lt;&gt;
 GROUP BY
   borrowers.email
 LIMIT

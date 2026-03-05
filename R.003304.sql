@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2020-01-13 16:10:56
 Modified on: 2021-07-22 09:50:51
-Date last run: 2024-11-18 15:27:08
+Date last run: 2026-01-12 11:44:18
 
 ----------
 
@@ -109,8 +109,8 @@ FROM
       branchtypes.branchcode AND
       yaitems.itype = branchtypes.itemtype
 WHERE
-  branchtypes.branchcode LIKE <> AND
-  branchtypes.itemtype LIKE <>
+  branchtypes.branchcode LIKE &lt;&gt; AND
+  branchtypes.itemtype LIKE &lt;&gt;
 GROUP BY
   branchtypes.branchcode,
   branchtypes.description,

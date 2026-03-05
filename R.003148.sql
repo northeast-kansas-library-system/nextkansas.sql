@@ -38,8 +38,8 @@ FROM
   INNER JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
   INNER JOIN items ON items.biblionumber = biblio.biblionumber
 WHERE
-  biblio.timestamp >= Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) + 6 DAY) - INTERVAL 1 WEEK AND
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="520"]//subfield[@code="a"]') <> ""
+  biblio.timestamp &gt;= Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) + 6 DAY) - INTERVAL 1 WEEK AND
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="520"]//subfield[@code="a"]') &lt;&gt; ""
 GROUP BY
   Concat("Recently added book: ", biblio.title, "Summary:",
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="520"]//subfield[@code="a"]'),
@@ -60,8 +60,8 @@ FROM
   INNER JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
   INNER JOIN items ON items.biblionumber = biblio.biblionumber
 WHERE
-  biblio.timestamp >= Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) + 6 DAY) - INTERVAL 1 WEEK AND
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="520"]//subfield[@code="a"]') <> ""
+  biblio.timestamp &gt;= Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) + 6 DAY) - INTERVAL 1 WEEK AND
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="520"]//subfield[@code="a"]') &lt;&gt; ""
 GROUP BY
   Concat("Recently added children's video: ", biblio.title, "Summary:",
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="520"]//subfield[@code="a"]'),

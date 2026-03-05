@@ -22,18 +22,18 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Shows all hold information for an item - current and past</p>
-<ul><li>shows current requests and request history</li>
-<li>from any item in NExpress</li>
-<li>grouped by request ID</li>
-<li>sorted by time of last activity on request</li>
-<li>links to the corresponding current requests on a biblio report</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2859&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Shows all hold information for an item - current and past&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;shows current requests and request history&lt;/li&gt;
+&lt;li&gt;from any item in NExpress&lt;/li&gt;
+&lt;li&gt;grouped by request ID&lt;/li&gt;
+&lt;li&gt;sorted by time of last activity on request&lt;/li&gt;
+&lt;li&gt;links to the corresponding current requests on a biblio report&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2859&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -61,12 +61,12 @@ SELECT
   CONCAT('', biblio.biblionumber, '') AS REQUESTS_ON_BIB
 FROM
   (SELECT
-    *
+    &ast;
   FROM
     old_reserves
   UNION
   SELECT
-    *
+    &ast;
   FROM
     reserves) allreserves RIGHT JOIN
   biblio
@@ -76,7 +76,7 @@ FROM
   borrowers
     ON borrowers.borrowernumber = allreserves.borrowernumber
 WHERE
-  items.barcode LIKE <>
+  items.barcode LIKE &lt;&gt;
 GROUP BY
   allreserves.reserve_id, items.barcode
 ORDER BY

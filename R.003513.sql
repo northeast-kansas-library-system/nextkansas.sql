@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2021-05-27 22:12:05
 Modified on: 2025-06-16 11:54:08
-Date last run: 2025-10-27 09:30:50
+Date last run: 2026-01-28 16:33:07
 
 ----------
 
@@ -138,7 +138,7 @@ FROM
       ) = 1 
   ) bib_locations ON bib_locations.biblionumber = biblio.biblionumber 
 WHERE 
-  biblioitems.agerestriction <> 'L_YA' AND 
+  biblioitems.agerestriction &lt;&gt; 'L_YA' AND 
   bib_locations.Group_Concat_permanent_location = 'L_YA' 
 GROUP BY 
   biblio.biblionumber 

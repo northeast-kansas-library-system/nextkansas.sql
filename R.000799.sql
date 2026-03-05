@@ -24,11 +24,11 @@ Expiry: 0
 
 Enhanced - Pick your Branch, run and get a list of items checked out at your branch that belonged to another library.  Useful for Collection DEVELOPMENT.   
 
-<p><span style="background-color: green; color: white">Has potential</p>
+&lt;p&gt;&lt;span style="background-color: green; color: white"&gt;Has potential&lt;/p&gt;
 
-<p><span style="background-color: darkred; color: white">virtually line by line identical to report 684 - merge two to make one report</p>
+&lt;p&gt;&lt;span style="background-color: darkred; color: white"&gt;virtually line by line identical to report 684 - merge two to make one report&lt;/p&gt;
 
-<p>group/sort/organize by classification order / link to deleteditsms/biblios</p>
+&lt;p&gt;group/sort/organize by classification order / link to deleteditsms/biblios&lt;/p&gt;
 
 ----------
 */
@@ -52,9 +52,9 @@ FROM
 WHERE
   statistics.branch != items.homebranch AND
   statistics.type IN ('issue', 'renew') AND
-  Month(statistics.datetime) = <> AND
-  Year(statistics.datetime) = <> AND
-  statistics.branch = <>
+  Month(statistics.datetime) = &lt;&gt; AND
+  Year(statistics.datetime) = &lt;&gt; AND
+  statistics.branch = &lt;&gt;
 ORDER BY
   Library,
   biblio.title

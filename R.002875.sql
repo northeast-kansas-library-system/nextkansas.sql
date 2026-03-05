@@ -30,7 +30,7 @@ Expiry: 0
 
 
 SELECT
-  *
+  &ast;
 FROM
   message_queue
 ORDER BY

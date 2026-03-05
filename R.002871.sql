@@ -36,7 +36,7 @@ FROM
   branches LEFT JOIN
   (SELECT
       statistics.branch,
-      Count(*) AS COUNT
+      Count(&ast;) AS COUNT
     FROM
       statistics LEFT JOIN
       items ON statistics.itemnumber = items.itemnumber LEFT JOIN

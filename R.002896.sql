@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2017-02-01 16:27:01
 Modified on: 2024-01-17 11:48:57
-Date last run: 2025-10-16 14:34:56
+Date last run: 2026-01-14 13:52:12
 
 ----------
 
@@ -22,21 +22,21 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a list of lost items</p>
-<ul><li>Shows items that currently have the lost status you specify</li>
-<li>shows items with a home library that you specify</li>
-<li>that were declared lost during the date range you specify</li>
-<li>grouped by item barcode number</li>
-<li>sorted by NExpress standard classification scheme</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Replaces report 888</p>
-<p></p>
-<p>If an item has a blank LOST_DATE and a blank DAYS_LOST it is because the item was marked lost before we upgraded to Koha 3.16 (October 2014)</p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2896&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a list of lost items&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows items that currently have the lost status you specify&lt;/li&gt;
+&lt;li&gt;shows items with a home library that you specify&lt;/li&gt;
+&lt;li&gt;that were declared lost during the date range you specify&lt;/li&gt;
+&lt;li&gt;grouped by item barcode number&lt;/li&gt;
+&lt;li&gt;sorted by NExpress standard classification scheme&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Replaces report 888&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;If an item has a blank LOST_DATE and a blank DAYS_LOST it is because the item was marked lost before we upgraded to Koha 3.16 (October 2014)&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2896&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -83,9 +83,9 @@ FROM
         authorised_values.category = 'LOST') losts ON items.itemlost = losts.authorised_value
   JOIN biblio_metadata ON biblio.biblionumber = biblio_metadata.biblionumber
 WHERE
-  items.homebranch LIKE <> AND
-  items.itemlost LIKE <> AND
-  If(items.itemlost_on IS NULL, (CAST('2000-01-01' AS DATETIME)), items.itemlost_on) BETWEEN <> AND <>
+  items.homebranch LIKE &lt;&gt; AND
+  items.itemlost LIKE &lt;&gt; AND
+  If(items.itemlost_on IS NULL, (CAST('2000-01-01' AS DATETIME)), items.itemlost_on) BETWEEN &lt;&gt; AND &lt;&gt;
 GROUP BY
   items.barcode
 HAVING

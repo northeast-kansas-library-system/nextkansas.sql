@@ -22,16 +22,16 @@ Expiry: 1
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Returns the phrase "loginblock" when a patron ID is entered that has been unsuccessfully logged in more than the 'FailedLoginAttempts' system preference allows</p>
-<ul><li>Shows current blocks</li>
-<li>for the patron is number you enter</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Designed to output a class that can be added to a page via JSON</p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3187&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Returns the phrase "loginblock" when a patron ID is entered that has been unsuccessfully logged in more than the 'FailedLoginAttempts' system preference allows&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows current blocks&lt;/li&gt;
+&lt;li&gt;for the patron is number you enter&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Designed to output a class that can be added to a page via JSON&lt;/p&gt;
+&lt;p id="rquickopen"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3187&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -39,7 +39,7 @@ Expiry: 1
 
 
 SELECT
-  If(borrowers.login_attempts > 4, "loginblock", "") AS CLASS
+  If(borrowers.login_attempts &gt; 4, "loginblock", "") AS CLASS
 FROM
   borrowers,
   (
@@ -55,8 +55,8 @@ FROM
       systempreferences.variable = 'FailedLoginAttempts'
   ) FAILEDLOGIN
 WHERE
-  borrowers.login_attempts >= FAILEDLOGIN.value AND
-  borrowers.borrowernumber = <>
+  borrowers.login_attempts &gt;= FAILEDLOGIN.value AND
+  borrowers.borrowernumber = &lt;&gt;
 
 
 

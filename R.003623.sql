@@ -64,7 +64,7 @@ FROM
      issues.borrowernumber,
      issues.notedate,
      items.barcode AS ITEM_BC,
-     If(issues.itemnumber <> 0, issues.date_due,
+     If(issues.itemnumber &lt;&gt; 0, issues.date_due,
      "Item has already been returned") AS IN_OR_OUT,
      issues.branchcode,
      issues.issuedate,
@@ -80,7 +80,7 @@ FROM
   items ON allissues.itemnumber = items.itemnumber JOIN
   biblio ON items.biblionumber = biblio.biblionumber
 WHERE
-  allissues.branchcode LIKE <>
+  allissues.branchcode LIKE &lt;&gt;
 GROUP BY
   allissues.borrowernumber,
   items.itemnumber,

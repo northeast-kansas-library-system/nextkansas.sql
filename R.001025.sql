@@ -29,7 +29,7 @@ Shows Borrowernumber, subject, and time queued for email notices where the statu
 
 
 
-select borrowernumber, borrowers.surname, borrowers.firstname, subject, time_queued from message_queue JOIN borrowers USING (borrowernumber) where borrowers.branchcode=<> AND status = 'pending' and message_transport_type = 'email'
+select borrowernumber, borrowers.surname, borrowers.firstname, subject, time_queued from message_queue JOIN borrowers USING (borrowernumber) where borrowers.branchcode=&lt;&gt; AND status = 'pending' and message_transport_type = 'email'
 
 
 

@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2021-02-04 16:34:33
 Modified on: 2025-05-13 12:00:57
-Date last run: 2025-10-03 12:36:52
+Date last run: 2026-01-06 15:27:12
 
 ----------
 
@@ -22,146 +22,146 @@ Expiry: 300
 
 ----------
 
-<div class="next_report_info next_noprint">
-  <div id="report-3418" class="accordion accordion-flush">
+&lt;div class="next_report_info next_noprint"&gt;
+  &lt;div id="report-3418" class="accordion accordion-flush"&gt;
 
-    <div class="accordion-item">
+    &lt;div class="accordion-item"&gt;
 
-      <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-        <button class="accordion-button next_report_function" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+      &lt;h2 class="accordion-header" id="panelsStayOpen-headingOne"&gt;
+        &lt;button class="accordion-button next_report_function" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne"&gt;
 
           Report function:
 
-        </button>
-      </h2>
-      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-        <div class="accordion-body">
+        &lt;/button&gt;
+      &lt;/h2&gt;
+      &lt;div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne"&gt;
+        &lt;div class="accordion-body"&gt;
 
-          <p>Monthly overview - collection statistics</p>
+          &lt;p&gt;Monthly overview - collection statistics&lt;/p&gt;
 
-          <ul>
-            <li>
+          &lt;ul&gt;
+            &lt;li&gt;
               Shows item and holding counts for the previous calendar month
-            </li>
-            <li>
+            &lt;/li&gt;
+            &lt;li&gt;
               At all Next Search Catalog libraries
-            </li>
-            <li>
+            &lt;/li&gt;
+            &lt;li&gt;
               grouped and sorted by branch name
-            </li>
-          </ul>
+            &lt;/li&gt;
+          &lt;/ul&gt;
 
-        </div>
-      </div>
-    </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-        <button class="accordion-button collapsed next_report_notes" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+    &lt;div class="accordion-item"&gt;
+      &lt;h2 class="accordion-header" id="panelsStayOpen-headingTwo"&gt;
+        &lt;button class="accordion-button collapsed next_report_notes" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo"&gt;
 
           Report notes:
 
-        </button>
-      </h2>
-      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-        <div class="accordion-body">
+        &lt;/button&gt;
+      &lt;/h2&gt;
+      &lt;div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo"&gt;
+        &lt;div class="accordion-body"&gt;
 
-          <div class="next_report_section">
+          &lt;div class="next_report_section"&gt;
 
-            <p>Generates data for:</p>
+            &lt;p&gt;Generates data for:&lt;/p&gt;
 
-            <ul>
-              <li>START_I = number of items owned on the first of the month</li>
-              <li>END_I = number of items owned on the last day of the month</li>
-              <li>ITEMS_ADD_L_M = items added last month</li>
-              <li>ITEMS_DEL_L_M = items deleted last month</li>
-              <li>TOTAL_HOLDINGS = number of bibliographic records where at least 1 item was held at this library on the first of the month</li>
-            </ul>
+            &lt;ul&gt;
+              &lt;li&gt;START_I = number of items owned on the first of the month&lt;/li&gt;
+              &lt;li&gt;END_I = number of items owned on the last day of the month&lt;/li&gt;
+              &lt;li&gt;ITEMS_ADD_L_M = items added last month&lt;/li&gt;
+              &lt;li&gt;ITEMS_DEL_L_M = items deleted last month&lt;/li&gt;
+              &lt;li&gt;TOTAL_HOLDINGS = number of bibliographic records where at least 1 item was held at this library on the first of the month&lt;/li&gt;
+            &lt;/ul&gt;
 
-          </div>
+          &lt;/div&gt;
 
-        </div>
-      </div>
-    </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-    <div class="accordion-item next_hidden">
-      <h2 class="accordion-header" id="panelsStayOpen-headingThree">
-        <button class="accordion-button collapsed next_report_instructions" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+    &lt;div class="accordion-item next_hidden"&gt;
+      &lt;h2 class="accordion-header" id="panelsStayOpen-headingThree"&gt;
+        &lt;button class="accordion-button collapsed next_report_instructions" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree"&gt;
 
           Report instructions:
 
-        </button>
-      </h2>
-      <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-        <div class="accordion-body">
+        &lt;/button&gt;
+      &lt;/h2&gt;
+      &lt;div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree"&gt;
+        &lt;div class="accordion-body"&gt;
 
-          <div class="next_report_section">
+          &lt;div class="next_report_section"&gt;
 
-            <p>
+            &lt;p&gt;
               Instructions go here
-            </p>
+            &lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-          <div class="next_report_section">
+          &lt;div class="next_report_section"&gt;
 
-            <p>
+            &lt;p&gt;
               More instructions go here
-            </p>
+            &lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-        </div>
-      </div>
-    </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-    <div class="accordion-item next_hidden">
+    &lt;div class="accordion-item next_hidden"&gt;
 
-      <h2 class="accordion-header" id="panelsStayOpen-headingFour">
-        <button class="accordion-button collapsed next_report_resources" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+      &lt;h2 class="accordion-header" id="panelsStayOpen-headingFour"&gt;
+        &lt;button class="accordion-button collapsed next_report_resources" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour"&gt;
 
           Report external resources:
 
-        </button>
-      </h2>
+        &lt;/button&gt;
+      &lt;/h2&gt;
 
-      <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
-        <div class="accordion-body">
+      &lt;div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour"&gt;
+        &lt;div class="accordion-body"&gt;
 
-          <ul style="list-style-type: none;">
-            <li>
-
-
-              Explanation of resource if necessary<br>
-
-              <a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen1">External resource 1</a>
-
-            </li>
-            <li>
+          &lt;ul style="list-style-type: none;"&gt;
+            &lt;li&gt;
 
 
-              Explanation of resource if necessary<br>
+              Explanation of resource if necessary&lt;br&gt;
 
-              <a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen1">External resource 2</a>
+              &lt;a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen1"&gt;External resource 1&lt;/a&gt;
 
-            </li>
-          </ul>
+            &lt;/li&gt;
+            &lt;li&gt;
 
-        </div>
-      </div>
-    </div>
 
-  </div>
+              Explanation of resource if necessary&lt;br&gt;
 
-  <div class="next_direct_download next_hidden">
+              &lt;a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen1"&gt;External resource 2&lt;/a&gt;
 
-    <a class="next_btn next_indigo next_embiggen1" href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=INSERT_REPORT_NUMBER_HERE">Download this report as a csv file <i class="bi bi-download"></i></a>
+            &lt;/li&gt;
+          &lt;/ul&gt;
 
-  </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-  <div class="next_hidden">
+  &lt;/div&gt;
 
-    <p>
+  &lt;div class="next_direct_download next_hidden"&gt;
+
+    &lt;a class="next_btn next_indigo next_embiggen1" href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=INSERT_REPORT_NUMBER_HERE"&gt;Download this report as a csv file &lt;i class="bi bi-download"&gt;&lt;/i&gt;&lt;/a&gt;
+
+  &lt;/div&gt;
+
+  &lt;div class="next_hidden"&gt;
+
+    &lt;p&gt;
 
       #monthly 
       #statistics 
@@ -169,10 +169,10 @@ Expiry: 300
       #overview 
       #monthly_overview
 
-    </p>
+    &lt;/p&gt;
 
-  </div>
-</div>
+  &lt;/div&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -198,39 +198,39 @@ FROM branches
   LEFT JOIN ( 
     SELECT 
       items.homebranch, 
-      Count(*) AS count 
+      Count(&ast;) AS count 
     FROM items 
-    WHERE items.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) 
+    WHERE items.dateaccessioned &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) 
     GROUP BY items.homebranch 
     UNION 
     SELECT 
       deleteditems.homebranch, 
-      Count(*) AS count 
+      Count(&ast;) AS count 
     FROM deleteditems 
-    WHERE deleteditems.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) 
-      AND deleteditems.timestamp >= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) 
+    WHERE deleteditems.dateaccessioned &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) 
+      AND deleteditems.timestamp &gt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) 
     GROUP BY deleteditems.homebranch 
   ) START_ITEMS ON branches.branchcode = START_ITEMS.homebranch 
   LEFT JOIN ( 
     SELECT 
       items.homebranch, 
-      Count(*) AS count 
+      Count(&ast;) AS count 
     FROM items 
-    WHERE items.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
+    WHERE items.dateaccessioned &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
     GROUP BY items.homebranch 
     UNION 
     SELECT 
       deleteditems.homebranch, 
-      Count(*) AS count 
+      Count(&ast;) AS count 
     FROM deleteditems 
-    WHERE deleteditems.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
-      AND deleteditems.timestamp >= AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
+    WHERE deleteditems.dateaccessioned &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
+      AND deleteditems.timestamp &gt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
     GROUP BY deleteditems.homebranch 
   ) END_ITEMS ON branches.branchcode = END_ITEMS.homebranch 
   LEFT JOIN ( 
     SELECT 
       items.homebranch, 
-      Count(*) AS count 
+      Count(&ast;) AS count 
     FROM items 
     WHERE Month(items.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) 
       AND Year(items.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH) 
@@ -238,7 +238,7 @@ FROM branches
     UNION 
     SELECT 
       deleteditems.homebranch, 
-      Count(*) AS count 
+      Count(&ast;) AS count 
     FROM deleteditems 
     WHERE Month(deleteditems.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) 
       AND Year(deleteditems.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH) 
@@ -247,7 +247,7 @@ FROM branches
   LEFT JOIN ( 
     SELECT 
       deleteditems.homebranch, 
-      Count(*) AS count 
+      Count(&ast;) AS count 
     FROM deleteditems 
     WHERE Month(deleteditems.timestamp) = Month(Now() - INTERVAL 1 MONTH) 
       AND Year(deleteditems.timestamp) = Year(Now() - INTERVAL 1 MONTH) 
@@ -257,15 +257,15 @@ FROM branches
     SELECT items.homebranch, 
       Count(DISTINCT items.biblionumber) AS count 
     FROM items 
-    WHERE items.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
+    WHERE items.dateaccessioned &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
     GROUP BY items.homebranch 
     UNION 
     SELECT 
       deleteditems.homebranch, 
       Count(DISTINCT deleteditems.biblionumber) AS count 
     FROM deleteditems 
-    WHERE deleteditems.dateaccessioned < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
-      AND deleteditems.timestamp >= AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
+    WHERE deleteditems.dateaccessioned &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
+      AND deleteditems.timestamp &gt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1) 
     GROUP BY deleteditems.homebranch 
   ) TOTAL_HOLDINGS ON branches.branchcode = TOTAL_HOLDINGS.homebranch 
 GROUP BY branches.branchname 

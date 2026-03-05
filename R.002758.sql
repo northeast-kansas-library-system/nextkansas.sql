@@ -13,7 +13,7 @@ Group: Administrative Reports
 
 Created on: 2016-09-04 16:38:55
 Modified on: 2019-02-10 20:54:14
-Date last run: 2022-01-14 16:58:34
+Date last run: 2026-01-09 14:40:31
 
 ----------
 
@@ -48,7 +48,7 @@ WHERE
 GROUP BY
   Replace(Replace(Replace(biblio.author, ".", ""), ",", ""), "'", "")
 HAVING
-  Count(items.itemnumber) > 1
+  Count(items.itemnumber) &gt; 1
 ORDER BY
   Count(items.itemnumber) DESC
 

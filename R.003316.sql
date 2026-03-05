@@ -46,9 +46,9 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.categorycode <> "STAFF" AND
+  borrowers.categorycode &lt;&gt; "STAFF" AND
   Year(borrowers.dateexpiry) = 2020 AND
-  borrowers.branchcode LIKE <>
+  borrowers.branchcode LIKE &lt;&gt;
 
 
 

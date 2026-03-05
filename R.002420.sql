@@ -13,7 +13,7 @@ Group: Daily, Monthly, Yearly Stats
 
 Created on: 2014-12-03 20:25:09
 Modified on: 2014-12-03 20:25:09
-Date last run: 2025-08-16 09:54:24
+Date last run: 2026-01-08 15:13:38
 
 ----------
 
@@ -29,7 +29,7 @@ Expiry: 300
 
 
 
-SELECT count(i.itemnumber) as added from items i WHERE i.homebranch=<> AND year(i.dateaccessioned) = <>
+SELECT count(i.itemnumber) as added from items i WHERE i.homebranch=&lt;&gt; AND year(i.dateaccessioned) = &lt;&gt;
 
 
 

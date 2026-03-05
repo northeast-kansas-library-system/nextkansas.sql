@@ -50,17 +50,17 @@ FROM
   deletedborrowers LEFT JOIN
   (SELECT
       statistics.borrowernumber,
-      count(*) AS COUNT
+      count(&ast;) AS COUNT
     FROM
       statistics
     WHERE
-      statistics.datetime > CurDate() - INTERVAL 1 YEAR
+      statistics.datetime &gt; CurDate() - INTERVAL 1 YEAR
     GROUP BY
       statistics.borrowernumber) cko_count_ty ON cko_count_ty.borrowernumber =
       deletedborrowers.borrowernumber LEFT JOIN
   (SELECT
       statistics.borrowernumber,
-      count(*) AS COUNT
+      count(&ast;) AS COUNT
     FROM
       statistics
     WHERE

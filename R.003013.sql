@@ -43,7 +43,7 @@ FROM
   LEFT JOIN issues ON issues.borrowernumber = borrowers.borrowernumber
   INNER JOIN borrower_debarments ON borrower_debarments.borrowernumber = borrowers.borrowernumber
 WHERE
-  borrowers.branchcode LIKE <>
+  borrowers.branchcode LIKE &lt;&gt;
 GROUP BY
   borrowers.borrowernumber,
   borrower_debarments.borrower_debarment_id,

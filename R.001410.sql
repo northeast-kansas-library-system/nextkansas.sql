@@ -12,8 +12,8 @@ Group: Catalog Records and Items
      Shelf Lists
 
 Created on: 2012-05-14 22:52:34
-Modified on: 2015-08-16 20:08:27
-Date last run: 2025-10-24 14:17:47
+Modified on: 2025-11-24 11:55:15
+Date last run: 2026-01-08 15:00:58
 
 ----------
 
@@ -22,14 +22,14 @@ Expiry: 0
 
 ----------
 
-Enhanced. - Choose Branch, Item Type, and Location -- (On Reports Webpages, 5/14/12). #shelflist
+Replaced by report 3879
 
 ----------
 */
 
 
 
-SELECT b.biblionumber, i.dateaccessioned, b.title, b.author, i.ccode, i.location, i.itemcallnumber, i.itype, t.publicationyear, i.barcode, CONCAT(''"edit item"'') as "edit item" FROM items i LEFT JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE i.homebranch=<> AND i.itype=<> AND i.location=<> ORDER BY i.itemcallnumber
+SELECT 'Replaced by report 3879' AS REPORT
 
 
 

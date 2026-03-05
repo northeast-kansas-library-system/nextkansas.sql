@@ -22,16 +22,16 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Creates the Template Toolkit code for inserting a library address into a notice for the borrower's home library (in cases where the home library is needed rather than the library that's sending the e-mail notice)</p>
-<ul><li>Creates code based on current library information in Koha</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Generates code for Template Toolkit use.</p>
-<p></p>
-<p class= "notetags" style="display: none;">#TT #templatetoolkit</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Creates the Template Toolkit code for inserting a library address into a notice for the borrower's home library (in cases where the home library is needed rather than the library that's sending the e-mail notice)&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Creates code based on current library information in Koha&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Generates code for Template Toolkit use.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;#TT #templatetoolkit&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */

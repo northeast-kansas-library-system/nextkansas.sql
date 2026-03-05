@@ -36,7 +36,7 @@ SELECT month,
     checkouts,
     unique_active_patrons,
     enrolled_patrons,
-    round(unique_active_patrons/enrolled_patrons*100,2) as percent_active_patrons
+    round(unique_active_patrons/enrolled_patrons&ast;100,2) as percent_active_patrons
 FROM
 (SELECT 
     DATE_FORMAT(timestamp,'%y %m') as month,
@@ -61,21 +61,21 @@ AND p.transaction_type='issue'
 GROUP BY month) bee USING (month)
 LEFT JOIN
 (SELECT DATE_FORMAT(DATE_ADD(LAST_DAY(DATE_SUB(CURDATE(),interval 2 month)),interval 1 day),'%y %m') as month,
-	SUM(IF(b.dateenrolled <= DATE_ADD(LAST_DAY(DATE_SUB(CURDATE(),interval 2 month)),interval 1 day),1,0)) as enrolled_patrons
+	SUM(IF(b.dateenrolled &lt;= DATE_ADD(LAST_DAY(DATE_SUB(CURDATE(),interval 2 month)),interval 1 day),1,0)) as enrolled_patrons
 FROM borrowers b
 WHERE b.categorycode not like '%dcsd'
 
 UNION ALL
 
 SELECT DATE_FORMAT(DATE_ADD(LAST_DAY(DATE_SUB(CURDATE(),interval 3 month)),interval 1 day),'%y %m') as month,
-	SUM(IF(b.dateenrolled <= DATE_ADD(LAST_DAY(DATE_SUB(CURDATE(),interval 3 month)),interval 1 day),1,0)) as enrolled_patrons
+	SUM(IF(b.dateenrolled &lt;= DATE_ADD(LAST_DAY(DATE_SUB(CURDATE(),interval 3 month)),interval 1 day),1,0)) as enrolled_patrons
 FROM borrowers b
 WHERE b.categorycode not like '%dcsd'
 
 UNION ALL
 
 SELECT DATE_FORMAT(DATE_ADD(LAST_DAY(DATE_SUB(CURDATE(),interval 4 month)),interval 1 day),'%y %m') as month,
-	SUM(IF(b.dateenrolled <= DATE_ADD(LAST_DAY(DATE_SUB(CURDATE(),interval 4 month)),interval 1 day),1,0)) as enrolled_patrons
+	SUM(IF(b.dateenrolled &lt;= DATE_ADD(LAST_DAY(DATE_SUB(CURDATE(),interval 4 month)),interval 1 day),1,0)) as enrolled_patrons
 FROM borrowers b
 WHERE b.categorycode not like '%dcsd') gee USING (month)
 ORDER BY month desc

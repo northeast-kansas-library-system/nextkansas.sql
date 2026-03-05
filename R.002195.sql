@@ -29,7 +29,7 @@ List of all records that only your library has copies attached to in the NExpres
 
 
 
-SELECT CONCAT(''"link to record"'') as "link to record", biblio.title, biblio.author, items.ccode, items.itemcallnumber, count(items.itemnumber) FROM items JOIN biblio USING(biblionumber) WHERE items.homebranch=<> AND biblio.biblionumber NOT IN (SELECT biblionumber FROM items WHERE homebranch <> <>) GROUP BY biblio.biblionumber ORDER BY items.ccode, items.itemcallnumber
+SELECT CONCAT(''"link to record"'') as "link to record", biblio.title, biblio.author, items.ccode, items.itemcallnumber, count(items.itemnumber) FROM items JOIN biblio USING(biblionumber) WHERE items.homebranch=&lt;&gt; AND biblio.biblionumber NOT IN (SELECT biblionumber FROM items WHERE homebranch &lt;&gt; &lt;&gt;) GROUP BY biblio.biblionumber ORDER BY items.ccode, items.itemcallnumber
 
 
 

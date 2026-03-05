@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-SELECT CONCAT ('',reserves.reserve_id,'') AS "Link to Reserve", (SELECT count(*) FROM items WHERE items.biblionumber=reserves.biblionumber) as itemcount FROM reserves where itemnumber iN (SELECT itemnumber from items where itemlost='4' and damaged='2') GROUP BY itemnumber
+SELECT CONCAT ('',reserves.reserve_id,'') AS "Link to Reserve", (SELECT count(&ast;) FROM items WHERE items.biblionumber=reserves.biblionumber) as itemcount FROM reserves where itemnumber iN (SELECT itemnumber from items where itemlost='4' and damaged='2') GROUP BY itemnumber
 
 
 

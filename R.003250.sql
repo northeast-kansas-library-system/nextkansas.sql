@@ -31,7 +31,7 @@ Required for new "Damaged item" pop-up on checkin page.
 
 SELECT
   Concat(
-    '">Damaged item messageItem ',
+    '"&gt;Damaged item messageItem ',
     items.barcode,
     ' marked with DAMAGED status of "',
     damageds.lib,
@@ -40,7 +40,7 @@ SELECT
     '.DAMAGED statuses must be removed manually - they are not removed by the checkin process.',
     'damaged'
   ) AS MESSAGE,
-  If(items.damaged > 0, 'block', 'none') AS DISPLAY,
+  If(items.damaged &gt; 0, 'block', 'none') AS DISPLAY,
   damageds.lib
 FROM
   items
@@ -59,7 +59,7 @@ FROM
   ) damageds
     ON damageds.authorised_value = items.damaged
 WHERE
-  items.barcode = <>
+  items.barcode = &lt;&gt;
 
 
 

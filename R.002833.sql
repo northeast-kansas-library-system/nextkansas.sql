@@ -31,7 +31,7 @@ Expiry: 0
 
 SELECT
   statistics.branch,
-  Count(*) AS CIRC_PLUS_RENEWALS,
+  Count(&ast;) AS CIRC_PLUS_RENEWALS,
   Concat_Ws('.', Year(statistics.datetime), Month(statistics.datetime)) AS DATE
 FROM
   statistics

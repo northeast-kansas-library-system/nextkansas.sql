@@ -22,13 +22,13 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Counts un-expired borrowers with a specified homebranch</p>
-<ul><li>Counts borrowers currently in NExpress</li>
-<li>with a specified homebranch</li>
-<li>grouped and sorted by borrower's home library</li>
-</ul><br />
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Counts un-expired borrowers with a specified homebranch&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Counts borrowers currently in NExpress&lt;/li&gt;
+&lt;li&gt;with a specified homebranch&lt;/li&gt;
+&lt;li&gt;grouped and sorted by borrower's home library&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -41,8 +41,8 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.dateexpiry > Now() AND
-  borrowers.branchcode LIKE <>
+  borrowers.dateexpiry &gt; Now() AND
+  borrowers.branchcode LIKE &lt;&gt;
 GROUP BY
   borrowers.branchcode WITH ROLLUP
 

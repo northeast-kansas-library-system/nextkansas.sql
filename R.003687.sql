@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-  <p>Creates the holds queue button on the home page in the staff client</p>
-  <ul>
-    <li>Creates button to take staff to the current holds queue</li>
-    <li>for the library you're logged in at</li>
-    <li>grouped by holds queue branchcode</li>
-    <li>button links to report 3084</li>
-  </ul><br />
-  <p><ins>Notes:</ins></p>
-  <p></p>
-  <p>Relies on jQuery to work properly</p>
-  <p></p>
-  <p class= "notetags" style="display: none;">#jquery_enhancement</p>
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+  &lt;p&gt;Creates the holds queue button on the home page in the staff client&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Creates button to take staff to the current holds queue&lt;/li&gt;
+    &lt;li&gt;for the library you're logged in at&lt;/li&gt;
+    &lt;li&gt;grouped by holds queue branchcode&lt;/li&gt;
+    &lt;li&gt;button links to report 3084&lt;/li&gt;
+  &lt;/ul&gt;&lt;br /&gt;
+  &lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;p&gt;Relies on jQuery to work properly&lt;/p&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;p class= "notetags" style="display: none;"&gt;#jquery_enhancement&lt;/p&gt;
+  &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -63,7 +63,7 @@ From
       hold_fill_targets.itemnumber
   ) request_counts On request_counts.source_branchcode = branches.branchcode
 Where
-    branches.branchcode = <>
+    branches.branchcode = &lt;&gt;
 Group By
     branches.branchcode
 

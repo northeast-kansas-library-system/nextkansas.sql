@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Lists the members of a club in a format that can be shared with other members of the same club</p>
-<ul><li>Shows current members of the club that you specify</li>
-<li>grouped by club id number and borrowernumber</li>
-<li>sorted by club enrollment number (order in which the members joined)</li>
-<li>links</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3335&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-<p class= "notetags" style="display: none;">clubs</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Lists the members of a club in a format that can be shared with other members of the same club&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows current members of the club that you specify&lt;/li&gt;
+&lt;li&gt;grouped by club id number and borrowernumber&lt;/li&gt;
+&lt;li&gt;sorted by club enrollment number (order in which the members joined)&lt;/li&gt;
+&lt;li&gt;links&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3335&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;clubs&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -124,7 +124,7 @@ FROM
       phone.club_enrollment_id = club_enrollments.id JOIN
   borrowers ON club_enrollments.borrowernumber = borrowers.borrowernumber
 WHERE
-  clubs.id = <>
+  clubs.id = &lt;&gt;
 GROUP BY
   clubs.id,
   borrowers.borrowernumber

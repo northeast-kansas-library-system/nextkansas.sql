@@ -34,7 +34,7 @@ Select
     opac_problem_reports.branchcode = 'NEKLS', 
     'hidden', 
     If(
-      Count(opac_problem_reports.reportid) > 0, 
+      Count(opac_problem_reports.reportid) &gt; 0, 
       'hidden', 
       '-'
     )
@@ -51,7 +51,7 @@ From
   On 
     opac_problem_reports.branchcode = branches.branchcode
 Where
-  branches.branchcode Like <>
+  branches.branchcode Like &lt;&gt;
 Group By
   branches.branchcode
 

@@ -22,16 +22,16 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Replacement for built-in for Overdue reports</p>
-<ul><li>Shows overdues during the date range you specify</li>
-<li>At the checkout library/the item home library/or patron home library you specify</li>
-<li>sorted by date due and patron name, </li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3143&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Replacement for built-in for Overdue reports&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows overdues during the date range you specify&lt;/li&gt;
+&lt;li&gt;At the checkout library/the item home library/or patron home library you specify&lt;/li&gt;
+&lt;li&gt;sorted by date due and patron name, &lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p id="rquickopen"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3143&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -60,13 +60,13 @@ FROM
   LEFT JOIN biblioitems ON biblioitems.biblioitemnumber = items.biblioitemnumber
   LEFT JOIN biblio ON biblio.biblionumber = items.biblionumber
   LEFT JOIN borrowers guarantor ON guarantor.borrowernumber = borrowers.guarantorid
-WHERE (date_due BETWEEN <> AND (<> + interval 1 day)) AND
-  (borrowers.cardnumber LIKE Concat("%",<>,"%")) AND
-  (borrowers.categorycode LIKE <>) AND
-  (items.itype LIKE <>) AND
-  (items.homebranch LIKE <>) AND
-  (items.holdingbranch LIKE <>) AND
-  (borrowers.branchcode LIKE <>)
+WHERE (date_due BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day)) AND
+  (borrowers.cardnumber LIKE Concat("%",&lt;&gt;,"%")) AND
+  (borrowers.categorycode LIKE &lt;&gt;) AND
+  (items.itype LIKE &lt;&gt;) AND
+  (items.homebranch LIKE &lt;&gt;) AND
+  (items.holdingbranch LIKE &lt;&gt;) AND
+  (borrowers.branchcode LIKE &lt;&gt;)
 ORDER BY
   issues.date_due,
   borrowers.surname,

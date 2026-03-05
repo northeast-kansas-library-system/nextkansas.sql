@@ -37,9 +37,9 @@ SELECT
 FROM
   reserves
 WHERE
-  reserves.branchcode LIKE <> AND
+  reserves.branchcode LIKE &lt;&gt; AND
   reserves.found IS NULL AND
-  reserves.suspend_until = <>
+  reserves.suspend_until = &lt;&gt;
 GROUP BY
   reserves.borrowernumber,
   reserves.branchcode,

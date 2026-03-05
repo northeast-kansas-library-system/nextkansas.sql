@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2019-03-12 00:46:57
 Modified on: 2025-04-30 11:55:24
-Date last run: 2025-10-02 01:20:01
+Date last run: 2026-01-01 01:20:02
 
 ----------
 
@@ -22,9 +22,9 @@ Expiry: 300
 
 ----------
 
-<p style="display: none;">MNTHLY</p>
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3184">Click here to download as a csv file</a></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3184&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+&lt;p style="display: none;"&gt;MNTHLY&lt;/p&gt;
+&lt;p id="rquickdown"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3184"&gt;Click here to download as a csv file&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3184&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
 
 ----------
 */
@@ -46,12 +46,12 @@ UNION
   Coalesce(ours_at_other_libraries.COUNTS, 0) AS "Our materials checked out at other Next libraries",
   Coalesce(not_ours_at_ours.COUNTS, 0) - Coalesce(ours_at_other_libraries.COUNTS, 0) AS NET,
   If(
-    Coalesce(not_ours_at_ours.COUNTS, 0) - Coalesce(ours_at_other_libraries.COUNTS, 0) > 0,
+    Coalesce(not_ours_at_ours.COUNTS, 0) - Coalesce(ours_at_other_libraries.COUNTS, 0) &gt; 0,
     "We borrowerd more than we lent",
     ""
   ) AS "Net borrower",
   If(
-    Coalesce(not_ours_at_ours.COUNTS, 0) - Coalesce(ours_at_other_libraries.COUNTS, 0) < 0,
+    Coalesce(not_ours_at_ours.COUNTS, 0) - Coalesce(ours_at_other_libraries.COUNTS, 0) &lt; 0,
     "We lent more than we borrowed",
     ""
   ) AS "Net lender",
@@ -66,7 +66,7 @@ FROM branches
   LEFT JOIN 
     (
       SELECT statistics.branch,
-        Count(*) AS COUNTS
+        Count(&ast;) AS COUNTS
       FROM statistics
         LEFT JOIN items ON items.itemnumber = statistics.itemnumber
         LEFT JOIN deleteditems ON deleteditems.itemnumber = statistics.itemnumber
@@ -91,7 +91,7 @@ FROM branches
   LEFT JOIN 
     (
       SELECT Coalesce(items.homebranch, deleteditems.homebranch) AS branch,
-        Count(*) AS COUNTS
+        Count(&ast;) AS COUNTS
       FROM statistics
         LEFT JOIN items ON items.itemnumber = statistics.itemnumber
         LEFT JOIN deleteditems ON deleteditems.itemnumber = statistics.itemnumber

@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2023-09-12 09:41:43
 Modified on: 2025-03-09 19:17:38
-Date last run: 2025-10-28 20:05:18
+Date last run: 2026-01-29 14:13:40
 
 ----------
 
@@ -133,9 +133,9 @@ FROM
           branchtransfers.datecancelled = ''
         ) 
           AND
-        branchtransfers.datesent < CurDate() - INTERVAL 7 DAY 
+        branchtransfers.datesent &lt; CurDate() - INTERVAL 7 DAY 
           AND
-        branchtransfers.tobranch = <>
+        branchtransfers.tobranch = &lt;&gt;
       ) 
         OR
       (
@@ -151,9 +151,9 @@ FROM
           branchtransfers.datecancelled = ''
         ) 
           AND
-        branchtransfers.datesent < CurDate() - INTERVAL 7 DAY 
+        branchtransfers.datesent &lt; CurDate() - INTERVAL 7 DAY 
           AND
-        branchtransfers.frombranch = <>
+        branchtransfers.frombranch = &lt;&gt;
       ) 
         OR
       (
@@ -169,13 +169,13 @@ FROM
           branchtransfers.datecancelled = ''
         ) 
           AND
-        branchtransfers.datesent < CurDate() - INTERVAL 7 DAY 
+        branchtransfers.datesent &lt; CurDate() - INTERVAL 7 DAY 
           AND
-        items.homebranch = <>
+        items.homebranch = &lt;&gt;
       )
   ) missing_in_transit
 WHERE
-  branches.branchcode = <>
+  branches.branchcode = &lt;&gt;
 
 
 

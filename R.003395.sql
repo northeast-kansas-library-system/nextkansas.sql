@@ -34,7 +34,7 @@ SELECT
   items.itype
 FROM
   items
-WHERE  items.itype = <>
+WHERE  items.itype = &lt;&gt;
 
 
 

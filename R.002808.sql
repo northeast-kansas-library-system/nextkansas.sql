@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2016-10-14 10:30:29
 Modified on: 2024-01-17 11:47:07
-Date last run: 2025-10-24 15:45:40
+Date last run: 2026-01-06 11:15:06
 
 ----------
 
@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Shows all items at a specified branch with a specified shelving location, a specified item type, and a specified collection code</p>
-<ul><li>Shows current items</li>
-<li>at a location you specify</li>
-<li>grouped and sorted by item home branch, shelving location, item type, collection code, call number, author, and title</li>
-</ul><br />
-<p></p>
-<p>Notes:</p>
-<p></p>
-<p>Update for new links on 2023.03.07</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Shows all items at a specified branch with a specified shelving location, a specified item type, and a specified collection code&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows current items&lt;/li&gt;
+&lt;li&gt;at a location you specify&lt;/li&gt;
+&lt;li&gt;grouped and sorted by item home branch, shelving location, item type, collection code, call number, author, and title&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Notes:&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Update for new links on 2023.03.07&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -44,7 +44,7 @@ SELECT
   items.itemnumber,
   Concat('- ', items.barcode, ' -') AS 'Item barcode',
   If(
-    items.homebranch <> items.holdingbranch,
+    items.homebranch &lt;&gt; items.holdingbranch,
     Concat(
       home_library.branchname,
       ' (',
@@ -54,7 +54,7 @@ SELECT
     home_library.branchname
   ) AS 'Home library',
   If(
-    items.permanent_location <> items.location,
+    items.permanent_location &lt;&gt; items.location,
     Concat(perm_locs.lib, ' (', locs.lib, ')'),
     perm_locs.lib
   ) AS 'Shelving location',
@@ -152,10 +152,10 @@ FROM items
   LEFT JOIN 
     itemtypes ON itemtypes.itemtype = items.itype
 WHERE 
-  items.homebranch LIKE <>
-  AND items.itype LIKE <>
-  AND items.permanent_location LIKE <>
-  AND items.ccode LIKE <>
+  items.homebranch LIKE &lt;&gt;
+  AND items.itype LIKE &lt;&gt;
+  AND items.permanent_location LIKE &lt;&gt;
+  AND items.ccode LIKE &lt;&gt;
 GROUP BY 
   biblio.biblionumber,
   items.itemnumber

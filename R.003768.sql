@@ -22,59 +22,59 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
+&lt;div class="reportinfo noprint"&gt; 
  
-  <div class="reportInfoContent"> 
+  &lt;div class="reportInfoContent"&gt; 
  
-    <p>Generates a count of biblios added and deleted in the previous calendar month</p> 
+    &lt;p&gt;Generates a count of biblios added and deleted in the previous calendar month&lt;/p&gt; 
  
-    <ul> 
-      <li>Counts biblios added in the previous calendar month</li> 
-      <li>At all libraries</li> 
-      <li>grouped and sorted by library name</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;Counts biblios added in the previous calendar month&lt;/li&gt; 
+      &lt;li&gt;At all libraries&lt;/li&gt; 
+      &lt;li&gt;grouped and sorted by library name&lt;/li&gt; 
+    &lt;/ul&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div class="reportInfoNotes"> 
+  &lt;div class="reportInfoNotes"&gt; 
  
-    <p> 
+    &lt;p&gt; 
  
-    </p> 
+    &lt;/p&gt; 
  
-    <p> 
+    &lt;p&gt; 
      To be folded into 2024 spreadsheet. 
-    </p> 
+    &lt;/p&gt; 
  
-    <p> 
+    &lt;p&gt; 
       If the library of the user that created or deleted a record cannot be determined, the creation/deletion is assigned to NEKLS 
-    </p> 
+    &lt;/p&gt; 
    
-  </div> 
+  &lt;/div&gt; 
  
-  <div id="reportInfoLinks"> 
+  &lt;div id="reportInfoLinks"&gt; 
  
-    <p id="sql_quick_down"> 
-      <a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3768"> 
+    &lt;p id="sql_quick_down"&gt; 
+      &lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3768"&gt; 
         Click here to download as a csv file 
-      </a> 
-    </p> 
+      &lt;/a&gt; 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div id="reportInfoTags"> 
+  &lt;div id="reportInfoTags"&gt; 
  
-    <p style="display: none;"> 
+    &lt;p style="display: none;"&gt; 
       #statistics 
       #monthly statistics 
       #biblio count 
-    </p> 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
+  &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt; 
  
-</div> 
+&lt;/div&gt; 
 
 ----------
 */

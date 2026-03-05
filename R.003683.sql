@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-  <p>Counts items with potential problems on their records</p>
-  <ul>
-    <li>Displays items with problems right now</li>
-    <li>at the library you specify</li>
-    <li>grouped and sorted by item homebranch and problem</li>
-    <li>links to report 214</li>
-  </ul><br />
-  <p></p>
-  <p class= "notetags" style="display: none;">#quick_count</p>
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+  &lt;p&gt;Counts items with potential problems on their records&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Displays items with problems right now&lt;/li&gt;
+    &lt;li&gt;at the library you specify&lt;/li&gt;
+    &lt;li&gt;grouped and sorted by item homebranch and problem&lt;/li&gt;
+    &lt;li&gt;links to report 214&lt;/li&gt;
+  &lt;/ul&gt;&lt;br /&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;p class= "notetags" style="display: none;"&gt;#quick_count&lt;/p&gt;
+  &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -142,7 +142,7 @@ FROM
   ) itypes ON 
     itypes.itemtype = items.itype
 WHERE
-  items.homebranch LIKE <> AND
+  items.homebranch LIKE &lt;&gt; AND
   ( 
     (items.barcode IS NULL) OR
     (plocs.lib IS NULL) OR

@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2021-04-28 14:48:37
 Modified on: 2024-01-17 11:33:00
-Date last run: 2022-09-15 16:54:06
+Date last run: 2026-01-29 11:55:29
 
 ----------
 
@@ -22,22 +22,22 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Lists borrower accounts that have been expired for more than 730.5 days (2 years) and includes any account expiration flags</p>
-<ul><li>Shows accounts that are currently expired</li>
-<li>at the home library you specify</li>
-<li>grouped by borrowernumber</li>
-<li>sorted by expiration, borrower home library, and borrower number</li>
-<li>links to the borrower account</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Replaces report 2495</p>
-<p></p>
-<p>Does not include STAFF, Hoopla, or SIP accounts.</p>
-<p></p>
-<p class= "notetags" style="display: none;">#expired borrowers</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Lists borrower accounts that have been expired for more than 730.5 days (2 years) and includes any account expiration flags&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows accounts that are currently expired&lt;/li&gt;
+&lt;li&gt;at the home library you specify&lt;/li&gt;
+&lt;li&gt;grouped by borrowernumber&lt;/li&gt;
+&lt;li&gt;sorted by expiration, borrower home library, and borrower number&lt;/li&gt;
+&lt;li&gt;links to the borrower account&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Replaces report 2495&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Does not include STAFF, Hoopla, or SIP accounts.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;#expired borrowers&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -109,12 +109,12 @@ FROM
      borrower_relationships.guarantor_id) guaranteesx ON
       guaranteesx.guarantor_id = borrowers.borrowernumber
 WHERE
-  borrowers.dateexpiry < CurDate() - INTERVAL 730.5 DAY AND
-  borrowers.branchcode LIKE <> AND
+  borrowers.dateexpiry &lt; CurDate() - INTERVAL 730.5 DAY AND
+  borrowers.branchcode LIKE &lt;&gt; AND
   borrowers.othernames NOT LIKE "%SIP%" AND
-  borrowers.categorycode <> 'STAFF' AND
-  borrowers.categorycode <> 'ILL' AND
-  borrowers.categorycode <> 'HOOPLA'
+  borrowers.categorycode &lt;&gt; 'STAFF' AND
+  borrowers.categorycode &lt;&gt; 'ILL' AND
+  borrowers.categorycode &lt;&gt; 'HOOPLA'
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

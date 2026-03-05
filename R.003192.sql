@@ -34,7 +34,7 @@ Total unfilled requests and total borrowers with requests are included to expedi
 SELECT
   Concat("confidential") AS PATRON,
   Count(reserves.reserve_id) AS ACTIVE_UNFILLED_THIS_PATRON,
-  Concat(Format(((Count(reserves.reserve_id) / unfilledholds.Count_reserve_id) * 100), 5), "%") AS SYSTEM_WIDE_PERCENTAGE,
+  Concat(Format(((Count(reserves.reserve_id) / unfilledholds.Count_reserve_id) &ast; 100), 5), "%") AS SYSTEM_WIDE_PERCENTAGE,
   unfilledholds.Count_reserve_id AS ACTIVE_UNFILLED_TOTAL,
   borrowerswrequests.Count_borrowernumber AS TOTAL_BORROWERS_WITH_REQUESTS
 FROM
@@ -49,9 +49,9 @@ FROM
       JOIN borrowers
         ON reserves.borrowernumber = borrowers.borrowernumber
     WHERE
-      borrowers.categorycode <> "ILL" AND
-      borrowers.categorycode <> "ASSOCIATE" AND
-      borrowers.categorycode <> "STAFF" AND
+      borrowers.categorycode &lt;&gt; "ILL" AND
+      borrowers.categorycode &lt;&gt; "ASSOCIATE" AND
+      borrowers.categorycode &lt;&gt; "STAFF" AND
       reserves.found IS NULL AND
       reserves.suspend = 0
     ORDER BY
@@ -65,23 +65,23 @@ FROM
       JOIN borrowers
         ON reserves.borrowernumber = borrowers.borrowernumber
     WHERE
-      borrowers.categorycode <> "ILL" AND
-      borrowers.categorycode <> "ASSOCIATE" AND
-      borrowers.categorycode <> "STAFF" AND
+      borrowers.categorycode &lt;&gt; "ILL" AND
+      borrowers.categorycode &lt;&gt; "ASSOCIATE" AND
+      borrowers.categorycode &lt;&gt; "STAFF" AND
       reserves.found IS NULL AND
       reserves.suspend = 0
   ) borrowerswrequests
 WHERE
-  borrowers.categorycode <> "ILL" AND
-  borrowers.categorycode <> "ASSOCIATE" AND
-  borrowers.categorycode <> "STAFF" AND
+  borrowers.categorycode &lt;&gt; "ILL" AND
+  borrowers.categorycode &lt;&gt; "ASSOCIATE" AND
+  borrowers.categorycode &lt;&gt; "STAFF" AND
   reserves.found IS NULL AND
   reserves.suspend = 0
 GROUP BY
   reserves.borrowernumber,
   borrowerswrequests.Count_borrowernumber
 HAVING
-  Count(reserves.reserve_id) > 20
+  Count(reserves.reserve_id) &gt; 20
 ORDER BY
   ACTIVE_UNFILLED_THIS_PATRON DESC
 

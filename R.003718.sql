@@ -22,49 +22,49 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
+&lt;div class="reportinfo noprint"&gt; 
  
-  <div> 
+  &lt;div&gt; 
  
-    <p>On March 9 and 10, 2023, there was a fire at the warehouse complex in Topeka where Henry Industries has their Topeka shipping center.  It is very likely that any library materials that were in the shipping center were destroyed or damaged beyond repair.  This report hopes to identify items that may have been at the shipping center during the time that the fire took place.</p> 
+    &lt;p&gt;On March 9 and 10, 2023, there was a fire at the warehouse complex in Topeka where Henry Industries has their Topeka shipping center.  It is very likely that any library materials that were in the shipping center were destroyed or damaged beyond repair.  This report hopes to identify items that may have been at the shipping center during the time that the fire took place.&lt;/p&gt; 
  
-    <ul> 
-      <li>Items that were in-transit between March 3 and March 10, 2023</li> 
-      <li>Either en-route to or en route from a library on the Topeka courier hub.</li> 
-      <li>grouped by biblio number and item number</li> 
-      <li>sorted by item home library</li> 
-      <li>links to the bibliographic record for the item</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;Items that were in-transit between March 3 and March 10, 2023&lt;/li&gt; 
+      &lt;li&gt;Either en-route to or en route from a library on the Topeka courier hub.&lt;/li&gt; 
+      &lt;li&gt;grouped by biblio number and item number&lt;/li&gt; 
+      &lt;li&gt;sorted by item home library&lt;/li&gt; 
+      &lt;li&gt;links to the bibliographic record for the item&lt;/li&gt; 
+    &lt;/ul&gt; 
  
-    <p> 
-      <ins>Notes:</ins> 
-    </p> 
+    &lt;p&gt; 
+      &lt;ins&gt;Notes:&lt;/ins&gt; 
+    &lt;/p&gt; 
  
-    <p> 
+    &lt;p&gt; 
 
-    </p> 
+    &lt;/p&gt; 
  
-    <p> 
+    &lt;p&gt; 
       We recommend running this report for your library and checking the shelves during the week of March 19-25 to see if any items still on this list have been found. 
-    </p> 
+    &lt;/p&gt; 
  
-    <p> 
+    &lt;p&gt; 
  
-    </p> 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div id="reportInfoLinks"> 
+  &lt;div id="reportInfoLinks"&gt; 
  
-    <p class="notetags" style="display: none;"> 
+    &lt;p class="notetags" style="display: none;"&gt; 
       #CourierFire2023
-    </p> 
+    &lt;/p&gt; 
  
-    <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
+    &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-</div> 
+&lt;/div&gt; 
 
 ----------
 */
@@ -279,7 +279,7 @@ WHERE
     item_info.homebranch, 
     branchtransfers.frombranch, 
     branchtransfers.tobranch 
-  ) LIKE Concat('%', <>, '%')
+  ) LIKE Concat('%', &lt;&gt;, '%')
 GROUP BY 
   item_info.biblionumber, 
   item_info.itemnumber 

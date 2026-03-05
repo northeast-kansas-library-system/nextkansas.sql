@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Lists items owned by a branch that have been marked as "Paid for" in Koha.</p>
-<ul><li>Shows items currently in Koha</li>
-<li>at the location (or locations) you specify</li>
-<li>grouped and sorted by homebranch, shelving location, item type, collection code, call number, author, and title.</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Report created at the request of Eudora Public Library.</p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2799&phase=Run%20this%20report"  target="_blank">Click here to run in a new window.</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Lists items owned by a branch that have been marked as "Paid for" in Koha.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows items currently in Koha&lt;/li&gt;
+&lt;li&gt;at the location (or locations) you specify&lt;/li&gt;
+&lt;li&gt;grouped and sorted by homebranch, shelving location, item type, collection code, call number, author, and title.&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Report created at the request of Eudora Public Library.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2799&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window.&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -56,9 +56,9 @@ FROM
   biblio
     ON items.biblionumber = biblio.biblionumber
 WHERE
-  items.homebranch LIKE <> AND
+  items.homebranch LIKE &lt;&gt; AND
   items.paidfor IS NOT NULL AND
-  items.paidfor <> " "
+  items.paidfor &lt;&gt; " "
 ORDER BY
   items.homebranch,
   items.location,

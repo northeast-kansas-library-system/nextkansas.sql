@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2013-11-19 21:56:16
 Modified on: 2013-11-19 22:00:00
-Date last run: 2025-10-20 13:04:30
+Date last run: 2026-01-28 15:39:17
 
 ----------
 
@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-SELECT biblio.title,count(statistics.datetime), items.itype,items.ccode,items.homebranch FROM biblio LEFT JOIN items USING (biblionumber) LEFT JOIN statistics USING(itemnumber) WHERE items.homebranch=<> AND items.ccode=<> AND statistics.type IN ('issue','renew') AND YEAR(statistics.datetime)=<> GROUP BY biblio.biblionumber ORDER BY biblio.title asc
+SELECT biblio.title,count(statistics.datetime), items.itype,items.ccode,items.homebranch FROM biblio LEFT JOIN items USING (biblionumber) LEFT JOIN statistics USING(itemnumber) WHERE items.homebranch=&lt;&gt; AND items.ccode=&lt;&gt; AND statistics.type IN ('issue','renew') AND YEAR(statistics.datetime)=&lt;&gt; GROUP BY biblio.biblionumber ORDER BY biblio.title asc
 
 
 

@@ -96,7 +96,7 @@ FROM (
       marc_tag_structure.ind2_defaultvalue
     FROM marc_tag_structure
     WHERE 
-      IF(marc_tag_structure.frameworkcode = '', '-', marc_tag_structure.frameworkcode) LIKE <>
+      IF(marc_tag_structure.frameworkcode = '', '-', marc_tag_structure.frameworkcode) LIKE &lt;&gt;
   ) y
   LEFT JOIN (
     SELECT 
@@ -111,14 +111,14 @@ FROM (
       marc_tag_structure.ind1_defaultvalue,
       marc_tag_structure.ind2_defaultvalue
     FROM marc_tag_structure
-    WHERE IF(marc_tag_structure.frameworkcode = '', '-', marc_tag_structure.frameworkcode) LIKE <>
+    WHERE IF(marc_tag_structure.frameworkcode = '', '-', marc_tag_structure.frameworkcode) LIKE &lt;&gt;
   ) d ON d.tagfield = y.tagfield
 WHERE
-  If(y.liblibrarian = d.liblibrarian, 'Yes', 'No') LIKE <> AND
-  If(y.libopac = d.libopac, 'Yes', 'No') LIKE <> AND
-  If(y.repeatable = d.repeatable, 'Yes', 'No') LIKE <> AND
-  If(y.mandatory = d.mandatory, 'Yes', 'No') LIKE <> AND
-  If(y.important = d.important, 'Yes', 'No') LIKE <> AND
+  If(y.liblibrarian = d.liblibrarian, 'Yes', 'No') LIKE &lt;&gt; AND
+  If(y.libopac = d.libopac, 'Yes', 'No') LIKE &lt;&gt; AND
+  If(y.repeatable = d.repeatable, 'Yes', 'No') LIKE &lt;&gt; AND
+  If(y.mandatory = d.mandatory, 'Yes', 'No') LIKE &lt;&gt; AND
+  If(y.important = d.important, 'Yes', 'No') LIKE &lt;&gt; AND
   If(
     
     IF(y.authorised_value is null, '-', IF(y.authorised_value = '', '-', y.authorised_value))
@@ -127,9 +127,9 @@ WHERE
     
     IF(d.authorised_value is null, '-', IF(d.authorised_value = '', '-', d.authorised_value)),
     
-    'Yes', 'No') LIKE <> AND
-  If(y.ind1_defaultvalue = d.ind1_defaultvalue, 'Yes', 'No') LIKE <> AND
-  If(y.ind2_defaultvalue = d.ind2_defaultvalue, 'Yes', 'No') LIKE <>
+    'Yes', 'No') LIKE &lt;&gt; AND
+  If(y.ind1_defaultvalue = d.ind1_defaultvalue, 'Yes', 'No') LIKE &lt;&gt; AND
+  If(y.ind2_defaultvalue = d.ind2_defaultvalue, 'Yes', 'No') LIKE &lt;&gt;
 ORDER BY 
   CODE_1
 

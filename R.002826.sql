@@ -22,19 +22,19 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Shows information on an item based on its barcode number</p>
-<ul><li>shows current data on that item's record</li>
-<li>on any item in NExpress</li>
-<li>sorted by homebranch, shelving location, item type, collection code, call number, author, and title</li>
-<li>contains links to the bibliographic record of the item</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>This report was created to help find items while we work through our indexing problems.</p>
-<p>The input field in this report can accept the standard SQL wildcard characters (%, _, [charlist], [^charlist], [!charlist]).</p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2826&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Shows information on an item based on its barcode number&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;shows current data on that item's record&lt;/li&gt;
+&lt;li&gt;on any item in NExpress&lt;/li&gt;
+&lt;li&gt;sorted by homebranch, shelving location, item type, collection code, call number, author, and title&lt;/li&gt;
+&lt;li&gt;contains links to the bibliographic record of the item&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;This report was created to help find items while we work through our indexing problems.&lt;/p&gt;
+&lt;p&gt;The input field in this report can accept the standard SQL wildcard characters (%, _, [charlist], [^charlist], [!charlist]).&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2826&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -59,7 +59,7 @@ FROM
   biblioitems
     ON biblioitems.biblionumber = biblio.biblionumber
 WHERE
-  Coalesce(items.barcode, '') LIKE <>
+  Coalesce(items.barcode, '') LIKE &lt;&gt;
 ORDER BY
   HOMEBRANCH,
   LOCATION,

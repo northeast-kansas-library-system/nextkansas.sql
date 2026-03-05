@@ -59,7 +59,7 @@ From
   biblio_metadata On biblio_metadata.biblionumber = biblio.biblionumber Join
   items On items.biblionumber = biblio.biblionumber
 Where
-  items.homebranch LIKE <> AND 
+  items.homebranch LIKE &lt;&gt; AND 
   (
     SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 7 FOR 1 ) NOT IN ('a', 'c', 'd', 'e', 'f', 'g', 'i', 'j', 'k', 'm', 'o', 'p', 'r', 't') OR 
     SubString(ExtractValue(biblio_metadata.metadata, '//leader') FROM 7 FOR 1 ) = ''

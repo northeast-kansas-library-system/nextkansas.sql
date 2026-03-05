@@ -40,7 +40,7 @@ UNION
 (SELECT
   Concat(
     'https://staff.nextkansas.org/cgi-bin/koha/admin/smart-rules.pl?branch=', 
-    '*'
+    '&ast;'
   ) AS RULES_LINK
 FROM
   branches)

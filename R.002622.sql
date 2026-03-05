@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2015-10-15 14:49:39
 Modified on: 2015-10-23 13:19:43
-Date last run: 2025-08-22 15:06:28
+Date last run: 2026-01-13 16:24:13
 
 ----------
 
@@ -29,7 +29,7 @@ Choose library and collection code
 
 
 
-SELECT biblio.title, items.itemcallnumber, items.datelastseen, items.barcode FROM biblio LEFT JOIN items USING(biblionumber) WHERE items.homebranch=<> AND items.itemlost='3' and items.ccode=<> ORDER BY title
+SELECT biblio.title, items.itemcallnumber, items.datelastseen, items.barcode FROM biblio LEFT JOIN items USING(biblionumber) WHERE items.homebranch=&lt;&gt; AND items.itemlost='3' and items.ccode=&lt;&gt; ORDER BY title
 
 
 

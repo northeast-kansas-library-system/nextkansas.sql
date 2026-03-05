@@ -44,7 +44,7 @@ WHERE
 GROUP BY
   biblio.biblionumber
 HAVING
-  Count(items.itemnumber) > 1
+  Count(items.itemnumber) &gt; 1
 ORDER BY
   Count(items.itemnumber) DESC
 

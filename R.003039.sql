@@ -12,8 +12,8 @@ Group: Holds-Reserves
      -
 
 Created on: 2018-01-16 15:28:12
-Modified on: 2025-10-27 10:29:51
-Date last run: 2025-10-27 10:28:16
+Modified on: 2025-10-29 09:58:36
+Date last run: 2025-11-24 14:40:32
 
 ----------
 
@@ -22,9 +22,9 @@ Expiry: 300
 
 ----------
 
-<div class="next_report_info next_noprint">
+&lt;div class="next_report_info next_noprint"&gt;
 
-  <style>
+  &lt;style&gt;
 
         .next_report_summary label {
           margin: 2em 0em 0em 0em;
@@ -152,340 +152,340 @@ Expiry: 300
           !important;
         }
 
-  </style>
+  &lt;/style&gt;
 
-  <div class="next_report_summary">
-    <br>
-    <label for="report_name">Report name:</label>
-    <p id="report_name">Flexible requests history</p>
-    <label for="report_author">Report author/source:</label>
-    <p id="report_author">GHW</p>
-    <label for="report_summary">Report summary:</label>
-    <p id="report_summary">Generates a screen readable report of current and past request information based on very flexible parameters</p>
-  </div>
+  &lt;div class="next_report_summary"&gt;
+    &lt;br&gt;
+    &lt;label for="report_name"&gt;Report name:&lt;/label&gt;
+    &lt;p id="report_name"&gt;Flexible requests history&lt;/p&gt;
+    &lt;label for="report_author"&gt;Report author/source:&lt;/label&gt;
+    &lt;p id="report_author"&gt;GHW&lt;/p&gt;
+    &lt;label for="report_summary"&gt;Report summary:&lt;/label&gt;
+    &lt;p id="report_summary"&gt;Generates a screen readable report of current and past request information based on very flexible parameters&lt;/p&gt;
+  &lt;/div&gt;
 
-  <div class="accordion accordion-flush">
+  &lt;div class="accordion accordion-flush"&gt;
 
-    <div id="accordion_REPORTID-1" class="accordion-item next_report_function">
+    &lt;div id="accordion_REPORTID-1" class="accordion-item next_report_function"&gt;
   
-      <h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingOne" >
+      &lt;h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingOne" &gt;
   
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+        &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#panelsStay_REPORTIDOpen-collapseOne" aria-expanded="true"
-          aria-controls="panelsStay_REPORTIDOpen-collapseOne">
+          aria-controls="panelsStay_REPORTIDOpen-collapseOne"&gt;
   
           Function:
   
-        </button>
+        &lt;/button&gt;
   
-      </h2>
+      &lt;/h2&gt;
   
-      <div id="panelsStay_REPORTIDOpen-collapseOne" class="accordion-collapse collapse"
-        aria-labelledby="panelsStay_REPORTIDOpen-headingOne">
-        <div class="accordion-body">
+      &lt;div id="panelsStay_REPORTIDOpen-collapseOne" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_REPORTIDOpen-headingOne"&gt;
+        &lt;div class="accordion-body"&gt;
 
-          <div id="function_section" class="report_section">
+          &lt;div id="function_section" class="report_section"&gt;
   
-            <h3>Report function:</h3>
+            &lt;h3&gt;Report function:&lt;/h3&gt;
 
-            <p>Shows the history of any active, filled, and cancelled requests in Next Search Catalog</p>
-            <ul>
-              <li>Shows data currently in the reserves or oldreserves tables from the previous 25 months</li>
-              <li>at all pickup libraries or at the pickup library you specify</li>
-              <li>with the request status and progress that you specify</li>
-              <li>with the hold suspension status you specify</li>
-              <li>and with the library card, biblionumber, or item barcode number you specify</li>
-              <li>grouped by reserve ID number</li>
-              <li>sorted by the last time the request was updated</li>
-              <li>contains links to the action logs, the patron record, the bibliographic record, and the item's in transit history</li>
-            </ul>
+            &lt;p&gt;Shows the history of any active, filled, and cancelled requests in Next Search Catalog&lt;/p&gt;
+            &lt;ul&gt;
+              &lt;li&gt;Shows data currently in the reserves or oldreserves tables from the previous 25 months&lt;/li&gt;
+              &lt;li&gt;at all pickup libraries or at the pickup library you specify&lt;/li&gt;
+              &lt;li&gt;with the request status and progress that you specify&lt;/li&gt;
+              &lt;li&gt;with the hold suspension status you specify&lt;/li&gt;
+              &lt;li&gt;and with the library card, biblionumber, or item barcode number you specify&lt;/li&gt;
+              &lt;li&gt;grouped by reserve ID number&lt;/li&gt;
+              &lt;li&gt;sorted by the last time the request was updated&lt;/li&gt;
+              &lt;li&gt;contains links to the action logs, the patron record, the bibliographic record, and the item's in transit history&lt;/li&gt;
+            &lt;/ul&gt;
 
-            <p class="report_hidden">OPTIONAL_SUMMARY_NOTES</p>
+            &lt;p class="report_hidden"&gt;OPTIONAL_SUMMARY_NOTES&lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
   
-        </div>
-      </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
   
-    </div>
+    &lt;/div&gt;
   
-    <div id="accordion_REPORTID-2" class="accordion-item next_report_notes" style="">
+    &lt;div id="accordion_REPORTID-2" class="accordion-item next_report_notes" style=""&gt;
   
-      <h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingTwo">
+      &lt;h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingTwo"&gt;
   
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+        &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#panelsStay_REPORTIDOpen-collapseTwo" aria-expanded="false"
-          aria-controls="panelsStay_REPORTIDOpen-collapseTwo">
+          aria-controls="panelsStay_REPORTIDOpen-collapseTwo"&gt;
   
           Notes:
   
-        </button>
+        &lt;/button&gt;
   
-      </h2>
+      &lt;/h2&gt;
   
-      <div id="panelsStay_REPORTIDOpen-collapseTwo" class="accordion-collapse collapse"
-        aria-labelledby="panelsStay_REPORTIDOpen-headingTwo">
-        <div class="accordion-body">
+      &lt;div id="panelsStay_REPORTIDOpen-collapseTwo" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_REPORTIDOpen-headingTwo"&gt;
+        &lt;div class="accordion-body"&gt;
   
-          <h3>Notes about this report:</h3>
+          &lt;h3&gt;Notes about this report:&lt;/h3&gt;
 
-          <div id="notes_1" class="report_section">
+          &lt;div id="notes_1" class="report_section"&gt;
 
-            <h4>Links to other reports</h4>
+            &lt;h4&gt;Links to other reports&lt;/h4&gt;
 
-            <p>
+            &lt;p&gt;
               Contains active links to other reports:
-              <ul>
-                <li>3040</li>
-                <li>2784</li>
-              </ul>
-             </p>
+              &lt;ul&gt;
+                &lt;li&gt;3040&lt;/li&gt;
+                &lt;li&gt;2784&lt;/li&gt;
+              &lt;/ul&gt;
+             &lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-          <div id="notes_2" class="report_section">
+          &lt;div id="notes_2" class="report_section"&gt;
 
-            <h4>Dependencies</h4>
+            &lt;h4&gt;Dependencies&lt;/h4&gt;
 
-            <p>
+            &lt;p&gt;
               This report relies on specialized authorized values tables:
-              <ul>
-                <li>LHOLDACT</li>
-                <li>LHOLDPROG</li>
-                <li>LHOLDSUS</li>
-              </ul>
-            </p>
+              &lt;ul&gt;
+                &lt;li&gt;LHOLDACT&lt;/li&gt;
+                &lt;li&gt;LHOLDPROG&lt;/li&gt;
+                &lt;li&gt;LHOLDSUS&lt;/li&gt;
+              &lt;/ul&gt;
+            &lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-          <div id="notes_3" class="report_section report_hidden">
+          &lt;div id="notes_3" class="report_section report_hidden"&gt;
 
-            <h4>NOTE_3_TITLE</h4>
+            &lt;h4&gt;NOTE_3_TITLE&lt;/h4&gt;
 
-            <p>NOTE_3_CONTENT</p>
+            &lt;p&gt;NOTE_3_CONTENT&lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-          <div id="notes_4" class="report_section report_hidden">
+          &lt;div id="notes_4" class="report_section report_hidden"&gt;
 
-            <h4>NOTE_4_TITLE</h4>
+            &lt;h4&gt;NOTE_4_TITLE&lt;/h4&gt;
 
-            <p>NOTE_4_CONTENT</p>
+            &lt;p&gt;NOTE_4_CONTENT&lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-          <div id="notes_5" class="report_section report_hidden">
+          &lt;div id="notes_5" class="report_section report_hidden"&gt;
 
-            <h4>NOTE_5_TITLE</h4>
+            &lt;h4&gt;NOTE_5_TITLE&lt;/h4&gt;
 
-            <p>NOTE_5_CONTENT</p>
+            &lt;p&gt;NOTE_5_CONTENT&lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-        </div>
-      </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
   
-    </div>
+    &lt;/div&gt;
   
-    <div id="accordion_REPORTID-3" class="accordion-item next_report_instructions report_hidden" style="">
+    &lt;div id="accordion_REPORTID-3" class="accordion-item next_report_instructions report_hidden" style=""&gt;
   
-      <h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingThree">
+      &lt;h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingThree"&gt;
   
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+        &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#panelsStay_REPORTIDOpen-collapseThree" aria-expanded="false"
-          aria-controls="panelsStay_REPORTIDOpen-collapseThree">
+          aria-controls="panelsStay_REPORTIDOpen-collapseThree"&gt;
   
           Instructions:
   
-        </button>
+        &lt;/button&gt;
   
-      </h2>
+      &lt;/h2&gt;
   
-      <div id="panelsStay_REPORTIDOpen-collapseThree" class="accordion-collapse collapse"
-        aria-labelledby="panelsStay_REPORTIDOpen-headingThree">
-        <div class="accordion-body">
+      &lt;div id="panelsStay_REPORTIDOpen-collapseThree" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_REPORTIDOpen-headingThree"&gt;
+        &lt;div class="accordion-body"&gt;
   
-          <h3>Instructions:</h3>
+          &lt;h3&gt;Instructions:&lt;/h3&gt;
 
-          <div id="instructions_1" class="report_section">
+          &lt;div id="instructions_1" class="report_section"&gt;
 
-            <h4>INSTRUCTION_1_TITLE</h4>
+            &lt;h4&gt;INSTRUCTION_1_TITLE&lt;/h4&gt;
 
-            <p>INSTRUCTION_1_CONTENT</p>
+            &lt;p&gt;INSTRUCTION_1_CONTENT&lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-          <div id="instructions_2" class="report_section">
+          &lt;div id="instructions_2" class="report_section"&gt;
 
-            <h4>INSTRUCTION_2_TITLE</h4>
+            &lt;h4&gt;INSTRUCTION_2_TITLE&lt;/h4&gt;
 
-            <p>INSTRUCTION_2_CONTENT</p>
+            &lt;p&gt;INSTRUCTION_2_CONTENT&lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-          <div id="instructions_3" class="report_section">
+          &lt;div id="instructions_3" class="report_section"&gt;
 
-            <h4>INSTRUCTION_3_TITLE</h4>
+            &lt;h4&gt;INSTRUCTION_3_TITLE&lt;/h4&gt;
 
-            <p>INSTRUCTION_3_CONTENT</p>
+            &lt;p&gt;INSTRUCTION_3_CONTENT&lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-          <div id="instructions_4" class="report_section">
+          &lt;div id="instructions_4" class="report_section"&gt;
 
-            <h4>INSTRUCTION_4_TITLE</h4>
+            &lt;h4&gt;INSTRUCTION_4_TITLE&lt;/h4&gt;
 
-            <p>INSTRUCTION_4_CONTENT</p>
+            &lt;p&gt;INSTRUCTION_4_CONTENT&lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-          <div id="instructions_5" class="report_section">
+          &lt;div id="instructions_5" class="report_section"&gt;
 
-            <h4>INSTRUCTION_5_TITLE</h4>
+            &lt;h4&gt;INSTRUCTION_5_TITLE&lt;/h4&gt;
 
-            <p>INSTRUCTION_5_CONTENT</p>
+            &lt;p&gt;INSTRUCTION_5_CONTENT&lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
   
-        </div>
-      </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
   
-    </div>
+    &lt;/div&gt;
 
-    <div id="accordion_REPORTID-4" class="accordion-item next_report_resources report_hidden" style="">
+    &lt;div id="accordion_REPORTID-4" class="accordion-item next_report_resources report_hidden" style=""&gt;
   
-      <h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingFour">
+      &lt;h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingFour"&gt;
   
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+        &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#panelsStay_REPORTIDOpen-collapseFour" aria-expanded="false"
-          aria-controls="panelsStay_REPORTIDOpen-collapseFour">
+          aria-controls="panelsStay_REPORTIDOpen-collapseFour"&gt;
   
           Resources:
   
-        </button>
+        &lt;/button&gt;
   
-      </h2>
+      &lt;/h2&gt;
   
-      <div id="panelsStay_REPORTIDOpen-collapseFour" class="accordion-collapse collapse"
-        aria-labelledby="panelsStay_REPORTIDOpen-headingFour">
-        <div class="accordion-body">
+      &lt;div id="panelsStay_REPORTIDOpen-collapseFour" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_REPORTIDOpen-headingFour"&gt;
+        &lt;div class="accordion-body"&gt;
   
-          <h3>Resources</h3>
+          &lt;h3&gt;Resources&lt;/h3&gt;
 
-          <div id="resources_1" class="report_section">
+          &lt;div id="resources_1" class="report_section"&gt;
 
-            <p><a href="RESOURCE_URL_1" target="_blank" class="resources_btn">RESOURCE_TITLE_1</a></p>
+            &lt;p&gt;&lt;a href="RESOURCE_URL_1" target="_blank" class="resources_btn"&gt;RESOURCE_TITLE_1&lt;/a&gt;&lt;/p&gt;
 
-            <p>RESOURCE_NOTE_1</p>
+            &lt;p&gt;RESOURCE_NOTE_1&lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-          <div id="resources_2" class="report_section">
+          &lt;div id="resources_2" class="report_section"&gt;
 
-            <p><a href="RESOURCE_URL_2" target="_blank" class="resources_btn">RESOURCE_TITLE_2</a></p>
+            &lt;p&gt;&lt;a href="RESOURCE_URL_2" target="_blank" class="resources_btn"&gt;RESOURCE_TITLE_2&lt;/a&gt;&lt;/p&gt;
 
-            <p>RESOURCE_NOTE_2</p>
+            &lt;p&gt;RESOURCE_NOTE_2&lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-          <div id="resources_3" class="report_section">
+          &lt;div id="resources_3" class="report_section"&gt;
 
-            <p><a href="RESOURCE_URL_3" target="_blank" class="resources_btn">RESOURCE_TITLE_3</a></p>
+            &lt;p&gt;&lt;a href="RESOURCE_URL_3" target="_blank" class="resources_btn"&gt;RESOURCE_TITLE_3&lt;/a&gt;&lt;/p&gt;
 
-            <p>RESOURCE_NOTE_3</p>
+            &lt;p&gt;RESOURCE_NOTE_3&lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-          <div id="resources_4" class="report_section">
+          &lt;div id="resources_4" class="report_section"&gt;
 
-            <p><a href="RESOURCE_URL_4" target="_blank" class="resources_btn">RESOURCE_TITLE_4</a></p>
+            &lt;p&gt;&lt;a href="RESOURCE_URL_4" target="_blank" class="resources_btn"&gt;RESOURCE_TITLE_4&lt;/a&gt;&lt;/p&gt;
 
-            <p>RESOURCE_NOTE_4</p>
+            &lt;p&gt;RESOURCE_NOTE_4&lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-          <div id="resources_5" class="report_section">
+          &lt;div id="resources_5" class="report_section"&gt;
 
-            <p><a href="RESOURCE_URL_5" target="_blank" class="resources_btn">RESOURCE_TITLE_5</a></p>
+            &lt;p&gt;&lt;a href="RESOURCE_URL_5" target="_blank" class="resources_btn"&gt;RESOURCE_TITLE_5&lt;/a&gt;&lt;/p&gt;
 
-            <p>RESOURCE_NOTE_5</p>
+            &lt;p&gt;RESOURCE_NOTE_5&lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
   
-        </div>
-      </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
   
-    </div>
+    &lt;/div&gt;
 
-    <div id="accordion_REPORTID-5" class="accordion-item next_report_training report_hidden">
+    &lt;div id="accordion_REPORTID-5" class="accordion-item next_report_training report_hidden"&gt;
   
-      <h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingFive">
+      &lt;h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingFive"&gt;
   
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+        &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#panelsStay_REPORTIDOpen-collapseFive" aria-expanded="false"
-          aria-controls="panelsStay_REPORTIDOpen-collapseFive">
+          aria-controls="panelsStay_REPORTIDOpen-collapseFive"&gt;
   
           Training
   
-        </button>
+        &lt;/button&gt;
   
-      </h2>
+      &lt;/h2&gt;
   
-      <div id="panelsStay_REPORTIDOpen-collapseFive" class="accordion-collapse collapse"
-        aria-labelledby="panelsStay_REPORTIDOpen-headingFive" style="color: white !important;">
-        <div class="accordion-body">
+      &lt;div id="panelsStay_REPORTIDOpen-collapseFive" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_REPORTIDOpen-headingFive" style="color: white !important;"&gt;
+        &lt;div class="accordion-body"&gt;
   
-          <h3>Training</h3>
+          &lt;h3&gt;Training&lt;/h3&gt;
 
-          <div id="training_link" class="report_section">
+          &lt;div id="training_link" class="report_section"&gt;
 
-            <p><a href="TRAINING_LINK_URL" target="_blank" class="training_btn">TRAINING_LINK_TITLE</a></p>
+            &lt;p&gt;&lt;a href="TRAINING_LINK_URL" target="_blank" class="training_btn"&gt;TRAINING_LINK_TITLE&lt;/a&gt;&lt;/p&gt;
 
-            <p>TRAINING_LINK_NOTES</p>
+            &lt;p&gt;TRAINING_LINK_NOTES&lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-          <div id="training_handout" class="report_section" >
+          &lt;div id="training_handout" class="report_section" &gt;
 
-            <p><a href="TRAINING_HANDOUT_URL" target="_blank" class="training_btn">TRAINING_HANDOUT_TITLE</a></p>
+            &lt;p&gt;&lt;a href="TRAINING_HANDOUT_URL" target="_blank" class="training_btn"&gt;TRAINING_HANDOUT_TITLE&lt;/a&gt;&lt;/p&gt;
 
-            <p>TRAINING_HANDOUT_NOTES</p>
+            &lt;p&gt;TRAINING_HANDOUT_NOTES&lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-          <div id="training_video" class="report_section">
+          &lt;div id="training_video" class="report_section"&gt;
 
-            <p><a href="TRAINING_VIDEO_URL" target="_blank" class="training_btn">TRAINING_VIDEO_TITLE</a></p>
+            &lt;p&gt;&lt;a href="TRAINING_VIDEO_URL" target="_blank" class="training_btn"&gt;TRAINING_VIDEO_TITLE&lt;/a&gt;&lt;/p&gt;
 
-            <p>TRAINING_VIDEO_NOTES</p>
+            &lt;p&gt;TRAINING_VIDEO_NOTES&lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
   
-        </div>
-      </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
   
-    </div>
+    &lt;/div&gt;
 
-  </div>
+  &lt;/div&gt;
 
-  <div class="next_report_direct_download report_section report_hidden">
-    <p><a href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=3039" class="direct_download_btn">Download directly to a CSV file</a></p>
-  </div>
+  &lt;div class="next_report_direct_download report_section report_hidden"&gt;
+    &lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=3039" class="direct_download_btn"&gt;Download directly to a CSV file&lt;/a&gt;&lt;/p&gt;
+  &lt;/div&gt;
 
-  <div class="next_report_hashtags" style="display: none;">
-    <p>#flexible</p>
-    <p>#requests</p>
-    <p>#confidential</p>
-    <p>#history</p>
-    <p>#holds</p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-    <p></p>
-  </div>
+  &lt;div class="next_report_hashtags" style="display: none;"&gt;
+    &lt;p&gt;#flexible&lt;/p&gt;
+    &lt;p&gt;#requests&lt;/p&gt;
+    &lt;p&gt;#confidential&lt;/p&gt;
+    &lt;p&gt;#history&lt;/p&gt;
+    &lt;p&gt;#holds&lt;/p&gt;
+    &lt;p&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;/p&gt;
+  &lt;/div&gt;
 
-</div>
+&lt;/div&gt;
 
 
 ----------
@@ -524,7 +524,7 @@ SELECT
     Concat('Updated on: ', requests.timestamp)) AS DATES, 
   Concat_Ws( 
     '', 
-    If(requests.suspend <> 0, 'Suspended', '-'), 
+    If(requests.suspend &lt;&gt; 0, 'Suspended', '-'), 
     If( 
       requests.suspend = 0, 
       '-', 
@@ -652,8 +652,8 @@ FROM
   LEFT JOIN biblio ON requests.biblionumber = biblio.biblionumber 
   LEFT JOIN deletedbiblio ON requests.biblionumber = deletedbiblio.biblionumber 
 WHERE 
-  requests.branchcode LIKE <> AND 
-  requests.statuss LIKE <> AND 
+  requests.branchcode LIKE &lt;&gt; AND 
+  requests.statuss LIKE &lt;&gt; AND 
   If( 
     requests.cancellationdate IS NOT NULL, 
     'Cancelled', 
@@ -668,13 +668,13 @@ WHERE
         ) 
       ) 
     ) 
-  ) LIKE <> AND 
-  If(requests.suspend <> 0, 'Suspended', '-') LIKE <> AND 
-  borrowers.cardnumber LIKE Concat('%', <>, '%') AND 
-  requests.biblionumber LIKE Concat('%', <>, '%') AND 
+  ) LIKE &lt;&gt; AND 
+  If(requests.suspend &lt;&gt; 0, 'Suspended', '-') LIKE &lt;&gt; AND 
+  borrowers.cardnumber LIKE Concat('%', &lt;&gt;, '%') AND 
+  requests.biblionumber LIKE Concat('%', &lt;&gt;, '%') AND 
   Coalesce( 
     Coalesce(items.barcode, '-'), Coalesce(deleteditems.barcode, '-') 
-  ) LIKE Concat('%', <>, '%') 
+  ) LIKE Concat('%', &lt;&gt;, '%') 
 GROUP BY 
   requests.reserve_id 
 ORDER BY 

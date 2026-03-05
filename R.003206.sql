@@ -35,7 +35,7 @@ FROM
   items
 WHERE
   items.permanent_location = 'ADULT' AND
-  items.homebranch LIKE <>
+  items.homebranch LIKE &lt;&gt;
 
 
 

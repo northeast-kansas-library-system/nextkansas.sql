@@ -22,17 +22,17 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Counts delay in days between a request's waiting date and the date the request is cancelled</p>
-<ul><li>Only shows requests that were cancelled in the previous calendar month</li>
-<li>at the library you specify</li>
-<li>grouped and sorted by the library name and the number of days</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>This report will only requests that were waiting for pickup - if the request is cancelled before the item makes it to the hold shelf, it will not be counted.</p>
-<p></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Counts delay in days between a request's waiting date and the date the request is cancelled&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Only shows requests that were cancelled in the previous calendar month&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped and sorted by the library name and the number of days&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;This report will only requests that were waiting for pickup - if the request is cancelled before the item makes it to the hold shelf, it will not be counted.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -69,7 +69,7 @@ FROM
   cnx_turnaround 
   ON cnx_turnaround.branchcode = branches.branchcode 
 WHERE 
-  branches.branchcode LIKE <> 
+  branches.branchcode LIKE &lt;&gt; 
 GROUP BY 
   branches.branchcode, 
   cnx_turnaround.CNX_DELAY_DAYS

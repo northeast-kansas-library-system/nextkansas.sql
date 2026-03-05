@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Shows patrons with a ATCHISON home library but without a "Kanopy (ATCHISON): Allowed . . ." borrower attribute.</p>
-<ul><li>Shows borrwoers that currently lack this attribute</li>
-<li>grouped by categorycode and borrowernumber</li>
-<li>sorted by library card number</li>
-<li>links to the borrower account</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Should be run monthly at ATCHISON so the attribute can be added to those accounts</p>
-<p><a href="https://northeast-kansas-library-system.github.io/next/branches/ATCHISON/kanopy.html#running-reports-to-manually-update-kanopy-permission" target="_blank">Go to the training information for the Kanopy (ATCHISON) extended borrower attribute.</a></p>
-<p></p>
-<p class= "notetags" style="display: none;">kanopy; patron-extended-attributes; ATCHISON;</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Shows patrons with a ATCHISON home library but without a "Kanopy (ATCHISON): Allowed . . ." borrower attribute.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows borrwoers that currently lack this attribute&lt;/li&gt;
+&lt;li&gt;grouped by categorycode and borrowernumber&lt;/li&gt;
+&lt;li&gt;sorted by library card number&lt;/li&gt;
+&lt;li&gt;links to the borrower account&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Should be run monthly at ATCHISON so the attribute can be added to those accounts&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://northeast-kansas-library-system.github.io/next/branches/ATCHISON/kanopy.html#running-reports-to-manually-update-kanopy-permission" target="_blank"&gt;Go to the training information for the Kanopy (ATCHISON) extended borrower attribute.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;kanopy; patron-extended-attributes; ATCHISON;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -63,12 +63,12 @@ FROM
 WHERE
   borrowers.branchcode = 'ATCHISON' AND
   kanopy.attribute IS NULL AND
-  borrowers.categorycode <> 'STAFF' AND
-  borrowers.categorycode <> "ILL" AND
-  borrowers.categorycode <> "INHOUSE" AND
-  borrowers.categorycode <> "STATISTIC" AND 
-  borrowers.categorycode <> "S_SIP" AND 
-  borrowers.othernames <> 'SIP2 test account'
+  borrowers.categorycode &lt;&gt; 'STAFF' AND
+  borrowers.categorycode &lt;&gt; "ILL" AND
+  borrowers.categorycode &lt;&gt; "INHOUSE" AND
+  borrowers.categorycode &lt;&gt; "STATISTIC" AND 
+  borrowers.categorycode &lt;&gt; "S_SIP" AND 
+  borrowers.othernames &lt;&gt; 'SIP2 test account'
 GROUP BY
   borrowers.categorycode,
   borrowers.borrowernumber

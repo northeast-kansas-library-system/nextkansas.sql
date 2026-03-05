@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates basic Z39.50 list (makes it easy to share with other people)</p>
-<ul><li>Shows current Z39.50 list used by Next Search Catalog</li>
-<li>does not include Z39.50 targets that require a username/password for access</li>
-<li>grouped by server ID number</li>
-<li>sorted by server type and server name</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Good report for sharing Z39.50 data with other libraries.</p>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3120&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3120">Click here to download as a csv file</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates basic Z39.50 list (makes it easy to share with other people)&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows current Z39.50 list used by Next Search Catalog&lt;/li&gt;
+&lt;li&gt;does not include Z39.50 targets that require a username/password for access&lt;/li&gt;
+&lt;li&gt;grouped by server ID number&lt;/li&gt;
+&lt;li&gt;sorted by server type and server name&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Good report for sharing Z39.50 data with other libraries.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p id="rquickopen"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3120&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;p id="rquickdown"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3120"&gt;Click here to download as a csv file&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */

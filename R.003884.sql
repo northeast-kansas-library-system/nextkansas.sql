@@ -218,7 +218,7 @@ From
       returnbranch.categorycode = categorytypes.categorycode And
       returnbranch.itemtype = categorytypes.itemtype
 Where
-  (categorytypes.branchcode Like <> Or
+  (categorytypes.branchcode Like &lt;&gt; Or
       categorytypes.branchcode Like "ALL")
 Group By
   branchess.branchcode

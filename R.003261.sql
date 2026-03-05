@@ -22,16 +22,16 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Lists items that have been marked as lost and have been deleted</p>
-<ul><li>Shows items marked lost during the date range you specify that have already been deleted</li>
-<li>at the library you specify</li>
-<li>grouped by item number</li>
-<li>sorted in the standard Next classification order</li>
-</ul><br />
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3261&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Lists items that have been marked as lost and have been deleted&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows items marked lost during the date range you specify that have already been deleted&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped by item number&lt;/li&gt;
+&lt;li&gt;sorted in the standard Next classification order&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3261&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -100,11 +100,11 @@ FROM
   ) losts
     ON losts.authorised_value = deleteditems.itemlost
 WHERE
-  deleteditems.homebranch LIKE <> AND
-  Coalesce(deleteditems.location, "-") LIKE <> AND
-  Coalesce(deleteditems.itype, "-") LIKE <> AND
-  Coalesce(deleteditems.ccode, "-") LIKE <> AND
-  deleteditems.itemlost_on BETWEEN <> AND (<> + INTERVAL 1 DAY)
+  deleteditems.homebranch LIKE &lt;&gt; AND
+  Coalesce(deleteditems.location, "-") LIKE &lt;&gt; AND
+  Coalesce(deleteditems.itype, "-") LIKE &lt;&gt; AND
+  Coalesce(deleteditems.ccode, "-") LIKE &lt;&gt; AND
+  deleteditems.itemlost_on BETWEEN &lt;&gt; AND (&lt;&gt; + INTERVAL 1 DAY)
 GROUP BY
   deleteditems.itemnumber
 ORDER BY

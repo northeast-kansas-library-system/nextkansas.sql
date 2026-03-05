@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2012-08-29 12:24:30
 Modified on: 2014-01-15 14:07:31
-Date last run: 2025-09-11 09:16:11
+Date last run: 2025-11-25 11:23:14
 
 ----------
 
@@ -29,7 +29,7 @@ This is a duplication of report #350 with two differences: the surname & the bar
 
 
 
-SELECT CONCAT ('',borrowers.surname,'') AS "borrowers.surname", borrowers.firstname, borrowers.phone, borrowers.cardnumber, borrowers.email, borrowers.address, borrowers.address2, borrowers.city, borrowers.zipcode, issues.date_due, (TO_DAYS(curdate())-TO_DAYS( date_due)) as 'days overdue', items.itype, items.itemcallnumber, CONCAT ('',items.barcode,'') AS barcode, items.homebranch, biblio.title, biblio.author FROM borrowers join issues USING (borrowernumber) join items USING (itemnumber) JOIN biblio USING (biblionumber) join biblioitems USING (biblionumber) WHERE issues.branchcode = <> AND (TO_DAYS(curdate())-TO_DAYS(date_due)) > <> order by borrowers.surname asc, issues.date_due asc
+SELECT CONCAT ('',borrowers.surname,'') AS "borrowers.surname", borrowers.firstname, borrowers.phone, borrowers.cardnumber, borrowers.email, borrowers.address, borrowers.address2, borrowers.city, borrowers.zipcode, issues.date_due, (TO_DAYS(curdate())-TO_DAYS( date_due)) as 'days overdue', items.itype, items.itemcallnumber, CONCAT ('',items.barcode,'') AS barcode, items.homebranch, biblio.title, biblio.author FROM borrowers join issues USING (borrowernumber) join items USING (itemnumber) JOIN biblio USING (biblionumber) join biblioitems USING (biblionumber) WHERE issues.branchcode = &lt;&gt; AND (TO_DAYS(curdate())-TO_DAYS(date_due)) &gt; &lt;&gt; order by borrowers.surname asc, issues.date_due asc
 
 
 

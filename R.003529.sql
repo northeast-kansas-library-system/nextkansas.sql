@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2021-07-19 16:10:29
 Modified on: 2024-01-17 11:30:45
-Date last run: 2025-10-27 09:30:50
+Date last run: 2026-01-28 16:35:39
 
 ----------
 
@@ -22,11 +22,11 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Part 5 of the patron purge process - part 5 - botched patrons - remove the expired attribute because staff forgot to.</p>
-<p></p>
-<p class= "notetags" style="display: none;">#PP05 #patron_purge</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Part 5 of the patron purge process - part 5 - botched patrons - remove the expired attribute because staff forgot to.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;#PP05 #patron_purge&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -99,13 +99,13 @@ FROM
       borrower_relationships.guarantor_id) guaranteesx ON
       guaranteesx.guarantor_id = borrowers.borrowernumber
 WHERE
-  borrowers.dateexpiry > CURRENT_DATE() - INTERVAL 730.5 DAY AND
+  borrowers.dateexpiry &gt; CURRENT_DATE() - INTERVAL 730.5 DAY AND
   borrowers.branchcode LIKE '%' AND
   Coalesce(borrowers.othernames, "0") NOT LIKE "%SIP%" AND
-  borrowers.categorycode <> 'STAFF' AND
-  borrowers.categorycode <> 'ILL' AND
-  borrowers.categorycode <> 'HOOPLA' AND
-  Coalesce(expired_attribute.attribute, 0) <> 0
+  borrowers.categorycode &lt;&gt; 'STAFF' AND
+  borrowers.categorycode &lt;&gt; 'ILL' AND
+  borrowers.categorycode &lt;&gt; 'HOOPLA' AND
+  Coalesce(expired_attribute.attribute, 0) &lt;&gt; 0
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

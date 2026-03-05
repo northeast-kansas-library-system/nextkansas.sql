@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2012-12-03 19:36:57
 Modified on: 2014-10-08 14:30:43
-Date last run: 2025-10-27 19:23:31
+Date last run: 2026-01-26 10:08:50
 
 ----------
 
@@ -29,7 +29,7 @@ Enhanced - Pick your branch and CCode to get a list of items with
 
 
 
-SELECT  items.holdingbranch, items.datelastborrowed,items.datelastseen, items.itemcallnumber,biblio.title, biblio.author FROM items JOIN biblio USING (biblionumber) WHERE items.homebranch = <> AND items.ccode=<> ORDER BY biblio.title asc
+SELECT  items.holdingbranch, items.datelastborrowed,items.datelastseen, items.itemcallnumber,biblio.title, biblio.author FROM items JOIN biblio USING (biblionumber) WHERE items.homebranch = &lt;&gt; AND items.ccode=&lt;&gt; ORDER BY biblio.title asc
 
 
 

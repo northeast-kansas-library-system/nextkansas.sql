@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Counts the number of times a specified cronjob has run in the previous 60 days</p>
-<ul><li>Counts cronjobs run in the previuos 60 days</li>
-<li>system-wide</li>
-<li>grouped by date and cronjob name</li>
-<li>sorted by date - newest to oldest</li>
-<li>Contains links to report 3024 which allows you to see the specific times the cronjob ran on that date</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3023&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Counts the number of times a specified cronjob has run in the previous 60 days&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Counts cronjobs run in the previuos 60 days&lt;/li&gt;
+&lt;li&gt;system-wide&lt;/li&gt;
+&lt;li&gt;grouped by date and cronjob name&lt;/li&gt;
+&lt;li&gt;sorted by date - newest to oldest&lt;/li&gt;
+&lt;li&gt;Contains links to report 3024 which allows you to see the specific times the cronjob ran on that date&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3023&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -49,7 +49,7 @@ FROM
   action_logs
 WHERE
   action_logs.module = 'CRONJOBS' AND
-  action_logs.info LIKE <>
+  action_logs.info LIKE &lt;&gt;
 GROUP BY
   Date_Format(action_logs.timestamp, "%Y.%m.%d"),
   action_logs.info

@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2022-02-28 17:45:23
 Modified on: 2022-10-20 15:24:49
-Date last run: 2025-07-18 14:01:42
+Date last run: 2026-01-14 10:36:21
 
 ----------
 
@@ -94,7 +94,7 @@ FROM
       items.ccode
 WHERE
   ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="n"]') = 1 AND
-  items.homebranch LIKE <>
+  items.homebranch LIKE &lt;&gt;
 GROUP BY
   biblio.biblionumber,
   items.itemnumber

@@ -42,7 +42,7 @@ FROM
 WHERE
   borrowers.branchcode = 'SILVERLAKE' AND
   borrowers.categorycode LIKE 'CHILD' AND
-  Coalesce(floor(DateDiff(CurDate(), borrowers.dateofbirth) / 365.25), '-') < 18
+  Coalesce(floor(DateDiff(CurDate(), borrowers.dateofbirth) / 365.25), '-') &lt; 18
 GROUP BY
   borrowers.surname,
   borrowers.firstname,

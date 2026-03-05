@@ -22,18 +22,18 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Identifies past requests made by a specific patron</p>
-<ul><li>Shows request history</li>
-<li>on a patron you specify</li>
-<li>sorted by the last activity on the request</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>This report will not include data for titles that have been deleted from the catalog.</p>
-<p></p>
-<p>Report created to help troubleshoot problems with requested items (i.e. missing in transit, item on holds list not found, patron received e-mail but we can't find the request, etc.).</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Identifies past requests made by a specific patron&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows request history&lt;/li&gt;
+&lt;li&gt;on a patron you specify&lt;/li&gt;
+&lt;li&gt;sorted by the last activity on the request&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;This report will not include data for titles that have been deleted from the catalog.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Report created to help troubleshoot problems with requested items (i.e. missing in transit, item on holds list not found, patron received e-mail but we can't find the request, etc.).&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -61,7 +61,7 @@ FROM
   biblio
     ON old_reserves.biblionumber = biblio.biblionumber
 WHERE
-  borrowers.cardnumber LIKE Concat("%", <>)
+  borrowers.cardnumber LIKE Concat("%", &lt;&gt;)
 ORDER BY
   old_reserves.timestamp
 DESC

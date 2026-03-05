@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2024-06-04 12:37:48
 Modified on: 2025-04-07 13:32:55
-Date last run: 2025-10-22 09:29:54
+Date last run: 2026-01-06 10:07:40
 
 ----------
 
@@ -22,55 +22,55 @@ Expiry: 300
 
 ----------
 
-<div class="noprint" div="reportinfo"> 
+&lt;div class="noprint" div="reportinfo"&gt; 
  
-  <div class="reportInfoContent"> 
+  &lt;div class="reportInfoContent"&gt; 
  
-    <p>Gives a count of barcode numbers with matching starting strings grouped by item home library</p> 
+    &lt;p&gt;Gives a count of barcode numbers with matching starting strings grouped by item home library&lt;/p&gt; 
  
-    <ul> 
-      <li>Counts barcode numbers currently in the items and deleteditems tables</li> 
-      <li>counts items by home library</li> 
-      <li>grouped by home library</li> 
-      <li>links to barcode numbers that are exact matches</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;Counts barcode numbers currently in the items and deleteditems tables&lt;/li&gt; 
+      &lt;li&gt;counts items by home library&lt;/li&gt; 
+      &lt;li&gt;grouped by home library&lt;/li&gt; 
+      &lt;li&gt;links to barcode numbers that are exact matches&lt;/li&gt; 
+    &lt;/ul&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div class="reportInfoNotes"> 
+  &lt;div class="reportInfoNotes"&gt; 
  
-    <p> 
+    &lt;p&gt; 
  
-    </p> 
+    &lt;/p&gt; 
  
-    <p> 
+    &lt;p&gt; 
       If you search for an item barcode number or check in an item barcode number and get zero results, you can use this report to find barcode numbers that have similar starting strings to that barcode number.  For example, if you scan barcode number 1234567891234 this report will search for:
-    <ul>
-      <li>1234567891234 as an exact match in items and deleteditems</li>
-      <li>123456789123 as the beginning of any barcode in items and deleteditems</li>
-      <li>12345678912 as the beginning of any barcode in items and deleteditems</li>
-      <li>1234567891 as the beginning of any barcode in items and deleteditems</li>
-    </ul>
-    </p> 
+    &lt;ul&gt;
+      &lt;li&gt;1234567891234 as an exact match in items and deleteditems&lt;/li&gt;
+      &lt;li&gt;123456789123 as the beginning of any barcode in items and deleteditems&lt;/li&gt;
+      &lt;li&gt;12345678912 as the beginning of any barcode in items and deleteditems&lt;/li&gt;
+      &lt;li&gt;1234567891 as the beginning of any barcode in items and deleteditems&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;/p&gt; 
  
-    <p> 
+    &lt;p&gt; 
       If you are trying to find the home library for an item, if there is an exact match for that barcode number, this report will show you that item's home library.  If there is no exact match, it will show you the home library for item barcodes extremely close in sequence - the more extremely close matches, the more likely it is that the home library of the item you cannot find was owned by that library.   If there are no extremely close matches, it will show you the home library for item barcodes close in sequence - the more close matches, the more likely it is that the home library of the item you cannot find was owned by that library.  If there are no close matches, it will show you the home library for item barcodes that are good matches - the more good matches, the more likely it is that the home library of the item you cannot find was owned by that library.
-    </p> 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div id="reportInfoTags"> 
+  &lt;div id="reportInfoTags"&gt; 
  
-    <p style="display: none;"> 
+    &lt;p style="display: none;"&gt; 
       #itemnotfound
       #barcodematch 
-    </p> 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
+  &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt; 
  
-</div> 
+&lt;/div&gt; 
 
 ----------
 */
@@ -81,7 +81,7 @@ SELECT concat_ws(
     '',
     Concat(
       'You searched for: ',
-      <>,
+      &lt;&gt;,
       ''
     ),
     GROUP_CONCAT(
@@ -98,9 +98,9 @@ SELECT concat_ws(
       ORDER BY second_level.match_two DESC SEPARATOR ''
     ),
     Concat('An extremely close match means that the first ',
-    (Length(Trim(<>)) - 1),
+    (Length(Trim(&lt;&gt;)) - 1),
     ' digits of this barcode numbermatch the first ',
-    (Length(Trim(<>)) - 1),
+    (Length(Trim(&lt;&gt;)) - 1),
     ' digits of barcode numbers in the "items" or "deleteditems" tables',
     'Generally speaking, there should be no more than 10 extremely close',
     'matches possible unless some barcode numbers have been recycled.',
@@ -110,9 +110,9 @@ SELECT concat_ws(
       ORDER BY third_level.match_three DESC SEPARATOR ''
     ),
     Concat('A close match means that the first ',
-    (Length(Trim(<>)) - 2),
+    (Length(Trim(&lt;&gt;)) - 2),
     ' digits of this barcode number match the first ',
-    (Length(Trim(<>)) - 2),
+    (Length(Trim(&lt;&gt;)) - 2),
     ' digitsof barcode numbers in the "items" or "deleteditems" tables',
     'Generally speaking, there should be no more than 100 close',
     'matches possible unless some barcode numbers have been recycled.',
@@ -122,9 +122,9 @@ SELECT concat_ws(
       ORDER BY fourth_level.match_four DESC SEPARATOR ''
     ),
     Concat('A good match means that the first ',
-    (Length(Trim(<>)) - 3),
+    (Length(Trim(&lt;&gt;)) - 3),
     ' digits of this barcode number match the first ',
-    (Length(Trim(<>)) - 3),
+    (Length(Trim(&lt;&gt;)) - 3),
     ' digitsof barcode numbers in the "items" or "deleteditems" tables',
     'Generally speaking, there should be no more than 1000 good',
     'matches possible unless some barcode numbers have been recycled.',
@@ -140,8 +140,8 @@ FROM (
           Lpad(Count(DISTINCT items.itemnumber), 3, '0'),
           ' active items with a barcode beginning with ',
           Left(
-            Trim(<>),
-            Length(Trim(<>)) - 1
+            Trim(&lt;&gt;),
+            Length(Trim(&lt;&gt;)) - 1
           ),
           ' at ',
           items.homebranch
@@ -150,8 +150,8 @@ FROM (
     FROM items
     WHERE items.barcode LIKE Concat(
         Left(
-          Trim(<>),
-          Length(Trim(<>)) - 1
+          Trim(&lt;&gt;),
+          Length(Trim(&lt;&gt;)) - 1
         ),
         '%'
       )
@@ -165,8 +165,8 @@ FROM (
           Lpad(Count(DISTINCT deleteditems.itemnumber), 3, '0'),
           ' deleted items with a barcode beginning with ',
           Left(
-            Trim(<>),
-            Length(Trim(<>)) - 1
+            Trim(&lt;&gt;),
+            Length(Trim(&lt;&gt;)) - 1
           ),
           ' at ',
           deleteditems.homebranch
@@ -175,8 +175,8 @@ FROM (
     FROM deleteditems
     WHERE deleteditems.barcode LIKE Concat(
         Left(
-          Trim(<>),
-          Length(Trim(<>)) - 1
+          Trim(&lt;&gt;),
+          Length(Trim(&lt;&gt;)) - 1
         ),
         '%'
       )
@@ -192,8 +192,8 @@ FROM (
           Lpad(Count(DISTINCT items.itemnumber), 3, '0'),
           ' active items with a barcode beginning with ',
           Left(
-            Trim(<>),
-            Length(Trim(<>)) - 2
+            Trim(&lt;&gt;),
+            Length(Trim(&lt;&gt;)) - 2
           ),
           ' at ',
           items.homebranch
@@ -202,8 +202,8 @@ FROM (
     FROM items
     WHERE items.barcode LIKE Concat(
         Left(
-          Trim(<>),
-          Length(Trim(<>)) - 2
+          Trim(&lt;&gt;),
+          Length(Trim(&lt;&gt;)) - 2
         ),
         '%'
       )
@@ -217,8 +217,8 @@ FROM (
           Lpad(Count(DISTINCT deleteditems.itemnumber), 3, '0'),
           ' deleted items with a barcode beginning with ',
           Left(
-            Trim(<>),
-            Length(Trim(<>)) - 2
+            Trim(&lt;&gt;),
+            Length(Trim(&lt;&gt;)) - 2
           ),
           ' at ',
           deleteditems.homebranch
@@ -227,8 +227,8 @@ FROM (
     FROM deleteditems
     WHERE deleteditems.barcode LIKE Concat(
         Left(
-          Trim(<>),
-          Length(Trim(<>)) - 2
+          Trim(&lt;&gt;),
+          Length(Trim(&lt;&gt;)) - 2
         ),
         '%'
       )
@@ -244,8 +244,8 @@ FROM (
           Lpad(Count(DISTINCT items.itemnumber), 3, '0'),
           ' active items with a barcode beginning with ',
           Left(
-            Trim(<>),
-            Length(Trim(<>)) - 3
+            Trim(&lt;&gt;),
+            Length(Trim(&lt;&gt;)) - 3
           ),
           ' at ',
           items.homebranch
@@ -254,8 +254,8 @@ FROM (
     FROM items
     WHERE items.barcode LIKE Concat(
         Left(
-          Trim(<>),
-          Length(Trim(<>)) - 3
+          Trim(&lt;&gt;),
+          Length(Trim(&lt;&gt;)) - 3
         ),
         '%'
       )
@@ -269,8 +269,8 @@ FROM (
           Lpad(Count(DISTINCT deleteditems.itemnumber), 3, '0'),
           ' deleted items with a barcode beginning with ',
           Left(
-            Trim(<>),
-            Length(Trim(<>)) - 3
+            Trim(&lt;&gt;),
+            Length(Trim(&lt;&gt;)) - 3
           ),
           ' at ',
           deleteditems.homebranch
@@ -279,8 +279,8 @@ FROM (
     FROM deleteditems
     WHERE deleteditems.barcode LIKE Concat(
         Left(
-          Trim(<>),
-          Length(Trim(<>)) - 3
+          Trim(&lt;&gt;),
+          Length(Trim(&lt;&gt;)) - 3
         ),
         '%'
       )
@@ -296,8 +296,8 @@ FROM (
           Count(DISTINCT items.itemnumber),
           ' active items with a barcode beginning with ',
           Left(
-            Trim(<>),
-            Length(Trim(<>))
+            Trim(&lt;&gt;),
+            Length(Trim(&lt;&gt;))
           ),
           ' at ',
           items.homebranch, 
@@ -309,8 +309,8 @@ FROM (
     FROM items
     WHERE items.barcode LIKE Concat(
         Left(
-          Trim(<>),
-          Length(Trim(<>))
+          Trim(&lt;&gt;),
+          Length(Trim(&lt;&gt;))
         ),
         '%'
       )
@@ -324,8 +324,8 @@ FROM (
           Count(DISTINCT deleteditems.itemnumber),
           ' deleted items with a barcode beginning with ',
           Left(
-            Trim(<>),
-            Length(Trim(<>))
+            Trim(&lt;&gt;),
+            Length(Trim(&lt;&gt;))
           ),
           ' at ',
           deleteditems.homebranch
@@ -334,8 +334,8 @@ FROM (
     FROM deleteditems
     WHERE deleteditems.barcode LIKE Concat(
         Left(
-          Trim(<>),
-          Length(Trim(<>))
+          Trim(&lt;&gt;),
+          Length(Trim(&lt;&gt;))
         ),
         '%'
       )

@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-08-02 23:34:40
 Modified on: 2024-01-17 12:08:48
-Date last run: 2025-10-27 09:30:49
+Date last run: 2026-01-28 16:35:27
 
 ----------
 
@@ -22,11 +22,11 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Part 4 of the patron purge process - part 4 - change extended attribute to 4 ("Account expired for more than 3 years - can't be auto-deleted due to problems with the account ")</p>
-<p></p>
-<p class= "notetags" style="display: none;">#PP04 #patron_purge</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Part 4 of the patron purge process - part 4 - change extended attribute to 4 ("Account expired for more than 3 years - can't be auto-deleted due to problems with the account ")&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;#PP04 #patron_purge&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -44,7 +44,7 @@ SELECT
   borrowers.dateenrolled,
   borrowers.dateexpiry,
   If(
-    Day(Now()) >= 15, 
+    Day(Now()) &gt;= 15, 
     Date_Format(Now() + INTERVAL 3 MONTH, '%Y-%m-15'),
     Date_Format(Now() + INTERVAL 2 MONTH, '%Y-%m-15')
   ) AS PROJECTED_DELETION,
@@ -103,17 +103,17 @@ FROM
       authorised_values.category = 'expired') expired_attribute ON
       borrowers.borrowernumber = expired_attribute.borrowernumber
 WHERE
-  borrowers.dateexpiry < CurDate() - INTERVAL 3 YEAR AND
+  borrowers.dateexpiry &lt; CurDate() - INTERVAL 3 YEAR AND
   borrowers.branchcode LIKE '%' AND
   Coalesce(borrowers.othernames, "0") NOT LIKE "%SIP%" AND
-  borrowers.categorycode <> 'STAFF' AND
-  borrowers.categorycode <> 'ILL' AND
-  borrowers.categorycode <> 'HOOPLA'  AND
-  Coalesce(expired_attribute.attribute, 0) <> 4 AND
-  (Coalesce(accountlinesx.DUE_SUM, 0) <> 0 OR
-      Coalesce(issuesx.ICOUNT, 0) <> 0 OR
-      Coalesce(guaranteesx.GCOUNT, 0) > 0 OR
-      Coalesce(requestsx.Count_reserve_id, 0) <> 0)
+  borrowers.categorycode &lt;&gt; 'STAFF' AND
+  borrowers.categorycode &lt;&gt; 'ILL' AND
+  borrowers.categorycode &lt;&gt; 'HOOPLA'  AND
+  Coalesce(expired_attribute.attribute, 0) &lt;&gt; 4 AND
+  (Coalesce(accountlinesx.DUE_SUM, 0) &lt;&gt; 0 OR
+      Coalesce(issuesx.ICOUNT, 0) &lt;&gt; 0 OR
+      Coalesce(guaranteesx.GCOUNT, 0) &gt; 0 OR
+      Coalesce(requestsx.Count_reserve_id, 0) &lt;&gt; 0)
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

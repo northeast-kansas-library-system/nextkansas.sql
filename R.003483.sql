@@ -22,34 +22,34 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Shows turnover rate by location and item type</p>
-<ul><li>in the previous 12 months</li>
-<li>at the library you specify</li>
-<li>grouped by library, location, and item type</li>
-<li>sorted by library, location, and item type with an "All locations" and "All item types" grouping at the top of the results</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Developed for "Collection development 2.0" workshop</p>
-<p></p>
-<p>Please note that these calculations include all items checked out at your library regardless of which library owned the item.  If, for example, your library doesn't own any items with a "Pamphlet" item type but one from another library was checked out at your library to fill a request, that item will be counted in these calculations.</p>
-<p></p>
-<p>"CURRENT_ITEM_COUNT" is based on an item's item type at the time the report was run.  "CKO_RENEW_COUNT" is based on an item's item type at the time it was checked out.  It an item's item type changes between the time it was checked out and the time this report is run, the results will be skewed.  This will be particularly true of items with the following temporary item types:</p>
-<ul>
-<li>Audiobook (new)</li>
-<li>Book (new)</li>
-<li>Book (no requests allowed)</li>
-<li>BORROWED FROM ANOTHER LIBRARY</li>
-<li>Magazine (new)</li>
-<li>Video (Local requests only)</li>
-<li>Video (New)</li>
-<li>Video (No holds allowed)</li>
-</ul>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3483&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-<p class= "notetags" style="display: none;">statistics, turnover, previous 12 months</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Shows turnover rate by location and item type&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;in the previous 12 months&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped by library, location, and item type&lt;/li&gt;
+&lt;li&gt;sorted by library, location, and item type with an "All locations" and "All item types" grouping at the top of the results&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Developed for "Collection development 2.0" workshop&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Please note that these calculations include all items checked out at your library regardless of which library owned the item.  If, for example, your library doesn't own any items with a "Pamphlet" item type but one from another library was checked out at your library to fill a request, that item will be counted in these calculations.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;"CURRENT_ITEM_COUNT" is based on an item's item type at the time the report was run.  "CKO_RENEW_COUNT" is based on an item's item type at the time it was checked out.  It an item's item type changes between the time it was checked out and the time this report is run, the results will be skewed.  This will be particularly true of items with the following temporary item types:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Audiobook (new)&lt;/li&gt;
+&lt;li&gt;Book (new)&lt;/li&gt;
+&lt;li&gt;Book (no requests allowed)&lt;/li&gt;
+&lt;li&gt;BORROWED FROM ANOTHER LIBRARY&lt;/li&gt;
+&lt;li&gt;Magazine (new)&lt;/li&gt;
+&lt;li&gt;Video (Local requests only)&lt;/li&gt;
+&lt;li&gt;Video (New)&lt;/li&gt;
+&lt;li&gt;Video (No holds allowed)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3483&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;statistics, turnover, previous 12 months&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -98,7 +98,7 @@ FROM
   LEFT JOIN
   (SELECT
      If(statistics.branch IS NULL, "NEKLS", statistics.branch) AS branch,
-     count(*) AS COUNT
+     count(&ast;) AS COUNT
    FROM
      statistics
    WHERE
@@ -111,7 +111,7 @@ FROM
      If(statistics.branch IS NULL, "NEKLS", statistics.branch)
   ) statcounts ON statcounts.branch = branchess.branchcode
 WHERE
-  branchess.branchcode LIKE <>
+  branchess.branchcode LIKE &lt;&gt;
 GROUP BY
   branchess.branchcode,
   icounts.Count_itemnumber,
@@ -147,7 +147,7 @@ FROM
         authorised_values
       WHERE
         authorised_values.category = 'bibloc' AND
-        authorised_values.authorised_value <> "YOUNGADULT"
+        authorised_values.authorised_value &lt;&gt; "YOUNGADULT"
      ) biblocs
   ) branchess
   LEFT JOIN
@@ -213,7 +213,7 @@ FROM
          )
        )
      ) AS LOCATION,
-     count(*) AS COUNT
+     count(&ast;) AS COUNT
    FROM
      statistics
    WHERE
@@ -244,7 +244,7 @@ FROM
   ) statcounts ON statcounts.branch = branchess.branchcode AND
       statcounts.LOCATION = branchess.authorised_value
 WHERE
-  branchess.branchcode LIKE <>
+  branchess.branchcode LIKE &lt;&gt;
 GROUP BY
   branchess.branchcode,
   branchess.lib,
@@ -285,7 +285,7 @@ FROM
         authorised_values
       WHERE
         authorised_values.category = 'bibloc' AND
-        authorised_values.authorised_value <> "YOUNGADULT"
+        authorised_values.authorised_value &lt;&gt; "YOUNGADULT"
      ) biblocs
   )
   branchesitypes LEFT JOIN
@@ -355,7 +355,7 @@ FROM
        )
      ) AS LOCATION,
      If(statistics.itemtype IS NULL, "PUNC", statistics.itemtype) AS itemtype,
-     count(*) AS COUNT
+     count(&ast;) AS COUNT
    FROM
      statistics
    WHERE
@@ -388,7 +388,7 @@ FROM
       statcounts.itemtype = branchesitypes.itemtype AND
       statcounts.LOCATION = branchesitypes.authorised_value
 WHERE
-  branchesitypes.branchcode LIKE <>
+  branchesitypes.branchcode LIKE &lt;&gt;
 GROUP BY
   branchesitypes.branchcode,
   branchesitypes.lib,
@@ -453,7 +453,7 @@ FROM
          statistics.branch
        )
      ) AS branch,
-     count(*) AS COUNT
+     count(&ast;) AS COUNT
    FROM
      statistics
    WHERE
@@ -473,7 +473,7 @@ WHERE
     If(branchess.branchcode LIKE 'PH%', 'PH_COMBINED', 
       branchess.branchcode
     )
-  ) LIKE <>
+  ) LIKE &lt;&gt;
 GROUP BY
   If(branchess.branchcode LIKE 'DONI%', 'DONIPHAN_COMBINED',
     If(branchess.branchcode LIKE 'PH%', 'PH_COMBINED', 
@@ -521,7 +521,7 @@ FROM
        authorised_values
      WHERE
        authorised_values.category = 'bibloc' AND
-       authorised_values.authorised_value <> "YOUNGADULT"
+       authorised_values.authorised_value &lt;&gt; "YOUNGADULT"
      ) biblocs
   ) branchess LEFT JOIN
   (SELECT
@@ -593,7 +593,7 @@ FROM
         )
       )
     ) AS LOCATION,
-    count(*) AS COUNT
+    count(&ast;) AS COUNT
   FROM
     statistics
   WHERE
@@ -633,7 +633,7 @@ WHERE
     If(branchess.branchcode LIKE 'PH%', 'PH_COMBINED', 
       branchess.branchcode
     )
-  ) LIKE <>
+  ) LIKE &lt;&gt;
 GROUP BY
   If(branchess.branchcode LIKE 'DONI%', 'DONIPHAN_COMBINED',
     If(branchess.branchcode LIKE 'PH%', 'PH_COMBINED', 
@@ -680,7 +680,7 @@ FROM
     authorised_values
   WHERE
     authorised_values.category = 'bibloc' AND
-    authorised_values.authorised_value <> "YOUNGADULT") biblocs
+    authorised_values.authorised_value &lt;&gt; "YOUNGADULT") biblocs
   GROUP BY
     If(branches.branchcode LIKE 'DONI%', 'DONIPHAN_COMBINED',
       If(branches.branchcode LIKE 'PH%', 'PH_COMBINED', 
@@ -771,7 +771,7 @@ FROM
       )
     ) AS LOCATION,
     If(statistics.itemtype IS NULL, "PUNC", statistics.itemtype) AS itemtype,
-    count(*) AS COUNT
+    count(&ast;) AS COUNT
   FROM
     statistics
   WHERE
@@ -810,7 +810,7 @@ FROM
     statcounts.itemtype = branchesitypes.itemtype AND
     statcounts.LOCATION = branchesitypes.authorised_value
 WHERE
-  branchesitypes.branchcode LIKE <>
+  branchesitypes.branchcode LIKE &lt;&gt;
 GROUP BY
   branchesitypes.branchcode,
   branchesitypes.lib,

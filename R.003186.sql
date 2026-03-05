@@ -22,17 +22,17 @@ Expiry: 1
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Returns 1 patron name based based on the specified borrowernumber</p>
-<ul><li>Shows a current patron name</li>
-<li>based on the borrowernumber you enter</li>
-<li>grouped and sorted by the borrower's name</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>The purpose of this report is to provide JSON output in order to put the patron's name on the "Hold filled" checkin message pop-up.</p>
-<p></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Returns 1 patron name based based on the specified borrowernumber&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows a current patron name&lt;/li&gt;
+&lt;li&gt;based on the borrowernumber you enter&lt;/li&gt;
+&lt;li&gt;grouped and sorted by the borrower's name&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The purpose of this report is to provide JSON output in order to put the patron's name on the "Hold filled" checkin message pop-up.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -44,7 +44,7 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.borrowernumber = <>
+  borrowers.borrowernumber = &lt;&gt;
 
 
 

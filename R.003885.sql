@@ -72,7 +72,7 @@ From
       categories On circulation_rules.categorycode = categories.categorycode Left Join
       itemtypes On circulation_rules.itemtype = itemtypes.itemtype
     Where
-      If(circulation_rules.categorycode Is Null, "ALL", circulation_rules.categorycode) <> 'ALL'
+      If(circulation_rules.categorycode Is Null, "ALL", circulation_rules.categorycode) &lt;&gt; 'ALL'
     Group By
       If(circulation_rules.branchcode Is Null, "ALL", circulation_rules.branchcode),
       If(circulation_rules.categorycode Is Null, "ALL", circulation_rules.categorycode),
@@ -132,8 +132,8 @@ Where
   (Coalesce(patron_maxissueqty.rule_value, '-10') + 
     Coalesce(patron_maxonsiteissueqty.rule_value, '-10') + 
     Coalesce(max_holds.rule_value, '-10')
-  ) <> -30 And
-  (categorytypes.branchcode Like <> Or
+  ) &lt;&gt; -30 And
+  (categorytypes.branchcode Like &lt;&gt; Or
       categorytypes.branchcode Like "ALL")
 Group By
   categorytypes.BORROWER_CATEGORY,

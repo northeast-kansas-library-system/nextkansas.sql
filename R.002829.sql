@@ -41,7 +41,7 @@ FROM
   issues
     ON issues.itemnumber = items.itemnumber
 WHERE
-  issues.date_due < Now() - INTERVAL 7 DAY
+  issues.date_due &lt; Now() - INTERVAL 7 DAY
 GROUP BY
   issues.borrowernumber, issues.date_due
 ORDER BY

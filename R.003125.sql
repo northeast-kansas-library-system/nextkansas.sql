@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>List of transactions at the circulation desk at the library you specify</p>
-<ul><li>Shows transactions on the date you specify</li>
-<li>shows transactions that occurred at the library you specify</li>
-<li>grouped and sorted by library, time the transaction occurred, and the item number</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>This report cannot be used to show any transactions more than 25 months old.</p>
-<p>Shelving location information was not stored in the transaction logs until we upgraded to Koha 17.11 on 2018.07.28.</p>
-<p></p>
-<p class="updated">Report changed to show item permanent location in addition to current location at time of circulation.</p>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3125&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;List of transactions at the circulation desk at the library you specify&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows transactions on the date you specify&lt;/li&gt;
+&lt;li&gt;shows transactions that occurred at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped and sorted by library, time the transaction occurred, and the item number&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;This report cannot be used to show any transactions more than 25 months old.&lt;/p&gt;
+&lt;p&gt;Shelving location information was not stored in the transaction logs until we upgraded to Koha 17.11 on 2018.07.28.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p class="updated"&gt;Report changed to show item permanent location in addition to current location at time of circulation.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p id="rquickopen"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3125&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -105,8 +105,8 @@ FROM
     WHERE
       authorised_values.category = 'loc') permlocs ON permlocs.authorised_value = items.permanent_location
 WHERE
-  statistics.branch like <> AND
-  statistics.datetime LIKE Concat(<>, "%") AND
+  statistics.branch like &lt;&gt; AND
+  statistics.datetime LIKE Concat(&lt;&gt;, "%") AND
   If(
     statistics.type = "renew",
     "renew-issue",
@@ -114,7 +114,7 @@ WHERE
       statistics.type = "issue",
       "issue-renew", statistics.type
     )
-  ) LIKE <>
+  ) LIKE &lt;&gt;
 GROUP BY
   statistics.branch,
   statistics.datetime,

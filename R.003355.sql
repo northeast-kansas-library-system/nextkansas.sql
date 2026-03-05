@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2020-10-08 22:42:10
 Modified on: 2025-04-30 11:24:41
-Date last run: 2025-10-02 00:50:02
+Date last run: 2026-01-01 00:50:02
 
 ----------
 
@@ -22,27 +22,27 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Circulation by borrower details - Unique borrowers in the previous calendar month</p> 
-<ul>
-  <li>Shows borrower counts on each day of the month for the previous month</li> 
-  <li>includes a unique borrower account per month in the final column</li> 
-  <li>At all Next Search Catalog libraries</li> 
-  <li>grouped and sorted by the library where the borrower checked out or renewed items</li> 
-</ul>
-<br /> 
-<p><ins>Notes:</ins></p> 
-<p></p> 
-<p>A borrower is counted as 1 borrower if they check out or renew materials on the day specified.  If a borrower checks out 10 items at 10:00 a.m. and then checks out additional items at 4:00 p.m., that borrower is only counted once for the purposes of this report.</p> 
-<p></p> 
-<p>The final column is a monthly count of unique borrowers.  So if a borrower checks out 1 book on the first of the month and then checks out 1 book on the 15th of the month, that borrower is only counted as 1 unique borrower in the final column of this report.</p> 
-<p></p> 
-<p class="updated">This report and these notes updated on 2022.03.10</p> 
-<p></p> 
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=3355">Click here to download as a csv file</a></p> 
-<p class= "notetags" style="display: none;">#monthly #statistics #borrower #details #unique #circulation_by_borrower_details</p> 
-<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
-</div> 
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Circulation by borrower details - Unique borrowers in the previous calendar month&lt;/p&gt; 
+&lt;ul&gt;
+  &lt;li&gt;Shows borrower counts on each day of the month for the previous month&lt;/li&gt; 
+  &lt;li&gt;includes a unique borrower account per month in the final column&lt;/li&gt; 
+  &lt;li&gt;At all Next Search Catalog libraries&lt;/li&gt; 
+  &lt;li&gt;grouped and sorted by the library where the borrower checked out or renewed items&lt;/li&gt; 
+&lt;/ul&gt;
+&lt;br /&gt; 
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;A borrower is counted as 1 borrower if they check out or renew materials on the day specified.  If a borrower checks out 10 items at 10:00 a.m. and then checks out additional items at 4:00 p.m., that borrower is only counted once for the purposes of this report.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;The final column is a monthly count of unique borrowers.  So if a borrower checks out 1 book on the first of the month and then checks out 1 book on the 15th of the month, that borrower is only counted as 1 unique borrower in the final column of this report.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p class="updated"&gt;This report and these notes updated on 2022.03.10&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p id="rquickdown"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=3355"&gt;Click here to download as a csv file&lt;/a&gt;&lt;/p&gt; 
+&lt;p class= "notetags" style="display: none;"&gt;#monthly #statistics #borrower #details #unique #circulation_by_borrower_details&lt;/p&gt; 
+&lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt; 
+&lt;/div&gt; 
 
 ----------
 */

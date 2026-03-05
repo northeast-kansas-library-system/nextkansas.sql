@@ -102,20 +102,20 @@ From (
       circulation_rules.rule_name,
       circulation_rules.rule_value
     From circulation_rules
-    Where circulation_rules.rule_name <> 'accountsent'
-      And circulation_rules.rule_name <> 'bookings_lead_period'
-      And circulation_rules.rule_name <> 'bookings_trail_period'
-      And circulation_rules.rule_name <> 'finedays'
-      And circulation_rules.rule_name <> 'hold_fulfillment_policy'
-      And circulation_rules.rule_name <> 'holdallowed'
-      And circulation_rules.rule_name <> 'lostreturn'
-      And circulation_rules.rule_name <> 'max_holds'
-      And circulation_rules.rule_name <> 'patron_maxissueqty'
-      And circulation_rules.rule_name <> 'patron_maxonsiteissueqty'
-      And circulation_rules.rule_name <> 'restrictedtype'
-      And circulation_rules.rule_name <> 'returnbranch'
-      And circulation_rules.rule_name <> 'unseen_renewals_allowed'
-      And circulation_rules.rule_name <> 'waiting_hold_cancellation'
+    Where circulation_rules.rule_name &lt;&gt; 'accountsent'
+      And circulation_rules.rule_name &lt;&gt; 'bookings_lead_period'
+      And circulation_rules.rule_name &lt;&gt; 'bookings_trail_period'
+      And circulation_rules.rule_name &lt;&gt; 'finedays'
+      And circulation_rules.rule_name &lt;&gt; 'hold_fulfillment_policy'
+      And circulation_rules.rule_name &lt;&gt; 'holdallowed'
+      And circulation_rules.rule_name &lt;&gt; 'lostreturn'
+      And circulation_rules.rule_name &lt;&gt; 'max_holds'
+      And circulation_rules.rule_name &lt;&gt; 'patron_maxissueqty'
+      And circulation_rules.rule_name &lt;&gt; 'patron_maxonsiteissueqty'
+      And circulation_rules.rule_name &lt;&gt; 'restrictedtype'
+      And circulation_rules.rule_name &lt;&gt; 'returnbranch'
+      And circulation_rules.rule_name &lt;&gt; 'unseen_renewals_allowed'
+      And circulation_rules.rule_name &lt;&gt; 'waiting_hold_cancellation'
     Group By circulation_rules.id,
       Coalesce(circulation_rules.branchcode, 'all'),
       Coalesce(circulation_rules.categorycode, 'all'),
@@ -131,7 +131,7 @@ From (
     On itemtypes.itemtype = circulation_rules_sq.itemtype
 Where
   (
-    circulation_rules_sq.branchcode Like <> OR
+    circulation_rules_sq.branchcode Like &lt;&gt; OR
     circulation_rules_sq.branchcode Like 'all'
   )
 Group By 

@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-09-12 00:38:59
 Modified on: 2019-09-12 01:02:48
-Date last run: 2025-10-24 10:27:46
+Date last run: 2026-01-06 20:15:28
 
 ----------
 
@@ -88,9 +88,9 @@ FROM
 WHERE
   items.datelastseen BETWEEN (AddDate(Last_Day(SubDate(Now(), INTERVAL 3 MONTH)), 1)) AND (Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) + 6 DAY)) AND
   branchtransfers.datearrived IS NULL AND
-  ((items.homebranch = <>) OR
-    (branchtransfers.frombranch = <>) OR
-    (branchtransfers.tobranch = <>))
+  ((items.homebranch = &lt;&gt;) OR
+    (branchtransfers.frombranch = &lt;&gt;) OR
+    (branchtransfers.tobranch = &lt;&gt;))
 GROUP BY
   locs.lib,
   ccodes.lib,
@@ -192,7 +192,7 @@ FROM
     ON locs.authorised_value = items.location
 WHERE
   items.onloan IS NULL AND
-  items.homebranch = <> AND
+  items.homebranch = &lt;&gt; AND
   (items.itemlost = 9 OR
     items.itemlost = 3) AND
   items.itemlost_on BETWEEN (AddDate(Last_Day(SubDate(Now(), INTERVAL 3 MONTH)), 1)) AND (Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) + 6 DAY))
@@ -299,9 +299,9 @@ FROM
     ON locs.authorised_value = items.location
 WHERE
   items.onloan IS NULL AND
-  items.homebranch = <> AND
-  items.itemlost <> 9 AND
-  items.itemlost <> 3 AND
+  items.homebranch = &lt;&gt; AND
+  items.itemlost &lt;&gt; 9 AND
+  items.itemlost &lt;&gt; 3 AND
   items.itemlost_on BETWEEN (AddDate(Last_Day(SubDate(Now(), INTERVAL 3 MONTH)), 1)) AND (Date_Sub(Date(Now()), INTERVAL DayOfWeek(Now()) + 6 DAY))
 GROUP BY
   items.itemlost_on,
@@ -406,7 +406,7 @@ FROM
     ON locs.authorised_value = items.location
 WHERE
   items.onloan IS NULL AND
-  items.homebranch = <> AND
+  items.homebranch = &lt;&gt; AND
   (items.location = 'PROC' OR
     items.location = 'CATALOGING' OR
     items.location = 'CART' OR
@@ -511,8 +511,8 @@ FROM
   ) locs
     ON locs.authorised_value = items.location
 WHERE
-  items.homebranch = <> AND
-  items.dateaccessioned <= AddDate(Last_Day(SubDate(Now(), INTERVAL 4 MONTH)), 1) AND
+  items.homebranch = &lt;&gt; AND
+  items.dateaccessioned &lt;= AddDate(Last_Day(SubDate(Now(), INTERVAL 4 MONTH)), 1) AND
   items.notforloan = -1
 GROUP BY
   biblio.biblionumber,

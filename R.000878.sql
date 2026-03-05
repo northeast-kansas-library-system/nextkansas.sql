@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2010-06-07 15:09:44
 Modified on: 2015-08-16 17:00:38
-Date last run: 2025-10-27 19:13:59
+Date last run: 2026-01-09 10:45:15
 
 ----------
 
@@ -29,7 +29,7 @@ Enhanced - Run, Pick Your Branch and Shelving Location to get a list of material
 
 
 
-SELECT b.biblionumber, i.dateaccessioned, b.title, b.author, i.ccode, i.location, i.itemcallnumber, i.itype, t.publicationyear, i.barcode, CONCAT(''"edit item"'') as "edit item" FROM items i LEFT JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE i.homebranch=<> AND i.location = <> ORDER BY i.itemcallnumber asc
+SELECT b.biblionumber, i.dateaccessioned, b.title, b.author, i.ccode, i.location, i.itemcallnumber, i.itype, t.publicationyear, i.barcode, CONCAT(''"edit item"'') as "edit item" FROM items i LEFT JOIN biblio b USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber) WHERE i.homebranch=&lt;&gt; AND i.location = &lt;&gt; ORDER BY i.itemcallnumber asc
 
 
 

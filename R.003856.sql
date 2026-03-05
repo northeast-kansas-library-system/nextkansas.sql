@@ -74,7 +74,7 @@ FROM
   ( 
     SELECT 
       statistics.branch, 
-      Count(*) AS CKO_RENEW_COUNT 
+      Count(&ast;) AS CKO_RENEW_COUNT 
     FROM 
       statistics 
     WHERE 
@@ -88,7 +88,7 @@ FROM
   ( 
     SELECT 
       statistics.branch, 
-      Count(*) AS CKO_RENEW_COUNT 
+      Count(&ast;) AS CKO_RENEW_COUNT 
     FROM 
       statistics 
     WHERE 
@@ -102,7 +102,7 @@ FROM
   ( 
     SELECT 
       statistics.branch, 
-      Count(*) AS CKO_RENEW_COUNT 
+      Count(&ast;) AS CKO_RENEW_COUNT 
     FROM 
       statistics 
     WHERE 
@@ -116,7 +116,7 @@ FROM
   ( 
     SELECT 
       statistics.branch, 
-      Count(*) AS CKO_RENEW_COUNT 
+      Count(&ast;) AS CKO_RENEW_COUNT 
     FROM 
       statistics 
     WHERE 
@@ -130,7 +130,7 @@ FROM
   ( 
     SELECT 
       statistics.branch, 
-      Count(*) AS CKO_RENEW_COUNT 
+      Count(&ast;) AS CKO_RENEW_COUNT 
     FROM 
       statistics 
     WHERE 

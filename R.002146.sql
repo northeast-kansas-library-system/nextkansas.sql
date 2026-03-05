@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-SELECT count(itemnumber) as added, itype, location from items WHERE homebranch=<> AND year(dateaccessioned) = <> GROUP BY itype,location ORDER BY  itype,location 
+SELECT count(itemnumber) as added, itype, location from items WHERE homebranch=&lt;&gt; AND year(dateaccessioned) = &lt;&gt; GROUP BY itype,location ORDER BY  itype,location 
 
 
 

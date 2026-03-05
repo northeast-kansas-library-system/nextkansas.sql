@@ -22,30 +22,30 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-  <p>Generates a list of the bibliographic records created during the previous calendar month</p>
-  <ul>
-    <li>Lists all bibliographic records created in the previous calendar month</li>
-    <li>at the library you specify</li>
-    <li>With the bibliographic shelving location, bibliographic item type, and bibliographic collection code you specify</li>
-    <li>grouped by item barcode number</li>
-    <li>sorted by:
-      <ul>
-        <li>the library that created the record</li>
-        <li>bibliographic shelving location (942$c)</li>
-        <li>bibliographic item type (942$e)</li>
-        <li>bibliographic collection code (942$h)</li>
-      </ul>
-    </li>
-    <li>links to the bibliographic record</li>
-  </ul><br />
-  <p><ins>Notes:</ins></p>
-  <p></p>
-  <p>Notes go here.</p>
-  <p></p>
-  <p class= "notetags" style="display: none;">#statistics tab; #bibliographic records</p>
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+  &lt;p&gt;Generates a list of the bibliographic records created during the previous calendar month&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Lists all bibliographic records created in the previous calendar month&lt;/li&gt;
+    &lt;li&gt;at the library you specify&lt;/li&gt;
+    &lt;li&gt;With the bibliographic shelving location, bibliographic item type, and bibliographic collection code you specify&lt;/li&gt;
+    &lt;li&gt;grouped by item barcode number&lt;/li&gt;
+    &lt;li&gt;sorted by:
+      &lt;ul&gt;
+        &lt;li&gt;the library that created the record&lt;/li&gt;
+        &lt;li&gt;bibliographic shelving location (942$c)&lt;/li&gt;
+        &lt;li&gt;bibliographic item type (942$e)&lt;/li&gt;
+        &lt;li&gt;bibliographic collection code (942$h)&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;links to the bibliographic record&lt;/li&gt;
+  &lt;/ul&gt;&lt;br /&gt;
+  &lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;p&gt;Notes go here.&lt;/p&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;p class= "notetags" style="display: none;"&gt;#statistics tab; #bibliographic records&lt;/p&gt;
+  &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -127,10 +127,10 @@ Where
   And action_logs.info = 'biblio'
   And Year(action_logs.timestamp) = Year(Now() - Interval 1 Month)
   And Month(action_logs.timestamp) = Month(Now() - Interval 1 Month)
-  And branches.branchcode Like <>
-  And biblios.agerestriction Like <>
-  And biblios.itemtype Like <>
-  And biblios.cn_class Like <>
+  And branches.branchcode Like &lt;&gt;
+  And biblios.agerestriction Like &lt;&gt;
+  And biblios.itemtype Like &lt;&gt;
+  And biblios.cn_class Like &lt;&gt;
 Group By 
   action_logs.action_id,
   biblios.biblionumber  

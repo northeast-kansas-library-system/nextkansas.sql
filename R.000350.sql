@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2009-03-16 15:46:05
 Modified on: 2023-03-29 10:38:03
-Date last run: 2025-10-28 11:24:46
+Date last run: 2026-01-28 09:28:01
 
 ----------
 
@@ -61,8 +61,8 @@ FROM
   JOIN biblioitems
     ON biblioitems.biblionumber = biblio.biblionumber
 WHERE
-  (To_Days(CurDate()) - To_Days(issues.date_due)) > <> AND
-  issues.branchcode = <>
+  (To_Days(CurDate()) - To_Days(issues.date_due)) &gt; &lt;&gt; AND
+  issues.branchcode = &lt;&gt;
 ORDER BY
   borrowers.surname,
   "borrowers.surname",

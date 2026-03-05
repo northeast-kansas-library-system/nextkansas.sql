@@ -22,23 +22,23 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a transaction log for all checkouts and renewals at a branch on one day</p>
-<ul><li>Shows a log for the date you specify</li>
-<li>Shows all of the checkouts and renewals at the branch you specify</li>
-<li>grouped by date, time, item barcode, and patron barcode</li>
-<li>sorted by date/time from newest to oldest</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>This report will only show the staff login for checkouts (renewals are not logged) but the way this report gathers data from the action logs is not perfect so you may see renewals with staff login information and checkouts with no staff login information.<br />
-Staff login information can only be recovered if the circulation occurred in the previous 60 days.  The table where that information is stored has data more than 60 days old purged on a daily basis.<br />
-Transaction history is only saved for the previous 25 months.  You cannot run this report to gather data more than 25 months old.<br />
-This report will only cover 1 day at a time.  Creating a report that generates a log for multiple days has the potential to disrupt the system.<br />
-</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3004&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a transaction log for all checkouts and renewals at a branch on one day&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows a log for the date you specify&lt;/li&gt;
+&lt;li&gt;Shows all of the checkouts and renewals at the branch you specify&lt;/li&gt;
+&lt;li&gt;grouped by date, time, item barcode, and patron barcode&lt;/li&gt;
+&lt;li&gt;sorted by date/time from newest to oldest&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;This report will only show the staff login for checkouts (renewals are not logged) but the way this report gathers data from the action logs is not perfect so you may see renewals with staff login information and checkouts with no staff login information.&lt;br /&gt;
+Staff login information can only be recovered if the circulation occurred in the previous 60 days.  The table where that information is stored has data more than 60 days old purged on a daily basis.&lt;br /&gt;
+Transaction history is only saved for the previous 25 months.  You cannot run this report to gather data more than 25 months old.&lt;br /&gt;
+This report will only cover 1 day at a time.  Creating a report that generates a log for multiple days has the potential to disrupt the system.&lt;br /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3004&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -79,8 +79,8 @@ FROM
 WHERE
   (statistics.type = 'ISSUE' OR
     statistics.type = 'RENEW') AND
-  statistics.branch LIKE <> AND
-  statistics.datetime BETWEEN (@startdate := CAST(<> AS DATE)) AND (CAST(@startdate AS DATE) + INTERVAL 1 DAY)
+  statistics.branch LIKE &lt;&gt; AND
+  statistics.datetime BETWEEN (@startdate := CAST(&lt;&gt; AS DATE)) AND (CAST(@startdate AS DATE) + INTERVAL 1 DAY)
 GROUP BY
   statistics.datetime,
   ITEM_BC,

@@ -22,35 +22,35 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
+&lt;div class="reportinfo noprint"&gt; 
  
-  <div class="reportInfoContent"> 
+  &lt;div class="reportInfoContent"&gt; 
  
-    <p>Counts borrowers based on the sex listed in their account</p> 
+    &lt;p&gt;Counts borrowers based on the sex listed in their account&lt;/p&gt; 
  
-    <ul> 
-      <li>Shows current data in Next Search Catalog</li> 
-      <li>at the library you specify</li> 
-      <li>grouped and sorted by library and sex</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;Shows current data in Next Search Catalog&lt;/li&gt; 
+      &lt;li&gt;at the library you specify&lt;/li&gt; 
+      &lt;li&gt;grouped and sorted by library and sex&lt;/li&gt; 
+    &lt;/ul&gt; 
  
-  </div>
+  &lt;/div&gt;
 
-  <div class="reportInfoNotes">
+  &lt;div class="reportInfoNotes"&gt;
  
-    <p> 
+    &lt;p&gt; 
  
-    </p> 
+    &lt;/p&gt; 
 
-    <p> 
+    &lt;p&gt; 
       Sex data will be deleted from Next Search Catalog on September 15, 2023.
-    </p> 
+    &lt;/p&gt; 
  
-    <p> 
+    &lt;p&gt; 
  
-    </p> 
+    &lt;/p&gt; 
    
-  </div> 
+  &lt;/div&gt; 
 
 ----------
 */
@@ -66,7 +66,7 @@ SELECT
   ) AS sex, 
   Count(DISTINCT borrowers.borrowernumber) AS BORROWER_COUNT,
   format(
-    100 *(
+    100 &ast;(
       Count(DISTINCT borrowers.borrowernumber) / branches_counts.Count_borrowernumber
     ),
     2
@@ -83,7 +83,7 @@ FROM
   ) branches_counts
   LEFT JOIN borrowers ON borrowers.branchcode = branches_counts.branchcode
 WHERE
-  branches_counts.branchcode LIKE <>
+  branches_counts.branchcode LIKE &lt;&gt;
 GROUP BY 
   branches_counts.branchname,
   Coalesce(borrowers.sex, '')

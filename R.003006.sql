@@ -34,8 +34,8 @@ SELECT
     hold_fill_targets.source_branchcode,
     items.homebranch,
     (Concat('Go to biblio')),
-    If(localonly.Count_itemnumber > 0, "TOP PRIORITYONLY COPY AVAILABLE",
-    If(availablecount.Count_itemnumber < 3, "PriorityAll other copies checked out", "-"))) AS CURRENT_OWNING,
+    If(localonly.Count_itemnumber &gt; 0, "TOP PRIORITYONLY COPY AVAILABLE",
+    If(availablecount.Count_itemnumber &lt; 3, "PriorityAll other copies checked out", "-"))) AS CURRENT_OWNING,
   Concat_Ws('', items.location, authorised_values.lib, items.itemcallnumber) AS CALL_NUMBER,
   Concat_Ws('',
     biblio.author,
@@ -99,20 +99,20 @@ FROM
         hold_fill_targets.biblionumber
       HAVING
         Count(DISTINCT items.itemnumber) = 1 AND
-        Group_Concat(DISTINCT items.holdingbranch) LIKE <>) localonly ON
+        Group_Concat(DISTINCT items.holdingbranch) LIKE &lt;&gt;) localonly ON
     hold_fill_targets.biblionumber = localonly.biblionumber
   LEFT JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber AND items.biblioitemnumber =
     biblio_metadata.biblionumber
 WHERE
   authorised_values.category = "ccode" AND
-  hold_fill_targets.source_branchcode LIKE <>
+  hold_fill_targets.source_branchcode LIKE &lt;&gt;
 GROUP BY
-  Concat_Ws('', items.location, authorised_values.lib, items.itemcallnumber), Concat_Ws('', biblio.author, (Concat_Ws('', biblio.title, ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')))), If(localonly.Count_itemnumber > 0, "TOP PRIORITY", If(availablecount.Count_itemnumber < 3, "Priority", "-")),
+  Concat_Ws('', items.location, authorised_values.lib, items.itemcallnumber), Concat_Ws('', biblio.author, (Concat_Ws('', biblio.title, ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'), ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]')))), If(localonly.Count_itemnumber &gt; 0, "TOP PRIORITY", If(availablecount.Count_itemnumber &lt; 3, "Priority", "-")),
   items.holdingbranch,
   biblio.author,
   biblio.title
 ORDER BY
-  If(localonly.Count_itemnumber > 0, "TOP PRIORITY", If(availablecount.Count_itemnumber < 3, "Priority", "-")) DESC,
+  If(localonly.Count_itemnumber &gt; 0, "TOP PRIORITY", If(availablecount.Count_itemnumber &lt; 3, "Priority", "-")) DESC,
   CALL_NUMBER,
   AUTHOR_TITLE
 

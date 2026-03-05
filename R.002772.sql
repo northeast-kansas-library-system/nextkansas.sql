@@ -52,12 +52,12 @@ FROM
   accountlines
     ON accountlines.borrowernumber = Guarantees.borrowernumber
 WHERE
-  Guarantors.branchcode LIKE <>
+  Guarantors.branchcode LIKE &lt;&gt;
 GROUP BY
   Guarantors.borrowernumber,
   Guarantees.borrowernumber
 HAVING
-  Sum(accountlines.amountoutstanding) > <>
+  Sum(accountlines.amountoutstanding) &gt; &lt;&gt;
 ORDER BY
   Guarantors.branchcode,
   Guarantors.surname,

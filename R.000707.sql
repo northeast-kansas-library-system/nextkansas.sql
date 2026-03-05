@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2009-10-29 15:00:05
 Modified on: 2015-07-01 18:21:04
-Date last run: 2025-10-27 18:54:23
+Date last run: 2025-11-12 18:08:31
 
 ----------
 
@@ -30,7 +30,7 @@ Enhanced. Choose branch and enter call number prefix + % to search on.
 
 
 SELECT items.dateaccessioned,items.datelastseen,items.itype,items.ccode,items.location,items.itemcallnumber,items.barcode,biblio.title,biblio.author,t.publicationyear, CONCAT(''"edit item"'') as "edit item" 
-  FROM items LEFT JOIN biblio USING(biblionumber)  LEFT JOIN biblioitems t USING(biblionumber)  WHERE items.homebranch=<> AND items.itemcallnumber LIKE <> ORDER BY items.itemcallnumber ASC
+  FROM items LEFT JOIN biblio USING(biblionumber)  LEFT JOIN biblioitems t USING(biblionumber)  WHERE items.homebranch=&lt;&gt; AND items.itemcallnumber LIKE &lt;&gt; ORDER BY items.itemcallnumber ASC
 
 
 

@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2011-08-11 16:22:06
 Modified on: 2021-03-03 15:54:27
-Date last run: 2025-07-31 12:43:37
+Date last run: 2025-12-09 18:40:41
 
 ----------
 
@@ -24,9 +24,9 @@ Expiry: 0
 
 Replaced by reports 3471 and 3472
 
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3471&phase=Run%20this%20report"  target="_blank">Click here to run report 3471 in a new window</a></p>
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3471&phase=Run%20this%20report"  target="_blank"&gt;Click here to run report 3471 in a new window&lt;/a&gt;&lt;/p&gt;
 
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3472&phase=Run%20this%20report"  target="_blank">Click here to run report 3472 in a new window</a></p>
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3472&phase=Run%20this%20report"  target="_blank"&gt;Click here to run report 3472 in a new window&lt;/a&gt;&lt;/p&gt;
 
 ----------
 */

@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2025-07-31 09:38:20
 Modified on: 2025-07-31 09:38:20
-Date last run: 2025-10-27 09:30:49
+Date last run: 2026-01-28 16:33:05
 
 ----------
 
@@ -96,12 +96,12 @@ Where
   borrowers.dateexpiry Between CurDate() - Interval 1095 Day And CurDate() - Interval 730.5 Day And
   borrowers.branchcode Like '%' And
   Coalesce(borrowers.othernames, "0") Not Like "%SIP%" And
-  borrowers.categorycode <> 'STAFF' And
-  borrowers.categorycode <> 'ILL' And
-  borrowers.categorycode <> 'HOOPLA' And
+  borrowers.categorycode &lt;&gt; 'STAFF' And
+  borrowers.categorycode &lt;&gt; 'ILL' And
+  borrowers.categorycode &lt;&gt; 'HOOPLA' And
   Coalesce(requestsx.Count_reserve_id, 0) = 0 And
-  Coalesce(expired_attribute.attribute, 0) <> 1 And
-  Coalesce(expired_attribute.attribute, 0) <> 2
+  Coalesce(expired_attribute.attribute, 0) &lt;&gt; 1 And
+  Coalesce(expired_attribute.attribute, 0) &lt;&gt; 2
 Group By
   borrowers.borrowernumber
 Order By

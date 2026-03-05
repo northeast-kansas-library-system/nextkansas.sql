@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2018-06-18 11:15:38
 Modified on: 2025-04-17 09:30:37
-Date last run: 2025-10-28 19:54:25
+Date last run: 2026-01-29 14:12:02
 
 ----------
 
@@ -22,22 +22,22 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Print holds queue report with scannable barcodes and divided into priorities.</p>
-<ul><li>Shows items in the current holds queue</li>
-<li>at the location you specify</li>
-<li>grouped by specified location, items home branch, call number, author, and title</li>
-<li>sorted by request priority and standard NEXT classification.</li>
-<li>contains links to the bibliographic records</li>
-</ul><br />
-<p></p>
-<p>Notes:</p>
-<p></p>
-<p><span style="text-decoration: underline;">Highest priority</span> = request is for pickup at this library || or || this is an item level request.</p>
-<p><span style="text-decoration: underline;">High priority</span> = the copy requested is the only copy owned by any Next Search Catalog library</p>
-<p></p>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Print holds queue report with scannable barcodes and divided into priorities.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows items in the current holds queue&lt;/li&gt;
+&lt;li&gt;at the location you specify&lt;/li&gt;
+&lt;li&gt;grouped by specified location, items home branch, call number, author, and title&lt;/li&gt;
+&lt;li&gt;sorted by request priority and standard NEXT classification.&lt;/li&gt;
+&lt;li&gt;contains links to the bibliographic records&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Notes:&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="text-decoration: underline;"&gt;Highest priority&lt;/span&gt; = request is for pickup at this library || or || this is an item level request.&lt;/p&gt;
+&lt;p&gt;&lt;span style="text-decoration: underline;"&gt;High priority&lt;/span&gt; = the copy requested is the only copy owned by any Next Search Catalog library&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 
-</div>
+&lt;/div&gt;
 
 ----------
 */
@@ -193,13 +193,13 @@ FROM
           items 
         WHERE 
           (items.notforloan IS NOT NULL OR 
-            items.notforloan <> 0) AND 
+            items.notforloan &lt;&gt; 0) AND 
           (items.damaged IS NOT NULL OR 
-            items.damaged <> 0) AND 
+            items.damaged &lt;&gt; 0) AND 
           (items.itemlost IS NOT NULL OR 
-            items.itemlost <> 0) AND 
+            items.itemlost &lt;&gt; 0) AND 
           (items.withdrawn IS NOT NULL OR 
-            items.withdrawn <> 0) AND 
+            items.withdrawn &lt;&gt; 0) AND 
           items.onloan IS NULL 
         GROUP BY 
           items.biblionumber 
@@ -208,7 +208,7 @@ FROM
   ) priority 
   ON priority.reserve_id = hold_fill_targets.reserve_id 
 WHERE 
-  hold_fill_targets.source_branchcode LIKE <> 
+  hold_fill_targets.source_branchcode LIKE &lt;&gt; 
 GROUP BY 
   hold_fill_targets.itemnumber 
 ORDER BY 

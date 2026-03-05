@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a report of payments made to libraries via Paypal in the previous calendar month</p>
-<ul><li>Shows payments made in the previous calendar month</li>
-<li>At all libraries</li>
-<li>grouped by account offsets ID</li>
-<li>sorted by library owed the fee, payment date, and fee reference ID</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3022&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
-<p><span style="color: yellow; background-color: red; font-size: 200%;">References accountlines.accounttype.  Needs to be updated after January 4, 2020</span></p>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a report of payments made to libraries via Paypal in the previous calendar month&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows payments made in the previous calendar month&lt;/li&gt;
+&lt;li&gt;At all libraries&lt;/li&gt;
+&lt;li&gt;grouped by account offsets ID&lt;/li&gt;
+&lt;li&gt;sorted by library owed the fee, payment date, and fee reference ID&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p id="rquickopen"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3022&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;span style="color: yellow; background-color: red; font-size: 200%;"&gt;References accountlines.accounttype.  Needs to be updated after January 4, 2020&lt;/span&gt;&lt;/p&gt;
 
 ----------
 */
@@ -54,7 +54,7 @@ SELECT
         borrowerinfo.branchcode
       )
     )
-  ) AS COLLECTED_ON_BEHALF_OF /* Test comment */,
+  ) AS COLLECTED_ON_BEHALF_OF /&ast; Test comment &ast;/,
   Format(ABS(credits.amount), 2) AS AMT_COLLECTED,
   borrowerinfo.cardnumber AS FROM_PATRON,
   credits.note AS PAYMENT_NOTES,
@@ -96,7 +96,7 @@ WHERE
         borrowerinfo.branchcode
       )
     )
-  ) LIKE <>
+  ) LIKE &lt;&gt;
 GROUP BY
   account_offsets.id
 ORDER BY

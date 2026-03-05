@@ -29,7 +29,7 @@ Shows count of new items added to a collection in last month by ccode and shelvi
 
 
 
-SELECT count(itemnumber) as added, ccode, location from items WHERE homebranch=<> AND month(dateaccessioned) =<> AND year (dateaccessioned) = <> GROUP BY ccode,location ORDER BY ccode,location asc
+SELECT count(itemnumber) as added, ccode, location from items WHERE homebranch=&lt;&gt; AND month(dateaccessioned) =&lt;&gt; AND year (dateaccessioned) = &lt;&gt; GROUP BY ccode,location ORDER BY ccode,location asc
 
 
 

@@ -38,8 +38,8 @@ FROM
   branches ON borrowers.branchcode = branches.branchcode INNER JOIN
   categories ON borrowers.categorycode = categories.categorycode
 WHERE
-  borrowers.branchcode LIKE <> AND
-  borrowers.categorycode = <>
+  borrowers.branchcode LIKE &lt;&gt; AND
+  borrowers.categorycode = &lt;&gt;
 GROUP BY
   branches.branchname,
   categories.description,

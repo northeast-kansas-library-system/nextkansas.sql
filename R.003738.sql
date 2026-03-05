@@ -35,7 +35,7 @@ FROM
   biblio_metadata
 WHERE
   ExtractValue(biblio_metadata.metadata,
-  '//datafield[@tag="800"]/subfield[@code="9"]') <> ""
+  '//datafield[@tag="800"]/subfield[@code="9"]') &lt;&gt; ""
 GROUP BY
   biblio_metadata.biblionumber
 

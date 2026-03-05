@@ -22,19 +22,19 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Shows borrower history from the statistics table (goes back 25 months)</p>
-<ul><li>Shows history for the previous 25 months</li>
-<li>for the borrower you specify</li>
-<li>grouped by itemnumber</li>
-<li>sorted by statistics date</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Updated in February of 2022</p>
-<p></p>
-<p class= "notetags" style="display: none;">#borrowers #circulation_history</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Shows borrower history from the statistics table (goes back 25 months)&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows history for the previous 25 months&lt;/li&gt;
+&lt;li&gt;for the borrower you specify&lt;/li&gt;
+&lt;li&gt;grouped by itemnumber&lt;/li&gt;
+&lt;li&gt;sorted by statistics date&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Updated in February of 2022&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;#borrowers #circulation_history&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -92,7 +92,7 @@ FROM
 WHERE 
   (statistics.type = 'issue' OR 
       statistics.type = 'renew') AND 
-  borrowers.cardnumber = <> 
+  borrowers.cardnumber = &lt;&gt; 
 GROUP BY 
   borrowers.cardnumber, 
   If(borrowers.privacy = 2, 'History', cko_branch.branchname), 

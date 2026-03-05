@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-SELECT MONTH(timestamp), YEAR(timestamp), count(*) as count FROM deleteditems WHERE deleteditems.homebranch = <> GROUP BY MONTH(timestamp), YEAR(timestamp) ORDER BY YEAR(timestamp) DESC, MONTH(timestamp) DESC
+SELECT MONTH(timestamp), YEAR(timestamp), count(&ast;) as count FROM deleteditems WHERE deleteditems.homebranch = &lt;&gt; GROUP BY MONTH(timestamp), YEAR(timestamp) ORDER BY YEAR(timestamp) DESC, MONTH(timestamp) DESC
 
 
 

@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Shows patrons with a "Kanopy (ATCHISON): Allowed . . ." patron attribute but without a ATCHISON homebranch</p>
-<ul><li>Shows borrwowers that currently have this attribute</li>
-<li>grouped by categorycode and borrowernumber</li>
-<li>sorted by library card number</li>
-<li>links to the borrower account</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Should be run monthly at ATCHISON so the attribute can be removed from those accounts</p>
-<p><a href="https://northeast-kansas-library-system.github.io/next/branches/ATCHISON/kanopy.html#running-reports-to-manually-update-kanopy-permission" target="_blank">Go to the training information for the Kanopy (ATCHISON) extended borrower attribute.</a></p>
-<p></p>
-<p class= "notetags" style="display: none;">kanopy; patron-extended-attributes; ATCHISON;</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Shows patrons with a "Kanopy (ATCHISON): Allowed . . ." patron attribute but without a ATCHISON homebranch&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows borrwowers that currently have this attribute&lt;/li&gt;
+&lt;li&gt;grouped by categorycode and borrowernumber&lt;/li&gt;
+&lt;li&gt;sorted by library card number&lt;/li&gt;
+&lt;li&gt;links to the borrower account&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Should be run monthly at ATCHISON so the attribute can be removed from those accounts&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://northeast-kansas-library-system.github.io/next/branches/ATCHISON/kanopy.html#running-reports-to-manually-update-kanopy-permission" target="_blank"&gt;Go to the training information for the Kanopy (ATCHISON) extended borrower attribute.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;kanopy; patron-extended-attributes; ATCHISON;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -61,9 +61,9 @@ FROM
   ) kanopy
     ON kanopy.borrowernumber = borrowers.borrowernumber
 WHERE
-  borrowers.branchcode <> 'ATCHISON' AND
+  borrowers.branchcode &lt;&gt; 'ATCHISON' AND
   kanopy.attribute = 'ATCHISON' AND
-  borrowers.othernames <> 'SIP2 test account'
+  borrowers.othernames &lt;&gt; 'SIP2 test account'
 GROUP BY
   borrowers.categorycode,
   borrowers.borrowernumber

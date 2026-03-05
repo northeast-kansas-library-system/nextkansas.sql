@@ -124,7 +124,7 @@ FROM
    GROUP BY
      club_enrollments.club_id) counts ON counts.club_id = clubs.id
 WHERE
-  clubs.branchcode LIKE <>
+  clubs.branchcode LIKE &lt;&gt;
 GROUP BY
   liaisons.LIAISON,
   leaders.LEADER,

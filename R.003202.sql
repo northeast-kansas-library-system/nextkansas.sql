@@ -44,7 +44,7 @@ FROM
   LEFT JOIN (
     SELECT
       If(statistics.branch IS NULL, "NEKLS", statistics.branch) AS CKO_BRANCH,
-      Count(*) AS CKO_RENEW,
+      Count(&ast;) AS CKO_RENEW,
       If(Coalesce(items.homebranch, deleteditems.homebranch) IS NULL, "NEKLS", Coalesce(items.homebranch, deleteditems.homebranch)) AS OWNING_BRANCH
     FROM
       statistics
@@ -57,7 +57,7 @@ FROM
       Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
       (statistics.type = 'issue' OR
         statistics.type = 'renew') AND
-      If(Coalesce(items.homebranch, deleteditems.homebranch) IS NULL, "NEKLS", Coalesce(items.homebranch, deleteditems.homebranch)) = <>
+      If(Coalesce(items.homebranch, deleteditems.homebranch) IS NULL, "NEKLS", Coalesce(items.homebranch, deleteditems.homebranch)) = &lt;&gt;
     GROUP BY
       If(statistics.branch IS NULL, "NEKLS", statistics.branch)
   ) our_stuff_somewhere_else

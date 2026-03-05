@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Lists all items at a library with a specific item barcode number length</p>
-<ul><li>Shows items currently in the catalog</li>
-<li>At the library you specify and with the item barcode number length you specify</li>
-<li>grouped by itemnumber and biblionumber</li>
-<li>sorted by the standard Next Search Catalog classification scheme</li>
-<li>contains links to the bibliographic record</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>The easiest way to run this report is to run report 3558 for your library and then choose which length barcode for your library you want to list from the right hand column.</p>
-<p class= "notetags" style="display: none;">#item #barcode #length #count</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Lists all items at a library with a specific item barcode number length&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows items currently in the catalog&lt;/li&gt;
+&lt;li&gt;At the library you specify and with the item barcode number length you specify&lt;/li&gt;
+&lt;li&gt;grouped by itemnumber and biblionumber&lt;/li&gt;
+&lt;li&gt;sorted by the standard Next Search Catalog classification scheme&lt;/li&gt;
+&lt;li&gt;contains links to the bibliographic record&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The easiest way to run this report is to run report 3558 for your library and then choose which length barcode for your library you want to list from the right hand column.&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;#item #barcode #length #count&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -104,8 +104,8 @@ FROM
     FROM
       itemtypes) itypes ON itypes.itemtype = items.itype
 WHERE
-    items.homebranch LIKE <> AND
-    Coalesce(Length(items.barcode), 0) LIKE <>
+    items.homebranch LIKE &lt;&gt; AND
+    Coalesce(Length(items.barcode), 0) LIKE &lt;&gt;
 GROUP BY
   biblio.biblionumber,
   items.itemnumber,

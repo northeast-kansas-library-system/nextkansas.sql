@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2025-01-27 14:15:47
 Modified on: 2025-01-27 14:44:47
-Date last run: 2025-01-28 08:35:16
+Date last run: 2025-11-25 15:07:49
 
 ----------
 
@@ -118,14 +118,14 @@ FROM items
     FROM
       biblio_metadata
     WHERE
-      Length(biblio_metadata.metadata) < 2001
+      Length(biblio_metadata.metadata) &lt; 2001
   ) bib_created_by 
     ON bib_created_by.biblionumber = items.biblionumber 
   JOIN borrowers 
     ON borrowers.borrowernumber = bib_created_by.metadata
 WHERE
-  items.homebranch LIKE <> AND
-  borrowers.branchcode LIKE <>
+  items.homebranch LIKE &lt;&gt; AND
+  borrowers.branchcode LIKE &lt;&gt;
 GROUP BY
   items.itemnumber
 ORDER BY

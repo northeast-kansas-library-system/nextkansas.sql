@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2016-10-05 14:39:48
 Modified on: 2024-01-17 11:36:21
-Date last run: 2025-10-28 15:47:16
+Date last run: 2026-01-29 12:05:31
 
 ----------
 
@@ -22,15 +22,15 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>This report shows all items added to Next Search Catalog at a specific library branch during a date range</p>
-<ul><li>Shows items that are currently still in Next Search Catalog</li>
-<li>Allows user to specify the item's homebranch, shelving location, item type, collection code, and the item's date added</li>
-<li>grouped by biblionumber and itemnumber</li>
-<li>sorted by homebranch, location, itype, collection code, call number, author, title</li>
-<li>contains links directly to the item's bibliographic record in the OPAC</li>
-</ul><br />
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;This report shows all items added to Next Search Catalog at a specific library branch during a date range&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows items that are currently still in Next Search Catalog&lt;/li&gt;
+&lt;li&gt;Allows user to specify the item's homebranch, shelving location, item type, collection code, and the item's date added&lt;/li&gt;
+&lt;li&gt;grouped by biblionumber and itemnumber&lt;/li&gt;
+&lt;li&gt;sorted by homebranch, location, itype, collection code, call number, author, title&lt;/li&gt;
+&lt;li&gt;contains links directly to the item's bibliographic record in the OPAC&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -98,11 +98,11 @@ FROM
     WHERE
       authorised_values.category = 'CCODE') CCODES ON CCODES.authorised_value = items.ccode
 WHERE
-  items.homebranch LIKE <> AND
-  items.location LIKE <> AND
-  items.itype LIKE <> AND
-  items.ccode LIKE <> AND
-  items.dateaccessioned BETWEEN <> AND <>
+  items.homebranch LIKE &lt;&gt; AND
+  items.location LIKE &lt;&gt; AND
+  items.itype LIKE &lt;&gt; AND
+  items.ccode LIKE &lt;&gt; AND
+  items.dateaccessioned BETWEEN &lt;&gt; AND &lt;&gt;
 GROUP BY
   items.biblionumber,
   items.itemnumber

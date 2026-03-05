@@ -34,7 +34,7 @@ SELECT
 FROM
   items
 WHERE
-  items.barcode IN (<>)
+  items.barcode IN (&lt;&gt;)
 
 
 

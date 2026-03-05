@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Item counts by patron where the patron has more than 1 item checked out - includes counts by checkout library</p>
-<ul><li>Shows items currently checked out</li>
-<li>At the library you specified</li>
-<li>grouped by patron barcode number</li>
-<li>sorted by highest total checkout count to lowest checkout count</li>
-<li>links</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Does not include INHOUSE or ILL patron categories</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3351&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-<p class= "notetags" style="display: none;">tag goes here</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Item counts by patron where the patron has more than 1 item checked out - includes counts by checkout library&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows items currently checked out&lt;/li&gt;
+&lt;li&gt;At the library you specified&lt;/li&gt;
+&lt;li&gt;grouped by patron barcode number&lt;/li&gt;
+&lt;li&gt;sorted by highest total checkout count to lowest checkout count&lt;/li&gt;
+&lt;li&gt;links&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Does not include INHOUSE or ILL patron categories&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3351&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;tag goes here&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -61,16 +61,16 @@ From
          issues.branchcode) bcounts On bcounts.borrowernumber = issues.borrowernumber Join
     borrowers On issues.borrowernumber = borrowers.borrowernumber
 Where
-    borrowers.categorycode <> 'INHOUSE' And
-    borrowers.categorycode <> 'ILL' And
-    borrowers.branchcode Like <>
+    borrowers.categorycode &lt;&gt; 'INHOUSE' And
+    borrowers.categorycode &lt;&gt; 'ILL' And
+    borrowers.branchcode Like &lt;&gt;
 Group By
     borrowers.cardnumber,
     borrowers.branchcode,
     borrowers.categorycode,
     issues.borrowernumber
 Having
-    Count(Distinct issues.issue_id) > 1
+    Count(Distinct issues.issue_id) &gt; 1
 Order By
     CKO_FROM_ALL_LIBRARIES Desc
 

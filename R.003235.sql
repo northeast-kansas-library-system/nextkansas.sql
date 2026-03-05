@@ -13,7 +13,7 @@ Group: Borrowers
 
 Created on: 2019-07-24 14:19:18
 Modified on: 2024-01-17 12:08:34
-Date last run: 2025-04-14 16:53:50
+Date last run: 2026-01-08 11:41:15
 
 ----------
 
@@ -22,33 +22,33 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Lists all patrons at your library with the extended attribute category and attribute you specify</p>
-<ul><li>Lists current patrons with the attribute information you specify</li>
-<li>at the library you specify</li>
-<li>grouped and sorted by patron home library, patron attribute category, and patron attribute</li>
-<li>links to the patron's account</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Designed to work in conjunction with report 3234.</p>
-<p></p>
-<p>Patrons can have multiple extended attributes on their accounts.  Similarly, patrons may not have any extended attributes on their accounts.  If this report is configured to report on multiple attributes at one time, it is possible that some patrons will show up on this list multiple times.</p>
-<p></p>
-<p>For more detailed information than this report provides use the following reports:</p>
-<ul>
-<li>3086 - GHW - Patron attributes - Newsletter permissions </li>
-<li>3087 - GHW - Patron attributes - Movie permissions </li>
-<li>3088 - GHW - Patron attributes - Internet permissions</li>
-<li>3089 - GHW - Patron attributes - Special locations </li>
-<li>3090 - GHW - Patron attributes - Holds contact</li>
-<li>3091 - GHW - Patron attributes - Account expired</li>
-<li>3092 - GHW - Patron attributes - Collection agency</li>
-<li>3093 - GHW - Patron attributes - Other attributes 1 / Other attributes 2 / Registration library</li>
-</ul>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3235&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Lists all patrons at your library with the extended attribute category and attribute you specify&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Lists current patrons with the attribute information you specify&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped and sorted by patron home library, patron attribute category, and patron attribute&lt;/li&gt;
+&lt;li&gt;links to the patron's account&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Designed to work in conjunction with report 3234.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Patrons can have multiple extended attributes on their accounts.  Similarly, patrons may not have any extended attributes on their accounts.  If this report is configured to report on multiple attributes at one time, it is possible that some patrons will show up on this list multiple times.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;For more detailed information than this report provides use the following reports:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;3086 - GHW - Patron attributes - Newsletter permissions &lt;/li&gt;
+&lt;li&gt;3087 - GHW - Patron attributes - Movie permissions &lt;/li&gt;
+&lt;li&gt;3088 - GHW - Patron attributes - Internet permissions&lt;/li&gt;
+&lt;li&gt;3089 - GHW - Patron attributes - Special locations &lt;/li&gt;
+&lt;li&gt;3090 - GHW - Patron attributes - Holds contact&lt;/li&gt;
+&lt;li&gt;3091 - GHW - Patron attributes - Account expired&lt;/li&gt;
+&lt;li&gt;3092 - GHW - Patron attributes - Collection agency&lt;/li&gt;
+&lt;li&gt;3093 - GHW - Patron attributes - Other attributes 1 / Other attributes 2 / Registration library&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3235&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -76,9 +76,9 @@ FROM
   JOIN categories
     ON borrowers.categorycode = categories.categorycode
 WHERE
-  borrowers.branchcode LIKE <> AND
-  borrower_attributes.code LIKE <> AND
-  borrower_attributes.attribute LIKE <>
+  borrowers.branchcode LIKE &lt;&gt; AND
+  borrower_attributes.code LIKE &lt;&gt; AND
+  borrower_attributes.attribute LIKE &lt;&gt;
 ORDER BY
   borrowers.branchcode,
   NAME,

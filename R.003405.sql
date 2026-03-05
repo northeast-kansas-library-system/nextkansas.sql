@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2021-01-14 16:51:37
 Modified on: 2024-01-17 12:02:49
-Date last run: 2022-11-03 14:59:09
+Date last run: 2025-12-15 09:23:39
 
 ----------
 
@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Shows list of items with a Video item type and a collection code other than DVD, Blu-ray, Combo, or TV Series</p>
-<ul><li>Shows items currently in the system</li>
-<li>at the library you specify</li>
-<li>grouped by item number, location, collection code, and bibliographic number</li>
-<li>sorted by the normal Next classification order</li>
-<li>links to the bibliographic record and the edit item page</li>
-</ul><br />
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3405&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-<p class= "notetags" style="display: none;">collection code cleanup</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Shows list of items with a Video item type and a collection code other than DVD, Blu-ray, Combo, or TV Series&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows items currently in the system&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped by item number, location, collection code, and bibliographic number&lt;/li&gt;
+&lt;li&gt;sorted by the normal Next classification order&lt;/li&gt;
+&lt;li&gt;links to the bibliographic record and the edit item page&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3405&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;collection code cleanup&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -58,7 +58,7 @@ SELECT
     ),
     borrowers.borrowernumber
   ) AS BORROWER,
-  Concat_Ws(' <br><br> ', 
+  Concat_Ws(' &lt;br&gt;&lt;br&gt; ', 
     'LOST ITEM PROCESSING FEE: ', 
     Concat('Item barcode: ', item_info.barcode), 
     Concat('Owned by: ', item_info.homebranch),
@@ -69,7 +69,7 @@ SELECT
     Concat('Author: ', item_info.author), 
     Concat('Title: ', item_info.FULL_TITLE),
     Concat('Due date: ', old_checkouts.ORIGINAL_DUE_DATE), 
-    Concat('Lost on: ', item_info.LOST_ON_DATE, '<br><br>')
+    Concat('Lost on: ', item_info.LOST_ON_DATE, '&lt;br&gt;&lt;br&gt;')
   ) AS FEE_NOTE
 FROM
   (SELECT

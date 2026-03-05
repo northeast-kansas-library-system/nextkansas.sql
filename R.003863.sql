@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2024-10-17 11:10:34
 Modified on: 2024-10-19 10:47:11
-Date last run: 2024-10-19 10:47:15
+Date last run: 2026-01-09 10:46:53
 
 ----------
 
@@ -22,53 +22,53 @@ Expiry: 300
 
 ----------
 
-<div class="reportInfo noprint"> 
+&lt;div class="reportInfo noprint"&gt; 
  
-  <div class="reportInfoContent"> 
+  &lt;div class="reportInfoContent"&gt; 
  
-    <p>Outputs a list of all 10 and 13 digit ISBNs</p> 
+    &lt;p&gt;Outputs a list of all 10 and 13 digit ISBNs&lt;/p&gt; 
  
-    <ul> 
-      <li>Shows current ISBNs in biblioitems table</li> 
-      <li>at all Next Search Catalog libraries</li> 
-      <li>grouped by ISBN</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;Shows current ISBNs in biblioitems table&lt;/li&gt; 
+      &lt;li&gt;at all Next Search Catalog libraries&lt;/li&gt; 
+      &lt;li&gt;grouped by ISBN&lt;/li&gt; 
+    &lt;/ul&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div class="reportInfoNotes"> 
+  &lt;div class="reportInfoNotes"&gt; 
  
-    <p> 
+    &lt;p&gt; 
  
-    </p> 
+    &lt;/p&gt; 
  
-    <p> 
+    &lt;p&gt; 
      Used for Novelist updates
-    </p> 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div id="reportInfoLinks"> 
+  &lt;div id="reportInfoLinks"&gt; 
  
-    <p id="sql_quick_down"> 
-      <a href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=3863"> 
+    &lt;p id="sql_quick_down"&gt; 
+      &lt;a href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=3863"&gt; 
         Click here to download as a csv file 
-      </a> 
-    </p> 
+      &lt;/a&gt; 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div id="reportInfoTags"> 
+  &lt;div id="reportInfoTags"&gt; 
  
-    <p style="display: none;"> 
+    &lt;p style="display: none;"&gt; 
       #isbn #novelist
-    </p> 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/Query_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
+  &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/Query_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt; 
  
-</div> 
+&lt;/div&gt; 
 
 ----------
 */
@@ -162,7 +162,7 @@ FROM
 GROUP BY 
   isbns 
 HAVING 
-  isbns <> 'X' AND 
+  isbns &lt;&gt; 'X' AND 
   isbns Not like '%:%' AND 
   isbns Not like '%-%' AND 
   isbns Not like '%"%' AND 
@@ -279,7 +279,7 @@ FROM
 GROUP BY 
   isbns 
 HAVING 
-  isbns <> 'X' AND 
+  isbns &lt;&gt; 'X' AND 
   isbns Not like '%:%' AND 
   isbns Not like '%-%' AND 
   isbns Not like '%"%' AND 

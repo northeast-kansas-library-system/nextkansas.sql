@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2021-08-31 18:42:23
 Modified on: 2024-01-17 11:28:36
-Date last run: 2025-08-28 10:08:23
+Date last run: 2026-01-29 09:57:26
 
 ----------
 
@@ -22,15 +22,15 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a list of libraries that still charge late fees</p>
-<ul><li>Generates a current list including the item types that are subject to late fees</li>
-<li>grouped and sorted by whether the library charges fees on all items or if they charge a late fee on just a few item types</li>
-</ul><br />
-<p></p>
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3552">Click here to download as a csv file</a></p>
-<p class= "notetags" style="display: none;">#late fees; #fines</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a list of libraries that still charge late fees&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Generates a current list including the item types that are subject to late fees&lt;/li&gt;
+&lt;li&gt;grouped and sorted by whether the library charges fees on all items or if they charge a late fee on just a few item types&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p id="rquickdown"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3552"&gt;Click here to download as a csv file&lt;/a&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;#late fees; #fines&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -57,7 +57,7 @@ FROM
       circulation_rules
     WHERE
       circulation_rules.rule_name = 'fine' AND
-      circulation_rules.rule_value > 0) ruless LEFT JOIN
+      circulation_rules.rule_value &gt; 0) ruless LEFT JOIN
   (SELECT
       itemtypes.itemtype,
       itemtypes.description
@@ -93,7 +93,7 @@ FROM
       circulation_rules
     WHERE
       circulation_rules.rule_name = 'fine' AND
-      circulation_rules.rule_value > 0) ruless LEFT JOIN
+      circulation_rules.rule_value &gt; 0) ruless LEFT JOIN
   (SELECT
       itemtypes.itemtype,
       itemtypes.description

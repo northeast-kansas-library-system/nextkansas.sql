@@ -22,170 +22,170 @@ Expiry: 300
 
 ----------
 
-<div class="next_report_info next_noprint">
+&lt;div class="next_report_info next_noprint"&gt;
 
-  <p class="next_hiddenss">Title/introduction/etc.</p>
+  &lt;p class="next_hiddenss"&gt;Title/introduction/etc.&lt;/p&gt;
 
-  <div id="next_report_accordion" class="accordion accordion-flush">
+  &lt;div id="next_report_accordion" class="accordion accordion-flush"&gt;
 
-    <div id="next_report_function" class="accordion-item">
+    &lt;div id="next_report_function" class="accordion-item"&gt;
 
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button next_report_function" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+      &lt;h2 class="accordion-header" id="headingOne"&gt;
+        &lt;button class="accordion-button next_report_function" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"&gt;
 
             Report function:
 
-        </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#next_report_accordion">
-        <div class="accordion-body">
+        &lt;/button&gt;
+      &lt;/h2&gt;
+      &lt;div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#next_report_accordion"&gt;
+        &lt;div class="accordion-body"&gt;
 
-          <ul> 
-            <li>
+          &lt;ul&gt; 
+            &lt;li&gt;
               When
-            </li> 
-            <li>
+            &lt;/li&gt; 
+            &lt;li&gt;
               Whose Stuff
-            </li> 
-            <li>
+            &lt;/li&gt; 
+            &lt;li&gt;
               grouped by
-            </li> 
-            <li>
+            &lt;/li&gt; 
+            &lt;li&gt;
               sorted by
-            </li> 
-            <li>
+            &lt;/li&gt; 
+            &lt;li&gt;
               links
-            </li> 
-          </ul> 
+            &lt;/li&gt; 
+          &lt;/ul&gt; 
 
-        </div>
-      </div>
-    </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-    <div id="next_report_notes" class="accordion-item">
-      <h2 class="accordion-header" id="headingTwo">
-        <button class="accordion-button collapsed next_report_notes" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+    &lt;div id="next_report_notes" class="accordion-item"&gt;
+      &lt;h2 class="accordion-header" id="headingTwo"&gt;
+        &lt;button class="accordion-button collapsed next_report_notes" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"&gt;
 
           Report notes:
 
-        </button>
-      </h2>
-      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#next_report_accordion">
-        <div class="accordion-body">
+        &lt;/button&gt;
+      &lt;/h2&gt;
+      &lt;div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#next_report_accordion"&gt;
+        &lt;div class="accordion-body"&gt;
           
-          <div class="next_report_section">
+          &lt;div class="next_report_section"&gt;
 
-            <p>Notes go here</p>
+            &lt;p&gt;Notes go here&lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-          <div class="next_report_section">
+          &lt;div class="next_report_section"&gt;
 
-            <p>More notes go here</p>
+            &lt;p&gt;More notes go here&lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-        </div>
-      </div>
-    </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-    <div id="next_report_instruction" class="accordion-item ">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed next_report_instruction" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+    &lt;div id="next_report_instruction" class="accordion-item "&gt;
+      &lt;h2 class="accordion-header" id="headingThree"&gt;
+        &lt;button class="accordion-button collapsed next_report_instruction" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"&gt;
           
           Report instructions:
 
-        </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#next_report_accordion">
-        <div class="accordion-body">
+        &lt;/button&gt;
+      &lt;/h2&gt;
+      &lt;div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#next_report_accordion"&gt;
+        &lt;div class="accordion-body"&gt;
 
-          <div class="next_report_section">
+          &lt;div class="next_report_section"&gt;
 
-            <p>
+            &lt;p&gt;
               Instructions go here
-            </p>
+            &lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-          <div class="next_report_section">
+          &lt;div class="next_report_section"&gt;
 
-            <p>
+            &lt;p&gt;
               More instructions go here
-            </p>
+            &lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-        </div>
-      </div>
-    </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
 
-    <div id="next_report_resources" class="accordion-item ">
+    &lt;div id="next_report_resources" class="accordion-item "&gt;
 
-      <h2 class="accordion-header" id="headingFour">
-        <button class="accordion-button collapsed next_report_resources" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+      &lt;h2 class="accordion-header" id="headingFour"&gt;
+        &lt;button class="accordion-button collapsed next_report_resources" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"&gt;
 
           Report external resources:
 
-        </button>
-      </h2>
+        &lt;/button&gt;
+      &lt;/h2&gt;
 
-      <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#next_report_accordion">
-        <div class="accordion-body">
+      &lt;div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#next_report_accordion"&gt;
+        &lt;div class="accordion-body"&gt;
 
-          <ul style="list-style-type: none;">
-            <li>
+          &lt;ul style="list-style-type: none;"&gt;
+            &lt;li&gt;
 
-              Explanation of resource if necessary<br>
+              Explanation of resource if necessary&lt;br&gt;
 
-              <a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen1">External resource 1</a>
+              &lt;a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen1"&gt;External resource 1&lt;/a&gt;
 
-            </li>
-            <li>
+            &lt;/li&gt;
+            &lt;li&gt;
 
-              Explanation of resource if necessary<br>
+              Explanation of resource if necessary&lt;br&gt;
 
-              <a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen1">External resource 2</a>
+              &lt;a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen1"&gt;External resource 2&lt;/a&gt;
 
-            </li>
-          </ul>
+            &lt;/li&gt;
+          &lt;/ul&gt;
 
-        </div>
-      </div>
-    </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
     
-  </div>
+  &lt;/div&gt;
 
-  <div id="next_direct_download" class="next_direct_download next_hiddenss">
+  &lt;div id="next_direct_download" class="next_direct_download next_hiddenss"&gt;
 
-    <a class="next_btn next_indigo next_embiggen1" href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=INSERT_REPORT_NUMBER_HERE">Download this report as a csv file <i class="bi bi-download"></i></a>
+    &lt;a class="next_btn next_indigo next_embiggen1" href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=INSERT_REPORT_NUMBER_HERE"&gt;Download this report as a csv file &lt;i class="bi bi-download"&gt;&lt;/i&gt;&lt;/a&gt;
 
-  </div>
+  &lt;/div&gt;
 
-  <div id="next_report_tags" class="next_hiddenss">
+  &lt;div id="next_report_tags" class="next_hiddenss"&gt;
 
-    <p>
+    &lt;p&gt;
 
       #tags_go_here
 
-    </p>
+    &lt;/p&gt;
     
-  </div>
+  &lt;/div&gt;
 
-  <div class="next_report_training">
+  &lt;div class="next_report_training"&gt;
 
-    <a class="next_btn next_indigo next_embiggen1" href="Go to instructions">Training page for this report <i class="bi bi-arrow-up-right-square"></i></a>
+    &lt;a class="next_btn next_indigo next_embiggen1" href="Go to instructions"&gt;Training page for this report &lt;i class="bi bi-arrow-up-right-square"&gt;&lt;/i&gt;&lt;/a&gt;
 
-    <a class="next_btn next_indigo next_embiggen1" href="link to printable instruction sheet">Printable instructions for this report <i class="bi bi-download"></i></a>
+    &lt;a class="next_btn next_indigo next_embiggen1" href="link to printable instruction sheet"&gt;Printable instructions for this report &lt;i class="bi bi-download"&gt;&lt;/i&gt;&lt;/a&gt;
 
-  </div>
+  &lt;/div&gt;
 
-  <div class="next_report_note_collapse next_hiddenss">
+  &lt;div class="next_report_note_collapse next_hiddenss"&gt;
 
-    <button type="button" class="next_btn next_indigo next_report_notes_close">Collapse report notes</button>
+    &lt;button type="button" class="next_btn next_indigo next_report_notes_close"&gt;Collapse report notes&lt;/button&gt;
 
-  </div>
-</div>
+  &lt;/div&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -198,14 +198,14 @@ Select
     '', 
     'Edit item' 
   ) AS LINKS,
-  If(coalesce(items.dateaccessioned, '1900-01-01') < '2000-01-01', '2000-01-01', DATE_FORMAT(items.dateaccessioned, '%Y-%m-%d')) AS DATE_ADDED,
+  If(coalesce(items.dateaccessioned, '1900-01-01') &lt; '2000-01-01', '2000-01-01', DATE_FORMAT(items.dateaccessioned, '%Y-%m-%d')) AS DATE_ADDED,
   Count(items.itemnumber) As Count_itemnumber
 From
   items
 Group By
-  If(coalesce(items.dateaccessioned, '1900-01-01') < '2000-01-01', '2000-01-01', DATE_FORMAT(items.dateaccessioned, '%Y-%m-%d'))
+  If(coalesce(items.dateaccessioned, '1900-01-01') &lt; '2000-01-01', '2000-01-01', DATE_FORMAT(items.dateaccessioned, '%Y-%m-%d'))
 Order By
-  If(coalesce(items.dateaccessioned, '1900-01-01') < '2000-01-01', '2000-01-01', DATE_FORMAT(items.dateaccessioned, '%Y-%m-%d')) ASC
+  If(coalesce(items.dateaccessioned, '1900-01-01') &lt; '2000-01-01', '2000-01-01', DATE_FORMAT(items.dateaccessioned, '%Y-%m-%d')) ASC
 
 
 

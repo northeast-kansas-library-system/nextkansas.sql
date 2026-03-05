@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-01-29 09:32:51
 Modified on: 2024-10-19 17:31:26
-Date last run: 2025-10-17 17:13:42
+Date last run: 2026-01-28 16:33:12
 
 ----------
 
@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Shows number of login attempts on a specific account.</p>
-<ul><li>Shows current data</li>
-<li>for the library card number you specify</li>
-<li>grouped by library card number</li>
-<li>sorted by patron's last name and card number</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>For the full instruction sheet for unlocking a patron's account after it has been locked due to too many login attempts, <a href="http://guides.nekls.org/assets/users/_gwilliams/account.lockout.pdf" target="_blank">click here</a></p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3163&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Shows number of login attempts on a specific account.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows current data&lt;/li&gt;
+&lt;li&gt;for the library card number you specify&lt;/li&gt;
+&lt;li&gt;grouped by library card number&lt;/li&gt;
+&lt;li&gt;sorted by patron's last name and card number&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;For the full instruction sheet for unlocking a patron's account after it has been locked due to too many login attempts, &lt;a href="http://guides.nekls.org/assets/users/_gwilliams/account.lockout.pdf" target="_blank"&gt;click here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3163&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 
 ----------
@@ -45,7 +45,7 @@ Expiry: 300
 SELECT
   borrowers.cardnumber,
   borrowers.surname,
-  If(borrowers.login_attempts > 4,
+  If(borrowers.login_attempts &gt; 4,
     Concat(
       "This account is locked because of ",
       borrowers.login_attempts,
@@ -57,7 +57,7 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.borrowernumber LIKE <>
+  borrowers.borrowernumber LIKE &lt;&gt;
 GROUP BY
   borrowers.cardnumber,
   borrowers.borrowernumber

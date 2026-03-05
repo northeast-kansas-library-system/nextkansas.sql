@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Counts checkins based on flexible date settings</p>
-<ul><li>Counts checkins based on the date parameters you set</li>
-<li>at the library you choose</li>
-<li>grouped and sorted by checkin branch and date of checkin</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>This report replaces reports 2404, 2405, 2406, 2407, 2408, 2409, 2410</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3029&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Counts checkins based on flexible date settings&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Counts checkins based on the date parameters you set&lt;/li&gt;
+&lt;li&gt;at the library you choose&lt;/li&gt;
+&lt;li&gt;grouped and sorted by checkin branch and date of checkin&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;This report replaces reports 2404, 2405, 2406, 2407, 2408, 2409, 2410&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3029&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -54,20 +54,20 @@ FROM
         Date_Format(statistics.datetime, "%m") AS MONTH,
         Date_Format(statistics.datetime, "%d") AS DATEX,
         Date_Format(statistics.datetime, "%W") AS DAY_OF_WEEK,
-        Count(*) AS count
+        Count(&ast;) AS count
       FROM
         statistics
       WHERE
         statistics.type = 'return' AND
-        Date_Format(statistics.datetime, "%Y") LIKE <> AND
-        Date_Format(statistics.datetime, "%m") LIKE <> AND
-        Date_Format(statistics.datetime, "%d") LIKE <> AND
-        Date_Format(statistics.datetime, "%W") LIKE <>
+        Date_Format(statistics.datetime, "%Y") LIKE &lt;&gt; AND
+        Date_Format(statistics.datetime, "%m") LIKE &lt;&gt; AND
+        Date_Format(statistics.datetime, "%d") LIKE &lt;&gt; AND
+        Date_Format(statistics.datetime, "%W") LIKE &lt;&gt;
       GROUP BY
         statistics.branch,
         Date_Format(statistics.datetime, "%Y-%m-%d")) checkins ON branches.branchcode = checkins.branch
 WHERE
-  branches.branchcode LIKE <>
+  branches.branchcode LIKE &lt;&gt;
 GROUP BY
   branches.branchcode,
   checkins.DATE

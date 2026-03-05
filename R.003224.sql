@@ -22,34 +22,34 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a list of public lists then allows you to run further reports on the results</p>
-<ul><li>Displays current public lists.</li>
-<li>displays all public lists with search terms you specify (enter a % to display all lists)</li>
-<li>grouped by date created, list name, list number</li>
-<li>sorted by list name</li>
-<li>links to the Staff client and OPAC pages for the list; links to reports:
-<ul>
-<li>3228 (Display list titles with links to bibliographic records)</li>
-<li>3227 (Display list titles with call numbers at a specific library)</li>
-<li>3226 (Display author/title information for a list - for printing)</li>
-<li>3279 (Export list to spreadsheet()</li>
-</ul>
-</li><br />
-</ul>
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>This report is the master report for public lists.</p>
-<p></p>
-<p>Replaces the following reports:</p>
-<ul>
-<li>2810 - GHW - Public lists with items</li>
-<li>2811 - GHW - List of lists</li>
-<li>3020 - GHW - List of lists</li>
-</ul>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3224&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a list of public lists then allows you to run further reports on the results&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Displays current public lists.&lt;/li&gt;
+&lt;li&gt;displays all public lists with search terms you specify (enter a % to display all lists)&lt;/li&gt;
+&lt;li&gt;grouped by date created, list name, list number&lt;/li&gt;
+&lt;li&gt;sorted by list name&lt;/li&gt;
+&lt;li&gt;links to the Staff client and OPAC pages for the list; links to reports:
+&lt;ul&gt;
+&lt;li&gt;3228 (Display list titles with links to bibliographic records)&lt;/li&gt;
+&lt;li&gt;3227 (Display list titles with call numbers at a specific library)&lt;/li&gt;
+&lt;li&gt;3226 (Display author/title information for a list - for printing)&lt;/li&gt;
+&lt;li&gt;3279 (Export list to spreadsheet()&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;&lt;br /&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;This report is the master report for public lists.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Replaces the following reports:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2810 - GHW - Public lists with items&lt;/li&gt;
+&lt;li&gt;2811 - GHW - List of lists&lt;/li&gt;
+&lt;li&gt;3020 - GHW - List of lists&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3224&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -87,7 +87,7 @@ FROM
     ON virtualshelfcontents.shelfnumber = virtualshelves.shelfnumber
 WHERE
   virtualshelves.category = '2'AND
-  virtualshelves.shelfname LIKE Concat("%", <>, "%")
+  virtualshelves.shelfname LIKE Concat("%", &lt;&gt;, "%")
 GROUP BY
   virtualshelves.created_on,
   virtualshelves.shelfname,

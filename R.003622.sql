@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2021-11-09 00:57:48
 Modified on: 2025-03-18 15:07:16
-Date last run: 2025-10-28 20:05:17
+Date last run: 2026-01-29 14:13:40
 
 ----------
 
@@ -32,7 +32,7 @@ Expiry: 30
 Select
   IF(branches.branchcode = 'NEKLS',
     'next_hidden',  
-    If(Count(issuess.noteseen) > 0, 'next_hidden', '-')
+    If(Count(issuess.noteseen) &gt; 0, 'next_hidden', '-')
   ) As 'class',
   Concat(
     'Notes for ', 
@@ -54,7 +54,7 @@ From
   On 
     issuess.branchcode = branches.branchcode
 Where
-  branches.branchcode Like Concat(<>, '%')
+  branches.branchcode Like Concat(&lt;&gt;, '%')
 Group By
   branches.branchcode
 

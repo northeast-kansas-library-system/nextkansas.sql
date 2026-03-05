@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2022-05-16 16:05:33
 Modified on: 2022-05-16 16:44:18
-Date last run: 2025-09-30 09:28:44
+Date last run: 2026-01-29 10:33:11
 
 ----------
 
@@ -66,11 +66,11 @@ FROM
       authorised_values.category = 'CCODE') ccodes ON ccodes.authorised_value =
       items.ccode
 WHERE
-  items.homebranch LIKE <> AND
-  items.permanent_location LIKE <> AND
-  items.itype LIKE <> AND
-  items.ccode LIKE <> AND
-  items.dateaccessioned BETWEEN <> AND <>
+  items.homebranch LIKE &lt;&gt; AND
+  items.permanent_location LIKE &lt;&gt; AND
+  items.itype LIKE &lt;&gt; AND
+  items.ccode LIKE &lt;&gt; AND
+  items.dateaccessioned BETWEEN &lt;&gt; AND &lt;&gt;
 GROUP BY
   items.itemnumber
 ORDER BY

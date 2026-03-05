@@ -22,22 +22,22 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a list of items on in the catalog by list of item barcode numbers</p>
-<ul><li>Shows data regarding the supplied barcode numbers at the time the report was run</li>
-<li>based on the home library of the item barcode numbers provided</li>
-<li>grouped by item number, item type description, and collection code description</li>
-<li>sorted by the normal Next Search Catalog classification scheme</li>
-<li>links to the bibliographic record for each biblionumber and the edit item page for each item number</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>To run, ask nexthelp@nekls.org to set up the report for you -- you will need to supply a text file containing the barcode numbers of all of the items you wish to appear in the results</p>
-<p>Currently set up for Kelly at PAOLA based on a list of 250 barcode numbers submitted on February 1, 2021.</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3415&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-<p class= "notetags" style="display: none;">tag goes here</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a list of items on in the catalog by list of item barcode numbers&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows data regarding the supplied barcode numbers at the time the report was run&lt;/li&gt;
+&lt;li&gt;based on the home library of the item barcode numbers provided&lt;/li&gt;
+&lt;li&gt;grouped by item number, item type description, and collection code description&lt;/li&gt;
+&lt;li&gt;sorted by the normal Next Search Catalog classification scheme&lt;/li&gt;
+&lt;li&gt;links to the bibliographic record for each biblionumber and the edit item page for each item number&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;To run, ask nexthelp@nekls.org to set up the report for you -- you will need to supply a text file containing the barcode numbers of all of the items you wish to appear in the results&lt;/p&gt;
+&lt;p&gt;Currently set up for Kelly at PAOLA based on a list of 250 barcode numbers submitted on February 1, 2021.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3415&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;tag goes here&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */

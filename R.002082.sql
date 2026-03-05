@@ -13,7 +13,7 @@ Group: Administrative Reports
 
 Created on: 2013-10-31 13:37:49
 Modified on: 2016-07-22 09:07:53
-Date last run: 2025-10-28 18:00:04
+Date last run: 2026-01-29 14:00:05
 
 ----------
 
@@ -44,19 +44,19 @@ SELECT
         GROUP BY t.biblionumber) as "restricted count", 
     (SELECT count(i.itemnumber) 
         FROM items i 
-        WHERE i.biblionumber=t.biblionumber AND i.notforloan <> '0'
+        WHERE i.biblionumber=t.biblionumber AND i.notforloan &lt;&gt; '0'
         GROUP BY t.biblionumber) as "notforloan count", 
     (SELECT count(i.itemnumber) 
         FROM items i 
-        WHERE i.biblionumber=t.biblionumber AND i.damaged <> '0'
+        WHERE i.biblionumber=t.biblionumber AND i.damaged &lt;&gt; '0'
         GROUP BY t.biblionumber) as "damaged count", 
     (SELECT count(i.itemnumber)
         FROM items i 
-        WHERE i.biblionumber=t.biblionumber AND i.itemlost <> '0'
+        WHERE i.biblionumber=t.biblionumber AND i.itemlost &lt;&gt; '0'
         GROUP BY t.biblionumber) as "lost count",
     (SELECT count(i.itemnumber)
         FROM items i 
-        WHERE i.biblionumber=t.biblionumber AND i.withdrawn <> '0'
+        WHERE i.biblionumber=t.biblionumber AND i.withdrawn &lt;&gt; '0'
         GROUP BY t.biblionumber) as "withdrawn count" ,
     t.barcode
 FROM tmp_holdsqueue t LEFT JOIN biblio b USING(biblionumber) LEFT JOIN items i USING(biblionumber) 

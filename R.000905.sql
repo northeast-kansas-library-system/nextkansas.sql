@@ -29,7 +29,7 @@ Run to get a list of bib numbers, titles, etc. for Titles with 20+ holds. #holds
 
 
 
-select reserves.biblionumber, biblio.title, biblio.author, biblioitems.publicationyear, biblio.notes, count(*) AS "Number of Holds" from reserves left join biblio USING (biblionumber) left join biblioitems USING(biblionumber) group by reserves.biblionumber having count(*) > 19 ORDER BY count(*) DESC
+select reserves.biblionumber, biblio.title, biblio.author, biblioitems.publicationyear, biblio.notes, count(&ast;) AS "Number of Holds" from reserves left join biblio USING (biblionumber) left join biblioitems USING(biblionumber) group by reserves.biblionumber having count(&ast;) &gt; 19 ORDER BY count(&ast;) DESC
 
 
 

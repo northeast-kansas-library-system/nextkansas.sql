@@ -46,7 +46,7 @@ FROM
   JOIN biblio_metadata
     ON biblio_metadata.biblionumber = biblio.biblionumber
 WHERE
-  biblio.datecreated BETWEEN <> AND <>
+  biblio.datecreated BETWEEN &lt;&gt; AND &lt;&gt;
 GROUP BY
   biblio.biblionumber,
   biblio.datecreated

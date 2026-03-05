@@ -222,7 +222,7 @@ FROM borrowers
             )
           ),
           If(
-            issues.date_due > CurDate(),
+            issues.date_due &gt; CurDate(),
             '',
             'Status: Overdue'
           )
@@ -375,10 +375,10 @@ FROM borrowers
         ORDER BY accountlines.date DESC
       ) AS fees
     FROM accountlines
-    WHERE accountlines.amountoutstanding <> 0
+    WHERE accountlines.amountoutstanding &lt;&gt; 0
     GROUP BY accountlines.borrowernumber
   ) unpaid_fees ON unpaid_fees.borrowernumber = borrowers.borrowernumber
-WHERE borrowers.borrowernumber LIKE <>
+WHERE borrowers.borrowernumber LIKE &lt;&gt;
 GROUP BY borrowers.borrowernumber
 
 

@@ -22,35 +22,35 @@ Expiry: 3600
 
 ----------
 
-<div class="reportinfo noprint"> 
-  <p>Report to create a list of ISBNs for the Wordpress bookshelves plugin for Leavenworth Public Library</p>
-  <ul>
-    <li>Shows the 25 most recently added 10 digit ISBNs for items owned by LEAVENWRTH</li>
-    <li>only titles owned by LEAVENWRTH with a not-for-loan status of "Ordered"</li>
-    <li>grouped and sorted by biblionumber (descending sort)</li>
-  </ul><br />
-<p></p>
-<p>
-  <ul>
-    <li>For use with the Bookshelves wordpress plugin</li>
-    <li>Variables in this report include
-      <ul>
-          <li>home library = LEAVENWRTH</li>
-          <li>permanent shelving location = Any</li>
-          <li>item type = Any</li>
-          <li>collection code = Any</li>
-          <li>NOT_LOAN status = -1</li>
-      </ul>
-    </li>
-    <li>The bookshelves plulgin requires a 10 digit ISBN</li>
-    <li>Because non-book items do not have an ISBN, this plugin will only work with books</li>
-    <li>The final report needs to be set as a "Public" report in order for the plugin to work</li>
-  </ul>
-</p>
-<p></p>
-  <p class= "notetags" style="display: none;">#wordpress #bookshelves #leavenwrth</p>
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+  &lt;p&gt;Report to create a list of ISBNs for the Wordpress bookshelves plugin for Leavenworth Public Library&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Shows the 25 most recently added 10 digit ISBNs for items owned by LEAVENWRTH&lt;/li&gt;
+    &lt;li&gt;only titles owned by LEAVENWRTH with a not-for-loan status of "Ordered"&lt;/li&gt;
+    &lt;li&gt;grouped and sorted by biblionumber (descending sort)&lt;/li&gt;
+  &lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;For use with the Bookshelves wordpress plugin&lt;/li&gt;
+    &lt;li&gt;Variables in this report include
+      &lt;ul&gt;
+          &lt;li&gt;home library = LEAVENWRTH&lt;/li&gt;
+          &lt;li&gt;permanent shelving location = Any&lt;/li&gt;
+          &lt;li&gt;item type = Any&lt;/li&gt;
+          &lt;li&gt;collection code = Any&lt;/li&gt;
+          &lt;li&gt;NOT_LOAN status = -1&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;The bookshelves plulgin requires a 10 digit ISBN&lt;/li&gt;
+    &lt;li&gt;Because non-book items do not have an ISBN, this plugin will only work with books&lt;/li&gt;
+    &lt;li&gt;The final report needs to be set as a "Public" report in order for the plugin to work&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+  &lt;p class= "notetags" style="display: none;"&gt;#wordpress #bookshelves #leavenwrth&lt;/p&gt;
+  &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -118,7 +118,7 @@ WHERE
 GROUP BY
   biblio.biblionumber
 HAVING
-  isbns <> 'X'
+  isbns &lt;&gt; 'X'
 ORDER BY
   items.itemnumber DESC
 LIMIT 25

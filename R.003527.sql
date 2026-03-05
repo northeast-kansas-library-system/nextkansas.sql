@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a list of unresolved debits</p>
-<ul><li>Shows currently unresolved debits</li>
-<li>at the library you specify</li>
-<li>grouped by borrower id number</li>
-<li>sorted by library and borrower barcode number</li>
-<li>links to the borrower's accounts tab</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p></p>
-<p class= "notetags" style="display: none;">#tested #updated  #gk</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a list of unresolved debits&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows currently unresolved debits&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped by borrower id number&lt;/li&gt;
+&lt;li&gt;sorted by library and borrower barcode number&lt;/li&gt;
+&lt;li&gt;links to the borrower's accounts tab&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;#tested #updated  #gk&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -56,7 +56,7 @@ FROM
     FROM
       accountlines
     WHERE
-      accountlines.amountoutstanding > 0
+      accountlines.amountoutstanding &gt; 0
     GROUP BY
       accountlines.borrowernumber) outstanding_debits ON
       outstanding_debits.borrowernumber = borrowers.borrowernumber INNER JOIN
@@ -66,7 +66,7 @@ FROM
     FROM
       branches) branchess ON branchess.branchcode = borrowers.branchcode
 WHERE
-  borrowers.branchcode LIKE <>
+  borrowers.branchcode LIKE &lt;&gt;
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

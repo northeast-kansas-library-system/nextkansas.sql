@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-08-16 14:59:53
 Modified on: 2024-01-17 12:08:52
-Date last run: 2025-10-28 15:07:14
+Date last run: 2026-01-29 12:21:33
 
 ----------
 
@@ -22,14 +22,14 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Print holds queue report</p>
-<ul><li>Shows items in the current holds queue</li>
-<li>at the location you specify</li>
-<li>grouped by specified location, items home branch, call number, author, and title</li>
-<li>contains links to the bibliographic records</li>
-</ul><br />
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Print holds queue report&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows items in the current holds queue&lt;/li&gt;
+&lt;li&gt;at the location you specify&lt;/li&gt;
+&lt;li&gt;grouped by specified location, items home branch, call number, author, and title&lt;/li&gt;
+&lt;li&gt;contains links to the bibliographic records&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -100,7 +100,7 @@ FROM
     FROM
       itemtypes) ITEMTYPESS ON ITEMTYPESS.itemtype = items.itype
 WHERE
-  hold_fill_targets.source_branchcode LIKE <>
+  hold_fill_targets.source_branchcode LIKE &lt;&gt;
 GROUP BY
   hold_fill_targets.itemnumber
 ORDER BY

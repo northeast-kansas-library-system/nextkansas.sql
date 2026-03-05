@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a list of notices sent to borrowers with a particular home library.</p>
-<ul><li>Shows messages sent in the last 180 days</li>
-<li>To borrowers with the home library you specify</li>
-<li>grouped and sorted by message ID</li>
-<li>links to the borrower's account</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Older report updated by GHW on 2022-07-26.</p>
-<p></p>
-<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div> 
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a list of notices sent to borrowers with a particular home library.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows messages sent in the last 180 days&lt;/li&gt;
+&lt;li&gt;To borrowers with the home library you specify&lt;/li&gt;
+&lt;li&gt;grouped and sorted by message ID&lt;/li&gt;
+&lt;li&gt;links to the borrower's account&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Older report updated by GHW on 2022-07-26.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt;
+&lt;/div&gt; 
 
 ----------
 */
@@ -51,7 +51,7 @@ SELECT
   borrowers.borrowernumber,
   borrowers.branchcode,
   message_queue.subject,
-  Replace(message_queue.content, '<', '<')  AS CONTENT, 
+  Replace(message_queue.content, '&lt;', '&lt;')  AS CONTENT, 
   message_queue.metadata,
   message_queue.letter_code,
   message_queue.message_transport_type,
@@ -64,7 +64,7 @@ FROM
   message_queue LEFT JOIN
   borrowers ON borrowers.borrowernumber = message_queue.borrowernumber
 WHERE
-  borrowers.branchcode LIKE <>
+  borrowers.branchcode LIKE &lt;&gt;
 GROUP BY
   message_queue.message_id
 ORDER BY

@@ -37,7 +37,7 @@ FROM
   items ON reserves.itemnumber = items.itemnumber
 WHERE
   reserves.found = 'W' AND
-  reserves.borrowernumber = <>
+  reserves.borrowernumber = &lt;&gt;
 GROUP BY
   reserves.branchcode
 

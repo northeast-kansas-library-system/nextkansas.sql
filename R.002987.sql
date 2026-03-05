@@ -36,7 +36,7 @@ FROM
   branches
   LEFT JOIN (SELECT
       statistics.branch,
-      Coalesce(count(*), 0) AS CIRC_PLUS_RENEW
+      Coalesce(count(&ast;), 0) AS CIRC_PLUS_RENEW
     FROM
       statistics
     WHERE
@@ -46,7 +46,7 @@ FROM
     GROUP BY
       statistics.branch) stats ON branches.branchcode = stats.branch
 WHERE
-  branches.branchcode LIKE <>
+  branches.branchcode LIKE &lt;&gt;
 GROUP BY
   branches.branchcode
 

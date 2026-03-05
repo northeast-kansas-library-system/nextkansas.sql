@@ -22,16 +22,16 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a list of items checked out at a branch that were due before a certain date</p>
-<ul><li>Shows currently overdue items due before the date you specify</li>
-<li>shows items checked out at the library you specify regardless of who owns the item</li>
-<li>grouped by item barcode number</li>
-<li>sorted by NExpress standard classification scheme</li>
-</ul><br />
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2897&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a list of items checked out at a branch that were due before a certain date&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows currently overdue items due before the date you specify&lt;/li&gt;
+&lt;li&gt;shows items checked out at the library you specify regardless of who owns the item&lt;/li&gt;
+&lt;li&gt;grouped by item barcode number&lt;/li&gt;
+&lt;li&gt;sorted by NExpress standard classification scheme&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2897&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -74,8 +74,8 @@ FROM
   borrowers
     ON issues.borrowernumber = borrowers.borrowernumber
 WHERE
-  items.holdingbranch LIKE <> AND
-  items.onloan <= <>
+  items.holdingbranch LIKE &lt;&gt; AND
+  items.onloan &lt;= &lt;&gt;
 GROUP BY
   items.barcode
 ORDER BY

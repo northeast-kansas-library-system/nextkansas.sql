@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Identifies old requests on a specific item</p>
-<ul><li>Shows all finished requests</li>
-<li>on an item you specify</li>
-<li>sorted by the last activity on the item request</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Report created to help troubleshoot problems with requested items (i.e. missing in transit, item on holds list not found, etc.).</p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2783&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Identifies old requests on a specific item&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows all finished requests&lt;/li&gt;
+&lt;li&gt;on an item you specify&lt;/li&gt;
+&lt;li&gt;sorted by the last activity on the item request&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Report created to help troubleshoot problems with requested items (i.e. missing in transit, item on holds list not found, etc.).&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2783&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -65,7 +65,7 @@ FROM
   biblio
     ON old_reserves.biblionumber = biblio.biblionumber
 WHERE
-  items.barcode = <>
+  items.barcode = &lt;&gt;
 ORDER BY
   old_reserves.timestamp DESC
 

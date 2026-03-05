@@ -54,7 +54,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 1, 
-              CONCAT('---->circulate: ', permissions.code), 
+              CONCAT('----&gt;circulate: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -66,7 +66,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 1, 
-                CONCAT('---->circulate: ', permissions.code), 
+                CONCAT('----&gt;circulate: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -84,7 +84,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 2, 
-              CONCAT('---->catalogue: ', permissions.code), 
+              CONCAT('----&gt;catalogue: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -96,7 +96,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 2, 
-                CONCAT('---->catalogue: ', permissions.code), 
+                CONCAT('----&gt;catalogue: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -114,7 +114,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 3, 
-              CONCAT('---->parameters: ', permissions.code), 
+              CONCAT('----&gt;parameters: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -126,7 +126,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 3, 
-                CONCAT('---->parameters: ', permissions.code), 
+                CONCAT('----&gt;parameters: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -144,7 +144,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 4, 
-              CONCAT('---->borrowers: ', permissions.code), 
+              CONCAT('----&gt;borrowers: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -156,7 +156,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 4, 
-                CONCAT('---->borrowers: ', permissions.code), 
+                CONCAT('----&gt;borrowers: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -174,7 +174,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 5, 
-              CONCAT('---->permissions: ', permissions.code), 
+              CONCAT('----&gt;permissions: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -186,7 +186,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 5, 
-                CONCAT('---->permissions: ', permissions.code), 
+                CONCAT('----&gt;permissions: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -200,14 +200,14 @@ SELECT
         MOD(borrowers.flags DIV 64, 2), 
         "reserveforothers - All parameters", 
         IF( 
-          GROUP_CONCAT(DISTINCT If(user_permissions.module_bit = 6, CONCAT('---->reserveforothers: ', permissions.code), '') ORDER BY permissions.code SEPARATOR '') = '', 
+          GROUP_CONCAT(DISTINCT If(user_permissions.module_bit = 6, CONCAT('----&gt;reserveforothers: ', permissions.code), '') ORDER BY permissions.code SEPARATOR '') = '', 
           '', 
           CONCAT( 
             GROUP_CONCAT( 
               DISTINCT 
               If( 
                 user_permissions.module_bit = 6, 
-                CONCAT('---->reserveforothers: ', permissions.code), 
+                CONCAT('----&gt;reserveforothers: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -230,7 +230,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 9, 
-              CONCAT('---->editcatalogue: ', permissions.code), 
+              CONCAT('----&gt;editcatalogue: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -241,7 +241,7 @@ SELECT
             GROUP_CONCAT( 
               DISTINCT If( 
                 user_permissions.module_bit = 9, 
-                CONCAT('---->editcatalogue: ', permissions.code), 
+                CONCAT('----&gt;editcatalogue: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -259,7 +259,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 10, 
-              CONCAT('---->updatecharges: ', permissions.code), 
+              CONCAT('----&gt;updatecharges: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -271,7 +271,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 10, 
-                CONCAT('---->updatecharges: ', permissions.code), 
+                CONCAT('----&gt;updatecharges: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -289,7 +289,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 11, 
-              CONCAT('---->acquisition: ', permissions.code), 
+              CONCAT('----&gt;acquisition: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -301,7 +301,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 11, 
-                CONCAT('---->acquisition: ', permissions.code), 
+                CONCAT('----&gt;acquisition: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -319,7 +319,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 12, 
-              CONCAT('---->suggestions: ', permissions.code), 
+              CONCAT('----&gt;suggestions: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -331,7 +331,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 12, 
-                CONCAT('---->suggestions: ', permissions.code), 
+                CONCAT('----&gt;suggestions: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -349,7 +349,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 13, 
-              CONCAT('---->tools: ', permissions.code), 
+              CONCAT('----&gt;tools: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -361,7 +361,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 13, 
-                CONCAT('---->tools: ', permissions.code), 
+                CONCAT('----&gt;tools: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -379,7 +379,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 14, 
-              CONCAT('---->editauthorities: ', permissions.code), 
+              CONCAT('----&gt;editauthorities: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -391,7 +391,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 14, 
-                CONCAT('---->editauthorities: ', permissions.code), 
+                CONCAT('----&gt;editauthorities: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -409,7 +409,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 15, 
-              CONCAT('---->serials: ', permissions.code), 
+              CONCAT('----&gt;serials: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -421,7 +421,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 15, 
-                CONCAT('---->serials: ', 
+                CONCAT('----&gt;serials: ', 
                   permissions.code), 
                 '' 
               ) 
@@ -440,7 +440,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 16, 
-              CONCAT('---->reports: ', permissions.code), 
+              CONCAT('----&gt;reports: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -452,7 +452,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 16, 
-                CONCAT('---->reports: ', permissions.code), 
+                CONCAT('----&gt;reports: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -470,7 +470,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 17, 
-              CONCAT('---->staffaccess: ', permissions.code), 
+              CONCAT('----&gt;staffaccess: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -482,7 +482,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 17, 
-                CONCAT('---->staffaccess: ', permissions.code), 
+                CONCAT('----&gt;staffaccess: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -500,7 +500,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 18, 
-              CONCAT('---->coursereserves: ', permissions.code), 
+              CONCAT('----&gt;coursereserves: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -512,7 +512,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 18, 
-                CONCAT('---->coursereserves: ', permissions.code), 
+                CONCAT('----&gt;coursereserves: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -530,7 +530,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 19, 
-              CONCAT('---->plugins: ', 
+              CONCAT('----&gt;plugins: ', 
                 permissions.code 
               ), 
               '' 
@@ -544,7 +544,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 19, 
-                CONCAT('---->plugins: ', permissions.code), 
+                CONCAT('----&gt;plugins: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -562,7 +562,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 20, 
-              CONCAT('---->lists: ', permissions.code), 
+              CONCAT('----&gt;lists: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -574,7 +574,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 20, 
-                CONCAT('---->lists: ', permissions.code), 
+                CONCAT('----&gt;lists: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -592,7 +592,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 21, 
-              CONCAT('---->clubs: ', permissions.code), 
+              CONCAT('----&gt;clubs: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -604,7 +604,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 21, 
-                CONCAT('---->clubs: ', permissions.code), 
+                CONCAT('----&gt;clubs: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -622,7 +622,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 22, 
-              CONCAT('---->ill: ', permissions.code), 
+              CONCAT('----&gt;ill: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -634,7 +634,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 22, 
-                CONCAT('---->ill: ', permissions.code), 
+                CONCAT('----&gt;ill: ', permissions.code), 
                 '' 
               ) 
               ORDER BY 
@@ -653,7 +653,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 23, 
-              CONCAT('---->self_check: ', permissions.code), 
+              CONCAT('----&gt;self_check: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -665,7 +665,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 23, 
-                CONCAT('---->self_check: ', permissions.code), 
+                CONCAT('----&gt;self_check: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -683,7 +683,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 24, 
-              CONCAT('---->stockrotation: ', permissions.code), 
+              CONCAT('----&gt;stockrotation: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -695,7 +695,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 24, 
-                CONCAT('---->stockrotation: ', permissions.code), 
+                CONCAT('----&gt;stockrotation: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -712,7 +712,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 25, 
-              CONCAT('---->cash_management: ', permissions.code), 
+              CONCAT('----&gt;cash_management: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -724,7 +724,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 25, 
-                CONCAT('---->cash_management: ', permissions.code), 
+                CONCAT('----&gt;cash_management: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -742,7 +742,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 26, 
-              CONCAT('---->problem_reports: ', permissions.code), 
+              CONCAT('----&gt;problem_reports: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -754,7 +754,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 26, 
-                CONCAT('---->problem_reports: ', permissions.code), 
+                CONCAT('----&gt;problem_reports: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -772,7 +772,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 27, 
-              CONCAT('---->recalls: ', permissions.code), 
+              CONCAT('----&gt;recalls: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -784,7 +784,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 27, 
-                CONCAT('---->recalls: ', permissions.code), 
+                CONCAT('----&gt;recalls: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -802,7 +802,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 28, 
-              CONCAT('---->erm: ', permissions.code), 
+              CONCAT('----&gt;erm: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -814,7 +814,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 28, 
-                CONCAT('---->erm: ', permissions.code), 
+                CONCAT('----&gt;erm: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -832,7 +832,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 29, 
-              CONCAT('---->loggedinlibrary: ', permissions.code), 
+              CONCAT('----&gt;loggedinlibrary: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -844,7 +844,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 29, 
-                CONCAT('---->loggedinlibrary: ', permissions.code), 
+                CONCAT('----&gt;loggedinlibrary: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -862,7 +862,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 30, 
-              CONCAT('---->preservation: ', permissions.code), 
+              CONCAT('----&gt;preservation: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -874,7 +874,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 30, 
-                CONCAT('---->preservation: ', permissions.code), 
+                CONCAT('----&gt;preservation: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -892,7 +892,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 31, 
-              CONCAT('---->undefined in 24.11: ', permissions.code), 
+              CONCAT('----&gt;undefined in 24.11: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -904,7 +904,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 31, 
-                CONCAT('---->undefined in 24.11: ', permissions.code), 
+                CONCAT('----&gt;undefined in 24.11: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -922,7 +922,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 32, 
-              CONCAT('---->undefined in 24.11: ', permissions.code), 
+              CONCAT('----&gt;undefined in 24.11: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -934,7 +934,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 32, 
-                CONCAT('---->undefined in 24.11: ', permissions.code), 
+                CONCAT('----&gt;undefined in 24.11: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -952,7 +952,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 33, 
-              CONCAT('---->undefined in 24.11: ', permissions.code), 
+              CONCAT('----&gt;undefined in 24.11: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -964,7 +964,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 33, 
-                CONCAT('---->undefined in 24.11: ', permissions.code), 
+                CONCAT('----&gt;undefined in 24.11: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -982,7 +982,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 34, 
-              CONCAT('---->undefined in 24.11: ', permissions.code), 
+              CONCAT('----&gt;undefined in 24.11: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -994,7 +994,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 34, 
-                CONCAT('---->undefined in 24.11: ', permissions.code), 
+                CONCAT('----&gt;undefined in 24.11: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -1012,7 +1012,7 @@ SELECT
             DISTINCT 
             If( 
               user_permissions.module_bit = 35, 
-              CONCAT('---->undefined in 24.11: ', permissions.code), 
+              CONCAT('----&gt;undefined in 24.11: ', permissions.code), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -1024,7 +1024,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 35, 
-                CONCAT('---->undefined in 24.11: ', permissions.code), 
+                CONCAT('----&gt;undefined in 24.11: ', permissions.code), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -1076,8 +1076,8 @@ FROM
 
 s.borrowernumber = borrowers.borrowernumber 
 WHERE 
-  ((borrowers.flags > 0) OR 
-    (user_permissions.module_bit > 0)) AND 
+  ((borrowers.flags &gt; 0) OR 
+    (user_permissions.module_bit &gt; 0)) AND 
   borrowers.branchcode LIKE "%" 
 GROUP BY 
   borrowers.borrowernumber 

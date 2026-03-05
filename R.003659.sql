@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Shows borrowers sorted by their "Last borrowed" date but only if the last borrowed date was less than 25 months in the past.</p>
-<ul><li>With the home library you specify</li>
-<li>grouped by borrowernumber</li>
-<li>sorted by LAST_BORROWED date</li>
-<li>links to the borrower record</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>This report gets the "LAST_BORROWED" dates from the statistics table in Koha.  As a matter of data security, Next Search Catalog only keeps data in the statistics table for the previous 25 months, therefore, the "LAST_BORROWED" date will never be more than 25 months in the past.</p>
-<p></p>
-<p class= "notetags" style="display: none;">#last borrowed</p>
-<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div> 
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Shows borrowers sorted by their "Last borrowed" date but only if the last borrowed date was less than 25 months in the past.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;With the home library you specify&lt;/li&gt;
+&lt;li&gt;grouped by borrowernumber&lt;/li&gt;
+&lt;li&gt;sorted by LAST_BORROWED date&lt;/li&gt;
+&lt;li&gt;links to the borrower record&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;This report gets the "LAST_BORROWED" dates from the statistics table in Koha.  As a matter of data security, Next Search Catalog only keeps data in the statistics table for the previous 25 months, therefore, the "LAST_BORROWED" date will never be more than 25 months in the past.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;#last borrowed&lt;/p&gt;
+&lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt;
+&lt;/div&gt; 
 
 ----------
 */
@@ -84,7 +84,7 @@ FROM
     WHERE
       (statistics.type = 'issue' OR
         statistics.type = 'renew') AND
-      statistics.branch = <>
+      statistics.branch = &lt;&gt;
     GROUP BY
       statistics.borrowernumber
     ORDER BY
@@ -99,12 +99,12 @@ FROM
     GROUP BY
       accountlines.borrowernumber
     HAVING
-      Sum(accountlines.amountoutstanding) > 0) accountliness ON
+      Sum(accountlines.amountoutstanding) &gt; 0) accountliness ON
       accountliness.borrowernumber = borrowers.borrowernumber
 WHERE
-  borrowers.branchcode LIKE <> AND
-  borrowers.categorycode LIKE <> AND
-  statisticss.Max_datetime < <>
+  borrowers.branchcode LIKE &lt;&gt; AND
+  borrowers.categorycode LIKE &lt;&gt; AND
+  statisticss.Max_datetime &lt; &lt;&gt;
 ORDER BY
   LAST_BORROWED DESC
 

@@ -29,7 +29,7 @@ Expiry: 300
 
 
 
-SELECT *
+SELECT &ast;
 FROM borrowers
 WHERE borrowers.branchcode = 'PAOLA'
 

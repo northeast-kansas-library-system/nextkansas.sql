@@ -13,7 +13,7 @@ Group: Holds-Reserves
 
 Created on: 2012-12-18 21:23:39
 Modified on: 2013-06-23 12:32:43
-Date last run: 2025-10-09 16:53:21
+Date last run: 2026-01-08 17:48:56
 
 ----------
 
@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-SELECT MONTH(timestamp), YEAR(timestamp), count(*) FROM old_reserves WHERE old_reserves.branchcode = <> GROUP BY MONTH(timestamp), YEAR(timestamp) ORDER BY YEAR(timestamp) DESC, MONTH(timestamp) DESC
+SELECT MONTH(timestamp), YEAR(timestamp), count(&ast;) FROM old_reserves WHERE old_reserves.branchcode = &lt;&gt; GROUP BY MONTH(timestamp), YEAR(timestamp) ORDER BY YEAR(timestamp) DESC, MONTH(timestamp) DESC
 
 
 

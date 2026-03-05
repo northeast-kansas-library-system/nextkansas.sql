@@ -13,7 +13,7 @@ Group: Popular Reports
 
 Created on: 2010-02-03 11:08:36
 Modified on: 2023-10-16 21:57:07
-Date last run: 2025-08-18 09:47:22
+Date last run: 2026-01-19 14:38:04
 
 ----------
 
@@ -22,23 +22,23 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a list of all bibliographic records with requests sorted by the number of requests on each record</p>
-<ul><li>Shows records with unfilled reqeusts on them</li>
-<li>at all Next Search Catalog libraries</li>
-<li>grouped by biblionumber</li>
-<li>sorted by number of reqeusts</li>
-<li>links to the bibliographic records</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Formerly titled "Most Reserved Titles"</p>
-<p></p>
-<p>Updated by GHW on 2021.04.02</p>
-<p></p>
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=803">Click here to download as a csv file</a></p>
-<p class= "notetags" style="display: none;">requests</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a list of all bibliographic records with requests sorted by the number of requests on each record&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows records with unfilled reqeusts on them&lt;/li&gt;
+&lt;li&gt;at all Next Search Catalog libraries&lt;/li&gt;
+&lt;li&gt;grouped by biblionumber&lt;/li&gt;
+&lt;li&gt;sorted by number of reqeusts&lt;/li&gt;
+&lt;li&gt;links to the bibliographic records&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Formerly titled "Most Reserved Titles"&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Updated by GHW on 2021.04.02&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p id="rquickdown"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=803"&gt;Click here to download as a csv file&lt;/a&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;requests&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */

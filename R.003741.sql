@@ -22,11 +22,11 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
+&lt;div class="reportinfo noprint"&gt; 
 
 ADMINREPORT
 
-</div>
+&lt;/div&gt;
 
 ----------
 */
@@ -53,12 +53,12 @@ From
   borrowers
 Where
   borrowers.branchcode = 'BONNERSPGS' And
-  borrowers.categorycode <> 'BOOKCLUB' And
-  borrowers.categorycode <> 'ILL' And
-  borrowers.categorycode <> 'INHOUSE' And
-  borrowers.categorycode <> 'S_SIP' And
-  borrowers.categorycode <> 'STAFF' And
-  borrowers.categorycode <> 'ASSOCIATE'
+  borrowers.categorycode &lt;&gt; 'BOOKCLUB' And
+  borrowers.categorycode &lt;&gt; 'ILL' And
+  borrowers.categorycode &lt;&gt; 'INHOUSE' And
+  borrowers.categorycode &lt;&gt; 'S_SIP' And
+  borrowers.categorycode &lt;&gt; 'STAFF' And
+  borrowers.categorycode &lt;&gt; 'ASSOCIATE'
 
 
 

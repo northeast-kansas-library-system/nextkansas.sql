@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2009-10-15 16:24:36
 Modified on: 2013-06-18 09:35:05
-Date last run: 2025-08-02 10:51:58
+Date last run: 2025-11-18 09:24:36
 
 ----------
 
@@ -29,7 +29,7 @@ Enhanced. Do not edit.
 
 
 
-SELECT borrowers.surname, borrowers.firstname, borrowers.cardnumber, borrowers.branchcode, borrowers.city, issues.date_due, (TO_DAYS(curdate())-TO_DAYS( date_due)) as 'days overdue', items.itype, items.replacementprice, items.itemcallnumber, items.barcode, items.homebranch, biblio.title, biblio.author FROM borrowers LEFT JOIN issues USING (borrowernumber) LEFT JOIN items USING (itemnumber) LEFT JOIN biblio USING (biblionumber) WHERE (TO_DAYS(curdate())-TO_DAYS(date_due)) > <> and issues.branchcode =<> and items.homebranch <> <> order by borrowers.surname asc, issues.date_due asc
+SELECT borrowers.surname, borrowers.firstname, borrowers.cardnumber, borrowers.branchcode, borrowers.city, issues.date_due, (TO_DAYS(curdate())-TO_DAYS( date_due)) as 'days overdue', items.itype, items.replacementprice, items.itemcallnumber, items.barcode, items.homebranch, biblio.title, biblio.author FROM borrowers LEFT JOIN issues USING (borrowernumber) LEFT JOIN items USING (itemnumber) LEFT JOIN biblio USING (biblionumber) WHERE (TO_DAYS(curdate())-TO_DAYS(date_due)) &gt; &lt;&gt; and issues.branchcode =&lt;&gt; and items.homebranch &lt;&gt; &lt;&gt; order by borrowers.surname asc, issues.date_due asc
 
 
 

@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a list of items checked out at a specified branch that are owned by a specified branch and are now overdue for more than a specified number of days</p>
-<ul><li>Shows current data</li>
-<li>Shows items checked out at the library you specify, owned by the location you specify, and overdue for more than the number of days you specify</li>
-<li>grouped by check-out library, owning library, item classification, author, title, and due date</li>
-<li>contains links to the item's bibliographic record</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p>Report created at the request of LANSING.</p>
-<p>Report created by George Williams.</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a list of items checked out at a specified branch that are owned by a specified branch and are now overdue for more than a specified number of days&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows current data&lt;/li&gt;
+&lt;li&gt;Shows items checked out at the library you specify, owned by the location you specify, and overdue for more than the number of days you specify&lt;/li&gt;
+&lt;li&gt;grouped by check-out library, owning library, item classification, author, title, and due date&lt;/li&gt;
+&lt;li&gt;contains links to the item's bibliographic record&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;Report created at the request of LANSING.&lt;/p&gt;
+&lt;p&gt;Report created by George Williams.&lt;/p&gt;
+&lt;/div&gt;
 
 
 ----------
@@ -65,9 +65,9 @@ FROM
   issues
     ON issues.itemnumber = items.itemnumber
 WHERE
-  issues.branchcode  LIKE <>AND
-  items.homebranch  LIKE <> AND
-  items.onloan <= (NOW() - INTERVAL <> DAY)
+  issues.branchcode  LIKE &lt;&gt;AND
+  items.homebranch  LIKE &lt;&gt; AND
+  items.onloan &lt;= (NOW() - INTERVAL &lt;&gt; DAY)
 GROUP BY
   issues.branchcode,
   items.homebranch,

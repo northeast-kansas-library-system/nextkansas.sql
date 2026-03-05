@@ -55,7 +55,7 @@ FROM
      DayName(statistics.datetime) AS DAY, 
      Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE, 
      Hour(statistics.datetime) AS HOUR_OF_DAY, 
-     count(*) AS COUNT 
+     count(&ast;) AS COUNT 
    FROM 
      statistics 
    WHERE 
@@ -78,7 +78,7 @@ FROM
      DayName(statistics.datetime) AS DAY, 
      Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE, 
      Hour(statistics.datetime) AS HOUR_OF_DAY, 
-     count(*) AS COUNT 
+     count(&ast;) AS COUNT 
    FROM 
      statistics 
    WHERE 
@@ -101,7 +101,7 @@ FROM
      DayName(statistics.datetime) AS DAY, 
      Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE, 
      Hour(statistics.datetime) AS HOUR_OF_DAY, 
-     count(*) AS COUNT 
+     count(&ast;) AS COUNT 
    FROM 
      statistics 
    WHERE 
@@ -124,7 +124,7 @@ FROM
      DayName(statistics.datetime) AS DAY, 
      Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE, 
      Hour(statistics.datetime) AS HOUR_OF_DAY, 
-     count(*) AS COUNT 
+     count(&ast;) AS COUNT 
    FROM 
      statistics 
    WHERE 
@@ -211,7 +211,7 @@ FROM
     AND renewborrowers.DATE = ALL_STATS.DATE 
     AND renewborrowers.HOUR_OF_DAY = ALL_STATS.HOUR_OF_DAY 
 WHERE 
-  branchess.branchcode LIKE <> 
+  branchess.branchcode LIKE &lt;&gt; 
 GROUP BY 
   branchess.branchname, 
   ALL_STATS.DATE, 

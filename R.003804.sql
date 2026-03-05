@@ -30,7 +30,7 @@ Pulls list of GMDs in use in the catalog
 
 
 SELECT ExtractValue(metadata, '//datafield[@tag="245"]/subfield[@code="h"]') AS GMD, 
-       count(*) AS COUNT
+       count(&ast;) AS COUNT
        From biblio_metadata 
        GROUP BY GMD ORDER BY COUNT DESC
 

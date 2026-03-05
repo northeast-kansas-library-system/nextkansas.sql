@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a list of patrons with contact information based on the "Other attributes 1," "Other attributes 2," and "Registration library" attributes</p>
-<ul><li>Shows current patrons</li>
-<li>with the home library you specify</li>
-<li>grouped by borrower number and attribute</li>
-<li>sorted by patron last name/patron first name</li>
-<li>contains links to the patron's account</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>This report can be used to determine which patrons at your library have any of these attributes set.</p>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3093&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a list of patrons with contact information based on the "Other attributes 1," "Other attributes 2," and "Registration library" attributes&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows current patrons&lt;/li&gt;
+&lt;li&gt;with the home library you specify&lt;/li&gt;
+&lt;li&gt;grouped by borrower number and attribute&lt;/li&gt;
+&lt;li&gt;sorted by patron last name/patron first name&lt;/li&gt;
+&lt;li&gt;contains links to the patron's account&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;This report can be used to determine which patrons at your library have any of these attributes set.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p id="rquickopen"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3093&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -93,11 +93,11 @@ FROM
         borrower_attributes.borrowernumber,
         borrower_attributes.code) registrationbranch ON borrowers.borrowernumber = registrationbranch.borrowernumber
 WHERE
-  borrowers.branchcode LIKE <> AND
-  borrowers.categorycode LIKE <> AND
-  Coalesce(otherinfoone.attribute, "~") LIKE Concat("%", <>, "%") AND
-  Coalesce(otherinfotwo.attribute, "~") LIKE Concat("%", <>, "%") AND
-  Coalesce(registrationbranch.attribute, "~") LIKE Concat("%", <>, "%")
+  borrowers.branchcode LIKE &lt;&gt; AND
+  borrowers.categorycode LIKE &lt;&gt; AND
+  Coalesce(otherinfoone.attribute, "~") LIKE Concat("%", &lt;&gt;, "%") AND
+  Coalesce(otherinfotwo.attribute, "~") LIKE Concat("%", &lt;&gt;, "%") AND
+  Coalesce(registrationbranch.attribute, "~") LIKE Concat("%", &lt;&gt;, "%")
 GROUP BY
   borrowers.email,
   borrowers.dateofbirth,

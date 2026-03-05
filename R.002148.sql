@@ -13,7 +13,7 @@ Group: Daily, Monthly, Yearly Stats
 
 Created on: 2014-01-08 16:25:53
 Modified on: 2014-01-08 16:25:53
-Date last run: 2025-09-11 16:29:02
+Date last run: 2026-01-06 10:45:04
 
 ----------
 
@@ -29,7 +29,7 @@ Expiry: 300
 
 
 
-SELECT count(itemnumber) as deleted, ccode, location from deleteditems WHERE homebranch=<> AND year(timestamp) = <> GROUP BY ccode,location ORDER BY  ccode,location 
+SELECT count(itemnumber) as deleted, ccode, location from deleteditems WHERE homebranch=&lt;&gt; AND year(timestamp) = &lt;&gt; GROUP BY ccode,location ORDER BY  ccode,location 
 
 
 

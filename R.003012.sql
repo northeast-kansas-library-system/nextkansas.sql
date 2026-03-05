@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Shows patrons with a restriction on their account that my no longer be justified</p>
-<ul><li>Shows current restrictions</li>
-<li>shows patrons based on the home library you select when running the report</li>
-<li>grouped by borrowernumber and borrower_debarment_id</li>
-<li>sorted by borrower homebranch and date the restriction was created</li>
-<li>links</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>There are thousands of restrictions that were added manually on 2014.03.12 in an effort to clear up some database issues.  None of the 2014.03.12 restrictions have any comments or notes explaining the reason for the restriction.</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3012&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Shows patrons with a restriction on their account that my no longer be justified&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows current restrictions&lt;/li&gt;
+&lt;li&gt;shows patrons based on the home library you select when running the report&lt;/li&gt;
+&lt;li&gt;grouped by borrowernumber and borrower_debarment_id&lt;/li&gt;
+&lt;li&gt;sorted by borrower homebranch and date the restriction was created&lt;/li&gt;
+&lt;li&gt;links&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;There are thousands of restrictions that were added manually on 2014.03.12 in an effort to clear up some database issues.  None of the 2014.03.12 restrictions have any comments or notes explaining the reason for the restriction.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3012&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -58,7 +58,7 @@ FROM
   LEFT JOIN issues ON issues.borrowernumber = borrowers.borrowernumber
   JOIN borrower_debarments ON borrower_debarments.borrowernumber = borrowers.borrowernumber
 WHERE
-  borrowers.branchcode LIKE <>
+  borrowers.branchcode LIKE &lt;&gt;
 GROUP BY
   borrowers.borrowernumber,
   borrower_debarments.borrower_debarment_id

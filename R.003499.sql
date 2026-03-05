@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2021-04-30 15:05:03
 Modified on: 2025-04-30 10:22:12
-Date last run: 2025-10-23 09:27:03
+Date last run: 2026-01-01 00:30:02
 
 ----------
 
@@ -22,32 +22,32 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Circulation by library details spreadsheet report - hourly circulation</p> 
-<ul><li>Shows counts of check-outs, renewals, and returns in the previous calendar month</li> 
-<li>At all Next Search Catalog libraries</li> 
-<li>grouped and sorted by library name, date, and hour</li> 
-</ul><br /> 
-<p><ins>Notes:</ins></p> 
-<p></p> 
-<ul> 
-  <li>CKO =  number of items newly checked out</li> 
-  <li>RENEW = number of items renewed</li> 
-  <li>RETURNS = number of items checked in</li> 
-  <li>TOTAL_CKO_RENEW_RETURN = sum of the previous 3 columns</li> 
-  <li>CKO_BORROWERS = number of unique accounts used to check out the items in the CKO column</li> 
-  <li>RENEW_BORROWERS = number of unique accounts used to renew the items in the RENEW column</li> 
-  <li>CKO_AND_RENEW_BORROWERS = number of unique accounts used to check out and renew items</li> 
-</ul> 
-<p></p> 
-<p>OPAC renewals are counted as occurring at the library where the item was originally checked out.  This is why you may see data for days and times that your library is closed.</p> 
-<p></p> 
-<p class="updated">This report and these notes updated on 2025.02.08</p> 
-<p></p> 
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id= 3499">Click here to download as a csv file</a></p> 
-<p class= "notetags" style="display: none;">#monthly #statistics #library #details #hourly #cirulation_by_library_details</p> 
-<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
-</div> 
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Circulation by library details spreadsheet report - hourly circulation&lt;/p&gt; 
+&lt;ul&gt;&lt;li&gt;Shows counts of check-outs, renewals, and returns in the previous calendar month&lt;/li&gt; 
+&lt;li&gt;At all Next Search Catalog libraries&lt;/li&gt; 
+&lt;li&gt;grouped and sorted by library name, date, and hour&lt;/li&gt; 
+&lt;/ul&gt;&lt;br /&gt; 
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+  &lt;li&gt;CKO =  number of items newly checked out&lt;/li&gt; 
+  &lt;li&gt;RENEW = number of items renewed&lt;/li&gt; 
+  &lt;li&gt;RETURNS = number of items checked in&lt;/li&gt; 
+  &lt;li&gt;TOTAL_CKO_RENEW_RETURN = sum of the previous 3 columns&lt;/li&gt; 
+  &lt;li&gt;CKO_BORROWERS = number of unique accounts used to check out the items in the CKO column&lt;/li&gt; 
+  &lt;li&gt;RENEW_BORROWERS = number of unique accounts used to renew the items in the RENEW column&lt;/li&gt; 
+  &lt;li&gt;CKO_AND_RENEW_BORROWERS = number of unique accounts used to check out and renew items&lt;/li&gt; 
+&lt;/ul&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;OPAC renewals are counted as occurring at the library where the item was originally checked out.  This is why you may see data for days and times that your library is closed.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p class="updated"&gt;This report and these notes updated on 2025.02.08&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p id="rquickdown"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id= 3499"&gt;Click here to download as a csv file&lt;/a&gt;&lt;/p&gt; 
+&lt;p class= "notetags" style="display: none;"&gt;#monthly #statistics #library #details #hourly #cirulation_by_library_details&lt;/p&gt; 
+&lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt; 
+&lt;/div&gt; 
 
 ----------
 */
@@ -92,7 +92,7 @@ FROM
      DayName(statistics.datetime) AS DAY, 
      Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE, 
      Hour(statistics.datetime) AS HOUR_OF_DAY, 
-     count(*) AS COUNT 
+     count(&ast;) AS COUNT 
    FROM 
      statistics 
    WHERE 
@@ -115,7 +115,7 @@ FROM
      DayName(statistics.datetime) AS DAY, 
      Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE, 
      Hour(statistics.datetime) AS HOUR_OF_DAY, 
-     count(*) AS COUNT 
+     count(&ast;) AS COUNT 
    FROM 
      statistics 
    WHERE 
@@ -138,7 +138,7 @@ FROM
      DayName(statistics.datetime) AS DAY, 
      Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE, 
      Hour(statistics.datetime) AS HOUR_OF_DAY, 
-     count(*) AS COUNT 
+     count(&ast;) AS COUNT 
    FROM 
      statistics 
    WHERE 
@@ -161,7 +161,7 @@ FROM
      DayName(statistics.datetime) AS DAY, 
      Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE, 
      Hour(statistics.datetime) AS HOUR_OF_DAY, 
-     count(*) AS COUNT 
+     count(&ast;) AS COUNT 
    FROM 
      statistics 
    WHERE 

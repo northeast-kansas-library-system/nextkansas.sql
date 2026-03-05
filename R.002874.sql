@@ -13,7 +13,7 @@ Group: Fines/Fees
 
 Created on: 2017-01-04 12:34:28
 Modified on: 2024-01-17 11:46:31
-Date last run: 2025-10-13 11:56:54
+Date last run: 2025-12-08 19:48:40
 
 ----------
 
@@ -22,20 +22,20 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Reports on fee payment/credit/writeoff activity at a library</p>
-<ul><li>Shows activity during a specified date range (between the beginning of the day on the specified "START DATE" to the end of the day on the specified "END DATE")</li>
-<li>Shows all fees collected/processed at a specified library</li>
-<li>grouped by accountlines_id</li>
-<li>sorted by payment locttion, payment type, payment timestamp</li>
-<li>links to the payment accountline details page</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Updated may 5, 2021.</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2874&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Reports on fee payment/credit/writeoff activity at a library&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows activity during a specified date range (between the beginning of the day on the specified "START DATE" to the end of the day on the specified "END DATE")&lt;/li&gt;
+&lt;li&gt;Shows all fees collected/processed at a specified library&lt;/li&gt;
+&lt;li&gt;grouped by accountlines_id&lt;/li&gt;
+&lt;li&gt;sorted by payment locttion, payment type, payment timestamp&lt;/li&gt;
+&lt;li&gt;links to the payment accountline details page&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Updated may 5, 2021.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2874&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -63,10 +63,10 @@ FROM
   borrowers staff ON staff.borrowernumber = accountlines.manager_id LEFT JOIN
   borrowers patrons ON accountlines.borrowernumber = patrons.borrowernumber
 WHERE
-  staff.branchcode LIKE <> AND
+  staff.branchcode LIKE &lt;&gt; AND
   staff.categorycode = 'STAFF' AND
   accountlines.credit_type_code IS NOT NULL AND
-  accountlines.timestamp BETWEEN <> AND <> + INTERVAL 1 DAY
+  accountlines.timestamp BETWEEN &lt;&gt; AND &lt;&gt; + INTERVAL 1 DAY
 GROUP BY
   accountlines.accountlines_id
 ORDER BY

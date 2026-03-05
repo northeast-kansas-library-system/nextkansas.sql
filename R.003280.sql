@@ -22,17 +22,17 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Counts borrowers by homebranch and city/state</p>
-<ul><li>counts patrons currently in the system</li>
-<li>at the library you specify, at the group of libraries you specify, or at all libraries</li>
-<li>grouped by borrower home library, borrower city, and borrower state</li>
-<li>sorted by home library, city, and state</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3280&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Counts borrowers by homebranch and city/state&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;counts patrons currently in the system&lt;/li&gt;
+&lt;li&gt;at the library you specify, at the group of libraries you specify, or at all libraries&lt;/li&gt;
+&lt;li&gt;grouped by borrower home library, borrower city, and borrower state&lt;/li&gt;
+&lt;li&gt;sorted by home library, city, and state&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3280&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -84,7 +84,7 @@ FROM
     FROM
       borrowers
     WHERE
-      borrowers.dateexpiry >= Now()
+      borrowers.dateexpiry &gt;= Now()
     GROUP BY
       borrowers.branchcode,
       borrowers.city,
@@ -94,7 +94,7 @@ FROM
       borrowers_unepired.state = information1.state AND
       borrowers_unepired.HOMEBRANCH = information1.HOMEBRANCH
 WHERE
-  information1.HOMEBRANCH LIKE <>
+  information1.HOMEBRANCH LIKE &lt;&gt;
 GROUP BY
   information1.HOMEBRANCH,
   information1.city,

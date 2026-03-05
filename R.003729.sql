@@ -58,9 +58,9 @@ FROM
   JOIN
   branches ON items.homebranch = branches.branchcode
 WHERE
-  items.homebranch LIKE <> AND
-  items.permanent_location LIKE <> AND
-  items.itype LIKE <>
+  items.homebranch LIKE &lt;&gt; AND
+  items.permanent_location LIKE &lt;&gt; AND
+  items.itype LIKE &lt;&gt;
 GROUP BY
   branches.branchname,
   locs.lib,

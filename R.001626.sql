@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2012-11-09 12:18:19
 Modified on: 2013-09-25 17:14:56
-Date last run: 2025-02-25 13:55:23
+Date last run: 2025-11-12 18:06:00
 
 ----------
 
@@ -29,7 +29,7 @@ A revised version of 1128 #circ
 
 
 
-SELECT items.ccode, items.location, substring(items.itemcallnumber,1,1) AS 'Call Number range', count(*) AS count FROM statistics LEFT JOIN items USING (itemnumber) WHERE statistics.type IN ('issue', 'renew') AND YEAR(datetime) = <> AND statistics.branch = <> GROUP BY items.ccode, items.location, substring(items.itemcallnumber,1,1)
+SELECT items.ccode, items.location, substring(items.itemcallnumber,1,1) AS 'Call Number range', count(&ast;) AS count FROM statistics LEFT JOIN items USING (itemnumber) WHERE statistics.type IN ('issue', 'renew') AND YEAR(datetime) = &lt;&gt; AND statistics.branch = &lt;&gt; GROUP BY items.ccode, items.location, substring(items.itemcallnumber,1,1)
 
 
 

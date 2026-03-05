@@ -31,7 +31,7 @@ Expiry: 5
 
 SELECT UPPER(cardnumber)
 FROM borrowers
-WHERE borrowernumber = <>
+WHERE borrowernumber = &lt;&gt;
 
 
 

@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Identifies borrowers who need to be assessed a $20.00 lost item processing fee at SENECA</p>
-<ul><li>Shows borrowers who borrowed items from SENECA and the item was marked as "Lost (more than 45 days overdue)" within the last XX days</li>
-<li>Shows items checked out at SENECA regardless of the item's home library</li>
-<li>grouped by the issue_id of the checkout</li>
-<li>sorted by the date the item was lost</li>
-<li>contains links to the item and links to the borrower</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Notes go here.</p>
-<p></p>
-<p>Should not be exported to a csv file.  This is customized to be run from the screen.</p>
-<p class= "notetags" style="display: none;">#seneca, processing fee, </p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Identifies borrowers who need to be assessed a $20.00 lost item processing fee at SENECA&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows borrowers who borrowed items from SENECA and the item was marked as "Lost (more than 45 days overdue)" within the last XX days&lt;/li&gt;
+&lt;li&gt;Shows items checked out at SENECA regardless of the item's home library&lt;/li&gt;
+&lt;li&gt;grouped by the issue_id of the checkout&lt;/li&gt;
+&lt;li&gt;sorted by the date the item was lost&lt;/li&gt;
+&lt;li&gt;contains links to the item and links to the borrower&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Notes go here.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Should not be exported to a csv file.  This is customized to be run from the screen.&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;#seneca, processing fee, &lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -62,7 +62,7 @@ SELECT
     ),
     borrowers.borrowernumber
   ) AS BORROWER,
-  Concat_Ws(' <br &#47;><br &#47;> ', 
+  Concat_Ws(' &lt;br &#47;&gt;&lt;br &#47;&gt; ', 
     'LOST ITEM PROCESSING FEE: ', 
     Concat('Item barcode: ', item_info.barcode), 
     Concat('Owned by: ', item_info.homebranch),
@@ -73,7 +73,7 @@ SELECT
     Concat('Author: ', item_info.author), 
     Concat('Title: ', item_info.FULL_TITLE),
     Concat('Due date: ', old_checkouts.ORIGINAL_DUE_DATE), 
-    Concat('Lost on: ', item_info.LOST_ON_DATE, '<br &#47;><br &#47;>')
+    Concat('Lost on: ', item_info.LOST_ON_DATE, '&lt;br &#47;&gt;&lt;br &#47;&gt;')
   ) AS FEE_NOTE
 FROM
   (SELECT
@@ -161,7 +161,7 @@ FROM
       item_info.LOST_ON_DATE = old_checkouts.LOST_DATE JOIN
   borrowers ON borrowers.borrowernumber = old_checkouts.borrowernumber
 WHERE
-  item_info.LOST_ON_DATE > (Now() - INTERVAL <> DAY)
+  item_info.LOST_ON_DATE &gt; (Now() - INTERVAL &lt;&gt; DAY)
 GROUP BY
   old_checkouts.itemnumber
 ORDER BY

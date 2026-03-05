@@ -13,7 +13,7 @@ Group: Daily, Monthly, Yearly Stats
 
 Created on: 2014-02-28 15:23:13
 Modified on: 2014-02-28 15:23:13
-Date last run: 2025-10-02 12:16:10
+Date last run: 2026-01-08 17:48:07
 
 ----------
 
@@ -29,7 +29,7 @@ Expiry: 300
 
 
 
-SELECT count(*) FROM borrowers WHERE branchcode=<> AND year(dateenrolled)=<> AND month(dateenrolled)=<>
+SELECT count(&ast;) FROM borrowers WHERE branchcode=&lt;&gt; AND year(dateenrolled)=&lt;&gt; AND month(dateenrolled)=&lt;&gt;
 
 
 

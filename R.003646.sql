@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2022-02-06 01:06:29
 Modified on: 2024-01-17 11:29:21
-Date last run: 2025-10-09 16:47:02
+Date last run: 2026-01-14 14:36:02
 
 ----------
 
@@ -22,23 +22,23 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Circulation and renewal count by library, location, item type, and collection code.</p>
-<ul><li>Shows circulation in the month you specify (limited to the previous 25 months)</li>
-<li>at the library you specify</li>
-<li>grouped by circulating library, location, item type, and collection code</li>
-<li>sorted by circulating library, item type, and collection code</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Replaces reports:</p>
-<ul>
-<li>1930</li>
-<li>3165</li>
-</ul>
-<p></p>
-<p class= "notetags" style="display: none;">#circ_count_by_library #circ_count_by_itype #circ_count_by_ccode #circ_count_by_location</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Circulation and renewal count by library, location, item type, and collection code.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows circulation in the month you specify (limited to the previous 25 months)&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped by circulating library, location, item type, and collection code&lt;/li&gt;
+&lt;li&gt;sorted by circulating library, item type, and collection code&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Replaces reports:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1930&lt;/li&gt;
+&lt;li&gt;3165&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;#circ_count_by_library #circ_count_by_itype #circ_count_by_ccode #circ_count_by_location&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -64,14 +64,14 @@ FROM
      statistics.branch,
      statistics.itemtype,
      statistics.ccode,
-     Count(*) AS count
+     Count(&ast;) AS count
    FROM
      statistics
    WHERE
-     statistics.branch LIKE <> AND
+     statistics.branch LIKE &lt;&gt; AND
      statistics.type IN ('issue', 'renew') AND
-     Year(statistics.datetime) = <> AND
-     Month(statistics.datetime)= <> 
+     Year(statistics.datetime) = &lt;&gt; AND
+     Month(statistics.datetime)= &lt;&gt; 
    GROUP BY
      statistics.branch,
      statistics.itemtype,
@@ -85,16 +85,16 @@ FROM
      ) AS LOC,
      statistics.itemtype,
      statistics.ccode,
-     Count(*) AS count
+     Count(&ast;) AS count
    FROM
      statistics LEFT JOIN
      items ON items.itemnumber = statistics.itemnumber LEFT JOIN
      deleteditems ON deleteditems.itemnumber = statistics.itemnumber
    WHERE
-     statistics.branch LIKE <> AND
+     statistics.branch LIKE &lt;&gt; AND
      statistics.type IN ('issue', 'renew') AND
-     Month(statistics.datetime)= <> AND
-     Year(statistics.datetime) = <> AND
+     Month(statistics.datetime)= &lt;&gt; AND
+     Year(statistics.datetime) = &lt;&gt; AND
      If(statistics.location = "CART", 
        Coalesce(items.permanent_location, deleteditems.permanent_location), 
        statistics.location
@@ -117,16 +117,16 @@ FROM
      ) AS LOC,
      statistics.itemtype,
      statistics.ccode,
-     Count(*) AS count
+     Count(&ast;) AS count
    FROM
      statistics LEFT JOIN
      items ON items.itemnumber = statistics.itemnumber LEFT JOIN
      deleteditems ON deleteditems.itemnumber = statistics.itemnumber
    WHERE
-     statistics.branch LIKE <> AND
+     statistics.branch LIKE &lt;&gt; AND
      statistics.type IN ('issue', 'renew') AND
-     Month(statistics.datetime)= <> AND
-     Year(statistics.datetime) = <> AND
+     Month(statistics.datetime)= &lt;&gt; AND
+     Year(statistics.datetime) = &lt;&gt; AND
      If(statistics.location = "CART", 
        Coalesce(items.permanent_location, deleteditems.permanent_location), 
        statistics.location
@@ -149,16 +149,16 @@ FROM
      ) AS LOC,
      statistics.itemtype,
      statistics.ccode,
-     Count(*) AS count
+     Count(&ast;) AS count
    FROM
      statistics LEFT JOIN
      items ON items.itemnumber = statistics.itemnumber LEFT JOIN
      deleteditems ON deleteditems.itemnumber = statistics.itemnumber
    WHERE
-     statistics.branch LIKE <> AND
+     statistics.branch LIKE &lt;&gt; AND
      statistics.type IN ('issue', 'renew') AND
-     Month(statistics.datetime)= <> AND
-     Year(statistics.datetime) = <> AND
+     Month(statistics.datetime)= &lt;&gt; AND
+     Year(statistics.datetime) = &lt;&gt; AND
      If(statistics.location = "CART", 
        Coalesce(items.permanent_location, deleteditems.permanent_location), 
        statistics.location

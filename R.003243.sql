@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-08-02 23:23:38
 Modified on: 2024-01-17 12:08:45
-Date last run: 2025-10-27 09:30:49
+Date last run: 2026-01-28 16:37:03
 
 ----------
 
@@ -22,11 +22,11 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Part 3 of the patron purge process - part 3 - change extended attribute to 5-16 ("Account expired for more than 3 years - scheduled to be auto-deleted on mm.dd") as appropriate based on PROJECTED_DELETION date</p>
-<p></p>
-<p class= "notetags" style="display: none;">#PP03 #patron_purge</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Part 3 of the patron purge process - part 3 - change extended attribute to 5-16 ("Account expired for more than 3 years - scheduled to be auto-deleted on mm.dd") as appropriate based on PROJECTED_DELETION date&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;#PP03 #patron_purge&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -45,7 +45,7 @@ SELECT
   borrowers.dateenrolled,
   borrowers.dateexpiry,
   If(
-    Day(Now()) >= 15, 
+    Day(Now()) &gt;= 15, 
     Date_Format(Now() + INTERVAL 3 MONTH, '%Y-%m-15'),
     Date_Format(Now() + INTERVAL 2 MONTH, '%Y-%m-15')
   ) AS PROJECTED_DELETION,
@@ -105,17 +105,17 @@ FROM
       borrower_relationships.guarantor_id) guaranteesx ON
       guaranteesx.guarantor_id = borrowers.borrowernumber
 WHERE
-  borrowers.dateexpiry < CurDate() - INTERVAL 3 YEAR AND
+  borrowers.dateexpiry &lt; CurDate() - INTERVAL 3 YEAR AND
   borrowers.branchcode LIKE '%' AND
   Coalesce(borrowers.othernames, "0") NOT LIKE "%SIP%" AND
-  borrowers.categorycode <> 'STAFF' AND
-  borrowers.categorycode <> 'ILL' AND
-  borrowers.categorycode <> 'HOOPLA' AND
+  borrowers.categorycode &lt;&gt; 'STAFF' AND
+  borrowers.categorycode &lt;&gt; 'ILL' AND
+  borrowers.categorycode &lt;&gt; 'HOOPLA' AND
   Coalesce(accountlinesx.DUE_SUM, 0) = 0 AND
   Coalesce(issuesx.ICOUNT, 0) = 0 AND
   Coalesce(guaranteesx.GCOUNT, 0) = 0 AND
   Coalesce(requestsx.Count_reserve_id, 0) = 0 AND
-  (Coalesce(expired_attribute.attribute, 0) < 5 OR
+  (Coalesce(expired_attribute.attribute, 0) &lt; 5 OR
     expired_attribute.attribute IS NULL)
 GROUP BY
   borrowers.borrowernumber

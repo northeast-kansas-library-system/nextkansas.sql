@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2018-08-13 15:03:41
 Modified on: 2025-04-02 16:24:45
-Date last run: 2025-09-29 09:10:56
+Date last run: 2026-01-27 10:39:34
 
 ----------
 
@@ -22,173 +22,173 @@ Expiry: 300
 
 ----------
 
-<div class="next_report_info next_noprint">
+&lt;div class="next_report_info next_noprint"&gt;
 
-  <p>Basic information about an item that has been deleted</p>
+  &lt;p&gt;Basic information about an item that has been deleted&lt;/p&gt;
 
-  <div class="accordion accordion-flush">
+  &lt;div class="accordion accordion-flush"&gt;
 
-    <div id="report-function" class="accordion-item">
+    &lt;div id="report-function" class="accordion-item"&gt;
 
-      <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+      &lt;h2 class="accordion-header" id="panelsStayOpen-headingOne"&gt;
 
-        <button class="accordion-button next_report_function" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+        &lt;button class="accordion-button next_report_function" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne"&gt;
 
             Report function:
 
-        </button>
+        &lt;/button&gt;
 
-      </h2>
+      &lt;/h2&gt;
 
-      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-        <div class="accordion-body">
+      &lt;div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne"&gt;
+        &lt;div class="accordion-body"&gt;
 
-        <ul>
-          <li>
+        &lt;ul&gt;
+          &lt;li&gt;
             Shows items that are currently in the deleteditems table.  Item data is stored in the deleteditems table for 13 months after an item is deleted.
-          </li>
-          <li>
+          &lt;/li&gt;
+          &lt;li&gt;
             Shows items with the barcode numbers you specify
-          </li>
-          <li>
+          &lt;/li&gt;
+          &lt;li&gt;
             Grouped by itemnumber
-          </li>
-          <li>
+          &lt;/li&gt;
+          &lt;li&gt;
             sorted by homebranch, item type, collection code, call number, author, and title
-          </li>
-          <li>
+          &lt;/li&gt;
+          &lt;li&gt;
             Contains links to the items bibliographic record (if the bibliographic record has not been deleted) and links to a fines/fees report that can search by item barcode
-          </li>
-        </ul> 
+          &lt;/li&gt;
+        &lt;/ul&gt; 
 
-        </div>
-      </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
 
-    </div>
+    &lt;/div&gt;
 
-    <div id="report-notes" class="accordion-item next_hidden">
+    &lt;div id="report-notes" class="accordion-item next_hidden"&gt;
 
-      <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+      &lt;h2 class="accordion-header" id="panelsStayOpen-headingTwo"&gt;
 
-        <button class="accordion-button collapsed next_report_notes" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+        &lt;button class="accordion-button collapsed next_report_notes" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo"&gt;
 
           Report notes:
 
-        </button>
+        &lt;/button&gt;
 
-      </h2>
+      &lt;/h2&gt;
 
-      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-        <div class="accordion-body">
+      &lt;div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo"&gt;
+        &lt;div class="accordion-body"&gt;
           
-          <div class="next_report_section">
+          &lt;div class="next_report_section"&gt;
 
-            <p>Notes go here</p>
+            &lt;p&gt;Notes go here&lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-          <div class="next_report_section">
+          &lt;div class="next_report_section"&gt;
 
-            <p>More notes go here</p>
+            &lt;p&gt;More notes go here&lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-        </div>
-      </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
 
-    </div>
+    &lt;/div&gt;
 
-    <div id="report-instructions" class="accordion-item next_hidden">
+    &lt;div id="report-instructions" class="accordion-item next_hidden"&gt;
 
-      <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+      &lt;h2 class="accordion-header" id="panelsStayOpen-headingThree"&gt;
 
-        <button class="accordion-button collapsed next_report_instructions" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+        &lt;button class="accordion-button collapsed next_report_instructions" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree"&gt;
           
           Report instructions:
 
-        </button>
-      </h2>
+        &lt;/button&gt;
+      &lt;/h2&gt;
 
-      <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-        <div class="accordion-body">
+      &lt;div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree"&gt;
+        &lt;div class="accordion-body"&gt;
 
-          <div class="next_report_section">
+          &lt;div class="next_report_section"&gt;
 
-            <p>
+            &lt;p&gt;
               Instructions go here
-            </p>
+            &lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-          <div class="next_report_section">
+          &lt;div class="next_report_section"&gt;
 
-            <p>
+            &lt;p&gt;
               More instructions go here
-            </p>
+            &lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-        </div>
-      </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
 
-    </div>
+    &lt;/div&gt;
 
-    <div id="report-resources" class="accordion-item next_hidden">
+    &lt;div id="report-resources" class="accordion-item next_hidden"&gt;
 
-      <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+      &lt;h2 class="accordion-header" id="panelsStayOpen-headingFour"&gt;
 
-        <button class="accordion-button collapsed next_report_resources" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+        &lt;button class="accordion-button collapsed next_report_resources" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour"&gt;
 
           Report external resources:
 
-        </button>
+        &lt;/button&gt;
 
-      </h2>
+      &lt;/h2&gt;
 
-      <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
-        <div class="accordion-body">
+      &lt;div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour"&gt;
+        &lt;div class="accordion-body"&gt;
 
-          <ul style="list-style-type: none;">
-            <li>
+          &lt;ul style="list-style-type: none;"&gt;
+            &lt;li&gt;
 
-              Explanation of resource if necessary<br>
+              Explanation of resource if necessary&lt;br&gt;
 
-              <a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen1">External resource 1</a>
+              &lt;a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen1"&gt;External resource 1&lt;/a&gt;
 
-            </li>
-            <li>
+            &lt;/li&gt;
+            &lt;li&gt;
 
-              Explanation of resource if necessary<br>
+              Explanation of resource if necessary&lt;br&gt;
 
-              <a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen1">External resource 2</a>
+              &lt;a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen1"&gt;External resource 2&lt;/a&gt;
 
-            </li>
-          </ul>
+            &lt;/li&gt;
+          &lt;/ul&gt;
 
-        </div>
-      </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
 
-    </div>
+    &lt;/div&gt;
     
-  </div>
+  &lt;/div&gt;
 
-  <div id="report-download" class="next_direct_download next_hidden">
+  &lt;div id="report-download" class="next_direct_download next_hidden"&gt;
 
-    <a class="next_btn next_indigo next_embiggen1" href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=INSERT_REPORT_NUMBER_HERE">Download this report as a csv file <i class="bi bi-download"></i></a>
+    &lt;a class="next_btn next_indigo next_embiggen1" href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=INSERT_REPORT_NUMBER_HERE"&gt;Download this report as a csv file &lt;i class="bi bi-download"&gt;&lt;/i&gt;&lt;/a&gt;
 
-  </div>
+  &lt;/div&gt;
 
-  <div id="report-tags" class="next_hidden">
+  &lt;div id="report-tags" class="next_hidden"&gt;
 
-    <p>
+    &lt;p&gt;
 
       #deleted items
 
-    </p>
+    &lt;/p&gt;
     
-  </div>
+  &lt;/div&gt;
   
-</div>
+&lt;/div&gt;
 
 ----------
 */
@@ -307,7 +307,7 @@ FROM
   ) deletedwithdrawni
     ON deletedwithdrawni.authorised_value = deleteditems.withdrawn
 WHERE
-  deleteditems.barcode LIKE Concat("%", Trim(<>), "%")
+  deleteditems.barcode LIKE Concat("%", Trim(&lt;&gt;), "%")
 GROUP BY
   deleteditems.itemnumber
 ORDER BY

@@ -22,17 +22,17 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a report for converting notices and slips into text files for storage on GITHUB.</p>
-<ul><li>Shows current notice and slip data</li>
-<li>at all NExpress locations</li>
-<li>sorted by branchcode and lettercode</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Run this report and open the file in EXCEL.  Then run the macro to output the rows from this file into separate text files.</p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2960&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a report for converting notices and slips into text files for storage on GITHUB.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows current notice and slip data&lt;/li&gt;
+&lt;li&gt;at all NExpress locations&lt;/li&gt;
+&lt;li&gt;sorted by branchcode and lettercode&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Run this report and open the file in EXCEL.  Then run the macro to output the rows from this file into separate text files.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2960&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */

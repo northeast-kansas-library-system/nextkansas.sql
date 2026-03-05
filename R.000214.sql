@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2009-01-26 12:07:07
-Modified on: 2025-10-24 17:09:23
-Date last run: 2025-10-24 17:09:26
+Modified on: 2026-01-29 12:14:09
+Date last run: 2026-01-29 10:34:51
 
 ----------
 
@@ -22,478 +22,262 @@ Expiry: 500
 
 ----------
 
-<div class="next_report_info next_noprint">
+&lt;div class="next_report_info next_noprint"&gt;
 
-  <style>
+&lt;style&gt;
 
-       .page-section .next_report_info {
-      font-size: 120% !important;
-    }
+  .report_hidden {
+    display: none
+  }
 
-        .report_hidden {
-          display: none;
-        }
+  .accordion .accordion-button {
+    font-size: 1.1em! important;
+     color: #fff! important;
+     font-weight: 900
+  }
 
-        .accordion .accordion-button {
-          font-size: 1.1em !important;
-          color: white !important;
-          font-weight: 900;
-        }
+  .next_report_function .accordion-header * {
+    background-color: #df6320! important;
+     color: #fff! important
+  }
 
-        .next_report_function .accordion-header * {
-          background-color: #DF6320 !important;
-          color: #ffffff !important;
-        }
+  .next_report_notes .accordion-header * {
+    background-color: #dfc220! important;
+     color: #000! important
+  }
 
-        .next_report_notes .accordion-header * {
-          background-color: #DFC220 !important;
-          color: #000000 !important;
-        }
+  .next_report_instructions .accordion-header * {
+    background-color: #3ddf20! important;
+     color: #000! important
+  }
 
-        .next_report_instructions .accordion-header * {
-          background-color: #3DDF20 !important;
-          color: #000000 !important;
-        }
+  .next_report_resources .accordion-header * {
+    background-color: #1f9bde! important;
+     color: #fff! important
+  }
 
-        .next_report_resources .accordion-header * {
-          background-color: #1f9bde !important;
-          color: #ffffff !important;
-        }
+  .next_report_training .accordion-header * {
+    background-color: #6320df! important;
+     color: #fff! important
+  }
 
-        .next_report_training .accordion-header * {
-          background-color: #6320DF !important;
-          color: #ffffff !important;
-        }
+  .accordion-collapse.collapse * {
+    background-color: #e6e6e6;
+     color: #000
+  }
 
-        .accordion-collapse.collapse * {
-          background-color: #e6e6e6;
-          color: #000000;
-        }
+  .accordion-body h3 {
+    font-size: 1.5em! important
+  }
 
-        .accordion-body h3 {
-          font-size: 1.5em !important;
-        }
+  .report_section {
+    border: 2px solid #000;
+     border-radius: 8px;
+     margin: 10px;
+     padding: 15px
+  }
 
-        .report_section {
-          border: 2px solid black;
-          border-radius: 8px;
-          margin: 10px;
-          padding: 15px;
-        }
+  .resources_btn,.training_btn {
+    padding: 10px;
+     margin: 10px 0 0;
+     display: inline-block;
+     font-weight: 650;
+     line-height: 1.5;
+     text-align: center;
+     vertical-align: middle;
+     white-space: nowrap;
+     color: #000
+  }
 
-        .resources_btn {
-          padding: 10px;
-          margin: 10px 0px 0px 0px;
-          border: 1px solid #555;
-          border-radius: 4px;
-          display: inline-block;
-          font-weight: 650;
-          line-height: 1.5;
-          text-align: center;
-          vertical-align: middle;
-          white-space: nowrap;
-          background: #DFC220 none !important;
-          color: #000000;
-          !important;
-        }
+  .resources_btn {
+    border: 1px solid #555;
+     border-radius: 4px;
+     background: #dfc220! important
+  }
 
-        .resources_btn:hover {
-          background: #F2E6A5 none !important;
-          color: #000000;
-          !important;
-        }
+  .training_btn {
+    border: 1px solid #555;
+     border-radius: 4px;
+     background: #3ddf20! important
+  }
 
-        .training_btn {
-          padding: 10px;
-          margin: 10px 0px 0px 0px;
-          border: 1px solid #555;
-          border-radius: 4px;
-          display: inline-block;
-          font-weight: 650;
-          line-height: 1.5;
-          text-align: center;
-          vertical-align: middle;
-          white-space: nowrap;
-          background: #3DDF20 none !important;
-          color: #000000;
-          !important;
-        }
+&lt;/style&gt;
+&lt;!-- Overview --&gt;
+  &lt;div class="next_report_summary"&gt;
+    &lt;br&gt;
 
-        .training_btn:hover {
-          background: #B1F2A5 none !important;
-          color: #000000;
-          !important;
-        }
+    &lt;p id="report_id"&gt;&lt;strong&gt;Report number:&lt;/strong&gt; 214&lt;/p&gt;
 
-        .direct_download_btn {
-          padding: 10px;
-          margin: 10px 0px 0px 0px;
-          border: 1px solid #555;
-          border-radius: 4px;
-          display: inline-block;
-          font-weight: 650;
-          line-height: 1.5;
-          text-align: center;
-          vertical-align: middle;
-          white-space: nowrap;
-          background: #C220DF none !important;
-          color: #ffffff;
-          !important;
-        }
+    &lt;p id="report_name"&gt;&lt;strong&gt;Report name:&lt;/strong&gt; Items with important fields that are blank or have problematic values&lt;/p&gt;
 
-        .direct_download_btn:hover {
-          background: #E6A5F2 none !important;
-          color: #000000;
-          !important;
-        }
+    &lt;p id="report_author"&gt;&lt;strong&gt;Report author:&lt;/strong&gt; GHW&lt;/p&gt;
 
-  </style>
+    &lt;p id="report_summary"&gt;&lt;strong&gt;Report summary:&lt;/strong&gt; Shows item records with important fields that are blank or may be problematic&lt;/p&gt;
 
+  &lt;/div&gt;
 
+  &lt;div class="accordion accordion-flush"&gt;
 
-<!-- Overview -->
-  <div class="next_report_summary">
-    <br>
+&lt;!-- Function section --&gt;
+    &lt;div id="accordion_214-1" class="accordion-item next_report_function"&gt;
 
-    <p id="report_id"><strong>Report number:</strong> 214</p>
+      &lt;h2 class="accordion-header" id="panelsStay_214Open-headingOne" &gt;
 
-    <p id="report_name"><strong>Report name:</strong> Items with important fields that are blank or have problematic values</p>
-
-    <p id="report_author"><strong>Report author:</strong>  GHW</p>
-
-    <p id="report_summary"><strong>Report summary:</strong> Shows item records with important fields that are blank or may be problematic</p>
-
-  </div>
-
-  <div class="accordion accordion-flush">
-
-
-
-<!-- Function section -->
-    <div id="accordion_214-1" class="accordion-item next_report_function">
-
-      <h2 class="accordion-header" id="panelsStay_214Open-headingOne" >
-
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+        &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#panelsStay_214Open-collapseOne" aria-expanded="true"
-          aria-controls="panelsStay_214Open-collapseOne">
+          aria-controls="panelsStay_214Open-collapseOne"&gt;
 
           Function:
 
-        </button>
+        &lt;/button&gt;
 
-      </h2>
+      &lt;/h2&gt;
 
-      <div id="panelsStay_214Open-collapseOne" class="accordion-collapse collapse"
-        aria-labelledby="panelsStay_214Open-headingOne">
-        <div class="accordion-body">
+      &lt;div id="panelsStay_214Open-collapseOne" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_214Open-headingOne"&gt;
+        &lt;div class="accordion-body"&gt;
 
-          <div id="function_section" class="report_section">
-
-
-            <p>Shows items in the catalog with the following fields left blank or having problematic data in the following fields</p>
-            <ul>
-            
-              <li>shows items currently in the catalog</li>
-            
-              <li>shows items at the library you specify</li>
-            
-              <li>grouped by biblio number and item number</li>
-            
-              <li>sorted by item home branch, location, item type, collection code, call number, author, and title </li>
-            
-              <li>Shows items fields left blank or having problematic data in them:
-                <ul>
-                  <li>
-                    barcode (blank)
-                  </li>
-                  <li>
-                    item added dates in the future
-                  </li>
-                  <li>
-                    permanent shelving location (blank or cataloging, processing, or recently returned)
-                  </li>
-                  <li>
-                    item type (blank or unclassified)
-                  </li>
-                  <li>
-                    collection code (blank or unclassified)
-                  </li>
-                  <li>
-                    call number (blank)
-                  </li>
-                  <li>
-                    replacement price (blank)
-                  </li>
-                </ul>
-              </li>
-            </ul>
-
-            <span style="display: none;">
-              <li></li>            </span>
-            </ul>
+          &lt;div id="function_section" class="report_section"&gt;
 
 
-            <span style="display: none;">
-            <p> - </p>
-            </span>
+            &lt;p&gt;Shows items in the catalog with the following fields left blank or having problematic data in the following fields&lt;/p&gt;
+            &lt;ul style="list-style-type:none"&gt;
 
-          </div>
+              &lt;li&gt;&lt;strong&gt;TIME FRAME:&lt;/strong&gt; shows items currently in the catalog&lt;/li&gt;
 
-        </div>
-      </div>
+              &lt;li&gt;&lt;strong&gt;AT:&lt;/strong&gt; shows items at the library you specify&lt;/li&gt;
 
-    </div>
+              &lt;li&gt;&lt;strong&gt;GROUPED BY:&lt;/strong&gt; biblio number and item number&lt;/li&gt;
+
+              &lt;li&gt;&lt;strong&gt;SORTED BY:&lt;/strong&gt; item home branch, location, item type, collection code, call number, author, and title&lt;/li&gt;
+
+            &lt;span style="display: none;"&gt;
+              &lt;li&gt;&lt;strong&gt;CONTAINS LINKS:&lt;/strong&gt; &lt;/li&gt;
+            &lt;/span&gt;
+            &lt;/ul&gt;
 
 
+            &lt;span style="display: none;"&gt;
+            &lt;p&gt; - &lt;/p&gt;
+            &lt;/span&gt;
 
-<!-- Notes section -->
-    <div id="accordion_REPORTID-2" class="accordion-item next_report_notes ">
+          &lt;/div&gt;
 
-      <h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingTwo">
+        &lt;/div&gt;
+      &lt;/div&gt;
 
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+    &lt;/div&gt;
+
+&lt;!-- Notes section --&gt;
+    &lt;div id="accordion_REPORTID-2" class="accordion-item next_report_notes "&gt;
+
+      &lt;h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingTwo"&gt;
+
+        &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#panelsStay_REPORTIDOpen-collapseTwo" aria-expanded="false"
-          aria-controls="panelsStay_REPORTIDOpen-collapseTwo">
+          aria-controls="panelsStay_REPORTIDOpen-collapseTwo"&gt;
 
           Notes:
 
-        </button>
+        &lt;/button&gt;
 
-      </h2>
+      &lt;/h2&gt;
 
-      <div id="panelsStay_REPORTIDOpen-collapseTwo" class="accordion-collapse collapse"
-        aria-labelledby="panelsStay_REPORTIDOpen-headingTwo">
-        <div class="accordion-body">
+      &lt;div id="panelsStay_REPORTIDOpen-collapseTwo" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_REPORTIDOpen-headingTwo"&gt;
+        &lt;div class="accordion-body"&gt;
 
-          <div id="notes_1" class="report_section">
-            <h4>Replaces reports: </h4>
-            <p>
-            <ul> <br>
-              <li>214 - Null Report - Missing Item Type report for all libraries (previous version) </li> <br>
-              <li>1285 - Null Report - Missing Collection Codes all </li> <br>
-              <li>1398 - Collection Codes to Fix </li> <br>
-              <li>1401 - Item Types to Fix </li> <br>
-              <li>1402 - Missing Replacement Prices </li> <br>
-              <li>1404 - Shelving Locations to fix </li> <br>
-              <li>1405 - Missing Call Number </li> <br>
-              <li>1782 - Home or Current Branch is Null </li> <br>
-              <li>1912 - Null report -- Missing Shelving Location all </li> <br>
-              <li>3057 - GHW - Empty LOCATION/ITYPE/CCODES </li> <br>
-              <li>3362 - GHW - Items at a library without a replacement cost </li> <br>
-            </ul>
-            </p>
-          </div>
+          &lt;div id="notes_1" class="report_section"&gt;
+            &lt;h4&gt;Replaces reports:&lt;/h4&gt;
+            &lt;p&gt;214 - Null Report - Missing Item Type report for all libraries (previous version)&lt;br&gt;1285 - Null Report - Missing Collection Codes all&lt;br&gt;1398 - Collection Codes to Fix&lt;br&gt;1401 - Item Types to Fix&lt;br&gt;1402 - Missing Replacement Prices&lt;br&gt;1404 - Shelving Locations to fix&lt;br&gt;1405 - Missing Call Number&lt;br&gt;1782 - Home or Current Branch is Null&lt;br&gt;1912 - Null report -- Missing Shelving Location all&lt;br&gt;3057 - GHW - Empty LOCATION/ITYPE/CCODES&lt;br&gt;3362 - GHW - Items at a library without a replacement cost&lt;/p&gt;
+          &lt;/div&gt;
 
-          <div id="notes_2" class="report_section report_hidden">
-            <h4> NOTE_TWO_TITLE </h4>
-            <p> NOTE_TWO_CONTENT </p>
-          </div>
+          &lt;div id="notes_2" class="report_section report_hidden"&gt;
+            &lt;h4&gt; NOTE_TWO_TITLE &lt;/h4&gt;
+            &lt;p&gt; NOTE_TWO_CONTENT &lt;/p&gt;
+          &lt;/div&gt;
 
-          <div id="notes_3" class="report_section report_hidden">
-            <h4> NOTE_THREE_TITLE </h4>
-            <p> NOTE_THREE_CONTENT </p>
-          </div>
+          &lt;div id="notes_3" class="report_section report_hidden"&gt;
+            &lt;h4&gt; NOTE_THREE_TITLE &lt;/h4&gt;
+            &lt;p&gt; NOTE_THREE_CONTENT &lt;/p&gt;
+          &lt;/div&gt;
 
-          <div id="notes_4" class="report_section report_hidden">
-            <h4> NOTE_FOUR_TITLE </h4>
-            <p> NOTE_FOUR_CONTENT </p>
-          </div>
+          &lt;div id="notes_4" class="report_section report_hidden"&gt;
+            &lt;h4&gt; NOTE_FOUR_TITLE &lt;/h4&gt;
+            &lt;p&gt; NOTE_FOUR_CONTENT &lt;/p&gt;
+          &lt;/div&gt;
 
-          <div id="notes_5" class="report_section report_hidden">
-            <h4> NOTE_FIVE_TITLE </h4>
-            <p> NOTE_FIVE_CONTENT </p>
-          </div>
+          &lt;div id="notes_5" class="report_section report_hidden"&gt;
+            &lt;h4&gt; NOTE_FIVE_TITLE &lt;/h4&gt;
+            &lt;p&gt; NOTE_FIVE_CONTENT &lt;/p&gt;
+          &lt;/div&gt;
 
-        </div>
-      </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
 
-    </div>
+    &lt;/div&gt;
 
+&lt;!-- Training section --&gt;
+    &lt;div id="accordion_REPORTID-5" class="accordion-item next_report_training "&gt;
 
+      &lt;h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingFive"&gt;
 
-
-<!-- Instructions section -->
-    <div id="accordion_REPORTID-3" class="accordion-item next_report_instructions report_hidden">
-
-      <h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingThree">
-
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-          data-bs-target="#panelsStay_REPORTIDOpen-collapseThree" aria-expanded="false"
-          aria-controls="panelsStay_REPORTIDOpen-collapseThree">
-
-          Instructions:
-
-        </button>
-
-      </h2>
-
-      <div id="panelsStay_REPORTIDOpen-collapseThree" class="accordion-collapse collapse"
-        aria-labelledby="panelsStay_REPORTIDOpen-headingThree">
-        <div class="accordion-body">
-
-          <div id="instructions_1" class="report_section report_hidden">
-            <h4> INSTRUCTION_1_TITLE </h4>
-            <p> INSTRUCTION_1_CONTENT </p>
-          </div>
-
-          <div id="instructions_2" class="report_section report_hidden">
-            <h4> INSTRUCTION_TWO_TITLE </h4>
-            <p> INSTRUCTION_TWO_CONTENT </p>
-          </div>
-
-          <div id="instructions_3" class="report_section report_hidden">
-            <h4> INSTRUCTION_THREE_TITLE </h4>
-            <p> INSTRUCTION_THREE_CONTENT </p>
-          </div>
-
-          <div id="instructions_4" class="report_section report_hidden">
-            <h4> INSTRUCTION_FOUR_TITLE </h4>
-            <p> INSTRUCTION_FOUR_CONTENT </p>
-          </div>
-
-          <div id="instructions_5" class="report_section report_hidden">
-            <h4> INSTRUCTION_FIVE_TITLE </h4>
-            <p> INSTRUCTION_FIVE_CONTENT </p>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-
-
-
-<!-- Resources section -->
-    <div id="accordion_REPORTID-4" class="accordion-item next_report_resources report_hidden " style="">
-
-      <h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingFour">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-          data-bs-target="#panelsStay_REPORTIDOpen-collapseFour" aria-expanded="false"
-          aria-controls="panelsStay_REPORTIDOpen-collapseFour">
-          Resources:
-        </button>
-      </h2>
-
-      <div id="panelsStay_REPORTIDOpen-collapseFour" class="accordion-collapse collapse"
-        aria-labelledby="panelsStay_REPORTIDOpen-headingFour">
-
-        <div class="accordion-body">
-
-          <div id="resources_1" class="row report_section report_hidden">
-            <div class="col col-md-2">
-              <p><a href=" RESOURCE_ONE_URL " target="_blank" class="resources_btn"> RESOURCE_ONE_TITLE </a></p>
-            </div>            <div class="col col-md-8">
-              <p> RESOURCE_ONE_NOTE </p>
-            </div>          </div>
-
-
-          <div id="resources_2" class="row report_section report_hidden">
-            <div class="col col-md-2">
-              <p><a href=" RESOURCE_TWO_URL " target="_blank" class="resources_btn"> RESOURCE_TWO_TITLE </a></p>
-            </div>            <div class="col col-md-8">
-              <p> RESOURCE_TWO_NOTE </p>
-            </div>          </div>
-
-
-          <div id="resources_3" class="row report_section report_hidden">
-            <div class="col col-md-2">
-              <p><a href=" RESOURCE_THREE_URL " target="_blank" class="resources_btn"> RESOURCE_THREE_TITLE </a></p>
-            </div>            <div class="col col-md-8">
-              <p> RESOURCE_THREE_NOTE </p>
-            </div>          </div>
-
-
-          <div id="resources_4" class="row report_section report_hidden">
-            <div class="col col-md-2">
-              <p><a href=" RESOURCE_FOUR_URL " target="_blank" class="resources_btn"> RESOURCE_FOUR_TITLE </a></p>
-            </div>            <div class="col col-md-8">
-              <p> RESOURCE_FOUR_NOTE </p>
-            </div>          </div>
-
-
-          <div id="resources_5" class="row report_section report_hidden">
-            <div class="col col-md-2">
-              <p><a href=" RESOURCE_FIVE_URL " target="_blank" class="resources_btn"> RESOURCE_FIVE_TITLE </a></p>
-            </div>            <div class="col col-md-8">
-              <p> RESOURCE_FIVE_NOTE </p>
-            </div>          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-<!-- Training section -->
-    <div id="accordion_REPORTID-5" class="accordion-item next_report_training ">
-
-      <h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingFive">
-
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+        &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#panelsStay_REPORTIDOpen-collapseFive" aria-expanded="false"
-          aria-controls="panelsStay_REPORTIDOpen-collapseFive">
+          aria-controls="panelsStay_REPORTIDOpen-collapseFive"&gt;
 
           Training available
 
-        </button>
+        &lt;/button&gt;
 
-      </h2>
+      &lt;/h2&gt;
 
-      <div id="panelsStay_REPORTIDOpen-collapseFive" class="accordion-collapse collapse"
-        aria-labelledby="panelsStay_REPORTIDOpen-headingFive" style="color: white !important;">
-        <div class="accordion-body">
+      &lt;div id="panelsStay_REPORTIDOpen-collapseFive" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_REPORTIDOpen-headingFive" style="color: white !important;"&gt;
+        &lt;div class="accordion-body"&gt;
 
-          <div class="container text-center">
-            <div class="row">
-
-
-              <div id="training_link" class="col-md-3">
-                <p><a href="https://northeast-kansas-library-system.github.io/nextsteps/reports_training/report_000214_training.html" target="_blank" class="training_btn">Online training</a></p>
-              </div>
+          &lt;div class="container text-center"&gt;
+            &lt;div class="row"&gt;
 
 
-              <div id="training_handout" class="col-md-3 report_hidden" >
-                <p><a href=" TRAINING_HANDOUT_URL " target="_blank" class="training_btn">Training handout</a></p>
-              </div>
+              &lt;div id="training_link" class="col-md-3"&gt;
+                &lt;p&gt;&lt;a href="https://northeast-kansas-library-system.github.io/nextsteps/reports_training/report_000214_training.html" target="_blank" class="training_btn"&gt;Online training&lt;/a&gt;&lt;/p&gt;
+              &lt;/div&gt;
 
 
-              <div id="training_handout" class="col-md-3 report_hidden" >
-                <p><a href=" TRAINING_VIDEO_URL " target="_blank" class="training_btn">Video training</a></p>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-<!-- Direct download section -->
-  <div class="next_report_direct_download report_hidden">
-    <p><a href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=214" class="direct_download_btn">Download directly to a CSV file</a></p>
-  </div>
+              &lt;div id="training_handout" class="col-md-3 report_hidden" &gt;
+                &lt;p&gt;&lt;a href=" TRAINING_HANDOUT_URL " target="_blank" class="training_btn"&gt;Training handout&lt;/a&gt;&lt;/p&gt;
+              &lt;/div&gt;
 
 
+              &lt;div id="training_handout" class="col-md-3 report_hidden" &gt;
+                &lt;p&gt;&lt;a href=" TRAINING_VIDEO_URL " target="_blank" class="training_btn"&gt;Video training&lt;/a&gt;&lt;/p&gt;
+              &lt;/div&gt;
 
-<!-- Hashtag section -->
-  <div class="next_report_hashtags" style="display: none;">
-    <p>#item problems</p>
-    <p>#cataloging problems</p>
-    <p>#</p>
-    <p>#</p>
-    <p>#</p>
-    <p>#</p>
-    <p>#</p>
-    <p>#</p>
-    <p>#</p>
-    <p>#</p>
-  </div>
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
 
-</div>
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+&lt;!-- Hashtag section --&gt;
+  &lt;div class="next_report_hashtags" style="display: none;"&gt;
+    &lt;p&gt;#cataloging problems&lt;/p&gt;
+    &lt;p&gt;#item problems&lt;/p&gt;
+    &lt;p&gt;#&lt;/p&gt;
+    &lt;p&gt;#&lt;/p&gt;
+    &lt;p&gt;#&lt;/p&gt;
+    &lt;p&gt;#&lt;/p&gt;
+    &lt;p&gt;#&lt;/p&gt;
+    &lt;p&gt;#&lt;/p&gt;
+    &lt;p&gt;#&lt;/p&gt;
+    &lt;p&gt;#&lt;/p&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
 
 ----------
 */
@@ -512,7 +296,7 @@ SELECT
   ) AS LINKS,
     Concat_Ws("", 
     If(items.barcode IS NULL, "Barcode is blank / ", ""), 
-    If(items.dateaccessioned > CURDATE(), "Date added is in the future / ", ""),
+    If(items.dateaccessioned &gt; CURDATE(), "Date added is in the future / ", ""),
     If(plocs.lib IS NULL, "Permanent location is blank / ", 
       If(plocs.lib LIKE "%Cataloging%", "Permanent location = cataloging / ", 
         If(plocs.lib LIKE "%Processing%", "Permanent location = processing / ", 
@@ -594,10 +378,10 @@ FROM
   ) 
   itypes ON itypes.itemtype = items.itype 
 WHERE 
-  items.homebranch LIKE <> AND 
+  items.homebranch LIKE &lt;&gt; AND 
   (
     (items.barcode IS NULL) OR 
-    (items.dateaccessioned > CURDATE()) OR
+    (items.dateaccessioned &gt; CURDATE()) OR
     (plocs.lib IS NULL) OR 
     (plocs.lib LIKE "%Cataloging%") OR 
     (plocs.lib LIKE "%Processing%") OR 
@@ -611,7 +395,7 @@ WHERE
   ) AND 
   Concat( 
     If(items.barcode IS NULL, "BE", ""), 
-    If(items.dateaccessioned > CURDATE(), "FD", ""), 
+    If(items.dateaccessioned &gt; CURDATE(), "FD", ""), 
     If(plocs.lib IS NULL, "LE3", 
       If(plocs.lib LIKE "%Cataloging%", "LG3", 
         If(plocs.lib LIKE "%Processing%", "LG3", 
@@ -629,7 +413,7 @@ WHERE
     If(items.replacementprice IS NULL, "PE", 
       If(items.replacementprice = 0, "PE", "") 
     ) 
-  ) LIKE Concat("%", <>, "%") 
+  ) LIKE Concat("%", &lt;&gt;, "%") 
 GROUP BY 
   biblio.biblionumber, 
   items.itemnumber 

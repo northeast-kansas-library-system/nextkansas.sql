@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2017-03-01 09:17:47
 Modified on: 2024-01-17 11:49:12
-Date last run: 2025-08-06 12:02:50
+Date last run: 2026-01-12 12:51:57
 
 ----------
 
@@ -22,23 +22,23 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a list of items based on their status</p>
-<ul><li>Shows items currently in the system</li>
-<li>At the library you specify</li>
-<li>grouped and sorted by the normal Next Search Catalog classification scheme</li>
-<li>contains links to the item's bibliographic record</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Replaces the following reports:</p>
-<ul>
-<li>1420 - Items with a Lost Status</li>
-</ul>
-</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2915&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a list of items based on their status&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows items currently in the system&lt;/li&gt;
+&lt;li&gt;At the library you specify&lt;/li&gt;
+&lt;li&gt;grouped and sorted by the normal Next Search Catalog classification scheme&lt;/li&gt;
+&lt;li&gt;contains links to the item's bibliographic record&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Replaces the following reports:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1420 - Items with a Lost Status&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2915&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 
 ----------
@@ -173,11 +173,11 @@ FROM
       authorised_values.category = 'CCODE') CCODES ON CCODES.authorised_value =
       items.ccode
 WHERE
-  items.homebranch LIKE <> AND 
-  Coalesce(lost.lib, "-") LIKE <> AND 
-  items.damaged LIKE <> AND 
-  items.withdrawn LIKE <> AND 
-  Coalesce(not_for_loan.lib_opac, "-") LIKE <> 
+  items.homebranch LIKE &lt;&gt; AND 
+  Coalesce(lost.lib, "-") LIKE &lt;&gt; AND 
+  items.damaged LIKE &lt;&gt; AND 
+  items.withdrawn LIKE &lt;&gt; AND 
+  Coalesce(not_for_loan.lib_opac, "-") LIKE &lt;&gt; 
 GROUP BY
   items.itemnumber,
   CCODES.lib,

@@ -33,8 +33,8 @@ SELECT YEAR(issuedate), MONTH(issuedate), categorycode, COUNT(DISTINCT
 borrowernumber)
 FROM old_issues
  LEFT JOIN borrowers USING (borrowernumber)
-where issuedate between <> and <> and
-old_issues.branchcode=<>
+where issuedate between &lt;&gt; and &lt;&gt; and
+old_issues.branchcode=&lt;&gt;
 GROUP BY YEAR(issuedate), MONTH(issuedate), categorycode
 
 

@@ -42,7 +42,7 @@ FROM biblio b
 JOIN items i USING(biblionumber)
 WHERE i.ccode NOT IN ('ERESOURCE')
 GROUP BY TRIM(Replace(Replace(Replace(Replace(Replace(Replace(b.title, "/", ""), ":", "" ), ";", ""), ",", ""), '"', ''), '#', '') )
-HAVING count(DISTINCT b.biblionumber) > 1
+HAVING count(DISTINCT b.biblionumber) &gt; 1
 
 
 

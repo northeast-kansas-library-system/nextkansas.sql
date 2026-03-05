@@ -22,25 +22,25 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Counts the number of items that were put in transit to fill requests at other libraries</p>
-<ul><li>during the month you specify</li>
-<li>Based on the item's home library</li>
-<li>grouped by library and shipping or receiving date</li>
-<li>sorted by library name</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>NX_ILL_LOANED_LM = the number of items owned by your library that were shipped "in transit" to another library during the month.</p>
-<p>NX_ILL_BORROWED_LM = the number of items not owned by your library that arrived "in transit" to your library during the month.</p>
-<p>This report does not take into account whether the item was actually checked out by a borrower - it only considers that the item was shipped from or to your library.</p>
-<p>Replaces report 794.</p>
-<p></p>
-<p>Updated on 2022.03.29</p>
-<p></p>
-<p class= "notetags" style="display: none;">#ILL #statistics #count</p>
-<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Counts the number of items that were put in transit to fill requests at other libraries&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;during the month you specify&lt;/li&gt;
+&lt;li&gt;Based on the item's home library&lt;/li&gt;
+&lt;li&gt;grouped by library and shipping or receiving date&lt;/li&gt;
+&lt;li&gt;sorted by library name&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;NX_ILL_LOANED_LM = the number of items owned by your library that were shipped "in transit" to another library during the month.&lt;/p&gt;
+&lt;p&gt;NX_ILL_BORROWED_LM = the number of items not owned by your library that arrived "in transit" to your library during the month.&lt;/p&gt;
+&lt;p&gt;This report does not take into account whether the item was actually checked out by a borrower - it only considers that the item was shipped from or to your library.&lt;/p&gt;
+&lt;p&gt;Replaces report 794.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Updated on 2022.03.29&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;#ILL #statistics #count&lt;/p&gt;
+&lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -55,15 +55,15 @@ FROM
   branches LEFT JOIN 
     (SELECT 
       items.homebranch, 
-      COUNT(*) AS count 
+      COUNT(&ast;) AS count 
     FROM 
       branchtransfers LEFT JOIN 
       items ON branchtransfers.itemnumber = items.itemnumber 
     WHERE 
-      items.homebranch <> branchtransfers.tobranch AND 
-      Year(branchtransfers.datesent) = <> AND 
-      Month(branchtransfers.datesent) = <> AND 
-      branchtransfers.tobranch <> branchtransfers.frombranch AND 
+      items.homebranch &lt;&gt; branchtransfers.tobranch AND 
+      Year(branchtransfers.datesent) = &lt;&gt; AND 
+      Month(branchtransfers.datesent) = &lt;&gt; AND 
+      branchtransfers.tobranch &lt;&gt; branchtransfers.frombranch AND 
       branchtransfers.comments IS NULL AND
       branchtransfers.reason = 'reserve'
     GROUP BY 
@@ -72,15 +72,15 @@ FROM
   ON branches.branchcode = ILL_LOANED.homebranch LEFT JOIN 
     (SELECT 
       branchtransfers.tobranch, 
-      COUNT(*) AS count 
+      COUNT(&ast;) AS count 
     FROM 
       branchtransfers LEFT JOIN 
       items ON branchtransfers.itemnumber = items.itemnumber 
     WHERE 
-      branchtransfers.tobranch <> items.homebranch AND 
-      Year(branchtransfers.datearrived) = <> AND 
-      Month(branchtransfers.datearrived) = <> AND 
-      branchtransfers.frombranch <> branchtransfers.tobranch AND 
+      branchtransfers.tobranch &lt;&gt; items.homebranch AND 
+      Year(branchtransfers.datearrived) = &lt;&gt; AND 
+      Month(branchtransfers.datearrived) = &lt;&gt; AND 
+      branchtransfers.frombranch &lt;&gt; branchtransfers.tobranch AND 
       branchtransfers.comments IS NULL  AND
       branchtransfers.reason = 'reserve'
     GROUP BY 

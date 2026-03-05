@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2017-10-19 12:23:06
 Modified on: 2017-12-22 17:39:12
-Date last run: 2018-01-30 14:43:50
+Date last run: 2025-11-26 11:12:49
 
 ----------
 
@@ -45,7 +45,7 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.cardnumber LIKE Concat("%", <>, "%")
+  borrowers.cardnumber LIKE Concat("%", &lt;&gt;, "%")
 
 
 

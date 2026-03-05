@@ -29,7 +29,7 @@ Report that shows holds placed prior to a certain date and are still active. Enh
 
 
 
-SELECT borrowers.firstname, borrowers.surname, borrowers.phone, borrowers.branchcode, biblio.title, biblio.author, items.ccode, items.itype, items.barcode, reserves.reservedate FROM reserves JOIN items USING (biblionumber) JOIN biblio using (biblionumber) JOIN borrowers using (borrowernumber) WHERE reserves.reservedate < <> AND reserves.found IS NULL AND borrowers.branchcode = <> GROUP BY borrowers.branchcode, borrowers.surname, items.ccode asc
+SELECT borrowers.firstname, borrowers.surname, borrowers.phone, borrowers.branchcode, biblio.title, biblio.author, items.ccode, items.itype, items.barcode, reserves.reservedate FROM reserves JOIN items USING (biblionumber) JOIN biblio using (biblionumber) JOIN borrowers using (borrowernumber) WHERE reserves.reservedate &lt; &lt;&gt; AND reserves.found IS NULL AND borrowers.branchcode = &lt;&gt; GROUP BY borrowers.branchcode, borrowers.surname, items.ccode asc
 
 
 

@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2017-07-11 11:52:53
 Modified on: 2025-04-30 11:54:03
-Date last run: 2025-10-02 01:25:01
+Date last run: 2026-01-01 01:25:02
 
 ----------
 
@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Request and sharing statistics - request statistics</p> 
-<ul><li>during the previous calendar month</li> 
-<li>at all system libraries</li> 
-<li>grouped and sorted by pick up library</li> 
-</ul><br /> 
-<p><ins>Notes:</ins></p> 
-<p></p> 
-<p class="updated">This report and these notes updated on 2022.03.11</p> 
-<p></p> 
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=2975">Click here to download as a csv file</a></p> 
-<p class= "notetags" style="display: none;">#monthly #statistics #requests #count</p> 
-<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
-</div> 
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Request and sharing statistics - request statistics&lt;/p&gt; 
+&lt;ul&gt;&lt;li&gt;during the previous calendar month&lt;/li&gt; 
+&lt;li&gt;at all system libraries&lt;/li&gt; 
+&lt;li&gt;grouped and sorted by pick up library&lt;/li&gt; 
+&lt;/ul&gt;&lt;br /&gt; 
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p class="updated"&gt;This report and these notes updated on 2022.03.11&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p id="rquickdown"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=2975"&gt;Click here to download as a csv file&lt;/a&gt;&lt;/p&gt; 
+&lt;p class= "notetags" style="display: none;"&gt;#monthly #statistics #requests #count&lt;/p&gt; 
+&lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt; 
+&lt;/div&gt; 
 
 
 
@@ -119,7 +119,7 @@ FROM
     WHERE 
       Month(old_reserves.cancellationdate) = Month(Now() - INTERVAL 1 MONTH) AND 
       Year(old_reserves.cancellationdate) = Year(Now() - INTERVAL 1 MONTH) AND 
-      (old_reserves.found <> 'F' OR 
+      (old_reserves.found &lt;&gt; 'F' OR 
         old_reserves.found IS NULL) 
     GROUP BY 
       old_reserves.branchcode 

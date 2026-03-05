@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2024-06-07 10:32:45
 Modified on: 2025-02-18 14:53:19
-Date last run: 2025-02-18 14:53:31
+Date last run: 2025-11-23 21:25:26
 
 ----------
 
@@ -70,7 +70,7 @@ SELECT
     'Thanks&comma;', 
     '%0D%0A%0D%0A', 
     'George' 
-    '">Send e-mail' 
+    '"&gt;Send e-mail' 
   ) AS MAILTO_LINK, 
   If( 
     items.homebranch = items.holdingbranch, 
@@ -151,7 +151,7 @@ FROM biblio
   ) ccodes 
     ON ccodes.authorised_value = items.ccode 
 WHERE 
-  items.barcode LIKE Concat(<>) AND 
+  items.barcode LIKE Concat(&lt;&gt;) AND 
   items.homebranch LIKE '%' AND 
   items.permanent_location LIKE '%' AND 
   items.itype LIKE '%' AND 

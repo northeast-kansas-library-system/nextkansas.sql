@@ -22,16 +22,16 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a list of items awaiting pickup</p>
-<ul><li>Shows items currently on the hold shelf</li>
-<li>at the pick-up location you specify</li>
-<li>sorted by date the item was placed on your hold shelf</li>
-<li>contains links to the requesting patron's account</li>
-</ul><br />
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2911&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a list of items awaiting pickup&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows items currently on the hold shelf&lt;/li&gt;
+&lt;li&gt;at the pick-up location you specify&lt;/li&gt;
+&lt;li&gt;sorted by date the item was placed on your hold shelf&lt;/li&gt;
+&lt;li&gt;contains links to the requesting patron's account&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2911&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -63,7 +63,7 @@ FROM
     borrower_attributes.code = 'HOLD') contact
     ON borrowers.borrowernumber = contact.borrowernumber
 WHERE
-  reserves.branchcode LIKE <> AND
+  reserves.branchcode LIKE &lt;&gt; AND
   reserves.found = 'W'
 ORDER BY
   WAITING_SINCE DESC

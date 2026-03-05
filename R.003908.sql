@@ -22,9 +22,9 @@ Expiry: 300
 
 ----------
 
-  biblioitems.agerestriction IN <<Choose a bib-level shelving location|bibloc:in>> AND 
-  biblioitems.itemtype IN <<Choose a bib-level item type|bibitype:in>> AND 
-  biblioitems.cn_class IN <<Choose a bib-level collection code|CCODE:in>>
+  biblioitems.agerestriction IN &lt;&lt;Choose a bib-level shelving location|bibloc:in&gt;&gt; AND 
+  biblioitems.itemtype IN &lt;&lt;Choose a bib-level item type|bibitype:in&gt;&gt; AND 
+  biblioitems.cn_class IN &lt;&lt;Choose a bib-level collection code|CCODE:in&gt;&gt;
 
 ----------
 */
@@ -82,13 +82,13 @@ FROM biblio
     ) ccodes 
       ON ccodes.authorised_value = biblioitems.cn_class
 WHERE 
-  biblioitems.agerestriction IN <> AND 
-  biblioitems.itemtype IN <> AND 
-  biblioitems.cn_class IN <>
+  biblioitems.agerestriction IN &lt;&gt; AND 
+  biblioitems.itemtype IN &lt;&gt; AND 
+  biblioitems.cn_class IN &lt;&gt;
 GROUP BY 
   biblio.biblionumber
 HAVING 
-  ITEM_COUNT >= <>
+  ITEM_COUNT &gt;= &lt;&gt;
 ORDER BY 
   ITEM_COUNT DESC
 

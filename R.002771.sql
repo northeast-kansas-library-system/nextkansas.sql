@@ -22,19 +22,19 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Attempts to discern which card number ranges are in use at a specified library</p>
-<ul><li>reports on current cards in NExpress</li>
-<li>Shows card prefixes at a specified patron homebranch<br />with a specified number of prefix digits<br />and where there are more than a specified number of cards with that prefix</li>
-<li>grouped and sorted by patron home library and card number prefix</li>
-<li>click on links to see if other libraries are using this same prefix identified in the report (report 2773)</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p>Report 2773 is the companion to this report</p>
-<p>Report created at the request of Robin Hastings.</p>
-<p>Report created by George Williams.</p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2771&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Attempts to discern which card number ranges are in use at a specified library&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;reports on current cards in NExpress&lt;/li&gt;
+&lt;li&gt;Shows card prefixes at a specified patron homebranch&lt;br /&gt;with a specified number of prefix digits&lt;br /&gt;and where there are more than a specified number of cards with that prefix&lt;/li&gt;
+&lt;li&gt;grouped and sorted by patron home library and card number prefix&lt;/li&gt;
+&lt;li&gt;click on links to see if other libraries are using this same prefix identified in the report (report 2773)&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;Report 2773 is the companion to this report&lt;/p&gt;
+&lt;p&gt;Report created at the request of Robin Hastings.&lt;/p&gt;
+&lt;p&gt;Report created by George Williams.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2771&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -42,9 +42,9 @@ Expiry: 0
 
 
 SELECT
-  <> AS CARD_PREFIX_LENGTH,
+  &lt;&gt; AS CARD_PREFIX_LENGTH,
   borrowers.branchcode AS BORROWERS_HOME_BRANCH,
-  Left(borrowers.cardnumber, <>) AS LIBRAY_CARD_PREFIX,
+  Left(borrowers.cardnumber, &lt;&gt;) AS LIBRAY_CARD_PREFIX,
   LENGTH(borrowers.cardnumber) AS CARD_NUMBER_LENGTH,
   Count(borrowers.borrowernumber) AS LIBRARY_CARD_COUNT,
   CONCAT(
@@ -52,7 +52,7 @@ SELECT
   ) AS LINK_TO_PREFIX_REPORT_2,
   Concat_WS('',
     'Prefix ',
-    Left(borrowers.cardnumber, <>),
+    Left(borrowers.cardnumber, &lt;&gt;),
     ' / card length ',
     LENGTH(borrowers.cardnumber),
     ' digits (',
@@ -62,11 +62,11 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.branchcode LIKE <>
+  borrowers.branchcode LIKE &lt;&gt;
 GROUP BY
   borrowers.branchcode, CARD_NUMBER_LENGTH, LIBRAY_CARD_PREFIX
 HAVING
-  LIBRARY_CARD_COUNT >= <>
+  LIBRARY_CARD_COUNT &gt;= &lt;&gt;
 ORDER BY
   borrowers.branchcode,
   LIBRAY_CARD_PREFIX

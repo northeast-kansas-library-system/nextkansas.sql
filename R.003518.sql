@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2021-06-10 14:33:05
 Modified on: 2024-05-28 15:08:14
-Date last run: 2025-05-29 13:51:10
+Date last run: 2025-12-19 15:09:18
 
 ----------
 
@@ -56,7 +56,7 @@ FROM
           branches
         UNION
         SELECT
-          Concat('*') AS branchcode,
+          Concat('&ast;') AS branchcode,
           Concat(' All libraries') AS branchname
         FROM
           branches
@@ -69,22 +69,22 @@ FROM
           categories
         UNION
         SELECT
-          Concat('*') AS categorycode,
+          Concat('&ast;') AS categorycode,
           Concat(' All borrower categories') AS description
         FROM
           categories
       ) categoriess
     WHERE
-      (branchess.branchcode LIKE <> OR
-      branchess.branchcode LIKE '*') AND
-      (categoriess.categorycode LIKE <> OR
-      categoriess.categorycode LIKE '*')
+      (branchess.branchcode LIKE &lt;&gt; OR
+      branchess.branchcode LIKE '&ast;') AND
+      (categoriess.categorycode LIKE &lt;&gt; OR
+      categoriess.categorycode LIKE '&ast;')
   ) branches_categoriess LEFT JOIN
   (
     SELECT
       circulation_rules.id,
-      Coalesce(circulation_rules.branchcode, '*') AS branchcode,
-      Coalesce(circulation_rules.categorycode, '*') AS categorycode,
+      Coalesce(circulation_rules.branchcode, '&ast;') AS branchcode,
+      Coalesce(circulation_rules.categorycode, '&ast;') AS categorycode,
       circulation_rules.itemtype,
       circulation_rules.rule_name,
       circulation_rules.rule_value
@@ -99,8 +99,8 @@ FROM
   (
     SELECT
       circulation_rules.id,
-      Coalesce(circulation_rules.branchcode, '*') AS branchcode,
-      Coalesce(circulation_rules.categorycode, '*') AS categorycode,
+      Coalesce(circulation_rules.branchcode, '&ast;') AS branchcode,
+      Coalesce(circulation_rules.categorycode, '&ast;') AS categorycode,
       circulation_rules.itemtype,
       circulation_rules.rule_name,
       circulation_rules.rule_value
@@ -115,8 +115,8 @@ FROM
   (
     SELECT
       circulation_rules.id,
-      Coalesce(circulation_rules.branchcode, '*') AS branchcode,
-      Coalesce(circulation_rules.categorycode, '*') AS categorycode,
+      Coalesce(circulation_rules.branchcode, '&ast;') AS branchcode,
+      Coalesce(circulation_rules.categorycode, '&ast;') AS categorycode,
       circulation_rules.itemtype,
       circulation_rules.rule_name,
       circulation_rules.rule_value

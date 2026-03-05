@@ -22,16 +22,16 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Outputs any changes to system preferences in the last 10 days to a csv file</p>
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Best to run via the link in this window.</p>
-<p></p>
-<p>Run monthly and store offsite</p>
-<p></p>
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=2853">Click here to download as a csv file</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Outputs any changes to system preferences in the last 10 days to a csv file&lt;/p&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Best to run via the link in this window.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Run monthly and store offsite&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p id="rquickdown"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=2853"&gt;Click here to download as a csv file&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -50,7 +50,7 @@ SELECT
 FROM
   action_logs
 WHERE
-  action_logs.timestamp > AddDate(Last_Day(SubDate(Now(), INTERVAL 3 MONTH)), 1) AND
+  action_logs.timestamp &gt; AddDate(Last_Day(SubDate(Now(), INTERVAL 3 MONTH)), 1) AND
   action_logs.module = 'reports' AND 
   action_logs.object = "2946"
 

@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2009-06-01 16:56:47
 Modified on: 2025-03-26 01:12:08
-Date last run: 2025-10-01 09:06:48
+Date last run: 2026-01-24 09:50:03
 
 ----------
 
@@ -40,22 +40,22 @@ SELECT
   descriptions.ccode AS COLLECTION_CODE,
   new.Count_itemnumber,
   Concat( 
-    '>,
+    '&gt;,
 
     '-',
 
-    <>,
+    &lt;&gt;,
 
     '-01',
 
     '&param_name=and-date2%7Cdate&sql_params=',
 
       STR_TO_DATE(
-      Concat(<>,
+      Concat(&lt;&gt;,
 
       '-',
 
-      <>,
+      &lt;&gt;,
 
       '-01') , '%Y-%m-%d') + interval 1 month,
 
@@ -107,7 +107,7 @@ SELECT
 
     '0&op=run"',
 
-    ' target="_blank">Go to shelf list' 
+    ' target="_blank"&gt;Go to shelf list' 
   ) AS LINK_TO_SHELFLIST
 FROM
   (SELECT
@@ -149,8 +149,8 @@ FROM
     FROM
       items
     WHERE
-      Year(items.dateaccessioned) = <> AND
-      Month(items.dateaccessioned) = <>
+      Year(items.dateaccessioned) = &lt;&gt; AND
+      Month(items.dateaccessioned) = &lt;&gt;
     GROUP BY
       items.homebranch,
       items.permanent_location,
@@ -160,7 +160,7 @@ FROM
       new.permanent_location = descriptions.permanent_location_code AND
       new.ccode = descriptions.ccode_code
 WHERE
-  descriptions.branchcode LIKE <>
+  descriptions.branchcode LIKE &lt;&gt;
 ORDER BY
   descriptions.branchname,
   PERM_LOCATION,

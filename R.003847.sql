@@ -22,27 +22,27 @@ Expiry: 300
 
 ----------
 
-<div class="reportInfo noprint"> 
+&lt;div class="reportInfo noprint"&gt; 
 
-  <div id="reportInfoLinks"> 
+  &lt;div id="reportInfoLinks"&gt; 
 
-    <p id="sql_quick_down"> 
-      <a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3847"> 
+    &lt;p id="sql_quick_down"&gt; 
+      &lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3847"&gt; 
         Click here to download as a csv file 
-      </a> 
-    </p> 
+      &lt;/a&gt; 
+    &lt;/p&gt; 
 
-  </div>
+  &lt;/div&gt;
 
-  <div id="reportInfoTags"> 
+  &lt;div id="reportInfoTags"&gt; 
  
-    <p style="display: none;"> 
+    &lt;p style="display: none;"&gt; 
       #tags_go_here 
-    </p> 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
 
-</div>
+&lt;/div&gt;
 
 ----------
 */

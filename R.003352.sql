@@ -40,7 +40,7 @@ FROM circulation_rules
 WHERE circulation_rules.rule_name = "maxissueqty" AND 
   circulation_rules.categorycode IS NULL AND 
   circulation_rules.itemtype IS NULL AND 
-  circulation_rules.rule_value > 0 
+  circulation_rules.rule_value &gt; 0 
 ORDER BY 
   circulation_rules.rule_value 
   DESC

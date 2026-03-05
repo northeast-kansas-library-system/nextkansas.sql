@@ -22,21 +22,21 @@ Expiry: 5
 
 ----------
 
-<div class="reportinfo noprint"> 
-  <p>Produces a list of upcoming closures at a library</p>
-  <ul>
-    <li>Shows data current for the date and time the report is run</li>
-    <li>shows closures at the library you're logged in at</li>
-    <li>grouped by special_holidays.id and repeatable_holidays.id</li>
-    <li>sorted by branchcode and date</li>
-  </ul><br />
-  <p><ins>Notes:</ins></p>
-  <p></p>
-  <p>Relies on jQuery to work properly</p>
-  <p></p>
-  <p class= "notetags" style="display: none;">#jquery_enhancement</p>
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+  &lt;p&gt;Produces a list of upcoming closures at a library&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Shows data current for the date and time the report is run&lt;/li&gt;
+    &lt;li&gt;shows closures at the library you're logged in at&lt;/li&gt;
+    &lt;li&gt;grouped by special_holidays.id and repeatable_holidays.id&lt;/li&gt;
+    &lt;li&gt;sorted by branchcode and date&lt;/li&gt;
+  &lt;/ul&gt;&lt;br /&gt;
+  &lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;p&gt;Relies on jQuery to work properly&lt;/p&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;p class= "notetags" style="display: none;"&gt;#jquery_enhancement&lt;/p&gt;
+  &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -80,7 +80,7 @@ Select
 From
     special_holidays
 Where
-    special_holidays.branchcode Like <> And
+    special_holidays.branchcode Like &lt;&gt; And
     Str_To_Date(
       Concat(
         special_holidays.month, 
@@ -90,7 +90,7 @@ Where
         special_holidays.year
       ), 
       '%m/%d/%Y'
-    ) > Now() - Interval 1 Day
+    ) &gt; Now() - Interval 1 Day
 Group By
     special_holidays.id
 UNION 
@@ -105,7 +105,7 @@ Select
           repeatable_holidays.day, 
           '/', 
           If(
-            repeatable_holidays.month >= Month(CurDate()), 
+            repeatable_holidays.month &gt;= Month(CurDate()), 
             Year(CurDate()), 
             Year(CurDate()) + 1
           )
@@ -141,7 +141,7 @@ Select
                           repeatable_holidays.day, 
                           '/', 
                           If(
-                            repeatable_holidays.month >= Month(CurDate()), 
+                            repeatable_holidays.month &gt;= Month(CurDate()), 
                             Year(CurDate()), 
                             Year(CurDate()) + 1
                           )
@@ -173,7 +173,7 @@ From
     repeatable_holidays
 Where
     (
-      repeatable_holidays.branchcode Like <> And
+      repeatable_holidays.branchcode Like &lt;&gt; And
       Str_To_Date(
         Concat(
           repeatable_holidays.month, 
@@ -181,17 +181,17 @@ Where
           repeatable_holidays.day, 
           '/', 
           If(
-            repeatable_holidays.month >= Month(CurDate()), 
+            repeatable_holidays.month &gt;= Month(CurDate()), 
             Year(CurDate()), 
             Year(CurDate()) + 1
           )
         ), 
         '%m/%d/%Y'
-      ) > Now() - Interval 1 Day
+      ) &gt; Now() - Interval 1 Day
     ) 
     Or
     (
-      repeatable_holidays.branchcode Like <> And
+      repeatable_holidays.branchcode Like &lt;&gt; And
       Str_To_Date(
         Concat(
           repeatable_holidays.month, 
@@ -199,7 +199,7 @@ Where
           repeatable_holidays.day, 
           '/', 
           If(
-            repeatable_holidays.month >= Month(CurDate()), 
+            repeatable_holidays.month &gt;= Month(CurDate()), 
             Year(CurDate()), 
             Year(CurDate()) + 1
           )

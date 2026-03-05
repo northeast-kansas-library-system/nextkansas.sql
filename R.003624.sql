@@ -47,7 +47,7 @@ SELECT
   return_claims.notes,
   Concat_Ws(' ', staff.firstname, staff.surname) AS MARKED_CR_BY,
   return_claims.created_on,
-  If(return_claims.borrowernumber <> currentissues.borrowernumber,
+  If(return_claims.borrowernumber &lt;&gt; currentissues.borrowernumber,
   'Item is checked out to a different borrower', '') AS CKO_TO_OTHER,
   If(return_claims.resolved_on IS NULL, 'Unresolved', Concat('Resolved on ',
   return_claims.resolved_on)) AS resolved_on,

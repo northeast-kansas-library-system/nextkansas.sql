@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2023-02-10 17:17:17
 Modified on: 2023-10-16 21:52:35
-Date last run: 2025-10-02 12:59:20
+Date last run: 2026-01-12 11:23:41
 
 ----------
 
@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint">
-<p>Gives a count of how many items are at the selected library based on collection code and Adult/Juvenile/YA permanent shelving locations.</p>
-<ul><li>Shows count at the time the report is run</li>
-<li>for libraries with the home library you specify</li>
-<li>grouped and sorted by item home library and collection code</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Non-standard shelving locations are counted as "Adult" locations.</p>
-<p>Items with blank collection codes are counted as "(Unclassified)."</p>
-<p></p>
-<p>This report cannot track changes made to existing records over time.  Therefore, if staff change the home library, location, or collection code of an item, those changes will not be reflected in the additions or deletions columns.  This means that the numbers may look inconsistent from month to month if changes are made to existing item records.</p>
-</div>
+&lt;div class="reportinfo noprint"&gt;
+&lt;p&gt;Gives a count of how many items are at the selected library based on collection code and Adult/Juvenile/YA permanent shelving locations.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows count at the time the report is run&lt;/li&gt;
+&lt;li&gt;for libraries with the home library you specify&lt;/li&gt;
+&lt;li&gt;grouped and sorted by item home library and collection code&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Non-standard shelving locations are counted as "Adult" locations.&lt;/p&gt;
+&lt;p&gt;Items with blank collection codes are counted as "(Unclassified)."&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;This report cannot track changes made to existing records over time.  Therefore, if staff change the home library, location, or collection code of an item, those changes will not be reflected in the additions or deletions columns.  This means that the numbers may look inconsistent from month to month if changes are made to existing item records.&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -66,7 +66,7 @@ From (
       authorised_values.lib_opac
     From branches,
       authorised_values
-    Where branches.branchcode Like <>
+    Where branches.branchcode Like &lt;&gt;
       And authorised_values.category = 'CCODE'
   ) branchtypes
   Left Join (

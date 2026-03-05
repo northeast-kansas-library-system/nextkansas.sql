@@ -13,7 +13,7 @@ Group: Administrative Reports
 
 Created on: 2015-05-14 16:48:51
 Modified on: 2023-10-16 22:06:04
-Date last run: 2025-10-27 09:30:50
+Date last run: 2026-01-28 16:33:06
 
 ----------
 
@@ -22,20 +22,20 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Lists item barcode numbers that need their item type updated to "MOVIE" after the appropriate amount of time has passed from their date of accession</p>
-<ul><li>Shows barcodes of items that are in need of updating</li>
-<li>at all NExpress libraries</li>
-<li>grouped by item barcode number</li>
-<li>sorted by homebranch, collection code, and date accessioned</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Need for report depreciated by addition of automatic item modification by age tool added in Koha 16.11.  Run monthly to make sure automatic tool is working correctly.</p>
-<p></p>
-<p>Original report created by Heather Braum.  Explanatory notes added and query updated by GHW on 2017.12.28.</p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2497&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Lists item barcode numbers that need their item type updated to "MOVIE" after the appropriate amount of time has passed from their date of accession&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows barcodes of items that are in need of updating&lt;/li&gt;
+&lt;li&gt;at all NExpress libraries&lt;/li&gt;
+&lt;li&gt;grouped by item barcode number&lt;/li&gt;
+&lt;li&gt;sorted by homebranch, collection code, and date accessioned&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Need for report depreciated by addition of automatic item modification by age tool added in Koha 16.11.  Run monthly to make sure automatic tool is working correctly.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Original report created by Heather Braum.  Explanatory notes added and query updated by GHW on 2017.12.28.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2497&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -51,14 +51,14 @@ FROM
 WHERE
   ((items.itype = 'NVIDLH' OR
     items.itype = 'NVIDWALK') AND
-  items.dateaccessioned < Date_Sub(CurDate(), INTERVAL 30 DAY) AND
-  items.ccode <> 'ILL' AND
-  items.ccode <> 'GADGET' AND
-  items.ccode <> 'MAGAZINE' AND
-  items.ccode <> 'COMPUTER' AND
+  items.dateaccessioned &lt; Date_Sub(CurDate(), INTERVAL 30 DAY) AND
+  items.ccode &lt;&gt; 'ILL' AND
+  items.ccode &lt;&gt; 'GADGET' AND
+  items.ccode &lt;&gt; 'MAGAZINE' AND
+  items.ccode &lt;&gt; 'COMPUTER' AND
   biblio.title NOT LIKE 'BASEHOR ILL%') OR
   (items.itype = "NVIDNEW" AND
-  items.dateaccessioned < Date_Sub(CurDate(), INTERVAL 60 DAY) AND
+  items.dateaccessioned &lt; Date_Sub(CurDate(), INTERVAL 60 DAY) AND
   items.homebranch = "MCLOUTH")
 GROUP BY
   items.barcode

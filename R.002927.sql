@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Shows information on items that have been deleted and are still in the deleteditems table</p>
-<ul><li>Shows information on items that are in the deleteditems table</li>
-<li>Shows information for the barcode number you specify (wildcards are OK)</li>
-<li>grouped by itemnumber</li>
-<li>sorted by item information</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2927&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Shows information on items that have been deleted and are still in the deleteditems table&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows information on items that are in the deleteditems table&lt;/li&gt;
+&lt;li&gt;Shows information for the barcode number you specify (wildcards are OK)&lt;/li&gt;
+&lt;li&gt;grouped by itemnumber&lt;/li&gt;
+&lt;li&gt;sorted by item information&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2927&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -92,7 +92,7 @@ FROM
     authorised_values.category = 'DAMAGED') damageditems
     ON deleteditems.damaged = damageditems.authorised_value
 WHERE
-  deleteditems.barcode LIKE <>
+  deleteditems.barcode LIKE &lt;&gt;
 GROUP BY
   deleteditems.itemnumber
 ORDER BY

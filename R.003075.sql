@@ -42,7 +42,7 @@ SELECT
 FROM
   borrowers
 WHERE
-  borrowers.branchcode LIKE <>
+  borrowers.branchcode LIKE &lt;&gt;
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

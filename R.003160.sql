@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-01-27 22:47:48
 Modified on: 2024-01-17 12:11:47
-Date last run: 2025-10-17 14:00:31
+Date last run: 2026-01-16 15:46:58
 
 ----------
 
@@ -22,22 +22,22 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a list of items added in the previous calendar month</p>
-<ul><li>Only shows items added in the previous calendar month</li>
-<li>at the library you specify</li>
-<li>grouped by biblio number and item number</li>
-<li>sorted by home branch, shelving location, item type, collection code, call number, author, and title</li>
-<li>contains links to the item's bibliographic record</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Partially replaces report 536</p>
-<p></p>
-<p>Updated on 2023.07.21 to fix a home library/holding library issue</p>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3160&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a list of items added in the previous calendar month&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Only shows items added in the previous calendar month&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped by biblio number and item number&lt;/li&gt;
+&lt;li&gt;sorted by home branch, shelving location, item type, collection code, call number, author, and title&lt;/li&gt;
+&lt;li&gt;contains links to the item's bibliographic record&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Partially replaces report 536&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Updated on 2023.07.21 to fix a home library/holding library issue&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p id="rquickopen"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3160&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -112,7 +112,7 @@ FROM items
   ) perm_locs ON perm_locs.authorised_value = items.permanent_location 
   JOIN branches ON items.homebranch = branches.branchcode 
 WHERE 
-  items.homebranch Like <> And 
+  items.homebranch Like &lt;&gt; And 
   Month(items.dateaccessioned) = Month(Now() - INTERVAL 1 MONTH) AND 
   Year(items.dateaccessioned) = Year(Now() - INTERVAL 1 MONTH) 
 GROUP BY 

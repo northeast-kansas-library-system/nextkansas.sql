@@ -100,17 +100,17 @@ FROM
   biblio_metadata
     ON biblio_metadata.biblionumber = biblio.biblionumber
 WHERE
-  items.homebranch LIKE <> AND
-  Coalesce(items.location, '') LIKE <> AND
-  Coalesce(items.itype, '') LIKE <> AND
-  Coalesce(items.ccode, '') LIKE <>
+  items.homebranch LIKE &lt;&gt; AND
+  Coalesce(items.location, '') LIKE &lt;&gt; AND
+  Coalesce(items.itype, '') LIKE &lt;&gt; AND
+  Coalesce(items.ccode, '') LIKE &lt;&gt;
 GROUP BY
   items.barcode
 HAVING
-  CHECKED_OUT LIKE <> AND
-  STATUS_PROBLEM LIKE <> AND
-  IN_TRANSIT LIKE <> AND
-  ON_HOLD LIKE <> 
+  CHECKED_OUT LIKE &lt;&gt; AND
+  STATUS_PROBLEM LIKE &lt;&gt; AND
+  IN_TRANSIT LIKE &lt;&gt; AND
+  ON_HOLD LIKE &lt;&gt; 
 ORDER BY
   items.homebranch,
   LOCATION,

@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2023-02-10 16:55:02
 Modified on: 2023-10-16 21:53:19
-Date last run: 2025-10-22 14:28:20
+Date last run: 2026-01-28 12:44:15
 
 ----------
 
@@ -22,59 +22,59 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint">
-<p>Circulation by item details spreadsheet report - circulation by item type</p> 
-<ul><li>Shows counts of check-outs and renewals in the previous calendar month</li> 
-<li>At all the library you specify</li> 
-<li>grouped and sorted by library name and item type</li> 
-</ul><br /> 
-<p><ins>Notes:</ins></p> 
-<p></p> 
-<p>An item's "shelving location" is based on the shelving location of the item at the time it was checked out *Unless the item had a "Recently returned" shelving location.*  This report falls back to the items' "Permanent shelving location" whenever the statistics data shows that the item's shelving location was "Recently returned."  If the shelving location is completely ambiguous, the circulation is counted in the 'Other items' column.</p> 
-<p></p> 
-<ul> 
-  <li>'Adult items' includes items with these shelving locations:</li> 
-  <ul> 
-    <li>Adult</li> 
-    <li>~Display - BALDWIN - Adult</li> 
-    <li>~Display - LEAVENWRTH - Adult</li> 
-    <li>~Display - PAOLA - Adult</li> 
-    <li>Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Adult" locations</li> 
-  </ul> 
-  <br /> 
-  <li>'YA items' includes items with these shelving locations:</li> 
-  <ul> 
-    <li>Young adult</li> 
-    <li>~Display - BALDWIN - Young Adult</li> 
-    <li>~Display - LEAVENWRTH - Young adult</li> 
-    <li>~Display - PAOLA - Young adult</li> 
-    <li>Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Young adult" locations</li> 
-  </ul> 
-  <br /> 
-  <li>'Juvenile items' includes items with these shelving locations:</li> 
-  <ul> 
-    <li>Childrens</li> 
-    <li>~Display - BALDWIN - Childrens</li> 
-    <li>~Display - LEAVENWRTH - Children's</li> 
-    <li>~Display - PAOLA - Children's</li> 
-    <li>Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Childrens" locations</li> 
-  </ul> 
-  <br /> 
-  <li>'Other items' includes items with these shelving locations:</li> 
-  <ul> 
-    <li>Cataloging</li> 
-    <li>Processing Center</li> 
-    <li>Any other situation where the recorded shelving location is "Recently returned" but the item's permanent location is ambiguous</li> 
-    <li>Any items where the recorded shelving location is blank or unknown</li> 
-  </ul> 
-</ul> 
-  <br /> 
-<p></p> 
-<p class="updated">This report and these notes updated on 2023.02.10</p> 
-<p></p> 
-<p class= "notetags" style="display: none;">#monthly #statistics #item #details #itype #circulation_by_item_details</p> 
-<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
-</div> 
+&lt;div class="reportinfo noprint"&gt;
+&lt;p&gt;Circulation by item details spreadsheet report - circulation by item type&lt;/p&gt; 
+&lt;ul&gt;&lt;li&gt;Shows counts of check-outs and renewals in the previous calendar month&lt;/li&gt; 
+&lt;li&gt;At all the library you specify&lt;/li&gt; 
+&lt;li&gt;grouped and sorted by library name and item type&lt;/li&gt; 
+&lt;/ul&gt;&lt;br /&gt; 
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;An item's "shelving location" is based on the shelving location of the item at the time it was checked out *Unless the item had a "Recently returned" shelving location.*  This report falls back to the items' "Permanent shelving location" whenever the statistics data shows that the item's shelving location was "Recently returned."  If the shelving location is completely ambiguous, the circulation is counted in the 'Other items' column.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;ul&gt; 
+  &lt;li&gt;'Adult items' includes items with these shelving locations:&lt;/li&gt; 
+  &lt;ul&gt; 
+    &lt;li&gt;Adult&lt;/li&gt; 
+    &lt;li&gt;~Display - BALDWIN - Adult&lt;/li&gt; 
+    &lt;li&gt;~Display - LEAVENWRTH - Adult&lt;/li&gt; 
+    &lt;li&gt;~Display - PAOLA - Adult&lt;/li&gt; 
+    &lt;li&gt;Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Adult" locations&lt;/li&gt; 
+  &lt;/ul&gt; 
+  &lt;br /&gt; 
+  &lt;li&gt;'YA items' includes items with these shelving locations:&lt;/li&gt; 
+  &lt;ul&gt; 
+    &lt;li&gt;Young adult&lt;/li&gt; 
+    &lt;li&gt;~Display - BALDWIN - Young Adult&lt;/li&gt; 
+    &lt;li&gt;~Display - LEAVENWRTH - Young adult&lt;/li&gt; 
+    &lt;li&gt;~Display - PAOLA - Young adult&lt;/li&gt; 
+    &lt;li&gt;Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Young adult" locations&lt;/li&gt; 
+  &lt;/ul&gt; 
+  &lt;br /&gt; 
+  &lt;li&gt;'Juvenile items' includes items with these shelving locations:&lt;/li&gt; 
+  &lt;ul&gt; 
+    &lt;li&gt;Childrens&lt;/li&gt; 
+    &lt;li&gt;~Display - BALDWIN - Childrens&lt;/li&gt; 
+    &lt;li&gt;~Display - LEAVENWRTH - Children's&lt;/li&gt; 
+    &lt;li&gt;~Display - PAOLA - Children's&lt;/li&gt; 
+    &lt;li&gt;Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Childrens" locations&lt;/li&gt; 
+  &lt;/ul&gt; 
+  &lt;br /&gt; 
+  &lt;li&gt;'Other items' includes items with these shelving locations:&lt;/li&gt; 
+  &lt;ul&gt; 
+    &lt;li&gt;Cataloging&lt;/li&gt; 
+    &lt;li&gt;Processing Center&lt;/li&gt; 
+    &lt;li&gt;Any other situation where the recorded shelving location is "Recently returned" but the item's permanent location is ambiguous&lt;/li&gt; 
+    &lt;li&gt;Any items where the recorded shelving location is blank or unknown&lt;/li&gt; 
+  &lt;/ul&gt; 
+&lt;/ul&gt; 
+  &lt;br /&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p class="updated"&gt;This report and these notes updated on 2023.02.10&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p class= "notetags" style="display: none;"&gt;#monthly #statistics #item #details #itype #circulation_by_item_details&lt;/p&gt; 
+&lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt; 
+&lt;/div&gt; 
 
 ----------
 */
@@ -98,14 +98,14 @@ FROM
       itemtypes.itemtype 
     FROM branches, 
       itemtypes 
-    WHERE branches.branchcode LIKE <> 
+    WHERE branches.branchcode LIKE &lt;&gt; 
   ) branch_itype 
   LEFT JOIN 
   ( 
     SELECT 
       Coalesce(statistics.branch, "NEKLS") AS branch, 
       Coalesce(statistics.itemtype, "BOOK") AS itemtype, 
-      Count(*) AS CKO_REN 
+      Count(&ast;) AS CKO_REN 
     FROM statistics 
     WHERE ( 
         statistics.type = 'issue' 
@@ -124,7 +124,7 @@ FROM
     SELECT 
       Coalesce(statistics.branch, "NEKLS") AS branch, 
       Coalesce(statistics.itemtype, "BOOK") AS itemtype, 
-      Count(*) AS CKO_REN 
+      Count(&ast;) AS CKO_REN 
     FROM statistics 
       LEFT JOIN items ON items.itemnumber = statistics.itemnumber 
     WHERE ( 
@@ -155,7 +155,7 @@ FROM
   ( 
     SELECT Coalesce(statistics.branch, "NEKLS") AS branch, 
       Coalesce(statistics.itemtype, "BOOK") AS itemtype, 
-      Count(*) AS CKO_REN 
+      Count(&ast;) AS CKO_REN 
     FROM statistics 
       LEFT JOIN items ON items.itemnumber = statistics.itemnumber 
     WHERE ( 
@@ -178,7 +178,7 @@ FROM
     SELECT 
     Coalesce(statistics.branch, "NEKLS") AS branch, 
       Coalesce(statistics.itemtype, "BOOK") AS itemtype, 
-      Count(*) AS CKO_REN 
+      Count(&ast;) AS CKO_REN 
     FROM statistics 
       LEFT JOIN items ON items.itemnumber = statistics.itemnumber 
     WHERE ( 
@@ -209,7 +209,7 @@ FROM
     SELECT 
       Coalesce(statistics.branch, "NEKLS") AS branch, 
       Coalesce(statistics.itemtype, "BOOK") AS itemtype, 
-      Count(*) AS CKO_REN 
+      Count(&ast;) AS CKO_REN 
     FROM statistics 
       LEFT JOIN items ON items.itemnumber = statistics.itemnumber 
     WHERE ( 

@@ -22,46 +22,46 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
+&lt;div class="reportinfo noprint"&gt; 
  
-  <div class="reportInfoContent"> 
+  &lt;div class="reportInfoContent"&gt; 
  
-    <p>Reports library basic information including</p> 
+    &lt;p&gt;Reports library basic information including&lt;/p&gt; 
 
-    <ol>
-      <li>Library name</li>
-      <li>Library branchcode</li>
-      <li>Current borrower count</li>
-      <li>Current title count</li>
-      <li>Current item count</li>
-    </ol>
+    &lt;ol&gt;
+      &lt;li&gt;Library name&lt;/li&gt;
+      &lt;li&gt;Library branchcode&lt;/li&gt;
+      &lt;li&gt;Current borrower count&lt;/li&gt;
+      &lt;li&gt;Current title count&lt;/li&gt;
+      &lt;li&gt;Current item count&lt;/li&gt;
+    &lt;/ol&gt;
  
-    <ul> 
-      <li>Reports current data</li> 
-      <li>at all member libraries</li> 
-      <li>grouped by library branchcode</li> 
-      <li>sorted by library branch name</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;Reports current data&lt;/li&gt; 
+      &lt;li&gt;at all member libraries&lt;/li&gt; 
+      &lt;li&gt;grouped by library branchcode&lt;/li&gt; 
+      &lt;li&gt;sorted by library branch name&lt;/li&gt; 
+    &lt;/ul&gt; 
  
-  </div>
+  &lt;/div&gt;
 
-  <div class="reportInfoNotes">
+  &lt;div class="reportInfoNotes"&gt;
  
-    <p> </p> 
+    &lt;p&gt; &lt;/p&gt; 
 
-    <p> 
+    &lt;p&gt; 
       Notes go here.
-    </p> 
+    &lt;/p&gt; 
  
-    <p> 
+    &lt;p&gt; 
       Title count = number of titles owned by this library / item count = number of items.  Item counts are usually higher than title counts because most libraries own duplicate copies for several titles.
-    </p> 
+    &lt;/p&gt; 
 
-    <p> 
+    &lt;p&gt; 
       Updated by GHW on 2023.08.01
-    </p> 
+    &lt;/p&gt; 
    
-  </div> 
+  &lt;/div&gt; 
 
 ----------
 */

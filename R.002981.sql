@@ -103,7 +103,7 @@ WHERE
   items.onloan IS NULL AND
   transferst.datesent IS NULL AND
   reservest.found IS NULL AND
-  (items.holdingbranch NOT LIKE @brn := <> COLLATE utf8mb4_unicode_ci) AND
+  (items.holdingbranch NOT LIKE @brn := &lt;&gt; COLLATE utf8mb4_unicode_ci) AND
   items.homebranch LIKE @brn
 GROUP BY
   items.itemnumber

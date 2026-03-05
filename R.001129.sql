@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-select count(*) from biblio WHERE datecreated < <>
+select count(&ast;) from biblio WHERE datecreated &lt; &lt;&gt;
 
 
 

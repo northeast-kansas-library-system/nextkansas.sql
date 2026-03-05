@@ -3,7 +3,7 @@ R.002930
 
 ----------
 
-Name: GHW - Patrons with outstanding fees based on fee-creating branch
+Name: GHW - Patrons with unpaid fees based on fee-creating branch
 Created by: George Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2017-04-26 12:32:24
-Modified on: 2024-01-17 11:49:32
-Date last run: 2022-10-26 16:36:49
+Modified on: 2025-12-18 00:42:47
+Date last run: 2026-01-29 11:50:25
 
 ----------
 
@@ -22,244 +22,638 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Lists all patrons with outstanding fees based on the library that "owns" the fee (see the notes below for the definition of which library owns the fee)</p>
-<ul><li>Shows patrons with outstanding balances due</li>
-<li>shows patrons with fees that are owned by the library you specify, with a fee type you specify, and/or by the patron's home library</li>
-<li>also allows you to limit the results to show all patrons, only patrons with items checked out, or only patrons with no items currently checked out</li>
-<li>grouped by patron card number and accountlines ID</li>
-<li>sorted by the patron's last name, first name, and card number</li>
-<li>contains links to the account tab on the patron's account</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Determining which library a fee belongs to can be very complicated in Koha.  This report makes that determination as follows:
-  <ul>
-    <li>If the accountlines table indicates the staff login (i.e. NEKLSCIRC, OTTATECH, HORTDIRECTOR) who created a fee, the staff login's home library is the library that owns the fee</li>
-    <li>If the accountlines table does not indicate a staff login and the item was checked out less than 13 months ago, the checkout is linked to the library where the item was checked out by connecting accountlines to the to the old_issues table (we purge data more than 13 months old from the old_issues table)</li>
-    <li>If the accountlines table does not indicate a staff login and the item was checked out more than 13 months ago, it's assumed that the patron's home library owns the fee</li>
-    <li>If the accountlines table does not indicate a staff login and the item is currently checked out to the patron, the checkout is linked to the library where the item was checked out by connecting accountlines to the issues table</li>
-  </ul>
-</p>
-<p></p>
-<p>Updated on 2019.03.15 by GHW</p>
-<p></p>
-<p>Report created by George Williams.</p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2930&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="next_report_info next_noprint"&gt;
 
-<p><span style="color: yellow; background-color: red; font-size: 200%;">References accountlines.accounttype.  Needs to be updated after January 4, 2020</span></p>
+  &lt;style&gt;
+
+       .page-section .next_report_info {
+      font-size: 120% !important;
+    }
+
+        .report_hidden {
+          display: none;
+        }
+
+        .accordion .accordion-button {
+          font-size: 1.1em !important;
+          color: white !important;
+          font-weight: 900;
+        }
+
+        .next_report_function .accordion-header * {
+          background-color: #DF6320 !important;
+          color: #ffffff !important;
+        }
+
+        .next_report_notes .accordion-header * {
+          background-color: #DFC220 !important;
+          color: #000000 !important;
+        }
+
+        .next_report_instructions .accordion-header * {
+          background-color: #3DDF20 !important;
+          color: #000000 !important;
+        }
+
+        .next_report_resources .accordion-header * {
+          background-color: #1f9bde !important;
+          color: #ffffff !important;
+        }
+
+        .next_report_training .accordion-header * {
+          background-color: #6320DF !important;
+          color: #ffffff !important;
+        }
+
+        .accordion-collapse.collapse * {
+          background-color: #e6e6e6;
+          color: #000000;
+        }
+
+        .accordion-body h3 {
+          font-size: 1.5em !important;
+        }
+
+        .report_section {
+          border: 2px solid black;
+          border-radius: 8px;
+          margin: 10px;
+          padding: 15px;
+        }
+
+        .resources_btn {
+          padding: 10px;
+          margin: 10px 0px 0px 0px;
+          border: 1px solid #555;
+          border-radius: 4px;
+          display: inline-block;
+          font-weight: 650;
+          line-height: 1.5;
+          text-align: center;
+          vertical-align: middle;
+          white-space: nowrap;
+          background: #DFC220 none !important;
+          color: #000000;
+          !important;
+        }
+
+        .resources_btn:hover {
+          background: #F2E6A5 none !important;
+          color: #000000;
+          !important;
+        }
+
+        .training_btn {
+          padding: 10px;
+          margin: 10px 0px 0px 0px;
+          border: 1px solid #555;
+          border-radius: 4px;
+          display: inline-block;
+          font-weight: 650;
+          line-height: 1.5;
+          text-align: center;
+          vertical-align: middle;
+          white-space: nowrap;
+          background: #3DDF20 none !important;
+          color: #000000;
+          !important;
+        }
+
+        .training_btn:hover {
+          background: #B1F2A5 none !important;
+          color: #000000;
+          !important;
+        }
+
+        .direct_download_btn {
+          padding: 10px;
+          margin: 10px 0px 0px 0px;
+          border: 1px solid #555;
+          border-radius: 4px;
+          display: inline-block;
+          font-weight: 650;
+          line-height: 1.5;
+          text-align: center;
+          vertical-align: middle;
+          white-space: nowrap;
+          background: #C220DF none !important;
+          color: #ffffff;
+          !important;
+        }
+
+        .direct_download_btn:hover {
+          background: #E6A5F2 none !important;
+          color: #000000;
+          !important;
+        }
+
+  &lt;/style&gt;
+
+
+
+&lt;!-- Overview --&gt;
+  &lt;div class="next_report_summary"&gt;
+    &lt;br&gt;
+
+    &lt;p id="report_id"&gt;&lt;strong&gt;Report number:&lt;/strong&gt; 2930&lt;/p&gt;
+
+    &lt;p id="report_name"&gt;&lt;strong&gt;Report name:&lt;/strong&gt; GHW - Patrons with unpaid fees based on fee-creating branch&lt;/p&gt;
+
+    &lt;span style="display: none;"&gt;
+      &lt;p id="report_author"&gt;&lt;strong&gt;Report author/source:&lt;/strong&gt; - &lt;/p&gt;
+    &lt;/span&gt;
+
+    &lt;p id="report_summary"&gt;&lt;strong&gt;Report summary:&lt;/strong&gt; Generates report of borrowers owing fees to the library you specify&lt;/p&gt;
+
+  &lt;/div&gt;
+
+  &lt;div class="accordion accordion-flush"&gt;
+
+
+
+&lt;!-- Function section --&gt;
+    &lt;div id="accordion_2930-1" class="accordion-item next_report_function"&gt;
+
+      &lt;h2 class="accordion-header" id="panelsStay_2930Open-headingOne" &gt;
+
+        &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStay_2930Open-collapseOne" aria-expanded="true"
+          aria-controls="panelsStay_2930Open-collapseOne"&gt;
+
+          Function:
+
+        &lt;/button&gt;
+
+      &lt;/h2&gt;
+
+      &lt;div id="panelsStay_2930Open-collapseOne" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_2930Open-headingOne"&gt;
+        &lt;div class="accordion-body"&gt;
+
+          &lt;div id="function_section" class="report_section"&gt;
+
+
+            &lt;p&gt;Generates report of borrowers owing fees to the library you specify&lt;/p&gt;
+            &lt;ul&gt;
+
+              &lt;li&gt;Shows all unpaid fees&lt;/li&gt;
+
+              &lt;li&gt;Shows fees due to the library you specify regardless of the borrower's or item's home library&lt;/li&gt;
+
+              &lt;li&gt;Grouped by library name, borrowernumber, and accountline id&lt;/li&gt;
+
+              &lt;li&gt;Sorted by fee creating library and borrower number&lt;/li&gt;
+
+            &lt;span style="display: none;"&gt;
+              &lt;li&gt;&lt;/li&gt;            &lt;/span&gt;
+            &lt;/ul&gt;
+
+
+            &lt;p&gt;These are the fees that your library "owns"&lt;/p&gt;
+
+          &lt;/div&gt;
+
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+
+
+
+&lt;!-- Notes section --&gt;
+    &lt;div id="accordion_REPORTID-2" class="accordion-item next_report_notes "&gt;
+
+      &lt;h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingTwo"&gt;
+
+        &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStay_REPORTIDOpen-collapseTwo" aria-expanded="false"
+          aria-controls="panelsStay_REPORTIDOpen-collapseTwo"&gt;
+
+          Notes:
+
+        &lt;/button&gt;
+
+      &lt;/h2&gt;
+
+      &lt;div id="panelsStay_REPORTIDOpen-collapseTwo" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_REPORTIDOpen-headingTwo"&gt;
+        &lt;div class="accordion-body"&gt;
+
+          &lt;div id="notes_1" class="report_section"&gt;
+            &lt;h4&gt;Determining the fee creating library&lt;/h4&gt;
+            &lt;p&gt;&lt;ul&gt;&lt;br&gt;&lt;li&gt;If a fee was manually created, the fee creating library is the library where the fee was created&lt;/li&gt;&lt;br&gt;&lt;li&gt;If an item is still checked out to the borrower, the fee creating library is determined by the issues table&lt;/li&gt;&lt;br&gt;&lt;li&gt;If an item was returned within the previous 13 months, the fee creating library is determined by the oldissues table&lt;/li&gt;&lt;br&gt;&lt;li&gt;If an item was returned more than 13 months ago, the fee creating library is assumed to be the item's owning library&lt;/li&gt;&lt;br&gt;&lt;li&gt;If an item was returned more than 13 months ago and the fee creating library cannot be determined any other way, the fee creating library is assumed to be the borrower's home library&lt;/li&gt;&lt;br&gt;&lt;/ul&gt;&lt;br&gt;&lt;/p&gt;
+          &lt;/div&gt;
+
+          &lt;div id="notes_2" class="report_section report_hidden"&gt;
+            &lt;h4&gt; NOTE_TWO_TITLE &lt;/h4&gt;
+            &lt;p&gt; NOTE_TWO_CONTENT &lt;/p&gt;
+          &lt;/div&gt;
+
+          &lt;div id="notes_3" class="report_section report_hidden"&gt;
+            &lt;h4&gt; NOTE_THREE_TITLE &lt;/h4&gt;
+            &lt;p&gt; NOTE_THREE_CONTENT &lt;/p&gt;
+          &lt;/div&gt;
+
+          &lt;div id="notes_4" class="report_section report_hidden"&gt;
+            &lt;h4&gt; NOTE_FOUR_TITLE &lt;/h4&gt;
+            &lt;p&gt; NOTE_FOUR_CONTENT &lt;/p&gt;
+          &lt;/div&gt;
+
+          &lt;div id="notes_5" class="report_section report_hidden"&gt;
+            &lt;h4&gt; NOTE_FIVE_TITLE &lt;/h4&gt;
+            &lt;p&gt; NOTE_FIVE_CONTENT &lt;/p&gt;
+          &lt;/div&gt;
+
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+
+
+
+
+&lt;!-- Instructions section --&gt;
+    &lt;div id="accordion_REPORTID-3" class="accordion-item next_report_instructions report_hidden"&gt;
+
+      &lt;h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingThree"&gt;
+
+        &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStay_REPORTIDOpen-collapseThree" aria-expanded="false"
+          aria-controls="panelsStay_REPORTIDOpen-collapseThree"&gt;
+
+          Instructions:
+
+        &lt;/button&gt;
+
+      &lt;/h2&gt;
+
+      &lt;div id="panelsStay_REPORTIDOpen-collapseThree" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_REPORTIDOpen-headingThree"&gt;
+        &lt;div class="accordion-body"&gt;
+
+          &lt;div id="instructions_1" class="report_section report_hidden"&gt;
+            &lt;h4&gt; INSTRUCTION_1_TITLE &lt;/h4&gt;
+            &lt;p&gt; INSTRUCTION_1_CONTENT &lt;/p&gt;
+          &lt;/div&gt;
+
+          &lt;div id="instructions_2" class="report_section report_hidden"&gt;
+            &lt;h4&gt; INSTRUCTION_TWO_TITLE &lt;/h4&gt;
+            &lt;p&gt; INSTRUCTION_TWO_CONTENT &lt;/p&gt;
+          &lt;/div&gt;
+
+          &lt;div id="instructions_3" class="report_section report_hidden"&gt;
+            &lt;h4&gt; INSTRUCTION_THREE_TITLE &lt;/h4&gt;
+            &lt;p&gt; INSTRUCTION_THREE_CONTENT &lt;/p&gt;
+          &lt;/div&gt;
+
+          &lt;div id="instructions_4" class="report_section report_hidden"&gt;
+            &lt;h4&gt; INSTRUCTION_FOUR_TITLE &lt;/h4&gt;
+            &lt;p&gt; INSTRUCTION_FOUR_CONTENT &lt;/p&gt;
+          &lt;/div&gt;
+
+          &lt;div id="instructions_5" class="report_section report_hidden"&gt;
+            &lt;h4&gt; INSTRUCTION_FIVE_TITLE &lt;/h4&gt;
+            &lt;p&gt; INSTRUCTION_FIVE_CONTENT &lt;/p&gt;
+          &lt;/div&gt;
+
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+
+
+
+&lt;!-- Resources section --&gt;
+    &lt;div id="accordion_REPORTID-4" class="accordion-item next_report_resources report_hidden " style=""&gt;
+
+      &lt;h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingFour"&gt;
+        &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStay_REPORTIDOpen-collapseFour" aria-expanded="false"
+          aria-controls="panelsStay_REPORTIDOpen-collapseFour"&gt;
+          Resources:
+        &lt;/button&gt;
+      &lt;/h2&gt;
+
+      &lt;div id="panelsStay_REPORTIDOpen-collapseFour" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_REPORTIDOpen-headingFour"&gt;
+
+        &lt;div class="accordion-body"&gt;
+
+          &lt;div id="resources_1" class="row report_section report_hidden"&gt;
+            &lt;div class="col col-md-2"&gt;
+              &lt;p&gt;&lt;a href=" RESOURCE_ONE_URL " target="_blank" class="resources_btn"&gt; RESOURCE_ONE_TITLE &lt;/a&gt;&lt;/p&gt;
+            &lt;/div&gt;            &lt;div class="col col-md-8"&gt;
+              &lt;p&gt; RESOURCE_ONE_NOTE &lt;/p&gt;
+            &lt;/div&gt;          &lt;/div&gt;
+
+
+          &lt;div id="resources_2" class="row report_section report_hidden"&gt;
+            &lt;div class="col col-md-2"&gt;
+              &lt;p&gt;&lt;a href=" RESOURCE_TWO_URL " target="_blank" class="resources_btn"&gt; RESOURCE_TWO_TITLE &lt;/a&gt;&lt;/p&gt;
+            &lt;/div&gt;            &lt;div class="col col-md-8"&gt;
+              &lt;p&gt; RESOURCE_TWO_NOTE &lt;/p&gt;
+            &lt;/div&gt;          &lt;/div&gt;
+
+
+          &lt;div id="resources_3" class="row report_section report_hidden"&gt;
+            &lt;div class="col col-md-2"&gt;
+              &lt;p&gt;&lt;a href=" RESOURCE_THREE_URL " target="_blank" class="resources_btn"&gt; RESOURCE_THREE_TITLE &lt;/a&gt;&lt;/p&gt;
+            &lt;/div&gt;            &lt;div class="col col-md-8"&gt;
+              &lt;p&gt; RESOURCE_THREE_NOTE &lt;/p&gt;
+            &lt;/div&gt;          &lt;/div&gt;
+
+
+          &lt;div id="resources_4" class="row report_section report_hidden"&gt;
+            &lt;div class="col col-md-2"&gt;
+              &lt;p&gt;&lt;a href=" RESOURCE_FOUR_URL " target="_blank" class="resources_btn"&gt; RESOURCE_FOUR_TITLE &lt;/a&gt;&lt;/p&gt;
+            &lt;/div&gt;            &lt;div class="col col-md-8"&gt;
+              &lt;p&gt; RESOURCE_FOUR_NOTE &lt;/p&gt;
+            &lt;/div&gt;          &lt;/div&gt;
+
+
+          &lt;div id="resources_5" class="row report_section report_hidden"&gt;
+            &lt;div class="col col-md-2"&gt;
+              &lt;p&gt;&lt;a href=" RESOURCE_FIVE_URL " target="_blank" class="resources_btn"&gt; RESOURCE_FIVE_TITLE &lt;/a&gt;&lt;/p&gt;
+            &lt;/div&gt;            &lt;div class="col col-md-8"&gt;
+              &lt;p&gt; RESOURCE_FIVE_NOTE &lt;/p&gt;
+            &lt;/div&gt;          &lt;/div&gt;
+
+        &lt;/div&gt;
+
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+
+
+&lt;!-- Training section --&gt;
+    &lt;div id="accordion_REPORTID-5" class="accordion-item next_report_training report_hidden"&gt;
+
+      &lt;h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingFive"&gt;
+
+        &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStay_REPORTIDOpen-collapseFive" aria-expanded="false"
+          aria-controls="panelsStay_REPORTIDOpen-collapseFive"&gt;
+
+          Training available
+
+        &lt;/button&gt;
+
+      &lt;/h2&gt;
+
+      &lt;div id="panelsStay_REPORTIDOpen-collapseFive" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_REPORTIDOpen-headingFive" style="color: white !important;"&gt;
+        &lt;div class="accordion-body"&gt;
+
+          &lt;div class="container text-center"&gt;
+            &lt;div class="row"&gt;
+
+
+              &lt;div id="training_link" class="col-md-3 report_hidden"&gt;
+                &lt;p&gt;&lt;a href=" TRAINING_LINK_URL " target="_blank" class="training_btn"&gt;Online training&lt;/a&gt;&lt;/p&gt;
+              &lt;/div&gt;
+
+
+              &lt;div id="training_link" class="col-md-3"&gt;
+                &lt;p&gt;&lt;a href="" target="_blank" class="training_btn"&gt;Training handout&lt;/a&gt;&lt;/p&gt;
+              &lt;/div&gt;
+
+              &lt;div id="training_link" class="col-md-3"&gt;
+                &lt;p&gt;&lt;a href="" target="_blank" class="training_btn"&gt;Video training&lt;/a&gt;&lt;/p&gt;
+              &lt;/div&gt;
+
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+&lt;!-- Direct download section --&gt;
+  &lt;div class="next_report_direct_download report_hidden"&gt;
+    &lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=2930" class="direct_download_btn"&gt;Download directly to a CSV file&lt;/a&gt;&lt;/p&gt;
+  &lt;/div&gt;
+
+
+
+&lt;!-- Hashtag section --&gt;
+  &lt;div class="next_report_hashtags" style="display: none;"&gt;
+    &lt;p&gt;#fees&lt;/p&gt;
+    &lt;p&gt;#&lt;/p&gt;
+    &lt;p&gt;#&lt;/p&gt;
+    &lt;p&gt;#&lt;/p&gt;
+    &lt;p&gt;#&lt;/p&gt;
+    &lt;p&gt;#&lt;/p&gt;
+    &lt;p&gt;#&lt;/p&gt;
+    &lt;p&gt;#&lt;/p&gt;
+    &lt;p&gt;#&lt;/p&gt;
+    &lt;p&gt;#&lt;/p&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
 
 ----------
 */
 
 
 
-SELECT
-  Concat('Link to fees') AS 'LINK',
-  Upper(borrowers.cardnumber) AS CARDNUMBER,
-  borrowers.firstname,
-  borrowers.surname,
-  borrowers.address,
-  borrowers.city,
-  borrowers.state,
-  borrowers.zipcode,
+Select
+  branches.branchname As TRANSACTING_LIBRARY,
+  borrowers.borrowernumber,
+  borrowers.cardnumber,
+  categories.description As BORROWER_CATEGORY,
+  Concat_Ws(' \n ', 
+    Concat_Ws(' / ', 
+      borrowers.firstname, 
+      borrowers.surname
+    ), 
+    borrowers.address, 
+    Concat(
+      borrowers.city, 
+      ', ', 
+      borrowers.state, 
+      ' ', 
+      borrowers.zipcode
+    )
+  ) As CONTACT_INFO,
+  borrowers.dateexpiry,
+  expired_attributes.lib As EXPIRED_ATTRIBUTE,
   borrowers.email,
   borrowers.phone,
-  borrowers.branchcode,
-  If(Count(DISTINCT issues.issue_id) > 0, "Yes", "No") AS HAS_ITEMS_OUT,
-  Count(DISTINCT issues.issue_id) AS CURRENT_CKO_COUNT,
-  outstanding.date AS FEE_DATE,
-  If(
-    outstanding.accounttype = "L", "Lost Item",
-    If(
-      outstanding.accounttype LIKE "F%", "Fine",
-      If(
-        outstanding.accounttype = "A", "Account management fee",
-        If(
-          outstanding.accounttype = "N", "New card",
-          If(
-            outstanding.accounttype = "M", "Sundry",
-            If(
-              outstanding.accounttype LIKE "C%", "Copier fees",
-              If(
-                outstanding.accounttype LIKE "D%", "Damaged item",
-                "-"
-              )
-            )
-          )
-        )
-      )
-    )
-  ) AS TYPE_OF_FEE,
-  Format(outstanding.amount, 2) AS FULL_FEE_AMOUNT,
-  outstanding.accountlines_id,
-  outstanding.description AS FEE_DESCRIPTION,
-  outstanding.note AS FEE_NOTE,
-  Format(Sum(outstanding.amount - outstanding.amountoutstanding), 2) AS PAID_SO_FAR,
-  If(Sum(outstanding.amount > outstanding.amountoutstanding), CAST(outstanding.timestamp AS DATE), "-") AS MOST_RECENT_PAYMENT,
-  Format(outstanding.amountoutstanding, 2) AS AMOUNT_OUTSTANDING
-FROM
+  borrowers.branchcode As BORROWER_HOME_LIBRARY,
+  outstanding_fees.date As DATE_OF_FEE,
+  outstanding_fees.amount As AMOUNT_OF_FEE,
+  outstanding_fees.amountoutstanding As UNPAID_BALANCE,
+  outstanding_fees.description As DESCRIPTION,
+  outstanding_fees.NOTE As NOTE,
+  account_debit_types.description As DEBIT_TYPE,
+  fee_status.lib As FEE_STATUS,
+  interface.lib AS FEE_CREATED_BY,
+  outstanding_fees.FEE_BRANCH As FEE_OWNED_BY,
+  outstanding_fees.accountlines_id
+From
+  borrowers Join
   (
-    SELECT
+    Select
       accountlines.accountlines_id,
+      accountlines.issue_id,
+      accountlines.old_issue_id,
       accountlines.borrowernumber,
-      accountlines.accountno,
       accountlines.itemnumber,
       accountlines.date,
       accountlines.amount,
-      accountlines.description,
-      accountlines.accounttype,
       accountlines.amountoutstanding,
-      accountlines.timestamp,
-      accountlines.lastincrement,
-      accountlines.note,
+      accountlines.description,
+      Trim(Replace(Replace(accountlines.note, Char(10), ' '), Char(13), ' ')) As NOTE,
+      Coalesce(accountlines.debit_type_code, 'FINE') As debit_type_code,
+      accountlines.status,
       accountlines.manager_id,
-      borrowers.branchcode
-    FROM
-      accountlines
-      JOIN borrowers
-        ON borrowers.borrowernumber = accountlines.manager_id
-    WHERE
-      accountlines.amountoutstanding > 0 AND
-      borrowers.branchcode LIKE @brn := <> COLLATE utf8mb4_unicode_ci
-    UNION
-    SELECT
+      Coalesce(accountlines.interface, ' ') As interface,
+      If(accountlines.branchcode Is Not Null, accountlines.branchcode, issues.branchcode) As FEE_BRANCH
+    From
+      accountlines Join
+      issues On accountlines.issue_id = issues.issue_id
+    Where
+      accountlines.issue_id Is Not Null And
+      accountlines.amountoutstanding &gt; 0
+    Union
+    Select
       accountlines.accountlines_id,
+      accountlines.issue_id,
+      accountlines.old_issue_id,
       accountlines.borrowernumber,
-      accountlines.accountno,
       accountlines.itemnumber,
       accountlines.date,
       accountlines.amount,
-      accountlines.description,
-      accountlines.accounttype,
       accountlines.amountoutstanding,
-      accountlines.timestamp,
-      accountlines.lastincrement,
-      accountlines.note,
+      accountlines.description,
+      Trim(Replace(Replace(accountlines.note, Char(10), ' '), Char(13), ' ')) As NOTE,
+      Coalesce(accountlines.debit_type_code, 'FINE') As debit_type_code,
+      accountlines.status,
       accountlines.manager_id,
-      old_issues.branchcode
-    FROM
-      accountlines
-      JOIN old_issues
-        ON old_issues.borrowernumber = accountlines.borrowernumber AND
-        old_issues.itemnumber = accountlines.itemnumber
-    WHERE
-      accountlines.amountoutstanding > 0 AND
-      old_issues.branchcode LIKE  @brn AND
-      accountlines.manager_id IS NULL
-    UNION
-    SELECT
+      Coalesce(accountlines.interface, ' ') As interface,
+      If(accountlines.branchcode Is Not Null, accountlines.branchcode, old_issues.branchcode) As FEE_BRANCH
+    From
+      accountlines Join
+      old_issues On accountlines.old_issue_id = old_issues.issue_id
+    Where
+      accountlines.amountoutstanding &gt; 0 And
+      accountlines.old_issue_id Is Not Null
+    Union
+    Select
       accountlines.accountlines_id,
+      accountlines.issue_id,
+      accountlines.old_issue_id,
       accountlines.borrowernumber,
-      accountlines.accountno,
       accountlines.itemnumber,
       accountlines.date,
       accountlines.amount,
-      accountlines.description,
-      accountlines.accounttype,
       accountlines.amountoutstanding,
-      accountlines.timestamp,
-      accountlines.lastincrement,
-      accountlines.note,
+      accountlines.description,
+      Trim(Replace(Replace(accountlines.note, Char(10), ' '), Char(13), ' ')) As NOTE,
+      Coalesce(accountlines.debit_type_code, 'FINE') As debit_type_code,
+      accountlines.status,
       accountlines.manager_id,
-      borrowers.branchcode
-    FROM
-      accountlines
-      INNER JOIN borrowers
-        ON borrowers.borrowernumber = accountlines.borrowernumber
-    WHERE
-      accountlines.accountlines_id NOT IN (
-          SELECT
-            accountlines.accountlines_id
-          FROM
-            accountlines
-            JOIN old_issues
-              ON old_issues.borrowernumber = accountlines.borrowernumber AND
-              old_issues.itemnumber = accountlines.itemnumber
-          WHERE
-            accountlines.amountoutstanding > 0 AND
-            old_issues.branchcode LIKE @brn AND
-            accountlines.manager_id IS NULL
-          UNION
-          SELECT
-            accountlines.accountlines_id
-          FROM
-            accountlines
-            JOIN issues
-              ON issues.borrowernumber = accountlines.borrowernumber AND
-              issues.itemnumber = accountlines.itemnumber
-          WHERE
-            accountlines.amountoutstanding > 0 AND
-            issues.branchcode LIKE @brn AND
-            accountlines.manager_id IS NULL
-        ) AND
-      accountlines.amountoutstanding > 0 AND
-      borrowers.branchcode LIKE @brn AND
-      accountlines.manager_id IS NULL
-    UNION
-    SELECT
+      Coalesce(accountlines.interface, ' ') As interface,
+      If(accountlines.branchcode Is Not Null, accountlines.branchcode, items.homebranch) As FEE_BRANCH
+    From
+      accountlines Left Join
+      items On accountlines.itemnumber = items.itemnumber
+    Where
+      accountlines.amountoutstanding &gt; 0 And
+      accountlines.old_issue_id Is Null And
+      accountlines.issue_id Is Null And
+      accountlines.itemnumber Is Not Null
+    Union
+    Select
       accountlines.accountlines_id,
+      accountlines.issue_id,
+      accountlines.old_issue_id,
       accountlines.borrowernumber,
-      accountlines.accountno,
       accountlines.itemnumber,
       accountlines.date,
       accountlines.amount,
-      accountlines.description,
-      accountlines.accounttype,
       accountlines.amountoutstanding,
-      accountlines.timestamp,
-      accountlines.lastincrement,
-      accountlines.note,
+      accountlines.description,
+      Trim(Replace(Replace(accountlines.note, Char(10), ' '), Char(13), ' ')) As NOTE,
+      Coalesce(accountlines.debit_type_code, 'FINE') As debit_type_code,
+      accountlines.status,
       accountlines.manager_id,
-      issues.branchcode
-    FROM
-      accountlines
-      JOIN issues
-        ON issues.borrowernumber = accountlines.borrowernumber AND
-        issues.itemnumber = accountlines.itemnumber
-    WHERE
-      accountlines.amountoutstanding > 0 AND
-      issues.branchcode LIKE @brn AND
-      accountlines.manager_id IS NULL
-  ) outstanding
-  JOIN borrowers
-    ON borrowers.borrowernumber = outstanding.borrowernumber
-  LEFT JOIN issues
-    ON issues.borrowernumber = borrowers.borrowernumber
-WHERE
-  If(
-    outstanding.accounttype = "L", "Lost Item",
-    If(
-      outstanding.accounttype LIKE "F%", "Fine",
-      If(
-        outstanding.accounttype = "A", "Account management fee",
-        If(
-          outstanding.accounttype = "N", "New card",
-          If(
-            outstanding.accounttype = "M", "Sundry",
-            If(
-              outstanding.accounttype LIKE "C%", "Copier fees",
-              If(
-                outstanding.accounttype LIKE "D%", "Damaged item",
-                "-"
-              )
-            )
-          )
-        )
-      )
-    )
-  ) LIKE <> AND
-  borrowers.branchcode LIKE <>
-GROUP BY
-  Upper(borrowers.cardnumber),
-  outstanding.accountlines_id
-HAVING
-  HAS_ITEMS_OUT LIKE <>
-ORDER BY
-  borrowers.surname,
-  borrowers.firstname,
-  borrowers.cardnumber
+      Coalesce(accountlines.interface, ' ') As interface,
+      If(accountlines.branchcode Is Not Null, accountlines.branchcode, borrowers.branchcode) As FEE_BRANCH
+    From
+      accountlines Left Join
+      borrowers On accountlines.borrowernumber = borrowers.borrowernumber
+    Where
+      accountlines.amountoutstanding &gt; 0 And
+      accountlines.old_issue_id Is Null And
+      accountlines.issue_id Is Null And
+      accountlines.itemnumber Is Null
+    ) outstanding_fees 
+      On outstanding_fees.borrowernumber = borrowers.borrowernumber
+  Join branches 
+    On outstanding_fees.FEE_BRANCH = branches.branchcode 
+  Left Join categories 
+    On borrowers.categorycode = categories.categorycode 
+  Left Join account_debit_types 
+    On account_debit_types.code = outstanding_fees.debit_type_code 
+  Left Join
+  (
+    Select
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib,
+      authorised_values.lib_opac
+    From
+      authorised_values
+    Where
+      authorised_values.category = 'Z_FEE_STATUS'
+  ) fee_status 
+    On fee_status.authorised_value = outstanding_fees.status
+  Left Join
+  (
+    Select
+      authorised_values.category,
+      authorised_values.authorised_value,
+      authorised_values.lib,
+      authorised_values.lib_opac
+    From
+      authorised_values
+    Where
+      authorised_values.category = 'Z_INTERFACE'
+  ) interface 
+    On interface.authorised_value = outstanding_fees.interface
+  Left Join
+  (
+    Select
+      borrower_attributes.borrowernumber,
+      borrower_attributes.code,
+      borrower_attributes.attribute,
+      authorised_values.lib,
+      authorised_values.category
+    From
+      borrower_attributes Join
+      authorised_values On borrower_attributes.attribute = authorised_values.authorised_value
+    Where
+      borrower_attributes.code = 'expired' And
+      authorised_values.category = 'expired'
+  ) expired_attributes 
+    On expired_attributes.borrowernumber = outstanding_fees.borrowernumber
+Where
+  branches.branchcode Like &lt;&gt; And
+  borrowers.categorycode Like  &lt;&gt;  And
+  outstanding_fees.debit_type_code Like  &lt;&gt;  And
+  outstanding_fees.interface Like &lt;&gt; And
+  Coalesce(expired_attributes.attribute, '-') Like &lt;&gt; And
+  borrowers.cardnumber Like Concat('%', &lt;&gt;, '%')
+Group By
+  branches.branchname,
+  borrowers.borrowernumber,
+  outstanding_fees.accountlines_id
+Order By
+  TRANSACTING_LIBRARY,
+  borrowers.borrowernumber
 
 
 

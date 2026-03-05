@@ -72,12 +72,12 @@ FROM
           LEFT JOIN (
             SELECT
               action_logs.object AS reserve_id,
-              SubString_Index(SubString_Index(action_logs.info, "itemnumber' => '", -1), "'", 1) AS itemnumber
+              SubString_Index(SubString_Index(action_logs.info, "itemnumber' =&gt; '", -1), "'", 1) AS itemnumber
             FROM
               action_logs
             WHERE
               action_logs.module = 'HOLDS' AND
-              action_logs.info LIKE "%itemnumber' => '%" AND
+              action_logs.info LIKE "%itemnumber' =&gt; '%" AND
               action_logs.action LIKE 'DEL%' AND
               Year(action_logs.timestamp) = Year(Now() - INTERVAL 1 MONTH) AND
               Month(action_logs.timestamp) = Month(Now() - INTERVAL 1 MONTH)
@@ -110,7 +110,7 @@ FROM
     ON requestdata_all.ccode = branchandcodes.authorised_value AND
       requestdata_all.branchcode = branchandcodes.branchcode
 WHERE
-  branchandcodes.branchcode LIKE <>
+  branchandcodes.branchcode LIKE &lt;&gt;
 GROUP BY
   branchandcodes.branchcode,
   branchandcodes.lib

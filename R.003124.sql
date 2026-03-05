@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Shows a count of how many bibliographic records contain a specified index term in their bibliographic records (Marc 655$a).</p>
-<ul><li>Shows terms and their counts currently in the catalog.</li>
-<li>At all libraries</li>
-<li>grouped and sorted by index term</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Enter an index term or a partial index term and this report will show you how many records contain that term.  Best to use for partial terms (i.e. for "Erotic stories," type in "erot" to get a list of all terms containing the characters "erot" in that order).</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3124&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Shows a count of how many bibliographic records contain a specified index term in their bibliographic records (Marc 655$a).&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows terms and their counts currently in the catalog.&lt;/li&gt;
+&lt;li&gt;At all libraries&lt;/li&gt;
+&lt;li&gt;grouped and sorted by index term&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Enter an index term or a partial index term and this report will show you how many records contain that term.  Best to use for partial terms (i.e. for "Erotic stories," type in "erot" to get a list of all terms containing the characters "erot" in that order).&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3124&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -46,7 +46,7 @@ SELECT
 FROM
   biblio_metadata
 WHERE
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="655"]/subfield[@code="a"]') LIKE Concat("%", <>, "%")
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="655"]/subfield[@code="a"]') LIKE Concat("%", &lt;&gt;, "%")
 GROUP BY
   INDEX_TERM
 

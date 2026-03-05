@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-01-27 23:01:25
 Modified on: 2025-05-17 00:05:11
-Date last run: 2025-10-07 14:59:13
+Date last run: 2026-01-12 15:43:56
 
 ----------
 
@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a list of new patrons to review for input errors</p>
-<ul><li>Shows patrons added in the previous calendar month</li>
-<li>at the library you specify</li>
-<li>grouped by borrowernumber</li>
-<li>sorted by the patron's last name and first name</li>
-<li>contains links to the edit patron screen for each patron</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Partially replaces report 555</p>
-<p></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a list of new patrons to review for input errors&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows patrons added in the previous calendar month&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped by borrowernumber&lt;/li&gt;
+&lt;li&gt;sorted by the patron's last name and first name&lt;/li&gt;
+&lt;li&gt;contains links to the edit patron screen for each patron&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Partially replaces report 555&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -80,14 +80,14 @@ SELECT
     Concat('Expiration date: ', borrowers.dateexpiry)
   ) AS LIBRARY_SETUP,
   If(borrowers.smsalertnumber = '', '', Concat('Provider: ', sms_providers.name, 'SMS number: ', borrowers.smsalertnumber)) AS SMS,
-  @SortOrder := <> AS SORTING
+  @SortOrder := &lt;&gt; AS SORTING
 FROM
   borrowers LEFT JOIN
   sms_providers ON borrowers.sms_provider_id = sms_providers.id LEFT JOIN
   branches ON borrowers.branchcode = branches.branchcode LEFT JOIN
   categories ON borrowers.categorycode = categories.categorycode
 WHERE
-  borrowers.branchcode LIKE <> AND
+  borrowers.branchcode LIKE &lt;&gt; AND
   Year(borrowers.dateenrolled) = Year(Now() - INTERVAL 1 MONTH) AND
   Month(borrowers.dateenrolled) = Month(Now() - INTERVAL 1 MONTH)
 GROUP BY

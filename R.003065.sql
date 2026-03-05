@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2018-04-02 15:12:43
-Modified on: 2018-04-02 15:15:41
-Date last run: 2025-10-23 12:56:57
+Modified on: 2025-12-31 08:32:04
+Date last run: 2025-12-31 08:42:05
 
 ----------
 
@@ -30,33 +30,35 @@ Expiry: 300
 
 
 SELECT
-  CONCAT("<br />REQUEST CANCELLED<br />The request on the following item was cancelled because there are no longer any copies available on the specified bibliographic record:<br />", 
+  CONCAT(
+    "&lt;br /&gt;REQUEST CANCELLED&lt;br /&gt;",
+    "The request on the following title was cancelled because there are no longer any copies available on the specified bibliographic record:&lt;br /&gt;", 
     Concat_WS(" ",
-      "Title: <span style='color: #000000;'>",
+      "Title: &lt;span style='color: #000000;'&gt;",
       biblio.title,
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="n"]'),
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="p"]'),
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="h"]'),
       ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'),
-      "</span>"),
-    Concat("<br />Link to bibliographic record in staff client: ",
-      Concat("<a href='/cgi-bin/koha/catalogue/detail.pl?biblionumber=",
+      "&lt;/span&gt;"),
+    Concat("&lt;br /&gt;Link to bibliographic record in staff client: ",
+      Concat("&lt;a href='/cgi-bin/koha/catalogue/detail.pl?biblionumber=",
         biblio.biblionumber,
-        "' target='_blank'>",
+        "' target='_blank'&gt;",
         biblio.title,
-        "</a>")),
-      "<br />Search for other copies of this title: ",
-      Concat("<a href='/cgi-bin/koha/catalogue/search.pl?idx=ti%2Cphr&q=",
+        "&lt;/a&gt;")),
+      "&lt;br /&gt;Search for other copies of this title: ",
+      Concat("&lt;a href='/cgi-bin/koha/catalogue/search.pl?idx=ti%2Cphr&q=",
         REPLACE(biblio.title,
         ' ',
         '+'),
-      "' target='_blank'>SEARCH</a>")) AS TITLE
+      "' target='_blank'&gt;SEARCH&lt;/a&gt;")) AS TITLE
 FROM
   items
   JOIN biblio ON items.biblionumber = biblio.biblionumber
   JOIN biblio_metadata ON biblio_metadata.biblionumber = biblio.biblionumber
 WHERE
-  items.barcode Like Concat("%", <>, "%")
+  items.barcode Like Concat("%", &lt;&gt;, "%")
 
 
 

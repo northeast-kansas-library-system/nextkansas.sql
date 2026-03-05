@@ -22,22 +22,22 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>This report helps calculate the average age of a library's entire collection based on the publication year listed in the biblioitems.publicationyear field for that item's bibliographic record</p>
-<ul><li>It helps make the calculation on items currently in the collection</li>
-<li>at the library you specify</li>
-<li>grouped and sorted by library, total item count, count of items with biblioitems.publicationyear data</li>
-<li>contains links to report 3476 which calculates the same collection's median age</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>The statistical average age is calculated by calculating the sum of the biblioitems.publicationyear and dividing that number by the count of items with data in biblioitems.publicationyear and rounding that number down to 0 decimal places.</p>
-<p></p>
-<p>Bibliographic records which contain incorrect, incomplete, or incompatible data in the biblioitems.publicationyear field are not counted when calculating this data.</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3475&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-<p class= "notetags" style="display: none;">collection statistics, median age, weeding</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;This report helps calculate the average age of a library's entire collection based on the publication year listed in the biblioitems.publicationyear field for that item's bibliographic record&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;It helps make the calculation on items currently in the collection&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped and sorted by library, total item count, count of items with biblioitems.publicationyear data&lt;/li&gt;
+&lt;li&gt;contains links to report 3476 which calculates the same collection's median age&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The statistical average age is calculated by calculating the sum of the biblioitems.publicationyear and dividing that number by the count of items with data in biblioitems.publicationyear and rounding that number down to 0 decimal places.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Bibliographic records which contain incorrect, incomplete, or incompatible data in the biblioitems.publicationyear field are not counted when calculating this data.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3475&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;collection statistics, median age, weeding&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -71,7 +71,7 @@ FROM
      biblioitems JOIN
      items ON items.biblioitemnumber = biblioitems.biblioitemnumber
    WHERE
-     biblioitems.publicationyear < Year(Now()) AND
+     biblioitems.publicationyear &lt; Year(Now()) AND
      biblioitems.publicationyear REGEXP '^[0-9]+$'
    GROUP BY
      items.homebranch) count_with_pubyear ON count_with_pubyear.homebranch =
@@ -84,7 +84,7 @@ FROM
      biblioitems JOIN
      items ON items.biblioitemnumber = biblioitems.biblioitemnumber
    WHERE
-     biblioitems.publicationyear < Year(Now()) AND
+     biblioitems.publicationyear &lt; Year(Now()) AND
      biblioitems.publicationyear REGEXP '^[0-9]+$'
    GROUP BY
      items.homebranch,
@@ -92,7 +92,7 @@ FROM
      biblioitems.publicationyear) average_age ON average_age.homebranch =
       branches.branchcode
 WHERE
-  branches.branchcode LIKE <>
+  branches.branchcode LIKE &lt;&gt;
 GROUP BY
   branches.branchcode,
   count_total.Count_itemnumber,

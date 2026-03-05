@@ -22,30 +22,30 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a printable shelf list with call numbers at a specific branch based on a list</p>
-<ul><li>Displays titles currently on the list you specify</li>
-<li>at the library you specify</li>
-<li>grouped by title and list id number</li>
-<li>sorted by standard Next Search Catalog classification, author, and title</li>
-<li>links to the actual list</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>To determine the list id number, look at the URL for the list and take the number off of the end of the URL. For example, the list at<br />
-https://staff.nextkansas.org/cgi-bin/koha/virtualshelves/shelves.pl?op=view&shelfnumber=6003<br />
-would be list number 6003.</p>
-<p></p>
-<p>Can be accessed by running reports 3224 or 3225 and clicking on the link in the "CALL_NUMBER_REPORT" column</p>
-<p></p>
-<p>Replaces the following reports:</p>
-<ul>
-<li>1746 - Shelf List from a Private List</li>
-<li>2049 - Printed list of books from a list</li>
-</ul>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3227&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a printable shelf list with call numbers at a specific branch based on a list&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Displays titles currently on the list you specify&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped by title and list id number&lt;/li&gt;
+&lt;li&gt;sorted by standard Next Search Catalog classification, author, and title&lt;/li&gt;
+&lt;li&gt;links to the actual list&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;To determine the list id number, look at the URL for the list and take the number off of the end of the URL. For example, the list at&lt;br /&gt;
+https://staff.nextkansas.org/cgi-bin/koha/virtualshelves/shelves.pl?op=view&shelfnumber=6003&lt;br /&gt;
+would be list number 6003.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Can be accessed by running reports 3224 or 3225 and clicking on the link in the "CALL_NUMBER_REPORT" column&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Replaces the following reports:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1746 - Shelf List from a Private List&lt;/li&gt;
+&lt;li&gt;2049 - Printed list of books from a list&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3227&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 
 
@@ -73,7 +73,7 @@ SELECT
       Concat_Ws(
         "",
         IF(
-          Length(biblio.title) > 40,
+          Length(biblio.title) &gt; 40,
           Concat(Left(biblio.title, 40), ". . . "),
           biblio.title
         ),
@@ -97,7 +97,7 @@ SELECT
           ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]') = "",
           "",
           If(
-            LENGTH(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]')) > 40,
+            LENGTH(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]')) &gt; 40,
             Concat(LEFT(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), 40), " . . ."),
             Concat(ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code="b"]'), "")
           )
@@ -164,11 +164,11 @@ FROM
       ) locs
         ON locs.authorised_value = items.location
     WHERE
-      items.homebranch LIKE <>
+      items.homebranch LIKE &lt;&gt;
   ) itemss
     ON itemss.biblionumber = biblio.biblionumber
 WHERE
-  virtualshelves.shelfnumber = <>
+  virtualshelves.shelfnumber = &lt;&gt;
 GROUP BY
   TITLE_INFO,
   virtualshelves.shelfnumber

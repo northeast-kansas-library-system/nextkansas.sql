@@ -22,15 +22,15 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Shows all of the NExpress test accounts</p>
-<ul><li>Shows current accounts</li>
-<li>at all NExpress libraries</li>
-<li>links directly to the details page of the account (links open in a new window)</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p>This report lists all of the information from the patron's account except the userid, password, and flags fields so that the report can be downloaded, the "borrowernumber" links column can be deleted, changes can be made to the account information, and then the data can be imported back into Koha without accidentally changing the userid, password, or flags fields (which can screw up the accounts - yes - learned this one the hard way - again).</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Shows all of the NExpress test accounts&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows current accounts&lt;/li&gt;
+&lt;li&gt;at all NExpress libraries&lt;/li&gt;
+&lt;li&gt;links directly to the details page of the account (links open in a new window)&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;This report lists all of the information from the patron's account except the userid, password, and flags fields so that the report can be downloaded, the "borrowernumber" links column can be deleted, changes can be made to the account information, and then the data can be imported back into Koha without accidentally changing the userid, password, or flags fields (which can screw up the accounts - yes - learned this one the hard way - again).&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */

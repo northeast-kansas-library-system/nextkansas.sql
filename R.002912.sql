@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2017-02-23 17:12:52
 Modified on: 2017-02-23 17:27:48
-Date last run: 2025-09-29 12:03:12
+Date last run: 2026-01-06 11:08:04
 
 ----------
 
@@ -46,14 +46,14 @@ SELECT
   items.notforloan,
   items.withdrawn,
   items.dateaccessioned,
-  If(items.timestamp > 1, "-", items.timestamp) AS DELETED_ON
+  If(items.timestamp &gt; 1, "-", items.timestamp) AS DELETED_ON
 FROM
   items INNER JOIN
   biblio
     ON items.biblionumber = biblio.biblionumber
 WHERE
   items.homebranch = 'BONNERSPGS' AND
-  items.dateaccessioned < MakeDate(Year(Now()), 1)
+  items.dateaccessioned &lt; MakeDate(Year(Now()), 1)
 UNION
 SELECT
   deleteditems.barcode,
@@ -79,8 +79,8 @@ FROM
     ON deleteditems.biblionumber = deletedbiblio.biblionumber
 WHERE
   deleteditems.homebranch = 'BONNERSPGS' AND
-  deleteditems.dateaccessioned < MakeDate(Year(Now()), 1) AND
-  deleteditems.timestamp > MakeDate(Year(Now()), 1)
+  deleteditems.dateaccessioned &lt; MakeDate(Year(Now()), 1) AND
+  deleteditems.timestamp &gt; MakeDate(Year(Now()), 1)
   UNION
 SELECT
   deleteditems.barcode,
@@ -106,8 +106,8 @@ FROM
     ON deleteditems.biblionumber = biblio.biblionumber
 WHERE
   deleteditems.homebranch = 'BONNERSPGS' AND
-  deleteditems.dateaccessioned < MakeDate(Year(Now()), 1) AND
-  deleteditems.timestamp > MakeDate(Year(Now()), 1)
+  deleteditems.dateaccessioned &lt; MakeDate(Year(Now()), 1) AND
+  deleteditems.timestamp &gt; MakeDate(Year(Now()), 1)
 ORDER BY
   homebranch,
   location,

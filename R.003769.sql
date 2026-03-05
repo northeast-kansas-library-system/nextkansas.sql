@@ -22,65 +22,65 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
+&lt;div class="reportinfo noprint"&gt; 
  
-  <div class="reportInfoContent"> 
+  &lt;div class="reportInfoContent"&gt; 
  
-    <p>Counts bibliographic records</p> 
+    &lt;p&gt;Counts bibliographic records&lt;/p&gt; 
  
-    <ul> 
-      <li>added in the previous calendar month</li> 
-      <li>at all Next Search Catalog libraries</li> 
-      <li>grouped and sorted by library where the bibliographic record was created and the current bibliographic level collection code</li> 
-      <li>links</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;added in the previous calendar month&lt;/li&gt; 
+      &lt;li&gt;at all Next Search Catalog libraries&lt;/li&gt; 
+      &lt;li&gt;grouped and sorted by library where the bibliographic record was created and the current bibliographic level collection code&lt;/li&gt; 
+      &lt;li&gt;links&lt;/li&gt; 
+    &lt;/ul&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div class="reportInfoNotes"> 
+  &lt;div class="reportInfoNotes"&gt; 
  
-    <p> 
+    &lt;p&gt; 
       This report reflects the bibliographic shelving location, the bibliographic item type, and the bibliographic collection code at the time that the report was run.
-    </p> 
+    &lt;/p&gt; 
 
-    <p> 
+    &lt;p&gt; 
       If a bibliographic record does not have a collection code in the 942$e, that record will be counted as having an "(Unclassified)" collection code.
-    </p>
+    &lt;/p&gt;
 
-    <p> 
+    &lt;p&gt; 
       If a bibliographic record does not have a shelving location in the 942$c, the count for that bibliographic record will appear in the "OTHER_OR_ALREADY_DELETED" column.
-    </p>
+    &lt;/p&gt;
 
-    <p> 
+    &lt;p&gt; 
       If a bibliographic record was added in the previous calendar month but has been deleted by the time the report is run, the count for that bibliographic record will appear in the "OTHER_OR_ALREADY_DELETED" column.
-    </p> 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div id="reportInfoLinks"> 
+  &lt;div id="reportInfoLinks"&gt; 
  
-    <p id="sql_quick_down"> 
-      <a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3769"> 
+    &lt;p id="sql_quick_down"&gt; 
+      &lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3769"&gt; 
         Click here to download as a csv file 
-      </a> 
-    </p> 
+      &lt;/a&gt; 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div id="reportInfoTags"> 
+  &lt;div id="reportInfoTags"&gt; 
  
-    <p style="display: none;"> 
+    &lt;p style="display: none;"&gt; 
       #statistics 
       #monthly statistics 
       #next statistics 
       #biblio count 
-    </p> 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
+  &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt; 
  
-</div> 
+&lt;/div&gt; 
 
 ----------
 */

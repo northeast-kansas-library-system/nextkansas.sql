@@ -68,7 +68,7 @@ FROM
       issues ON issues.issue_id = accountlines.issue_id LEFT JOIN
       old_issues ON old_issues.issue_id = accountlines.issue_id
     WHERE
-      accountlines.amountoutstanding > 0 AND
+      accountlines.amountoutstanding &gt; 0 AND
       accountlines.borrowernumber IS NOT NULL
     GROUP BY
       accountlines.accountlines_id,
@@ -94,7 +94,7 @@ FROM
       old_issues ON old_issues.issue_id = accountlines.issue_id LEFT JOIN
       borrowers staff ON staff.borrowernumber = accountlines.manager_id
     WHERE
-      accountlines.amountoutstanding > 0 AND
+      accountlines.amountoutstanding &gt; 0 AND
       accountlines.manager_id IS NOT NULL AND
       accountlines.borrowernumber IS NOT NULL
     GROUP BY
@@ -123,7 +123,7 @@ FROM
       LEFT JOIN
       borrowers ON borrowers.borrowernumber = accountlines.borrowernumber
     WHERE
-      accountlines.amountoutstanding > 0 AND
+      accountlines.amountoutstanding &gt; 0 AND
       Coalesce(issues.branchcode, old_issues.branchcode) IS NULL AND
       staff.branchcode IS NULL AND
       accountlines.borrowernumber IS NOT NULL
@@ -132,8 +132,8 @@ FROM
       accountlines.credit_type_code,
       accountlines.note) fees ON fees.branchcode = branchess.branchcode
 WHERE
-  branchess.branchcode LIKE <> AND
-  fees.debit_type_code LIKE <>
+  branchess.branchcode LIKE &lt;&gt; AND
+  fees.debit_type_code LIKE &lt;&gt;
 GROUP BY
   fees.accountlines_id
 ORDER BY

@@ -22,36 +22,35 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Lists every date and timestamp field in every table in Koha and shows the oldest and newest dates.</p>
-<p>Some dates are further grouped by other field values - specifically type of change that occurred on that date/time.</p>
-<p>Used at the koha-US 2021 conference</p>
-<ul>
-  <li>_GROUP_ = the kind of group that the table/field belongs to - i.e. I manually grouped all of the borrower fees tables/fields togehter; I manually grouped all of the acquisitions tables/fields together; etc. </li>
-  <li>
-    TABLE_NAME = the name of the table the date/datetime field exists in</li>
-  <li>
-    FIELD_NAME = the name of the date/datetime field</li>
-  <li>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Lists every date and timestamp field in every table in Koha and shows the oldest and newest dates.&lt;/p&gt;
+&lt;p&gt;Some dates are further grouped by other field values - specifically type of change that occurred on that date/time.&lt;/p&gt;
+&lt;p&gt;Used at the koha-US 2021 conference&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;_GROUP_ = the kind of group that the table/field belongs to - i.e. I manually grouped all of the borrower fees tables/fields togehter; I manually grouped all of the acquisitions tables/fields together; etc. &lt;/li&gt;
+  &lt;li&gt;
+    TABLE_NAME = the name of the table the date/datetime field exists in&lt;/li&gt;
+  &lt;li&gt;
+    FIELD_NAME = the name of the date/datetime field&lt;/li&gt;
+  &lt;li&gt;
     TYPE_OF_EVENT = if the table data includes a descriptive field that explains the type of event that happened to the data at the specified time, then that description is included here
-    <ul>
-      <li>
+    &lt;ul&gt;
+      &lt;li&gt;
         A "-" or a " " in this column indicates that the TYPE_OF_EVENT was recorded as a null value or a blank space in the database
-      </li>
-    </ul>
-  </li>
-  <li>
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
     OLDEST_DATE = the minimum date available that meets the first 4 criteria
-  </li>
-  <li>
+  &lt;/li&gt;
+  &lt;li&gt;
     NEWEST_DATE = the maximum date available that meets the first 4 criteria
-  </li>
-</ul>
-</div>
+  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 
 ----------
 */
-
 
 
 SELECT
@@ -2376,20 +2375,3 @@ SELECT
 FROM
   zebraqueue
 LIMIT 1000
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

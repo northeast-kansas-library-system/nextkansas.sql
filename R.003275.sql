@@ -30,7 +30,7 @@ Expiry: 300
 
 
 SELECT
-  Count(*) AS COUNT
+  Count(&ast;) AS COUNT
 FROM
   items
 WHERE

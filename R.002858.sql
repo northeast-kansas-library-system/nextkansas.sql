@@ -22,20 +22,20 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Lists patrons with items more than XX days overdue at a specified library</p>
-<ul><li>Shows patrons who currently have overdues</li>
-<li>that were checked out at the specified location</li>
-<li>grouped by</li>
-<li>sorted by patron name, card number, and date due</li>
-<li>links to the patron record</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Report created at the request of HIAWATHA.</p>
-<p>Essentially the same as report 350 - just with fewer fields.</p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2858&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Lists patrons with items more than XX days overdue at a specified library&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows patrons who currently have overdues&lt;/li&gt;
+&lt;li&gt;that were checked out at the specified location&lt;/li&gt;
+&lt;li&gt;grouped by&lt;/li&gt;
+&lt;li&gt;sorted by patron name, card number, and date due&lt;/li&gt;
+&lt;li&gt;links to the patron record&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Report created at the request of HIAWATHA.&lt;/p&gt;
+&lt;p&gt;Essentially the same as report 350 - just with fewer fields.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2858&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -88,8 +88,8 @@ FROM
   biblioitems
     ON biblio.biblionumber = biblioitems.biblionumber
 WHERE
-  (To_Days(CurDate()) - To_Days(issues.date_due)) > <> AND
-  issues.branchcode LIKE <>
+  (To_Days(CurDate()) - To_Days(issues.date_due)) &gt; &lt;&gt; AND
+  issues.branchcode LIKE &lt;&gt;
 GROUP BY
   items.itemnumber,
   issues.date_due

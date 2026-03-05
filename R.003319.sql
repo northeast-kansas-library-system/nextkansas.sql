@@ -31,35 +31,35 @@ Expiry: 300
 
 SELECT
   Concat(
-    '<br />SELF-REGISTERED DUPLICATE PATRON<br />This patron appears to have self-registered for a second account during the COVID-19 emergency and now has two accounts.  This account (',
+    '&lt;br /&gt;SELF-REGISTERED DUPLICATE PATRON&lt;br /&gt;This patron appears to have self-registered for a second account during the COVID-19 emergency and now has two accounts.  This account (',
     pat1.cardnumber,
     ' - ',
     pat1.branchcode,
-    ') and another with card number  <a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=',
+    ') and another with card number  &lt;a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=',
     pat2.borrowernumber,
-    '" target="_blank">',
+    '" target="_blank"&gt;',
     pat2.cardnumber,
     ' - ',
     pat2.branchcode,
-    '.</a><br />The self-registered account should not be renewed or updated after the emergency has passed.<br />GHW - NEKLS<br />'
+    '.&lt;/a&gt;&lt;br /&gt;The self-registered account should not be renewed or updated after the emergency has passed.&lt;br /&gt;GHW - NEKLS&lt;br /&gt;'
   ) AS CARDONE,
   Concat(
-    '<br />SELF-REGISTERED DUPLICATE PATRON<br />This patron appears to have self-registered for a second account during the COVID-19 emergency and now has two accounts.  This account (',
+    '&lt;br /&gt;SELF-REGISTERED DUPLICATE PATRON&lt;br /&gt;This patron appears to have self-registered for a second account during the COVID-19 emergency and now has two accounts.  This account (',
       pat2.cardnumber,
       ' - ',
       pat2.branchcode,
-      ') and another with card number  <a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=',
+      ') and another with card number  &lt;a href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=',
       pat1.borrowernumber,
-      '" target="_blank">',
+      '" target="_blank"&gt;',
       pat1.cardnumber,
       ' - ',
       pat1.branchcode,
-      '.</a><br />The self-registered account should not be renewed or updated after the emergency has passed.<br />GHW - NEKLS<br />'
+      '.&lt;/a&gt;&lt;br /&gt;The self-registered account should not be renewed or updated after the emergency has passed.&lt;br /&gt;GHW - NEKLS&lt;br /&gt;'
   ) AS CARDTWO
 FROM borrowers pat1,
      borrowers pat2
-WHERE pat1.cardnumber = <>
-  AND pat2.cardnumber = <>
+WHERE pat1.cardnumber = &lt;&gt;
+  AND pat2.cardnumber = &lt;&gt;
 
 
 

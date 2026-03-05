@@ -22,27 +22,27 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a count of Lynda.com users at each library</p>
-<ul><li>Shows count of users based on the most recent report from Lynda.com</li>
-<li>Shows users at all member libraries</li>
-<li>grouped by and sorted by library name</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<ol>
-  <li>Open Google spreadsheet titled "<a href="https://docs.google.com/spreadsheets/d/1z2Gc4Dc4_cr0NarxBPT92O3CDpAumiqLj4HoYRWlLqU/edit?usp=sharing" target="_blank">Lynda.com report helper</a>"</li>
-  <li>Copy all of the barcode numbers from the Lynda.com report into column A of the Google sheet</li>
-  <li>Copy all of the cells from column B of the Google sheet that contain barcode numbers</li>
-  <li>Edit this report</li> 
-  <li>Paste the copied cells from the Google sheet between the comment lines of this report</li>
-  <li>Click the "Update SQL" button</li>
-  <li>Once updated, click the "Run report" button</li>
-</ol>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3130&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3130">Click here to download as a csv file</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a count of Lynda.com users at each library&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows count of users based on the most recent report from Lynda.com&lt;/li&gt;
+&lt;li&gt;Shows users at all member libraries&lt;/li&gt;
+&lt;li&gt;grouped by and sorted by library name&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Open Google spreadsheet titled "&lt;a href="https://docs.google.com/spreadsheets/d/1z2Gc4Dc4_cr0NarxBPT92O3CDpAumiqLj4HoYRWlLqU/edit?usp=sharing" target="_blank"&gt;Lynda.com report helper&lt;/a&gt;"&lt;/li&gt;
+  &lt;li&gt;Copy all of the barcode numbers from the Lynda.com report into column A of the Google sheet&lt;/li&gt;
+  &lt;li&gt;Copy all of the cells from column B of the Google sheet that contain barcode numbers&lt;/li&gt;
+  &lt;li&gt;Edit this report&lt;/li&gt; 
+  &lt;li&gt;Paste the copied cells from the Google sheet between the comment lines of this report&lt;/li&gt;
+  &lt;li&gt;Click the "Update SQL" button&lt;/li&gt;
+  &lt;li&gt;Once updated, click the "Run report" button&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p id="rquickopen"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3130&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;p id="rquickdown"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3130"&gt;Click here to download as a csv file&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -61,7 +61,7 @@ FROM
         borrowers
       WHERE
 
-/* Remove old data between commented blocks, then paste new data from the Google sheet below this line */
+/&ast; Remove old data between commented blocks, then paste new data from the Google sheet below this line &ast;/
 (borrowers.cardnumber = 'PLEA0001190498') OR
 (borrowers.cardnumber = 'PLEA0001330000') OR
 (borrowers.cardnumber = 'PLEA0000657529') OR
@@ -127,7 +127,7 @@ FROM
 (borrowers.cardnumber = '1003008042784') OR
 (borrowers.cardnumber = '1003019004367') OR
 (borrowers.cardnumber = '1003008030353') OR
-/* Remove old data between commented blocks, then paste new data from the Google sheet above this line */
+/&ast; Remove old data between commented blocks, then paste new data from the Google sheet above this line &ast;/
 
         (borrowers.cardnumber = 'placeholder data')
 

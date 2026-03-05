@@ -41,7 +41,7 @@ FROM
   JOIN biblio_metadata
     ON biblio_metadata.biblionumber = biblio.biblionumber
 WHERE
-  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="c"]') LIKE Concat("%", <> ,"%")
+  ExtractValue(biblio_metadata.metadata, '//datafield[@tag="942"]/subfield[@code="c"]') LIKE Concat("%", &lt;&gt; ,"%")
 GROUP BY
   biblio.biblionumber,
   biblio.datecreated

@@ -22,50 +22,50 @@ Expiry: 300
 
 ----------
 
-<div class="reportInfo noprint"> 
+&lt;div class="reportInfo noprint"&gt; 
  
-  <div class="reportInfoContent"> 
+  &lt;div class="reportInfoContent"&gt; 
 
-    <p> 
+    &lt;p&gt; 
       Holds policy by item type rules are hierarchical - First Koha will try to apply the most specific rule at a library first.  If no rule is set (as indicated by "---") then the next broadest rule will be followed. 
-    </p>
+    &lt;/p&gt;
  
-    <p>Rules are applied in this order:</p> 
+    &lt;p&gt;Rules are applied in this order:&lt;/p&gt; 
  
-    <ul> 
-      <li>LIBRARY > SPECIFIC ITEM TYPE</li>
-      <li>LIBRARY > ALL ITEM TYPES</li>
-      <li>ALL LIBRARIES > SPECIFIC ITEM TYPE</li>
-      <li>ALL LIBRARIES > ALL ITEM TYPES</li>
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;LIBRARY &gt; SPECIFIC ITEM TYPE&lt;/li&gt;
+      &lt;li&gt;LIBRARY &gt; ALL ITEM TYPES&lt;/li&gt;
+      &lt;li&gt;ALL LIBRARIES &gt; SPECIFIC ITEM TYPE&lt;/li&gt;
+      &lt;li&gt;ALL LIBRARIES &gt; ALL ITEM TYPES&lt;/li&gt;
+    &lt;/ul&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div class="reportInfoNotes"> 
+  &lt;div class="reportInfoNotes"&gt; 
  
-    <p>The default ALL LIBRARIES > ALL ITEM TYPES rule is:</p>
+    &lt;p&gt;The default ALL LIBRARIES &gt; ALL ITEM TYPES rule is:&lt;/p&gt;
 
 
-    <p>All libraries > All item types > Requests can be placed by borrowers at any library > Item can be picked up at any library > Item returns to its home library when checked in</p> 
+    &lt;p&gt;All libraries &gt; All item types &gt; Requests can be placed by borrowers at any library &gt; Item can be picked up at any library &gt; Item returns to its home library when checked in&lt;/p&gt; 
  
  
-    <p> 
+    &lt;p&gt; 
  
-    </p> 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div id="reportInfoTags"> 
+  &lt;div id="reportInfoTags"&gt; 
  
-    <p style="display: none;"> 
+    &lt;p style="display: none;"&gt; 
       #tags_go_here 
-    </p> 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
+  &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt; 
  
-</div> 
+&lt;/div&gt; 
 
 ----------
 */
@@ -138,7 +138,7 @@ From (
           branches.branchname
         From branches
         UNION
-        Select Concat('*') As branchcode,
+        Select Concat('&ast;') As branchcode,
           Concat(' All libraries') As branchname
         From branches
       ) branchess,
@@ -149,20 +149,20 @@ From (
         From itemtypes
         UNION
         Select 
-          Concat('*') As itemtype,
+          Concat('&ast;') As itemtype,
           Concat(' All item types') As description
         From itemtypes
       ) itemtypes
     Where (
-        branchess.branchcode Like <>
-        Or branchess.branchcode Like '*'
+        branchess.branchcode Like &lt;&gt;
+        Or branchess.branchcode Like '&ast;'
       )
   ) branches_itemtypess
   Left Join (
     Select 
       circulation_rules.id,
-      Coalesce(circulation_rules.branchcode, '*') As branchcode,
-      Coalesce(circulation_rules.categorycode, '*') As categorycode,
+      Coalesce(circulation_rules.branchcode, '&ast;') As branchcode,
+      Coalesce(circulation_rules.categorycode, '&ast;') As categorycode,
       circulation_rules.itemtype,
       circulation_rules.rule_name,
       circulation_rules.rule_value
@@ -173,8 +173,8 @@ From (
   Left Join (
     Select 
       circulation_rules.id,
-      Coalesce(circulation_rules.branchcode, '*') As branchcode,
-      Coalesce(circulation_rules.categorycode, '*') As categorycode,
+      Coalesce(circulation_rules.branchcode, '&ast;') As branchcode,
+      Coalesce(circulation_rules.categorycode, '&ast;') As categorycode,
       circulation_rules.itemtype,
       circulation_rules.rule_name,
       circulation_rules.rule_value
@@ -185,8 +185,8 @@ From (
   Left Join (
     Select 
       circulation_rules.id,
-      Coalesce(circulation_rules.branchcode, '*') As branchcode,
-      Coalesce(circulation_rules.categorycode, '*') As categorycode,
+      Coalesce(circulation_rules.branchcode, '&ast;') As branchcode,
+      Coalesce(circulation_rules.categorycode, '&ast;') As categorycode,
       circulation_rules.itemtype,
       circulation_rules.rule_name,
       circulation_rules.rule_value

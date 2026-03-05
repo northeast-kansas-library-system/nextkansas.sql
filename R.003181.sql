@@ -22,16 +22,16 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Gives a circulation count by title and item type</p>
-<ul><li>Shows items checkedout in the previous calendar month</li>
-<li>at the library you specify</li>
-<li>grouped and sorted by library, year, month, itemtype and title</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3181&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Gives a circulation count by title and item type&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows items checkedout in the previous calendar month&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped and sorted by library, year, month, itemtype and title&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p id="rquickopen"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3181&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -44,7 +44,7 @@ SELECT
   Month(statistics.datetime) AS MONTH,
   itemtypes.description AS ITYPE,
   Coalesce(biblio.title, biblio1.title) AS TITLE,
-  Count(*) AS CKO_RENEW_COUNT
+  Count(&ast;) AS CKO_RENEW_COUNT
 FROM
   statistics
   LEFT JOIN items ON items.itemnumber = statistics.itemnumber
@@ -53,8 +53,8 @@ FROM
   LEFT JOIN biblio biblio1 ON biblio1.biblionumber = deleteditems.biblionumber
   INNER JOIN itemtypes ON itemtypes.itemtype = statistics.itemtype
 WHERE
-  statistics.branch LIKE <> AND
-  statistics.itemtype LIKE <> AND
+  statistics.branch LIKE &lt;&gt; AND
+  statistics.itemtype LIKE &lt;&gt; AND
   Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND
   Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) AND
   (statistics.type = 'ISSUE' OR

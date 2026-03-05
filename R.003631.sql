@@ -22,56 +22,56 @@ Expiry: 300
 
 ----------
 
-<div class="reportInfo noprint" id="reportinfo"> 
+&lt;div class="reportInfo noprint" id="reportinfo"&gt; 
  
-  <div class="reportInfoContent"> 
+  &lt;div class="reportInfoContent"&gt; 
  
-    <p>Gives a count of items received from transfers</p> 
+    &lt;p&gt;Gives a count of items received from transfers&lt;/p&gt; 
  
-    <ul> 
-      <li>received during the date range you specify</li> 
-      <li>received at the library you specify</li> 
-      <li>grouped by receiving library, date and time arrived, date arrived, and date range</li> 
-      <li>sorted by receiving library, date and time arrived</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;received during the date range you specify&lt;/li&gt; 
+      &lt;li&gt;received at the library you specify&lt;/li&gt; 
+      &lt;li&gt;grouped by receiving library, date and time arrived, date arrived, and date range&lt;/li&gt; 
+      &lt;li&gt;sorted by receiving library, date and time arrived&lt;/li&gt; 
+    &lt;/ul&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div class="reportInfoNotes"> 
+  &lt;div class="reportInfoNotes"&gt; 
  
-    <p> 
+    &lt;p&gt; 
  
-    </p> 
+    &lt;/p&gt; 
  
-    <p> 
+    &lt;p&gt; 
 
-    </p> 
+    &lt;/p&gt; 
  
-    <p> 
+    &lt;p&gt; 
  
-    </p> 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div id="reportInfoLinks"> 
+  &lt;div id="reportInfoLinks"&gt; 
  
-    <!-- Can't be linked because the report requires runtime parameters -->
+    &lt;!-- Can't be linked because the report requires runtime parameters --&gt;
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div id="reportInfoTags"> 
+  &lt;div id="reportInfoTags"&gt; 
  
-    <p style="display: none;"> 
+    &lt;p style="display: none;"&gt; 
       #transfers
       #received
       #count of items
-    </p> 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
+  &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt; 
  
-</div> 
+&lt;/div&gt; 
 
 ----------
 */
@@ -89,8 +89,8 @@ FROM
   branchtransfers JOIN
   branches ON branches.branchcode = branchtransfers.tobranch
 WHERE
-  branchtransfers.tobranch Like <> AND
-  branchtransfers.datearrived BETWEEN <> AND (<> + interval 1 day)
+  branchtransfers.tobranch Like &lt;&gt; AND
+  branchtransfers.datearrived BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day)
 GROUP BY
   Date_Format(branchtransfers.datearrived, "%Y-%m-%d--%H:%i"),
   branchtransfers.tobranch
@@ -106,8 +106,8 @@ FROM
   branchtransfers JOIN
   branches ON branches.branchcode = branchtransfers.tobranch
 WHERE
-  branchtransfers.tobranch Like <> AND
-  branchtransfers.datearrived BETWEEN <> AND (<> + interval 1 day)
+  branchtransfers.tobranch Like &lt;&gt; AND
+  branchtransfers.datearrived BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day)
 GROUP BY
   DATE_TIME,
   branchtransfers.tobranch)
@@ -123,8 +123,8 @@ FROM
   branchtransfers JOIN
   branches ON branches.branchcode = branchtransfers.tobranch
 WHERE
-  branchtransfers.tobranch Like <> AND
-  branchtransfers.datearrived BETWEEN <> AND (<> + interval 1 day)
+  branchtransfers.tobranch Like &lt;&gt; AND
+  branchtransfers.datearrived BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day)
 GROUP BY
   DATE_TIME,
   branchtransfers.tobranch)

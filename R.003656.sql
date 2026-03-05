@@ -22,7 +22,7 @@ Expiry: 300
 
 ----------
 
-<p>help</p>
+&lt;p&gt;help&lt;/p&gt;
 
 ----------
 */
@@ -42,7 +42,7 @@ FROM
 WHERE
   borrower_attributes.code = 'INTERNET' AND
   authorised_values.category = 'InternetPolicy' AND
-  borrowers.branchcode Like <>
+  borrowers.branchcode Like &lt;&gt;
 GROUP BY
   borrower_attributes.borrowernumber,
   borrowers.branchcode,

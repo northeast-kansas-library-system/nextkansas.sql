@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2018-10-04 22:35:11
-Modified on: 2024-04-28 22:13:09
-Date last run: 2024-04-28 22:11:03
+Modified on: 2025-11-19 20:42:31
+Date last run: 2025-12-26 22:42:03
 
 ----------
 
@@ -24,7 +24,9 @@ Expiry: 300
 
 zbrq
 
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3127">Click here to download as a csv file</a></p>
+&lt;p&gt;Click here to download as a csv file&lt;/p&gt;
+
+&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=3127&reportname=GHW%20-%20Audiobooks%20without%20links" target="_blank"&gt;Download csv&lt;/a&gt;
 
 ----------
 */

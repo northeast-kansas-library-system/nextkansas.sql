@@ -28,7 +28,6 @@ Shows the total number of items checked out at a library at the beginning of the
 */
 
 
-
 SELECT
   branches.branchname,
   aa.Sum_Count_issue_id AS `01`,
@@ -978,18 +977,6 @@ UNION
     ) AS `31`  
 ORDER BY  
   branchname
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

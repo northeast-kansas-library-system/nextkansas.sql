@@ -22,19 +22,19 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Report version of the patron category summary page</p>
-<ul><li>Shows current patron categories</li>
-<li>shows all borrower categories system-wide</li>
-<li>grouped by category code</li>
-<li>sorted by category description</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p></p>
-<p></p>
-<p class= "notetags" style="display: none;">tag goes here</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Report version of the patron category summary page&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows current patron categories&lt;/li&gt;
+&lt;li&gt;shows all borrower categories system-wide&lt;/li&gt;
+&lt;li&gt;grouped by category code&lt;/li&gt;
+&lt;li&gt;sorted by category description&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;tag goes here&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */

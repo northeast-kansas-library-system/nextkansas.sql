@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2016-11-28 15:42:16
 Modified on: 2025-10-23 09:05:52
-Date last run: 2025-10-23 09:06:07
+Date last run: 2026-01-08 16:12:01
 
 ----------
 
@@ -22,9 +22,9 @@ Expiry: 0
 
 ----------
 
-<div class="next_report_info next_noprint">
+&lt;div class="next_report_info next_noprint"&gt;
 
-  <style>
+  &lt;style&gt;
 
        .page-section .next_report_info {
       font-size: 120% !important;
@@ -156,311 +156,311 @@ Expiry: 0
           !important;
         }
 
-  </style>
+  &lt;/style&gt;
 
 
 
-<!-- Overview -->
-  <div class="next_report_summary">
-    <br>
+&lt;!-- Overview --&gt;
+  &lt;div class="next_report_summary"&gt;
+    &lt;br&gt;
 
-    <label for="report_name">Report name:</label>
-    <p id="report_name">Daily/hourly statistical tracker</p>
+    &lt;label for="report_name"&gt;Report name:&lt;/label&gt;
+    &lt;p id="report_name"&gt;Daily/hourly statistical tracker&lt;/p&gt;
 
-    <label for="report_author">Report author/source:</label>
-    <p id="report_author">GHW</p>
+    &lt;label for="report_author"&gt;Report author/source:&lt;/label&gt;
+    &lt;p id="report_author"&gt;GHW&lt;/p&gt;
 
-    <label for="report_summary">Report summary:</label>
-    <p id="report_summary">Counts check-outs, renewals, and check-ins and borrower accounts used on an hourly basis</p>
+    &lt;label for="report_summary"&gt;Report summary:&lt;/label&gt;
+    &lt;p id="report_summary"&gt;Counts check-outs, renewals, and check-ins and borrower accounts used on an hourly basis&lt;/p&gt;
 
-  </div>
+  &lt;/div&gt;
 
-  <div class="accordion accordion-flush">
+  &lt;div class="accordion accordion-flush"&gt;
 
 
 
-<!-- Function section -->
-    <div id="accordion_2841-1" class="accordion-item next_report_function">
+&lt;!-- Function section --&gt;
+    &lt;div id="accordion_2841-1" class="accordion-item next_report_function"&gt;
 
-      <h2 class="accordion-header" id="panelsStay_2841Open-headingOne" >
+      &lt;h2 class="accordion-header" id="panelsStay_2841Open-headingOne" &gt;
 
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+        &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#panelsStay_2841Open-collapseOne" aria-expanded="true"
-          aria-controls="panelsStay_2841Open-collapseOne">
+          aria-controls="panelsStay_2841Open-collapseOne"&gt;
 
           Function:
 
-        </button>
+        &lt;/button&gt;
 
-      </h2>
+      &lt;/h2&gt;
 
-      <div id="panelsStay_2841Open-collapseOne" class="accordion-collapse collapse"
-        aria-labelledby="panelsStay_2841Open-headingOne">
-        <div class="accordion-body">
+      &lt;div id="panelsStay_2841Open-collapseOne" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_2841Open-headingOne"&gt;
+        &lt;div class="accordion-body"&gt;
 
-          <div id="function_section" class="report_section">
-
-
-            <p>Counts check-outs, renewals, and check-ins and borrower accounts used on an hourly basis</p>
-            <ul>
-
-              <li>shows activity during the previous calendar month</li>
-
-              <li>shows activity at a branch you specify</li>
-
-              <li>grouped and sorted by circulation branch, date, day of the week, hour of the day (in 24 hour format), and type of activity</li>
-
-            <span style="display: none;">
-              <li></li>            </span>
-
-            <span style="display: none;">
-              <li></li>            </span>
-            </ul>
+          &lt;div id="function_section" class="report_section"&gt;
 
 
-            <p>CKO = Checkout; RENEW = Renewal; RETURN = check in</p>
+            &lt;p&gt;Counts check-outs, renewals, and check-ins and borrower accounts used on an hourly basis&lt;/p&gt;
+            &lt;ul&gt;
 
-          </div>
+              &lt;li&gt;shows activity during the previous calendar month&lt;/li&gt;
 
-        </div>
-      </div>
+              &lt;li&gt;shows activity at a branch you specify&lt;/li&gt;
 
-    </div>
+              &lt;li&gt;grouped and sorted by circulation branch, date, day of the week, hour of the day (in 24 hour format), and type of activity&lt;/li&gt;
+
+            &lt;span style="display: none;"&gt;
+              &lt;li&gt;&lt;/li&gt;            &lt;/span&gt;
+
+            &lt;span style="display: none;"&gt;
+              &lt;li&gt;&lt;/li&gt;            &lt;/span&gt;
+            &lt;/ul&gt;
+
+
+            &lt;p&gt;CKO = Checkout; RENEW = Renewal; RETURN = check in&lt;/p&gt;
+
+          &lt;/div&gt;
+
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
 
 
 
-<!-- Notes section -->
-    <div id="accordion_REPORTID-2" class="accordion-item next_report_notes ">
+&lt;!-- Notes section --&gt;
+    &lt;div id="accordion_REPORTID-2" class="accordion-item next_report_notes "&gt;
 
-      <h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingTwo">
+      &lt;h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingTwo"&gt;
 
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+        &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#panelsStay_REPORTIDOpen-collapseTwo" aria-expanded="false"
-          aria-controls="panelsStay_REPORTIDOpen-collapseTwo">
+          aria-controls="panelsStay_REPORTIDOpen-collapseTwo"&gt;
 
           Notes:
 
-        </button>
+        &lt;/button&gt;
 
-      </h2>
+      &lt;/h2&gt;
 
-      <div id="panelsStay_REPORTIDOpen-collapseTwo" class="accordion-collapse collapse"
-        aria-labelledby="panelsStay_REPORTIDOpen-headingTwo">
-        <div class="accordion-body">
+      &lt;div id="panelsStay_REPORTIDOpen-collapseTwo" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_REPORTIDOpen-headingTwo"&gt;
+        &lt;div class="accordion-body"&gt;
 
-          <div id="notes_1" class="report_section">
-            <h4>Replaces:</h4>
-            <p>Replaces report 590</p>
-          </div>
+          &lt;div id="notes_1" class="report_section"&gt;
+            &lt;h4&gt;Replaces:&lt;/h4&gt;
+            &lt;p&gt;Replaces report 590&lt;/p&gt;
+          &lt;/div&gt;
 
-          <div id="notes_2" class="report_section">
-            <h4>Misceleaneous notes:</h4>
-            <p>Updated to include count of borrowers for each type of transaction.<br><br>The hour shows in military format - i.e. 13=1:00 p.m., 18=6:00 p.m., etc.<br><br>Koha counts renewals as happening at the location where the initial check-out happened - i.e. if an item was renewed by the patron via the OPAC, it counts as a renewal at the branch where the item was checked out (This is why you may see renewals on days your library is normally closed).</p>
-          </div>
+          &lt;div id="notes_2" class="report_section"&gt;
+            &lt;h4&gt;Misceleaneous notes:&lt;/h4&gt;
+            &lt;p&gt;Updated to include count of borrowers for each type of transaction.&lt;br&gt;&lt;br&gt;The hour shows in military format - i.e. 13=1:00 p.m., 18=6:00 p.m., etc.&lt;br&gt;&lt;br&gt;Koha counts renewals as happening at the location where the initial check-out happened - i.e. if an item was renewed by the patron via the OPAC, it counts as a renewal at the branch where the item was checked out (This is why you may see renewals on days your library is normally closed).&lt;/p&gt;
+          &lt;/div&gt;
 
-          <div id="notes_3" class="report_section report_hidden">
-            <h4> NOTE_THREE_TITLE </h4>
-            <p> NOTE_THREE_CONTENT </p>
-          </div>
+          &lt;div id="notes_3" class="report_section report_hidden"&gt;
+            &lt;h4&gt; NOTE_THREE_TITLE &lt;/h4&gt;
+            &lt;p&gt; NOTE_THREE_CONTENT &lt;/p&gt;
+          &lt;/div&gt;
 
-          <div id="notes_4" class="report_section report_hidden">
-            <h4> NOTE_FOUR_TITLE </h4>
-            <p> NOTE_FOUR_CONTENT </p>
-          </div>
+          &lt;div id="notes_4" class="report_section report_hidden"&gt;
+            &lt;h4&gt; NOTE_FOUR_TITLE &lt;/h4&gt;
+            &lt;p&gt; NOTE_FOUR_CONTENT &lt;/p&gt;
+          &lt;/div&gt;
 
-          <div id="notes_5" class="report_section report_hidden">
-            <h4> NOTE_FIVE_TITLE </h4>
-            <p> NOTE_FIVE_CONTENT </p>
-          </div>
+          &lt;div id="notes_5" class="report_section report_hidden"&gt;
+            &lt;h4&gt; NOTE_FIVE_TITLE &lt;/h4&gt;
+            &lt;p&gt; NOTE_FIVE_CONTENT &lt;/p&gt;
+          &lt;/div&gt;
 
-        </div>
-      </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
 
-    </div>
-
-
+    &lt;/div&gt;
 
 
-<!-- Instructions section -->
-    <div id="accordion_REPORTID-3" class="accordion-item next_report_instructions report_hidden">
 
-      <h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingThree">
 
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+&lt;!-- Instructions section --&gt;
+    &lt;div id="accordion_REPORTID-3" class="accordion-item next_report_instructions report_hidden"&gt;
+
+      &lt;h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingThree"&gt;
+
+        &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#panelsStay_REPORTIDOpen-collapseThree" aria-expanded="false"
-          aria-controls="panelsStay_REPORTIDOpen-collapseThree">
+          aria-controls="panelsStay_REPORTIDOpen-collapseThree"&gt;
 
           Instructions:
 
-        </button>
+        &lt;/button&gt;
 
-      </h2>
+      &lt;/h2&gt;
 
-      <div id="panelsStay_REPORTIDOpen-collapseThree" class="accordion-collapse collapse"
-        aria-labelledby="panelsStay_REPORTIDOpen-headingThree">
-        <div class="accordion-body">
+      &lt;div id="panelsStay_REPORTIDOpen-collapseThree" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_REPORTIDOpen-headingThree"&gt;
+        &lt;div class="accordion-body"&gt;
 
-          <div id="instructions_1" class="report_section report_hidden">
-            <h4> INSTRUCTION_1_TITLE </h4>
-            <p> INSTRUCTION_1_CONTENT </p>
-          </div>
+          &lt;div id="instructions_1" class="report_section report_hidden"&gt;
+            &lt;h4&gt; INSTRUCTION_1_TITLE &lt;/h4&gt;
+            &lt;p&gt; INSTRUCTION_1_CONTENT &lt;/p&gt;
+          &lt;/div&gt;
 
-          <div id="instructions_2" class="report_section report_hidden">
-            <h4> INSTRUCTION_TWO_TITLE </h4>
-            <p> INSTRUCTION_TWO_CONTENT </p>
-          </div>
+          &lt;div id="instructions_2" class="report_section report_hidden"&gt;
+            &lt;h4&gt; INSTRUCTION_TWO_TITLE &lt;/h4&gt;
+            &lt;p&gt; INSTRUCTION_TWO_CONTENT &lt;/p&gt;
+          &lt;/div&gt;
 
-          <div id="instructions_3" class="report_section report_hidden">
-            <h4> INSTRUCTION_THREE_TITLE </h4>
-            <p> INSTRUCTION_THREE_CONTENT </p>
-          </div>
+          &lt;div id="instructions_3" class="report_section report_hidden"&gt;
+            &lt;h4&gt; INSTRUCTION_THREE_TITLE &lt;/h4&gt;
+            &lt;p&gt; INSTRUCTION_THREE_CONTENT &lt;/p&gt;
+          &lt;/div&gt;
 
-          <div id="instructions_4" class="report_section report_hidden">
-            <h4> INSTRUCTION_FOUR_TITLE </h4>
-            <p> INSTRUCTION_FOUR_CONTENT </p>
-          </div>
+          &lt;div id="instructions_4" class="report_section report_hidden"&gt;
+            &lt;h4&gt; INSTRUCTION_FOUR_TITLE &lt;/h4&gt;
+            &lt;p&gt; INSTRUCTION_FOUR_CONTENT &lt;/p&gt;
+          &lt;/div&gt;
 
-          <div id="instructions_5" class="report_section report_hidden">
-            <h4> INSTRUCTION_FIVE_TITLE </h4>
-            <p> INSTRUCTION_FIVE_CONTENT </p>
-          </div>
+          &lt;div id="instructions_5" class="report_section report_hidden"&gt;
+            &lt;h4&gt; INSTRUCTION_FIVE_TITLE &lt;/h4&gt;
+            &lt;p&gt; INSTRUCTION_FIVE_CONTENT &lt;/p&gt;
+          &lt;/div&gt;
 
-        </div>
-      </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
 
-    </div>
+    &lt;/div&gt;
 
 
 
-<!-- Resources section -->
-    <div id="accordion_REPORTID-4" class="accordion-item next_report_resources report_hidden " style="">
+&lt;!-- Resources section --&gt;
+    &lt;div id="accordion_REPORTID-4" class="accordion-item next_report_resources report_hidden " style=""&gt;
 
-      <h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingFour">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+      &lt;h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingFour"&gt;
+        &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#panelsStay_REPORTIDOpen-collapseFour" aria-expanded="false"
-          aria-controls="panelsStay_REPORTIDOpen-collapseFour">
+          aria-controls="panelsStay_REPORTIDOpen-collapseFour"&gt;
           Resources:
-        </button>
-      </h2>
+        &lt;/button&gt;
+      &lt;/h2&gt;
 
-      <div id="panelsStay_REPORTIDOpen-collapseFour" class="accordion-collapse collapse"
-        aria-labelledby="panelsStay_REPORTIDOpen-headingFour">
+      &lt;div id="panelsStay_REPORTIDOpen-collapseFour" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_REPORTIDOpen-headingFour"&gt;
 
-        <div class="accordion-body">
+        &lt;div class="accordion-body"&gt;
 
-          <div id="resources_1" class="row report_section report_hidden">
-            <div class="col col-md-2">
-              <p><a href=" RESOURCE_ONE_URL " target="_blank" class="resources_btn"> RESOURCE_ONE_TITLE </a></p>
-            </div>            <div class="col col-md-8">
-              <p> RESOURCE_ONE_NOTE </p>
-            </div>          </div>
-
-
-          <div id="resources_2" class="row report_section report_hidden">
-            <div class="col col-md-2">
-              <p><a href=" RESOURCE_TWO_URL " target="_blank" class="resources_btn"> RESOURCE_TWO_TITLE </a></p>
-            </div>            <div class="col col-md-8">
-              <p> RESOURCE_TWO_NOTE </p>
-            </div>          </div>
+          &lt;div id="resources_1" class="row report_section report_hidden"&gt;
+            &lt;div class="col col-md-2"&gt;
+              &lt;p&gt;&lt;a href=" RESOURCE_ONE_URL " target="_blank" class="resources_btn"&gt; RESOURCE_ONE_TITLE &lt;/a&gt;&lt;/p&gt;
+            &lt;/div&gt;            &lt;div class="col col-md-8"&gt;
+              &lt;p&gt; RESOURCE_ONE_NOTE &lt;/p&gt;
+            &lt;/div&gt;          &lt;/div&gt;
 
 
-          <div id="resources_3" class="row report_section report_hidden">
-            <div class="col col-md-2">
-              <p><a href=" RESOURCE_THREE_URL " target="_blank" class="resources_btn"> RESOURCE_THREE_TITLE </a></p>
-            </div>            <div class="col col-md-8">
-              <p> RESOURCE_THREE_NOTE </p>
-            </div>          </div>
+          &lt;div id="resources_2" class="row report_section report_hidden"&gt;
+            &lt;div class="col col-md-2"&gt;
+              &lt;p&gt;&lt;a href=" RESOURCE_TWO_URL " target="_blank" class="resources_btn"&gt; RESOURCE_TWO_TITLE &lt;/a&gt;&lt;/p&gt;
+            &lt;/div&gt;            &lt;div class="col col-md-8"&gt;
+              &lt;p&gt; RESOURCE_TWO_NOTE &lt;/p&gt;
+            &lt;/div&gt;          &lt;/div&gt;
 
 
-          <div id="resources_4" class="row report_section report_hidden">
-            <div class="col col-md-2">
-              <p><a href=" RESOURCE_FOUR_URL " target="_blank" class="resources_btn"> RESOURCE_FOUR_TITLE </a></p>
-            </div>            <div class="col col-md-8">
-              <p> RESOURCE_FOUR_NOTE </p>
-            </div>          </div>
+          &lt;div id="resources_3" class="row report_section report_hidden"&gt;
+            &lt;div class="col col-md-2"&gt;
+              &lt;p&gt;&lt;a href=" RESOURCE_THREE_URL " target="_blank" class="resources_btn"&gt; RESOURCE_THREE_TITLE &lt;/a&gt;&lt;/p&gt;
+            &lt;/div&gt;            &lt;div class="col col-md-8"&gt;
+              &lt;p&gt; RESOURCE_THREE_NOTE &lt;/p&gt;
+            &lt;/div&gt;          &lt;/div&gt;
 
 
-          <div id="resources_5" class="row report_section report_hidden">
-            <div class="col col-md-2">
-              <p><a href=" RESOURCE_FIVE_URL " target="_blank" class="resources_btn"> RESOURCE_FIVE_TITLE </a></p>
-            </div>            <div class="col col-md-8">
-              <p> RESOURCE_FIVE_NOTE </p>
-            </div>          </div>
-
-        </div>
-
-      </div>
-
-    </div>
+          &lt;div id="resources_4" class="row report_section report_hidden"&gt;
+            &lt;div class="col col-md-2"&gt;
+              &lt;p&gt;&lt;a href=" RESOURCE_FOUR_URL " target="_blank" class="resources_btn"&gt; RESOURCE_FOUR_TITLE &lt;/a&gt;&lt;/p&gt;
+            &lt;/div&gt;            &lt;div class="col col-md-8"&gt;
+              &lt;p&gt; RESOURCE_FOUR_NOTE &lt;/p&gt;
+            &lt;/div&gt;          &lt;/div&gt;
 
 
-<!-- Training section -->
-    <div id="accordion_REPORTID-5" class="accordion-item next_report_training report_hidden">
+          &lt;div id="resources_5" class="row report_section report_hidden"&gt;
+            &lt;div class="col col-md-2"&gt;
+              &lt;p&gt;&lt;a href=" RESOURCE_FIVE_URL " target="_blank" class="resources_btn"&gt; RESOURCE_FIVE_TITLE &lt;/a&gt;&lt;/p&gt;
+            &lt;/div&gt;            &lt;div class="col col-md-8"&gt;
+              &lt;p&gt; RESOURCE_FIVE_NOTE &lt;/p&gt;
+            &lt;/div&gt;          &lt;/div&gt;
 
-      <h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingFive">
+        &lt;/div&gt;
 
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+
+
+&lt;!-- Training section --&gt;
+    &lt;div id="accordion_REPORTID-5" class="accordion-item next_report_training report_hidden"&gt;
+
+      &lt;h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingFive"&gt;
+
+        &lt;button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
           data-bs-target="#panelsStay_REPORTIDOpen-collapseFive" aria-expanded="false"
-          aria-controls="panelsStay_REPORTIDOpen-collapseFive">
+          aria-controls="panelsStay_REPORTIDOpen-collapseFive"&gt;
 
           Training available
 
-        </button>
+        &lt;/button&gt;
 
-      </h2>
+      &lt;/h2&gt;
 
-      <div id="panelsStay_REPORTIDOpen-collapseFive" class="accordion-collapse collapse"
-        aria-labelledby="panelsStay_REPORTIDOpen-headingFive" style="color: white !important;">
-        <div class="accordion-body">
+      &lt;div id="panelsStay_REPORTIDOpen-collapseFive" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_REPORTIDOpen-headingFive" style="color: white !important;"&gt;
+        &lt;div class="accordion-body"&gt;
 
-          <div class="container text-center">
-            <div class="row">
-
-
-              <div id="training_link" class="col-md-3 report_hidden">
-                <p><a href=" TRAINING_LINK_URL " target="_blank" class="training_btn">Online training</a></p>
-              </div>
+          &lt;div class="container text-center"&gt;
+            &lt;div class="row"&gt;
 
 
-              <div id="training_link" class="col-md-3">
-                <p><a href="" target="_blank" class="training_btn">Training handout</a></p>
-              </div>
-
-              <div id="training_link" class="col-md-3">
-                <p><a href="" target="_blank" class="training_btn">Video training</a></p>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-<!-- Direct download section -->
-  <div class="next_report_direct_download report_hidden">
-    <p><a href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=2841" class="direct_download_btn">Download directly to a CSV file</a></p>
-  </div>
+              &lt;div id="training_link" class="col-md-3 report_hidden"&gt;
+                &lt;p&gt;&lt;a href=" TRAINING_LINK_URL " target="_blank" class="training_btn"&gt;Online training&lt;/a&gt;&lt;/p&gt;
+              &lt;/div&gt;
 
 
+              &lt;div id="training_link" class="col-md-3"&gt;
+                &lt;p&gt;&lt;a href="" target="_blank" class="training_btn"&gt;Training handout&lt;/a&gt;&lt;/p&gt;
+              &lt;/div&gt;
 
-<!-- Hashtag section -->
-  <div class="next_report_hashtags" style="display: none;">
-    <p>#statistics</p>
-    <p>#hourly</p>
-    <p>#open records compliant</p>
-    <p>#</p>
-    <p>#</p>
-    <p>#</p>
-    <p>#</p>
-    <p>#</p>
-    <p>#</p>
-    <p>#</p>
-  </div>
+              &lt;div id="training_link" class="col-md-3"&gt;
+                &lt;p&gt;&lt;a href="" target="_blank" class="training_btn"&gt;Video training&lt;/a&gt;&lt;/p&gt;
+              &lt;/div&gt;
 
-</div>
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+
+&lt;!-- Direct download section --&gt;
+  &lt;div class="next_report_direct_download report_hidden"&gt;
+    &lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=2841" class="direct_download_btn"&gt;Download directly to a CSV file&lt;/a&gt;&lt;/p&gt;
+  &lt;/div&gt;
+
+
+
+&lt;!-- Hashtag section --&gt;
+  &lt;div class="next_report_hashtags" style="display: none;"&gt;
+    &lt;p&gt;#statistics&lt;/p&gt;
+    &lt;p&gt;#hourly&lt;/p&gt;
+    &lt;p&gt;#open records compliant&lt;/p&gt;
+    &lt;p&gt;#&lt;/p&gt;
+    &lt;p&gt;#&lt;/p&gt;
+    &lt;p&gt;#&lt;/p&gt;
+    &lt;p&gt;#&lt;/p&gt;
+    &lt;p&gt;#&lt;/p&gt;
+    &lt;p&gt;#&lt;/p&gt;
+    &lt;p&gt;#&lt;/p&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
 
 ----------
 */
@@ -490,7 +490,7 @@ FROM
      DayName(statistics.datetime) AS DAY,
      Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE,
      Hour(statistics.datetime) AS HOUR_OF_DAY,
-     count(*) AS COUNT
+     count(&ast;) AS COUNT
    FROM
      statistics
    WHERE
@@ -510,7 +510,7 @@ FROM
      DayName(statistics.datetime) AS DAY,
      Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE,
      Hour(statistics.datetime) AS HOUR_OF_DAY,
-     count(*) AS COUNT
+     count(&ast;) AS COUNT
    FROM
      statistics
    WHERE
@@ -530,7 +530,7 @@ FROM
      DayName(statistics.datetime) AS DAY,
      Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE,
      Hour(statistics.datetime) AS HOUR_OF_DAY,
-     count(*) AS COUNT
+     count(&ast;) AS COUNT
    FROM
      statistics
    WHERE
@@ -549,7 +549,7 @@ FROM
      DayName(statistics.datetime) AS DAY,
      Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE,
      Hour(statistics.datetime) AS HOUR_OF_DAY,
-     count(*) AS COUNT
+     count(&ast;) AS COUNT
    FROM
      statistics
    WHERE
@@ -626,7 +626,7 @@ FROM
       renewborrowers.DATE = ALL_STATS.DATE AND
       renewborrowers.HOUR_OF_DAY = ALL_STATS.HOUR_OF_DAY
 WHERE
-  branchess.branchcode LIKE <>
+  branchess.branchcode LIKE &lt;&gt;
 GROUP BY
   branchess.branchname,
   ALL_STATS.DATE,

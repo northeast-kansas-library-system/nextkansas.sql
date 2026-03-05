@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2024-02-29 16:17:05
 Modified on: 2024-02-29 16:52:53
-Date last run: 2024-03-01 10:39:45
+Date last run: 2026-01-08 11:47:20
 
 ----------
 
@@ -22,32 +22,32 @@ Expiry: 300
 
 ----------
 
-<div class="reportInfo noprint"> 
+&lt;div class="reportInfo noprint"&gt; 
  
-  <div class="reportInfoContent"> 
+  &lt;div class="reportInfoContent"&gt; 
  
-    <p>Generates a USPS mailing list for borrowers with the "Email Newsletter Permission" flag set to "Yes"</p> 
+    &lt;p&gt;Generates a USPS mailing list for borrowers with the "Email Newsletter Permission" flag set to "Yes"&lt;/p&gt; 
  
-    <ul> 
-      <li>Shows borrowers that currently have the flag set</li> 
-      <li>at the library you specify</li> 
-      <li>grouped by borrowernumber</li> 
-      <li>sorted by surname, first name, middle name</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;Shows borrowers that currently have the flag set&lt;/li&gt; 
+      &lt;li&gt;at the library you specify&lt;/li&gt; 
+      &lt;li&gt;grouped by borrowernumber&lt;/li&gt; 
+      &lt;li&gt;sorted by surname, first name, middle name&lt;/li&gt; 
+    &lt;/ul&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div class="reportInfoNotes"> 
+  &lt;div class="reportInfoNotes"&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div id="reportInfoTags"> 
+  &lt;div id="reportInfoTags"&gt; 
  
-    <p style="display: none;"> 
+    &lt;p style="display: none;"&gt; 
       #newsletter #borrower attribute 
-    </p> 
+    &lt;/p&gt; 
  
-  </div>
+  &lt;/div&gt;
 
 ----------
 */
@@ -88,7 +88,7 @@ FROM
   LEFT JOIN categories 
     ON borrowers.categorycode = categories.categorycode
 WHERE
-  borrowers.branchcode LIKE <> AND
+  borrowers.branchcode LIKE &lt;&gt; AND
   Coalesce(newsletter_permission.attribute, "~") LIKE 'Yes'
 GROUP BY
   borrowers.borrowernumber

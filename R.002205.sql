@@ -29,7 +29,7 @@ Limited by branch and collection code.
 
 
 
-SELECT items.barcode as 'Barcode', items.holdingbranch, items.datelastseen, items.datelastborrowed, items.itemcallnumber, biblio.title, t.publicationyear as 'Copyright', items.dateaccessioned as 'Accessioned', items.itype, items.ccode, items.location FROM items LEFT JOIN biblio USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber)  WHERE items.homebranch= <> AND items.ccode=<> AND ((items.issues IS NULL AND items.dateaccessioned < <>) OR items.datelastborrowed < <>) ORDER BY items.itemcallnumber
+SELECT items.barcode as 'Barcode', items.holdingbranch, items.datelastseen, items.datelastborrowed, items.itemcallnumber, biblio.title, t.publicationyear as 'Copyright', items.dateaccessioned as 'Accessioned', items.itype, items.ccode, items.location FROM items LEFT JOIN biblio USING (biblionumber) LEFT JOIN biblioitems t USING(biblionumber)  WHERE items.homebranch= &lt;&gt; AND items.ccode=&lt;&gt; AND ((items.issues IS NULL AND items.dateaccessioned &lt; &lt;&gt;) OR items.datelastborrowed &lt; &lt;&gt;) ORDER BY items.itemcallnumber
 
 
 

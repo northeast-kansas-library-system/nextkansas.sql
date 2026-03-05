@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-SELECT borrowers.categorycode, COUNT(*) FROM statistics JOIN borrowers USING (borrowernumber) WHERE statistics.type IN ('issue', 'renew') AND datetime >= <> AND datetime < <> AND statistics.branch = <>  GROUP BY borrowers.categorycode
+SELECT borrowers.categorycode, COUNT(&ast;) FROM statistics JOIN borrowers USING (borrowernumber) WHERE statistics.type IN ('issue', 'renew') AND datetime &gt;= &lt;&gt; AND datetime &lt; &lt;&gt; AND statistics.branch = &lt;&gt;  GROUP BY borrowers.categorycode
 
 
 

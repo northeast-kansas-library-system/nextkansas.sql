@@ -42,8 +42,8 @@ GROUP BY
   items.biblionumber
 HAVING
   Count(DISTINCT items.location) = 1 AND
-  LOCATIONS <> BIBLOCATION AND
-  Group_Concat(DISTINCT items.location) = <>
+  LOCATIONS &lt;&gt; BIBLOCATION AND
+  Group_Concat(DISTINCT items.location) = &lt;&gt;
 
 
 

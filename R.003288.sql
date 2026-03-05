@@ -22,28 +22,28 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates data for batch deleting fees</p>
-<ul><li>Shows current outstanding fees</li>
-<li>at the library you specify</li>
-<li>grouped by accountline ID number</li>
-<li>sorted by library and fee date</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>When a library decides to remove all old late fees from all of their patron's accounts, run this report, determine which fees are for late fees, and send the list of accountline_id numbers to ByWater Solutions asking them to set the amount.outstanding to $0.00.</p>
-<p></p>
-<p>The process this report uses works along 4 pathways</p>
-<ul>
-  <li>It looks for all accountlines where the issue_id is still in the issues table (i.e. item with fee is still checked out to the patron) AND the issuing library matches the specified library.</li>
-  <li>It looks for all accountlines where the issue_id is still in the old_issues table (i.e. when the item with the fee was returned within the last 13 months) AND the issuing library matches the specified library.</li>
-  <li>It looks for all accountlines that were created manually based on the home library of the account manually creating the fee.</li>
-  <li>It looks for all accountlines where the patron's home library matches the specified library AND the issue_id is null (i.e. no data about where the item was checked out) AND where the manager's ID is also null.  These are generally fees that have gone unpaid for such a long time that there is no longer any way to determine where the item was checked out.</li>
-</ul>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3288&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-<p class= "notetags" style="display: none;">tag goes here</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates data for batch deleting fees&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows current outstanding fees&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped by accountline ID number&lt;/li&gt;
+&lt;li&gt;sorted by library and fee date&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;When a library decides to remove all old late fees from all of their patron's accounts, run this report, determine which fees are for late fees, and send the list of accountline_id numbers to ByWater Solutions asking them to set the amount.outstanding to $0.00.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The process this report uses works along 4 pathways&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;It looks for all accountlines where the issue_id is still in the issues table (i.e. item with fee is still checked out to the patron) AND the issuing library matches the specified library.&lt;/li&gt;
+  &lt;li&gt;It looks for all accountlines where the issue_id is still in the old_issues table (i.e. when the item with the fee was returned within the last 13 months) AND the issuing library matches the specified library.&lt;/li&gt;
+  &lt;li&gt;It looks for all accountlines that were created manually based on the home library of the account manually creating the fee.&lt;/li&gt;
+  &lt;li&gt;It looks for all accountlines where the patron's home library matches the specified library AND the issue_id is null (i.e. no data about where the item was checked out) AND where the manager's ID is also null.  These are generally fees that have gone unpaid for such a long time that there is no longer any way to determine where the item was checked out.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3288&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;tag goes here&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -91,7 +91,7 @@ FROM
       issues ON issues.issue_id = accountlines.issue_id LEFT JOIN
       old_issues ON old_issues.issue_id = accountlines.issue_id
     WHERE
-      accountlines.amountoutstanding > 0 AND
+      accountlines.amountoutstanding &gt; 0 AND
       accountlines.borrowernumber IS NOT NULL
     GROUP BY
       accountlines.accountlines_id,
@@ -119,7 +119,7 @@ FROM
       old_issues ON old_issues.issue_id = accountlines.issue_id LEFT JOIN
       borrowers staff ON staff.borrowernumber = accountlines.manager_id
     WHERE
-      accountlines.amountoutstanding > 0 AND
+      accountlines.amountoutstanding &gt; 0 AND
       accountlines.manager_id IS NOT NULL AND
       accountlines.borrowernumber IS NOT NULL
     GROUP BY
@@ -150,7 +150,7 @@ FROM
       LEFT JOIN
       borrowers ON borrowers.borrowernumber = accountlines.borrowernumber
     WHERE
-      accountlines.amountoutstanding > 0 AND
+      accountlines.amountoutstanding &gt; 0 AND
       Coalesce(issues.branchcode, old_issues.branchcode) IS NULL AND
       staff.branchcode IS NULL AND
       accountlines.borrowernumber IS NOT NULL
@@ -162,8 +162,8 @@ FROM
   LEFT JOIN
   items ON items.itemnumber = fees.itemnumber
 WHERE
-  branchess.branchcode LIKE <> AND
-  fees.debit_type_code LIKE <>
+  branchess.branchcode LIKE &lt;&gt; AND
+  fees.debit_type_code LIKE &lt;&gt;
 GROUP BY
   fees.accountlines_id
 ORDER BY

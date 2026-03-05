@@ -119,7 +119,7 @@ LEFT JOIN
    FROM authorised_values
    WHERE authorised_values.category = 'LOC' ) locs ON locs.authorised_value = items.location
 INNER JOIN branches ON branches.branchcode = items.homebranch
-WHERE items.barcode = <>
+WHERE items.barcode = &lt;&gt;
 GROUP BY
   biblio.biblionumber,
   items.itemnumber,

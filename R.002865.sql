@@ -13,7 +13,7 @@ Group: Administrative Reports
 
 Created on: 2016-12-31 19:25:57
 Modified on: 2024-01-17 11:46:35
-Date last run: 2025-06-10 12:15:15
+Date last run: 2025-11-18 09:36:52
 
 ----------
 
@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Shows overdue notice template automatically sent by Koha</p>
-<ul><li>shows notices template for the library you specify</li>
-<li>allows you to specify which template you want to look at</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>This report was created to work with the new notices NExpress will start using on January 1, 2016.</p>
-<p>You should run the report and then download the results into Excel or another spreadsheet program.  The results will be very hard to read on the screen in Koha.</p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2865&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Shows overdue notice template automatically sent by Koha&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;shows notices template for the library you specify&lt;/li&gt;
+&lt;li&gt;allows you to specify which template you want to look at&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;This report was created to work with the new notices NExpress will start using on January 1, 2016.&lt;/p&gt;
+&lt;p&gt;You should run the report and then download the results into Excel or another spreadsheet program.  The results will be very hard to read on the screen in Koha.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2865&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -109,8 +109,8 @@ FROM
       letter.code) codes_blanks ON codes_blanks.code = branchess.code AND
       codes_blanks.message_transport_type = branchess.message_transport_type
 WHERE
-  branchess.branchcode LIKE <> AND
-  branchess.code LIKE <>
+  branchess.branchcode LIKE &lt;&gt; AND
+  branchess.code LIKE &lt;&gt;
 GROUP BY
   branchess.branchname,
   Coalesce(codes_branches.message_transport_type,

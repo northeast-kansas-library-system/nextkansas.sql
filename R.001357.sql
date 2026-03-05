@@ -29,7 +29,7 @@ Limited by branch. Only by dates. #added
 
 
 
-select i.dateaccessioned, CONCAT('',b.biblionumber,'') as "Linked Record", CONCAT('',b.title,'') AS "Title Search", i.ccode, i.homebranch, t.pages, t.size, t.isbn from biblio b join items i using (biblionumber) join biblioitems t using (biblionumber) where i.homebranch=<>  AND i.dateaccessioned >= <> AND i.dateaccessioned <= <> GROUP BY b.biblionumber order by b.title ASC
+select i.dateaccessioned, CONCAT('',b.biblionumber,'') as "Linked Record", CONCAT('',b.title,'') AS "Title Search", i.ccode, i.homebranch, t.pages, t.size, t.isbn from biblio b join items i using (biblionumber) join biblioitems t using (biblionumber) where i.homebranch=&lt;&gt;  AND i.dateaccessioned &gt;= &lt;&gt; AND i.dateaccessioned &lt;= &lt;&gt; GROUP BY b.biblionumber order by b.title ASC
 
 
 

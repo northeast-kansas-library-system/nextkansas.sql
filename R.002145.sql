@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-SELECT count(i.itemnumber) as added, i.ccode, i.location from items i WHERE i.homebranch=<> AND year(i.dateaccessioned) = <> GROUP BY i.ccode,i.location ORDER BY i.ccode,i.location asc
+SELECT count(i.itemnumber) as added, i.ccode, i.location from items i WHERE i.homebranch=&lt;&gt; AND year(i.dateaccessioned) = &lt;&gt; GROUP BY i.ccode,i.location ORDER BY i.ccode,i.location asc
 
 
 

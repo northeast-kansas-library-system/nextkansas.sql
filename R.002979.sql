@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Counts checkouts + renewals grouped by the patron's birth year</p>
-<ul><li>Shows data from the date range you specify</li>
-<li>at the library you specify</li>
-<li>grouped and sorted by checkout branchcode and borrower's birth year</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Data from the statistics table is purged after 25 months so this report cannot generate reports for data more than 25 months old.  As with all statistical data, the best practice is to run the reports for the data you want within a month or two of the creation of that data and then to save that data as a spreadsheet.</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2979&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Counts checkouts + renewals grouped by the patron's birth year&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows data from the date range you specify&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped and sorted by checkout branchcode and borrower's birth year&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Data from the statistics table is purged after 25 months so this report cannot generate reports for data more than 25 months old.  As with all statistical data, the best practice is to run the reports for the data you want within a month or two of the creation of that data and then to save that data as a spreadsheet.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2979&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -48,7 +48,7 @@ FROM
   branches
   LEFT JOIN (SELECT
       statistics.branch,
-      Count(*) AS count,
+      Count(&ast;) AS count,
       Coalesce(Year(borrowers.dateofbirth), Year(deletedborrowers.dateofbirth)) AS BIRTHYEAR
     FROM
       statistics
@@ -57,13 +57,13 @@ FROM
     WHERE
       (statistics.type = 'issue' OR
         statistics.type = 'renew') AND
-        (statistics.datetime BETWEEN <> and (<> + interval 1 day))
+        (statistics.datetime BETWEEN &lt;&gt; and (&lt;&gt; + interval 1 day))
     GROUP BY
       statistics.branch,
       Coalesce(Year(borrowers.dateofbirth), Year(deletedborrowers.dateofbirth))) CIR_RENEW_LM ON branches.branchcode = CIR_RENEW_LM.branch
 WHERE
-  branches.branchcode LIKE <> AND
-  Coalesce(CIR_RENEW_LM.BIRTHYEAR, "-") LIKE CONCAT("%",<>,"%")
+  branches.branchcode LIKE &lt;&gt; AND
+  Coalesce(CIR_RENEW_LM.BIRTHYEAR, "-") LIKE CONCAT("%",&lt;&gt;,"%")
 GROUP BY
   branches.branchcode,
   Coalesce(CIR_RENEW_LM.BIRTHYEAR, "-")

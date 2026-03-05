@@ -22,35 +22,35 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-  <p>Report template to create a list of new book ISBNs for the Wordpress bookshelves plugin for any library we choose</p>
-  <ul>
-    <li>Shows the 25 most recently added 10 digit ISBNs for items owned by libraries in Next</li>
-    <li>only titles owned by the library defined in the code</li>
-    <li>grouped and sorted by biblionumber (descending sort)</li>
-  </ul><br />
-<p></p>
-<p>
-  <ul>
-    <li>For use with the Bookshelves wordpress plugin</li>
-    <li>Variables in this template include
-      <ul>
-          <li>home library</li>
-          <li>permanent shelving location</li>
-          <li>item type</li>
-          <li>collection code</li>
-      </ul>
-    </li>
-    <li>The bookshelves plulgin requires a 10 digit ISBN</li>
-    <li>Because non-book items do not have an ISBN, this plugin will only work with books</li>
-    <li>The final report needs to be set as a "Public" report in order for the plugin to work</li>
-    <li>Publication year parameters can be added - see TONGANOXIE report for a working example</li>
-  </ul>
-</p>
-<p></p>
-  <p class= "notetags" style="display: none;">#wordpress #bookshelves #template</p>
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+  &lt;p&gt;Report template to create a list of new book ISBNs for the Wordpress bookshelves plugin for any library we choose&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Shows the 25 most recently added 10 digit ISBNs for items owned by libraries in Next&lt;/li&gt;
+    &lt;li&gt;only titles owned by the library defined in the code&lt;/li&gt;
+    &lt;li&gt;grouped and sorted by biblionumber (descending sort)&lt;/li&gt;
+  &lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;For use with the Bookshelves wordpress plugin&lt;/li&gt;
+    &lt;li&gt;Variables in this template include
+      &lt;ul&gt;
+          &lt;li&gt;home library&lt;/li&gt;
+          &lt;li&gt;permanent shelving location&lt;/li&gt;
+          &lt;li&gt;item type&lt;/li&gt;
+          &lt;li&gt;collection code&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;The bookshelves plulgin requires a 10 digit ISBN&lt;/li&gt;
+    &lt;li&gt;Because non-book items do not have an ISBN, this plugin will only work with books&lt;/li&gt;
+    &lt;li&gt;The final report needs to be set as a "Public" report in order for the plugin to work&lt;/li&gt;
+    &lt;li&gt;Publication year parameters can be added - see TONGANOXIE report for a working example&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+  &lt;p class= "notetags" style="display: none;"&gt;#wordpress #bookshelves #template&lt;/p&gt;
+  &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -106,7 +106,7 @@ FROM
   biblio ON biblioitems.biblionumber = biblio.biblionumber JOIN
   items ON items.biblioitemnumber = biblioitems.biblioitemnumber
 WHERE
-  biblioitems.publicationyear >= Year(Now() - INTERVAL 6 MONTH) AND 
+  biblioitems.publicationyear &gt;= Year(Now() - INTERVAL 6 MONTH) AND 
   biblioitems.isbn IS NOT NULL AND
   items.homebranch LIKE '%' AND
   items.permanent_location LIKE "%" AND
@@ -119,7 +119,7 @@ WHERE
 GROUP BY
   biblio.biblionumber
 HAVING
-  isbns <> 'X'
+  isbns &lt;&gt; 'X'
 ORDER BY
   items.itemnumber DESC
 LIMIT 25

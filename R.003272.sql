@@ -155,7 +155,7 @@ FROM
       ) branchto
         ON branchto.branchcode = branchtransfers.tobranch
     WHERE
-      branchtransfers.branchtransfer_id = <>
+      branchtransfers.branchtransfer_id = &lt;&gt;
     GROUP BY
       branchtransfers.branchtransfer_id,
       branchtransfers.itemnumber,
@@ -176,7 +176,7 @@ FROM
     FROM
       branches
     WHERE
-      branches.branchcode = <>
+      branches.branchcode = &lt;&gt;
   ) receivingbranch
 GROUP BY
   items.itemnumber

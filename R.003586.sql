@@ -44,7 +44,7 @@ FROM
   JOIN
   biblioitems ON biblioitems.biblionumber = biblio.biblionumber
 WHERE
-  eight.DATE <> biblioitems.publicationyear
+  eight.DATE &lt;&gt; biblioitems.publicationyear
 
 
 

@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2021-11-09 00:22:51
 Modified on: 2025-03-18 15:06:36
-Date last run: 2025-10-28 20:05:17
+Date last run: 2026-01-29 14:13:40
 
 ----------
 
@@ -32,7 +32,7 @@ Expiry: 30
 Select
   If(branches.branchcode = 'NEKLS',
     'next_hidden',
-    IF(Coalesce(counts.Count_borrowernumber, 0) > 0, 'next_hidden', '-')
+    IF(Coalesce(counts.Count_borrowernumber, 0) &gt; 0, 'next_hidden', '-')
   ) As class
 From
   branches Left Join
@@ -49,7 +49,7 @@ From
   On 
     counts.branchcode = branches.branchcode
 Where
-  branches.branchcode Like Concat(<>, '%')
+  branches.branchcode Like Concat(&lt;&gt;, '%')
 Group By
   branches.branchcode
 

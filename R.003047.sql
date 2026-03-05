@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2018-02-01 02:37:30
 Modified on: 2025-10-28 19:43:09
-Date last run: 2025-10-28 20:06:55
+Date last run: 2026-01-29 14:14:01
 
 ----------
 
@@ -34,10 +34,10 @@ Report for uploading SQL to GitHub - part 1
 
 SELECT
   Concat(
-    If(Length(saved_sql.savedsql) > 32766, "X.", "R."), LPad(saved_sql.id, 6, 0)
+    If(Length(saved_sql.savedsql) &gt; 32766, "X.", "R."), LPad(saved_sql.id, 6, 0)
   ) AS FILE_NAME,
   Concat(
-    Concat("/*", Char(13), Char(10), "R.", LPad(saved_sql.id, 6, 0)), 
+    Concat("/&ast;", Char(13), Char(10), "R.", LPad(saved_sql.id, 6, 0)), 
     Char(13), Char(10), Char(13), Char(10),
     Concat("----------"), 
     Char(13), Char(10), Char(13), Char(10),
@@ -72,20 +72,20 @@ SELECT
     Char(13), Char(10), Char(13), Char(10),
     Concat("----------"), 
     Char(13), Char(10), Char(13), Char(10),
-    Concat(Coalesce(Replace(saved_sql.notes, '<', '<'), "-")), Char(13), 
+    Concat(Coalesce(Replace(saved_sql.notes, '&lt;', '&lt;'), "-")), Char(13), 
     Char(10), Char(13), Char(10),
-    Concat("----------", Char(13), Char(10), "*/"), 
+    Concat("----------", Char(13), Char(10), "&ast;/"), 
     Char(13), Char(10), Char(13), Char(10)
   ) AS CONTENTS,
-  SubString(Replace(saved_sql.savedsql, '*', '*') FROM 1 FOR 30000 ) AS PART_ONE,
-  If(Length(Replace(saved_sql.savedsql, '*', '*')) > 30000, "||AAAAA||", "") AS SEP_ONE,
-  SubString(Replace(saved_sql.savedsql, '*', '*') FROM 30001 FOR 30000 ) AS PART_TWO,
-  If(Length(Replace(saved_sql.savedsql, '*', '*')) > 60000, "||AAAAA||", "") AS SEP_TWO,
-  SubString(Replace(saved_sql.savedsql, '*', '*') FROM 60001 FOR 30000 ) AS PART_THREE,
-  If(Length(Replace(saved_sql.savedsql, '*', '*')) > 90000, "||AAAAA||", "") AS SEP_THREE,
-  SubString(Replace(saved_sql.savedsql, '*', '*') FROM 90001 FOR 30000 ) AS PART_FOUR,
-  If(Length(Replace(saved_sql.savedsql, '*', '*')) > 120000, "||AAAAA||", "") AS SEP_FOUR,
-  SubString(Replace(saved_sql.savedsql, '*', '*') FROM 120001 FOR 30000 ) AS PART_FIVE
+  SubString(Replace(saved_sql.savedsql, '&ast;', '&ast;') FROM 1 FOR 30000 ) AS PART_ONE,
+  If(Length(Replace(saved_sql.savedsql, '&ast;', '&ast;')) &gt; 30000, "||AAAAA||", "") AS SEP_ONE,
+  SubString(Replace(saved_sql.savedsql, '&ast;', '&ast;') FROM 30001 FOR 30000 ) AS PART_TWO,
+  If(Length(Replace(saved_sql.savedsql, '&ast;', '&ast;')) &gt; 60000, "||AAAAA||", "") AS SEP_TWO,
+  SubString(Replace(saved_sql.savedsql, '&ast;', '&ast;') FROM 60001 FOR 30000 ) AS PART_THREE,
+  If(Length(Replace(saved_sql.savedsql, '&ast;', '&ast;')) &gt; 90000, "||AAAAA||", "") AS SEP_THREE,
+  SubString(Replace(saved_sql.savedsql, '&ast;', '&ast;') FROM 90001 FOR 30000 ) AS PART_FOUR,
+  If(Length(Replace(saved_sql.savedsql, '&ast;', '&ast;')) &gt; 120000, "||AAAAA||", "") AS SEP_FOUR,
+  SubString(Replace(saved_sql.savedsql, '&ast;', '&ast;') FROM 120001 FOR 30000 ) AS PART_FIVE
 FROM
   saved_sql
   LEFT JOIN borrowers ON saved_sql.borrowernumber = borrowers.borrowernumber

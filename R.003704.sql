@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2023-02-10 17:06:53
-Modified on: 2024-04-09 14:00:45
-Date last run: 2025-10-20 11:11:30
+Modified on: 2026-01-13 11:13:30
+Date last run: 2026-01-16 09:38:07
 
 ----------
 
@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint">
-<p>Borrower statistics - borrower counts by category</p> 
-<ul><li>during the previous calendar month</li> 
-<li>at the library you specify</li> 
-<li>grouped and sorted by borrower home library and borrower category</li> 
-</ul><br /> 
-<p><ins>Notes:</ins></p> 
-<p></p> 
-<p>If 'New borrowers allowed' = 'Yes,' then staff at the library specified can create new borrowers with that category.</p> 
-<p></p> 
-<p class="updated">This report and these notes updated on 2023.02.10</p> 
-<p></p> 
-<p class= "notetags" style="display: none;">#monthly #statistics #borrower #statistics #category</p> 
-<!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
-</div> 
+&lt;div&gt;
+&lt;p&gt;Borrower statistics - borrower counts by category&lt;/p&gt; 
+&lt;ul&gt;&lt;li&gt;during the previous calendar month&lt;/li&gt; 
+&lt;li&gt;at the library you specify&lt;/li&gt; 
+&lt;li&gt;grouped and sorted by borrower home library and borrower category&lt;/li&gt; 
+&lt;/ul&gt;&lt;br /&gt; 
+&lt;p&gt;Notes:&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;If 'New borrowers allowed' = 'Yes,' then staff at the library specified can create new borrowers with that category.&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;This report and these notes updated on 2023.02.10&lt;/p&gt; 
+&lt;p&gt;&lt;/p&gt; 
+&lt;p&gt;#monthly #statistics #borrower #statistics #category&lt;/p&gt; 
+ 
+&lt;/div&gt; 
 
 ----------
 */
@@ -50,9 +50,10 @@ SELECT
   renewed_lm.Count_borrowernumber AS 'Borrowers renewed last month', 
   added_lm.Count_borrowernumber AS 'Borrowers added last month', 
   deleted_lm.Count_borrowernumber AS 'Borrowers deleted last month', 
-  If(limitationss.categorycode <> '', 'Yes', '') AS 'New borrowers allowed' 
+  If(limitationss.categorycode &lt;&gt; '', 'Yes', '') AS 'New borrowers allowed' 
 FROM 
-    (SELECT 
+  (
+    SELECT 
       branches.branchcode, 
       branches.branchname, 
       categories.categorycode, 
@@ -61,10 +62,11 @@ FROM
       branches, 
       categories
     WHERE 
-      branches.branchcode LIKE <>
-    ) branches_categories 
+      branches.branchcode LIKE &lt;&gt;
+  ) branches_categories 
   LEFT JOIN 
-    (SELECT 
+  (
+    SELECT 
       borrowers.branchcode, 
       borrowers.categorycode, 
       Count(borrowers.borrowernumber) AS Count_borrowernumber 
@@ -73,10 +75,12 @@ FROM
     GROUP BY 
       borrowers.branchcode, 
       borrowers.categorycode
-    ) total 
-  ON total.branchcode = branches_categories.branchcode AND 
-    total.categorycode = branches_categories.categorycode LEFT JOIN 
-    (SELECT 
+  ) total 
+    ON total.branchcode = branches_categories.branchcode AND 
+      total.categorycode = branches_categories.categorycode 
+  LEFT JOIN 
+  (
+    SELECT 
       borrowers.branchcode, 
       borrowers.categorycode, 
       Count(borrowers.borrowernumber) AS Count_borrowernumber 
@@ -87,11 +91,13 @@ FROM
       Month(borrowers.dateenrolled) = Month(Now() - INTERVAL 1 MONTH) 
     GROUP BY 
       borrowers.branchcode, 
-      borrowers.categorycode
+      borrowers.categorycode    
     ) added_lm 
-  ON added_lm.branchcode = branches_categories.branchcode AND 
-    added_lm.categorycode = branches_categories.categorycode LEFT JOIN 
-    (SELECT 
+    ON added_lm.branchcode = branches_categories.branchcode AND 
+      added_lm.categorycode = branches_categories.categorycode 
+  LEFT JOIN 
+  (
+    SELECT 
       borrowers.branchcode, 
       borrowers.categorycode, 
       Count(borrowers.borrowernumber) AS Count_borrowernumber 
@@ -103,10 +109,12 @@ FROM
     GROUP BY 
       borrowers.branchcode, 
       borrowers.categorycode
-    ) renewed_lm 
-  ON renewed_lm.branchcode = branches_categories.branchcode AND 
-    renewed_lm.categorycode = branches_categories.categorycode LEFT JOIN 
-    (SELECT 
+  ) renewed_lm 
+    ON renewed_lm.branchcode = branches_categories.branchcode AND 
+      renewed_lm.categorycode = branches_categories.categorycode 
+  LEFT JOIN 
+  (
+    SELECT 
       deletedborrowers.branchcode, 
       deletedborrowers.categorycode, 
       Count(deletedborrowers.borrowernumber) AS Count_borrowernumber 
@@ -121,17 +129,19 @@ FROM
     GROUP BY 
       deletedborrowers.branchcode, 
       deletedborrowers.categorycode
-    ) deleted_lm 
-  ON deleted_lm.branchcode = branches_categories.branchcode AND 
-    deleted_lm.categorycode = branches_categories.categorycode LEFT JOIN 
-    (SELECT 
+  ) deleted_lm 
+    ON deleted_lm.branchcode = branches_categories.branchcode AND 
+      deleted_lm.categorycode = branches_categories.categorycode 
+  LEFT JOIN 
+  (
+    SELECT 
       categories_branches.categorycode, 
       categories_branches.branchcode 
     FROM 
       categories_branches
-    ) limitationss 
-  ON limitationss.branchcode = branches_categories.branchcode AND 
-    limitationss.categorycode = branches_categories.categorycode 
+  ) limitationss 
+    ON limitationss.branchcode = branches_categories.branchcode AND 
+      limitationss.categorycode = branches_categories.categorycode 
 GROUP BY 
   branches_categories.branchname, 
   branches_categories.description 

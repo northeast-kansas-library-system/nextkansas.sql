@@ -29,7 +29,7 @@ Limited by items' homebranch. Gives total counts of items currently checked out 
 
 
 
-select items.ccode, items.location, count(issues.itemnumber) from issues join items using(itemnumber) where items.homebranch=<> GROUP BY items.ccode, items.location
+select items.ccode, items.location, count(issues.itemnumber) from issues join items using(itemnumber) where items.homebranch=&lt;&gt; GROUP BY items.ccode, items.location
 
 
 

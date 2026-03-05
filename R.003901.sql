@@ -29,7 +29,7 @@ This is just a test
 
 
 
-SELECT * from branches
+SELECT &ast; from branches
 
 
 

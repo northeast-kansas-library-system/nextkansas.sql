@@ -22,14 +22,14 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates end of month data for spreadsheet report</p>
-<ul><li>Reports end of month data for Next-wide spreadsheet - Cells G58, H58, and I58</li>
-</ul><br />
-<p></p>
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=2969">Click here to download as a csv file</a></p>
-<p class= "notetags" style="display: none;">Monthly</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates end of month data for spreadsheet report&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Reports end of month data for Next-wide spreadsheet - Cells G58, H58, and I58&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p id="rquickdown"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=2969"&gt;Click here to download as a csv file&lt;/a&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;Monthly&lt;/p&gt;
+&lt;/div&gt;
 
 
 
@@ -40,15 +40,15 @@ Expiry: 300
 
 SELECT
   'Total biblios on last day of last month' AS DESCRIPTION,
-  count(*) AS COUNT
+  count(&ast;) AS COUNT
 FROM
   biblio
 WHERE
-  biblio.datecreated < AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1)
+  biblio.datecreated &lt; AddDate(Last_Day(SubDate(Now(), INTERVAL 1 MONTH)), 1)
 UNION
 SELECT
   'Biblios added last month' AS DESCRIPTION,
-  Count(*)
+  Count(&ast;)
 FROM
   biblio
 WHERE
@@ -57,7 +57,7 @@ WHERE
 UNION
 SELECT
   'Biblios deleted last month' AS DESCRIPTION,
-  Count(*)
+  Count(&ast;)
 FROM
   deletedbiblio
 WHERE

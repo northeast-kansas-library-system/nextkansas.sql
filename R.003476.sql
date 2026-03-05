@@ -22,24 +22,24 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<h3>This report cannot be run on its own.  You must run report 3475 and then click the link to trigger a meaningful result from this report</h3><br />
-<p>This report helps calculate the median age of a library's entire collection based on the publication year listed in the biblioitems.publicationyear field for that item's bibliographic record</p>
-<ul><li>It helps make the calculation on items currently in the collection</li>
-<li>at the library you specify</li>
-<li>grouped by item number and biblioitems.publicationyear</li>
-<li>sorted by biblioitems.publicationyear</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>The statistical median age is calculated by listing the publication year of every item in a collection by publication year in order by publication year and then picking the publication year at the list's midpoint.</p>
-<p></p>
-<p>This report is designed to be run from report 3475.  Running report 3475 calculates the number of items for that collection with numeric data in biblioitems.publicationyear.  By clicking on the link in that report to run this one, you're telling that report to look at the middle row of this report, which should give you the statistical median age for the items in the same collection .</p>
-<p></p>
-<p>Bibliographic records which contain incorrect, incomplete, or incompatible data in the biblioitems.publicationyear field are not counted when calculating this data.</p>
-<p></p>
-<p class= "notetags" style="display: none;">collection statistics, median age, weeding</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;h3&gt;This report cannot be run on its own.  You must run report 3475 and then click the link to trigger a meaningful result from this report&lt;/h3&gt;&lt;br /&gt;
+&lt;p&gt;This report helps calculate the median age of a library's entire collection based on the publication year listed in the biblioitems.publicationyear field for that item's bibliographic record&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;It helps make the calculation on items currently in the collection&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped by item number and biblioitems.publicationyear&lt;/li&gt;
+&lt;li&gt;sorted by biblioitems.publicationyear&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The statistical median age is calculated by listing the publication year of every item in a collection by publication year in order by publication year and then picking the publication year at the list's midpoint.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;This report is designed to be run from report 3475.  Running report 3475 calculates the number of items for that collection with numeric data in biblioitems.publicationyear.  By clicking on the link in that report to run this one, you're telling that report to look at the middle row of this report, which should give you the statistical median age for the items in the same collection .&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Bibliographic records which contain incorrect, incomplete, or incompatible data in the biblioitems.publicationyear field are not counted when calculating this data.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;collection statistics, median age, weeding&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -59,8 +59,8 @@ FROM
      biblioitems JOIN
      items ON items.biblioitemnumber = biblioitems.biblioitemnumber
    WHERE
-     items.homebranch = <> AND
-     biblioitems.publicationyear < Year(Now()) AND
+     items.homebranch = &lt;&gt; AND
+     biblioitems.publicationyear &lt; Year(Now()) AND
      biblioitems.publicationyear REGEXP '^[0-9]+$'
    GROUP BY
      items.homebranch,
@@ -75,7 +75,7 @@ GROUP BY
   MEDIAN_AGE.homebranch,
   MEDIAN_AGE.MEDIAN_COLLECTION_AGE
 HAVING
-  ROW_NUM = <>
+  ROW_NUM = &lt;&gt;
 ORDER BY
   MEDIAN_AGE.MEDIAN_COLLECTION_AGE ASC
 

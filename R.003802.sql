@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2024-02-23 15:40:25
 Modified on: 2025-02-20 14:19:12
-Date last run: 2025-10-27 09:30:49
+Date last run: 2026-01-28 16:33:07
 
 ----------
 
@@ -37,13 +37,13 @@ SELECT
   ) AS BORROWER_URL,
   borrowers.branchcode,
   Concat(
-    '&amp;lt;br>TEXT MESSAGE NUMBER REMOVED&amp;lt;br>The text message number ', 
+    '&amp;lt;br&gt;TEXT MESSAGE NUMBER REMOVED&amp;lt;br&gt;The text message number ', 
     borrowers.smsalertnumber, 
-    ' has been removed from this account because it is not a complete text messaging number.&amp;lt;br>', 
-    'All text message numbers must be 10 digit phone numbers in order for the text messaging system to work properly.&amp;lt;br>', 
+    ' has been removed from this account because it is not a complete text messaging number.&amp;lt;br&gt;', 
+    'All text message numbers must be 10 digit phone numbers in order for the text messaging system to work properly.&amp;lt;br&gt;', 
     'GHW - NEKLS ', 
     Now(), 
-    '&amp;lt;br>'
+    '&amp;lt;br&gt;'
   ) AS MESSAGE,
   Length(borrowers.smsalertnumber) AS smsalertnumber,
   borrowers.sms_provider_id

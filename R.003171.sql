@@ -22,27 +22,27 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Report to get items.itemnumber data for items due in the date range specified</p>
-<ul><li>Shows itemnumbers for items due on the dates you specify</li>
-<li>at the library you specify</li>
-<li>grouped by branchcode and itemnumber</li>
-<li>sorted by branchcode and date due</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Procedure for NEKLS staff when a library contacts us about an unplanned closure:<br /></p>
-<ol>
-  <li>Run this report for the library that's closing unexpectedly and select the date range that they will be closed</li><br />
-  <li>Download the report as a CSV file</li><br />
-  <li>Open a support request with ByWater Solutions and attach the csv file to the support request</li><br />
-  <li>Ask ByWater to change the due dates on all of the itemnumbers included in the text file to the date the library will re-open (or a day or two after they reopen)</li><br />
-  <li>Let the library know that you have asked ByWater to update the due dates on the items that are due during their closure</li><br />
-  <li>Follow up with the library and with ByWater if there are any problems or issues</li><br />
-</ol>
-<p></p>
-<p id="rquickopen"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3171&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Report to get items.itemnumber data for items due in the date range specified&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows itemnumbers for items due on the dates you specify&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped by branchcode and itemnumber&lt;/li&gt;
+&lt;li&gt;sorted by branchcode and date due&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Procedure for NEKLS staff when a library contacts us about an unplanned closure:&lt;br /&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Run this report for the library that's closing unexpectedly and select the date range that they will be closed&lt;/li&gt;&lt;br /&gt;
+  &lt;li&gt;Download the report as a CSV file&lt;/li&gt;&lt;br /&gt;
+  &lt;li&gt;Open a support request with ByWater Solutions and attach the csv file to the support request&lt;/li&gt;&lt;br /&gt;
+  &lt;li&gt;Ask ByWater to change the due dates on all of the itemnumbers included in the text file to the date the library will re-open (or a day or two after they reopen)&lt;/li&gt;&lt;br /&gt;
+  &lt;li&gt;Let the library know that you have asked ByWater to update the due dates on the items that are due during their closure&lt;/li&gt;&lt;br /&gt;
+  &lt;li&gt;Follow up with the library and with ByWater if there are any problems or issues&lt;/li&gt;&lt;br /&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p id="rquickopen"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3171&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -56,8 +56,8 @@ SELECT
 FROM
   issues
 WHERE
-  issues.date_due BETWEEN <>  AND (<> + interval 1 day) AND
-  issues.branchcode LIKE <>
+  issues.date_due BETWEEN &lt;&gt;  AND (&lt;&gt; + interval 1 day) AND
+  issues.branchcode LIKE &lt;&gt;
 GROUP BY
   issues.branchcode,
   issues.itemnumber

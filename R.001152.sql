@@ -13,7 +13,7 @@ Group: Popular Reports
 
 Created on: 2011-07-29 16:18:30
 Modified on: 2023-10-16 21:57:18
-Date last run: 2025-10-27 09:01:45
+Date last run: 2026-01-28 10:36:29
 
 ----------
 
@@ -22,18 +22,18 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a list of the 50 bibliographic records with the greatest numbers of requests</p>
-<ul><li>Shows current data</li>
-<li>Shows bibliographic records from all Next Search Cataloglibraries</li>
-<li>grouped by biblionumber</li>
-<li>sorted by request count (biggest first)</li>
-<li>contains links to the bibliographic record</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p>This report is being replaced by <a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2735&phase=Run%20this%20report" target="_blank">report 2735</a> which shows all items with more than 20 requests.</p>
-<p>Report created by HB.</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a list of the 50 bibliographic records with the greatest numbers of requests&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows current data&lt;/li&gt;
+&lt;li&gt;Shows bibliographic records from all Next Search Cataloglibraries&lt;/li&gt;
+&lt;li&gt;grouped by biblionumber&lt;/li&gt;
+&lt;li&gt;sorted by request count (biggest first)&lt;/li&gt;
+&lt;li&gt;contains links to the bibliographic record&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;This report is being replaced by &lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2735&phase=Run%20this%20report" target="_blank"&gt;report 2735&lt;/a&gt; which shows all items with more than 20 requests.&lt;/p&gt;
+&lt;p&gt;Report created by HB.&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -41,11 +41,11 @@ Expiry: 0
 
 
 SELECT
-  count(*) AS NUMBER_OF_REQUESTS,
+  count(&ast;) AS NUMBER_OF_REQUESTS,
   Concat(
     biblio.title, 
     " ", 
-    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code>="b"]')
+    ExtractValue(biblio_metadata.metadata, '//datafield[@tag="245"]/subfield[@code&gt;="b"]')
   ) AS TITLE,
   Concat(
     'LINK'
@@ -63,7 +63,7 @@ FROM
 GROUP BY
   biblio.biblionumber
 ORDER BY
-  count(*) DESC
+  count(&ast;) DESC
 LIMIT 50
 
 

@@ -22,22 +22,22 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-  <p>Counts circulation by date range directly from the statistics table</p>
-  <ul>
-    <li>during the date range you specify</li>
-    <li>checked out or renewed at the library you specify</li>
-    <li>grouped and sorted by branchname, branchcode, LOCATION, LOCATION_CODE, ITEM_TYPE, ITEM_TYPE_CODE, COLLECTION_CODE_DESCRIPTION, and COLLECTION_CODE_CODE</li>
-  </ul><br />
-  <p><ins>Notes:</ins></p>
-  <p></p>
-  <p>Can gather statistical data that the statistics wizard cannot</p>
-  <p></p>
-  <p>This report relies on data from the statistics table.  Data in the statistics table is only kept for 25 months, so if you set a start date or an end date more than 25 months ago, you will not be able to retrieve accurate data.</p>
-  <p></p>
-  <p class= "notetags" style="display: none;">#statistics #library #location #itype #ccode</p>
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+  &lt;p&gt;Counts circulation by date range directly from the statistics table&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;during the date range you specify&lt;/li&gt;
+    &lt;li&gt;checked out or renewed at the library you specify&lt;/li&gt;
+    &lt;li&gt;grouped and sorted by branchname, branchcode, LOCATION, LOCATION_CODE, ITEM_TYPE, ITEM_TYPE_CODE, COLLECTION_CODE_DESCRIPTION, and COLLECTION_CODE_CODE&lt;/li&gt;
+  &lt;/ul&gt;&lt;br /&gt;
+  &lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;p&gt;Can gather statistical data that the statistics wizard cannot&lt;/p&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;p&gt;This report relies on data from the statistics table.  Data in the statistics table is only kept for 25 months, so if you set a start date or an end date more than 25 months ago, you will not be able to retrieve accurate data.&lt;/p&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;p class= "notetags" style="display: none;"&gt;#statistics #library #location #itype #ccode&lt;/p&gt;
+  &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -83,7 +83,7 @@ From (
         From authorised_values 
         Where authorised_values.category = 'CCODE' 
       ) ccodess 
-    Where branches.branchcode Like <> 
+    Where branches.branchcode Like &lt;&gt; 
   ) branchesscodess 
   Join statistics On statistics.branch = branchesscodess.branchcode 
   And statistics.location = branchesscodess.LOCATION_CODE 
@@ -93,7 +93,7 @@ Where (
     statistics.type = 'issue' 
     Or statistics.type = 'renew' 
   ) 
-  And statistics.datetime Between <> And (<> + Interval 1 Day) 
+  And statistics.datetime Between &lt;&gt; And (&lt;&gt; + Interval 1 Day) 
 Group By  
   branchesscodess.branchname, 
   branchesscodess.branchcode, 

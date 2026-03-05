@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Identifies current requests on a specific item (item specific requests)</p>
-<ul><li>Shows current requests for a specified patron</li>
-<li>on a patron you specify</li>
-<li>sorted by the last activity on the request</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Report created to help troubleshoot problems with requested items (i.e. missing in transit, item on holds list not found, patron received e-mail but we can't find the request, etc.).</p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2802&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Identifies current requests on a specific item (item specific requests)&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows current requests for a specified patron&lt;/li&gt;
+&lt;li&gt;on a patron you specify&lt;/li&gt;
+&lt;li&gt;sorted by the last activity on the request&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Report created to help troubleshoot problems with requested items (i.e. missing in transit, item on holds list not found, patron received e-mail but we can't find the request, etc.).&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2802&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -66,7 +66,7 @@ FROM
   biblio
     ON reserves.biblionumber = biblio.biblionumber
 WHERE
-  borrowers.cardnumber = <>
+  borrowers.cardnumber = &lt;&gt;
 ORDER BY
   reserves.timestamp DESC
 

@@ -53,7 +53,7 @@ FROM
       circulation_rules
     WHERE
       circulation_rules.rule_name = 'holdallowed' AND
-      circulation_rules.itemtype LIKE <>
+      circulation_rules.itemtype LIKE &lt;&gt;
     GROUP BY
       Coalesce(circulation_rules.branchcode, "All branches"),
       circulation_rules.categorycode,
@@ -71,7 +71,7 @@ FROM
       circulation_rules
     WHERE
       circulation_rules.rule_name = 'hold_fulfillment_policy' AND
-      circulation_rules.itemtype LIKE <>
+      circulation_rules.itemtype LIKE &lt;&gt;
     GROUP BY
       Coalesce(circulation_rules.branchcode, "All branches"),
       circulation_rules.categorycode,
@@ -89,7 +89,7 @@ FROM
       circulation_rules
     WHERE
       circulation_rules.rule_name = 'returnbranch' AND
-      circulation_rules.itemtype LIKE <>
+      circulation_rules.itemtype LIKE &lt;&gt;
     GROUP BY
       Coalesce(circulation_rules.branchcode, "All branches"),
       circulation_rules.categorycode,

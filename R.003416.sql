@@ -69,7 +69,7 @@ FROM
       items.biblionumber,
       items.homebranch
     HAVING
-      Count(items.itemnumber) > 1) itemcountss ON itemcountss.biblionumber =
+      Count(items.itemnumber) &gt; 1) itemcountss ON itemcountss.biblionumber =
       items.biblionumber AND
       itemcountss.homebranch = items.homebranch LEFT JOIN
   (SELECT
@@ -105,10 +105,10 @@ FROM
       authorised_values.category = 'CCODE') ccodes ON ccodes.authorised_value =
       items.ccode
 WHERE
-  items.homebranch LIKE <> AND
-  items.permanent_location LIKE <> AND
-  items.itype LIKE <> AND
-  items.ccode LIKE <>
+  items.homebranch LIKE &lt;&gt; AND
+  items.permanent_location LIKE &lt;&gt; AND
+  items.itype LIKE &lt;&gt; AND
+  items.ccode LIKE &lt;&gt;
 GROUP BY
   biblio.biblionumber,
   items.itemnumber

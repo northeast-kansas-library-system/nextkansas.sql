@@ -22,61 +22,61 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
+&lt;div class="reportinfo noprint"&gt; 
  
-  <div class="reportInfoContent"> 
+  &lt;div class="reportInfoContent"&gt; 
  
-    <p>Lists bibliographic records</p> 
+    &lt;p&gt;Lists bibliographic records&lt;/p&gt; 
  
-    <ul> 
-      <li>created during the date range you specify</li> 
-      <li>by staff at the library you specify</li> 
-      <li>grouped by biblio number and action logs ID</li> 
-      <li>sorted by:
-      <ol>
-        <li>the library that created the record</li>
-        <li>bibliographic shelving location (942$c)</li>
-        <li>bibliographic item type (942$e)</li>
-        <li>bibliographic collection code (942$h)</li>
-      </ol>
-    </li>
-    <li>links to the bibliographic record</li>
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;created during the date range you specify&lt;/li&gt; 
+      &lt;li&gt;by staff at the library you specify&lt;/li&gt; 
+      &lt;li&gt;grouped by biblio number and action logs ID&lt;/li&gt; 
+      &lt;li&gt;sorted by:
+      &lt;ol&gt;
+        &lt;li&gt;the library that created the record&lt;/li&gt;
+        &lt;li&gt;bibliographic shelving location (942$c)&lt;/li&gt;
+        &lt;li&gt;bibliographic item type (942$e)&lt;/li&gt;
+        &lt;li&gt;bibliographic collection code (942$h)&lt;/li&gt;
+      &lt;/ol&gt;
+    &lt;/li&gt;
+    &lt;li&gt;links to the bibliographic record&lt;/li&gt;
+    &lt;/ul&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div class="reportInfoNotes"> 
+  &lt;div class="reportInfoNotes"&gt; 
  
-    <p> 
+    &lt;p&gt; 
  
-    </p> 
+    &lt;/p&gt; 
  
-    <p> 
+    &lt;p&gt; 
       If a bibliographic record is created and then deleted in the period specified, you will be unable to link to the record.
-    </p> 
+    &lt;/p&gt; 
  
-    <p> 
+    &lt;p&gt; 
  
-    </p> 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div id="reportInfoLinks"> 
+  &lt;div id="reportInfoLinks"&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div id="reportInfoTags"> 
+  &lt;div id="reportInfoTags"&gt; 
  
-    <p style="display: none;"> 
+    &lt;p style="display: none;"&gt; 
       #bibliographic record 
       #by library 
-    </p> 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
+  &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt; 
  
-</div> 
+&lt;/div&gt; 
 
 ----------
 */
@@ -111,7 +111,7 @@ From action_logs
     From biblio
       Join biblioitems On biblioitems.biblionumber = biblio.biblionumber
     Where 
-      biblio.datecreated Between <> and (<> + Interval 1 Day)
+      biblio.datecreated Between &lt;&gt; and (&lt;&gt; + Interval 1 Day)
     Group By biblio.biblionumber
     Union
     Select 
@@ -127,7 +127,7 @@ From action_logs
     From deletedbiblio
       Join deletedbiblioitems On deletedbiblioitems.biblionumber = deletedbiblio.biblionumber
     Where 
-      deletedbiblio.datecreated Between <> and (<> + Interval 1 Day)
+      deletedbiblio.datecreated Between &lt;&gt; and (&lt;&gt; + Interval 1 Day)
     Group By deletedbiblio.biblionumber
   ) biblios 
     On biblios.biblionumber = action_logs.object
@@ -156,11 +156,11 @@ Where
   action_logs.module = 'CATALOGUING'
   And action_logs.action = 'ADD'
   And action_logs.info = 'biblio'
-  And branches.branchcode Like <>
-  And biblios.agerestriction Like <>
-  And biblios.itemtype Like <>
-  And biblios.cn_class Like <>
-  And action_logs.timestamp Between <> and (<> + Interval 1 Day)
+  And branches.branchcode Like &lt;&gt;
+  And biblios.agerestriction Like &lt;&gt;
+  And biblios.itemtype Like &lt;&gt;
+  And biblios.cn_class Like &lt;&gt;
+  And action_logs.timestamp Between &lt;&gt; and (&lt;&gt; + Interval 1 Day)
 Group By 
   action_logs.action_id,
   biblios.biblionumber  

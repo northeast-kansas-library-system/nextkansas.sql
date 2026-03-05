@@ -22,16 +22,16 @@ Expiry: 3600
 
 ----------
 
-<div class="reportinfo noprint">
-  <p>Creates a list of new adult book ISBNs for the Wordpress bookshelves plugin for BALDWIN</p>
-  <ul>
-    <li>Shows the 25 most recently added 10 digit ISBNs for items owned by BALDWIN</li>
-    <li>only titles owned by BALDWIN</li>
-    <li>grouped and sorted by biblionumber (descending sort)</li>
-  </ul><br />
-  <p class= "notetags" style="display: none;">#wordpress #bookshelves</p>
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div>
+&lt;div class="reportinfo noprint"&gt;
+  &lt;p&gt;Creates a list of new adult book ISBNs for the Wordpress bookshelves plugin for BALDWIN&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Shows the 25 most recently added 10 digit ISBNs for items owned by BALDWIN&lt;/li&gt;
+    &lt;li&gt;only titles owned by BALDWIN&lt;/li&gt;
+    &lt;li&gt;grouped and sorted by biblionumber (descending sort)&lt;/li&gt;
+  &lt;/ul&gt;&lt;br /&gt;
+  &lt;p class= "notetags" style="display: none;"&gt;#wordpress #bookshelves&lt;/p&gt;
+  &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -97,11 +97,11 @@ WHERE
   items.damaged = 0 AND
   items.itemlost = '' AND
   items.withdrawn = 0 AND 
-  biblioitems.publicationyear >= Year(Now() - INTERVAL 3 MONTH)
+  biblioitems.publicationyear &gt;= Year(Now() - INTERVAL 3 MONTH)
 GROUP BY
   biblio.biblionumber
 HAVING
-  isbns <> 'X'
+  isbns &lt;&gt; 'X'
 ORDER BY
   items.itemnumber DESC
 LIMIT 25

@@ -104,7 +104,7 @@ FROM
       phone.club_enrollment_id = club_enrollments.id JOIN
   borrowers ON club_enrollments.borrowernumber = borrowers.borrowernumber
 WHERE
-  clubs.id = <>
+  clubs.id = &lt;&gt;
 ORDER BY
   club_enrollments.id
 

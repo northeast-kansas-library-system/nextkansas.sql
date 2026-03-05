@@ -22,22 +22,22 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Report for Bonner Springs to generate list of materials for auditing</p>
-<ul><li>Shows items currently in the catalog which were added in the date range you specify (items that were added during that time-frame but have already been deleted will not appear in this list)</li>
-<li>Includes the 952$g and 952$v price informaiton</li>
-<li>Allows the user to specify shelving location, collection code, item type, and source of acquisition</li>
-<li>sorted by standard NExpress classification scheme</li>
-<li>links to the "Edit item" page for each item</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>The sources of acquisition in the database appear to be ï¿½AMAZON,ï¿½ ï¿½AUTHOR,ï¿½ ï¿½CENTER POINT,ï¿½ ï¿½CHILDREN'S PLUS,ï¿½ ï¿½Donation,ï¿½ ï¿½GALE,ï¿½ ï¿½INGRAM,ï¿½ ï¿½INGRAMS,ï¿½ ï¿½MIDWEST TAPE,ï¿½ ï¿½MIDWEST TAPES,ï¿½ ï¿½NEW READERS PRESS,ï¿½ ï¿½OMNIGRAPHICS,ï¿½ "PUBLISHER DIRECT," "RECATALOG," ï¿½RECORDED BOOKS,ï¿½ and ï¿½TURN THE PAGE KC.ï¿½  If staff want to limit to one source, they can enter the exact name of the source in the "Source of acquisition" field in this report, or, since Ingram appears to be spelled two different ways, staff can type "Ing%" to get all items from Ingram - even if "Ingram" is misspelled in the item record.</p>
-<p></p>
-<p>For a full list of items, put a "%" in the "Enter the name, or part of the name, of the acquisition source" input field.</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2939=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Report for Bonner Springs to generate list of materials for auditing&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows items currently in the catalog which were added in the date range you specify (items that were added during that time-frame but have already been deleted will not appear in this list)&lt;/li&gt;
+&lt;li&gt;Includes the 952$g and 952$v price informaiton&lt;/li&gt;
+&lt;li&gt;Allows the user to specify shelving location, collection code, item type, and source of acquisition&lt;/li&gt;
+&lt;li&gt;sorted by standard NExpress classification scheme&lt;/li&gt;
+&lt;li&gt;links to the "Edit item" page for each item&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;The sources of acquisition in the database appear to be “AMAZON,” “AUTHOR,” “CENTER POINT,” “CHILDREN'S PLUS,” “Donation,” “GALE,” “INGRAM,” “INGRAMS,” “MIDWEST TAPE,” “MIDWEST TAPES,” “NEW READERS PRESS,” “OMNIGRAPHICS,” "PUBLISHER DIRECT," "RECATALOG," “RECORDED BOOKS,” and “TURN THE PAGE KC.”  If staff want to limit to one source, they can enter the exact name of the source in the "Source of acquisition" field in this report, or, since Ingram appears to be spelled two different ways, staff can type "Ing%" to get all items from Ingram - even if "Ingram" is misspelled in the item record.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;For a full list of items, put a "%" in the "Enter the name, or part of the name, of the acquisition source" input field.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2939=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -64,12 +64,12 @@ FROM
   JOIN biblio ON items.biblionumber = biblio.biblionumber
   JOIN biblio_metadata ON items.biblionumber = biblio_metadata.biblionumber
 WHERE
-  items.dateaccessioned BETWEEN <> AND <> AND
+  items.dateaccessioned BETWEEN &lt;&gt; AND &lt;&gt; AND
   items.homebranch = "BONNERSPGS" AND
-  items.location LIKE <> AND
-  items.itype LIKE <> AND
-  items.ccode LIKE <> AND
-  Coalesce(items.booksellerid, "-") LIKE Concat("%", <>, "%")
+  items.location LIKE &lt;&gt; AND
+  items.itype LIKE &lt;&gt; AND
+  items.ccode LIKE &lt;&gt; AND
+  Coalesce(items.booksellerid, "-") LIKE Concat("%", &lt;&gt;, "%")
 GROUP BY
   items.barcode
 ORDER BY

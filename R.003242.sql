@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2019-08-02 23:13:23
 Modified on: 2024-01-17 12:08:42
-Date last run: 2025-10-27 09:30:49
+Date last run: 2026-01-28 16:33:42
 
 ----------
 
@@ -22,11 +22,11 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Part 2 of the patron purge process - part 2 - change extended attribute to 2 ("Account expired for more than 2 years - cannot be deleted due to fines/fees/ouverdues/etc.")</p>
-<p></p>
-<p class= "notetags" style="display: none;">#PP02 #patron_purge</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Part 2 of the patron purge process - part 2 - change extended attribute to 2 ("Account expired for more than 2 years - cannot be deleted due to fines/fees/ouverdues/etc.")&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;#PP02 #patron_purge&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -44,7 +44,7 @@ SELECT
   borrowers.dateenrolled,
   borrowers.dateexpiry,
   If(
-    Day(Now()) >= 15, 
+    Day(Now()) &gt;= 15, 
     Date_Format(Now() + INTERVAL 15 MONTH, '%Y-%m-15'),
     Date_Format(Now() + INTERVAL 14 MONTH, '%Y-%m-15')
   ) AS PROJECTED_DELETION,
@@ -107,14 +107,14 @@ WHERE
   INTERVAL 730.5 DAY AND
   borrowers.branchcode LIKE '%' AND
   Coalesce(borrowers.othernames, "0") NOT LIKE "%SIP%" AND
-  borrowers.categorycode <> 'STAFF' AND
-  borrowers.categorycode <> 'ILL' AND
-  borrowers.categorycode <> 'HOOPLA' AND
-  (Coalesce(accountlinesx.DUE_SUM, 0) <> 0 OR
-      Coalesce(issuesx.ICOUNT, 0) <> 0 OR
-      Coalesce(guaranteesx.GCOUNT, 0) <> 0 OR
-      Coalesce(requestsx.Count_reserve_id, 0) <> 0) AND
-  Coalesce(expired_attribute.attribute, 0) <> 2
+  borrowers.categorycode &lt;&gt; 'STAFF' AND
+  borrowers.categorycode &lt;&gt; 'ILL' AND
+  borrowers.categorycode &lt;&gt; 'HOOPLA' AND
+  (Coalesce(accountlinesx.DUE_SUM, 0) &lt;&gt; 0 OR
+      Coalesce(issuesx.ICOUNT, 0) &lt;&gt; 0 OR
+      Coalesce(guaranteesx.GCOUNT, 0) &lt;&gt; 0 OR
+      Coalesce(requestsx.Count_reserve_id, 0) &lt;&gt; 0) AND
+  Coalesce(expired_attribute.attribute, 0) &lt;&gt; 2
 GROUP BY
   borrowers.borrowernumber
 ORDER BY

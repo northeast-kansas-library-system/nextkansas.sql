@@ -22,40 +22,40 @@ Expiry: 300
 
 ----------
 
-<div id="reportinfo" class="reportInfo noprint">
+&lt;div id="reportinfo" class="reportInfo noprint"&gt;
  
-  <div class="reportInfoContent"> 
+  &lt;div class="reportInfoContent"&gt; 
  
-    <p>Counts "localuse" checkouts by item type</p> 
+    &lt;p&gt;Counts "localuse" checkouts by item type&lt;/p&gt; 
  
-    <ul> 
-      <li>during the previous calendar month</li> 
-      <li>at the library you specify</li> 
-      <li>grouped and sorted by library and item type</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;during the previous calendar month&lt;/li&gt; 
+      &lt;li&gt;at the library you specify&lt;/li&gt; 
+      &lt;li&gt;grouped and sorted by library and item type&lt;/li&gt; 
+    &lt;/ul&gt; 
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div class="reportInfoNotes"> 
+  &lt;div class="reportInfoNotes"&gt; 
 
-    <p></p>
-    <p>Collecting local use data requires the use of a "Staff - statistical purposes" library card.</p>
-    <p></p>
+    &lt;p&gt;&lt;/p&gt;
+    &lt;p&gt;Collecting local use data requires the use of a "Staff - statistical purposes" library card.&lt;/p&gt;
+    &lt;p&gt;&lt;/p&gt;
  
-  </div> 
+  &lt;/div&gt; 
  
-  <div id="reportInfoTags"> 
+  &lt;div id="reportInfoTags"&gt; 
  
-    <p style="display: none;"> 
+    &lt;p style="display: none;"&gt; 
       #localuse
       #statistics
       #ccode
       #previous_month 
-    </p> 
+    &lt;/p&gt; 
  
-  </div> 
+  &lt;/div&gt; 
 
-  <!-- html notes rendered on guided_reports.pl by jquery see https://wiki.koha-community.org/wiki/Query_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+  &lt;!-- html notes rendered on guided_reports.pl by jquery see https://wiki.koha-community.org/wiki/Query_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt;
 
 ----------
 */
@@ -77,14 +77,14 @@ From
           authorised_values
       Where
           authorised_values.category = 'CCODE' And
-          branches.branchcode Like <>
+          branches.branchcode Like &lt;&gt;
       Order By
           branches.branchcode,
           authorised_values.lib) branchccodes Left Join
     (Select
           If(statistics.branch Is Null, "NEKLS", statistics.branch) As branch,
           If(statistics.ccode Is Null, "XXX", statistics.ccode) As CCODE,
-          Count(*) As CKO_RENEW
+          Count(&ast;) As CKO_RENEW
       From
           statistics
       Where

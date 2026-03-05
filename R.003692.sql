@@ -22,12 +22,12 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>See Northeast Kansas Library Sytem/system_preference_backup on Github for full instructions</p>
-<p></p>
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3692">Click here to download as a csv file</a></p>
-<p class= "notetags" style="display: none;">#backups #monthly #sysprefs</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;See Northeast Kansas Library Sytem/system_preference_backup on Github for full instructions&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p id="rquickdown"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3692"&gt;Click here to download as a csv file&lt;/a&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;#backups #monthly #sysprefs&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -36,7 +36,7 @@ Expiry: 300
 
 Select Concat(
     If(
-      Length(systempreferences.value) > 30000,
+      Length(systempreferences.value) &gt; 30000,
       "PRODUCTION_XX.",
       "PRODUCTION_SP."
     ),
@@ -44,12 +44,12 @@ Select Concat(
   ) As FILE_NAME,
   Concat_Ws(
     "",
-    "/*",
+    "/&ast;",
     Char(13),
     Char(10),
     Concat(
       If(
-        Length(systempreferences.value) > 30000,
+        Length(systempreferences.value) &gt; 30000,
         "XX.",
         "SP."
       ),
@@ -93,14 +93,14 @@ Select Concat(
     Char(10),
     Char(13),
     Char(10),
-    "*/"
+    "&ast;/"
   ) As INFO,
   SubString(
     systempreferences.value
     From 1 For 30000
   ) As PART_ONE,
   If(
-    Length(systempreferences.value) > 30000,
+    Length(systempreferences.value) &gt; 30000,
     "||AAAAA||",
     ""
   ) As SEP_ONE,
@@ -109,7 +109,7 @@ Select Concat(
     From 30001 For 30000
   ) As PART_TWO,
   If(
-    Length(systempreferences.value) > 60000,
+    Length(systempreferences.value) &gt; 60000,
     "||AAAAA||",
     ""
   ) As SEP_TWO,
@@ -118,7 +118,7 @@ Select Concat(
     From 60001 For 30000
   ) As PART_THREE,
   If(
-    Length(systempreferences.value) > 90000,
+    Length(systempreferences.value) &gt; 90000,
     "||AAAAA||",
     ""
   ) As SEP_THREE,
@@ -127,7 +127,7 @@ Select Concat(
     From 90001 For 30000
   ) As PART_FOUR,
   If(
-    Length(systempreferences.value) > 120000,
+    Length(systempreferences.value) &gt; 120000,
     "||AAAAA||",
     ""
   ) As SEP_FOUR,

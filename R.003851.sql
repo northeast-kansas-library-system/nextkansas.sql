@@ -29,7 +29,7 @@ Expiry: 300
 
 
 
-select * from z3950servers
+select &ast; from z3950servers
 
 
 

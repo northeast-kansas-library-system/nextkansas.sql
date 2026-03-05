@@ -50,7 +50,7 @@ FROM
         statistics.branch,
         Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE,
         Date_Format(statistics.datetime, '%W') AS DAY,
-        count(*) AS RETURN_COUNT
+        count(&ast;) AS RETURN_COUNT
       FROM
         statistics
       WHERE
@@ -68,7 +68,7 @@ FROM
         statistics.branch,
         Date_Format(statistics.datetime, '%Y-%m-%d') AS DATE,
         Date_Format(statistics.datetime, '%W') AS DAY,
-        count(*) AS LOCAL_USE_COUNT
+        count(&ast;) AS LOCAL_USE_COUNT
       FROM
         statistics
       WHERE
@@ -128,7 +128,7 @@ FROM
     ON transfered_lm.frombranch = branches.branchcode 
     AND transfered_lm.DATE = returns_lm.DATE
 WHERE
-  branches.branchcode LIKE <>
+  branches.branchcode LIKE &lt;&gt;
 GROUP BY
   branches.branchname,
   returns_lm.DATE,

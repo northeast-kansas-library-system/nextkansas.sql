@@ -13,7 +13,7 @@ Group: Catalog Records and Items
 
 Created on: 2016-07-21 15:13:21
 Modified on: 2023-10-16 22:05:37
-Date last run: 2025-10-20 18:51:40
+Date last run: 2025-12-19 09:36:09
 
 ----------
 
@@ -22,15 +22,15 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>This report shows all items added to NExpress at a specific library branch after a specified date</p>
-<ul><li>Shows items that are currently still in NExpress</li>
-<li>Allows user to specify the item's homebranch, shelving location, item type, collection code, and the item's date added</li>
-<li>grouped by homebranch, location, itype, collection code, and call number</li>
-<li>sorted by homebranch, location, itype, collection code, and call number</li>
-<li>contains links directly to the item's bibliographic record</li>
-</ul><br />
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;This report shows all items added to NExpress at a specific library branch after a specified date&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows items that are currently still in NExpress&lt;/li&gt;
+&lt;li&gt;Allows user to specify the item's homebranch, shelving location, item type, collection code, and the item's date added&lt;/li&gt;
+&lt;li&gt;grouped by homebranch, location, itype, collection code, and call number&lt;/li&gt;
+&lt;li&gt;sorted by homebranch, location, itype, collection code, and call number&lt;/li&gt;
+&lt;li&gt;contains links directly to the item's bibliographic record&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -62,11 +62,11 @@ FROM
     ON biblio_metadata.biblionumber = biblio.biblionumber AND
     items.biblionumber = biblio_metadata.biblionumber
 WHERE
-  items.homebranch LIKE <> AND
-  items.location LIKE <> AND
-  items.itype LIKE <> AND
-  items.ccode LIKE <> AND
-  items.dateaccessioned > <>
+  items.homebranch LIKE &lt;&gt; AND
+  items.location LIKE &lt;&gt; AND
+  items.itype LIKE &lt;&gt; AND
+  items.ccode LIKE &lt;&gt; AND
+  items.dateaccessioned &gt; &lt;&gt;
 GROUP BY
   items.homebranch,
   items.location,

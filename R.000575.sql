@@ -13,7 +13,7 @@ Group: Circulation
 
 Created on: 2009-06-12 14:19:42
 Modified on: 2020-12-08 22:58:11
-Date last run: 2025-09-29 13:48:38
+Date last run: 2025-12-02 11:58:44
 
 ----------
 
@@ -44,8 +44,8 @@ FROM
   items ON items.itemnumber = issues.itemnumber LEFT JOIN
   biblio ON biblio.biblionumber = items.biblionumber
 WHERE
-  (To_Days(CurDate()) - To_Days(issues.date_due)) >= '2' AND
-  issues.branchcode = <>
+  (To_Days(CurDate()) - To_Days(issues.date_due)) &gt;= '2' AND
+  issues.branchcode = &lt;&gt;
 GROUP BY
   borrowers.cardnumber,
   issues.issue_id

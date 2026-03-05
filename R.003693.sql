@@ -28,7 +28,6 @@ Expiry: 300
 */
 
 
-
 SELECT 
   Concat_Ws(
     '',
@@ -512,24 +511,3 @@ FROM branches,
 ORDER BY 
   surname,
   cardnumber
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

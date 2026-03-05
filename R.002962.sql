@@ -36,16 +36,16 @@ FROM
   branches
   LEFT JOIN (SELECT
       statistics.branch,
-      COUNT(*) AS RETURNS
+      COUNT(&ast;) AS RETURNS
     FROM
       statistics
     WHERE
       (statistics.type = 'return') AND
-      statistics.datetime BETWEEN <> AND <> + INTERVAL 1 DAY
+      statistics.datetime BETWEEN &lt;&gt; AND &lt;&gt; + INTERVAL 1 DAY
     GROUP BY
       statistics.branch) circulation ON branches.branchcode = circulation.branch
 WHERE
-  branches.branchcode LIKE <>
+  branches.branchcode LIKE &lt;&gt;
 GROUP BY
   branches.branchcode,
   Coalesce(circulation.RETURNS, 0)

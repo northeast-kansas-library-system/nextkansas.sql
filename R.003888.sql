@@ -40,7 +40,7 @@ SELECT
     If(
       Coalesce(loc.COUNT, 0) + 
         Coalesce(ccode.COUNT, 0) + 
-          Coalesce(itemtypes.COUNT, 0) > 1, 
+          Coalesce(itemtypes.COUNT, 0) &gt; 1, 
       "-- duplicated codes in these settings", 
       ""
     )
@@ -67,7 +67,7 @@ FROM
       authorised_values.authorised_value,
       authorised_values.lib,
       authorised_values.category,
-      count(*) AS COUNT
+      count(&ast;) AS COUNT
     FROM
       authorised_values
     WHERE
@@ -82,7 +82,7 @@ FROM
       authorised_values.authorised_value,
       authorised_values.lib,
       authorised_values.category,
-      count(*) AS COUNT
+      count(&ast;) AS COUNT
     FROM
       authorised_values
     WHERE
@@ -97,7 +97,7 @@ FROM
       itemtypes.itemtype,
       itemtypes.description,
       'ITYPE' AS CODE,
-      count(*) AS COUNT
+      count(&ast;) AS COUNT
     FROM
       itemtypes
     GROUP BY

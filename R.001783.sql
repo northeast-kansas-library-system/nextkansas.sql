@@ -29,7 +29,7 @@ Expiry: 0
 
 
 
-SELECT CONCAT('',author,'') AS "Author Search" , count(biblionumber) FROM biblio WHERE seriestitle LIKE <> GROUP BY author
+SELECT CONCAT('',author,'') AS "Author Search" , count(biblionumber) FROM biblio WHERE seriestitle LIKE &lt;&gt; GROUP BY author
 
 
 

@@ -22,19 +22,19 @@ Expiry: 10
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Presents a list of items that have a higher than 3:1 requests to copies ratio.</p>
-<ul><li>Shows titles that currently have more than 3 requests per copy</li>
-<li>system wide</li>
-<li>grouped by biblio number</li>
-<li>sorted by highest ratio to lowest ratio</li>
-<li>contains links to the bibliographic records</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Notes go here.</p>
-<p></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Presents a list of items that have a higher than 3:1 requests to copies ratio.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows titles that currently have more than 3 requests per copy&lt;/li&gt;
+&lt;li&gt;system wide&lt;/li&gt;
+&lt;li&gt;grouped by biblio number&lt;/li&gt;
+&lt;li&gt;sorted by highest ratio to lowest ratio&lt;/li&gt;
+&lt;li&gt;contains links to the bibliographic records&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Notes go here.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -85,7 +85,7 @@ GROUP BY
   biblio.biblionumber,
   biblio_metadata.metadata
 HAVING
-  (Count(DISTINCT reserves.borrowernumber) / Count(DISTINCT items.itemnumber)) > 3
+  (Count(DISTINCT reserves.borrowernumber) / Count(DISTINCT items.itemnumber)) &gt; 3
 ORDER BY
   (Count(DISTINCT reserves.borrowernumber) / Count(DISTINCT items.itemnumber)) DESC
 

@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2018-11-11 22:16:08
 Modified on: 2025-04-27 17:00:34
-Date last run: 2025-06-02 08:56:35
+Date last run: 2025-12-03 08:54:29
 
 ----------
 
@@ -22,7 +22,7 @@ Expiry: 300
 
 ----------
 
-<a href="https://staff.nekls.bywatersolutions.com/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=3136&reportname=GHW%20-%20videogames%20without%20links" target="_blank">download</a>
+&lt;a href="https://staff.nekls.bywatersolutions.com/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=3136&reportname=GHW%20-%20videogames%20without%20links" target="_blank"&gt;download&lt;/a&gt;
 
 zbrq
 

@@ -70,7 +70,7 @@ SELECT
     'Thanks&comma;', 
     '%0D%0A%0D%0A', 
     'George' 
-    '">Send e-mail' 
+    '"&gt;Send e-mail' 
   ) AS MAILTO_LINK, 
   If( 
     items.homebranch = items.holdingbranch, 
@@ -152,7 +152,7 @@ FROM biblio
     ON ccodes.authorised_value = items.ccode 
 WHERE 
   items.barcode LIKE '%' AND 
-  items.homebranch LIKE <> AND 
+  items.homebranch LIKE &lt;&gt; AND 
   items.permanent_location LIKE '%' AND 
   items.itype LIKE 'PUNC' AND 
   items.ccode LIKE '%' AND 

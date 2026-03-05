@@ -33,7 +33,7 @@ SELECT
   letter.code,
   letter.message_transport_type,
   letter.is_html,
-  REPLACE(letter.content, "<", "<")  AS CONTENT, 
+  REPLACE(letter.content, "&lt;", "&lt;")  AS CONTENT, 
   GROUP_CONCAT(
     DISTINCT 
     If(letter.branchcode = "", "All libraries", letter.branchcode) 

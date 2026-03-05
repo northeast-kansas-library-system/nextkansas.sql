@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2021-07-26 16:27:18
 Modified on: 2024-01-17 11:28:08
-Date last run: 2025-07-15 17:11:08
+Date last run: 2025-11-24 11:58:00
 
 ----------
 
@@ -22,27 +22,27 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Item count by item type</p>
-<ul><li>Counts items currently in the collection</li>
-<li>At the library you specify - and/or - with the item type you specify</li>
-<li>grouped and sorted by library name and item type</li>
-<li>links to report 2731 to generate a shelflist for the items being counted</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Non-standard shelving locations are counted as "Adult" locations.</p>
-<p>Items with blank item types are counted as "(Unclassified)."</p>
-<p></p>
-<p><strong>Replaces all other item count by item type reports.</strong></p>
-<ul>
-  <li>1124 - Collection size by Item Type</li>
-  <li>1179 - Entire Collection Size by IType</li>
-  <li>1413 - Collection Size by Item Type & Location (per branch)</li>
-  <li>1811 - Itemtypes in use at Prairie Hills Schools</li>
-</ul>
-<p class= "notetags" style="display: none;">#ultimate #itemcount #itype #itemtype item count type</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Item count by item type&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Counts items currently in the collection&lt;/li&gt;
+&lt;li&gt;At the library you specify - and/or - with the item type you specify&lt;/li&gt;
+&lt;li&gt;grouped and sorted by library name and item type&lt;/li&gt;
+&lt;li&gt;links to report 2731 to generate a shelflist for the items being counted&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Non-standard shelving locations are counted as "Adult" locations.&lt;/p&gt;
+&lt;p&gt;Items with blank item types are counted as "(Unclassified)."&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Replaces all other item count by item type reports.&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;1124 - Collection size by Item Type&lt;/li&gt;
+  &lt;li&gt;1179 - Entire Collection Size by IType&lt;/li&gt;
+  &lt;li&gt;1413 - Collection Size by Item Type & Location (per branch)&lt;/li&gt;
+  &lt;li&gt;1811 - Itemtypes in use at Prairie Hills Schools&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class= "notetags" style="display: none;"&gt;#ultimate #itemcount #itype #itemtype item count type&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -124,8 +124,8 @@ FROM
       yaitems.homebranch = branchtypes.branchcode AND 
       yaitems.itype = branchtypes.itemtype 
 WHERE 
-  branchtypes.branchcode LIKE <> AND 
-  branchtypes.itemtype LIKE <> 
+  branchtypes.branchcode LIKE &lt;&gt; AND 
+  branchtypes.itemtype LIKE &lt;&gt; 
 GROUP BY 
   branchtypes.branchname, 
   branchtypes.description 

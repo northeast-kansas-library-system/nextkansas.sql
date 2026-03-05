@@ -46,11 +46,11 @@ FROM
       authorised_values
     WHERE
       authorised_values.category = 'CCODE' AND
-      branches.branchcode = <>) branchcodes
+      branches.branchcode = &lt;&gt;) branchcodes
   LEFT JOIN (SELECT
       statistics.branch,
       statistics.ccode,
-      COUNT(*) AS COUNT
+      COUNT(&ast;) AS COUNT
     FROM
       statistics
     WHERE
@@ -65,7 +65,7 @@ FROM
   LEFT JOIN (SELECT
       statistics.branch,
       statistics.ccode,
-      COUNT(*) AS COUNT
+      COUNT(&ast;) AS COUNT
     FROM
       statistics
     WHERE
@@ -86,7 +86,7 @@ FROM
   LEFT JOIN (SELECT
       statistics.branch,
       statistics.ccode,
-      COUNT(*) AS COUNT
+      COUNT(&ast;) AS COUNT
     FROM
       statistics
     WHERE
@@ -103,7 +103,7 @@ FROM
   LEFT JOIN (SELECT
       statistics.branch,
       statistics.ccode,
-      COUNT(*) AS COUNT
+      COUNT(&ast;) AS COUNT
     FROM
       statistics
     WHERE

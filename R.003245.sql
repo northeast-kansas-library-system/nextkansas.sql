@@ -81,9 +81,9 @@ FROM
   LEFT JOIN biblio
     ON items.biblionumber = biblio.biblionumber
 WHERE
-  statistics.branch LIKE <> AND
-  statistics.datetime BETWEEN <> AND <> + INTERVAL 1 DAY AND
-  If(statistics.type = "renew", "renew-issue", If(statistics.type = "issue", "issue-renew", statistics.type)) LIKE <>
+  statistics.branch LIKE &lt;&gt; AND
+  statistics.datetime BETWEEN &lt;&gt; AND &lt;&gt; + INTERVAL 1 DAY AND
+  If(statistics.type = "renew", "renew-issue", If(statistics.type = "issue", "issue-renew", statistics.type)) LIKE &lt;&gt;
 GROUP BY
   statistics.branch,
   statistics.datetime,

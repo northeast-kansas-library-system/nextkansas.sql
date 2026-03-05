@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Count items by home library, item type, and collection code.</p>
-<ul><li>Counts items at the time that the report is run</li>
-<li>at the library you specify</li>
-<li>grouped and sorted by item home library, item type, and collection code</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Gives an extreme amount of information on the collection at the library you specify.</p>
-<p></p>
-<p class= "notetags" style="display: none;">#countitems, item count, item type, collection code, itype, ccode, homebranch</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Count items by home library, item type, and collection code.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Counts items at the time that the report is run&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped and sorted by item home library, item type, and collection code&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Gives an extreme amount of information on the collection at the library you specify.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;#countitems, item count, item type, collection code, itype, ccode, homebranch&lt;/p&gt;
+&lt;/div&gt;
 
 
 ----------
@@ -298,9 +298,9 @@ FROM
       ya_deleted.homebranch = branchestypescodes.branchcode AND
       ya_deleted.ccode = branchestypescodes.authorised_value
 WHERE
-  branchestypescodes.branchcode LIKE <> AND
-  branchestypescodes.itemtype LIKE <> AND
-  branchestypescodes.authorised_value LIKE <>
+  branchestypescodes.branchcode LIKE &lt;&gt; AND
+  branchestypescodes.itemtype LIKE &lt;&gt; AND
+  branchestypescodes.authorised_value LIKE &lt;&gt;
 GROUP BY
   branchestypescodes.branchname,
   branchestypescodes.description,

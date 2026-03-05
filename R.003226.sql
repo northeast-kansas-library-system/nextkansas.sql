@@ -22,30 +22,30 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Creates a simple printable list of titles and authors from a list</p>
-<ul><li>Displays titles and authors currently on a list</li>
-<li>you need to specify the list number (see below for more informaiton)</li>
-<li>grouped by biblio number</li>
-<li>sorted by author and title</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>To determine the list id number, look at the URL for the list and take the number off of the end of the URL.  For example, the list at<br />
-https://staff.nextkansas.org/cgi-bin/koha/virtualshelves/shelves.pl?op=view&shelfnumber=6003<br />
-would be list number 6003.</p>
-<p></p>
-<p>Can be accessed by running reports 3224 or 3225 and clicking on the link in the "LINKS_TO_TITLES" column</p>
-<p></p>
-<p>Replaces report:</p>
-<ul>
-<li>1746 - Shelf List from a Private List</li>
-<li>3021 - GHW - Print a list - variant</li>
-<li>3063 - GHW - Print list by ID number</li>
-</ul>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3226&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Creates a simple printable list of titles and authors from a list&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Displays titles and authors currently on a list&lt;/li&gt;
+&lt;li&gt;you need to specify the list number (see below for more informaiton)&lt;/li&gt;
+&lt;li&gt;grouped by biblio number&lt;/li&gt;
+&lt;li&gt;sorted by author and title&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;To determine the list id number, look at the URL for the list and take the number off of the end of the URL.  For example, the list at&lt;br /&gt;
+https://staff.nextkansas.org/cgi-bin/koha/virtualshelves/shelves.pl?op=view&shelfnumber=6003&lt;br /&gt;
+would be list number 6003.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Can be accessed by running reports 3224 or 3225 and clicking on the link in the "LINKS_TO_TITLES" column&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Replaces report:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1746 - Shelf List from a Private List&lt;/li&gt;
+&lt;li&gt;3021 - GHW - Print a list - variant&lt;/li&gt;
+&lt;li&gt;3063 - GHW - Print list by ID number&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3226&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -58,7 +58,7 @@ FROM
   virtualshelfcontents
   LEFT JOIN biblio ON virtualshelfcontents.biblionumber = biblio.biblionumber
 WHERE
-  virtualshelfcontents.shelfnumber = <>
+  virtualshelfcontents.shelfnumber = &lt;&gt;
 GROUP BY
   biblio.biblionumber
 ORDER BY

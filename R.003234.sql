@@ -22,20 +22,20 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a count of patrons with extended attributes at your library</p>
-<ul><li>Counts current patrons with attributes</li>
-<li>at the library you specify</li>
-<li>allows you to specify a minimum patron count for displaying an attribute count (i.e. only show attributes assigned to at least X patrons)</li>
-<li>grouped and sorted by patron home branch, attribute category, and attribute</li>
-<li>contains links to report 3235 which will list all of the patrons at your library with the attribute specified</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Patrons can have multiple extended attributes on their accounts.  Similarly, patrons may not have any extended attributes on their accounts.  A total count of patrons from all of the rows of this report will not indicate an accurate count of total patrons at your library.</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3234&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a count of patrons with extended attributes at your library&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Counts current patrons with attributes&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;allows you to specify a minimum patron count for displaying an attribute count (i.e. only show attributes assigned to at least X patrons)&lt;/li&gt;
+&lt;li&gt;grouped and sorted by patron home branch, attribute category, and attribute&lt;/li&gt;
+&lt;li&gt;contains links to report 3235 which will list all of the patrons at your library with the attribute specified&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Patrons can have multiple extended attributes on their accounts.  Similarly, patrons may not have any extended attributes on their accounts.  A total count of patrons from all of the rows of this report will not indicate an accurate count of total patrons at your library.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3234&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -94,14 +94,14 @@ FROM
       borrowerss.code = columncreator.CAT_CODE AND
       borrowerss.attribute = columncreator.AV_CODE
 WHERE
-  columncreator.branchcode LIKE <> AND
-  columncreator.CAT_CODE LIKE <>
+  columncreator.branchcode LIKE &lt;&gt; AND
+  columncreator.CAT_CODE LIKE &lt;&gt;
 GROUP BY
   columncreator.branchcode,
   columncreator.CAT_CODE,
   columncreator.AV_CODE
 HAVING
-  PATRON_COUNT >= <>
+  PATRON_COUNT &gt;= &lt;&gt;
 ORDER BY
   LIBRARY,
   EXTENDED_ATTRIBUTE

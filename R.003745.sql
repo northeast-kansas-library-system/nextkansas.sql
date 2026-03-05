@@ -22,40 +22,40 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint">  
+&lt;div class="reportinfo noprint"&gt;  
  
-  <div class="reportInfoContent"> 
+  &lt;div class="reportInfoContent"&gt; 
  
-    <p>Lists all titles checked out at the library you specify that are not owned by the library you specify</p> 
+    &lt;p&gt;Lists all titles checked out at the library you specify that are not owned by the library you specify&lt;/p&gt; 
  
-    <ul> 
-      <li>during the previous calendar month</li> 
-      <li>checked out at the library you specify</li> 
-      <li>sorted by the normal Next Search Catalog classification order</li> 
-    </ul> 
+    &lt;ul&gt; 
+      &lt;li&gt;during the previous calendar month&lt;/li&gt; 
+      &lt;li&gt;checked out at the library you specify&lt;/li&gt; 
+      &lt;li&gt;sorted by the normal Next Search Catalog classification order&lt;/li&gt; 
+    &lt;/ul&gt; 
  
-  </div>
+  &lt;/div&gt;
 
-  <div class="reportInfoNotes">
+  &lt;div class="reportInfoNotes"&gt;
  
-    <p> 
-    </p> 
+    &lt;p&gt; 
+    &lt;/p&gt; 
 
-    <p> 
+    &lt;p&gt; 
       Data for items that have been deleted since they circulated is not present in this report.
-    </p> 
+    &lt;/p&gt; 
 
-    <p> 
+    &lt;p&gt; 
       Owning library, permanent shelving location, call number, author, title, enumeration and chronology, and copy number are based on data generated at the time the report was run.  In other words, if any of these fields changed between the time the item circulated and the time the report was run, those changes are reflected in this report. 
-    </p> 
+    &lt;/p&gt; 
  
-    <p> 
+    &lt;p&gt; 
       Item type and collection code are based on the data for the item that was circulated at the time the item was checked out or renewed.  In other words, if these fields have changed since the item circulated, those changes are not reflected in these results.
-    </p> 
+    &lt;/p&gt; 
    
-  </div> 
+  &lt;/div&gt; 
 
-</div>
+&lt;/div&gt;
 
 ----------
 */
@@ -132,11 +132,11 @@ FROM statistics
 WHERE 
   (statistics.type = 'issue' 
     OR statistics.type = 'renew') AND 
-  (branches.branchcode LIKE @brn:=<> COLLATE utf8mb4_unicode_ci) AND 
+  (branches.branchcode LIKE @brn:=&lt;&gt; COLLATE utf8mb4_unicode_ci) AND 
   (items.homebranch NOT LIKE @brn) AND 
-  items.permanent_location LIKE <> AND 
-  statistics.itemtype LIKE <> AND 
-  statistics.ccode LIKE <> AND 
+  items.permanent_location LIKE &lt;&gt; AND 
+  statistics.itemtype LIKE &lt;&gt; AND 
+  statistics.ccode LIKE &lt;&gt; AND 
   Year(statistics.datetime) = Year(Now() - INTERVAL 1 MONTH) AND 
   Month(statistics.datetime) = Month(Now() - INTERVAL 1 MONTH) 
 ORDER BY CKO_LIBRARY, 

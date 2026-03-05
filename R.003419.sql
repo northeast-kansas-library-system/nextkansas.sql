@@ -13,7 +13,7 @@ Group: Statistics
 
 Created on: 2021-02-04 16:59:13
 Modified on: 2025-04-03 18:49:49
-Date last run: 2025-10-03 12:42:42
+Date last run: 2026-01-07 09:56:19
 
 ----------
 
@@ -22,189 +22,189 @@ Expiry: 300
 
 ----------
 
-<div class="next_report_info next_noprint">
+&lt;div class="next_report_info next_noprint"&gt;
 
-  <div class="accordion accordion-flush">
+  &lt;div class="accordion accordion-flush"&gt;
 
-    <div id="report-function" class="accordion-item">
+    &lt;div id="report-function" class="accordion-item"&gt;
 
-      <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+      &lt;h2 class="accordion-header" id="panelsStayOpen-headingOne"&gt;
 
-        <button class="accordion-button next_report_function" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+        &lt;button class="accordion-button next_report_function" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne"&gt;
 
             Report function:
 
-        </button>
+        &lt;/button&gt;
 
-      </h2>
+      &lt;/h2&gt;
 
-      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-        <div class="accordion-body">
+      &lt;div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne"&gt;
+        &lt;div class="accordion-body"&gt;
 
-          <p>Monthly overview - circulation statistics</p> 
+          &lt;p&gt;Monthly overview - circulation statistics&lt;/p&gt; 
 
-          <ul><li>Shows circulation and renewal counts for the previous calendar month</li> 
-            <li>At all Next Search Catalog libraries</li> 
-            <li>grouped and sorted by branch name</li> 
-            </ul>
+          &lt;ul&gt;&lt;li&gt;Shows circulation and renewal counts for the previous calendar month&lt;/li&gt; 
+            &lt;li&gt;At all Next Search Catalog libraries&lt;/li&gt; 
+            &lt;li&gt;grouped and sorted by branch name&lt;/li&gt; 
+            &lt;/ul&gt;
 
-        </div>
-      </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
 
-    </div>
+    &lt;/div&gt;
 
-    <div id="report-notes" class="accordion-item">
+    &lt;div id="report-notes" class="accordion-item"&gt;
 
-      <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+      &lt;h2 class="accordion-header" id="panelsStayOpen-headingTwo"&gt;
 
-        <button class="accordion-button collapsed next_report_notes" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+        &lt;button class="accordion-button collapsed next_report_notes" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo"&gt;
 
           Report notes:
 
-        </button>
+        &lt;/button&gt;
 
-      </h2>
+      &lt;/h2&gt;
 
-      <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-        <div class="accordion-body">
+      &lt;div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo"&gt;
+        &lt;div class="accordion-body"&gt;
           
-          <div class="next_report_section">
+          &lt;div class="next_report_section"&gt;
 
-            <p>Generates data for:</p> 
-<ul> 
-  <li>CHECKOUT_RENEW_LM = all items checked out or renewed at this library last month</li> 
-  <li>CHECKOUT_LM = all items checked out at this library last month</li> 
-  <li>RENEW_LM = all items renewed at this library last month</li> 
-  <li>RETURN_LM = all items returned at this library last month</li> 
-  <li>CR_ADULT_LM includes items with these shelving locations:</li> 
-  <ul> 
-    <li>Adult</li> 
-    <li>~Display - BALDWIN - Adult</li> 
-    <li>~Display - LEAVENWRTH - Adult</li> 
-    <li>~Display - PAOLA - Adult</li> 
-    <li>Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Adult" locations</li> 
-  </ul> 
-  <li>CR_YOUTH_LM includes items with these shelving locations:</li> 
-  <ul> 
-    <li>Young adult</li> 
-    <li>~Display - BALDWIN - Young Adult</li> 
-    <li>~Display - LEAVENWRTH - Young adult</li> 
-    <li>~Display - PAOLA - Young adult</li> 
-    <li>Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Young adult" locations</li> 
-    <li>Childrens</li> 
-    <li>~Display - BALDWIN - Childrens</li> 
-    <li>~Display - LEAVENWRTH - Children's</li> 
-    <li>~Display - PAOLA - Children's</li> 
-    <li>Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Childrens" locations</li> 
-    <li>Cataloging</li> 
-    <li>Processing Center</li> 
-    <li>Any other situation where the recorded shelving location is "Recently returned" but the item's permanent location is ambiguous</li> 
-    <li>Any items where the recorded shelving location is blank or unknown</li> 
-  </ul> 
-</ul>
+            &lt;p&gt;Generates data for:&lt;/p&gt; 
+&lt;ul&gt; 
+  &lt;li&gt;CHECKOUT_RENEW_LM = all items checked out or renewed at this library last month&lt;/li&gt; 
+  &lt;li&gt;CHECKOUT_LM = all items checked out at this library last month&lt;/li&gt; 
+  &lt;li&gt;RENEW_LM = all items renewed at this library last month&lt;/li&gt; 
+  &lt;li&gt;RETURN_LM = all items returned at this library last month&lt;/li&gt; 
+  &lt;li&gt;CR_ADULT_LM includes items with these shelving locations:&lt;/li&gt; 
+  &lt;ul&gt; 
+    &lt;li&gt;Adult&lt;/li&gt; 
+    &lt;li&gt;~Display - BALDWIN - Adult&lt;/li&gt; 
+    &lt;li&gt;~Display - LEAVENWRTH - Adult&lt;/li&gt; 
+    &lt;li&gt;~Display - PAOLA - Adult&lt;/li&gt; 
+    &lt;li&gt;Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Adult" locations&lt;/li&gt; 
+  &lt;/ul&gt; 
+  &lt;li&gt;CR_YOUTH_LM includes items with these shelving locations:&lt;/li&gt; 
+  &lt;ul&gt; 
+    &lt;li&gt;Young adult&lt;/li&gt; 
+    &lt;li&gt;~Display - BALDWIN - Young Adult&lt;/li&gt; 
+    &lt;li&gt;~Display - LEAVENWRTH - Young adult&lt;/li&gt; 
+    &lt;li&gt;~Display - PAOLA - Young adult&lt;/li&gt; 
+    &lt;li&gt;Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Young adult" locations&lt;/li&gt; 
+    &lt;li&gt;Childrens&lt;/li&gt; 
+    &lt;li&gt;~Display - BALDWIN - Childrens&lt;/li&gt; 
+    &lt;li&gt;~Display - LEAVENWRTH - Children's&lt;/li&gt; 
+    &lt;li&gt;~Display - PAOLA - Children's&lt;/li&gt; 
+    &lt;li&gt;Any situation where the location is recorded as "Recently returned" but the item's permanent location is one of these "Childrens" locations&lt;/li&gt; 
+    &lt;li&gt;Cataloging&lt;/li&gt; 
+    &lt;li&gt;Processing Center&lt;/li&gt; 
+    &lt;li&gt;Any other situation where the recorded shelving location is "Recently returned" but the item's permanent location is ambiguous&lt;/li&gt; 
+    &lt;li&gt;Any items where the recorded shelving location is blank or unknown&lt;/li&gt; 
+  &lt;/ul&gt; 
+&lt;/ul&gt;
 
-          </div>
+          &lt;/div&gt;
 
-          <div class="next_report_section">
+          &lt;div class="next_report_section"&gt;
 
-            <p class="updated">SHELVING_LOCATION is based on the shelving location of the item at the time it was checked out *Unless the item had a "Recently returned" shelving location.*  This report falls back to the items' "Permanent shelving location" whenever the statistics data shows that the item's shelving location was "Recently returned."  If the shelving location is completely ambiguous, the circulation is counted as a "Youth" circulation in the CR_YOUTH_LM column.</p> 
+            &lt;p class="updated"&gt;SHELVING_LOCATION is based on the shelving location of the item at the time it was checked out *Unless the item had a "Recently returned" shelving location.*  This report falls back to the items' "Permanent shelving location" whenever the statistics data shows that the item's shelving location was "Recently returned."  If the shelving location is completely ambiguous, the circulation is counted as a "Youth" circulation in the CR_YOUTH_LM column.&lt;/p&gt; 
 
-          </div>
+          &lt;/div&gt;
 
-          <div class="next_report_section">
+          &lt;div class="next_report_section"&gt;
 
-            <p class="updated">This report and these notes updated on 2022.03.10</p> 
+            &lt;p class="updated"&gt;This report and these notes updated on 2022.03.10&lt;/p&gt; 
 
-          </div>
+          &lt;/div&gt;
 
-        </div>
-      </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
 
-    </div>
+    &lt;/div&gt;
 
-    <div id="report-instructions" class="accordion-item next_hidden">
+    &lt;div id="report-instructions" class="accordion-item next_hidden"&gt;
 
-      <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+      &lt;h2 class="accordion-header" id="panelsStayOpen-headingThree"&gt;
 
-        <button class="accordion-button collapsed next_report_instructions" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+        &lt;button class="accordion-button collapsed next_report_instructions" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree"&gt;
           
           Report instructions:
 
-        </button>
-      </h2>
+        &lt;/button&gt;
+      &lt;/h2&gt;
 
-      <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
-        <div class="accordion-body">
+      &lt;div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree"&gt;
+        &lt;div class="accordion-body"&gt;
 
-          <div class="next_report_section">
+          &lt;div class="next_report_section"&gt;
 
-            <p>
+            &lt;p&gt;
               Instructions go here
-            </p>
+            &lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-          <div class="next_report_section">
+          &lt;div class="next_report_section"&gt;
 
-            <p>
+            &lt;p&gt;
               More instructions go here
-            </p>
+            &lt;/p&gt;
 
-          </div>
+          &lt;/div&gt;
 
-        </div>
-      </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
 
-    </div>
+    &lt;/div&gt;
 
-    <div id="report-resources" class="accordion-item next_hidden">
+    &lt;div id="report-resources" class="accordion-item next_hidden"&gt;
 
-      <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+      &lt;h2 class="accordion-header" id="panelsStayOpen-headingFour"&gt;
 
-        <button class="accordion-button collapsed next_report_resources" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+        &lt;button class="accordion-button collapsed next_report_resources" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour"&gt;
 
           Report external resources:
 
-        </button>
+        &lt;/button&gt;
 
-      </h2>
+      &lt;/h2&gt;
 
-      <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
-        <div class="accordion-body">
+      &lt;div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour"&gt;
+        &lt;div class="accordion-body"&gt;
 
-          <ul style="list-style-type: none;">
-            <li>
+          &lt;ul style="list-style-type: none;"&gt;
+            &lt;li&gt;
 
-              Explanation of resource if necessary<br>
+              Explanation of resource if necessary&lt;br&gt;
 
-              <a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen1">External resource 1</a>
+              &lt;a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen1"&gt;External resource 1&lt;/a&gt;
 
-            </li>
-            <li>
+            &lt;/li&gt;
+            &lt;li&gt;
 
-              Explanation of resource if necessary<br>
+              Explanation of resource if necessary&lt;br&gt;
 
-              <a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen1">External resource 2</a>
+              &lt;a href="/cgi-bin/koha/mainpage.pl" target="_blank" class="next_btn next_violet next_embiggen1"&gt;External resource 2&lt;/a&gt;
 
-            </li>
-          </ul>
+            &lt;/li&gt;
+          &lt;/ul&gt;
 
-        </div>
-      </div>
+        &lt;/div&gt;
+      &lt;/div&gt;
 
-    </div>
+    &lt;/div&gt;
     
-  </div>
+  &lt;/div&gt;
 
-  <div id="report-download" class="next_direct_download next_hidden">
+  &lt;div id="report-download" class="next_direct_download next_hidden"&gt;
 
-    <a class="next_btn next_indigo next_embiggen1" href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=INSERT_REPORT_NUMBER_HERE">Download this report as a csv file <i class="bi bi-download"></i></a>
+    &lt;a class="next_btn next_indigo next_embiggen1" href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=INSERT_REPORT_NUMBER_HERE"&gt;Download this report as a csv file &lt;i class="bi bi-download"&gt;&lt;/i&gt;&lt;/a&gt;
 
-  </div>
+  &lt;/div&gt;
 
-  <div id="report-tags" class="next_hidden">
+  &lt;div id="report-tags" class="next_hidden"&gt;
 
-    <p>
+    &lt;p&gt;
 
       #monthly 
       #statistics 
@@ -212,11 +212,11 @@ Expiry: 300
       #overview 
       #monthly_overview
 
-    </p>
+    &lt;/p&gt;
     
-  </div>
+  &lt;/div&gt;
   
-</div>
+&lt;/div&gt;
 
 ----------
 */
@@ -244,7 +244,7 @@ FROM
   branches LEFT JOIN 
     (SELECT 
       statistics.branch, 
-      Count(*) AS count 
+      Count(&ast;) AS count 
     FROM 
       statistics 
     WHERE 
@@ -258,7 +258,7 @@ FROM
   ON branches.branchcode = CIR_RENEW_LM.branch LEFT JOIN 
     (SELECT 
       statistics.branch, 
-      Count(*) AS count 
+      Count(&ast;) AS count 
     FROM 
       statistics LEFT JOIN 
       items ON items.itemnumber = statistics.itemnumber 
@@ -278,7 +278,7 @@ FROM
   ON branches.branchcode = ADULT.branch LEFT JOIN 
     (SELECT 
       statistics.branch, 
-      Count(*) AS count 
+      Count(&ast;) AS count 
     FROM 
       statistics LEFT JOIN 
       items ON items.itemnumber = statistics.itemnumber 
@@ -298,7 +298,7 @@ FROM
   ON branches.branchcode = YOUTH.branch LEFT JOIN 
     (SELECT 
       statistics.branch, 
-      Count(*) AS count 
+      Count(&ast;) AS count 
     FROM 
       statistics 
     WHERE 
@@ -311,7 +311,7 @@ FROM
   ON CKO_LM.branch = branches.branchcode LEFT JOIN 
     (SELECT 
       statistics.branch, 
-      Count(*) AS count 
+      Count(&ast;) AS count 
     FROM 
       statistics 
     WHERE 
@@ -325,7 +325,7 @@ FROM
   LEFT JOIN 
     (SELECT 
       statistics.branch, 
-      Count(*) AS count 
+      Count(&ast;) AS count 
     FROM 
       statistics 
     WHERE 

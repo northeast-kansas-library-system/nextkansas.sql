@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-  <p>Counts the items that are still in transit and orders them by the week they were shipped</p>
-  <ul>
-    <li>Shows data for items that are currently in transit</li>
-    <li>at all Next libraries</li>
-    <li>grouped and sorted by the week shipped</li>
-    <li>links to report 3672</li>
-  </ul><br />
-  <p><ins>Notes:</ins></p>
-  <p></p>
-  <p>Created to isolate possible courier issues.</p>
-  <p></p>
-  <p class= "notetags" style="display: none;">#transit #courier</p>
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+  &lt;p&gt;Counts the items that are still in transit and orders them by the week they were shipped&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Shows data for items that are currently in transit&lt;/li&gt;
+    &lt;li&gt;at all Next libraries&lt;/li&gt;
+    &lt;li&gt;grouped and sorted by the week shipped&lt;/li&gt;
+    &lt;li&gt;links to report 3672&lt;/li&gt;
+  &lt;/ul&gt;&lt;br /&gt;
+  &lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;p&gt;Created to isolate possible courier issues.&lt;/p&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;p class= "notetags" style="display: none;"&gt;#transit #courier&lt;/p&gt;
+  &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -68,7 +68,7 @@ FROM
         Str_To_Date(Concat(YearWeek(branchtransfers.datesent + Interval 7 DAY, 0), ' Sunday'), '%X%V %W') - Interval 1 DAY 
       ) AS d2 
     FROM branchtransfers 
-    WHERE branchtransfers.datesent < Date_Sub(Date(Now()), Interval DayOfWeek(Now()) + 6 DAY) 
+    WHERE branchtransfers.datesent &lt; Date_Sub(Date(Now()), Interval DayOfWeek(Now()) + 6 DAY) 
     GROUP BY YearWeek(branchtransfers.datesent, 0) 
   ) weeks 
 LEFT JOIN 
@@ -109,7 +109,7 @@ LEFT JOIN
     GROUP BY YearWeek(branchtransfers.datesent, 0) 
   ) shipped_but_not_yet_received ON shipped_but_not_yet_received.SHIPPED_WEEK = weeks.YEARWEEK 
 WHERE 
-  Coalesce(shipped_but_not_yet_received.COUNT, 0) > 0 
+  Coalesce(shipped_but_not_yet_received.COUNT, 0) &gt; 0 
 GROUP BY 
   weeks.START_END, 
   all_shipped.COUNT, 

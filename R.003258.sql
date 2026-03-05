@@ -47,11 +47,11 @@ FROM
       branches,
       itemtypes
     WHERE
-      branches.branchcode LIKE <>) branch_itype
+      branches.branchcode LIKE &lt;&gt;) branch_itype
   LEFT JOIN (SELECT
       Coalesce(statistics.branch, "NEKLS") AS branch,
       Coalesce(statistics.itemtype, "BOOK") AS itemtype,
-      Count(*) AS CKO_REN
+      Count(&ast;) AS CKO_REN
     FROM
       statistics
     WHERE
@@ -69,7 +69,7 @@ FROM
   LEFT JOIN (SELECT
       Coalesce(statistics.branch, "NEKLS") AS branch,
       Coalesce(statistics.itemtype, "BOOK") AS itemtype,
-      Count(*) AS CKO_REN
+      Count(&ast;) AS CKO_REN
     FROM
       statistics
     WHERE
@@ -89,7 +89,7 @@ FROM
   LEFT JOIN (SELECT
       Coalesce(statistics.branch, "NEKLS") AS branch,
       Coalesce(statistics.itemtype, "BOOK") AS itemtype,
-      Count(*) AS CKO_REN
+      Count(&ast;) AS CKO_REN
     FROM
       statistics
     WHERE
@@ -97,12 +97,12 @@ FROM
         statistics.type = 'renew') AND
       Year(statistics.datetime) = Year(Now() - INTERVAL 2 MONTH) AND
       Month(statistics.datetime) = Month(Now() - INTERVAL 2 MONTH) AND
-      Coalesce(statistics.location, "CART") <> 'ADULT' AND
-      Coalesce(statistics.location, "CART") <> 'LVPLADULT' AND
-      Coalesce(statistics.location, "CART") <> 'YOUNGADULT' AND
-      Coalesce(statistics.location, "CART") <> 'LVPLYA' AND
-      Coalesce(statistics.location, "CART") <> 'CHILDRENS' AND
-      Coalesce(statistics.location, "CART") <> 'LVPLCHILD'
+      Coalesce(statistics.location, "CART") &lt;&gt; 'ADULT' AND
+      Coalesce(statistics.location, "CART") &lt;&gt; 'LVPLADULT' AND
+      Coalesce(statistics.location, "CART") &lt;&gt; 'YOUNGADULT' AND
+      Coalesce(statistics.location, "CART") &lt;&gt; 'LVPLYA' AND
+      Coalesce(statistics.location, "CART") &lt;&gt; 'CHILDRENS' AND
+      Coalesce(statistics.location, "CART") &lt;&gt; 'LVPLCHILD'
     GROUP BY
       Coalesce(statistics.branch, "NEKLS"),
       Coalesce(statistics.itemtype, "BOOK")
@@ -113,7 +113,7 @@ FROM
   LEFT JOIN (SELECT
       Coalesce(statistics.branch, "NEKLS") AS branch,
       Coalesce(statistics.itemtype, "BOOK") AS itemtype,
-      Count(*) AS CKO_REN
+      Count(&ast;) AS CKO_REN
     FROM
       statistics
     WHERE
@@ -133,7 +133,7 @@ FROM
   LEFT JOIN (SELECT
       Coalesce(statistics.branch, "NEKLS") AS branch,
       Coalesce(statistics.itemtype, "BOOK") AS itemtype,
-      Count(*) AS CKO_REN
+      Count(&ast;) AS CKO_REN
     FROM
       statistics
     WHERE

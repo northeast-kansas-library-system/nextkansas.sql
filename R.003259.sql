@@ -31,13 +31,13 @@ Expiry: 300
 
 SELECT
   If(
-    issuingrules.branchcode = "*",
+    issuingrules.branchcode = "&ast;",
     " All libraries",
     branch_names.branchname
   ) AS LIBRARY,
   Concat_Ws("",
     If(
-      issuingrules.categorycode LIKE "*",
+      issuingrules.categorycode LIKE "&ast;",
       " All patrons",
       borrower_categories.description
     ),
@@ -67,7 +67,7 @@ SELECT
       )
     )
   ) AS PATRON_CATEGORY,
-  If(issuingrules.itemtype LIKE "*", " All item types", item_types.description) AS ITEM_TYPE,
+  If(issuingrules.itemtype LIKE "&ast;", " All item types", item_types.description) AS ITEM_TYPE,
   If(issuingrules.maxissueqty IS NULL, "Unlimited", issuingrules.maxissueqty) AS ITEMS_ALLOWED,
   Concat(issuingrules.issuelength, " ", issuingrules.lengthunit) AS LOAN_PERIOD,
   issuingrules.renewalsallowed AS RENEWALS_ALLOWED,
@@ -129,8 +129,8 @@ FROM
   ) branch_names
     ON branch_names.branchcode = issuingrules.branchcode
 WHERE
-  (If(issuingrules.branchcode = "*", " All libraries", branch_names.branchname) LIKE "%All lib%" OR
-    If(issuingrules.branchcode = "*", " All libraries", issuingrules.branchcode) LIKE <>)
+  (If(issuingrules.branchcode = "&ast;", " All libraries", branch_names.branchname) LIKE "%All lib%" OR
+    If(issuingrules.branchcode = "&ast;", " All libraries", issuingrules.branchcode) LIKE &lt;&gt;)
 ORDER BY
   LIBRARY,
   If(borrower_categories.category_type = "A", "Adult", If(borrower_categories.category_type = "C", "Child", If(borrower_categories.category_type = "S", "Staff", If(borrower_categories.category_type = "I", "Organization", If(borrower_categories.category_type = "P", "Professional", If(borrower_categories.category_type = "S", "Statistical", "")))))),

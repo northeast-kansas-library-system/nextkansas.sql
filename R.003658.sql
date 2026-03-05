@@ -13,7 +13,7 @@ Group: -
 
 Created on: 2022-03-25 18:26:18
 Modified on: 2025-07-09 11:33:52
-Date last run: 2025-10-28 17:10:54
+Date last run: 2026-01-29 13:39:45
 
 ----------
 
@@ -22,89 +22,89 @@ Expiry: 300
 
 ----------
 
-<div class="next_report_info next_noprint next_core_report"> 
+&lt;div class="next_report_info next_noprint next_core_report"&gt; 
 
-  <p class="next_embiggen2">Items that have been in transit for more than 7 days</p> 
+  &lt;p class="next_embiggen2"&gt;Items that have been in transit for more than 7 days&lt;/p&gt; 
 
-  <div class="accordion accordion-flush"> 
+  &lt;div class="accordion accordion-flush"&gt; 
 
-    <div class="accordion-item"> 
+    &lt;div class="accordion-item"&gt; 
 
-      <h2 class="accordion-header" id="panelsStayOpen-headingOne"> 
-        <button class="accordion-button next_report_function" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne"> 
+      &lt;h2 class="accordion-header" id="panelsStayOpen-headingOne"&gt; 
+        &lt;button class="accordion-button next_report_function" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne"&gt; 
 
             Report function:
 
-        </button> 
-      </h2> 
-      <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne"> 
-        <div class="accordion-body"> 
+        &lt;/button&gt; 
+      &lt;/h2&gt; 
+      &lt;div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne"&gt; 
+        &lt;div class="accordion-body"&gt; 
 
-          <p>This report shows items that:</p> 
-          <ul> 
-            <li>are owned by your library</li> 
-            <li>or are in transit from your library to another library</li> 
-            <li>or are in transit to your library</li> 
-          </ul> 
+          &lt;p&gt;This report shows items that:&lt;/p&gt; 
+          &lt;ul&gt; 
+            &lt;li&gt;are owned by your library&lt;/li&gt; 
+            &lt;li&gt;or are in transit from your library to another library&lt;/li&gt; 
+            &lt;li&gt;or are in transit to your library&lt;/li&gt; 
+          &lt;/ul&gt; 
 
-        </div> 
-      </div> 
-    </div> 
+        &lt;/div&gt; 
+      &lt;/div&gt; 
+    &lt;/div&gt; 
 
-    <div class="accordion-item"> 
+    &lt;div class="accordion-item"&gt; 
 
-      <h2 class="accordion-header" id="panelsStayOpen-headingThree"> 
-        <button class="accordion-button next_report_instructions" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree"> 
+      &lt;h2 class="accordion-header" id="panelsStayOpen-headingThree"&gt; 
+        &lt;button class="accordion-button next_report_instructions" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree"&gt; 
 
           Report instructions:
 
-        </button> 
-      </h2> 
-      <div id="panelsStayOpen-collapseThree" class="accordion-collapse show" aria-labelledby="panelsStayOpen-headingThree"> 
-        <div class="accordion-body"> 
+        &lt;/button&gt; 
+      &lt;/h2&gt; 
+      &lt;div id="panelsStayOpen-collapseThree" class="accordion-collapse show" aria-labelledby="panelsStayOpen-headingThree"&gt; 
+        &lt;div class="accordion-body"&gt; 
 
-          <div class="next_report_section"> 
+          &lt;div class="next_report_section"&gt; 
 
-            <p>Please search for these items at your library once a week and then:</p> 
-            <ul> 
-              <li>check in any items you find</li> 
-              <li>e-mail the other libraries involved in missing in transit transfers and ask them to also search for the missing items</li> 
-              <li>change the status of any items owned by your library that no one can find to "Missing (unable to locate on shelf)" within a reasonable amount of time</li> 
-            </ul> 
+            &lt;p&gt;Please search for these items at your library once a week and then:&lt;/p&gt; 
+            &lt;ul&gt; 
+              &lt;li&gt;check in any items you find&lt;/li&gt; 
+              &lt;li&gt;e-mail the other libraries involved in missing in transit transfers and ask them to also search for the missing items&lt;/li&gt; 
+              &lt;li&gt;change the status of any items owned by your library that no one can find to "Missing (unable to locate on shelf)" within a reasonable amount of time&lt;/li&gt; 
+            &lt;/ul&gt; 
 
-            <p>If you have a default e-mail program configured on your computer, clicking the "Send e-mail" button in the far right column will automatically generate an e-mail to all libraries concerned with a specific transfer.</p> 
+            &lt;p&gt;If you have a default e-mail program configured on your computer, clicking the "Send e-mail" button in the far right column will automatically generate an e-mail to all libraries concerned with a specific transfer.&lt;/p&gt; 
 
-          </div> 
+          &lt;/div&gt; 
 
-        </div> 
-      </div> 
-    </div> 
+        &lt;/div&gt; 
+      &lt;/div&gt; 
+    &lt;/div&gt; 
 
-  </div> 
+  &lt;/div&gt; 
 
-  <div class="next_hidden"> 
+  &lt;div class="next_hidden"&gt; 
 
-    <p> 
+    &lt;p&gt; 
 
       #core 
       #weekly 
       #missing in transit 
       #mit 
 
-    </p> 
+    &lt;/p&gt; 
 
-  </div> 
+  &lt;/div&gt; 
 
-  <div id="next_report_training" class="next_report_training ">
-    <br><br>
-    <a class="next_btn next_indigo next_embiggen2" href="https://northeast-kansas-library-system.github.io/nextsteps/reports_training/report_003658_training.html" target="_blank">Training page for report 3658<i class="bi bi-arrow-up-right-square"></i></a>
-    <br>
+  &lt;div id="next_report_training" class="next_report_training "&gt;
+    &lt;br&gt;&lt;br&gt;
+    &lt;a class="next_btn next_indigo next_embiggen2" href="https://northeast-kansas-library-system.github.io/nextsteps/reports_training/report_003658_training.html" target="_blank"&gt;Training page for report 3658&lt;i class="bi bi-arrow-up-right-square"&gt;&lt;/i&gt;&lt;/a&gt;
+    &lt;br&gt;
 
-    <br>
+    &lt;br&gt;
 
-  </div>
+  &lt;/div&gt;
 
-</div>
+&lt;/div&gt;
 
 ----------
 */
@@ -133,7 +133,7 @@ SELECT
   Concat_WS('', 
     'Send e-mail' 
   ) AS MAILTO_LINK, 
-  @SortOrder := <> AS SORTING 
+  @SortOrder := &lt;&gt; AS SORTING 
 FROM 
   branchtransfers JOIN 
   branches frombranches ON branchtransfers.frombranch = frombranches.branchcode JOIN 
@@ -217,8 +217,8 @@ WHERE
     item_info.homebranch, 
     branchtransfers.frombranch, 
     branchtransfers.tobranch 
-  ) LIKE Concat('%', <>, '%') AND 
-  branchtransfers.datesent < CurDate() - INTERVAL 7 DAY 
+  ) LIKE Concat('%', &lt;&gt;, '%') AND 
+  branchtransfers.datesent &lt; CurDate() - INTERVAL 7 DAY 
 GROUP BY 
   item_info.biblionumber, 
   item_info.itemnumber 

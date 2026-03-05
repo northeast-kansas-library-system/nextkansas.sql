@@ -22,17 +22,17 @@ Expiry: 0
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Shows an index of patrons with a TONGANOXIE home library during the 2017 calendar year</p>
-<ul><li>Shows patrons added during 2017</li>
-<li>With a Tonganoxie home branch</li>
-<li>grouped by borrowers.cardnumber, borrowers.dateenrolled, borrowers.borrowernumber</li>
-<li>sorted by patron index number</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2879&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Shows an index of patrons with a TONGANOXIE home library during the 2017 calendar year&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows patrons added during 2017&lt;/li&gt;
+&lt;li&gt;With a Tonganoxie home branch&lt;/li&gt;
+&lt;li&gt;grouped by borrowers.cardnumber, borrowers.dateenrolled, borrowers.borrowernumber&lt;/li&gt;
+&lt;li&gt;sorted by patron index number&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2879&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */

@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2018-03-02 10:10:47
-Modified on: 2025-04-27 17:37:33
-Date last run: 2025-09-25 22:24:04
+Modified on: 2025-11-16 20:47:08
+Date last run: 2025-12-07 21:07:30
 
 ----------
 
@@ -24,7 +24,7 @@ Expiry: 300
 
 zbrq
 
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=3054&reportname=GHW%20-%20Videos%20without%20links">Click here to download as a csv file</a></p>
+&lt;a href="https://staff.nekls.bywatersolutions.com/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=3054""&gt;Download as csv&lt;/a&gt;
 
 ----------
 */

@@ -47,11 +47,11 @@ WHERE
   borrowers.branchcode NOT LIKE "HIGH_CC" AND
   borrowers.branchcode NOT LIKE "PH%" AND
   borrowers.branchcode LIKE '%' AND
-  borrowers.categorycode <> "STAFF" AND
+  borrowers.categorycode &lt;&gt; "STAFF" AND
   borrowers.cardnumber NOT LIKE "0%" AND
   borrowers.cardnumber IS NOT NULL AND
   borrowers.cardnumber NOT LIKE "" AND
-  Length(borrowers.state) > 2
+  Length(borrowers.state) &gt; 2
 
 
 

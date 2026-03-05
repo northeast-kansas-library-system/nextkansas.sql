@@ -13,7 +13,7 @@ Group:  OTTAWA
 
 Created on: 2020-09-29 23:37:01
 Modified on: 2024-01-17 12:04:21
-Date last run: 2025-10-01 05:00:04
+Date last run: 2026-01-01 05:00:04
 
 ----------
 
@@ -22,22 +22,22 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a list of items that were marked as "Withdrawn" in the previous calendar month at OTTAWA and shows the last patron to have had the item billed to their account</p>
-<ul><li>Only shows items marked as "Withdrawn" in the previous calendar month</li>
-<li>where OTTAWA is the item home branch</li>
-<li>grouped by item number and biblionumber</li>
-<li>sorted by home library, shelf location, item type, collection code, call number, author, and title</li>
-<li>contains raw HTML links to the bibliographic record and to the borrower's account page</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Scheduled to automatically e-mail to OTTAWA staff on the first of each month.</p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3354&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3354">Click here to download as a csv file</a></p>
-<p class= "notetags" style="display: none;">#ottawa, #withdrawn, #scheduled</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a list of items that were marked as "Withdrawn" in the previous calendar month at OTTAWA and shows the last patron to have had the item billed to their account&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Only shows items marked as "Withdrawn" in the previous calendar month&lt;/li&gt;
+&lt;li&gt;where OTTAWA is the item home branch&lt;/li&gt;
+&lt;li&gt;grouped by item number and biblionumber&lt;/li&gt;
+&lt;li&gt;sorted by home library, shelf location, item type, collection code, call number, author, and title&lt;/li&gt;
+&lt;li&gt;contains raw HTML links to the bibliographic record and to the borrower's account page&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Scheduled to automatically e-mail to OTTAWA staff on the first of each month.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3354&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;p id="rquickdown"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3354"&gt;Click here to download as a csv file&lt;/a&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;#ottawa, #withdrawn, #scheduled&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -170,7 +170,7 @@ FROM
       items.itemnumber
 WHERE
   items.homebranch = "OTTAWA" AND
-  withdrawnst.lib <> "" AND
+  withdrawnst.lib &lt;&gt; "" AND
   Month(items.withdrawn_on) = Month(Now() - INTERVAL 1 MONTH) AND
   Year(items.withdrawn_on) = Year(Now() - INTERVAL 1 MONTH)
 GROUP BY

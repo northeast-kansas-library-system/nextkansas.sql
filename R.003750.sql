@@ -47,7 +47,7 @@ From
       branches,
       authorised_values
     Where
-      branches.branchcode Like <> And
+      branches.branchcode Like &lt;&gt; And
       authorised_values.category = 'CCODE') branchtypes Left Join
   (Select
       items.homebranch,

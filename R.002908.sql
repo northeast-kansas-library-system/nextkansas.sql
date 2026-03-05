@@ -35,7 +35,7 @@ FROM
   message_queue
 WHERE
   (message_queue.letter_code LIKE "PREDUEDGST") AND
-  (message_queue.time_queued BETWEEN <>  AND (<>+ INTERVAL 1 DAY)) 
+  (message_queue.time_queued BETWEEN &lt;&gt;  AND (&lt;&gt;+ INTERVAL 1 DAY)) 
 GROUP BY
   message_queue.time_queued, message_queue.content
 

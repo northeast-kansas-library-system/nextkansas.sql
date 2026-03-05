@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Shows items checked out or renewed during a date range</p>
-<ul><li>Shows items checked out or renewed during the date range you specify</li>
-<li>at the library you specify</li>
-<li>grouped by itemnumber, biblionumber, and the timestamp for the checkout/renewal</li>
-<li>sorted by the checkout or renewal date, the item homebranch, the item permanent location, the item type, the collection code, the call number, the author, and the title</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Report created by George Williams.</p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3336&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Shows items checked out or renewed during a date range&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows items checked out or renewed during the date range you specify&lt;/li&gt;
+&lt;li&gt;at the library you specify&lt;/li&gt;
+&lt;li&gt;grouped by itemnumber, biblionumber, and the timestamp for the checkout/renewal&lt;/li&gt;
+&lt;li&gt;sorted by the checkout or renewal date, the item homebranch, the item permanent location, the item type, the collection code, the call number, the author, and the title&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Report created by George Williams.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3336&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -88,10 +88,10 @@ FROM
       authorised_values.category = 'ccode') ccodes ON ccodes.authorised_value =
       items.ccode
 WHERE
-  statistics.datetime BETWEEN <> AND (<> + interval 1 day) AND
+  statistics.datetime BETWEEN &lt;&gt; AND (&lt;&gt; + interval 1 day) AND
   (statistics.type = 'issue' OR
       statistics.type = 'renew') AND
-  statistics.branch = <>
+  statistics.branch = &lt;&gt;
 GROUP BY
   items.itemnumber,
   biblio.biblionumber,

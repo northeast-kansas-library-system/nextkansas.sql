@@ -22,20 +22,20 @@ Expiry: 86400
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates the table that gets used for the contacts tab on the "Library contact information" tab on the circulation home page</p>
-<ul><li>Shows current contact information</li>
-<li>For all libraries</li>
-<li>grouped and sorted by library location code</li>
-<li>contains links to each branch's home page that open in a new window/tab</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Updated on 2022.05.04 to include: Registered borrowers = Number of borrowers with this home library</p>
-<p></p>
-<p>Updated on 2023.02.23 to remove active borrowers in previous 12 months</p>
-<p></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates the table that gets used for the contacts tab on the "Library contact information" tab on the circulation home page&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows current contact information&lt;/li&gt;
+&lt;li&gt;For all libraries&lt;/li&gt;
+&lt;li&gt;grouped and sorted by library location code&lt;/li&gt;
+&lt;li&gt;contains links to each branch's home page that open in a new window/tab&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Updated on 2022.05.04 to include: Registered borrowers = Number of borrowers with this home library&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Updated on 2023.02.23 to remove active borrowers in previous 12 months&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */

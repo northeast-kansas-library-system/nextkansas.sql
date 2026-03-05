@@ -22,22 +22,22 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Counts borrowers at a library by age (in years) and gender indicator</p>
-<ul><li>Counts current borrowers</li>
-<li>where the borrowers home library matches the library you specify</li>
-<li>grouped and sorted by borrowers home branch and age</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Counts in the "BLANK_OR_BAD_CODE" column represent borrowers where the gender radio button on their account is either not set, or is set to a data code that is no longer in use.</p>
-<p></p>
-<p></p>
-<p>Partly replaces report 1081.</p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3398&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3398">Click here to download as a csv file</a></p>
-<p class= "notetags" style="display: none;">borrower count</p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Counts borrowers at a library by age (in years) and gender indicator&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Counts current borrowers&lt;/li&gt;
+&lt;li&gt;where the borrowers home library matches the library you specify&lt;/li&gt;
+&lt;li&gt;grouped and sorted by borrowers home branch and age&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Counts in the "BLANK_OR_BAD_CODE" column represent borrowers where the gender radio button on their account is either not set, or is set to a data code that is no longer in use.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Partly replaces report 1081.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3398&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;p id="rquickdown"&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3398"&gt;Click here to download as a csv file&lt;/a&gt;&lt;/p&gt;
+&lt;p class= "notetags" style="display: none;"&gt;borrower count&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -111,9 +111,9 @@ FROM
       borrowers
     WHERE
       (borrowers.sex IS NULL) OR
-      (borrowers.sex <> 'N' AND
-          borrowers.sex <> 'F' AND
-          borrowers.sex <> 'M')
+      (borrowers.sex &lt;&gt; 'N' AND
+          borrowers.sex &lt;&gt; 'F' AND
+          borrowers.sex &lt;&gt; 'M')
     GROUP BY
       borrowers.branchcode,
       Coalesce(floor(DateDiff(CurDate(), borrowers.dateofbirth) / 365.25), '-')) BLANK_OR_UNKNOWN 
@@ -121,7 +121,7 @@ FROM
       branches.branchcode AND
       BLANK_OR_UNKNOWN.BORROWER_AGE = ages.BORROWER_AGE
 WHERE
-  branches.branchcode LIKE <>
+  branches.branchcode LIKE &lt;&gt;
 GROUP BY
   branches.branchname,
   ages.BORROWER_AGE

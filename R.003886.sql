@@ -22,24 +22,24 @@ Expiry: 300
 
 ----------
 
-<div class="panel-group" id="accordion867" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="heading5309">
-      <h3 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion867" href="#collapse5309" aria-expanded="true" aria-controls="collapse5309" class="collapsed"> <span>The quick brown fox</span> <i class="glyphicon glyphicon-plus"></i> </a> </h3>
-    </div>
-    <div id="collapse5309" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5309">
-      <div class="panel-body"> jumped over the lazy fox </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="heading5310">
-      <h3 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion867" href="#collapse5310" aria-expanded="true" aria-controls="collapse5310" class="collapsed"> <span>Yoda Says</span> <i class="glyphicon glyphicon-plus"></i> </a> </h3>
-    </div>
-    <div id="collapse5310" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5310">
-      <div class="panel-body"> Hit me with that rhythm stick </div>
-    </div>
-  </div>
-</div>
+&lt;div class="panel-group" id="accordion867" role="tablist" aria-multiselectable="true"&gt;
+  &lt;div class="panel panel-default"&gt;
+    &lt;div class="panel-heading" role="tab" id="heading5309"&gt;
+      &lt;h3 class="panel-title"&gt; &lt;a data-toggle="collapse" data-parent="#accordion867" href="#collapse5309" aria-expanded="true" aria-controls="collapse5309" class="collapsed"&gt; &lt;span&gt;The quick brown fox&lt;/span&gt; &lt;i class="glyphicon glyphicon-plus"&gt;&lt;/i&gt; &lt;/a&gt; &lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;div id="collapse5309" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5309"&gt;
+      &lt;div class="panel-body"&gt; jumped over the lazy fox &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="panel panel-default"&gt;
+    &lt;div class="panel-heading" role="tab" id="heading5310"&gt;
+      &lt;h3 class="panel-title"&gt; &lt;a data-toggle="collapse" data-parent="#accordion867" href="#collapse5310" aria-expanded="true" aria-controls="collapse5310" class="collapsed"&gt; &lt;span&gt;Yoda Says&lt;/span&gt; &lt;i class="glyphicon glyphicon-plus"&gt;&lt;/i&gt; &lt;/a&gt; &lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;div id="collapse5310" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5310"&gt;
+      &lt;div class="panel-body"&gt; Hit me with that rhythm stick &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 
 ----------
 */

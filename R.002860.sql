@@ -50,12 +50,12 @@ SELECT
   CONCAT('', items.barcode, '') AS REQUESTS_ON_BIB
 FROM
   (SELECT
-    *
+    &ast;
   FROM
     old_reserves
   UNION
   SELECT
-    *
+    &ast;
   FROM
     reserves) allreserves RIGHT JOIN
   biblio
@@ -65,7 +65,7 @@ FROM
   borrowers
     ON borrowers.borrowernumber = allreserves.borrowernumber
 WHERE
-  biblio.biblionumber LIKE <>
+  biblio.biblionumber LIKE &lt;&gt;
 GROUP BY
   allreserves.reserve_id, items.barcode
 ORDER BY

@@ -22,17 +22,17 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Shows patrons who were added in the last 60 days but have no information in their "Registration Library" field.</p>
-<ul><li>Shows patrons added in the last 60 days without at registration library</li>
-<li>at any NExpress library</li>
-<li>grouped by patron barcode number</li>
-<li>sorted by STAFF_HOME_BRANCH and borrower.attribute</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2971&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Shows patrons who were added in the last 60 days but have no information in their "Registration Library" field.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Shows patrons added in the last 60 days without at registration library&lt;/li&gt;
+&lt;li&gt;at any NExpress library&lt;/li&gt;
+&lt;li&gt;grouped by patron barcode number&lt;/li&gt;
+&lt;li&gt;sorted by STAFF_HOME_BRANCH and borrower.attribute&lt;/li&gt;
+&lt;/ul&gt;&lt;br /&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2971&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */

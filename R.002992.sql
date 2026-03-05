@@ -51,7 +51,7 @@ FROM
   items
   LEFT JOIN biblio ON items.biblionumber = biblio.biblionumber
 WHERE
-  items.homebranch LIKE <> AND
+  items.homebranch LIKE &lt;&gt; AND
   (items.itemcallnumber LIKE ' %')
 GROUP BY
   items.location,

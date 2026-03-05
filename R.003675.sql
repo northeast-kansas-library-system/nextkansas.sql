@@ -22,21 +22,21 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-  <p>Displays accounts with "Staff" permissions</p>
-  <ul>
-    <li>Shows current accounts</li>
-    <li>at the library you choose</li>
-    <li>grouped by borrower number</li>
-    <li>sorted by Superlibrarian status followed by branchcode, userid, and borrower category</li>
-  </ul><br>
-  <p><ins>Notes:</ins></p>
-  <p></p>
-  <p>Replaces reports 2743, 2459, and 2213.</p>
-  <p></p>
-  <p class= "notetags" style="display: none;">#permissions</p>
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+  &lt;p&gt;Displays accounts with "Staff" permissions&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Shows current accounts&lt;/li&gt;
+    &lt;li&gt;at the library you choose&lt;/li&gt;
+    &lt;li&gt;grouped by borrower number&lt;/li&gt;
+    &lt;li&gt;sorted by Superlibrarian status followed by branchcode, userid, and borrower category&lt;/li&gt;
+  &lt;/ul&gt;&lt;br&gt;
+  &lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;p&gt;Replaces reports 2743, 2459, and 2213.&lt;/p&gt;
+  &lt;p&gt;&lt;/p&gt;
+  &lt;p class= "notetags" style="display: none;"&gt;#permissions&lt;/p&gt;
+  &lt;!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -1096,8 +1096,8 @@ FROM
   ) attributes 
     ON attributes.borrowernumber = borrowers.borrowernumber 
 WHERE 
-  ((borrowers.flags > 0) OR 
-    (user_permissions.module_bit > 0)) AND 
+  ((borrowers.flags &gt; 0) OR 
+    (user_permissions.module_bit &gt; 0)) AND 
   borrowers.branchcode LIKE "%" 
 GROUP BY 
   borrowers.borrowernumber 

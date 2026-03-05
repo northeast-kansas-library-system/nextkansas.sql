@@ -22,35 +22,35 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Generates a report of all lists owned by the borrower you specify and allows you to run further reports on those lists</p>
-<ul><li>Displays lists currently in the system - public or private</li>
-<li>displays lists created by the borrower you specify</li>
-<li>grouped by date created, list name, and list id number</li>
-<li>sorted by list name</li>
-<li>links to the Staff client and OPAC pages for the list; links to reports:
-<ul>
-<li>3228 (Display list titles with links to bibliographic records)</li>
-<li>3227 (Display list titles with call numbers at a specific library)</li>
-<li>3226 (Display author/title information for a list - for printing)</li>
-<li>3279 (Export list to spreadsheet()</li>
-</ul>
-</li><br />
-</ul>
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>This report is the master report for private lists.</p>
-<p></p>
-<p>Allows staff to run reports on private lists provided they have the patron's library card number.</p>
-<p></p>
-<p>Replaces the following reports:</p>
-<ul>
-<li>2810 - GHW - Public lists with items</li>
-<li>3020 - GHW - List of lists</li>
-</ul>
-<p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3225&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
-</div>
+&lt;div class="reportinfo noprint"&gt; 
+&lt;p&gt;Generates a report of all lists owned by the borrower you specify and allows you to run further reports on those lists&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Displays lists currently in the system - public or private&lt;/li&gt;
+&lt;li&gt;displays lists created by the borrower you specify&lt;/li&gt;
+&lt;li&gt;grouped by date created, list name, and list id number&lt;/li&gt;
+&lt;li&gt;sorted by list name&lt;/li&gt;
+&lt;li&gt;links to the Staff client and OPAC pages for the list; links to reports:
+&lt;ul&gt;
+&lt;li&gt;3228 (Display list titles with links to bibliographic records)&lt;/li&gt;
+&lt;li&gt;3227 (Display list titles with call numbers at a specific library)&lt;/li&gt;
+&lt;li&gt;3226 (Display author/title information for a list - for printing)&lt;/li&gt;
+&lt;li&gt;3279 (Export list to spreadsheet()&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;&lt;br /&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;ins&gt;Notes:&lt;/ins&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;This report is the master report for private lists.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Allows staff to run reports on private lists provided they have the patron's library card number.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;Replaces the following reports:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2810 - GHW - Public lists with items&lt;/li&gt;
+&lt;li&gt;3020 - GHW - List of lists&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/cgi-bin/koha/reports/guided_reports.pl?reports=3225&phase=Run%20this%20report"  target="_blank"&gt;Click here to run in a new window&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
 
 ----------
 */
@@ -93,7 +93,7 @@ FROM
   JOIN borrowers
     ON virtualshelves.owner = borrowers.borrowernumber
 WHERE
-  borrowers.cardnumber LIKE <>
+  borrowers.cardnumber LIKE &lt;&gt;
 GROUP BY
   virtualshelves.created_on,
   virtualshelves.shelfname,
