@@ -117,12 +117,14 @@ Sub WriteToSQL()
     ' Disable screen updating to speed up the macro.
     Application.ScreenUpdating = False
     
-    ' Perform the replacements in column B.
-    With ws.Columns("B")
-        ' Replace "<" with "<".
-        .Replace What:="<", Replacement:="<", LookAt:=xlPart
-        ' Replace ">" with ">".
-        .Replace What:=">", Replacement:=">", LookAt:=xlPart
+    ' Perform the replacements in column B-K.
+    With ws.Columns("B:K")
+        ' Replace "&lt;" with "<".
+        .Replace What:="&lt;", Replacement:="<", LookAt:=xlPart
+        ' Replace "" with ">".
+        .Replace What:="", Replacement:=">", LookAt:=xlPart
+        ' Replace "*" with "*".
+        .Replace What:="", Replacement:=">", LookAt:=xlPart
     End With
     
     ' Re-enable screen updating.
@@ -171,12 +173,14 @@ Sub WriteToRST()
     ' Disable screen updating to speed up the macro.
     Application.ScreenUpdating = False
     
-    ' Perform the replacements in column B.
-    With ws.Columns("B")
-        ' Replace "<" with "<".
-        .Replace What:="<", Replacement:="<", LookAt:=xlPart
-        ' Replace ">" with ">".
-        .Replace What:=">", Replacement:=">", LookAt:=xlPart
+    ' Perform the replacements in column B-K
+    With ws.Columns("B:K")
+        ' Replace "&lt;" with "<".
+        .Replace What:="&lt;", Replacement:="<", LookAt:=xlPart
+        ' Replace "" with ">".
+        .Replace What:="", Replacement:=">", LookAt:=xlPart
+        ' Replace "*" with "*".
+        .Replace What:="", Replacement:=">", LookAt:=xlPart
     End With
     
     ' Re-enable screen updating.
