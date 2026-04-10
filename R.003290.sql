@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-12-30 11:06:11
-Modified on: 2020-01-28 16:06:04
-Date last run: 2025-11-24 15:47:35
+Modified on: 2026-03-06 10:14:53
+Date last run: 2026-03-06 10:14:53
 
 ----------
 
@@ -31,11 +31,11 @@ Expiry: 300
 
 SELECT
   Concat('<a href="/cgi-bin/koha/admin/authorised_values.pl?searchfield=', LBRANCH.category, '" target="_blank">Link to AV</a>') AS LINK,
-  If(LBRANCH.category IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", LBRANCH.category) AS category,
-  If(LBRANCH.authorised_value IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", LBRANCH.authorised_value) AS authorised_value,
-  If(LBRANCH.lib IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", LBRANCH.lib) AS lib,
-  If(BRANCHESS.branchcode IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", BRANCHESS.branchcode) AS branchcode,
-  If(BRANCHESS.branchname IS NULL, "<span style='background-color: red; color: yellow'>Possible error</span>", BRANCHESS.branchname) AS branchname
+  If(LBRANCH.category IS NULL, "<span style='background-color: red; color: yellow'>Values don't match</span>", LBRANCH.category) AS category,
+  If(LBRANCH.authorised_value IS NULL, "<span style='background-color: red; color: yellow'>Values don't match</span>", LBRANCH.authorised_value) AS authorised_value,
+  If(LBRANCH.lib IS NULL, "<span style='background-color: red; color: yellow'>Values don't match</span>", LBRANCH.lib) AS lib,
+  If(BRANCHESS.branchcode IS NULL, "<span style='background-color: red; color: yellow'>Values don't match</span>", BRANCHESS.branchcode) AS branchcode,
+  If(BRANCHESS.branchname IS NULL, "<span style='background-color: red; color: yellow'>Values don't match</span>", BRANCHESS.branchname) AS branchname
 FROM
   (
     SELECT

@@ -513,23 +513,3 @@ ORDER BY
   surname,
   cardnumber
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

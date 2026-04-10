@@ -1264,18 +1264,3 @@ GROUP BY
   Concat_Ws("-", paid.accountlines_id, paid.accountno)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

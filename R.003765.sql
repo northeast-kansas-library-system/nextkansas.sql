@@ -8,12 +8,12 @@ Created by: George Williams
 
 ----------
 
-Group: -
+Group: Rules
      -
 
 Created on: 2023-10-11 16:54:07
-Modified on: 2024-05-28 15:17:31
-Date last run: 2025-07-09 11:19:25
+Modified on: 2026-03-27 14:03:13
+Date last run: 2026-03-27 14:02:56
 
 ----------
 
@@ -22,9 +22,9 @@ Expiry: 300
 
 ----------
 
-<div class="reportInfo noprint"> 
+<div> 
  
-  <div class="reportInfoContent"> 
+  <div> 
 
     <p> 
       Holds policy by item type rules are hierarchical - First Koha will try to apply the most specific rule at a library first.  If no rule is set (as indicated by "---") then the next broadest rule will be followed. 
@@ -41,7 +41,7 @@ Expiry: 300
  
   </div> 
  
-  <div class="reportInfoNotes"> 
+  <div> 
  
     <p>The default ALL LIBRARIES > ALL ITEM TYPES rule is:</p>
 
@@ -55,15 +55,15 @@ Expiry: 300
  
   </div> 
  
-  <div id="reportInfoTags"> 
+  <div> 
  
-    <p style="display: none;"> 
+    <p> 
       #tags_go_here 
     </p> 
  
   </div> 
  
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes --> 
+   
  
 </div> 
 

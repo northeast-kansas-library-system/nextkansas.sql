@@ -828,7 +828,7 @@ FROM
         Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1) + INTERVAL 29 DAY) = Month(AddDate(Last_Day(SubDate(Now(), INTERVAL 2 MONTH)), 1)), 
         Sum(DISTINCT cjcounts.Count_issue_id), 
         '-'
-      ) AS Sum_Count_issue_id 
+      ) AS Sum_Count_issue_id
     FROM
       (SELECT
           issues.branchcode,
@@ -978,24 +978,4 @@ UNION
     ) AS `31`  
 ORDER BY  
   branchname
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

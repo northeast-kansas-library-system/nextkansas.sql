@@ -2377,19 +2377,3 @@ FROM
   zebraqueue
 LIMIT 1000
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

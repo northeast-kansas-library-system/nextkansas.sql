@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2023-02-10 17:06:53
-Modified on: 2026-01-13 11:13:30
-Date last run: 2026-03-02 11:37:39
+Modified on: 2026-03-12 09:29:45
+Date last run: 2026-03-27 14:11:02
 
 ----------
 
@@ -43,111 +43,128 @@ Expiry: 300
 
 
 
-SELECT 
-  branches_categories.branchname AS 'Borrower home library', 
-  branches_categories.description AS 'Borrower category', 
-  Coalesce(total.Count_borrowernumber, 0) AS 'Total borrowers', 
-  renewed_lm.Count_borrowernumber AS 'Borrowers renewed last month', 
-  added_lm.Count_borrowernumber AS 'Borrowers added last month', 
-  deleted_lm.Count_borrowernumber AS 'Borrowers deleted last month', 
-  If(limitationss.categorycode <> '', 'Yes', '') AS 'New borrowers allowed' 
-FROM 
+SELECT
+  branches_categories.branchname AS 'Borrower home library',
+  branches_categories.description AS 'Borrower category',
+  Coalesce(total.Count_borrowernumber, 0) AS 'Total borrowers',
+  renewed_lm.Count_borrowernumber AS 'Borrowers renewed last month',
+  added_lm.Count_borrowernumber AS 'Borrowers added last month',
+  deleted_lm.Count_borrowernumber AS 'Borrowers deleted last month',
+  If(limitationss.categorycode <> '', 'Yes', '') AS 'Appears in new borrower dropdown',
+  rules.rules AS 'Specific rules for this category'
+FROM
   (
-    SELECT 
-      branches.branchcode, 
-      branches.branchname, 
-      categories.categorycode, 
-      categories.description 
-    FROM 
-      branches, 
+    SELECT
+      branches.branchcode,
+      branches.branchname,
+      categories.categorycode,
+      categories.description
+    FROM
+      branches,
       categories
-    WHERE 
-      branches.branchcode LIKE <<Choose your library|branches>>
+    WHERE
+      branches.branchcode LIKE <<Choose your library|ZBRAN>>
   ) branches_categories 
-  LEFT JOIN 
+  LEFT JOIN
   (
-    SELECT 
-      borrowers.branchcode, 
-      borrowers.categorycode, 
-      Count(borrowers.borrowernumber) AS Count_borrowernumber 
-    FROM 
-      borrowers 
-    GROUP BY 
-      borrowers.branchcode, 
+    SELECT
+      borrowers.branchcode,
+      borrowers.categorycode,
+      Count(borrowers.borrowernumber) AS Count_borrowernumber
+    FROM
+      borrowers
+    GROUP BY
+      borrowers.branchcode,
       borrowers.categorycode
   ) total 
-    ON total.branchcode = branches_categories.branchcode AND 
-      total.categorycode = branches_categories.categorycode 
-  LEFT JOIN 
+    ON total.branchcode = branches_categories.branchcode AND
+    total.categorycode = branches_categories.categorycode 
+  LEFT JOIN
   (
-    SELECT 
-      borrowers.branchcode, 
-      borrowers.categorycode, 
-      Count(borrowers.borrowernumber) AS Count_borrowernumber 
-    FROM 
-      borrowers 
-    WHERE 
-      Year(borrowers.dateenrolled) = Year(Now() - INTERVAL 1 MONTH) AND 
-      Month(borrowers.dateenrolled) = Month(Now() - INTERVAL 1 MONTH) 
-    GROUP BY 
-      borrowers.branchcode, 
-      borrowers.categorycode    
-    ) added_lm 
-    ON added_lm.branchcode = branches_categories.branchcode AND 
+    SELECT
+      borrowers.branchcode,
+      borrowers.categorycode,
+      Count(borrowers.borrowernumber) AS Count_borrowernumber
+    FROM
+      borrowers
+    WHERE
+      Year(borrowers.dateenrolled) = Year(Now() - INTERVAL 1 MONTH) AND
+      Month(borrowers.dateenrolled) = Month(Now() - INTERVAL 1 MONTH)
+    GROUP BY
+      borrowers.branchcode,
+      borrowers.categorycode
+  ) added_lm 
+    ON added_lm.branchcode = branches_categories.branchcode AND
       added_lm.categorycode = branches_categories.categorycode 
-  LEFT JOIN 
+  LEFT JOIN
   (
-    SELECT 
-      borrowers.branchcode, 
-      borrowers.categorycode, 
-      Count(borrowers.borrowernumber) AS Count_borrowernumber 
-    FROM 
-      borrowers 
-    WHERE 
-      Year(borrowers.date_renewed) = Year(Now() - INTERVAL 1 MONTH) AND 
-      Month(borrowers.date_renewed) = Month(Now() - INTERVAL 1 MONTH) 
-    GROUP BY 
-      borrowers.branchcode, 
+    SELECT
+      borrowers.branchcode,
+      borrowers.categorycode,
+      Count(borrowers.borrowernumber) AS Count_borrowernumber
+    FROM
+      borrowers
+    WHERE
+      Year(borrowers.date_renewed) = Year(Now() - INTERVAL 1 MONTH) AND
+      Month(borrowers.date_renewed) = Month(Now() - INTERVAL 1 MONTH)
+    GROUP BY
+      borrowers.branchcode,
       borrowers.categorycode
   ) renewed_lm 
-    ON renewed_lm.branchcode = branches_categories.branchcode AND 
+    ON renewed_lm.branchcode = branches_categories.branchcode AND
       renewed_lm.categorycode = branches_categories.categorycode 
-  LEFT JOIN 
+  LEFT JOIN
   (
-    SELECT 
-      deletedborrowers.branchcode, 
-      deletedborrowers.categorycode, 
-      Count(deletedborrowers.borrowernumber) AS Count_borrowernumber 
-    FROM 
-      action_logs JOIN 
-      deletedborrowers ON deletedborrowers.borrowernumber = action_logs.object 
-    WHERE 
-      action_logs.module = 'MEMBERS' AND 
-      Month(action_logs.timestamp) = Month(Now() - INTERVAL 1 MONTH) AND 
-      Year(action_logs.timestamp) = Year(Now() - INTERVAL 1 MONTH) AND 
-      action_logs.action LIKE 'DELET%' 
-    GROUP BY 
-      deletedborrowers.branchcode, 
+    SELECT
+      deletedborrowers.branchcode,
+      deletedborrowers.categorycode,
+      Count(deletedborrowers.borrowernumber) AS Count_borrowernumber
+    FROM
+      action_logs JOIN
+      deletedborrowers ON deletedborrowers.borrowernumber = action_logs.object
+    WHERE
+      action_logs.module = 'MEMBERS' AND
+      Month(action_logs.timestamp) = Month(Now() - INTERVAL 1 MONTH) AND
+      Year(action_logs.timestamp) = Year(Now() - INTERVAL 1 MONTH) AND
+      action_logs.action LIKE 'DELET%'
+    GROUP BY
+      deletedborrowers.branchcode,
       deletedborrowers.categorycode
   ) deleted_lm 
-    ON deleted_lm.branchcode = branches_categories.branchcode AND 
+    ON deleted_lm.branchcode = branches_categories.branchcode AND
       deleted_lm.categorycode = branches_categories.categorycode 
-  LEFT JOIN 
+  LEFT JOIN
   (
-    SELECT 
-      categories_branches.categorycode, 
-      categories_branches.branchcode 
-    FROM 
+    SELECT
+      categories_branches.categorycode,
+      categories_branches.branchcode
+    FROM
       categories_branches
   ) limitationss 
-    ON limitationss.branchcode = branches_categories.branchcode AND 
+    ON limitationss.branchcode = branches_categories.branchcode AND
       limitationss.categorycode = branches_categories.categorycode 
-GROUP BY 
-  branches_categories.branchname, 
-  branches_categories.description 
-ORDER BY 
-  branches_categories.branchname, 
-  branches_categories.description 
+  LEFT JOIN
+  (
+    SELECT
+      circulation_rules.branchcode,
+      circulation_rules.categorycode,
+      "Yes" AS rules
+    FROM
+      circulation_rules
+    WHERE
+      circulation_rules.categorycode NOT LIKE ''
+    GROUP BY
+      circulation_rules.branchcode,
+      circulation_rules.categorycode
+  ) rules 
+    ON rules.branchcode = branches_categories.branchcode AND
+      rules.categorycode = branches_categories.categorycode
+GROUP BY
+  branches_categories.branchname,
+  branches_categories.description
+ORDER BY
+  branches_categories.branchname,
+  branches_categories.description
 
 
 

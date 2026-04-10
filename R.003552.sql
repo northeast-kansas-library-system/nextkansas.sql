@@ -8,12 +8,12 @@ Created by: George Williams
 
 ----------
 
-Group: -
+Group: Rules
      -
 
 Created on: 2021-08-31 18:42:23
-Modified on: 2024-01-17 11:28:36
-Date last run: 2026-01-29 09:57:26
+Modified on: 2026-03-27 14:06:52
+Date last run: 2026-03-27 14:06:52
 
 ----------
 
@@ -22,14 +22,14 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
+<div> 
 <p>Generates a list of libraries that still charge late fees</p>
 <ul><li>Generates a current list including the item types that are subject to late fees</li>
 <li>grouped and sorted by whether the library charges fees on all items or if they charge a late fee on just a few item types</li>
 </ul><br />
 <p></p>
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=1&phase=Export&format=csv&report_id=3552">Click here to download as a csv file</a></p>
-<p class= "notetags" style="display: none;">#late fees; #fines</p>
+<p>Click here to download as a csv file</p>
+<p>#late fees; #fines</p>
 </div>
 
 ----------

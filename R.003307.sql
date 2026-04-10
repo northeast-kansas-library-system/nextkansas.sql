@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2020-01-28 13:36:58
-Modified on: 2025-11-24 14:31:43
-Date last run: 2025-11-24 14:33:52
+Modified on: 2026-03-06 10:22:50
+Date last run: 2026-03-06 10:34:37
 
 ----------
 
@@ -32,8 +32,8 @@ Expiry: 300
 SELECT
   itemtypes_av.itemtype,
   itemtypes_av.description,
-  itemtypes.description AS description1,
-  authorized_values.lib,
+  itemtypes.description AS ITYPE_DESCRIPTION,
+  authorized_values.lib AS AV_OPAC_DESCRIPTION,
   If(
     itemtypes.description IS NULL, 
     'AV only', 

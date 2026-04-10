@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2023-09-12 09:41:43
-Modified on: 2025-03-09 19:17:38
-Date last run: 2026-03-05 16:46:33
+Modified on: 2026-03-06 14:20:44
+Date last run: 2026-04-10 14:44:45
 
 ----------
 
@@ -39,6 +39,7 @@ SELECT
           'class="page-section" ',
           'style="text-align: center; background-color: #f3f4f4',
         '">',
+        '<h2 class="sr-only" style="">Library to-do list</h2>',
         '<h3 class="next_label next_green">', 
         'Holds queue is empty',
         '</h3>',
@@ -46,6 +47,7 @@ SELECT
       ),
       Concat_WS('',
         '<div id="holds_queue_action" class="row justify-content-md-center" style="background-color: #f3f4f4 !important">',
+        '<h2 class="sr-only" style="">Library to-do list</h2>',
         '<h4 style="background-color: #1f9bde; border-radius: 6px; padding: 1em; text-align: center; ">',
         'Holds queue</h4>',
         '<a class="next_btn next_light next_embiggen2 noprint" ',
