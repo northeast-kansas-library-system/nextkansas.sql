@@ -91,6 +91,7 @@
 220,CCODE,ILL,"Interlibrary Loan",vokal/ILL-32px.png,
 145,CCODE,INSPRATION,Inspirational,vokal/Book-32px.png,
 1660,CCODE,JYA_CHAP,"Chapter Books",vokal/Book-32px.png,"Chapter Books"
+3009,CCODE,K_EC,"Early Childhood Kit",,"Early Childhood Kit"
 165,CCODE,KANSAS,Kansas,vokal/Book-32px.png,
 159,CCODE,LARGEPRINT,"Large Print",vokal/LargePrint-32px.png,
 897,CCODE,LARGEPRNF,"Large Print Non-Fiction",vokal/LargePrint-32px.png,
@@ -1227,8 +1228,8 @@
 1548,LINTPOLICY,Yes-Signed,"Yes, Signed",,"Yes, Signed"
 667,LITYPES,%," All Item Types",,
 669,LITYPES,BOOK,BOOK,,
-670,LITYPES,COMPUTER,"Computers and internet : Public computer",,
-671,LITYPES,DIGITAL,"E-content : Digital content",,
+670,LITYPES,COMPUTER,"Computers and internet - Public computer",,
+671,LITYPES,DIGITAL,"E-content - Digital content",,"E-content - Digital content"
 672,LITYPES,EQUIPMENT,"Things : Equipment",,"Things : Equipment"
 1984,LITYPES,HCC_RES,"Reserve desk : Highland Community College",,"Reserve desk : Highland Community College"
 2560,LITYPES,I_ILL,"Inter-library loan",,"Inter-library loan"
@@ -1241,16 +1242,16 @@
 2856,LITYPES,ITRART,"Things - Artwork",,"Things - Artwork"
 2857,LITYPES,ITRTOY,"Things : Board games, dolls, puzzles, and toys",,"Things : Board games, dolls, puzzles, and toys"
 676,LITYPES,KITS,"KIT OR MULTI-PART SET",,
-677,LITYPES,LAUNCHPAD,"Computers and internet : Launchpad tablet",,"Computers and internet : Launchpad tablet"
+677,LITYPES,LAUNCHPAD,"Computers and internet - Launchpad tablet",,"Computers and internet - Launchpad tablet"
 678,LITYPES,LOCALHOLD,"Special collections (local requests only)",,
 680,LITYPES,LOCALHOLD2,"Book (local requests only)",,
 684,LITYPES,MUSIC,Music,,
-2424,LITYPES,N_AB,Audiobook,,Audiobook
-2425,LITYPES,N_AB_M,"Audiobook (media player)",,"Audiobook (media player)"
+2424,LITYPES,N_AB,"Audiobook (CDs or cassettes)",,"Audiobook (CDs or cassettes)"
+2425,LITYPES,N_AB_M,"Audiobook (preloaded player)",,"Audiobook (preloaded player)"
 2426,LITYPES,N_AB_NEW,"Audiobook (new)",,"Audiobook (new)"
+3007,LITYPES,N_AB_O,"Audiobook (digital media)",,"Audiobook (digital media)"
 2427,LITYPES,N_AB%,"A udiobook  - All audiobook item types ",,"Audiobook  - All audiobook item types "
-2050,LITYPES,NELECOURSE,"E-content : E-learning course",,"E-content : E-learning course"
-2183,LITYPES,NELECT,"Computers and internet : Tablets, e-readers, and personal computing devices",,"Computers and internet : Tablets, e-readers, and personal computing devices"
+2183,LITYPES,NELECT,"Computers and internet - Tablets, e-readers, and personal computing devices",,"Computers and internet - Tablets, e-readers, and personal computing devices"
 1986,LITYPES,NEQKEY,Key,,Key
 1987,LITYPES,NEQUDIE,"Things : Die cut equipment",,"Things : Die cut equipment"
 1988,LITYPES,NPASS,"Things : Museum pass / event pass",,"Things : Museum pass / event pass"
@@ -1259,7 +1260,7 @@
 2187,LITYPES,NREL_COOK,"Things : Cooking equipment",,"Things : Cooking equipment"
 2188,LITYPES,NREL_TOOL,"Things : Tools",,"Things : Tools"
 2190,LITYPES,NROOM,Room,,
-2191,LITYPES,NSOFT,"Computers and internet : Software",,"Computers and internet : Software"
+2191,LITYPES,NSOFT,"Computers and internet - software",,"Computers and internet - software"
 1998,LITYPES,NVID%,"VIDEO - (All 5 VIDEO item types)",,
 682,LITYPES,NVIDEO,"VIDEO ( just VIDEO )",,
 679,LITYPES,NVIDLH,"VIDEO (Local requests only)",,
@@ -1270,19 +1271,19 @@
 2422,LITYPES,P_MAG_N,"Magazine (new)",,"Magazine (new)"
 2423,LITYPES,P_REF,"Reference material",,"Reference material"
 2855,LITYPES,"P_USD454 ","Book - School District 454",,"Book - School District 454"
-1989,LITYPES,PBBKCLUB,"Book Club Set",,"Book Club Set"
+1989,LITYPES,PBBKCLUB,"Book club set",,"Book club set"
 1990,LITYPES,PBBKNEW,"Book (new)",,
 2056,LITYPES,PBBKWALK,"Book (no requests allowed)",,"Book (no requests allowed)"
 2192,LITYPES,PPHAM,Pamphlet,,
 2193,LITYPES,PSPECIAL,"Special collections (no requests allowed)",,
 2057,LITYPES,PUNC,(UNCLASSIFIED),,(UNCLASSIFIED)
-2419,LITYPES,R_CMP_LAP,"Computers and internet : Laptop computer",,"Computers and internet : Laptop computer"
+2419,LITYPES,R_CMP_LAP,"Computers and internet - Laptop computer",,"Computers and internet - Laptop computer"
 2559,LITYPES,R_EQ_AV,"Things : Audio-visual equipment",,"Things : Audio-visual equipment"
+3008,LITYPES,R_EQ_PLAR,"Things - Electronic Media Player",,"Things - Electronic Media Player"
 2558,LITYPES,R_INST,"Things : Musical insturments and accessories",,"Things : Musical insturments and accessories"
 2557,LITYPES,R_K_STW,"Story walk",,"Story walk"
-2556,LITYPES,R_PAS_PARK,"Things : Kansas Parks Pass",,"Things : Kansas Parks Pass"
 2555,LITYPES,R_REC,"Things : Recreation and sports",,"Things : Recreation and sports"
-2420,LITYPES,R_WIFI,"Computers and internet : Wireless internet hotspot",,"Computers and internet : Wireless internet hotspot"
+2420,LITYPES,R_WIFI,"Computers and internet - Wireless internet hotspot",,"Computers and internet - Wireless internet hotspot"
 694,LLOC,%,"  All shelving locations",,"  All shelving locations"
 2011,LLOC,%BALD%,"~Display - BALDWIN -  All",,"~Display - BALDWIN -  All"
 812,LLOC,%LEAV%,"~Display - LEAVENWRTH -  All",,"~Display - LEAVENWRTH -  All"
@@ -1361,7 +1362,7 @@
 2141,LOC,D_YA_BALD,"Young adult display (Baldwin City Library)",,"Young adult display (Baldwin City Library)"
 2139,LOC,D_YA_LEAV,"Young adult display (Leavenworth Public Library)",,"Young adult display (Leavenworth Public Library)"
 2140,LOC,D_YA_PAOL,"Young adult display (Paola Free Library)",,"Young adult display (Paola Free Library)"
-2352,LOC,L_AD," Adult",carredart/cd.png," Adult"
+2352,LOC,L_AD," Adult",," Adult"
 2196,LOC,L_JU," Children's",," Children's"
 2138,LOC,L_YA," Young adult",," Young adult"
 210,LOC,PROC,"Processing Center",,"Processing center"
@@ -1736,6 +1737,7 @@
 237,REPORT_GROUP,PAT,Borrowers,,
 336,REPORT_GROUP,POPULAR,"Popular Reports",,
 259,REPORT_GROUP,REGULAR,"Daily, Monthly, Yearly Stats",,
+3010,REPORT_GROUP,RULES,Rules,,
 261,REPORT_GROUP,SCHOOL,"School Libraries",,
 262,REPORT_GROUP,STATS,Statistics,,
 2841,REPORT_GROUP,TEST,"Test group",,"Test group"
