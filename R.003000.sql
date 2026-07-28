@@ -12,8 +12,8 @@ Group: Borrowers
      Patron attributes
 
 Created on: 2017-09-18 10:49:25
-Modified on: 2025-11-17 18:06:28
-Date last run: 2026-03-09 08:48:26
+Modified on: 2026-07-27 11:40:31
+Date last run: 2026-07-27 14:22:07
 
 ----------
 
@@ -32,6 +32,8 @@ Expiry: 300
 </ul><br />
 </div>
 
+
+
 ----------
 */
 
@@ -40,7 +42,7 @@ Expiry: 300
 SELECT
   Concat(
     '<a class="next_btn next_indigo noprint" ',
-    'href="/cgi-bin/koha/circ/circulation.pl?borrowernumber=', 
+    'href="/cgi-bin/koha/members/moremember.pl?borrowernumber=', 
     borrowers.borrowernumber, 
     '" target="_blank">Link to patron</a>'
   ) AS LINK_TO_PATRON,

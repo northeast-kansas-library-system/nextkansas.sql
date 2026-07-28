@@ -3,7 +3,7 @@ R.003954
 
 ----------
 
-Name: GHW - Rules 001 - circulation and fine rules matrix
+Name: GHW - Rules 001 - full rules matrix
 Created by: George Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: Rules
      -
 
 Created on: 2026-03-27 10:34:41
-Modified on: 2026-03-27 15:43:03
-Date last run: 2026-03-27 15:49:04
+Modified on: 2026-07-23 17:25:58
+Date last run: 2026-07-25 22:19:33
 
 ----------
 

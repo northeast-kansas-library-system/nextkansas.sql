@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-09-13 20:55:02
-Modified on: 2025-08-21 17:28:43
-Date last run: 2025-08-21 17:28:43
+Modified on: 2026-06-04 15:14:27
+Date last run: 2026-06-04 15:14:27
 
 ----------
 
@@ -22,31 +22,233 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Lists every date and timestamp field in every table in Koha and shows the oldest and newest dates.</p>
-<p>Some dates are further grouped by other field values - specifically type of change that occurred on that date/time.</p>
-<p>Used at the koha-US 2021 conference</p>
-<ul>
-  <li>_GROUP_ = the kind of group that the table/field belongs to - i.e. I manually grouped all of the borrower fees tables/fields togehter; I manually grouped all of the acquisitions tables/fields together; etc. </li>
-  <li>
-    TABLE_NAME = the name of the table the date/datetime field exists in</li>
-  <li>
-    FIELD_NAME = the name of the date/datetime field</li>
-  <li>
-    TYPE_OF_EVENT = if the table data includes a descriptive field that explains the type of event that happened to the data at the specified time, then that description is included here
-    <ul>
-      <li>
-        A "-" or a " " in this column indicates that the TYPE_OF_EVENT was recorded as a null value or a blank space in the database
-      </li>
-    </ul>
-  </li>
-  <li>
-    OLDEST_DATE = the minimum date available that meets the first 4 criteria
-  </li>
-  <li>
-    NEWEST_DATE = the maximum date available that meets the first 4 criteria
-  </li>
-</ul>
+<div class="next_report_info next_noprint">
+
+<style>
+
+  .report_hidden {
+    display:  none
+  }
+
+  .accordion .accordion-button {
+    font-size:  1.1em !important;
+    color:  #fff !important;
+    font-weight:  900
+  }
+
+  .next_report_function .accordion-header * {
+    background-color:  #df6320 !important;
+    color:  #fff !important
+  }
+
+  .next_report_notes .accordion-header * {
+    background-color:  #dfc220 !important;
+    color:  #000 !important
+  }
+
+  .next_report_instructions .accordion-header * {
+    background-color:  #3ddf20 !important;
+    color:  #000 !important
+  }
+
+  .next_report_resources .accordion-header * {
+    background-color:  #1f9bde !important;
+    color:  #fff !important
+  }
+
+  .next_report_training .accordion-header * {
+    background-color:  #6320df !important;
+    color:  #fff !important
+  }
+
+  .accordion-collapse.collapse * {
+    background-color:  #e6e6e6;
+    color:  #000
+  }
+
+  .accordion-body h3 {
+    font-size:  1.5em !important
+  }
+
+  .report_section {
+    border:  2px solid #000;
+    border-radius:  8px;
+    margin:  10px;
+    padding:  15px
+  }
+
+  .resources_btn, .training_btn, .direct_download_btn {
+    padding:  10px;
+    margin:  10px 0 0;
+    display:  inline-block;
+    font-weight:  650;
+    line-height:  1.5;
+    text-align:  center;
+    vertical-align:  middle;
+    white-space:  nowrap;
+    color:  #000
+  }
+
+  .resources_btn {
+    border:  1px solid #555;
+    border-radius:  4px;
+    background:  #dfc220 !important
+  }
+
+  .training_btn {
+    border:  1px solid #555;
+    border-radius:  4px;
+    background:  #3ddf20 !important
+  }
+
+  .direct_download_btn {
+    color:  #fff;
+    border:  1px solid #555;
+    border-radius:  4px;
+    background:  indigo !important
+  }
+  .direct_download_btn:hover {
+    color: #000000 !important;
+    background: #D396FF !important;
+  }
+
+</style>
+
+<!-- Overview -->
+
+  <div class="next_report_summary">
+    <br>
+
+    <p id="report_id"><strong>Report number:</strong> 3559</p>
+
+    <p id="report_name"><strong>Report name:</strong> Koha date fields with oldest and newest dates</p>
+
+    <span style="display: none;">
+      <p id="report_author"><strong>Report author/source:</strong> - </p>
+    </span>
+
+    <p id="report_summary"><strong>Report summary:</strong> Lists every date and timestamp field in every table in Koha and shows the oldest and newest dates.</p>
+
+  </div>
+
+  <div class="accordion accordion-flush">
+
+<!-- Function section -->
+    <div id="accordion_3559-1" class="accordion-item next_report_function">
+
+      <h2 class="accordion-header" id="panelsStay_3559Open-headingOne" >
+
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStay_3559Open-collapseOne" aria-expanded="true"
+          aria-controls="panelsStay_3559Open-collapseOne">
+
+          Function:
+
+        </button>
+
+      </h2>
+
+      <div id="panelsStay_3559Open-collapseOne" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_3559Open-headingOne">
+        <div class="accordion-body">
+
+          <div id="function_section" class="report_section">
+
+
+            <p>Lists every date and timestamp field in every table in Koha and shows the oldest and newest dates.</p>
+            <ul style="list-style-type:none">
+
+              <li><strong>TIME FRAME:</strong> Shows current fields</li>
+
+              <li><strong>AT:</strong> in all of Koha</li>
+
+              <li><strong>GROUPED BY:</strong> The group/module the table belongs to</li>
+
+              <li><strong>SORTED BY:</strong> Group, table name, field name</li>
+
+            <span style="display: none;">
+              <li><strong>CONTAINS LINKS:</strong> </li>
+            </span>
+            </ul>
+
+
+            <p>The purpose of this report is to describe when a date field is created/modified and what the oldest and newest dates in those fields are.  Mostly I wanted to find out how old some of the data is in our Koha.</p>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+<!-- Notes section -->
+    <div id="accordion_3559-2" class="accordion-item next_report_notes ">
+
+      <h2 class="accordion-header" id="panelsStay_3559Open-headingTwo">
+
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStay_3559Open-collapseTwo" aria-expanded="false"
+          aria-controls="panelsStay_3559Open-collapseTwo">
+
+          Notes:
+
+        </button>
+
+      </h2>
+
+      <div id="panelsStay_3559Open-collapseTwo" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_3559Open-headingTwo">
+        <div class="accordion-body">
+
+          <div id="notes_1" class="report_section">
+            <h4>_GROUP_</h4>
+            <p>the kind of group that the table/field belongs to - i.e. I manually grouped all of the borrower fees tables/fields togehter; I manually grouped all of the acquisitions tables/fields together; etc. </p>
+          </div>
+
+          <div id="notes_2" class="report_section">
+            <h4>TABLE_NAME </h4>
+            <p>the name of the table the date/datetime field exists in</p>
+          </div>
+
+          <div id="notes_3" class="report_section">
+            <h4>FIELD_NAME </h4>
+            <p>the name of the date/datetime field</p>
+          </div>
+
+          <div id="notes_4" class="report_section">
+            <h4>TYPE_OF_EVENT </h4>
+            <p>if the table data includes a descriptive field that explains the type of event that happened to the data at the specified time, then that description is included here<br>A "-" or a " " in this column indicates that the TYPE_OF_EVENT was recorded as a null value or a blank space in the database </p>
+          </div>
+
+          <div id="notes_5" class="report_section">
+            <h4>OLDEST_DATE and NEWEST_DATE </h4>
+            <p>OLDEST_DATE = the minimum date available that meets the first 4 criteria<br>NEWEST_DATE = the maximum date available that meets the first 4 criteria </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+<!-- Direct download section -->
+  <div class="next_report_direct_download ">
+    <p><a href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=3559" class="direct_download_btn">Download directly to a CSV file</a></p>
+  </div>
+
+<!-- Hashtag section -->
+  <div class="next_report_hashtags" style="display: none;">
+    <p>#dates</p>
+    <p>#feild descriptions</p>
+    <p>#koha-us_video</p>
+    <p>#</p>
+    <p>#</p>
+    <p>#</p>
+    <p>#</p>
+    <p>#</p>
+    <p>#</p>
+    <p>#</p>
+  </div>
+
 </div>
 
 ----------
@@ -2376,4 +2578,20 @@ SELECT
 FROM
   zebraqueue
 LIMIT 1000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

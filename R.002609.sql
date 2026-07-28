@@ -12,8 +12,8 @@ Group: Holds-Reserves
      -
 
 Created on: 2015-09-24 17:47:27
-Modified on: 2022-09-29 09:30:01
-Date last run: 2026-03-25 12:32:14
+Modified on: 2026-07-21 16:44:55
+Date last run: 2026-07-21 17:02:18
 
 ----------
 
@@ -54,7 +54,7 @@ SELECT
   Date_Format(reserves.expirationdate, "%Y-%m-%d") AS expirationdate, 
   Date_Format(reserves.reservedate + INTERVAL 1 YEAR, "%Y-%m-%d") AS one_year, 
   Concat( 
-    '<a href="/cgi-bin/koha/reserve/request.pl?biblionumbers=', 
+    '<a href="/cgi-bin/koha/reserve/request.pl?biblionumber=', 
     reserves.biblionumber, 
     '" target="_blank">Link to request</a>' 
   ) AS LINK_TO_BIBLIO 
