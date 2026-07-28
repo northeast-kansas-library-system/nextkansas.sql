@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2021-10-25 12:41:40
-Modified on: 2025-05-12 13:50:04
-Date last run: 2025-12-26 13:21:13
+Modified on: 2026-07-09 15:43:18
+Date last run: 2026-07-09 15:43:18
 
 ----------
 
@@ -22,8 +22,8 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p id="rquickdown"><a href="/cgi-bin/koha/reports/guided_reports.pl?op=export&format=csv&id=3600">Click here to download as a csv file</a></p>
+<div> 
+<p>Click here to download as a csv file</p>
 </div>
 
 
@@ -55,7 +55,7 @@ WHERE
   ) 
 GROUP BY 
   biblioitems.biblionumber 
-LIMIT 500 
+LIMIT 100
 
 
 

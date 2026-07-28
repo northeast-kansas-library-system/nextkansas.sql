@@ -28,6 +28,7 @@ Counts the number of items that were overdue at the beginning of each day of the
 */
 
 
+
 SELECT
   branches.branchname,
   aa.Sum_Count_issue_id AS `01`,
@@ -977,3 +978,24 @@ UNION
     ) AS `31`  
 ORDER BY  
   branchname
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

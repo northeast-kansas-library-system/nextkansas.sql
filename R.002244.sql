@@ -12,8 +12,8 @@ Group: Circulation
      Checked Out
 
 Created on: 2014-04-23 13:48:23
-Modified on: 2014-04-23 14:10:57
-Date last run: 2025-08-24 16:32:31
+Modified on: 2026-06-11 12:46:18
+Date last run: 2026-06-11 12:43:06
 
 ----------
 
@@ -29,7 +29,31 @@ This report limits on items' home library and collection code, and displays the 
 
 
 
-select borrowers.cardnumber, borrowers.branchcode as homelibrary, borrowers.firstname, borrowers.surname, biblio.title, items.itemcallnumber as callnumber, items.location, items.ccode, items.itype, items.barcode, DATE(issues.issuedate) as "date out", (TO_DAYS(curdate())-TO_DAYS(issuedate)) as daysout, DATE(issues.date_due) AS "date due", (TO_DAYS(curdate())-TO_DAYS(date_due)) as "days overdue", date(issues.lastreneweddate) as "last renewed", issues.renewals  from issues join borrowers USING(borrowernumber) join items using(itemnumber) join biblio using(biblionumber)  where items.homebranch=<<branch|branches>> AND items.ccode=<<ccode|CCODE>> ORDER BY daysout DESC
+ SELECT   borrowers.cardnumber,
+         borrowers.branchcode AS homelibrary,
+         borrowers.firstname,
+         borrowers.surname,
+         biblio.title,
+         items.itemcallnumber AS callnumber,
+         items.location,
+         items.ccode,
+         items.itype,
+         items.barcode,
+         Date(issues.issuedate)                  AS "date out",
+         (To_days(Curdate())-To_days(issuedate)) AS daysout,
+         Date(issues.date_due)                   AS "date due",
+         (To_days(Curdate())-To_days(date_due))  AS "days overdue",
+         Date(issues.lastreneweddate)            AS "last renewed"
+FROM     issues
+JOIN     borrowers
+using   (borrowernumber)
+JOIN     items
+using   (itemnumber)
+JOIN     biblio
+using   (biblionumber)
+WHERE    items.homebranch LIKE <<branch|branches>>
+AND      items.ccode LIKE <<ccode|ccode:all>>
+ORDER BY daysout DESC
 
 
 

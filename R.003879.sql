@@ -22,7 +22,7 @@ Expiry: 300
 
 ----------
 
-<div class=""next_report_info next_noprint"">
+<div class="next_report_info next_noprint">
 
 <style>
 
@@ -116,29 +116,29 @@ Expiry: 300
 
 <!-- Overview -->
 
-  <div class=""next_report_summary"">
+  <div class="next_report_summary">
     <br>
 
-    <p id=""report_id""><strong>Report number:</strong> 3879</p>
+    <p id="report_id"><strong>Report number:</strong> 3879</p>
 
-    <p id=""report_name""><strong>Report name:</strong> Flexible Shelflist Report</p>
+    <p id="report_name"><strong>Report name:</strong> Flexible Shelflist Report</p>
 
-    <p id=""report_author""><strong>Report author:</strong> GHW</p>
+    <p id="report_author"><strong>Report author:</strong> GHW</p>
 
-    <p id=""report_summary""><strong>Report summary:</strong> Generates a list of items owned by a library and allows options for filtering.</p>
+    <p id="report_summary"><strong>Report summary:</strong> Generates a list of items owned by a library and allows options for filtering.</p>
 
   </div>
 
-  <div class=""accordion accordion-flush"">
+  <div class="accordion accordion-flush">
 
 <!-- Function section -->
-    <div id=""accordion_3879-1"" class=""accordion-item next_report_function"">
+    <div id="accordion_3879-1" class="accordion-item next_report_function">
 
-      <h2 class=""accordion-header"" id=""panelsStay_3879Open-headingOne"" >
+      <h2 class="accordion-header" id="panelsStay_3879Open-headingOne" >
 
-        <button class=""accordion-button collapsed"" type=""button"" data-bs-toggle=""collapse""
-          data-bs-target=""#panelsStay_3879Open-collapseOne"" aria-expanded=""true""
-          aria-controls=""panelsStay_3879Open-collapseOne"">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStay_3879Open-collapseOne" aria-expanded="true"
+          aria-controls="panelsStay_3879Open-collapseOne">
 
           Function:
 
@@ -146,15 +146,15 @@ Expiry: 300
 
       </h2>
 
-      <div id=""panelsStay_3879Open-collapseOne"" class=""accordion-collapse collapse""
-        aria-labelledby=""panelsStay_3879Open-headingOne"">
-        <div class=""accordion-body"">
+      <div id="panelsStay_3879Open-collapseOne" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_3879Open-headingOne">
+        <div class="accordion-body">
 
-          <div id=""function_section"" class=""report_section"">
+          <div id="function_section" class="report_section">
 
 
             <p>Generates a list of items owned by a library and allows options for filtering.</p>
-            <ul style=""list-style-type:none"">
+            <ul style="list-style-type:none">
 
               <li><strong>TIME FRAME:</strong> shows items that are currently in Next</li>
 
@@ -168,7 +168,7 @@ Expiry: 300
             </ul>
 
 
-            <span style=""display: none;"">
+            <span style="display: none;">
             <p> - </p>
             </span>
 
@@ -180,13 +180,13 @@ Expiry: 300
     </div>
 
 <!-- Notes section -->
-    <div id=""accordion_REPORTID-2"" class=""accordion-item next_report_notes "">
+    <div id="accordion_REPORTID-2" class="accordion-item next_report_notes ">
 
-      <h2 class=""accordion-header"" id=""panelsStay_REPORTIDOpen-headingTwo"">
+      <h2 class="accordion-header" id="panelsStay_REPORTIDOpen-headingTwo">
 
-        <button class=""accordion-button collapsed"" type=""button"" data-bs-toggle=""collapse""
-          data-bs-target=""#panelsStay_REPORTIDOpen-collapseTwo"" aria-expanded=""false""
-          aria-controls=""panelsStay_REPORTIDOpen-collapseTwo"">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStay_REPORTIDOpen-collapseTwo" aria-expanded="false"
+          aria-controls="panelsStay_REPORTIDOpen-collapseTwo">
 
           Notes:
 
@@ -194,31 +194,31 @@ Expiry: 300
 
       </h2>
 
-      <div id=""panelsStay_REPORTIDOpen-collapseTwo"" class=""accordion-collapse collapse""
-        aria-labelledby=""panelsStay_REPORTIDOpen-headingTwo"">
-        <div class=""accordion-body"">
+      <div id="panelsStay_REPORTIDOpen-collapseTwo" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_REPORTIDOpen-headingTwo">
+        <div class="accordion-body">
 
-          <div id=""notes_1"" class=""report_section"">
+          <div id="notes_1" class="report_section">
             <h4>Dates</h4>
             <p>This report handles item added dates, date last borrowed dates, and date last seen dates in the following manner:<br><br>Item added dates that are older than 2000 are filtered as if they were added on January 2, 2000<br>this means that if you want to search for items added before January 1, 2000, enter January 1, 2000 as date1<br><br>Item added dates that are newer than today are filtered as if they were added today<br>this means that if you want to search for items that were added after today (i.e. dates with mistakes), enter tomorrow as date2<br><br>Date last borrowed dates that are older than 2000 or are blank are filtered as if they were added on January 2, 2000<br>this means that if you want to search for items that have a date last borrowed older than January 1, 2000 or a blank date last borrowed, enter January 1, 2000 as date1<br><br>Date last seen dates that are blank or older than 2000 are filtered as if they were added on January 2, 2000<br>this means that if you want to search for items that have a date last seen older than January 1, 2000 or a blank date last seen, enter January 1, 2000 as date1<br><br>All of these dates will still show the actual dates in the appropriate columns, but you will not need to adjust the filters earlier than January 1, 2000 in order to identify dates prior to 2000. If you run this report and specify dates before January 1, 2000, you will be able to see these items, but you cannot specify dates older than January 1, 2000, and expect to be limited to the specified date range.</p>
           </div>
 
-          <div id=""notes_2"" class=""report_section"">
+          <div id="notes_2" class="report_section">
             <h4>Publication date</h4>
-            <p>Publication year data comes from the 264$c or 260$c subfield. If the data in 264$c or 260$c is not entered as a 4 digit year, or contains non-standard date information, the data may be problematic. If 264$c and/or 260$c subfields are blank, the result in this report will be blank.<br><br>For example, if the 264$c is entered as ""Nineteen Seventy Five"", the data will be weird. If the 264$c is ""Copyright 1975,"" the data will be weird. If the 264$c is ©1975, the date should be as expected, but if it's 📅1975, the data will be problematic.</p>
+            <p>Publication year data comes from the 264$c or 260$c subfield. If the data in 264$c or 260$c is not entered as a 4 digit year, or contains non-standard date information, the data may be problematic. If 264$c and/or 260$c subfields are blank, the result in this report will be blank.<br><br>For example, if the 264$c is entered as "Nineteen Seventy Five", the data will be weird. If the 264$c is "Copyright 1975," the data will be weird. If the 264$c is ©1975, the date should be as expected, but if it's 📅1975, the data will be problematic.</p>
           </div>
 
-          <div id=""notes_3"" class=""report_section"">
+          <div id="notes_3" class="report_section">
             <h4>Replaces these reports</h4>
             <p>2731 (GHW - Flexible Shelflist Report)<br>664 (Full Shelf List)<br>2686 (Collection Code Super Weeder)<br>1013 (Item Type Super Weeder)<br>1442 (Super Weeder by Callnumber)<br>2471 (BCPL.SuperWeeder.by.Callnumber)<br>1017 (Items with NO checkouts (all items))<br>1151 (Date last borrowed, Call number and Title limited by Item type)<br>1426 (Last seen on a specific date or earlier)<br>1807 (Items with NO checkouts -- limited by CCode)<br>2202 (Items with NO checkouts (limited to a collection code and location))<br>2203 (Items with NO checkouts (limited to a collection code))<br>2241 (Last Seen Date, limited by Collection Code)<br>2392 (Date last borrowed, Call number and Title limited by Ccode and Location)<br>2411 (Date last borrowed)<br>1408 (Shelf List of Specific Item Type)<br>1409 (Shelf List of Specific CCode and Location)<br>1410 (Shelf List of Specific Item Type and Location)<br>3014 (GHW - Shelflist with left anchored call number limit)<br>2809 (GHW - List of items with display locations)<br>886 Videogames Circ List<br>536 New acquisitions for a specific month</p>
           </div>
 
-          <div id=""notes_4"" class=""report_section report_hidden"">
+          <div id="notes_4" class="report_section report_hidden">
             <h4> NOTE_FOUR_TITLE </h4>
             <p> NOTE_FOUR_CONTENT </p>
           </div>
 
-          <div id=""notes_5"" class=""report_section report_hidden"">
+          <div id="notes_5" class="report_section report_hidden">
             <h4> NOTE_FIVE_TITLE </h4>
             <p> NOTE_FIVE_CONTENT </p>
           </div>
@@ -229,7 +229,7 @@ Expiry: 300
     </div>
 
 <!-- Hashtag section -->
-  <div class=""next_report_hashtags"" style=""display: none;"">
+  <div class="next_report_hashtags" style="display: none;">
     <p>#corereport</p>
     <p>#2731</p>
     <p>#shelflist</p>
