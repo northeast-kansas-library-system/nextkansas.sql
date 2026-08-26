@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2019-09-06 17:53:26
-Modified on: 2019-09-06 17:54:22
-Date last run: 2019-09-06 17:55:43
+Modified on: 2026-08-25 23:05:15
+Date last run: 2026-08-25 23:04:43
 
 ----------
 
@@ -22,7 +22,7 @@ Expiry: 300
 
 ----------
 
-
+Deleted - relies on a table that is no longer in Koha.
 
 ----------
 */

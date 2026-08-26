@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2026-06-04 14:36:57
-Modified on: 2026-06-04 15:13:02
-Date last run: 2026-06-04 15:13:02
+Modified on: 2026-07-28 18:10:34
+Date last run: 2026-07-28 18:10:34
 
 ----------
 
@@ -156,13 +156,13 @@ Expiry: 300
             <p>Generates bits and pieces of SQL that you can use to make other reports</p>
             <ul style="list-style-type:none">
 
-              <li><strong>TIME FRAME:</strong> now</li>
+              <li><strong>TIME FRAME:</strong> shows fields currently in the Koha schema</li>
 
             <span style="display: none;">
               <li><strong>AT:</strong> </li>
             </span>
 
-              <li><strong>GROUPED BY:</strong> date</li>
+              <li><strong>GROUPED BY:</strong> field name and type of date</li>
 
             <span style="display: none;">
               <li><strong>SORTED BY:</strong> </li>
@@ -185,18 +185,147 @@ Expiry: 300
 
     </div>
 
+<!-- Notes section -->
+<div id="accordion_-2" class="accordion-item next_report_notes ">
+
+    <h2 class="accordion-header" id="panelsStay_Open-headingTwo">
+
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#panelsStay_Open-collapseTwo" aria-expanded="false"
+            aria-controls="panelsStay_Open-collapseTwo">
+
+            Notes:
+
+        </button>
+
+    </h2>
+
+    <div id="panelsStay_Open-collapseTwo" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_Open-headingTwo">
+        <div class="accordion-body">
+
+            <div id="notes_1" class="report_section">
+                <h4>Date types</h4>
+                <p>
+                <table>
+                    <colgroup>
+                        <col>
+                        <col>
+                        <col>
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>
+                                <p style="text-align: center"><span>DATA TYPES</span></p>
+                            </th>
+                            <th>
+                                <p style="text-align: center"><span>Range</span></p>
+                            </th>
+                            <th>
+                                <p style="text-align: center"><span>Format</span></p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p style="text-align: center"><span>DATE</span></p>
+                            </td>
+                            <td>
+                                <p style="text-align: center"><span>1000-01-01 to 9999-12-31</span></p>
+                            </td>
+                            <td>
+                                <p style="text-align: center"><span>YYYY-MM-DD</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p style="text-align: center"><span>TIME</span></p>
+                            </td>
+                            <td>
+                                <p style="text-align: center"><span>-838:59:59 to 838:59:59</span></p>
+                            </td>
+                            <td>
+                                <p style="text-align: center"><span>HH:MM:SS</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p style="text-align: center"><span>DATETIME</span></p>
+                            </td>
+                            <td>
+                                <p style="text-align: center"><span>1000-01-01 00:00:00 to 9999-12-31 23:59:59</span>
+                                </p>
+                            </td>
+                            <td>
+                                <p style="text-align: center"><span>YYYY-MM-DD HH:MM:SS</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p style="text-align: center"><span>TIMESTAMP</span></p>
+                            </td>
+                            <td>
+                                <p style="text-align: center"><span>1970-01-01 00:00:01 UTC to 2038-01-19 03:14:07
+                                        UTC</span> </p>
+                            </td>
+                            <td>
+                                <p style="text-align: center"><span>YYYY-MM-DD HH:MM:SS</span></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p style="text-align: center"><span>YEAR</span></p>
+                            </td>
+                            <td>
+                                <p style="text-align: center"><span>2 0r 4 digit</span></p>
+                            </td>
+                            <td>
+                                <p style="text-align: center"><span>4 digit format.</span></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </p>
+            </div>
+
+            <div id="notes_2" class="report_section report_hidden">
+                <h4> NOTE_TWO_TITLE </h4>
+                <p> NOTE_TWO_CONTENT </p>
+            </div>
+
+            <div id="notes_3" class="report_section report_hidden">
+                <h4> NOTE_THREE_TITLE </h4>
+                <p> NOTE_THREE_CONTENT </p>
+            </div>
+
+            <div id="notes_4" class="report_section report_hidden">
+                <h4> NOTE_FOUR_TITLE </h4>
+                <p> NOTE_FOUR_CONTENT </p>
+            </div>
+
+            <div id="notes_5" class="report_section report_hidden">
+                <h4> NOTE_FIVE_TITLE </h4>
+                <p> NOTE_FIVE_CONTENT </p>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
 <!-- Hashtag section -->
   <div class="next_report_hashtags" style="display: none;">
+    <p>#koha</p>
     <p>#dates</p>
-    <p>#koha-us_video</p>
+    <p>#SQL</p>
     <p>#</p>
     <p>#</p>
     <p>#</p>
     <p>#</p>
     <p>#</p>
     <p>#</p>
-    <p>#</p>
-    <p>#</p>
+    <p>#has_notes</p>
   </div>
 
 </div>

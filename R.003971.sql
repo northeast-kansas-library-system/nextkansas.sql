@@ -3,7 +3,7 @@ R.003971
 
 ----------
 
-Name: GHW - Rules 001 - suspension rules
+Name: GHW - Rules 001d - suspension rules
 Created by: George Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2026-07-25 22:36:55
-Modified on: 2026-07-25 22:36:55
-Date last run: -
+Modified on: 2026-07-28 17:20:38
+Date last run: 2026-07-28 17:17:45
 
 ----------
 
@@ -22,7 +22,7 @@ Expiry: 300
 
 ----------
 
-
+#rules
 
 ----------
 */

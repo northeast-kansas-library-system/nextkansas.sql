@@ -3,7 +3,7 @@ R.003885
 
 ----------
 
-Name: GHW - Rules 003 - Checkout, hold policy by patron category
+Name: GHW - Rules 03 - Checkout, hold policy by patron category
 Created by: George Williams
 
 ----------
@@ -12,8 +12,8 @@ Group: Rules
      -
 
 Created on: 2025-04-30 21:44:39
-Modified on: 2026-03-27 15:07:38
-Date last run: 2026-04-20 14:37:35
+Modified on: 2026-08-16 21:01:26
+Date last run: 2026-08-16 23:18:34
 
 ----------
 
