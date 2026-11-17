@@ -3,16 +3,16 @@ R.003990
 
 ----------
 
-Name: GHW - Rules 003 - Checkout, hold policy by patron category
+Name: GHW - Rules 003 - Default checkout, hold policy by patron category
 Created by: George Williams
 
 ----------
 
-Group: -
-     -
+Group: Rules
+     Needs review
 
 Created on: 2026-08-16 23:21:50
-Modified on: 2026-08-23 23:53:25
+Modified on: 2026-08-27 15:52:04
 Date last run: 2026-08-23 23:55:10
 
 ----------

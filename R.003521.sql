@@ -12,8 +12,8 @@ Group:  ATCHISON
      -
 
 Created on: 2021-06-14 11:30:27
-Modified on: 2025-04-04 15:51:33
-Date last run: 2025-04-04 15:51:33
+Modified on: 2026-11-16 18:12:49
+Date last run: 2026-11-16 18:12:49
 
 ----------
 
@@ -22,19 +22,226 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
-<p>Shows patrons with a "Kanopy (ATCHISON): Allowed . . ." patron attribute but without a ATCHISON homebranch</p>
-<ul><li>Shows borrwowers that currently have this attribute</li>
-<li>grouped by categorycode and borrowernumber</li>
-<li>sorted by library card number</li>
-<li>links to the borrower account</li>
-</ul><br />
-<p><ins>Notes:</ins></p>
-<p></p>
-<p>Should be run monthly at ATCHISON so the attribute can be removed from those accounts</p>
-<p><a href="https://northeast-kansas-library-system.github.io/next/branches/ATCHISON/kanopy.html#running-reports-to-manually-update-kanopy-permission" target="_blank">Go to the training information for the Kanopy (ATCHISON) extended borrower attribute.</a></p>
-<p></p>
-<p class= "notetags" style="display: none;">kanopy; patron-extended-attributes; ATCHISON;</p>
+<div class="next_report_info next_noprint">
+
+<style>
+
+  .report_hidden {
+    display:  none
+  }
+
+  .accordion .accordion-button {
+    font-size:  1.1em !important;
+    color:  #fff !important;
+    font-weight:  900
+  }
+
+  .next_report_function .accordion-header * {
+    background-color:  #df6320 !important;
+    color:  #fff !important
+  }
+
+  .next_report_notes .accordion-header * {
+    background-color:  #dfc220 !important;
+    color:  #000 !important
+  }
+
+  .next_report_instructions .accordion-header * {
+    background-color:  #3ddf20 !important;
+    color:  #000 !important
+  }
+
+  .next_report_resources .accordion-header * {
+    background-color:  #1f9bde !important;
+    color:  #fff !important
+  }
+
+  .next_report_training .accordion-header * {
+    background-color:  #6320df !important;
+    color:  #fff !important
+  }
+
+  .accordion-collapse.collapse * {
+    background-color:  #e6e6e6;
+    color:  #000
+  }
+
+  .accordion-body h3 {
+    font-size:  1.5em !important
+  }
+
+  .report_section {
+    border:  2px solid #000;
+    border-radius:  8px;
+    margin:  10px;
+    padding:  15px
+  }
+
+  .resources_btn, .training_btn, .direct_download_btn {
+    padding:  10px;
+    margin:  10px 0 0;
+    display:  inline-block;
+    font-weight:  650;
+    line-height:  1.5;
+    text-align:  center;
+    vertical-align:  middle;
+    white-space:  nowrap;
+    color:  #000
+  }
+
+  .resources_btn {
+    border:  1px solid #555;
+    border-radius:  4px;
+    background:  #dfc220 !important
+  }
+
+  .training_btn {
+    border:  1px solid #555;
+    border-radius:  4px;
+    background:  #3ddf20 !important
+  }
+
+  .direct_download_btn {
+    color:  #fff;
+    border:  1px solid #555;
+    border-radius:  4px;
+    background:  indigo !important
+  }
+  .direct_download_btn:hover {
+    color: #000000 !important;
+    background: #D396FF !important;
+  }
+
+</style>
+
+<!-- Overview -->
+
+  <div class="next_report_summary">
+    <br>
+
+    <p id="report_id"><strong>Report number:</strong> 3521</p>
+
+    <p id="report_name"><strong>Report name:</strong> Non-ATCHISON patrons with ATCHISON Kanopy access</p>
+
+    <p id="report_author"><strong>Report author:</strong> GHW</p>
+
+    <p id="report_summary"><strong>Report summary:</strong> Lists patrons with a "Kanopy (ATCHISON): Allowed . . ." patron attribute but without a ATCHISON homebranch</p>
+
+  </div>
+
+  <div class="accordion accordion-flush">
+
+<!-- Function section -->
+    <div id="accordion_3521-1" class="accordion-item next_report_function">
+
+      <h2 class="accordion-header" id="panelsStay_3521Open-headingOne" >
+
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStay_3521Open-collapseOne" aria-expanded="true"
+          aria-controls="panelsStay_3521Open-collapseOne">
+
+          Function:
+
+        </button>
+
+      </h2>
+
+      <div id="panelsStay_3521Open-collapseOne" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_3521Open-headingOne">
+        <div class="accordion-body">
+
+          <div id="function_section" class="report_section">
+
+
+            <p>Lists patrons with a "Kanopy (ATCHISON): Allowed . . ." patron attribute but without a ATCHISON homebranch</p>
+            <ul style="list-style-type:none">
+
+              <li><strong>TIME FRAME:</strong> Lists borrwowers that currently have this attribute</li>
+
+              <li><strong>AT:</strong> ATCHISON</li>
+
+              <li><strong>GROUPED BY:</strong> grouped by categorycode and borrowernumber</li>
+
+              <li><strong>SORTED BY:</strong> sorted by library card number</li>
+
+              <li><strong>CONTAINS LINKS:</strong> to the borrower account</li>
+            </ul>
+
+
+            <span style="display: none;">
+            <p> - </p>
+            </span>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+<!-- Notes section -->
+    <div id="accordion_3521-2" class="accordion-item next_report_notes ">
+
+      <h2 class="accordion-header" id="panelsStay_3521Open-headingTwo">
+
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#panelsStay_3521Open-collapseTwo" aria-expanded="false"
+          aria-controls="panelsStay_3521Open-collapseTwo">
+
+          Notes:
+
+        </button>
+
+      </h2>
+
+      <div id="panelsStay_3521Open-collapseTwo" class="accordion-collapse collapse"
+        aria-labelledby="panelsStay_3521Open-headingTwo">
+        <div class="accordion-body">
+
+          <div id="notes_1" class="report_section">
+            <h4>Frequency</h4>
+            <p>Should be run monthly at ATCHISON so the attribute can be removed from those accounts</p>
+          </div>
+
+          <div id="notes_2" class="report_section report_hidden">
+            <h4> NOTE_TWO_TITLE </h4>
+            <p> NOTE_TWO_CONTENT </p>
+          </div>
+
+          <div id="notes_3" class="report_section report_hidden">
+            <h4> NOTE_THREE_TITLE </h4>
+            <p> NOTE_THREE_CONTENT </p>
+          </div>
+
+          <div id="notes_4" class="report_section report_hidden">
+            <h4> NOTE_FOUR_TITLE </h4>
+            <p> NOTE_FOUR_CONTENT </p>
+          </div>
+
+          <div id="notes_5" class="report_section report_hidden">
+            <h4> NOTE_FIVE_TITLE </h4>
+            <p> NOTE_FIVE_CONTENT </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+<!-- Hashtag section -->
+  <div class="next_report_hashtags" style="display: none;">
+    <p>#kanopy</p>
+    <p>#attributes</p>
+    <p>#ATCHISON</p>
+    <p>#</p>
+    <p>#</p>
+    <p>#</p>
+    <p>#</p>
+    <p>#</p>
+    <p>#</p>
+    <p>#</p>
+  </div>
+
 </div>
 
 ----------

@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2022-11-04 11:17:50
-Modified on: 2025-01-24 11:06:44
-Date last run: 2026-02-11 23:52:56
+Modified on: 2026-11-16 15:14:55
+Date last run: 2026-11-16 15:15:38
 
 ----------
 
@@ -22,7 +22,7 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
+<div> 
   <p>Displays accounts with "Staff" permissions</p>
   <ul>
     <li>Shows current accounts</li>
@@ -30,12 +30,12 @@ Expiry: 300
     <li>grouped by borrower number</li>
     <li>sorted by Superlibrarian status followed by branchcode, userid, and borrower category</li>
   </ul><br>
-  <p><ins>Notes:</ins></p>
+  <p>Notes:</p>
   <p></p>
   <p>Replaces reports 2743, 2459, and 2213.</p>
   <p></p>
-  <p class= "notetags" style="display: none;">#permissions</p>
-  <!-- html notes rendered on guided_reports.pl by jquery at https://wiki.koha-community.org/wiki/JQuery_Library#Render_patron_messages_as_HTML_and_in_Report_notes -->
+  <p>#permissions</p>
+  
 </div>
 
 ----------
@@ -909,13 +909,13 @@ SELECT
       ), 
       If( 
         MOD(borrowers.flags DIV 2147483648, 2), 
-        "<br>undefined in  in 24.11 - All parameters -<br>", 
+        "<br>sip2 - All parameters -<br>",
         IF( 
           GROUP_CONCAT( 
             DISTINCT 
             If( 
               user_permissions.module_bit = 31, 
-              CONCAT('<br>-----undefined in 24.11: ', permissions.code, '-'), 
+              CONCAT('<br>-----sip2: ', permissions.code, '-'), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -927,7 +927,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 31, 
-                CONCAT('<br>-----undefined in 24.11: ', permissions.code, '-'), 
+                CONCAT('<br>-----sip2: ', permissions.code, '-'), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -939,13 +939,13 @@ SELECT
       ), 
       If( 
         MOD(borrowers.flags DIV 4294967296, 2), 
-        "<br>undefined in  in 24.11 - All parameters -<br>", 
+        "<br>debug - All parameters -<br>", 
         IF( 
           GROUP_CONCAT( 
             DISTINCT 
             If( 
               user_permissions.module_bit = 32, 
-              CONCAT('<br>-----undefined in 24.11: ', permissions.code, '-'), 
+              CONCAT('<br>-----debug: ', permissions.code, '-'), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -957,7 +957,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 32, 
-                CONCAT('<br>-----undefined in 24.11: ', permissions.code, '-'), 
+                CONCAT('<br>-----debug: ', permissions.code, '-'), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -969,13 +969,13 @@ SELECT
       ), 
       If( 
         MOD(borrowers.flags DIV 8589934592, 2), 
-        "<br>undefined in  in 24.11 - All parameters -<br>", 
+        "<br>undefined in 26.05 - All parameters -<br>", 
         IF( 
           GROUP_CONCAT( 
             DISTINCT 
             If( 
               user_permissions.module_bit = 33, 
-              CONCAT('<br>-----undefined in 24.11: ', permissions.code, '-'), 
+              CONCAT('<br>-----undefined in 26.05: ', permissions.code, '-'), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -987,7 +987,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 33, 
-                CONCAT('<br>-----undefined in 24.11: ', permissions.code, '-'), 
+                CONCAT('<br>-----undefined in 26.05: ', permissions.code, '-'), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -999,13 +999,13 @@ SELECT
       ), 
       If( 
         MOD(borrowers.flags DIV 17179869184, 2), 
-        "<br>undefined in  in 24.11 - All parameters -<br>", 
+        "<br>undefined in  in 26.05 - All parameters -<br>", 
         IF( 
           GROUP_CONCAT( 
             DISTINCT 
             If( 
               user_permissions.module_bit = 34, 
-              CONCAT('<br>-----undefined in 24.11: ', permissions.code, '-'), 
+              CONCAT('<br>-----undefined in 26.05: ', permissions.code, '-'), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -1017,7 +1017,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 34, 
-                CONCAT('<br>-----undefined in 24.11: ', permissions.code, '-'), 
+                CONCAT('<br>-----undefined in 26.05: ', permissions.code, '-'), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -1029,13 +1029,13 @@ SELECT
       ), 
       If( 
         MOD(borrowers.flags DIV 34359738368, 2), 
-        "<br>undefined in  in 24.11 - All parameters -<br>", 
+        "<br>undefined in  in 26.05 - All parameters -<br>", 
         IF( 
           GROUP_CONCAT( 
             DISTINCT 
             If( 
               user_permissions.module_bit = 35, 
-              CONCAT('<br>-----undefined in 24.11: ', permissions.code, '-'), 
+              CONCAT('<br>-----undefined in 26.05: ', permissions.code, '-'), 
               '' 
             ) 
             ORDER BY permissions.code 
@@ -1047,7 +1047,7 @@ SELECT
               DISTINCT 
               If( 
                 user_permissions.module_bit = 35, 
-                CONCAT('<br>-----undefined in 24.11: ', permissions.code, '-'), 
+                CONCAT('<br>-----undefined in 26.05: ', permissions.code, '-'), 
                 '' 
               ) 
               ORDER BY permissions.code 
@@ -1056,7 +1056,157 @@ SELECT
             '<br>' 
           ) 
         ) 
-      ) 
+      ),
+      If( 
+        MOD(borrowers.flags DIV 68719476736, 2), 
+        "<br>undefined in  in 26.05 - All parameters -<br>", 
+        IF( 
+          GROUP_CONCAT( 
+            DISTINCT 
+            If( 
+              user_permissions.module_bit = 36, 
+              CONCAT('<br>-----undefined in 26.05: ', permissions.code, '-'), 
+              '' 
+            ) 
+            ORDER BY permissions.code 
+            SEPARATOR '' 
+          ) = '', 
+          '', 
+          CONCAT( 
+            GROUP_CONCAT( 
+              DISTINCT 
+              If( 
+                user_permissions.module_bit = 36, 
+                CONCAT('<br>-----undefined in 26.05: ', permissions.code, '-'), 
+                '' 
+              ) 
+              ORDER BY permissions.code 
+              SEPARATOR '' 
+            ), 
+            '<br>' 
+          ) 
+        ) 
+      ),
+      If( 
+        MOD(borrowers.flags DIV 137438953472, 2), 
+        "<br>undefined in  in 26.05 - All parameters -<br>", 
+        IF( 
+          GROUP_CONCAT( 
+            DISTINCT 
+            If( 
+              user_permissions.module_bit = 37, 
+              CONCAT('<br>-----undefined in 26.05: ', permissions.code, '-'), 
+              '' 
+            ) 
+            ORDER BY permissions.code 
+            SEPARATOR '' 
+          ) = '', 
+          '', 
+          CONCAT( 
+            GROUP_CONCAT( 
+              DISTINCT 
+              If( 
+                user_permissions.module_bit = 37, 
+                CONCAT('<br>-----undefined in 26.05: ', permissions.code, '-'), 
+                '' 
+              ) 
+              ORDER BY permissions.code 
+              SEPARATOR '' 
+            ), 
+            '<br>' 
+          ) 
+        ) 
+      ),
+      If( 
+        MOD(borrowers.flags DIV 274877906944, 2), 
+        "<br>undefined in  in 26.05 - All parameters -<br>", 
+        IF( 
+          GROUP_CONCAT( 
+            DISTINCT 
+            If( 
+              user_permissions.module_bit = 38, 
+              CONCAT('<br>-----undefined in 26.05: ', permissions.code, '-'), 
+              '' 
+            ) 
+            ORDER BY permissions.code 
+            SEPARATOR '' 
+          ) = '', 
+          '', 
+          CONCAT( 
+            GROUP_CONCAT( 
+              DISTINCT 
+              If( 
+                user_permissions.module_bit = 38, 
+                CONCAT('<br>-----undefined in 26.05: ', permissions.code, '-'), 
+                '' 
+              ) 
+              ORDER BY permissions.code 
+              SEPARATOR '' 
+            ), 
+            '<br>' 
+          ) 
+        ) 
+      ),
+      If( 
+        MOD(borrowers.flags DIV 549755813888, 2), 
+        "<br>undefined in  in 26.05 - All parameters -<br>", 
+        IF( 
+          GROUP_CONCAT( 
+            DISTINCT 
+            If( 
+              user_permissions.module_bit = 39, 
+              CONCAT('<br>-----undefined in 26.05: ', permissions.code, '-'), 
+              '' 
+            ) 
+            ORDER BY permissions.code 
+            SEPARATOR '' 
+          ) = '', 
+          '', 
+          CONCAT( 
+            GROUP_CONCAT( 
+              DISTINCT 
+              If( 
+                user_permissions.module_bit = 39, 
+                CONCAT('<br>-----undefined in 26.05: ', permissions.code, '-'), 
+                '' 
+              ) 
+              ORDER BY permissions.code 
+              SEPARATOR '' 
+            ), 
+            '<br>' 
+          ) 
+        ) 
+      ),
+      If( 
+        MOD(borrowers.flags DIV 1099511627776, 2), 
+        "<br>undefined in  in 26.05 - All parameters -<br>", 
+        IF( 
+          GROUP_CONCAT( 
+            DISTINCT 
+            If( 
+              user_permissions.module_bit = 40, 
+              CONCAT('<br>-----undefined in 26.05: ', permissions.code, '-'), 
+              '' 
+            ) 
+            ORDER BY permissions.code 
+            SEPARATOR '' 
+          ) = '', 
+          '', 
+          CONCAT( 
+            GROUP_CONCAT( 
+              DISTINCT 
+              If( 
+                user_permissions.module_bit = 40, 
+                CONCAT('<br>-----undefined in 26.05: ', permissions.code, '-'), 
+                '' 
+              ) 
+              ORDER BY permissions.code 
+              SEPARATOR '' 
+            ), 
+            '<br>' 
+          ) 
+        ) 
+      )
     ) 
   ) AS PERMISSIONS, 
   attributes.ATTRIBUTE 
@@ -1066,16 +1216,11 @@ FROM
     ON borrowers.borrowernumber = user_permissions.borrowernumber 
   LEFT JOIN permissions 
     ON user_permissions.code = permissions.code 
-  JOIN cate
-
-||AAAAA||
-
-gories 
+  JOIN categories 
     ON borrowers.categorycode = categories.categorycode 
   JOIN branches 
     ON borrowers.branchcode = branches.branchcode 
- 
-  LEFT JOIN ( 
+ LEFT JOIN ( 
     SELECT 
       borrower_attributes.borrowernumber, 
       GROUP_CONCAT( 

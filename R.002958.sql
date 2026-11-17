@@ -12,8 +12,8 @@ Group: Catalog Records and Items
      Weeded Already
 
 Created on: 2017-06-15 10:26:44
-Modified on: 2024-01-17 11:49:44
-Date last run: 2026-08-03 09:11:37
+Modified on: 2026-11-12 11:06:08
+Date last run: 2026-11-16 12:20:25
 
 ----------
 
@@ -22,18 +22,18 @@ Expiry: 300
 
 ----------
 
-<div class="reportinfo noprint"> 
+<div> 
 <p>Generates a list of items that have already been deleted from the catalog - includes all price information as well as the timestamp from when the item was deleted</p>
 <ul><li>Lists items that were deleted between the dates you specify</li>
 <li>at the library you specify</li>
 <li>grouped by itemnumber</li>
 <li>sorted by homebranch, location, item type, collection code, author, title, and call number</li>
 </ul><br />
-<p><ins>Notes:</ins></p>
+<p>Notes:</p>
 <p></p>
 <p>This gets the item information from the deleteditems table and the biblio information from the biblios table or the deletedbiblios table depending on whether or not the bibliographic record has been deleted.</p>
 <p></p>
-<p><a href="/cgi-bin/koha/reports/guided_reports.pl?reports=2958&phase=Run%20this%20report"  target="_blank">Click here to run in a new window</a></p>
+<p>Click here to run in a new window</p>
 </div>
 
 ----------
@@ -53,6 +53,7 @@ SELECT
   Coalesce(biblio.title, deletedbiblio.title) AS TITLE,
   deleteditems.price,
   deleteditems.replacementprice,
+  deleteditems.dateaccessioned AS ITEM_ADDED_DATE,
   deleteditems.timestamp AS DELETED_ON,
   deleteditems.itemlost,
   deleteditems.itemlost_on,

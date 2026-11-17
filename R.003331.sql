@@ -12,8 +12,8 @@ Group: -
      -
 
 Created on: 2020-06-09 13:17:12
-Modified on: 2020-06-09 13:17:12
-Date last run: 2020-06-09 14:48:08
+Modified on: 2026-08-26 17:29:25
+Date last run: 2026-08-26 17:36:39
 
 ----------
 
@@ -30,6 +30,7 @@ Expiry: 300
 
 
 SELECT
+  borrowers.borrowernumber,
   borrowers.cardnumber,
   borrowers.surname,
   borrowers.firstname,
